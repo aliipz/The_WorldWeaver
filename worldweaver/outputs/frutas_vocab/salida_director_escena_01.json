@@ -1,0 +1,215 @@
+{
+  "id_escena": "escena_01",
+  "elementos": [
+    {
+      "id": "personaje_guia",
+      "nombre": "Carlos",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.85,
+      "descripcion": "hombre de mediana edad con delbo y delantal de colores vivos",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_sandía",
+      "nombre": "sandía",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 0.55,
+      "alto": 0.55,
+      "descripcion": "Una sandía grande y roja por dentro",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_plátano",
+      "nombre": "plátano",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 0.25,
+      "alto": 0.25,
+      "descripcion": "Un plátano amarillo y curvo",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_naranja",
+      "nombre": "naranja",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Una naranja naranja brillante",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_manzana",
+      "nombre": "manzana",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Una manzana roja y jugosa",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_uva",
+      "nombre": "uva",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Un racimo de uvas moradas",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_pera",
+      "nombre": "pera",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Una pera verde y jugosa",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_fresa",
+      "nombre": "fresa",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 3
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Una fresa roja con semillas pequeñas",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_limón",
+      "nombre": "limón",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 3
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Un limón verde y ácido",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_mesa_01",
+      "nombre": "mesa de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 1.5,
+      "alto": 0.8,
+      "descripcion": "Mesa rectangular de tablones de pino sin tratar, con bordes ásperos y una superficie ligeramente gastada por el uso.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_toldo_01",
+      "nombre": "toldo de lona a rayas rojas y blancas",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 3.0,
+      "alto": 2.0,
+      "descripcion": "Lona gruesa con rayas rojas y blancas, sujeta a postes de madera con cuerdas, ligeramente ondeada por la brisa del mediodía.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_canasta_01",
+      "nombre": "canasta de mimbre trenzado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 1
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "descripcion": "Canasta ovalada hecha de mimbre flexible, con una textura entrelazada y un tono natural de paja, ligeramente rugosa al tacto.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_paja_01",
+      "nombre": "fardo de paja amarrado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 1
+      },
+      "ancho": 0.8,
+      "alto": 0.4,
+      "descripcion": "Fardo compacto de paja amarilla, atado con cuerda de sisal, con bordes deshilachados que revelan la textura fibrosa del interior.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_barril_01",
+      "nombre": "barril de roble con tapas metálicas",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 2
+      },
+      "ancho": 0.6,
+      "alto": 0.9,
+      "descripcion": "Barril robusto de roble con vetas visibles, tapas de hierro forjado que brillan bajo el sol, mostrando signos de uso reciente.",
+      "keyword_busqueda": null
+    }
+  ]
+}

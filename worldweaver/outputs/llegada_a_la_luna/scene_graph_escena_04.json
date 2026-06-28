@@ -1,0 +1,299 @@
+{
+  "id_escena": "escena_04",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "superficie_planeta",
+  "radio_escena": 22.0,
+  "limite_jugador": 6.5,
+  "color_suelo": "#9a9a8a",
+  "nodos": [
+    {
+      "id": "fondo_escena_04",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_04",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 22.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_neil_armstrong",
+      "nombre": "Neil Armstrong",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.91,
+        "y": 0.93,
+        "z": -0.42
+      },
+      "ancho": 1.0,
+      "alto": 1.85,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Doctor_Male_Young.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_camara_de_television",
+      "nombre": "Cámara de televisión",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.94,
+        "y": 0.25,
+        "z": -0.36
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/fe9abc66-25d1-40a8-adf5-12f9a11c2c1a.glb",
+      "keyword_busqueda": "camera"
+    },
+    {
+      "id": "personaje_buzz_aldrin",
+      "nombre": "Buzz Aldrin",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.76,
+        "y": 0.9,
+        "z": -1.86
+      },
+      "ancho": 0.9,
+      "alto": 1.8,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Doctor_Male_Young.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_bandera_estadounidense",
+      "nombre": "Bandera estadounidense",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.83,
+        "y": 1.0,
+        "z": 0.81
+      },
+      "ancho": 0.5,
+      "alto": 2.0,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/a0566cb9-4ad9-4ccc-bfc3-0d59494dca8d.glb",
+      "keyword_busqueda": "us flag"
+    },
+    {
+      "id": "objeto_easep",
+      "nombre": "EASEP",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -3.4,
+        "y": 0.25,
+        "z": -0.84
+      },
+      "ancho": 0.8,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/3ccadc76-b60f-417f-9f8e-82d44b08dbf9.glb",
+      "keyword_busqueda": "science kit"
+    },
+    {
+      "id": "objeto_sismometro_pasivo",
+      "nombre": "Sismómetro pasivo",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.17,
+        "y": 0.15,
+        "z": -3.5
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/76bbd609-5285-452f-8b69-4c2bbfa58119.glb",
+      "keyword_busqueda": "sensor"
+    },
+    {
+      "id": "objeto_retroreflectores_laser",
+      "nombre": "Retroreflectores láser",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 3.47,
+        "y": 0.15,
+        "z": -0.5
+      },
+      "ancho": 0.3,
+      "alto": 0.3,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/8d8927eb-1a6c-4692-884f-d0e976b71a69.glb",
+      "keyword_busqueda": "laser reflector"
+    },
+    {
+      "id": "decorado_panel_solar_01",
+      "nombre": "Panel solar de soporte",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.17,
+        "y": 0.1,
+        "z": -5.5
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7a7d151e-b40a-4f5f-9372-7d5c9fb18072.glb",
+      "keyword_busqueda": "solar panel"
+    },
+    {
+      "id": "decorado_modulo_eagle_01",
+      "nombre": "Módulo Eagle (etenso)",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 1.53,
+        "y": 1.25,
+        "z": -19.94
+      },
+      "ancho": 3.0,
+      "alto": 2.5,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5b5aaeac-e2f2-4d2b-ad4b-a7f1726f1897.glb",
+      "keyword_busqueda": "lunar module"
+    },
+    {
+      "id": "decorado_antena_comunicacion_01",
+      "nombre": "Antena de comunicación parabólica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -13.15,
+        "y": 0.75,
+        "z": -4.79
+      },
+      "ancho": 1.0,
+      "alto": 1.5,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/c3519412-2dc7-424b-96dc-8a8dc9cd0c25.glb",
+      "keyword_busqueda": "satellite dish"
+    },
+    {
+      "id": "decorado_muestra_roca_01",
+      "nombre": "Contenedor de muestra de roca lunar",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 1.06,
+        "y": 0.2,
+        "z": -8.94
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/c14651f6-9ef8-41e8-8aca-cafed61d9ca2.glb",
+      "keyword_busqueda": "rock container"
+    }
+  ],
+  "cielo": {
+    "tipo": "noche_estrellada",
+    "color_fondo": "#040410",
+    "color_ambiente": "#334064",
+    "intensidad_ambiente": 0.45640192398942436,
+    "color_sol": "#cadfff",
+    "intensidad_sol": 0.31893516112031184,
+    "pos_sol": {
+      "x": -1.0581566559899525,
+      "y": 3.0166645758094734,
+      "z": -2.417630864434024
+    },
+    "niebla": {
+      "color": "#050512",
+      "near": 9.402864747615428,
+      "far": 13.0
+    }
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_neil_armstrong": {
+      "glb_id": "Doctor_Male_Young",
+      "glb_path": "/sandbox/assets/characters/Doctor_Male_Young.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 5650,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_buzz_aldrin": {
+      "glb_id": "Doctor_Male_Young",
+      "glb_path": "/sandbox/assets/characters/Doctor_Male_Young.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 6058,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

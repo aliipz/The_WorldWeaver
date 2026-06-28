@@ -1,0 +1,716 @@
+{
+  "id_escena": "escena_01",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "ciudad",
+  "radio_escena": 22.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "tipo_suelo": null,
+  "tipo_techo": null,
+  "radio_cubierta": null,
+  "variante_barco": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_01",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_01",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 22.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_a",
+      "nombre": "Ana",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.69,
+        "y": 0.88,
+        "z": -1.88
+      },
+      "ancho": 0.95,
+      "alto": 1.75,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual_Female.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_b",
+      "nombre": "Luis",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.88,
+        "y": 0.9,
+        "z": -0.69
+      },
+      "ancho": 0.95,
+      "alto": 1.8,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual2_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_fuente_01",
+      "nombre": "Fuente de piedra central",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.07,
+        "y": 0.6,
+        "z": -3.5
+      },
+      "ancho": 2.0,
+      "alto": 1.2,
+      "tam_real": 2.0,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7b386b50-6518-418f-8269-47f0e0a54da9.glb",
+      "keyword_busqueda": "fountain"
+    },
+    {
+      "id": "decorado_banco_01",
+      "nombre": "Banco de madera tallada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -4.21,
+        "y": 0.4,
+        "z": 3.54
+      },
+      "ancho": 1.5,
+      "alto": 0.8,
+      "tam_real": 1.5,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/623120d8-bebf-4bd9-bb09-3162c06c9741.glb",
+      "keyword_busqueda": "bench"
+    },
+    {
+      "id": "decorado_farol_01",
+      "nombre": "Farol de hierro oxidado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 7.66,
+        "y": 1.25,
+        "z": -4.72
+      },
+      "ancho": 0.4,
+      "alto": 2.5,
+      "tam_real": 2.5,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ecbc7b04-09ca-4068-bb3c-4e5ce1163c9a.glb",
+      "keyword_busqueda": "lantern"
+    },
+    {
+      "id": "decorado_estatua_01",
+      "nombre": "Estatua de bronce del fundador",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -4.94,
+        "y": 0.9,
+        "z": -13.1
+      },
+      "ancho": 0.8,
+      "alto": 1.8,
+      "tam_real": 1.8,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/55b0aa03-543c-439d-a7d7-f0ac4c23578f.glb",
+      "keyword_busqueda": "statue"
+    },
+    {
+      "id": "decorado_puesto_frutas_01",
+      "nombre": "Puesto de frutas y verduras",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -8.18,
+        "y": 0.6,
+        "z": -3.75
+      },
+      "ancho": 1.5,
+      "alto": 1.2,
+      "tam_real": 1.5,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e2633001-4cf5-46fa-ac68-575c9954f4ba.glb",
+      "keyword_busqueda": "stall"
+    },
+    {
+      "id": "decorado_arbol_olivo_01",
+      "nombre": "Árbol de olivo centenario",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.69,
+        "y": 2.5,
+        "z": -19.99
+      },
+      "ancho": 3.0,
+      "alto": 5.0,
+      "tam_real": 5.0,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b01523d9-3e86-4a08-92fe-b9e0b3f0a82f.glb",
+      "keyword_busqueda": "olive tree"
+    },
+    {
+      "id": "amb_00_0_00",
+      "nombre": "colonial church",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -12.12,
+        "y": 7.98,
+        "z": 15.27
+      },
+      "ancho": 5.7,
+      "alto": 15.97,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/bcc08510-16ab-4f07-bf0b-bde4c9695dd2.glb",
+      "keyword_busqueda": "colonial church"
+    },
+    {
+      "id": "amb_00_0_01",
+      "nombre": "colonial church",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.74,
+        "y": 6.84,
+        "z": -7.52
+      },
+      "ancho": 4.88,
+      "alto": 13.67,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/bcc08510-16ab-4f07-bf0b-bde4c9695dd2.glb",
+      "keyword_busqueda": "colonial church"
+    },
+    {
+      "id": "amb_00_0_02",
+      "nombre": "colonial church",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 7.61,
+        "y": 7.32,
+        "z": -18.74
+      },
+      "ancho": 5.23,
+      "alto": 14.63,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/bcc08510-16ab-4f07-bf0b-bde4c9695dd2.glb",
+      "keyword_busqueda": "colonial church"
+    },
+    {
+      "id": "amb_00_0_03",
+      "nombre": "colonial church",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -16.18,
+        "y": 6.9,
+        "z": 9.07
+      },
+      "ancho": 4.93,
+      "alto": 13.8,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/bcc08510-16ab-4f07-bf0b-bde4c9695dd2.glb",
+      "keyword_busqueda": "colonial church"
+    },
+    {
+      "id": "amb_00_1_00",
+      "nombre": "colonial church",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -13.13,
+        "y": 5.78,
+        "z": 3.82
+      },
+      "ancho": 4.13,
+      "alto": 11.55,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/bcc08510-16ab-4f07-bf0b-bde4c9695dd2.glb",
+      "keyword_busqueda": "colonial church"
+    },
+    {
+      "id": "amb_01_0_00",
+      "nombre": "adobe house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -15.56,
+        "y": 4.35,
+        "z": 12.53
+      },
+      "ancho": 3.87,
+      "alto": 8.7,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "adobe house"
+    },
+    {
+      "id": "amb_01_0_01",
+      "nombre": "adobe house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 4.74,
+        "y": 4.37,
+        "z": 18.74
+      },
+      "ancho": 3.88,
+      "alto": 8.73,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "adobe house"
+    },
+    {
+      "id": "amb_01_0_02",
+      "nombre": "adobe house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 18.06,
+        "y": 3.92,
+        "z": 0.51
+      },
+      "ancho": 3.49,
+      "alto": 7.84,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "adobe house"
+    },
+    {
+      "id": "amb_01_0_03",
+      "nombre": "adobe house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 18.0,
+        "y": 5.11,
+        "z": -10.33
+      },
+      "ancho": 4.54,
+      "alto": 10.22,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "adobe house"
+    },
+    {
+      "id": "amb_01_0_04",
+      "nombre": "adobe house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.19,
+        "y": 4.34,
+        "z": -18.65
+      },
+      "ancho": 3.86,
+      "alto": 8.68,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "adobe house"
+    },
+    {
+      "id": "amb_01_0_05",
+      "nombre": "adobe house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.42,
+        "y": 4.41,
+        "z": -6.04
+      },
+      "ancho": 3.92,
+      "alto": 8.81,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "adobe house"
+    },
+    {
+      "id": "amb_01_1_00",
+      "nombre": "adobe house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 12.87,
+        "y": 4.18,
+        "z": -8.5
+      },
+      "ancho": 3.71,
+      "alto": 8.35,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "adobe house"
+    },
+    {
+      "id": "amb_01_1_01",
+      "nombre": "adobe house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.53,
+        "y": 4.28,
+        "z": 11.26
+      },
+      "ancho": 3.81,
+      "alto": 8.57,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "adobe house"
+    },
+    {
+      "id": "amb_02_0_00",
+      "nombre": "iron lamp",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -19.16,
+        "y": 1.27,
+        "z": 5.84
+      },
+      "ancho": 0.17,
+      "alto": 2.53,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/2e1ab34a-eab6-4751-930f-6e3b4f5319a8.glb",
+      "keyword_busqueda": "iron lamp"
+    },
+    {
+      "id": "amb_02_0_01",
+      "nombre": "iron lamp",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -14.1,
+        "y": 1.28,
+        "z": 11.9
+      },
+      "ancho": 0.17,
+      "alto": 2.55,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/2e1ab34a-eab6-4751-930f-6e3b4f5319a8.glb",
+      "keyword_busqueda": "iron lamp"
+    },
+    {
+      "id": "amb_02_0_02",
+      "nombre": "iron lamp",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 17.91,
+        "y": 1.32,
+        "z": 7.13
+      },
+      "ancho": 0.18,
+      "alto": 2.63,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/2e1ab34a-eab6-4751-930f-6e3b4f5319a8.glb",
+      "keyword_busqueda": "iron lamp"
+    },
+    {
+      "id": "amb_02_0_03",
+      "nombre": "iron lamp",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 19.23,
+        "y": 1.34,
+        "z": -7.8
+      },
+      "ancho": 0.18,
+      "alto": 2.68,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/2e1ab34a-eab6-4751-930f-6e3b4f5319a8.glb",
+      "keyword_busqueda": "iron lamp"
+    },
+    {
+      "id": "amb_02_0_04",
+      "nombre": "iron lamp",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -3.9,
+        "y": 1.34,
+        "z": -18.63
+      },
+      "ancho": 0.18,
+      "alto": 2.67,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/2e1ab34a-eab6-4751-930f-6e3b4f5319a8.glb",
+      "keyword_busqueda": "iron lamp"
+    },
+    {
+      "id": "amb_02_1_00",
+      "nombre": "iron lamp",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -2.66,
+        "y": 1.38,
+        "z": -14.83
+      },
+      "ancho": 0.18,
+      "alto": 2.75,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/2e1ab34a-eab6-4751-930f-6e3b4f5319a8.glb",
+      "keyword_busqueda": "iron lamp"
+    },
+    {
+      "id": "amb_02_1_01",
+      "nombre": "iron lamp",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -6.24,
+        "y": 1.27,
+        "z": 15.63
+      },
+      "ancho": 0.17,
+      "alto": 2.53,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/2e1ab34a-eab6-4751-930f-6e3b4f5319a8.glb",
+      "keyword_busqueda": "iron lamp"
+    },
+    {
+      "id": "amb_03_0_00",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 5.87,
+        "y": 0.99,
+        "z": -18.91
+      },
+      "ancho": 1.48,
+      "alto": 1.98,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    },
+    {
+      "id": "amb_03_0_01",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 2.01,
+        "y": 0.86,
+        "z": 19.79
+      },
+      "ancho": 1.29,
+      "alto": 1.72,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    },
+    {
+      "id": "amb_03_0_02",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.99,
+        "y": 0.86,
+        "z": -11.89
+      },
+      "ancho": 1.3,
+      "alto": 1.73,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    },
+    {
+      "id": "amb_03_1_00",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -14.14,
+        "y": 0.88,
+        "z": -4.48
+      },
+      "ancho": 1.31,
+      "alto": 1.75,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    }
+  ],
+  "cielo": {
+    "tipo": "atardecer",
+    "color_fondo": "#d03818",
+    "color_ambiente": "#cf5f37",
+    "intensidad_ambiente": 0.44339607404208214,
+    "color_sol": "#ff6118",
+    "intensidad_sol": 1.066348069723261,
+    "pos_sol": {
+      "x": -4.703628322702047,
+      "y": 0.10191731555987053,
+      "z": -0.6583723826209126
+    },
+    "niebla": {
+      "color": "#ce3e17",
+      "near": 11.212573053039256,
+      "far": 13.0
+    },
+    "luz_exterior": null
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_a": {
+      "glb_id": "Casual_Female",
+      "glb_path": "/sandbox/assets/characters/Casual_Female.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_claro",
+      "clothing_seed": 1023,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_b": {
+      "glb_id": "Casual2_Male",
+      "glb_path": "/sandbox/assets/characters/Casual2_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_claro",
+      "clothing_seed": 9923,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

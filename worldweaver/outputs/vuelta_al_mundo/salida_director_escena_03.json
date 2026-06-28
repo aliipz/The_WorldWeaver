@@ -1,0 +1,187 @@
+{
+  "id_escena": "escena_03",
+  "elementos": [
+    {
+      "id": "personaje_elcano",
+      "nombre": "Juan Sebastián Elcano",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_03",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Navegante español de 40 años, barba negra, chaleco de lino gris, mirada resuelta"
+    },
+    {
+      "id": "objeto_nao_victoria",
+      "nombre": "Nao Victoria",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_03",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 5
+      },
+      "ancho": 4.0,
+      "alto": 10.0,
+      "descripcion": "Única nave que completa la circunnavegación, cargada con especias para el regreso"
+    },
+    {
+      "id": "objeto_especias",
+      "nombre": "Especias",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_03",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "descripcion": "Productos de alto valor como clavo y nuez moscada obtenidos en Molucas"
+    },
+    {
+      "id": "objeto_tejidos",
+      "nombre": "Tejidos",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 0.6,
+      "alto": 0.4,
+      "descripcion": "Productos textiles europeos ofrecidos a los comerciantes locales"
+    },
+    {
+      "id": "objeto_herramientas_metalicas",
+      "nombre": "Herramientas metálicas",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 0.8,
+      "alto": 0.6,
+      "descripcion": "Objetos de hierro y acero ofrecidos como intercambio"
+    },
+    {
+      "id": "objeto_clavo",
+      "nombre": "Clavo",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Especia aromática muy codiciada en Europa"
+    },
+    {
+      "id": "objeto_nuez_moscada",
+      "nombre": "Nuez moscada",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Especia valiosa utilizada en cocina y medicina"
+    },
+    {
+      "id": "objeto_espejos",
+      "nombre": "Espejos",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 4
+      },
+      "ancho": 0.3,
+      "alto": 0.3,
+      "descripcion": "Objetos reflectantes de valor comercial en Asia"
+    },
+    {
+      "id": "decorado_barril_de_especias_01",
+      "nombre": "Barril de especias",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 0.6,
+      "alto": 1.0,
+      "descripcion": "Barril grande de madera gruesa, atado con cuerdas de sisal, con sellos de cera oscura que preservan el aroma de clavo y nuez moscada."
+    },
+    {
+      "id": "decorado_puesto_de_madera_01",
+      "nombre": "Puesto de madera del mercado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 2.0,
+      "alto": 2.5,
+      "descripcion": "Estructura de troncos y tablas envejecidas, con un techo de hojas de palma trenzadas y una barra de venta de madera rústica."
+    },
+    {
+      "id": "decorado_estera_de_coco_01",
+      "nombre": "Estera de hoja de coco",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 1
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "descripcion": "Alfombra tejida con fibras de cocotero, colocada sobre la arena, de color marrón claro y textura rugosa."
+    },
+    {
+      "id": "decorado_estatua_de_deon_01",
+      "nombre": "Estatua de deón local",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 0.8,
+      "alto": 1.5,
+      "descripcion": "Pequeña escultura de piedra basáltica tallada en forma de deidad marítima, con musgo verde que cubre parcialmente su superficie."
+    },
+    {
+      "id": "decorado_farol_de_aceite_01",
+      "nombre": "Farol de aceite",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 8,
+        "fila": 0
+      },
+      "ancho": 0.3,
+      "alto": 0.8,
+      "descripcion": "Lámpara de metal bruñido con base de hierro y globo de vidrio verde, colgada de un poste de madera y emitendo una luz tenue ámbar."
+    }
+  ]
+}

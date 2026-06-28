@@ -1,0 +1,359 @@
+{
+  "id_escena": "escena_05",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Elena abandona el submarino y nada hacia el faro.",
+      "guias": [
+        "objeto_submarino",
+        "personaje_elena",
+        "personaje_zip"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_submarino"
+        ],
+        "personajes": [
+          "personaje_elena",
+          "personaje_zip"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Elena extrae el cristal y lo coloca en la cámara.",
+      "guias": [
+        "objeto_cristal",
+        "personaje_elena"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_cristal"
+        ],
+        "personajes": [
+          "personaje_elena"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "El cristal irradia luz y el faro vuelve a latir.",
+      "guias": [
+        "objeto_cristal",
+        "personaje_elena",
+        "personaje_zip"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_cristal"
+        ],
+        "personajes": [
+          "personaje_elena",
+          "personaje_zip"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_elena",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "El agua me envuelve, el faro está a lo lejos, siento la presión del abismo."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Nadie ha vuelto a este punto desde la última tormenta; cada burbuja es un recuerdo del pasado."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué buscas aquí?",
+                  "respuesta": "Una señal, una pista que el océano haya guardado para quien se atreva a escuchar."
+                },
+                {
+                  "etiqueta": "¿Te sientes sola?",
+                  "respuesta": "No, Zip me acompaña, y su curiosidad es la luz que corta la oscuridad."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "El cristal vibra bajo mis dedos, encaja en la ranura como una pieza de un sueño antiguo."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Puedo sentir una corriente de energía que se acumula, como si el faro esperara mi toque."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué esperas que ocurra?",
+                  "respuesta": "Que la luz vuelva a guiar a los perdidos, que el mar revele sus secretos."
+                },
+                {
+                  "etiqueta": "¿Es seguro?",
+                  "respuesta": "El riesgo es parte del descubrimiento; la curiosidad siempre supera al miedo."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Una ola azul se despliega, el faro revive, el mar se ilumina con una claridad imposible."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El silencio se rompe con un susurro de luz, y siento que todo el océano contieneerta."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué significa este resplandor?",
+                  "respuesta": "Es la voz del profundo, una respuesta a la llamada que hicimos."
+                },
+                {
+                  "etiqueta": "¿Qué haremos ahora?",
+                  "respuesta": "Explorar, registrar, y proteger este nuevo amanecer bajo el agua."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Recoger cristal",
+          "descripcion": "Extiendes la mano y tomas el cristal pulsante.",
+          "animacion": "PickUp",
+          "narrativa": true,
+          "fase_aparicion": 1,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "objeto_cristal",
+              "efecto": "brillo",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_zip",
+        "efecto": null,
+        "color": null,
+        "animacion": "susto"
+      }
+    },
+    {
+      "id_nodo": "personaje_zip",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "¡Vaya, parece que la humana finalmente decidió nadar!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Yo siempre supe que el faro guardaba algo, pero nunca imaginé que fuera tan brillante."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué piensas del cristal?",
+                  "respuesta": "Brilla como un trofeo de la noche, y yo quiero morderlo."
+                },
+                {
+                  "etiqueta": "¿Te asusta la profundidad?",
+                  "respuesta": "El miedo es solo otro sabor, pero la curiosidad siempre gana."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "¡Whoa! Esa luz me ciega, ¿qué demonios está pasando?"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El agua vibra, el sonido del cristal es como un latido gigante bajo mis patas."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Te sientes bien?",
+                  "respuesta": "Mis orejas están temblando, pero sigo aquí, listo para lo que sea."
+                },
+                {
+                  "etiqueta": "¿Qué crees que sucederá ahora?",
+                  "respuesta": "El faro despertará, y con él, quizás, una nueva ruta para nuestras aventuras."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Emitir burbuja",
+          "descripcion": "Zip abre su boquilla y lanza una corriente de burbujas que chispean.",
+          "animacion": "susto",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "magico",
+          "dispara": [
+            {
+              "id_nodo": "decorado_alga_larga_01",
+              "efecto": "flotar",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_submarino",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Submarino oxidado",
+        "descripcion": "Una nave antigua cubierta de óxido, su casco cruje bajo la presión del mar.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_cristal",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "Activas el cristal, su energía se despliega en un haz de luz.",
+        "texto_desactivacion": null,
+        "efecto_visual": "brillo",
+        "color_efecto": "#4488ff",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": {
+        "id_nodo": "decorado_coral_brillante_01",
+        "efecto": "cambiar_color",
+        "color": null,
+        "animacion": null
+      }
+    },
+    {
+      "id_nodo": "decorado_coral_brillante_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una rama de coral naranja brilla tenuemente bajo la luz azul."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_alga_larga_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Alga larga ondulante que se mece suavemente con la corriente."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_concha_perla_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Concha de perla gigante",
+        "descripcion": "Una enorme concha de perla iridiscente cubre parte de la estructura, reflejando destellos plateados.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_cable_metalico_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Cable de acero oxidado colgando, cruje bajo la presión del agua."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_base_faro",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al adentrarte en la caverna del faro, la luz azul del cristal tiembla en la oscuridad."
+    }
+  ]
+}

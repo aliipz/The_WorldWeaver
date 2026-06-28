@@ -1,0 +1,336 @@
+{
+  "id_escena": "escena_07",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "El ogro ruge entre la niebla del tallo.",
+      "guias": [
+        "personaje_ogre",
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_ogre",
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Madre grita y entrega el hacha al hijo.",
+      "guias": [
+        "objeto_hacha",
+        "personaje_juan",
+        "personaje_madre",
+        "objeto_planta_gigante"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_hacha",
+          "objeto_planta_gigante"
+        ],
+        "personajes": [
+          "personaje_juan",
+          "personaje_madre"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Juan golpea la planta y el ogro desaparece.",
+      "guias": [
+        "objeto_planta_gigante",
+        "objeto_hacha",
+        "personaje_juan",
+        "personaje_ogre"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_planta_gigante",
+          "objeto_hacha"
+        ],
+        "personajes": [
+          "personaje_juan",
+          "personaje_ogre"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_ogre",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Punch",
+          "puntos": [
+            {
+              "frases": [
+                "¡Te perseguiré hasta que el suelo se abra bajo tus pies!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¡No hay escapatoria, tu sangre será mi cena!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué quieres de mí?",
+                  "respuesta": "Quiero la llave del castillo, y tú la llevas."
+                },
+                {
+                  "etiqueta": "¡Yo no tengo nada!",
+                  "respuesta": "Entonces morirás por intentar esconderte."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Defeat",
+          "puntos": [
+            {
+              "frases": [
+                "¡Noooo! La planta me cubre..."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Rugir",
+          "descripcion": "El ogro ruge con furia, sacudiendo la planta bajo sus pies.",
+          "animacion": "Punch",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "rugir",
+          "dispara": [
+            {
+              "id_nodo": "objeto_planta_gigante",
+              "efecto": "desaparecer",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_juan",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "¡Tengo que encontrar una salida antes de que me atrape!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¡Escucho el crujido de la planta, debo correr!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Hay algún refugio?",
+                  "respuesta": "Solo la cima de la planta, pero es peligrosa."
+                },
+                {
+                  "etiqueta": "¡Necesito ayuda!",
+                  "respuesta": "¡Mi madre está cerca, grita!"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "PickUp",
+          "puntos": [
+            {
+              "frases": [
+                "¡Mamá, el hacha! Con esto podré defenderme."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¡Gracias, mamá! Ahora puedo cortar la planta."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo la uso?",
+                  "respuesta": "Apúntala al tronco y golpea con fuerza."
+                },
+                {
+                  "etiqueta": "¿Crees que será suficiente?",
+                  "respuesta": "Confía, la fuerza del hacha romperá cualquier obstáculo."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "¡Con este golpe la planta caerá y el ogro será derrotado!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¡La planta tiembla, el ogro parece desvanecerse!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué pasa ahora?",
+                  "respuesta": "El suelo se abre, el ogro desaparece en la sombra."
+                },
+                {
+                  "etiqueta": "¡Corre antes de que caiga todo!",
+                  "respuesta": "¡Vamos, no hay tiempo que perder!"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_hacha",
+          "consume": false,
+          "puntos": [
+            {
+              "frases": [
+                "¡El hacha brilla con luz de esperanza!"
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Desafiar",
+          "descripcion": "Alzas tu puño y desafías al ogro, el corazón late con furia.",
+          "animacion": "Punch",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "personaje_ogre",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_madre",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "PickUp",
+          "puntos": [
+            {
+              "frases": [
+                "¡Juan, toma el hacha! Es tu única oportunidad."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¡No pierdas tiempo, el ogro está cerca!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Dónde está el hacha?",
+                  "respuesta": "En la caverna del norte, la dejé allí."
+                },
+                {
+                  "etiqueta": "¿Qué pasa si falla?",
+                  "respuesta": "Entonces correremos juntos, pero debes ser valiente."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Animar",
+          "descripcion": "Tu madre levanta los brazos, alentándote con una sonrisa firme.",
+          "animacion": "Victory",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "alegria",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_hacha",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "Hacha",
+        "descripcion": "Una hacha de acero forjado, pesada y afilada, lista para cortar la madera del tallo."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_planta_gigante",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "usar_con",
+        "requiere_objeto": "objeto_hacha",
+        "titulo": "Planta gigantesca",
+        "descripcion": "Golpea la base de la planta con el hacha para hacerla colapsar.",
+        "efecto_visual": "desaparecer",
+        "color_efecto": null,
+        "sonido": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": []
+}

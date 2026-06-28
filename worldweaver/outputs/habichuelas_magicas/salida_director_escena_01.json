@@ -1,0 +1,170 @@
+{
+  "id_escena": "escena_01",
+  "elementos": [
+    {
+      "id": "personaje_juan",
+      "nombre": "Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 0.5,
+      "alto": 1.4,
+      "descripcion": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_madre",
+      "nombre": "Madre de Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 2
+      },
+      "ancho": 0.9,
+      "alto": 1.65,
+      "descripcion": "Mujer de mediana edad, rostro marcado por el trabajo, vestimenta de algodón gris",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_cow_blancita",
+      "nombre": "Blanquita",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "descripcion": "Vaca grande y pálida, manchas negras, mirada cansada",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_silla_01",
+      "nombre": "silla de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 3
+      },
+      "ancho": 0.5,
+      "alto": 1.0,
+      "descripcion": "Silla de tronco de pino con respaldo curvado, asiento de tablón gastado y patas talladas a mano, de color marrón claro.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_silla_02",
+      "nombre": "silla de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 3
+      },
+      "ancho": 0.5,
+      "alto": 1.0,
+      "descripcion": "Silla idéntica a la anterior, con una ligera pátina grisácea por el tiempo, apoyada contra la pared.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_silla_03",
+      "nombre": "silla de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 1.0,
+      "descripcion": "Silla de pino con asiento de cuero curtido, marcas de uso y una pequeña grieta en el respaldo.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_silla_04",
+      "nombre": "silla de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 1.0,
+      "descripcion": "Silla de madera con respaldo de listón entrelazado, pintura descasada y una mancha de barniz.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_alfombra_01",
+      "nombre": "alfombra de lana tejida",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "descripcion": "Alfombra rectangular de lana gruesa, colores tierra desvaídos, con patrones geométricos simples y bordes gastados.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_lanterna_01",
+      "nombre": "lanterna de hierro colgante",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 2
+      },
+      "ancho": 0.3,
+      "alto": 0.5,
+      "descripcion": "Lanterna de hierro forjado con paneles de vidrio ahumado, cadena oxidada y una vela apagada dentro.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_cofre_01",
+      "nombre": "cofre de ro reutil",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 0
+      },
+      "ancho": 0.8,
+      "alto": 0.9,
+      "descripcion": "Cofre bajo madera de roble, reforzado con tiras de hierro envejecido, con una bisagra chirriante y cerradura oxidada.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_estanteria_pequena_01",
+      "nombre": "estantería de pared pequeña",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 1.0,
+      "alto": 1.5,
+      "descripcion": "Estantería de madera rústica fijada al muro, con tres niveles que sostienen frascos de cerámica, cuerdas y una herramienta de labranza.",
+      "keyword_busqueda": null
+    }
+  ]
+}

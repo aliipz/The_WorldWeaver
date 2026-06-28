@@ -1,0 +1,10 @@
+{
+  "id": "T1",
+  "fixture": "habichulas.txt",
+  "titulo": "Juan y las Habichuelas Mágicas",
+  "modo": "narrativo",
+  "personajes_esperados": ["Juan", "madre", "anciano misterioso", "ogro", "Blanquita (vaca)"],
+  "objetos_esperados": ["habichuelas mágicas", "gallina de oro", "arpa de oro", "hacha"],
+  "escenas_esperadas": 7,
+  "notas": "Blanquita es un animal con nombre (¿personaje o objeto? la dejo como personaje no-humano). La gallina y el arpa son tesoros animados → objetos. Beats: granja → camino/trueque → casa(enfado) → jardín/planta → sobre las nubes → salón del ogro → huida+tala → final feliz (algunos se funden, por eso 7)."
+}

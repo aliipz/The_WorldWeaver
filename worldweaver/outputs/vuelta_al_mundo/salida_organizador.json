@@ -1,0 +1,357 @@
+{
+  "titulo_historia": "Expedición de ==Magallanes== y ==Elcano==: primera circunnavegación",
+  "escenas": [
+    {
+      "id": "escena_01",
+      "titulo": "Contexto geopolítico y preparación de la expedición (==1519==)",
+      "entorno": "Puerto de ==Sevilla== en ==1519==: astillero de madera, muelles de piedra, banderas españolas ondeando, caravanas cargadas de suministros",
+      "atmosfera": "Competencia entre monarquías europeas por rutas de especias, tensión entre Portugal y Castilla tras el ==Tratado de Tordesillas== de ==1494==, tono de ambición y planificación",
+      "cielo": "manana_despejada",
+      "tipo_ambiente": "ciudad",
+      "tiene_intro": true,
+      "texto_intro": "En ==1519==, las potencias europeas se disputan el lucrativo comercio de ==especias== con Asia. El rey ==Carlos I== de España financia una flota de cinco naves para hallar una ruta hacia el oeste que sortee el dominio portugués, y pone al mando al navegante ==Magallanes==. En el puerto de Sevilla, entre astilleros de madera y muelles repletos de provisiones, está a punto de comenzar la primera vuelta al mundo.",
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_carlos_i",
+          "nombre": "Carlos I de España",
+          "fisica": "Rey de unos 30 años, barba corta, corona dorada, túnica roja con bordes de oro, mirada autoritaria",
+          "background": "Monarca español que aprueba la expedición para buscar rutas comerciales y aumentar el poder de su reino",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_magallanes",
+          "nombre": "Fernando de Magallanes",
+          "fisica": "Navegante portugués de 45 años, rostro curtido, barba gris, chaqueta de vellón azul, mirada decidida",
+          "background": "Explorador al mando de la expedición, busca una ruta occidental hacia Asia",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_capitulaciones",
+          "nombre": "Capitulaciones reales",
+          "descripcion": "Documento oficial que establece condiciones, financiación y autoridad de la expedición",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "objeto_brujula",
+          "nombre": "Brújula",
+          "descripcion": "Instrumento de orientación magnética usado para determinar la dirección en el mar",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "objeto_astrolabio",
+          "nombre": "Astrolabio",
+          "descripcion": "Instrumento para medir la altura de los astros y calcular la latitud",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "objeto_cartas_nauticas",
+          "nombre": "Cartas náuticas",
+          "descripcion": "Mapas y notas de navegación que indican costas y rutas marítimas",
+          "skin_id": "escena_01"
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_carlos_i firma ==Capitulaciones reales== y autoriza la expedición",
+          "personajes_involucrados": [
+            "personaje_carlos_i"
+          ],
+          "objetos_involucrados": [
+            "objeto_capitulaciones"
+          ]
+        },
+        {
+          "descripcion": "personaje_magallanes recibe la autoridad y organiza la tripulación y las cinco naves",
+          "personajes_involucrados": [
+            "personaje_magallanes"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_magallanes supervisa la carga de suministros y los instrumentos ==brújula==, ==astrolabio== y ==cartas náuticas==",
+          "personajes_involucrados": [
+            "personaje_magallanes"
+          ],
+          "objetos_involucrados": [
+            "objeto_brujula",
+            "objeto_astrolabio",
+            "objeto_cartas_nauticas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_02",
+      "titulo": "Navegación, dificultades y supervivencia (==1520==–==1521==)",
+      "entorno": "Estrecho de ==Magallanes==, aguas heladas, icebergs, vientos fuertes, barcos de vela bajo cielos grises",
+      "atmosfera": "Clima extremo, temperaturas bajo cero, tensiones entre la tripulación y la autoridad de ==Magallanes==, tono de supervivencia y desafío",
+      "cielo": "tormenta",
+      "tipo_ambiente": "barco",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_magallanes",
+          "nombre": "Fernando de Magallanes",
+          "fisica": "Navegante portugués de 45 años, rostro curtido, barba gris, chaqueta de vellón azul, mirada decidida",
+          "background": "Explorador al mando de la expedición, busca una ruta occidental hacia Asia",
+          "rol": "protagonista",
+          "skin_id": null
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_brujula",
+          "nombre": "Brújula",
+          "descripcion": "Instrumento de orientación magnética usado para determinar la dirección en el mar",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_astrolabio",
+          "nombre": "Astrolabio",
+          "descripcion": "Instrumento para medir la altura de los astros y calcular la latitud",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_cartas_nauticas",
+          "nombre": "Cartas náuticas",
+          "descripcion": "Mapas y notas de navegación que indican costas y rutas marítimas",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_magallanes lidera la nave a través del ==Estrecho de Magallanes== enfrentando hielo y fuertes vientos",
+          "personajes_involucrados": [
+            "personaje_magallanes"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Después de superar el estrecho, la tripulación nombra al nuevo océano ==Pacífico== por su aparente calma",
+          "personajes_involucrados": [
+            "personaje_magallanes"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "La escasez de alimentos lleva al racionamiento y la aparición del ==escorbuto== entre la tripulación",
+          "personajes_involucrados": [
+            "personaje_magallanes"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_03",
+      "titulo": "Cambio de liderazgo y comercio en las ==Islas Molucas== (==1521==)",
+      "entorno": "Islas Molucas, puerto de Ternate, mercados de especias con puestos de madera, velas de barcos españoles y nativos, aroma de ==clavo== y ==nuez moscada==",
+      "atmosfera": "Tensión tras la muerte de ==Magallanes==, liderazgo de ==Elcano==, ambiente de negociación comercial y esperanza de recuperar la inversión",
+      "cielo": "manana_despejada",
+      "tipo_ambiente": "playa",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_elcano",
+          "nombre": "Juan Sebastián Elcano",
+          "fisica": "Navegante español de 40 años, barba negra, chaleco de lino gris, mirada resuelta",
+          "background": "Oficial que asume el mando tras la muerte de Magallanes y lleva la nao Victoria de regreso",
+          "rol": "protagonista",
+          "skin_id": "escena_03"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_nao_victoria",
+          "nombre": "Nao Victoria",
+          "descripcion": "Única nave que completa la circunnavegación, cargada con especias para el regreso",
+          "skin_id": "escena_03"
+        },
+        {
+          "id": "objeto_especias",
+          "nombre": "Especias",
+          "descripcion": "Productos de alto valor como clavo y nuez moscada obtenidos en Molucas",
+          "skin_id": "escena_03"
+        },
+        {
+          "id": "objeto_clavo",
+          "nombre": "Clavo",
+          "descripcion": "Especia aromática muy codiciada en Europa",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_nuez_moscada",
+          "nombre": "Nuez moscada",
+          "descripcion": "Especia valiosa utilizada en cocina y medicina",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_tejidos",
+          "nombre": "Tejidos",
+          "descripcion": "Productos textiles europeos ofrecidos a los comerciantes locales",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_herramientas_metalicas",
+          "nombre": "Herramientas metálicas",
+          "descripcion": "Objetos de hierro y acero ofrecidos como intercambio",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_espejos",
+          "nombre": "Espejos",
+          "descripcion": "Objetos reflectantes de valor comercial en Asia",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Después de la muerte de ==Magallanes== en Filipinas, ==Elcano== asume el mando de la ==Nao Victoria==",
+          "personajes_involucrados": [
+            "personaje_elcano"
+          ],
+          "objetos_involucrados": [
+            "objeto_nao_victoria"
+          ]
+        },
+        {
+          "descripcion": "==Elcano== negocia con los comerciantes locales el intercambio de bienes europeos por ==clavo== y ==nuez moscada==",
+          "personajes_involucrados": [
+            "personaje_elcano"
+          ],
+          "objetos_involucrados": [
+            "objeto_clavo",
+            "objeto_nuez_moscada"
+          ]
+        },
+        {
+          "descripcion": "La ==Nao Victoria== se carga con ==especias== para el regreso a España, asegurando parte de la inversión",
+          "personajes_involucrados": [
+            "personaje_elcano"
+          ],
+          "objetos_involucrados": [
+            "objeto_nao_victoria",
+            "objeto_especias"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_04",
+      "titulo": "Regreso a ==Sevilla== y consecuencias históricas (==1522==)",
+      "entorno": "Puerto de ==Sevilla== en ==1522==, muelles con la ==Nao Victoria== atracada, gente celebrando, banderas ondeando, barcos de comercio alrededor",
+      "atmosfera": "Celebración del logro, reconocimiento de la primera ==circunnavegación==, tono de orgullo y reflexión",
+      "cielo": "amanecer",
+      "tipo_ambiente": "ciudad",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_elcano",
+          "nombre": "Juan Sebastián Elcano",
+          "fisica": "Navegante español de 40 años, barba negra, chaleco de lino gris, mirada resuelta",
+          "background": "Oficial que asume el mando tras la muerte de Magallanes y lleva la nao Victoria de regreso",
+          "rol": "protagonista",
+          "skin_id": null
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_nao_victoria",
+          "nombre": "Nao Victoria",
+          "descripcion": "Única nave que completa la circunnavegación, cargada con especias para el regreso",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_especias",
+          "nombre": "Especias",
+          "descripcion": "Productos de alto valor como clavo y nuez moscada obtenidos en Molucas",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "==Elcano== llega a ==Sevilla== a bordo de la ==Nao Victoria== después de tres años de viaje",
+          "personajes_involucrados": [
+            "personaje_elcano"
+          ],
+          "objetos_involucrados": [
+            "objeto_nao_victoria"
+          ]
+        },
+        {
+          "descripcion": "Se reconoce la primera ==circunnavegación== de la Tierra, demostrando que los océanos están conectados",
+          "personajes_involucrados": [],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "El cargamento de ==especias== permite recuperar gran parte de la inversión y fomenta nuevas rutas comerciales",
+          "personajes_involucrados": [],
+          "objetos_involucrados": [
+            "objeto_especias"
+          ]
+        }
+      ]
+    }
+  ],
+  "personajes_globales": [
+    {
+      "id": "personaje_magallanes",
+      "nombre": "Fernando de Magallanes",
+      "fisica": "Navegante portugués de 45 años, rostro curtido, barba gris, chaqueta de vellón azul, mirada decidida",
+      "background": "Explorador al mando de la expedición, busca una ruta occidental hacia Asia",
+      "rol": "protagonista",
+      "skin_id": null
+    },
+    {
+      "id": "personaje_elcano",
+      "nombre": "Juan Sebastián Elcano",
+      "fisica": "Navegante español de 40 años, barba negra, chaleco de lino gris, mirada resuelta",
+      "background": "Oficial que asume el mando tras la muerte de Magallanes y lleva la nao Victoria de regreso",
+      "rol": "protagonista",
+      "skin_id": null
+    }
+  ],
+  "objetos_globales": [
+    {
+      "id": "objeto_brujula",
+      "nombre": "Brújula",
+      "descripcion": "Instrumento de orientación magnética usado para determinar la dirección en el mar",
+      "skin_id": null
+    },
+    {
+      "id": "objeto_astrolabio",
+      "nombre": "Astrolabio",
+      "descripcion": "Instrumento para medir la altura de los astros y calcular la latitud",
+      "skin_id": null
+    },
+    {
+      "id": "objeto_cartas_nauticas",
+      "nombre": "Cartas náuticas",
+      "descripcion": "Mapas y notas de navegación que indican costas y rutas marítimas",
+      "skin_id": null
+    },
+    {
+      "id": "objeto_nao_victoria",
+      "nombre": "Nao Victoria",
+      "descripcion": "Única nave que completa la circunnavegación, cargada con especias para el regreso",
+      "skin_id": null
+    },
+    {
+      "id": "objeto_especias",
+      "nombre": "Especias",
+      "descripcion": "Productos de alto valor como clavo y nuez moscada obtenidos en Molucas",
+      "skin_id": null
+    }
+  ]
+}

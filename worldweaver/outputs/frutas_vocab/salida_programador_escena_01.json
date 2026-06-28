@@ -1,0 +1,228 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Carlos muestra la fruta y enseña su nombre.",
+      "guias": [
+        "objeto_manzana",
+        "objeto_plátano",
+        "objeto_naranja",
+        "objeto_uva",
+        "objeto_fresa",
+        "objeto_limón",
+        "objeto_pera",
+        "objeto_sandía",
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_manzana",
+          "objeto_plátano",
+          "objeto_naranja",
+          "objeto_uva",
+          "objeto_fresa",
+          "objeto_limón",
+          "objeto_pera",
+          "objeto_sandía"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_guia",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Carlos — Guía de idiomas",
+        "texto": "Carlos es un profesor carismático que ayuda a los visitantes a aprender vocabulario básico en inglés. En esta etapa muestra frutas y dice sus nombres en inglés, facilitando la asociación visual y verbal. ==Su método interactivo== permite que los alumnos recuerden rápidamente palabras como ==apple== o ==banana==."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "==Apple==, ==banana== and ==orange== are on the table.\nManzana, plátano y naranja están en la mesa."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "==Grape==, ==strawberry== and ==lemon== look fresh today.\nUva, fresa y limón se ven frescos hoy."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "==Pear== and ==watermelon== complete the basket.\nPera y sandía completan la canasta."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Saludar",
+          "descripcion": "El guía levanta la mano y dice: 'Hello, this is an apple.'",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_manzana",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "manzana / apple",
+        "descripcion": "An ==apple== is a fruit high in fiber.\nUna ==manzana== es una fruta rica en fibra.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_plátano",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "plátano / banana",
+        "descripcion": "A ==banana== provides potassium for muscle function.\nUn ==plátano== aporta potasio para la función muscular.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_naranja",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "naranja / orange",
+        "descripcion": "An ==orange== is rich in vitamin C.\nUna ==naranja== es rica en vitamina C.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_uva",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "uva / grape",
+        "descripcion": "A ==grape== contains antioxidants that protect cells.\nUna ==uva== contiene antioxidantes que protegen las células.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_fresa",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "fresa / strawberry",
+        "descripcion": "A ==strawberry== is low in calories and high in vitamin C.\nUna ==fresa== tiene pocas calorías y mucha vitamina C.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_limón",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "limón / lemon",
+        "descripcion": "A ==lemon== provides citric acid that aids digestion.\nUn ==limón== brinda ácido cítrico que ayuda a la digestión.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_pera",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "pera / pear",
+        "descripcion": "A ==pear== supplies dietary fiber for gut health.\nUna ==pera== suministra fibra dietética para la salud intestinal.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_sandía",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "sandía / watermelon",
+        "descripcion": "A ==watermelon== is composed of about 92% water, perfect for hydration.\nUna ==sandía== está compuesta por aproximadamente un 92% de agua, ideal para la hidratación.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_barril_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Barril de roble",
+        "descripcion": "Un barril de roble con tapas metálicas, usado para almacenar frutas. El metal está ligeramente oxidado, mostrando el paso del tiempo.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_entrada",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Entras al puesto de frutas y percibes el aroma dulce del mercado."
+    }
+  ],
+  "examen_vocabulario": false
+}

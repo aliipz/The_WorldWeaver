@@ -1,0 +1,292 @@
+{
+  "id_escena": "escena_05",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "sobre_agua",
+  "radio_escena": 22.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_05",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_05",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 22.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_neil_armstrong",
+      "nombre": "Neil Armstrong",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.91,
+        "y": 0.93,
+        "z": -0.42
+      },
+      "ancho": 1.0,
+      "alto": 1.85,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Doctor_Male_Young.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_buzz_aldrin",
+      "nombre": "Buzz Aldrin",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.6,
+        "y": 0.9,
+        "z": -0.45
+      },
+      "ancho": 0.9,
+      "alto": 1.8,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Doctor_Male_Young.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_michael_collins",
+      "nombre": "Michael Collins",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -1.0,
+        "y": 0.9,
+        "z": -1.47
+      },
+      "ancho": 0.85,
+      "alto": 1.8,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Suit_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_paracaidas_principales",
+      "nombre": "Paracaídas principales",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 2.13,
+        "y": 0.25,
+        "z": -0.78
+      },
+      "ancho": 3.0,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/cd4e55aa-0c83-4bc4-b2ee-a0c4a9506e31.glb",
+      "keyword_busqueda": "parachute"
+    },
+    {
+      "id": "objeto_modulo_mando_columbia",
+      "nombre": "Módulo de Mando Columbia",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -2.94,
+        "y": 0.85,
+        "z": 1.9
+      },
+      "ancho": 2.3,
+      "alto": 1.7,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b7333339-3024-4312-9111-070ace6e6ead.glb",
+      "keyword_busqueda": "space capsule"
+    },
+    {
+      "id": "objeto_uss_hornet",
+      "nombre": "USS Hornet",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.31,
+        "y": 2.5,
+        "z": -3.89
+      },
+      "ancho": 6.0,
+      "alto": 5.0,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/42011511-7595-4006-9523-68b12a1c2735.glb",
+      "keyword_busqueda": "aircraft carrier"
+    },
+    {
+      "id": "objeto_instalacion_cuarentena",
+      "nombre": "Instalación Móvil de Cuarentena",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 2.99,
+        "y": 1.25,
+        "z": 1.81
+      },
+      "ancho": 3.0,
+      "alto": 2.5,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/a6847307-5068-4c9c-b02c-bb18fd09d347.glb",
+      "keyword_busqueda": "quarantine pod"
+    },
+    {
+      "id": "decorado_boya_01",
+      "nombre": "Boya de señalización naranja",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 3.5,
+        "y": 0.25,
+        "z": -4.24
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4e13551a-b2fb-4117-9b57-22b2b7db394e.glb",
+      "keyword_busqueda": "orange buoy"
+    },
+    {
+      "id": "decorado_red_pesca_01",
+      "nombre": "Red de pesca abandonada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -1.0,
+        "y": 0.1,
+        "z": -8.94
+      },
+      "ancho": 4.0,
+      "alto": 0.2,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/9d291011-bf4c-4202-ad84-97bf9e964dae.glb",
+      "keyword_busqueda": "fishing net"
+    },
+    {
+      "id": "decorado_balsa_01",
+      "nombre": "Balsa salvavidas inflable",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.51,
+        "y": 0.15,
+        "z": -19.99
+      },
+      "ancho": 2.0,
+      "alto": 0.3,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/6b9eb5e5-a2d9-41b8-b6b1-4db908eadd46.glb",
+      "keyword_busqueda": "life buoy"
+    }
+  ],
+  "cielo": {
+    "tipo": "atardecer",
+    "color_fondo": "#c03010",
+    "color_ambiente": "#d8683c",
+    "intensidad_ambiente": 0.4085374060064656,
+    "color_sol": "#ff6219",
+    "intensidad_sol": 1.0191079801403737,
+    "pos_sol": {
+      "x": -3.5311320976322005,
+      "y": 0.10416711449761244,
+      "z": -0.5499662724746547
+    },
+    "niebla": {
+      "color": "#c83814",
+      "near": 10.588266202590425,
+      "far": 13.0
+    }
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_neil_armstrong": {
+      "glb_id": "Doctor_Male_Young",
+      "glb_path": "/sandbox/assets/characters/Doctor_Male_Young.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 5650,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_buzz_aldrin": {
+      "glb_id": "Doctor_Male_Young",
+      "glb_path": "/sandbox/assets/characters/Doctor_Male_Young.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 6058,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_michael_collins": {
+      "glb_id": "Suit_Male",
+      "glb_path": "/sandbox/assets/characters/Suit_Male.gltf",
+      "skin_tone": "muy_claro",
+      "skin_hex": "#FFCBA4",
+      "hair_color": "castano_claro",
+      "clothing_seed": 1861,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Idle"
+    }
+  }
+}

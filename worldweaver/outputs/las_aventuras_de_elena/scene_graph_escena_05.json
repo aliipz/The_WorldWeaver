@@ -1,0 +1,285 @@
+{
+  "id_escena": "escena_05",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "bajo_el_agua",
+  "radio_escena": 28.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "tipo_suelo": null,
+  "tipo_techo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_05",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 28.0,
+      "alto": 12.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_05",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 28.0,
+      "alto": 28.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_elena",
+      "nombre": "Elena",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.08,
+        "y": 0.9,
+        "z": -1.0
+      },
+      "ancho": 0.95,
+      "alto": 1.8,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual_Female.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_zip",
+      "nombre": "Zip",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.93,
+        "y": 0.23,
+        "z": -0.36
+      },
+      "ancho": 0.6,
+      "alto": 0.45,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7707fbb7-3081-445a-8c09-0261db4dcbc9.glb",
+      "keyword_busqueda": "fox"
+    },
+    {
+      "id": "objeto_submarino",
+      "nombre": "Submarino oxidado",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -5.75,
+        "y": 1.0,
+        "z": -2.32
+      },
+      "ancho": 4.0,
+      "alto": 2.0,
+      "tam_real": 4.0,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/fd3a137f-c253-48fc-95d0-c40bb3ce4dcc.glb",
+      "keyword_busqueda": "submarine"
+    },
+    {
+      "id": "objeto_cristal",
+      "nombre": "Cristal esférico",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.77,
+        "y": 0.25,
+        "z": -0.93
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "tam_real": 0.5,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/14f2d768-c6d0-4174-b9ed-0adba110ab89.glb",
+      "keyword_busqueda": "sphere"
+    },
+    {
+      "id": "decorado_coral_brillante_01",
+      "nombre": "Rama de coral naranja",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -2.16,
+        "y": 0.3,
+        "z": -2.75
+      },
+      "ancho": 0.6,
+      "alto": 0.6,
+      "tam_real": 0.6,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/3b858f91-3159-47e9-8bf6-a3ee5476f421.glb",
+      "keyword_busqueda": "coral"
+    },
+    {
+      "id": "decorado_alga_larga_01",
+      "nombre": "Alga larga ondulante",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 3.43,
+        "y": 0.4,
+        "z": -0.72
+      },
+      "ancho": 0.4,
+      "alto": 0.8,
+      "tam_real": 0.8,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/9d054953-1445-4c9e-bbf3-2e8b9da5db36.glb",
+      "keyword_busqueda": "seaweed"
+    },
+    {
+      "id": "decorado_estatua_sumergida_01",
+      "nombre": "Estatua de piedra antigua",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -1.13,
+        "y": 1.0,
+        "z": -19.97
+      },
+      "ancho": 1.0,
+      "alto": 2.0,
+      "tam_real": 2.0,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/55b0aa03-543c-439d-a7d7-f0ac4c23578f.glb",
+      "keyword_busqueda": "statue"
+    },
+    {
+      "id": "decorado_roca_marron_01",
+      "nombre": "Roca basaltica cubierta de perceas",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -5.44,
+        "y": 0.75,
+        "z": -12.9
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "tam_real": 2.0,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "decorado_concha_perla_01",
+      "nombre": "Concha gigante de perla",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -7.28,
+        "y": 0.4,
+        "z": -5.29
+      },
+      "ancho": 1.5,
+      "alto": 0.8,
+      "tam_real": 1.5,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/852a1698-7c8e-4ab8-9e68-26aefb81183c.glb",
+      "keyword_busqueda": "shell"
+    },
+    {
+      "id": "decorado_cable_metalico_01",
+      "nombre": "Cable de acero oxidado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 7.55,
+        "y": 0.6,
+        "z": -4.9
+      },
+      "ancho": 3.0,
+      "alto": 1.2,
+      "tam_real": 3.0,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f9c46021-e764-4335-988c-7fc8a5a8b41d.glb",
+      "keyword_busqueda": "cable"
+    }
+  ],
+  "cielo": {
+    "tipo": "cielo_magico",
+    "color_fondo": "#170737",
+    "color_ambiente": "#6311a3",
+    "intensidad_ambiente": 0.5693564619372321,
+    "color_sol": "#42d2c1",
+    "intensidad_sol": 0.9871815172879274,
+    "pos_sol": {
+      "x": -0.5499417865182328,
+      "y": 4.974865109289665,
+      "z": -2.9944534092643114
+    },
+    "niebla": {
+      "color": "#13062f",
+      "near": 10.191206590907829,
+      "far": 19.0
+    },
+    "luz_exterior": null
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_elena": {
+      "glb_id": "Casual_Female",
+      "glb_path": "/sandbox/assets/characters/Casual_Female.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_claro",
+      "clothing_seed": 4470,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

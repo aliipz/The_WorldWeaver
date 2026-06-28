@@ -1,0 +1,125 @@
+{
+  "id_escena": "escena_01",
+  "elementos": [
+    {
+      "id": "personaje_a",
+      "nombre": "Ana",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 5
+      },
+      "ancho": 0.95,
+      "alto": 1.75,
+      "descripcion": "Mujer joven, cabello castaño, lleva una blusa azul",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_b",
+      "nombre": "Luis",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 0.95,
+      "alto": 1.8,
+      "descripcion": "Hombre adulto, barba ligera, lleva una camisa verde",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_fuente_01",
+      "nombre": "Fuente de piedra central",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 2.0,
+      "alto": 1.2,
+      "descripcion": "Una fuente circular de piedra gris, con un chorro de agua que se eleva y cae en un pequeño estanque de ladrillos.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_banco_01",
+      "nombre": "Banco de madera tallada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 3
+      },
+      "ancho": 1.5,
+      "alto": 0.8,
+      "descripcion": "Banco rústico de madera de roble, con respaldos curvados y tallados en forma de hojas, pintado de un tono envejecido.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_farol_01",
+      "nombre": "Farol de hierro oxidado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 2
+      },
+      "ancho": 0.4,
+      "alto": 2.5,
+      "descripcion": "Farol de hierro forjado con una lámpara de vidrio ámbar que emite una luz cálida, apoyado sobre una base de piedra.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_estatua_01",
+      "nombre": "Estatua de bronce del fundador",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 0.8,
+      "alto": 1.8,
+      "descripcion": "Estatua de bronce de unos 1,8 m de altura, representando al fundador del pueblo, con detalles de vestimenta del siglo XVIII.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_puesto_frutas_01",
+      "nombre": "Puesto de frutas y verduras",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 2
+      },
+      "ancho": 1.5,
+      "alto": 1.2,
+      "descripcion": "Estructura de madera con techo de lona, sobre la cual se apilan cestas de manzanas, peras y naranjas, decoradas con cinta roja.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_arbol_olivo_01",
+      "nombre": "Árbol de olivo centenario",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 3.0,
+      "alto": 5.0,
+      "descripcion": "Árbol de olivo con tronco nudoso y ramas extendidas, cubierto de hojas plateadas que brillan bajo la luz del atardecer.",
+      "keyword_busqueda": null
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_01",
+  "query_usada": "harbor water ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/653/653016_1648170-hq.mp3",
+    "titulo": "harbour ambiance 1311 220802_0472.wav",
+    "autor": "klankbeeld",
+    "duracion_segundos": 356.2,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/681/681091_1648170-hq.mp3",
+    "titulo": "marina summer NL 1219 PM 220801_0468.wav",
+    "autor": "klankbeeld",
+    "duracion_segundos": 170.4,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

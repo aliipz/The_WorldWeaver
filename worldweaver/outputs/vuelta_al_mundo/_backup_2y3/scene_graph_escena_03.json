@@ -1,0 +1,720 @@
+{
+  "id_escena": "escena_03",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "pueblo",
+  "radio_escena": 22.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_03",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_03",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 22.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_elcano",
+      "nombre": "Juan Sebastián Elcano",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -1.66,
+        "y": 0.9,
+        "z": -0.39
+      },
+      "ancho": 1.0,
+      "alto": 1.8,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Worker_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_nao_victoria",
+      "nombre": "Nao Victoria",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.73,
+        "y": 1.0,
+        "z": -0.64
+      },
+      "ancho": 5.0,
+      "alto": 2.0,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/941391c3-04a0-43fe-9f7a-c8e7d3b3a77d.glb",
+      "keyword_busqueda": "ship"
+    },
+    {
+      "id": "objeto_especias",
+      "nombre": "Especias",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -1.06,
+        "y": 0.2,
+        "z": -1.91
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f0911fff-b677-4cdb-9a91-9da835148db2.glb",
+      "keyword_busqueda": "spice"
+    },
+    {
+      "id": "objeto_clavo",
+      "nombre": "Clavo",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 2.93,
+        "y": 0.25,
+        "z": -0.58
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/003a8e50-cf23-45ee-b394-3f045ff052e6.glb",
+      "keyword_busqueda": "clove"
+    },
+    {
+      "id": "objeto_nuez_moscada",
+      "nombre": "Nuez moscada",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -3.19,
+        "y": 0.25,
+        "z": 1.43
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/db806531-159d-4c47-98c9-61c6c8b7fafb.glb",
+      "keyword_busqueda": "spice"
+    },
+    {
+      "id": "objeto_tejidos",
+      "nombre": "Tejidos",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.27,
+        "y": 0.25,
+        "z": -3.49
+      },
+      "ancho": 0.6,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e70ae615-47ee-44e5-b8bb-5d5250b8bcee.glb",
+      "keyword_busqueda": "cloth"
+    },
+    {
+      "id": "objeto_herramientas_metalicas",
+      "nombre": "Herramientas metálicas",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -3.66,
+        "y": 0.3,
+        "z": -4.1
+      },
+      "ancho": 0.7,
+      "alto": 0.6,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/19677e8d-48c9-4e1e-b71f-ba792728d1b9.glb",
+      "keyword_busqueda": "tool"
+    },
+    {
+      "id": "objeto_espejos",
+      "nombre": "Espejos",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 5.43,
+        "y": 0.25,
+        "z": -0.86
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/8d8927eb-1a6c-4692-884f-d0e976b71a69.glb",
+      "keyword_busqueda": "mirror"
+    },
+    {
+      "id": "decorado_puesto_madera_01",
+      "nombre": "Puesto de madera del mercado de especias",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -3.99,
+        "y": 1.25,
+        "z": 3.79
+      },
+      "ancho": 2.0,
+      "alto": 2.5,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e2633001-4cf5-46fa-ac68-575c9954f4ba.glb",
+      "keyword_busqueda": "stall"
+    },
+    {
+      "id": "decorado_farol_aceite_01",
+      "nombre": "Farol de aceite colgado en la entrada del mercado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 1.48,
+        "y": 0.6,
+        "z": -19.95
+      },
+      "ancho": 0.3,
+      "alto": 1.2,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ecbc7b04-09ca-4068-bb3c-4e5ce1163c9a.glb",
+      "keyword_busqueda": "lantern"
+    },
+    {
+      "id": "decorado_barril_ron_01",
+      "nombre": "Barril de ron del puerto",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -6.2,
+        "y": 0.45,
+        "z": -12.56
+      },
+      "ancho": 0.6,
+      "alto": 0.9,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/6d3e8847-bda4-4d6c-8004-7b03cf848b13.glb",
+      "keyword_busqueda": "barrel"
+    },
+    {
+      "id": "decorado_cesta_mimbre_01",
+      "nombre": "Cesta de mimbre para especias",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -8.24,
+        "y": 0.3,
+        "z": 3.61
+      },
+      "ancho": 0.8,
+      "alto": 0.6,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/2d220908-21c7-42f6-bd9d-90235d564205.glb",
+      "keyword_busqueda": "basket"
+    },
+    {
+      "id": "amb_00_0_00",
+      "nombre": "house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 1.78,
+        "y": 1.65,
+        "z": 20.41
+      },
+      "ancho": 1.89,
+      "alto": 3.3,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/fedcf063-38c2-4ece-b064-f29960dd2193.glb",
+      "keyword_busqueda": "house"
+    },
+    {
+      "id": "amb_00_0_01",
+      "nombre": "house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 13.95,
+        "y": 1.59,
+        "z": 12.49
+      },
+      "ancho": 1.81,
+      "alto": 3.17,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/fedcf063-38c2-4ece-b064-f29960dd2193.glb",
+      "keyword_busqueda": "house"
+    },
+    {
+      "id": "amb_00_0_02",
+      "nombre": "house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 17.59,
+        "y": 1.54,
+        "z": 5.49
+      },
+      "ancho": 1.76,
+      "alto": 3.07,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/fedcf063-38c2-4ece-b064-f29960dd2193.glb",
+      "keyword_busqueda": "house"
+    },
+    {
+      "id": "amb_00_0_03",
+      "nombre": "house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 18.09,
+        "y": 1.85,
+        "z": -6.66
+      },
+      "ancho": 2.11,
+      "alto": 3.7,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/fedcf063-38c2-4ece-b064-f29960dd2193.glb",
+      "keyword_busqueda": "house"
+    },
+    {
+      "id": "amb_00_0_04",
+      "nombre": "house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 13.15,
+        "y": 1.42,
+        "z": -15.6
+      },
+      "ancho": 1.62,
+      "alto": 2.84,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/fedcf063-38c2-4ece-b064-f29960dd2193.glb",
+      "keyword_busqueda": "house"
+    },
+    {
+      "id": "amb_00_0_05",
+      "nombre": "house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 2.66,
+        "y": 1.51,
+        "z": -18.99
+      },
+      "ancho": 1.73,
+      "alto": 3.02,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/fedcf063-38c2-4ece-b064-f29960dd2193.glb",
+      "keyword_busqueda": "house"
+    },
+    {
+      "id": "amb_00_0_06",
+      "nombre": "house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -6.88,
+        "y": 2.05,
+        "z": -18.89
+      },
+      "ancho": 2.35,
+      "alto": 4.11,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/fedcf063-38c2-4ece-b064-f29960dd2193.glb",
+      "keyword_busqueda": "house"
+    },
+    {
+      "id": "amb_00_0_07",
+      "nombre": "house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -16.64,
+        "y": 1.71,
+        "z": -10.03
+      },
+      "ancho": 1.95,
+      "alto": 3.41,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/fedcf063-38c2-4ece-b064-f29960dd2193.glb",
+      "keyword_busqueda": "house"
+    },
+    {
+      "id": "amb_00_0_08",
+      "nombre": "house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.03,
+        "y": 1.42,
+        "z": -0.9
+      },
+      "ancho": 1.62,
+      "alto": 2.84,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/fedcf063-38c2-4ece-b064-f29960dd2193.glb",
+      "keyword_busqueda": "house"
+    },
+    {
+      "id": "amb_00_0_09",
+      "nombre": "house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.59,
+        "y": 1.66,
+        "z": 6.16
+      },
+      "ancho": 1.89,
+      "alto": 3.32,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/fedcf063-38c2-4ece-b064-f29960dd2193.glb",
+      "keyword_busqueda": "house"
+    },
+    {
+      "id": "amb_00_0_10",
+      "nombre": "house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -13.45,
+        "y": 1.52,
+        "z": 13.58
+      },
+      "ancho": 1.74,
+      "alto": 3.05,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/fedcf063-38c2-4ece-b064-f29960dd2193.glb",
+      "keyword_busqueda": "house"
+    },
+    {
+      "id": "amb_01_0_00",
+      "nombre": "Cottage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.73,
+        "y": 1.56,
+        "z": 17.45
+      },
+      "ancho": 1.87,
+      "alto": 3.12,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/8ab3d7cd-dcce-4535-8c64-a22aa0487050.glb",
+      "keyword_busqueda": "Cottage"
+    },
+    {
+      "id": "amb_01_0_01",
+      "nombre": "Cottage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 1.82,
+        "y": 1.51,
+        "z": 18.94
+      },
+      "ancho": 1.81,
+      "alto": 3.02,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/8ab3d7cd-dcce-4535-8c64-a22aa0487050.glb",
+      "keyword_busqueda": "Cottage"
+    },
+    {
+      "id": "amb_01_0_02",
+      "nombre": "Cottage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 17.05,
+        "y": 1.23,
+        "z": 6.22
+      },
+      "ancho": 1.48,
+      "alto": 2.47,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/8ab3d7cd-dcce-4535-8c64-a22aa0487050.glb",
+      "keyword_busqueda": "Cottage"
+    },
+    {
+      "id": "amb_01_0_03",
+      "nombre": "Cottage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 17.56,
+        "y": 1.32,
+        "z": -5.08
+      },
+      "ancho": 1.58,
+      "alto": 2.63,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/8ab3d7cd-dcce-4535-8c64-a22aa0487050.glb",
+      "keyword_busqueda": "Cottage"
+    },
+    {
+      "id": "amb_01_0_04",
+      "nombre": "Cottage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 11.0,
+        "y": 1.38,
+        "z": -15.7
+      },
+      "ancho": 1.66,
+      "alto": 2.77,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/8ab3d7cd-dcce-4535-8c64-a22aa0487050.glb",
+      "keyword_busqueda": "Cottage"
+    },
+    {
+      "id": "amb_01_0_05",
+      "nombre": "Cottage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.7,
+        "y": 1.58,
+        "z": -16.98
+      },
+      "ancho": 1.9,
+      "alto": 3.16,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/8ab3d7cd-dcce-4535-8c64-a22aa0487050.glb",
+      "keyword_busqueda": "Cottage"
+    },
+    {
+      "id": "amb_01_0_06",
+      "nombre": "Cottage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.08,
+        "y": 1.3,
+        "z": -10.93
+      },
+      "ancho": 1.56,
+      "alto": 2.61,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/8ab3d7cd-dcce-4535-8c64-a22aa0487050.glb",
+      "keyword_busqueda": "Cottage"
+    },
+    {
+      "id": "amb_02_2_00",
+      "nombre": "well",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 5.58,
+        "y": 0.58,
+        "z": 7.13
+      },
+      "ancho": 0.93,
+      "alto": 1.16,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/0e044203-f62e-4dad-ad3e-c3cb6cb393ac.glb",
+      "keyword_busqueda": "well"
+    },
+    {
+      "id": "amb_03_1_00",
+      "nombre": "barrel",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 1.32,
+        "y": 0.32,
+        "z": 14.22
+      },
+      "ancho": 0.46,
+      "alto": 0.64,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/6d3e8847-bda4-4d6c-8004-7b03cf848b13.glb",
+      "keyword_busqueda": "barrel"
+    },
+    {
+      "id": "amb_03_2_00",
+      "nombre": "barrel",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -3.73,
+        "y": 0.35,
+        "z": -8.13
+      },
+      "ancho": 0.5,
+      "alto": 0.71,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/6d3e8847-bda4-4d6c-8004-7b03cf848b13.glb",
+      "keyword_busqueda": "barrel"
+    },
+    {
+      "id": "amb_04_1_00",
+      "nombre": "bench",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.51,
+        "y": 0.47,
+        "z": -1.97
+      },
+      "ancho": 1.17,
+      "alto": 0.93,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/623120d8-bebf-4bd9-bb09-3162c06c9741.glb",
+      "keyword_busqueda": "bench"
+    },
+    {
+      "id": "amb_04_2_00",
+      "nombre": "bench",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -7.46,
+        "y": 0.4,
+        "z": 1.21
+      },
+      "ancho": 0.99,
+      "alto": 0.79,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/623120d8-bebf-4bd9-bb09-3162c06c9741.glb",
+      "keyword_busqueda": "bench"
+    }
+  ],
+  "cielo": {
+    "tipo": "manana_despejada",
+    "color_fondo": "#8ed0ed",
+    "color_ambiente": "#ffffff",
+    "intensidad_ambiente": 0.6402112839723458,
+    "color_sol": "#ffd41c",
+    "intensidad_sol": 1.2693127706374687,
+    "pos_sol": {
+      "x": 0.15987779115414957,
+      "y": 3.6742901990155,
+      "z": -0.5653623199992555
+    },
+    "niebla": {
+      "color": "#8ec1d7",
+      "near": 6.2,
+      "far": 13.0
+    }
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_elcano": {
+      "glb_id": "Worker_Male",
+      "glb_path": "/sandbox/assets/characters/Worker_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "negro",
+      "clothing_seed": 7089,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

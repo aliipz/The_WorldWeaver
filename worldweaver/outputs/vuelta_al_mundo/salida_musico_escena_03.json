@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_03",
+  "query_usada": "ocean waves white beach",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/829/829448_9034501-hq.mp3",
+    "titulo": "250730_061119_PH_Ocean_waves_at_White_Beach",
+    "autor": "kevp888",
+    "duracion_segundos": 429.6,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/829/829474_9034501-hq.mp3",
+    "titulo": "250730_062959_PH_Morning_atmosphere_at_White_Beach",
+    "autor": "kevp888",
+    "duracion_segundos": 491.7,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

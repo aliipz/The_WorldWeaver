@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>WorldWeaver — Preview</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0d0d1a; overflow: hidden; font-family: 'Segoe UI', sans-serif; }
+        canvas { display: block; }
+
+        #ui {
+            position: absolute; top: 0; left: 0; width: 100%; padding: 12px 16px;
+            display: flex; justify-content: space-between; align-items: flex-start;
+            pointer-events: none;
+        }
+        #titulo {
+            color: #fff; font-size: 15px; font-weight: 600;
+            background: rgba(0,0,0,0.55); padding: 6px 12px; border-radius: 8px;
+        }
+        #titulo span { color: #88aaff; }
+
+        #leyenda {
+            background: rgba(0,0,0,0.55); padding: 8px 12px; border-radius: 8px;
+            color: #ccc; font-size: 12px; line-height: 1.8;
+        }
+        .leyenda-item { display: flex; align-items: center; gap: 8px; }
+        .dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+
+        #hint {
+            position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+            color: rgba(255,255,255,0.4); font-size: 12px;
+            background: rgba(0,0,0,0.4); padding: 4px 10px; border-radius: 20px;
+            transition: color 0.3s;
+        }
+
+        /* Menú de pausa (overlay de ESC): volumen a la izquierda, casa a la derecha */
+        #pause-bar {
+            position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+            display: flex; align-items: center; gap: 18px;
+            pointer-events: none;
+        }
+        #audio-ctrl {
+            display: flex; align-items: center; gap: 11px;
+            padding: 9px 15px; border-radius: 13px;
+            background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.10);
+            pointer-events: auto;
+        }
+        #audio-btn {
+            pointer-events: auto; cursor: pointer; background: none; border: none;
+            color: rgba(255,255,255,0.9); font-size: 18px; line-height: 1; padding: 0;
+            transition: transform .15s;
+        }
+        #audio-btn:hover { transform: scale(1.15); }
+        #audio-vol {
+            -webkit-appearance: none; appearance: none;
+            width: 120px; height: 4px; border-radius: 3px;
+            background: rgba(255,255,255,0.22);
+            pointer-events: auto; cursor: pointer; outline: none;
+        }
+        #audio-vol::-webkit-slider-thumb {
+            -webkit-appearance: none; appearance: none;
+            width: 13px; height: 13px; border-radius: 50%;
+            background: #fff; cursor: pointer;
+        }
+        #audio-vol::-moz-range-thumb {
+            width: 13px; height: 13px; border: none; border-radius: 50%;
+            background: #fff; cursor: pointer;
+        }
+        #home-btn {
+            pointer-events: auto; cursor: pointer;
+            width: 46px; height: 46px; border-radius: 13px;
+            background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.10);
+            color: #fff; font-size: 21px; line-height: 1;
+            display: flex; align-items: center; justify-content: center;
+            transition: all .18s;
+        }
+        #home-btn:hover {
+            background: rgba(180,60,60,0.55); border-color: rgba(255,120,120,0.4);
+            transform: scale(1.07);
+        }
+        /* Confirmación de salida del mundo */
+        #exit-confirm {
+            display: none; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(15,12,24,0.97); border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px; padding: 26px 32px; text-align: center;
+            pointer-events: auto; z-index: 10;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
+        #exit-confirm p { color: #fff; font-size: 16px; font-weight: 600; margin: 0 0 18px; }
+        #exit-confirm .ec-btns { display: flex; gap: 12px; justify-content: center; }
+        #exit-confirm button {
+            cursor: pointer; min-width: 78px; padding: 9px 0; border-radius: 9px;
+            font-size: 14px; font-weight: 600; border: 1px solid transparent; transition: all .15s;
+        }
+        #ec-yes { background: rgba(180,60,60,0.85); color: #fff; }
+        #ec-yes:hover { background: rgba(214,72,72,1); }
+        #ec-no  { background: rgba(255,255,255,0.12); color: #ddd; border-color: rgba(255,255,255,0.15); }
+        #ec-no:hover  { background: rgba(255,255,255,0.2); color: #fff; }
+
+        #btn-modo {
+            pointer-events: auto; cursor: pointer;
+            background: rgba(80,60,160,0.75); border: 1px solid rgba(140,110,255,0.4);
+            color: #ccc; font-size: 12px; padding: 5px 11px; border-radius: 8px;
+            transition: background 0.2s;
+        }
+        #btn-modo:hover { background: rgba(100,80,200,0.9); color: #fff; }
+        #btn-modo.fps-activo { background: rgba(40,120,60,0.85); border-color: rgba(80,220,100,0.5); color: #aeffb8; }
+
+        #crosshair {
+            display: none; position: absolute;
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 18px; height: 18px; pointer-events: none;
+        }
+        #crosshair::before, #crosshair::after {
+            content: ''; position: absolute; background: rgba(255,255,255,0.75);
+            border-radius: 1px;
+        }
+        #crosshair::before { width: 2px; height: 100%; left: 50%; transform: translateX(-50%); }
+        #crosshair::after  { width: 100%; height: 2px; top: 50%; transform: translateY(-50%); }
+
+        #fps-overlay {
+            display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.55); pointer-events: auto; cursor: crosshair;
+            justify-content: center; align-items: center; flex-direction: column; gap: 8px;
+        }
+        #fps-overlay p { color: #fff; font-size: 16px; font-weight: 600; }
+        #fps-overlay small { color: #aaa; font-size: 12px; }
+
+        #tooltip {
+            position: absolute; display: none;
+            background: rgba(10,10,30,0.92); color: #eee;
+            border: 1px solid rgba(255,255,255,0.15); border-radius: 8px;
+            padding: 8px 12px; font-size: 12px; max-width: 220px;
+            pointer-events: none; line-height: 1.6;
+        }
+        #tooltip .tt-nombre { font-weight: 700; font-size: 13px; color: #88aaff; }
+        #tooltip .tt-tipo { color: #aaa; text-transform: uppercase; font-size: 10px; letter-spacing: 1px; }
+        #tooltip .tt-prompt { color: #999; margin-top: 4px; font-style: italic; }
+
+        #portal-flash {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(ellipse at center, #ffffff 0%, #99bbff 50%, #1a22cc 100%);
+            opacity: 1; pointer-events: none; z-index: 9999;
+        }
+        #portal-hint {
+            display: none; position: absolute; bottom: 48px; left: 50%;
+            transform: translateX(-50%);
+            color: rgba(160,200,255,0.9); font-size: 13px; font-style: italic;
+            letter-spacing: 1.5px; text-align: center;
+            text-shadow: 0 0 16px rgba(80,140,255,1), 0 0 32px rgba(100,80,255,0.6);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+__IDIOMA_PLACEHOLDER__
+<script>
+// ── UI i18n — strings del viewer (independientes del contenido generado) ──────
+const _WW_UI = {
+    es: {
+        leyenda_fondo:    'Fondo',
+        leyenda_personaje:'Personaje',
+        leyenda_objeto:   'Objeto',
+        leyenda_decorado: 'Decorado',
+        escena:     'Escena',
+        audio_on:   '♪ Música',
+        audio_off:  '♪ Música (off)',
+        modo_fps:   '🎮 Modo inmersivo  [F]',
+        modo_orbit: '🖱 Modo escena  [F]',
+        hint_orbit: '🖱 Haz clic para explorar el mundo',
+        hint_fps:   '↑↓←→ / WASD mover · ratón mirar · ESC para salir',
+        fps_click:  'Clic para continuar',
+        fps_exit:   'Ajusta el volumen o vuelve al inicio',
+        salir_confirm: '¿Seguro que quieres salir del mundo?',
+        si: 'Sí', no: 'No',
+    },
+    en: {
+        leyenda_fondo:    'Background',
+        leyenda_personaje:'Character',
+        leyenda_objeto:   'Object',
+        leyenda_decorado: 'Prop',
+        escena:     'Scene',
+        audio_on:   '♪ Music',
+        audio_off:  '♪ Music (off)',
+        modo_fps:   '🎮 Immersive mode  [F]',
+        modo_orbit: '🖱 Scene mode  [F]',
+        hint_orbit: '🖱 Click to explore the world',
+        hint_fps:   '↑↓←→ / WASD move · mouse look · ESC to exit',
+        fps_click:  'Click to continue',
+        fps_exit:   'Adjust the volume or go back home',
+        salir_confirm: 'Are you sure you want to leave the world?',
+        si: 'Yes', no: 'No',
+    },
+};
+function _wwUI(k) { return (_WW_UI[typeof IDIOMA!=='undefined'?IDIOMA:'es']||_WW_UI.es)[k]; }
+</script>
+
+<div id="ui">
+    <div id="titulo">WorldWeaver &nbsp;·&nbsp; <span id="titulo-escena">—</span></div>
+    <div style="display:none; flex-direction:column; align-items:flex-end; gap:8px;">
+        <div id="leyenda">
+            <div class="leyenda-item"><div class="dot" style="background:#87CEEB"></div> <span id="ley-fondo"></span></div>
+            <div class="leyenda-item"><div class="dot" style="background:#FFAA88"></div> <span id="ley-personaje"></span></div>
+            <div class="leyenda-item"><div class="dot" style="background:#FFD700"></div> <span id="ley-objeto"></span></div>
+            <div class="leyenda-item"><div class="dot" style="background:#90C060"></div> <span id="ley-decorado"></span></div>
+        </div>
+        <button id="btn-modo" onclick="toggleModo()"></button>
+    </div>
+</div>
+
+<div id="hint"></div>
+<div id="crosshair"></div>
+<div id="fps-overlay">
+    <div id="pause-bar">
+        <div id="audio-ctrl" style="display:none">
+            <button id="audio-btn" onclick="toggleAudio()" title="Silenciar / activar música">🔊</button>
+            <input type="range" id="audio-vol" min="0" max="0.5" step="0.01" title="Volumen">
+        </div>
+        <button id="home-btn" title="Salir del mundo">🏠</button>
+    </div>
+    <p id="fps-click-text"></p>
+    <small id="fps-exit-text"></small>
+    <div id="exit-confirm">
+        <p id="exit-confirm-text"></p>
+        <div class="ec-btns">
+            <button id="ec-yes"></button>
+            <button id="ec-no"></button>
+        </div>
+    </div>
+</div>
+<div id="portal-flash"></div>
+<div id="portal-hint">✦ &nbsp;__PORTAL_LABEL_PLACEHOLDER__</div>
+<div id="tooltip">
+    <div class="tt-tipo" id="tt-tipo"></div>
+    <div class="tt-nombre" id="tt-nombre"></div>
+    <div class="tt-prompt" id="tt-prompt"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script>
+// ── OrbitControls inline (r128 compatible) ────────────────────────────────
+// Minimal version to avoid CDN path issues
+THREE.OrbitControls = function(camera, domElement) {
+    this.camera = camera; this.domElement = domElement;
+    this.target = new THREE.Vector3(0, 1.5, -2.5);
+    this.enabled = true;
+    var scope = this;
+    var STATE = { NONE: -1, ROTATE: 0, DOLLY: 1, PAN: 2 };
+    var state = STATE.NONE;
+    var spherical = new THREE.Spherical();
+    var sphericalDelta = new THREE.Spherical();
+    var scale = 1;
+    var rotateStart = new THREE.Vector2(), rotateEnd = new THREE.Vector2(), rotateDelta = new THREE.Vector2();
+    var panStart  = new THREE.Vector2(), panEnd = new THREE.Vector2(), panDelta = new THREE.Vector2();
+    var offset = new THREE.Vector3();
+    var quat = new THREE.Quaternion().setFromUnitVectors(camera.up, new THREE.Vector3(0,1,0));
+    var quatInverse = quat.clone().invert();
+    var lastPos = new THREE.Vector3();
+
+    offset.copy(camera.position).sub(scope.target);
+    offset.applyQuaternion(quat);
+    spherical.setFromVector3(offset);
+
+    var _panLeft = function(distance) {
+        var v = new THREE.Vector3();
+        v.setFromMatrixColumn(camera.matrix, 0);
+        v.multiplyScalar(-distance);
+        scope.target.add(v);
+        camera.position.add(v);
+    };
+    var _panUp = function(distance) {
+        var v = new THREE.Vector3();
+        v.setFromMatrixColumn(camera.matrix, 1);
+        v.multiplyScalar(distance);
+        scope.target.add(v);
+        camera.position.add(v);
+    };
+
+    this.update = function() {
+        spherical.theta += sphericalDelta.theta;
+        spherical.phi += sphericalDelta.phi;
+        spherical.phi = Math.max(0.1, Math.min(Math.PI - 0.1, spherical.phi));
+        spherical.radius *= scale;
+        spherical.radius = Math.max(2, Math.min(20, spherical.radius));
+        sphericalDelta.set(0,0,0); scale = 1;
+        offset.setFromSpherical(spherical);
+        offset.applyQuaternion(quatInverse);
+        camera.position.copy(scope.target).add(offset);
+        camera.lookAt(scope.target);
+    };
+
+    var onMouseDown = function(e) {
+        if (e.button === 0) { state = STATE.ROTATE; rotateStart.set(e.clientX, e.clientY); }
+        if (e.button === 2) { state = STATE.PAN;    panStart.set(e.clientX, e.clientY); }
+    };
+    var onMouseMove = function(e) {
+        if (state === STATE.ROTATE) {
+            rotateEnd.set(e.clientX, e.clientY);
+            rotateDelta.subVectors(rotateEnd, rotateStart).multiplyScalar(0.005);
+            sphericalDelta.theta -= rotateDelta.x;
+            sphericalDelta.phi -= rotateDelta.y;
+            rotateStart.copy(rotateEnd);
+        } else if (state === STATE.PAN) {
+            panEnd.set(e.clientX, e.clientY);
+            panDelta.subVectors(panEnd, panStart).multiplyScalar(0.01);
+            _panLeft(panDelta.x);
+            _panUp(panDelta.y);
+            panStart.copy(panEnd);
+        }
+    };
+    var onMouseUp = function() { state = STATE.NONE; };
+    var onWheel = function(e) { scale *= e.deltaY > 0 ? 1.1 : 0.9; };
+    var onContextMenu = function(e) { e.preventDefault(); };
+
+    domElement.addEventListener('mousedown', onMouseDown);
+    domElement.addEventListener('mousemove', onMouseMove);
+    domElement.addEventListener('mouseup', onMouseUp);
+    domElement.addEventListener('wheel', onWheel);
+    domElement.addEventListener('contextmenu', onContextMenu);
+
+    this.dispose = function() {
+        domElement.removeEventListener('mousedown', onMouseDown);
+        domElement.removeEventListener('mousemove', onMouseMove);
+        domElement.removeEventListener('mouseup', onMouseUp);
+        domElement.removeEventListener('wheel', onWheel);
+        domElement.removeEventListener('contextmenu', onContextMenu);
+    };
+};
+</script>
+__INTRO_PLACEHOLDER__
+<script src="js/personajes.js"></script>
+<script src="js/scene_loader.js"></script>
+<script src="js/interactions.js"></script>
+<script src="js/sky.js"></script>
+<script>
+// ── Flash: siempre opaco en CSS; ocultarlo inmediatamente si no es llegada por portal ──
+(function () {
+    const _f = document.getElementById('portal-flash');
+    if (!new URLSearchParams(window.location.search).has('portal')) {
+        _f.style.transition = 'none';
+        _f.style.opacity    = '0';
+    }
+})();
+
+// ── Estado global de intro (el script de intro lo sobreescribe a true si existe) ──
+if (typeof window._introActiva === 'undefined') window._introActiva = false;
+
+// ── Datos de la escena (inyectados por el Ensamblador) ────────────────────
+const SCENE_GRAPH          = __SCENE_GRAPH_PLACEHOLDER__;
+const INTERACTION_MANIFEST = __MANIFEST_PLACEHOLDER__;
+const AUDIO_DATA           = __AUDIO_PLACEHOLDER__;
+const CIELO_CONFIG         = __CIELO_PLACEHOLDER__;
+const NEXT_SCENE_URL       = __NEXT_SCENE_PLACEHOLDER__;
+const FIN_DATA             = __FIN_DATA_PLACEHOLDER__;
+
+// ── Setup Three.js ────────────────────────────────────────────────────────
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type    = THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+
+// ── Cielo / iluminación atmosférica ──────────────────────────────────────
+(function aplicarCielo(cielo) {
+    if (!cielo) return;
+    scene.background = new THREE.Color(cielo.color_fondo);
+    renderer.setClearColor(cielo.color_fondo);
+
+    // interior_luminoso trae un ambiente muy alto (≈1.0) que, sobre paredes claras,
+    // satura la sala a blanco ("no se ve nada"). Lo topamos para que el interior se lea.
+    const intensidadAmb = (cielo.tipo === 'interior_luminoso')
+        ? Math.min(cielo.intensidad_ambiente, 0.62)
+        : cielo.intensidad_ambiente;
+    const luz = new THREE.AmbientLight(cielo.color_ambiente, intensidadAmb);
+    scene.add(luz);
+
+    // Clamp de seguridad: el renderer (r128) no tiene tone mapping, así que cualquier
+    // luz >1.0 recorta a blanco puro. Los presets diurnos antiguos traían soles de
+    // 1.6–2.4 que quemaban las superficies de albedo medio (piel, suelo) a blanco.
+    // Topamos a 1.2 para que las escenas diurnas dejen de sobreexponerse; las de
+    // noche/tormenta (sol <1.0) no se ven afectadas.
+    const intensidadSol = Math.min(cielo.intensidad_sol, 1.2);
+    const sol = new THREE.DirectionalLight(cielo.color_sol, intensidadSol);
+    const p = cielo.pos_sol;
+    sol.position.set(p.x, p.y, p.z);
+    sol.castShadow = true;
+    sol.shadow.mapSize.setScalar(1024);
+    sol.shadow.camera.near   =  0.5;
+    sol.shadow.camera.far    = 30;
+    sol.shadow.camera.left   = -9;
+    sol.shadow.camera.right  =  9;
+    sol.shadow.camera.top    =  9;
+    sol.shadow.camera.bottom = -9;
+    sol.shadow.bias          = -0.001;
+    scene.add(sol);
+
+    if (cielo.niebla) {
+        scene.fog = new THREE.Fog(cielo.niebla.color, cielo.niebla.near, cielo.niebla.far);
+    }
+})(CIELO_CONFIG ?? SCENE_GRAPH.cielo);
+
+const cam = SCENE_GRAPH.camara;
+const camera = new THREE.PerspectiveCamera(cam.fov ?? 55, window.innerWidth / window.innerHeight, 0.1, 100);
+// Cámara en el centro del cilindro, altura de ojos
+camera.position.set(0, 1.8, 0);
+scene.add(camera);  // necesario para renderizar hijos de la cámara (inspección de objetos)
+
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 1.8, -3); // mira hacia el frente desde el centro
+
+// Cargar escena, interacciones y cielo dinámico
+const escenaDinamica = cargarSceneGraph(SCENE_GRAPH, scene);
+const interacciones  = iniciarInteracciones(INTERACTION_MANIFEST, scene, camera, renderer);
+const cieloDinamico  = iniciarCielo(CIELO_CONFIG ?? SCENE_GRAPH.cielo, scene);
+
+// Título
+document.getElementById('titulo-escena').textContent =
+    _wwUI('escena') + ' ' + parseInt((String(SCENE_GRAPH.id_escena).match(/\d+/) || ['1'])[0], 10);
+
+// ── Tooltip al hacer hover ────────────────────────────────────────────────
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+const tooltip = document.getElementById('tooltip');
+
+renderer.domElement.addEventListener('mousemove', (e) => {
+    if (fpsModo) return;
+    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+
+    const hits = raycaster.intersectObjects(scene.children, true)
+        .filter(h => h.object.parent?.userData?.id);
+
+    if (hits.length > 0) {
+        const nodo = hits[0].object.parent.userData;
+        document.getElementById('tt-tipo').textContent = nodo.tipo;
+        document.getElementById('tt-nombre').textContent = nodo.nombre || nodo.id;
+        document.getElementById('tt-prompt').textContent = nodo.prompt_imagen ? `"${nodo.prompt_imagen}"` : '';
+        tooltip.style.display = 'block';
+        tooltip.style.left = (e.clientX + 14) + 'px';
+        tooltip.style.top  = (e.clientY - 10) + 'px';
+        renderer.domElement.style.cursor = 'pointer';
+    } else {
+        tooltip.style.display = 'none';
+        renderer.domElement.style.cursor = 'default';
+    }
+});
+
+// ── Audio ambiente ────────────────────────────────────────────────────────
+(function() {
+    if (!AUDIO_DATA?.url_preview) return;
+
+    const audio = document.createElement('audio');
+    audio.src    = AUDIO_DATA.url_preview;
+    audio.loop   = true;
+    audio.volume = 0;
+    document.body.appendChild(audio);
+
+    const btn    = document.getElementById('audio-btn');
+    const slider = document.getElementById('audio-vol');
+    const ctrl   = document.getElementById('audio-ctrl');
+    if (ctrl) ctrl.style.display = 'flex';
+
+    // La música es FONDO: aunque el Músico genere un volumen alto (algunos mundos
+    // traen 0.6), lo capamos para que no tape los SFX de acción. El usuario puede
+    // subirlo/bajarlo con el slider (persistido en localStorage).
+    const VOL_MAX = 0.5;
+    const VOL_DEF = Math.min(AUDIO_DATA.volumen ?? 0.25, 0.32);
+    let volTarget = VOL_DEF;
+    const guardado = parseFloat(localStorage.getItem('ww_music_vol'));
+    if (!isNaN(guardado)) volTarget = Math.min(VOL_MAX, Math.max(0, guardado));
+
+    let silenciado = false;
+    if (slider) { slider.max = VOL_MAX; slider.value = volTarget; }
+
+    // Fade in al cargar — requiere gesto del usuario (política del browser)
+    function iniciarAudio() {
+        audio.play().then(() => {
+            btn.classList.add('sonando');
+            // Fade in suave en 3 segundos hasta el volumen objetivo actual
+            let v = 0;
+            const step = Math.max(volTarget, 0.0001) / 60;
+            const fade = setInterval(() => {
+                v = Math.min(v + step, volTarget);
+                if (!silenciado) audio.volume = v;
+                if (v >= volTarget) clearInterval(fade);
+            }, 50);
+        }).catch(() => {});
+    }
+
+    // El browser bloquea autoplay sin gesto — arrancamos en el primer click/tecla
+    const arrancar = () => { iniciarAudio(); document.removeEventListener('click', arrancar); document.removeEventListener('keydown', arrancar); };
+    document.addEventListener('click', arrancar);
+    document.addEventListener('keydown', arrancar);
+
+    btn.textContent = '🔊';
+    window.toggleAudio = function() {
+        silenciado = !silenciado;
+        audio.volume = silenciado ? 0 : volTarget;
+        btn.textContent = silenciado ? '🔇' : '🔊';
+    };
+
+    if (slider) {
+        slider.addEventListener('input', () => {
+            volTarget = parseFloat(slider.value);
+            localStorage.setItem('ww_music_vol', String(volTarget));
+            if (!silenciado) audio.volume = volTarget;
+        });
+        // Evita que arrastrar el slider cuente como gesto de movimiento/click 3D
+        slider.addEventListener('click',     e => e.stopPropagation());
+        slider.addEventListener('mousedown', e => e.stopPropagation());
+    }
+})();
+
+// ── Controles FPS ─────────────────────────────────────────────────────────
+let fpsModo = false;
+let fpsYaw = 0, fpsPitch = 0;
+const fpsKeys = {};
+const FPS_VELOCIDAD = 0.045;
+const FPS_ALTURA    = 1.8;
+const FPS_SENSIBILIDAD = 0.0022;
+
+// Ambientes sin suelo firme → flotación sutil de cámara (espacio, luna, fondo marino).
+const _AMBIENTE_FLOTANTE = ['espacio', 'superficie_planeta', 'bajo_el_agua']
+    .includes(SCENE_GRAPH.tipo_ambiente);
+const _AMBIENTE_AGUA = SCENE_GRAPH.tipo_ambiente === 'bajo_el_agua';
+
+// Caminar SOBRE el agua (suelo de agua animada): pisada firme + chapoteos.
+// En 'barco' se activa solo al DESEMBARCAR (ver _enModoAgua).
+const _SOBRE_AGUA = SCENE_GRAPH.tipo_ambiente === 'sobre_agua';
+let _pasoDist = 0, _prevPX = null, _prevPZ = null;  // cadencia de pisadas por distancia
+
+// Barco: empiezas en la cubierta; puedes bajar al agua (tecla B) y volver a subir (B).
+const _ES_BARCO = SCENE_GRAPH.tipo_ambiente === 'barco';
+let _enBarco = _ES_BARCO;   // true = en cubierta, false = caminando sobre el agua
+let _enModoAgua = false;    // true tras desembarcar → activa los chapoteos
+let _transBarco = null;     // transición de cámara subir/bajar {t0, dur, fromY, toY, despues}
+
+const elOverlay    = document.getElementById('fps-overlay');
+const elCrosshair  = document.getElementById('crosshair');
+const elHint       = document.getElementById('hint');
+const elBtnModo    = document.getElementById('btn-modo');
+
+// Inicializar strings de UI según idioma
+(function _initUI() {
+    const _s = (id, t) => { const el = document.getElementById(id); if (el) el.textContent = t; };
+    _s('ley-fondo',     _wwUI('leyenda_fondo'));
+    _s('ley-personaje', _wwUI('leyenda_personaje'));
+    _s('ley-objeto',    _wwUI('leyenda_objeto'));
+    _s('ley-decorado',  _wwUI('leyenda_decorado'));
+    _s('fps-click-text', _wwUI('fps_click'));
+    _s('fps-exit-text',  _wwUI('fps_exit'));
+    _s('exit-confirm-text', _wwUI('salir_confirm'));
+    _s('ec-yes', _wwUI('si'));
+    _s('ec-no',  _wwUI('no'));
+    elHint.textContent    = _wwUI('hint_orbit');
+    elBtnModo.textContent = _wwUI('modo_fps');
+})();
+
+function toggleModo() {
+    if (window._introActiva) return;
+    fpsModo ? salirFPS() : entrarFPS();
+}
+
+function entrarFPS() {
+    fpsModo = true;
+    controls.enabled = false;
+
+    // Derivar yaw/pitch desde la orientación actual de la cámara
+    // (para que la transición sea suave)
+    camera.rotation.order = 'YXZ';
+    fpsYaw   = camera.rotation.y;
+    fpsPitch = camera.rotation.x;
+
+    // Fijar posición de los ojos
+    camera.position.y = FPS_ALTURA;
+
+    elCrosshair.style.display = 'block';
+    tooltip.style.display     = 'none';   // ocultar el tooltip de hover al entrar a FPS
+    elHint.textContent = _wwUI('hint_fps');
+    elBtnModo.textContent = _wwUI('modo_orbit');
+    elBtnModo.classList.add('fps-activo');
+
+    renderer.domElement.requestPointerLock();
+}
+
+function salirFPS() {
+    fpsModo = false;
+    controls.enabled = true;
+    if (document.pointerLockElement) document.exitPointerLock();
+
+    // Restaurar cámara al punto de partida del modo órbita
+    camera.rotation.order = 'XYZ';
+    camera.position.set(0, 1.8, 0);
+    camera.rotation.set(0, 0, 0);
+    controls.target.set(0, 1.8, -3);
+
+    elOverlay.style.display   = 'none';
+    elCrosshair.style.display = 'none';
+    tooltip.style.display     = 'none';
+    elHint.textContent = _wwUI('hint_orbit');
+    elBtnModo.textContent = _wwUI('modo_fps');
+    elBtnModo.classList.remove('fps-activo');
+}
+
+// Helper para que interactions.js pueda re-adquirir el lock al cerrar un diálogo
+// (E es un gesto de usuario válido para requestPointerLock)
+window._wwRetomarPointerLock = function () {
+    if (fpsModo && !document.pointerLockElement) {
+        // requestPointerLock puede fallar (síncrono en navegadores viejos, o promesa
+        // rechazada en Chrome reciente) si se pide dentro del enfriamiento de ~1,25 s que
+        // el navegador impone tras soltar el puntero. No dejamos que reviente: el listener
+        // 'pointerlockerror' de abajo se encarga de mostrar el menú de pausa como salida.
+        try {
+            const p = renderer.domElement.requestPointerLock();
+            if (p && typeof p.catch === 'function') p.catch(() => {});
+        } catch (_) { /* lo recoge pointerlockerror */ }
+    }
+};
+
+// Pointer Lock: cuando se captura el ratón ocultamos el overlay.
+// Si se pierde mientras hay un diálogo abierto, no mostramos el overlay.
+document.addEventListener('pointerlockchange', () => {
+    if (!fpsModo) return;
+    if (document.pointerLockElement) {
+        elOverlay.style.display = 'none';
+    } else if (!window._wwDialogoAbierto?.()) {
+        elOverlay.style.display = 'flex';
+    }
+});
+
+// Recuperación del "ratón pillado": si requestPointerLock falla (típicamente al cerrar un
+// diálogo/inspección antes de que pase el enfriamiento del navegador), pointerlockchange NO
+// dispara y el jugador se queda con el cursor suelto, la cámara congelada y sin menú. Aquí
+// detectamos ese fallo y mostramos el overlay de pausa, cuyo clic recaptura el puntero con un
+// gesto válido. Solo si no hay un panel abierto (en ese caso el ratón suelto es lo correcto).
+document.addEventListener('pointerlockerror', () => {
+    if (fpsModo && !document.pointerLockElement
+        && !window._wwDialogoAbierto?.() && !window._wwInspeccionActiva?.()) {
+        elOverlay.style.display = 'flex';
+    }
+});
+
+// ── Menú de pausa (overlay de ESC): reanudar · volumen · salir del mundo ─────
+(function _initPausa() {
+    const elExitConfirm = document.getElementById('exit-confirm');
+    const elHome        = document.getElementById('home-btn');
+
+    // Clic en el fondo del overlay (o en el texto "clic para continuar") → reanudar.
+    // Los controles (volumen, casa, confirmación) frenan la propagación, así que
+    // pulsarlos no reanuda el juego.
+    elOverlay.addEventListener('click', (e) => {
+        if (elExitConfirm.style.display === 'block') return;   // confirmación abierta
+        if (e.target === elOverlay
+            || e.target.id === 'fps-click-text'
+            || e.target.id === 'fps-exit-text'
+            || e.target.id === 'pause-bar') {
+            renderer.domElement.requestPointerLock();
+        }
+    });
+
+    // Casa → confirmación de salida del mundo
+    elHome?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        elExitConfirm.style.display = 'block';
+    });
+    elExitConfirm.addEventListener('click', e => e.stopPropagation());
+    document.getElementById('ec-yes')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        window.location.href = '/?upload=1';   // salta el globo de intro → pantalla principal
+    });
+    document.getElementById('ec-no')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        elExitConfirm.style.display = 'none';
+    });
+})();
+
+// Ratón en modo FPS
+document.addEventListener('mousemove', (e) => {
+    if (!fpsModo || !document.pointerLockElement) return;
+    if (window._wwDialogoAbierto?.() || window._wwInspeccionActiva?.()) return;
+    fpsYaw   -= e.movementX * FPS_SENSIBILIDAD;
+    fpsPitch -= e.movementY * FPS_SENSIBILIDAD;
+    fpsPitch = Math.max(-Math.PI / 2.1, Math.min(Math.PI / 2.1, fpsPitch));
+});
+
+// Teclado
+document.addEventListener('keydown', (e) => {
+    if (window._introActiva) return;  // bloquear input durante intro
+    fpsKeys[e.code] = true;
+    // ESC libera el puntero (lo hace el navegador) → pointerlockchange muestra el
+    // overlay de pausa con el volumen y el botón de salir. Ya no hay tecla de modo.
+});
+document.addEventListener('keyup', (e) => { fpsKeys[e.code] = false; });
+
+// ── Portal de transición ──────────────────────────────────────────────────
+let _portalGrupo          = null;
+let _portalLuz            = null;
+let _portalAnillo1        = null;
+let _portalAnillo2        = null;
+let _portalActivado       = false;
+let _portalTransicionInicio = null;
+let _portalPosFinal         = null;
+const _elPortalHint  = document.getElementById('portal-hint');
+const _elPortalFlash = document.getElementById('portal-flash');
+
+function _reproducirSonidoPortal() {
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const t0  = ctx.currentTime;
+
+        function _osc(type, f0, f1, vol, dur, delay) {
+            const o = ctx.createOscillator(), g = ctx.createGain();
+            o.type = type;
+            o.frequency.setValueAtTime(f0, t0 + delay);
+            o.frequency.exponentialRampToValueAtTime(f1, t0 + delay + dur);
+            g.gain.setValueAtTime(0.001, t0 + delay);
+            g.gain.linearRampToValueAtTime(vol, t0 + delay + dur * 0.18);
+            g.gain.exponentialRampToValueAtTime(0.001, t0 + delay + dur);
+            o.connect(g); g.connect(ctx.destination);
+            o.start(t0 + delay); o.stop(t0 + delay + dur);
+        }
+        // Rumble ascendente — columna vertebral del sonido
+        _osc('sine',     75,   1400, 0.30, 1.0, 0.0);
+        // Armónico mágico — shimmer etéreo
+        _osc('triangle', 310,  3800, 0.14, 0.9, 0.05);
+        // Destello agudo — llegada a la luz
+        _osc('sine',     1800, 10000, 0.07, 0.55, 0.42);
+
+        // Whoosh de ruido — viento de teletransporte
+        const bufLen = Math.ceil(ctx.sampleRate * 1.0);
+        const buf = ctx.createBuffer(1, bufLen, ctx.sampleRate);
+        const d   = buf.getChannelData(0);
+        for (let i = 0; i < bufLen; i++) d[i] = Math.random() * 2 - 1;
+        const src  = ctx.createBufferSource();
+        src.buffer = buf;
+        const filt = ctx.createBiquadFilter();
+        filt.type  = 'bandpass';
+        filt.frequency.setValueAtTime(280, t0);
+        filt.frequency.exponentialRampToValueAtTime(7000, t0 + 1.0);
+        filt.Q.value = 1.1;
+        const gn = ctx.createGain();
+        gn.gain.setValueAtTime(0.001, t0);
+        gn.gain.linearRampToValueAtTime(0.22, t0 + 0.13);
+        gn.gain.exponentialRampToValueAtTime(0.001, t0 + 1.0);
+        src.connect(filt); filt.connect(gn); gn.connect(ctx.destination);
+        src.start(t0); src.stop(t0 + 1.0);
+    } catch(e) {}
+}
+
+function _reproducirSonidoLlegada() {
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const t0  = ctx.currentTime;
+
+        function _osc(type, f0, f1, vol, dur, delay) {
+            const o = ctx.createOscillator(), g = ctx.createGain();
+            o.type = type;
+            o.frequency.setValueAtTime(f0, t0 + delay);
+            o.frequency.exponentialRampToValueAtTime(f1, t0 + delay + dur);
+            g.gain.setValueAtTime(0.001, t0 + delay);
+            g.gain.linearRampToValueAtTime(vol, t0 + delay + dur * 0.08);
+            g.gain.exponentialRampToValueAtTime(0.001, t0 + delay + dur);
+            o.connect(g); g.connect(ctx.destination);
+            o.start(t0 + delay); o.stop(t0 + delay + dur);
+        }
+        // Rumble que cae — aterrizaje
+        _osc('sine',     1400,  75,  0.28, 0.85, 0.0);
+        // Shimmer descendente
+        _osc('triangle', 3800, 310,  0.13, 0.75, 0.0);
+        // Ping de llegada — nota final de materialización
+        _osc('sine',     880,   880, 0.12, 0.35, 0.55);
+
+        // Whoosh inverso: del agudo al grave
+        const bufLen = Math.ceil(ctx.sampleRate * 0.9);
+        const buf = ctx.createBuffer(1, bufLen, ctx.sampleRate);
+        const d   = buf.getChannelData(0);
+        for (let i = 0; i < bufLen; i++) d[i] = Math.random() * 2 - 1;
+        const src  = ctx.createBufferSource();
+        src.buffer = buf;
+        const filt = ctx.createBiquadFilter();
+        filt.type  = 'bandpass';
+        filt.frequency.setValueAtTime(6000, t0);
+        filt.frequency.exponentialRampToValueAtTime(200, t0 + 0.9);
+        filt.Q.value = 1.1;
+        const gn = ctx.createGain();
+        gn.gain.setValueAtTime(0.001, t0);
+        gn.gain.linearRampToValueAtTime(0.18, t0 + 0.10);
+        gn.gain.exponentialRampToValueAtTime(0.001, t0 + 0.9);
+        src.connect(filt); filt.connect(gn); gn.connect(ctx.destination);
+        src.start(t0); src.stop(t0 + 0.9);
+    } catch(e) {}
+}
+
+window.spawnPortal = function() {
+    if (_portalGrupo) return;
+
+    const _esFin  = !NEXT_SCENE_URL;
+    const _esQuiz = !!NEXT_SCENE_URL && /quiz\.html(\?|$)/.test(NEXT_SCENE_URL);
+    // Portal naranja/dorado para finales (fin de historia o cuestionario final educativo);
+    // azul para la transición a la siguiente escena.
+    const _c = (_esFin || _esQuiz)
+        ? { main: 0xffaa33, emissive: 0x552200, core: 0xffeebb, ring: 0xffcc44,
+            light: 0xff9922, lightExt: 0xff6611, particle: 0xffddaa }
+        : { main: 0x6699ff, emissive: 0x112299, core: 0xccddff, ring: 0x88aaff,
+            light: 0x4488ff, lightExt: 0x9966ff, particle: 0xaaccff };
+
+    // El fin de historia fija su texto; el resto respeta la etiqueta inyectada por el
+    // ensamblador (cuestionario final para el quiz, portal de transición por defecto).
+    if (_esFin) _elPortalHint.innerHTML = '✦ &nbsp;fin de la historia';
+
+    const g = new THREE.Group();
+
+    // Esfera exterior
+    g.add(new THREE.Mesh(
+        new THREE.SphereGeometry(0.72, 32, 32),
+        new THREE.MeshPhongMaterial({
+            color: _c.main, emissive: _c.emissive, emissiveIntensity: 0.6,
+            transparent: true, opacity: 0.28, shininess: 400,
+            side: THREE.DoubleSide, depthWrite: false,
+        })
+    ));
+
+    // Núcleo interior brillante
+    g.add(new THREE.Mesh(
+        new THREE.SphereGeometry(0.30, 16, 16),
+        new THREE.MeshBasicMaterial({
+            color: _c.core, transparent: true, opacity: 0.65, depthWrite: false,
+        })
+    ));
+
+    // Anillo ecuatorial
+    const _matAnillo = new THREE.MeshBasicMaterial({
+        color: _c.ring, transparent: true, opacity: 0.55,
+        side: THREE.DoubleSide, depthWrite: false,
+    });
+    _portalAnillo1 = new THREE.Mesh(new THREE.TorusGeometry(0.82, 0.04, 8, 64), _matAnillo);
+    _portalAnillo2 = new THREE.Mesh(new THREE.TorusGeometry(0.82, 0.03, 8, 64), _matAnillo.clone());
+    _portalAnillo2.rotation.x = Math.PI / 2.2;
+    g.add(_portalAnillo1);
+    g.add(_portalAnillo2);
+
+    _portalLuz = new THREE.PointLight(_c.light, 4.5, 7);
+    g.add(_portalLuz);
+
+    const luzExt = new THREE.PointLight(_c.lightExt, 1.8, 12);
+    g.add(luzExt);
+
+    // Partículas de brillo orbital
+    const N = 90, _pos = new Float32Array(N * 3);
+    for (let i = 0; i < N; i++) {
+        const th = Math.random() * Math.PI * 2, ph = Math.random() * Math.PI;
+        const r  = 0.88 + Math.random() * 0.55;
+        _pos[i*3]   = r * Math.sin(ph) * Math.cos(th);
+        _pos[i*3+1] = r * Math.cos(ph);
+        _pos[i*3+2] = r * Math.sin(ph) * Math.sin(th);
+    }
+    const geoP = new THREE.BufferGeometry();
+    geoP.setAttribute('position', new THREE.BufferAttribute(_pos, 3));
+    g.add(new THREE.Points(geoP, new THREE.PointsMaterial({
+        color: _c.particle, size: 0.055, transparent: true, opacity: 0.85,
+        blending: THREE.AdditiveBlending, depthWrite: false, fog: false,
+    })));
+
+    // Posición: visible ligeramente a la derecha del frente, a altura de ojos.
+    // En barco se sube a la altura de la CUBIERTA + altura de ojos (la cámara en cubierta
+    // está a DECK_H + FPS_ALTURA, línea ~1060) para que el portal quede a la altura de la
+    // cabeza del jugador y no hundido sobre la cubierta.
+    const _portalY = (SCENE_GRAPH.tipo_ambiente === 'barco') ? ((window._BARCO_DECK_H ?? 1.0) + FPS_ALTURA + 1.4) : 1.5;
+    g.position.set(1.8, _portalY, -4.2);
+    scene.add(g);
+    _portalGrupo = g;
+
+    console.log('[WorldWeaver] Portal invocado → ' + NEXT_SCENE_URL);
+};
+
+// ── Render loop ───────────────────────────────────────────────────────────
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// Vectores reutilizables para el movimiento FPS
+const _fpsForward = new THREE.Vector3();
+const _fpsRight   = new THREE.Vector3();
+
+// ── Llegada por portal: estado de transición de entrada ──────────────────
+const _llegadaPortal = new URLSearchParams(window.location.search).has('portal');
+let _llegadaInicio   = null;
+const _DURACION_LLEGADA = 900;
+
+if (_llegadaPortal) {
+    _llegadaInicio = performance.now();
+    _reproducirSonidoLlegada();
+}
+
+let _lastAnimTime = performance.now() * 0.001;
+
+function animate() {
+    requestAnimationFrame(animate);
+
+    const t     = performance.now() * 0.001;
+    const delta = Math.min(t - _lastAnimTime, 0.1);  // cap 100ms para evitar saltos
+    _lastAnimTime = t;
+
+    if (window.PersonajesManager) PersonajesManager.update(delta);
+    interacciones.update();
+    cieloDinamico.update(t);
+    escenaDinamica.update(t);
+
+    // Portal: animación idle + absorción
+    if (_portalGrupo) {
+        if (!_portalActivado) {
+            // Animación idle
+            _portalGrupo.rotation.y  += 0.007;
+            if (_portalAnillo1) _portalAnillo1.rotation.z += 0.020;
+            if (_portalAnillo2) _portalAnillo2.rotation.z -= 0.013;
+            _portalGrupo.position.y = 1.5 + 0.18 * Math.sin(t * 0.85);
+            if (_portalLuz) _portalLuz.intensity = 3.5 + 1.3 * Math.sin(t * 2.1);
+
+            const _dx   = camera.position.x - _portalGrupo.position.x;
+            const _dz   = camera.position.z - _portalGrupo.position.z;
+            const _dist = Math.sqrt(_dx * _dx + _dz * _dz);
+
+            // Hint de proximidad
+            if (_dist < 3.5) {
+                _elPortalHint.style.display = 'block';
+                _elPortalHint.style.opacity = Math.min(1, (3.5 - _dist) / 2.0).toFixed(2);
+            } else {
+                _elPortalHint.style.display = 'none';
+            }
+
+            // Colisión → arrancar absorción
+            if (_dist < 1.1 && fpsModo) {
+                _portalActivado       = true;
+                _portalTransicionInicio = performance.now();
+                _portalPosFinal       = _portalGrupo.position.clone();
+                _elPortalHint.style.display = 'none';
+                _reproducirSonidoPortal();
+            }
+
+        } else if (_portalTransicionInicio !== null) {
+            // ── Animación de absorción frame-by-frame ──────────────────────
+            const elapsed  = performance.now() - _portalTransicionInicio;
+            const progress = Math.min(elapsed / 1100, 1.0);
+            const easeFast = Math.pow(progress, 2.0);
+
+            // Cámara se lanza hacia el portal
+            const pull = 0.055 + easeFast * 0.18;
+            camera.position.x += (_portalPosFinal.x - camera.position.x) * pull;
+            camera.position.y += (_portalPosFinal.y - camera.position.y) * pull * 0.4;
+            camera.position.z += (_portalPosFinal.z - camera.position.z) * pull;
+
+            // FOV se expande: efecto vórtice
+            camera.fov = 55 + 120 * easeFast;
+            camera.updateProjectionMatrix();
+
+            // Portal crece y gira cada vez más rápido para «engullir»
+            _portalGrupo.scale.setScalar(1 + easeFast * 8);
+            _portalGrupo.rotation.y  += 0.025 + easeFast * 0.25;
+            if (_portalAnillo1) _portalAnillo1.rotation.z += 0.05 + easeFast * 0.35;
+            if (_portalAnillo2) _portalAnillo2.rotation.z -= 0.04 + easeFast * 0.25;
+            if (_portalLuz) _portalLuz.intensity = 5 + easeFast * 25;
+
+            // Flash radial — aparece en la segunda mitad
+            if (progress > 0.42) {
+                const fp = Math.pow((progress - 0.42) / 0.58, 1.6);
+                _elPortalFlash.style.opacity = Math.min(fp, 1).toFixed(3);
+            }
+
+            if (progress >= 1.0) {
+                if (FIN_DATA && typeof window._mostrarFinOverlay === 'function') {
+                    // Última escena (narrativo o educativo): SIEMPRE el overlay de cierre;
+                    // su botón decide el destino (inicio o cuestionario final).
+                    _portalTransicionInicio = null;
+                    salirFPS();
+                    setTimeout(function() { window._mostrarFinOverlay(); }, 200);
+                } else if (NEXT_SCENE_URL) {
+                    window.location.href = NEXT_SCENE_URL + '?portal=1';
+                } else {
+                    _portalTransicionInicio = null;
+                    salirFPS();
+                }
+            }
+        }
+    }
+
+    // ── Transición de llegada (inversa del portal) ────────────────────────
+    if (_llegadaInicio !== null) {
+        const elapsed  = performance.now() - _llegadaInicio;
+        const progress = Math.min(elapsed / _DURACION_LLEGADA, 1.0);
+        // easeOut cúbico: rápido al principio, suave al final
+        const easeOut  = 1 - Math.pow(1 - progress, 3);
+
+        // FOV se contrae de 130° a 55° — sensación de materialización
+        camera.fov = 130 - 75 * easeOut;
+        camera.updateProjectionMatrix();
+
+        // Flash se desvanece de 1 a 0
+        _elPortalFlash.style.opacity = (1 - easeOut).toFixed(3);
+
+        if (progress >= 1.0) {
+            camera.fov = 55;
+            camera.updateProjectionMatrix();
+            _elPortalFlash.style.opacity = '0';
+            _llegadaInicio = null;
+        }
+    }
+
+    if (fpsModo) {
+        // Flotación inmersiva (espacio/luna/agua): se pausa con diálogo/inspección abiertos.
+        const _flotando = _AMBIENTE_FLOTANTE
+            && !window._wwDialogoAbierto?.() && !window._wwInspeccionActiva?.();
+
+        // Aplicar rotación (+ balanceo lateral mínimo bajo el agua)
+        const _roll = (_AMBIENTE_AGUA && _flotando) ? 0.03 * Math.sin(t * 0.6) : 0;
+        camera.rotation.set(fpsPitch, fpsYaw, _roll, 'YXZ');
+
+        // Calcular vectores de dirección (ignorando componente Y para no volar)
+        _fpsForward.set(-Math.sin(fpsYaw), 0, -Math.cos(fpsYaw));
+        _fpsRight.set(Math.cos(fpsYaw), 0, -Math.sin(fpsYaw));
+
+        if (document.pointerLockElement && !window._wwDialogoAbierto?.()) {
+            if (fpsKeys['ArrowUp']    || fpsKeys['KeyW'])
+                camera.position.addScaledVector(_fpsForward, FPS_VELOCIDAD);
+            if (fpsKeys['ArrowDown']  || fpsKeys['KeyS'])
+                camera.position.addScaledVector(_fpsForward, -FPS_VELOCIDAD);
+            if (fpsKeys['ArrowLeft']  || fpsKeys['KeyA'])
+                camera.position.addScaledVector(_fpsRight, -FPS_VELOCIDAD);
+            if (fpsKeys['ArrowRight'] || fpsKeys['KeyD'])
+                camera.position.addScaledVector(_fpsRight, FPS_VELOCIDAD);
+        }
+
+        // Altura: fija sobre suelo firme; bob suave (mayor al desplazarse) si flota.
+        if (_flotando) {
+            const _moviendo = fpsKeys['ArrowUp']||fpsKeys['KeyW']||fpsKeys['ArrowDown']||fpsKeys['KeyS']
+                || fpsKeys['ArrowLeft']||fpsKeys['KeyA']||fpsKeys['ArrowRight']||fpsKeys['KeyD'];
+            const _amp = (_AMBIENTE_AGUA ? 0.13 : 0.10) + (_moviendo ? 0.06 : 0);
+            camera.position.y = FPS_ALTURA + _amp * Math.sin(t * 1.1);
+        } else {
+            camera.position.y = FPS_ALTURA;
+        }
+
+        // Límite de movimiento: leído directamente del SceneGraph (calculado por el Constructor
+        // según el tipo de interior/exterior). Fallback para scenes generadas sin este campo.
+        const _esInterior = (SCENE_GRAPH.tipo_escena === 'interior');
+        const _radioEscena = SCENE_GRAPH.radio_escena ?? 22.0;
+        const _esCaja = (SCENE_GRAPH.tipo_ambiente === 'habitacion' || SCENE_GRAPH.tipo_ambiente === 'interior' || SCENE_GRAPH.tipo_ambiente === 'interior_grande');
+        if (_esCaja) {
+            // Interiores en caja: la zona jugable es TODO el cuadrado, incluidas las
+            // esquinas (clamp por caja en X y Z por separado, no por radio). Así se puede
+            // alcanzar el mobiliario pegado a cualquier pared o esquina. Las paredes están
+            // a ±radio; dejamos 1.0 de margen para no clipar dentro del muro.
+            const _lim = _radioEscena - 1.0;
+            camera.position.x = Math.max(-_lim, Math.min(_lim, camera.position.x));
+            camera.position.z = Math.max(-_lim, Math.min(_lim, camera.position.z));
+        } else {
+            // Exterior y cueva: zona transitable circular (clamp por radio).
+            const _limiteR = SCENE_GRAPH.limite_jugador ?? (_esInterior ? Math.min(_radioEscena * 0.55, 4.0) : 6.5);
+            const _distXZ  = Math.sqrt(camera.position.x ** 2 + camera.position.z ** 2);
+            if (_distXZ > _limiteR) {
+                const _f = _limiteR / _distXZ;
+                camera.position.x *= _f;
+                camera.position.z *= _f;
+            }
+        }
+
+        // Barco: altura + zona de movimiento según estado (cubierta vs agua), + hint B.
+        if (_ES_BARCO) {
+            const DH = window._BARCO_DECK_H ?? 1.0, DR = window._BARCO_DECK_R ?? 4.6;
+            if (_transBarco) {
+                // Animación de subir/bajar: interpola la altura de cámara.
+                const p = Math.min(1, (performance.now() - _transBarco.t0) / _transBarco.dur);
+                camera.position.y = _transBarco.fromY + (_transBarco.toY - _transBarco.fromY) * p;
+                if (p >= 1) { _transBarco.despues && _transBarco.despues(); _transBarco = null; }
+                _barcoHint(null);
+            } else if (_enBarco) {
+                camera.position.y = DH + FPS_ALTURA;
+                const d = Math.sqrt(camera.position.x ** 2 + camera.position.z ** 2);
+                const lim = DR * 0.9;
+                if (d > lim) { const f = lim / d; camera.position.x *= f; camera.position.z *= f; }
+                _barcoHint(d > lim * 0.82 ? 'B — bajar al agua' : null);
+            } else {
+                camera.position.y = FPS_ALTURA;
+                const d = Math.sqrt(camera.position.x ** 2 + camera.position.z ** 2);
+                // Roam off-deck = límite del jugador (lo cubre ya el clamp circular de arriba;
+                // se replica aquí para que el casco y el agua caminable sean coherentes).
+                const roam = Math.min(_radioEscena - 3, SCENE_GRAPH.limite_jugador ?? 18);
+                if (d > roam) {
+                    const f = roam / d; camera.position.x *= f; camera.position.z *= f;
+                } else if (d < DR) {
+                    // Barrera física: no atravesar el casco del barco (deslizar por fuera).
+                    const f = DR / Math.max(d, 0.01); camera.position.x *= f; camera.position.z *= f;
+                }
+                _barcoHint(d < DR + 1.6 ? 'B — subir al barco' : null);
+            }
+        }
+
+        // Chapoteos al caminar sobre el agua (sobre_agua, o barco tras desembarcar).
+        // Cadencia por DISTANCIA recorrida (independiente del framerate).
+        const _pisandoAgua = _SOBRE_AGUA || (typeof _enModoAgua !== 'undefined' && _enModoAgua);
+        if (_pisandoAgua && document.pointerLockElement) {
+            if (_prevPX !== null) {
+                _pasoDist += Math.hypot(camera.position.x - _prevPX, camera.position.z - _prevPZ);
+                if (_pasoDist > 1.4) { _pasoDist = 0; window._wwChapoteo?.(); }
+            }
+            _prevPX = camera.position.x; _prevPZ = camera.position.z;
+        }
+    } else {
+        controls.update();
+    }
+
+    renderer.render(scene, camera);
+}
+
+// ── Barco: hint en pantalla + transiciones de subir/bajar (tecla B contextual) ──
+let _barcoHintEl = null, _barcoHintTxt = '';
+if (_ES_BARCO) {
+    _barcoHintEl = document.createElement('div');
+    _barcoHintEl.style.cssText = 'position:fixed;left:50%;bottom:130px;transform:translateX(-50%);'
+        + 'padding:8px 18px;background:rgba(10,22,42,0.72);color:#cfe6ff;border:1px solid #3a5a80;'
+        + 'border-radius:18px;font:600 14px system-ui,sans-serif;pointer-events:none;opacity:0;'
+        + 'transition:opacity .2s;z-index:60;white-space:nowrap;';
+    document.body.appendChild(_barcoHintEl);
+}
+function _barcoHint(txt) {
+    if (!_barcoHintEl) return;
+    if (txt) {
+        if (txt !== _barcoHintTxt) { _barcoHintEl.textContent = txt; _barcoHintTxt = txt; }
+        _barcoHintEl.style.opacity = '1';
+    } else if (_barcoHintTxt) { _barcoHintEl.style.opacity = '0'; _barcoHintTxt = ''; }
+}
+function _iniciarTransBarco(toY, despues) {
+    _transBarco = { t0: performance.now(), dur: 600, fromY: camera.position.y, toY: toY, despues: despues };
+}
+function _desembarcar() {
+    const DR = window._BARCO_DECK_R ?? 4.6;
+    camera.position.x = -Math.sin(fpsYaw) * (DR + 1.3);  // al agua, justo delante
+    camera.position.z = -Math.cos(fpsYaw) * (DR + 1.3);
+    _iniciarTransBarco(FPS_ALTURA, () => { _enBarco = false; _enModoAgua = true; });
+}
+function _subirBarco() {
+    camera.position.x = 0; camera.position.z = 0;  // al centro de la cubierta
+    _iniciarTransBarco((window._BARCO_DECK_H ?? 1.0) + FPS_ALTURA, () => { _enBarco = true; _enModoAgua = false; });
+}
+if (_ES_BARCO) {
+    window.addEventListener('keydown', (e) => {
+        if (!fpsModo || _transBarco || window._wwDialogoAbierto?.()) return;
+        if (e.code !== 'KeyB') return;
+        const DR = window._BARCO_DECK_R ?? 4.6;
+        const d = Math.sqrt(camera.position.x ** 2 + camera.position.z ** 2);
+        if (_enBarco && d > DR * 0.6) _desembarcar();
+        else if (!_enBarco && d < DR + 1.6) _subirBarco();
+    });
+}
+
+animate();
+// Entrar en FPS en el primer gesto del usuario (click o tecla).
+// requestPointerLock() exige un gesto — no se puede capturar el ratón automáticamente.
+// También lo usa la intro para entrar en FPS justo al cerrarse.
+window._wwEntrarFPS = function () { if (!fpsModo) entrarFPS(); };
+
+const _entrarFpsAlPrimerGesto = () => {
+    if (!fpsModo && !window._introActiva) entrarFPS();
+};
+renderer.domElement.addEventListener('click',   _entrarFpsAlPrimerGesto, { once: true });
+document.addEventListener(            'keydown', _entrarFpsAlPrimerGesto, { once: true });
+
+// ── Pantalla completa ────────────────────────────────────────────────────────
+// El .exe abre Chrome con --start-fullscreen (fullscreen DE VENTANA), que sobrevive
+// a la navegación entre escenas. Deliberadamente NO usamos la Fullscreen API del
+// navegador (requestFullscreen): como cada escena es una página distinta, esa API se
+// pierde al cruzar el portal y, al re-pedirla con el primer gesto, provoca un parpadeo
+// visible de entrar/salir de pantalla completa en cada escena. Apoyándonos solo en el
+// fullscreen de ventana la transición entre escenas es limpia (igual que en los mundos
+// antiguos). El pointer lock convive bien con --start-fullscreen sin necesidad de la API.
+</script>
+__FIN_OVERLAY_PLACEHOLDER__
+</body>
+</html>

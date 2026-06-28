@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_02",
+  "query_usada": "light wind ambience loop",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/697/697217_7678208-hq.mp3",
+    "titulo": "Looping Gentle Wind Ambience on an Open Desert Plain.wav",
+    "autor": "dhallcomposer",
+    "duracion_segundos": 41.1,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/395/395575_7513841-hq.mp3",
+    "titulo": "Natural VLF Radio Reception, 8 June 2017 07:03:45 UTC",
+    "autor": "awg",
+    "duracion_segundos": 576.6,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

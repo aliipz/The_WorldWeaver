@@ -1,0 +1,187 @@
+{
+  "id_escena": "escena_01",
+  "elementos": [
+    {
+      "id": "personaje_luis_xvi",
+      "nombre": "Luis XVI",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "descripcion": "Hombre de 45 años, rostro pálido, barba recortada, cabello castaño bajo peluca empolvada, traje de corte francés con medallón de oro, expresión seria"
+    },
+    {
+      "id": "personaje_cortesano_1",
+      "nombre": "Cortesano",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 3
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "descripcion": "Hombre de 30 años, traje de seda azul con bordados dorados, peluca alta, mirada altiva"
+    },
+    {
+      "id": "personaje_representante_tercer_estado_1",
+      "nombre": "Representante del Tercer Estado",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 3
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "descripcion": "Hombre de 40 años, ropa de lana negra, rostro serio, sostiene un cuaderno de cuero"
+    },
+    {
+      "id": "personaje_representante_tercer_estado_2",
+      "nombre": "Mujer del pueblo llano",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 2
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "descripcion": "Mujer de 35 años, vestido de lana gris, rostro cansado, manos ásperas que sujetan un cuaderno de cuero"
+    },
+    {
+      "id": "objeto_cahier_de_doleances",
+      "nombre": "Cahier de doléances",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 0.3,
+      "descripcion": "Cuaderno de cuero donde los representantes del Tercer Estado anotan sus quejas y demandas."
+    },
+    {
+      "id": "decorado_candelabro_01",
+      "nombre": "Candelabro de cristal de la Galería",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 2
+      },
+      "ancho": 1.5,
+      "alto": 2.0,
+      "descripcion": "Candelabro de cristal tallado con cientos de brazos que sostienen velas de cera blanca, colgando del techo y difundiéndose luz dorada."
+    },
+    {
+      "id": "decorado_espejo_01",
+      "nombre": "Espejo de marco dorado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 0
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "descripcion": "Gran espejo de cuerpo entero con marco de oro macizo tallado con motivos festinos, apoyado contra una columna de mármol."
+    },
+    {
+      "id": "decorado_silla_01",
+      "nombre": "Silla de terciopelo rojo",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 0.5,
+      "alto": 1.0,
+      "descripcion": "Silla alta con respaldo curvado y asiento de terciopelo rojo, patas de caoba pulida y detalles de latón en los tirantes."
+    },
+    {
+      "id": "decorado_tapete_01",
+      "nombre": "Tapete persa de seda",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 4
+      },
+      "ancho": 2.5,
+      "alto": 0.2,
+      "descripcion": "Tapete de seda multicolor con patrones florales y bordes dorados, extendido sobre el suelo de parquet del salón."
+    },
+    {
+      "id": "decorado_vitrina_01",
+      "nombre": "Vitrina de porcelana de Meissen",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 3
+      },
+      "ancho": 1.2,
+      "alto": 1.5,
+      "descripcion": "Vitrina de cristal con marco de roble tallado, exhibiendo delicadas piezas de porcelana pintada a mano."
+    },
+    {
+      "id": "decorado_armario_01",
+      "nombre": "Armario de roble con paneles dorados",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 3
+      },
+      "ancho": 1.5,
+      "alto": 2.0,
+      "descripcion": "Armario bajo de roble macizo, paneles con incrustaciones de oro y bisagras de bronce, usado para guardar mantos reales."
+    },
+    {
+      "id": "decorado_estatua_01",
+      "nombre": "Estatua de Apolo en mármol",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 0.8,
+      "alto": 2.5,
+      "descripcion": "Estatua de mármol blanco de Apolo, de pie sobre un pedestal de mármol, sosteniendo una lira en su mano izquierda."
+    },
+    {
+      "id": "decorado_estanteria_00",
+      "nombre": "Estantería",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 0
+      },
+      "ancho": 1.3,
+      "alto": 2.0,
+      "descripcion": "Estantería alta de madera contra la pared, con cajas y objetos."
+    }
+  ]
+}

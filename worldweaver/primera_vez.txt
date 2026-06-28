@@ -1,0 +1,9 @@
+No borres este archivo.
+
+Es el "precinto" de WorldWeaver: mientras exista, la primera vez que abras la
+aplicación verás un breve tutorial guiado de bienvenida. Al terminarlo (o
+saltarlo) el propio programa borra este archivo automáticamente, y el tutorial
+no volverá a aparecer.
+
+Si quieres volver a ver el tutorial, basta con volver a crear este archivo
+(con este mismo nombre, junto a WorldWeaver.exe) antes de abrir la aplicación.

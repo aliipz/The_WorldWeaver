@@ -1,0 +1,347 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "La brújula despierta sombras entre enredaderas",
+      "guias": [
+        "objeto_brujula",
+        "objeto_altar",
+        "personaje_elena"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_brujula",
+          "objeto_altar"
+        ],
+        "personajes": [
+          "personaje_elena"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "El holograma revela el faro bajo el agua",
+      "guias": [
+        "personaje_elena",
+        "personaje_zip"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_elena",
+          "personaje_zip"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Siguen las coordenadas hacia la costa distante",
+      "guias": [
+        "personaje_elena",
+        "personaje_zip"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_elena",
+          "personaje_zip"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_elena",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "La brújula vibra al tocar la piedra, como si el altar despertara."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Las runas se encienden y el holograma muestra coordenadas que hacen latir mi corazón."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué indican esas coordenadas?",
+                  "respuesta": "Puntan a un faro sumergido, una luz que guía bajo el mar."
+                },
+                {
+                  "etiqueta": "¿Es seguro seguirlas?",
+                  "respuesta": "Solo hay una forma de saberlo: aventurarnos."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Ese faro bajo el agua... es la señal que buscábamos."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Si logramos llegar, quizás descubramos qué guardan sus profundidades."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué esperas encontrar?",
+                  "respuesta": "Algo que ha estado oculto bajo la marea durante siglos."
+                },
+                {
+                  "etiqueta": "¿Y si es una trampa?",
+                  "respuesta": "Entonces al menos sabremos que no estamos solos."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Vamos, el camino está trazado en la niebla; la costa nos espera."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Mantén la brújula firme, la lluvia no nos detendrá."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Crees que la tormenta nos alcanzará?",
+                  "respuesta": "Solo el tiempo lo dirá, pero seguimos adelante."
+                },
+                {
+                  "etiqueta": "¿Y si nos perdemos?",
+                  "respuesta": "Con la brújula y nuestro ingenio, nunca estaremos realmente perdidos."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_brujula",
+          "consume": false,
+          "puntos": [
+            {
+              "frases": [
+                "Esta brújula de metal oscuro siempre ha apuntado al corazón del misterio."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Por qué es tan importante?",
+                  "respuesta": "Porque su aguja no miente; siempre señala lo que el altar desea revelar."
+                },
+                {
+                  "etiqueta": "¿Puedo confiar en ella?",
+                  "respuesta": "Mientras mantengas la fe, ella te guiará a través de la niebla."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Observar runas",
+          "descripcion": "Miras las runas que se encienden bajo la luz de la brújula.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "magico",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_zip",
+        "efecto": null,
+        "color": null,
+        "animacion": "alegria"
+      }
+    },
+    {
+      "id_nodo": "personaje_zip",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "¡Vaya! Un faro submarino, justo lo que necesitaba para mi bronceado bajo el mar."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¿Listos para sumergirnos en la oscuridad? Yo llevo la chispa de sarcasmo."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué pasa si el agua está demasiado fría?",
+                  "respuesta": "Te calentaré con mi ingenio, aunque mi cola se congele."
+                },
+                {
+                  "etiqueta": "¿Hay alguna señal de peligro?",
+                  "respuesta": "Solo el eco de nuestras propias dudas, y tal vez un pez curioso."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "¿Te imaginas la vista? Yo solo espero que el agua no sea demasiado fría para mi pelaje."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Si la costa está lejos, al menos tendremos una buena historia para contar."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Crees que llegaremos a tiempo?",
+                  "respuesta": "El tiempo es solo otro obstáculo que podemos esquivar con estilo."
+                },
+                {
+                  "etiqueta": "¿Y si nos encontramos con criaturas marinas?",
+                  "respuesta": "¡Perfecto! Siempre quise probar mi sarcasmo en una audiencia acuática."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Sarcasmo",
+          "descripcion": "Sueltas un comentario mordaz que hace eco entre los árboles.",
+          "animacion": "alegria",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "personaje_elena",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_elena",
+        "efecto": null,
+        "color": null,
+        "animacion": "RecieveHit"
+      }
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_brujula",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "Brújula de metal oscuro",
+        "descripcion": "Una brújula oxidada, su aguja vibra con energía antigua."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_altar",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "usar_con",
+        "requiere_objeto": "objeto_brujula",
+        "titulo": "Altar de piedra",
+        "descripcion": "Coloca la brújula sobre la piedra central; las runas se iluminan.",
+        "efecto_visual": "brillo",
+        "color_efecto": null,
+        "sonido": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_liana_gruesa_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Liana gruesa de ciprés que se balancea suavemente con el aire húmedo."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_hongo_gigante_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Hongo gigante",
+        "descripcion": "Un hongo de capuchón anaranjado cubre el suelo, su superficie moteada brilla con gotas de rocío.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_claro_entrada",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "El sol se cuela entre los enormes troncos, dibujando sombras que se arrastran sobre el suelo enmarañado mientras el aire húmedo lleva el susurro de la selva."
+    }
+  ]
+}

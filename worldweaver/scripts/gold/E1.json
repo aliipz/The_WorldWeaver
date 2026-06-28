@@ -1,0 +1,10 @@
+{
+  "id": "E1",
+  "fixture": "llegada_a_la_luna.txt",
+  "titulo": "Apolo 11 y la llegada a la Luna",
+  "modo": "educativo",
+  "personajes_esperados": ["Neil Armstrong", "Buzz Aldrin", "Michael Collins"],
+  "objetos_esperados": ["cohete Saturno V", "módulo de mando Columbia", "módulo lunar Eagle", "sextante", "bandera estadounidense", "sismómetro (EASEP)", "muestras lunares", "paracaídas"],
+  "escenas_esperadas": 5,
+  "notas": "Educativo/historia (5 secciones numeradas = 5 escenas esperadas: lanzamiento Kennedy → travesía/acoplamiento → alunizaje Mar de la Tranquilidad → EVA/recolección → reentrada/amerizaje). Personajes = los 3 astronautas. Los retroreflectores láser los metí dentro de EASEP; el USS Hornet / la cápsula son posibles extras."
+}

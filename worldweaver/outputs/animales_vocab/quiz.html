@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuestionario — WorldWeaver</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#05030f;color:rgba(215,210,232,.92);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.container{max-width:640px;width:100%}
+.header{text-align:center;margin-bottom:36px}
+.ww-tag{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:10px}
+.quiz-titulo{font-size:20px;font-family:'Georgia','Times New Roman',serif;color:rgba(215,210,232,.9);line-height:1.4}
+.progress-wrap{height:2px;background:rgba(255,255,255,.07);border-radius:2px;margin:28px 0 8px;overflow:hidden}
+.progress-fill{height:100%;background:rgba(160,200,255,.65);transition:width .4s ease;border-radius:2px}
+.progress-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.2);text-align:right;margin-bottom:24px}
+.card{background:rgba(8,6,18,.97);border:1px solid rgba(255,255,255,.07);border-radius:3px;padding:40px 44px;box-shadow:0 0 80px rgba(0,0,0,.75)}
+.pregunta{font-size:17px;line-height:1.75;font-family:'Georgia','Times New Roman',serif;color:rgba(215,210,232,.92);margin-bottom:28px}
+.opciones{display:flex;flex-direction:column;gap:9px}
+.opcion{background:transparent;border:1px solid rgba(255,255,255,.1);border-radius:2px;color:rgba(215,210,232,.8);font-family:inherit;font-size:14px;line-height:1.5;padding:13px 18px;text-align:left;cursor:pointer;transition:border-color .15s,background .15s,color .15s;display:flex;gap:14px;align-items:flex-start;width:100%}
+.opcion:hover:not(:disabled){border-color:rgba(160,200,255,.35);background:rgba(160,200,255,.04);color:rgba(215,210,232,1)}
+.opcion:disabled{cursor:default}
+.letra{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.28);flex-shrink:0;margin-top:3px;min-width:12px}
+.opcion.correcta{border-color:rgba(80,210,120,.7);background:rgba(80,210,120,.07);color:rgba(180,240,200,.95)}
+.opcion.incorrecta{border-color:rgba(220,80,80,.45);background:rgba(220,80,80,.06);color:rgba(240,180,180,.7)}
+.opcion.correcta .letra{color:rgba(80,210,120,.75)}
+.opcion.incorrecta .letra{color:rgba(220,80,80,.55)}
+.explicacion{display:none;margin-top:18px;padding:14px 18px;border-left:2px solid rgba(160,200,255,.28);color:rgba(180,200,220,.72);font-size:13px;line-height:1.7}
+.btn-sig{display:none;margin-top:24px;width:100%;background:transparent;border:1px solid rgba(160,200,255,.18);color:rgba(160,200,255,.75);font-family:inherit;font-size:11px;letter-spacing:4px;text-transform:uppercase;padding:13px;cursor:pointer;border-radius:2px;transition:all .2s}
+.btn-sig:hover{border-color:rgba(160,200,255,.55);background:rgba(160,200,255,.05);color:rgba(160,200,255,1)}
+.resultado-card{text-align:center}
+.orb{width:88px;height:88px;margin:0 auto 28px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(160,200,255,.9),rgba(60,100,220,.6),rgba(20,10,60,.9));box-shadow:0 0 40px rgba(100,160,255,.3),0 0 80px rgba(60,100,220,.12);animation:fl 3s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.score-num{font-size:52px;font-family:'Georgia',serif;color:rgba(215,210,232,.95);letter-spacing:-1px;line-height:1}
+.score-label{font-size:11px;color:rgba(255,255,255,.28);letter-spacing:4px;text-transform:uppercase;margin:10px 0 24px}
+.mensaje{font-size:15px;line-height:1.8;font-family:'Georgia',serif;color:rgba(215,210,232,.78);max-width:400px;margin:0 auto 32px}
+.btn-volver{background:transparent;border:1px solid rgba(255,200,80,.28);color:rgba(255,210,100,.75);font-family:inherit;font-size:11px;letter-spacing:4px;text-transform:uppercase;padding:12px 40px;border-radius:40px;cursor:pointer;transition:all .25s}
+.btn-volver:hover{background:rgba(255,180,50,.08);border-color:rgba(255,200,80,.65);color:#fff}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="ww-tag" id="quiz-wwtag"></div>
+    <div class="quiz-titulo" id="quiz-titulo"></div>
+  </div>
+  <div id="quiz-activo">
+    <div class="progress-wrap"><div class="progress-fill" id="prog"></div></div>
+    <div class="progress-label" id="prog-label"></div>
+    <div class="card">
+      <div class="pregunta" id="pregunta"></div>
+      <div class="opciones" id="opciones"></div>
+      <div class="explicacion" id="explicacion"></div>
+      <button class="btn-sig" id="btn-sig"></button>
+    </div>
+  </div>
+  <div id="resultado" style="display:none">
+    <div class="card resultado-card">
+      <div class="orb"></div>
+      <div class="score-num" id="res-score"></div>
+      <div class="score-label" id="quiz-score-lbl"></div>
+      <div class="mensaje" id="res-msg"></div>
+      <button class="btn-volver" id="quiz-btn-volver" onclick="window.location.href='/?upload=1'"></button>
+    </div>
+  </div>
+</div>
+<script>
+var IDIOMA = "es";
+var _QI = {
+  es:{wwtag:'WorldWeaver · Modo Educativo',progress:function(i,t){return 'Pregunta '+(i+1)+' de '+t;},next:'Siguiente pregunta →',result:'Ver resultado',done:'Completado',correct_label:'respuestas correctas',back:'Volver al inicio',msg_great:'Excelente dominio del temario. Has demostrado una comprensión profunda del contenido.',msg_good:'Buen trabajo. Tienes una sólida comprensión del temario con algunas áreas de mejora.',msg_ok:'Resultado aceptable. Te recomendamos repasar el contenido para consolidar los conceptos clave.',msg_low:'Hay conceptos que necesitan refuerzo. Explora de nuevo el mundo y repasa el temario.'},
+  en:{wwtag:'WorldWeaver · Educational Mode',progress:function(i,t){return 'Question '+(i+1)+' of '+t;},next:'Next question →',result:'See result',done:'Completed',correct_label:'correct answers',back:'Back to start',msg_great:'Excellent command of the material. You have shown a deep understanding of the content.',msg_good:'Good work. You have a solid grasp of the material with some areas for improvement.',msg_ok:'Acceptable result. We recommend reviewing the content to consolidate the key concepts.',msg_low:'Some concepts need reinforcement. Explore the world again and review the material.'},
+};
+var _QL = _QI[IDIOMA] || _QI.es;
+var QUIZ = {
+  "titulo": "Cuestionario de vocabulario: animales de la granja (en)",
+  "preguntas": [
+    {
+      "numero": 1,
+      "pregunta": "¿Cómo se dice 'perro' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "horse",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "cow",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "dog",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "cat",
+          "correcta": false
+        }
+      ],
+      "explicacion": "La palabra 'dog' corresponde al animal doméstico conocido como perro."
+    },
+    {
+      "numero": 2,
+      "pregunta": "¿Cómo se dice 'gato' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "duck",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "cat",
+          "correcta": true
+        },
+        {
+          "letra": "c",
+          "texto": "sheep",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "rabbit",
+          "correcta": false
+        }
+      ],
+      "explicacion": "El término 'cat' es el nombre en inglés del felino doméstico."
+    },
+    {
+      "numero": 3,
+      "pregunta": "The ___ is grazing in the field. / El caballo está pastando en el campo.",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "chicken",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "horse",
+          "correcta": true
+        },
+        {
+          "letra": "c",
+          "texto": "dog",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "cat",
+          "correcta": false
+        }
+      ],
+      "explicacion": "En la frase española se menciona 'caballo', por lo que la opción correcta es 'horse'."
+    },
+    {
+      "numero": 4,
+      "pregunta": "The ___ waddles on the pond. / El pato nada en el estanque.",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "sheep",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "cow",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "rabbit",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "duck",
+          "correcta": true
+        }
+      ],
+      "explicacion": "La descripción corresponde al animal que nada y se llama 'duck' en inglés."
+    },
+    {
+      "numero": 5,
+      "pregunta": "¿Qué palabra en inglés corresponde al animal que dice 'baa' y tiene lana?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "sheep",
+          "correcta": true
+        },
+        {
+          "letra": "b",
+          "texto": "duck",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "horse",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "rabbit",
+          "correcta": false
+        }
+      ],
+      "explicacion": "El animal que balidos 'baa' y produce lana es la 'sheep' en inglés."
+    },
+    {
+      "numero": 6,
+      "pregunta": "¿Cómo se dice 'conejo' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "chicken",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "dog",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "rabbit",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "cat",
+          "correcta": false
+        }
+      ],
+      "explicacion": "La palabra 'rabbit' es el nombre en inglés del conejo."
+    },
+    {
+      "numero": 7,
+      "pregunta": "The ___ lays eggs in the coop. / El pollo pone huevos en el gallinero.",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "cow",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "sheep",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "chicken",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "horse",
+          "correcta": false
+        }
+      ],
+      "explicacion": "En la frase española se menciona 'pollo', cuyo equivalente inglés es 'chicken'."
+    },
+    {
+      "numero": 8,
+      "pregunta": "¿Cómo se dice 'vaca' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "duck",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "cow",
+          "correcta": true
+        },
+        {
+          "letra": "c",
+          "texto": "rabbit",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "cat",
+          "correcta": false
+        }
+      ],
+      "explicacion": "El término 'cow' corresponde al animal de granja conocido como vaca."
+    }
+  ]
+};
+var idx = 0, score = 0;
+var $qt   = document.getElementById('quiz-titulo');
+var $prog = document.getElementById('prog');
+var $lbl  = document.getElementById('prog-label');
+var $preg = document.getElementById('pregunta');
+var $opc  = document.getElementById('opciones');
+var $exp  = document.getElementById('explicacion');
+var $sig  = document.getElementById('btn-sig');
+var $qa   = document.getElementById('quiz-activo');
+var $res  = document.getElementById('resultado');
+
+document.getElementById('quiz-wwtag').textContent = _QL.wwtag;
+document.getElementById('quiz-score-lbl').textContent = _QL.correct_label;
+document.getElementById('quiz-btn-volver').textContent = _QL.back;
+$qt.textContent = QUIZ.titulo;
+
+function cargar(i) {
+  var q = QUIZ.preguntas[i];
+  var total = QUIZ.preguntas.length;
+  $prog.style.width = ((i / total) * 100) + '%';
+  $lbl.textContent = _QL.progress(i, total);
+  $preg.textContent = q.pregunta;
+  $opc.innerHTML = '';
+  $exp.style.display = 'none';
+  $sig.style.display = 'none';
+  q.opciones.forEach(function(op, oi) {
+    var btn = document.createElement('button');
+    btn.className = 'opcion';
+    btn.innerHTML = '<span class="letra">' + op.letra + '</span><span>' + op.texto + '</span>';
+    btn.onclick = (function(capturedOi) {
+      return function() { if (btn.disabled) return; responder(capturedOi, q); };
+    })(oi);
+    $opc.appendChild(btn);
+  });
+}
+
+function responder(elegidaIdx, q) {
+  var btns = $opc.querySelectorAll('.opcion');
+  btns.forEach(function(b) { b.disabled = true; });
+  q.opciones.forEach(function(op, i) {
+    if (op.correcta) btns[i].classList.add('correcta');
+    else if (i === elegidaIdx) btns[i].classList.add('incorrecta');
+  });
+  if (q.opciones[elegidaIdx].correcta) score++;
+  $exp.textContent = q.explicacion;
+  $exp.style.display = 'block';
+  $sig.textContent = (idx + 1 >= QUIZ.preguntas.length) ? _QL.result : _QL.next;
+  $sig.style.display = 'block';
+}
+
+$sig.onclick = function() {
+  idx++;
+  if (idx >= QUIZ.preguntas.length) mostrarResultado();
+  else cargar(idx);
+};
+
+function mostrarResultado() {
+  $qa.style.display = 'none';
+  $res.style.display = 'block';
+  $prog.style.width = '100%';
+  $lbl.textContent = _QL.done;
+  var total = QUIZ.preguntas.length;
+  document.getElementById('res-score').textContent = score + ' / ' + total;
+  var pct = score / total;
+  var msg;
+  if (pct >= 0.875) msg = _QL.msg_great;
+  else if (pct >= 0.625) msg = _QL.msg_good;
+  else if (pct >= 0.375) msg = _QL.msg_ok;
+  else msg = _QL.msg_low;
+  document.getElementById('res-msg').textContent = msg;
+}
+
+cargar(0);
+</script>
+<script>
+(function(){
+  const a = new Audio('/assets/music/quizz.mp3');
+  a.loop = true; a.volume = 0;
+  function fadeIn(){ a.volume = Math.min(0.38, a.volume + 0.38/40); if(a.volume < 0.38) setTimeout(fadeIn, 50); }
+  const start = () => { a.play().then(fadeIn).catch(()=>{}); document.removeEventListener('click', start); };
+  // Intenta sonar de inmediato; si el navegador bloquea el autoplay, arranca al primer clic.
+  a.play().then(fadeIn).catch(() => document.addEventListener('click', start, { once: true }));
+})();
+</script>
+</body>
+</html>

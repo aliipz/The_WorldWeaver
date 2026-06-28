@@ -1,0 +1,330 @@
+{
+  "id_escena": "escena_06",
+  "tipo_escena": "interior",
+  "tipo_ambiente": "interior",
+  "radio_escena": 8.0,
+  "limite_jugador": 5.0,
+  "color_suelo": null,
+  "tipo_suelo": null,
+  "tipo_techo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_06",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 3.5,
+        "z": 0.0
+      },
+      "ancho": 8.0,
+      "alto": 7.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_06",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 8.0,
+      "alto": 8.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_juan",
+      "nombre": "Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -2.0,
+        "y": 0.7,
+        "z": -0.12
+      },
+      "ancho": 0.5,
+      "alto": 1.4,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_ogre",
+      "nombre": "Ogro",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.85,
+        "y": 1.25,
+        "z": 0.17
+      },
+      "ancho": 2.0,
+      "alto": 2.5,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Goblin_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_gallina_dorada",
+      "nombre": "Gallina dorada",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.01,
+        "y": 0.19,
+        "z": -1.78
+      },
+      "ancho": 0.5,
+      "alto": 0.38,
+      "tam_real": 0.5,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/622d2b3d-e280-48fd-9a82-b0e60443def5.glb",
+      "keyword_busqueda": "chicken"
+    },
+    {
+      "id": "objeto_arpa_de_oro",
+      "nombre": "Arpa de oro",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.19,
+        "y": 0.4,
+        "z": 1.91
+      },
+      "ancho": 1.0,
+      "alto": 0.8,
+      "tam_real": 1.0,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/bdccab14-4489-48e2-ad91-5d7905109d9a.glb",
+      "keyword_busqueda": "harp"
+    },
+    {
+      "id": "decorado_columna_tronco_01",
+      "nombre": "columna tronco de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -7.42,
+        "y": 0.5,
+        "z": -4.65
+      },
+      "ancho": 3.0,
+      "alto": 1.0,
+      "tam_real": 3.0,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/8ce879fe-5bb3-4865-8cb0-0af039dd0c7b.glb",
+      "keyword_busqueda": "oak tree"
+    },
+    {
+      "id": "decorado_columna_tronco_02",
+      "nombre": "columna tronco de haya",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 7.25,
+        "y": 0.45,
+        "z": 4.51
+      },
+      "ancho": 2.5,
+      "alto": 0.9,
+      "tam_real": 2.5,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/c6b39e97-df63-428e-9d9e-004c9c467275.glb",
+      "keyword_busqueda": "column"
+    },
+    {
+      "id": "decorado_candelabro_de_hierro_01",
+      "nombre": "candelabro de hierro forjado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -2.5,
+        "y": 0.25,
+        "z": -7.23
+      },
+      "ancho": 0.3,
+      "alto": 0.5,
+      "tam_real": 0.5,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/95f8e0fa-f59e-4ade-b2eb-b629703c13e3.glb",
+      "keyword_busqueda": "candelabrum"
+    },
+    {
+      "id": "decorado_candelabro_de_hierro_02",
+      "nombre": "candelabro de hierro colgante",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 2.24,
+        "y": 0.25,
+        "z": 7.38
+      },
+      "ancho": 0.3,
+      "alto": 0.5,
+      "tam_real": 0.5,
+      "voltear_horizontal": false,
+      "capa": 6,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e6c65b91-0e3a-45f6-8e9e-9da5faa3f91d.glb",
+      "keyword_busqueda": "candle holder"
+    },
+    {
+      "id": "decorado_banco_de_madera_01",
+      "nombre": "banco de madera tallada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -7.51,
+        "y": 0.45,
+        "z": 4.85
+      },
+      "ancho": 1.2,
+      "alto": 0.9,
+      "tam_real": 1.2,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/623120d8-bebf-4bd9-bb09-3162c06c9741.glb",
+      "keyword_busqueda": "bench"
+    },
+    {
+      "id": "decorado_banco_de_madera_02",
+      "nombre": "banco de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 7.36,
+        "y": 0.45,
+        "z": -4.7
+      },
+      "ancho": 1.2,
+      "alto": 0.9,
+      "tam_real": 1.2,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/623120d8-bebf-4bd9-bb09-3162c06c9741.glb",
+      "keyword_busqueda": "bench"
+    },
+    {
+      "id": "decorado_armadura_de_placa_01",
+      "nombre": "armadura de placa completa",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -1.86,
+        "y": 0.9,
+        "z": -2.03
+      },
+      "ancho": 0.8,
+      "alto": 1.8,
+      "tam_real": 1.8,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/60ccfcdb-6aa7-4caf-a688-9b16a2a5f300.glb",
+      "keyword_busqueda": "armor"
+    },
+    {
+      "id": "decorado_caja_de_vino_01",
+      "nombre": "caja de vino de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 4.73,
+        "y": 0.25,
+        "z": -7.56
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "tam_real": 0.5,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/9b0c7d9b-344c-48d2-9a49-a59df0f4f838.glb",
+      "keyword_busqueda": "crate"
+    }
+  ],
+  "cielo": {
+    "tipo": "interior_luminoso",
+    "color_fondo": "#eaf0f5",
+    "color_ambiente": "#f9fbff",
+    "intensidad_ambiente": 0.6076582227503172,
+    "color_sol": "#fafaff",
+    "intensidad_sol": 1.0293050686459195,
+    "pos_sol": {
+      "x": -1.2681460178331747,
+      "y": 4.064106770870272,
+      "z": -0.3280063954896826
+    },
+    "niebla": null,
+    "luz_exterior": "noche"
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_juan": {
+      "glb_id": "Casual_Male",
+      "glb_path": "/sandbox/assets/characters/Casual_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_claro",
+      "clothing_seed": 9193,
+      "talla": "nino_enano",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_ogre": {
+      "glb_id": "Goblin_Male",
+      "glb_path": "/sandbox/assets/characters/Goblin_Male.gltf",
+      "skin_tone": null,
+      "skin_hex": "#5C8A3A",
+      "hair_color": null,
+      "clothing_seed": 4876,
+      "talla": "adulto_alto",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

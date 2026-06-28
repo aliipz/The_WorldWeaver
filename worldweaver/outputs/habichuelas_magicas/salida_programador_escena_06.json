@@ -1,0 +1,348 @@
+{
+  "id_escena": "escena_06",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Sombras rugen, Juan se oculta tembloroso",
+      "guias": [
+        "personaje_ogre",
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_ogre",
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Descubre la gallina dorada y el arpa de oro",
+      "guias": [
+        "objeto_gallina_dorada",
+        "objeto_arpa_de_oro",
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_gallina_dorada",
+          "objeto_arpa_de_oro"
+        ],
+        "personajes": [
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Fuga frenética con tesoros en mano",
+      "guias": [
+        "objeto_gallina_dorada",
+        "objeto_arpa_de_oro",
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_gallina_dorada",
+          "objeto_arpa_de_oro"
+        ],
+        "personajes": [
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_ogre",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "¡Gruñido! ¡Huelo a carne humana, pequeño!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¡No escaparás de mi cocina, mocoso!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué quieres de mí?",
+                  "respuesta": "Quiero devorarte y robar tus tesoros."
+                },
+                {
+                  "etiqueta": "¡Déjame ir!",
+                  "respuesta": "¡Te devoraré si te atreves a moverte!"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "¿Dónde están mis tesoros?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Los llevé conmigo.",
+                  "respuesta": "¡Entonces correrás hacia la muerte!"
+                },
+                {
+                  "etiqueta": "No sé de qué hablas.",
+                  "respuesta": "¡Mentiroso, te encontraré!"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Defeat",
+          "puntos": [
+            {
+              "frases": [
+                "¡Maldito! ¡No dejaré que escapes!"
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_gallina_dorada",
+          "consume": false,
+          "puntos": [
+            {
+              "frases": [
+                "¡Esa gallina es mía!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "No son tuyos.",
+                  "respuesta": "¡Robados! ¡Los recuperaré!"
+                },
+                {
+                  "etiqueta": "¿Qué quieres?",
+                  "respuesta": "¡Devuélvelos o morirás!"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_arpa_de_oro",
+          "consume": false,
+          "puntos": [
+            {
+              "frases": [
+                "¡Ese arpa de oro también es mío!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "No es tuyo.",
+                  "respuesta": "¡Te lo devolveré solo si me das tu vida!"
+                },
+                {
+                  "etiqueta": "¿Qué harás con ella?",
+                  "respuesta": "La usaré para cantar la muerte de los que se atreven."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Rugir",
+          "descripcion": "El ogre lanza un rugido ensordecedor que hace temblar las columnas.",
+          "animacion": "Punch",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "rugir",
+          "dispara": [
+            {
+              "id_nodo": "personaje_juan",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_juan",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Estoy temblando, su aliento me quema..."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Debo esperar a que se distraiga..."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué pasa?",
+                  "respuesta": "El ogre ruge, pero no me ha visto todavía."
+                },
+                {
+                  "etiqueta": "¿Cómo saldré?",
+                  "respuesta": "Tal vez la puerta trasera esté abierta."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "PickUp",
+          "puntos": [
+            {
+              "frases": [
+                "La gallina brilla como el sol, el arpa canta en silencio."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Los tomo con cuidado, no quiero despertar al ogre."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Crees que te atrapará?",
+                  "respuesta": "Si lo hace, será el final."
+                },
+                {
+                  "etiqueta": "¿Qué harás con ellos?",
+                  "respuesta": "Los usaré para salvar a mi madre."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "¡Corre! ¡No mi de mirarme!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Siento el calor de la antorcha y el latido de mi corazón."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Estás asustado?",
+                  "respuesta": "Más que nunca, pero la esperanza me impulsa."
+                },
+                {
+                  "etiqueta": "¿A dónde vas?",
+                  "respuesta": "A la salida, donde la luz me guarde."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Esconderse",
+          "descripcion": "Te arrastras sigilosamente tras el caldero, ocultándote de la vista del ogre.",
+          "animacion": "SitDown",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_gallina_dorada",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "Gallina dorada",
+        "descripcion": "Una ave reluciente, plumas de oro que brillan aun en la penumbra."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_arpa_de_oro",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "Arpa de oro",
+        "descripcion": "Un arpa tallada en metal brillante, sus cuerdas cantan al viento."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_armadura_de_placa_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Armadura de placa completa",
+        "descripcion": "Una armadura de acero brillante, con grabados de batallas antiguas, yace sobre la mesa entre huesos y platos sucios.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_entrada_salon",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al cruzar el umbral, el eco de antorchas titilantes revela un salón de columnas vivas y sombras acechantes."
+    }
+  ]
+}

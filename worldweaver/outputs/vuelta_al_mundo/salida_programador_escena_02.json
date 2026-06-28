@@ -1,0 +1,284 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Brújula guiando entre hielo y viento",
+      "guias": [
+        "personaje_magallanes"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_magallanes"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Nombran al Pacífico por su aparente calma",
+      "guias": [
+        "personaje_magallanes"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_magallanes"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Escasez lleva al racionamiento y escorbuto",
+      "guias": [
+        "personaje_magallanes"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_magallanes"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_magallanes",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Fernando de Magallanes — Navegante portugués",
+        "texto": "Fernando de Magallanes (1480‑1521) fue un navegante portugués que lideró la primera circunnavegación del mundo. Su expedición buscaba una ruta occidental hacia las Indias orientales y, en 1519, cruzó el ==Estrecho de Magallanes==, demostrando la viabilidad de la ruta del Pacífico. Su legado quedó marcado por la apertura de nuevas rutas marítimas y el descubrimiento del ==Pacífico==."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "El ==Estrecho de Magallanes== nos pone a prueba con hielo y vientos que cortan la piel."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Aún con el frío, la voluntad de la tripulación se mantiene firme como el acero."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo mantuviste la moral en medio de la tormenta?",
+                  "respuesta": "Recordé que el objetivo era encontrar una ruta occidental, y eso nos dio esperanza."
+                },
+                {
+                  "etiqueta": "¿Qué técnicas usaste para romper el hielo?",
+                  "respuesta": "Utilizamos los remos y los anclas para crear surcos que nos permitieran avanzar."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Este paso abrirá el camino hacia las Indias orientales."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Al salir del estrecho, la calma del mar nos hizo llamarlo ==Pacífico==, aunque pronto se demostraría engañoso."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "La tranquilidad nos dio la ilusión de paz después del caos."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Por qué elegiste ese nombre?",
+                  "respuesta": "Porque la serenidad del agua nos pareció un refugio tras la tormenta."
+                },
+                {
+                  "etiqueta": "¿Qué señales observaste que indicaban que era un océano nuevo?",
+                  "respuesta": "El agua era más clara y los vientos más suaves, señal de que habíamos dejado el estrecho."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Sin embargo, la calma era solo la superficie; la escasez se avecinaba."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Punch",
+          "puntos": [
+            {
+              "frases": [
+                "La falta de alimentos nos obligó al racionamiento, y pronto la falta de vitamina C provocó el ==escorbuto== entre los hombres."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Distribuimos el pan en porciones mínimas y guardamos los secos para los días más duros."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo organizaste el racionamiento?",
+                  "respuesta": "Asignamos raciones diarias estrictas y priorizamos a los más fuertes para los trabajos más duros."
+                },
+                {
+                  "etiqueta": "¿Qué síntomas mostraban los afectados por el escorbuto?",
+                  "respuesta": "Encías sangrantes, debilidad y dolor en las articulaciones, una señal clara de la carencia de frutas."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Aún con esas dificultades, seguimos avanzando, pues la promesa de la ruta occidental nos impulsaba."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Reafirmar liderazgo",
+          "descripcion": "Magallanes levanta la voz y recuerda la ruta a seguir, reforzando la moral de la tripulación.",
+          "animacion": "Victory",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "alegria",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_brujula",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Brújula",
+        "descripcion": "La ==brújula== es un instrumento de navegación que utiliza una aguja magnetizada para indicar el ==norte magnético==. En el siglo XVI estaba hecha de acero y una caja de latón, permitiendo a los navegantes orientarse en alta mar.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyR",
+          "etiqueta": "Girar la aguja",
+          "descripcion": "Giras la aguja y observas cómo se alinea con el campo magnético terrestre.",
+          "efecto_visual": "rotar",
+          "sonido": "metal"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_astrolabio",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Astrolabio",
+        "descripcion": "El ==astrolabio== es un dispositivo usado para medir la altura de los astros sobre el horizonte, permitiendo calcular la ==latitud==. Consiste en una placa graduada y una regla giratoria; en el siglo XVI era de latón y madera.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyQ",
+          "etiqueta": "Calibrar",
+          "descripcion": "Mueves la regla giratoria y alineas el instrumento con la posición del sol para obtener una medida precisa.",
+          "efecto_visual": "pulsar",
+          "sonido": "metal"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_cartas_nauticas",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Cartas náuticas",
+        "descripcion": "Las ==cartas náuticas== son mapas que representan costas, profundidades y peligros marinos. En el siglo XVI se dibujaban a mano sobre ==pergamino== y se actualizaban con información de viajeros.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyR",
+          "etiqueta": "Desplegar",
+          "descripcion": "Desdoblas la carta y observas los símbolos que indican bancos de arena y corrientes peligrosas.",
+          "efecto_visual": "aparecer",
+          "sonido": "suave"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_cofre_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "Abres el cofre revelando su contenido.",
+        "texto_desactivacion": null,
+        "efecto_visual": "abrir",
+        "color_efecto": null,
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_canon_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un cañón de bronce, oxidado por el salitre, yace firme sobre la cubierta."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_barril_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un barril de pólvora, cubierto de musgo, parece listo para estallar."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": []
+}

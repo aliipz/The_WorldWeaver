@@ -1,0 +1,825 @@
+{
+  "id_escena": "escena_02",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "ciudad",
+  "radio_escena": 22.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_02",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_02",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 22.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_gobernador_bastilla",
+      "nombre": "Gobernador de la Bastilla",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.86,
+        "y": 0.95,
+        "z": -0.52
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Soldier_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_guardia_real_suiza_1",
+      "nombre": "Guardia real suiza",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.79,
+        "y": 0.9,
+        "z": -0.56
+      },
+      "ancho": 0.9,
+      "alto": 1.8,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/BlueSoldier_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_sans_culotte_1",
+      "nombre": "Sans-culotte",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -1.92,
+        "y": 0.88,
+        "z": -0.57
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual2_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_miliciono_desertor_1",
+      "nombre": "Milicionero desertor",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.89,
+        "y": 0.93,
+        "z": -1.8
+      },
+      "ancho": 1.0,
+      "alto": 1.85,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Soldier_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_cadena_hierro",
+      "nombre": "Cadena de hierro",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.97,
+        "y": 0.45,
+        "z": 0.73
+      },
+      "ancho": 3.5,
+      "alto": 0.9,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/19984f7a-7609-4636-a8b4-b51e85bcf68e.glb",
+      "keyword_busqueda": "chain"
+    },
+    {
+      "id": "objeto_pica_hierro",
+      "nombre": "Pica de hierro",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -3.14,
+        "y": 0.1,
+        "z": 1.55
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b2b466bd-8fb9-4372-8e4b-49fe0e8ae6b3.glb",
+      "keyword_busqueda": "pickaxe"
+    },
+    {
+      "id": "objeto_hacha_leñador",
+      "nombre": "Hacha de leñador",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.08,
+        "y": 0.5,
+        "z": -3.5
+      },
+      "ancho": 0.5,
+      "alto": 1.0,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/2b206f9f-30f7-43a4-8dd8-daa04953962b.glb",
+      "keyword_busqueda": "axe"
+    },
+    {
+      "id": "objeto_antorcha",
+      "nombre": "Antorcha",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 3.15,
+        "y": 0.6,
+        "z": 1.63
+      },
+      "ancho": 0.2,
+      "alto": 1.2,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/0dcdbabb-629d-4eee-af16-7c49f6ba6e5e.glb",
+      "keyword_busqueda": "torch"
+    },
+    {
+      "id": "objeto_mosquete",
+      "nombre": "Mosquete",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -5.49,
+        "y": 0.15,
+        "z": -0.17
+      },
+      "ancho": 1.5,
+      "alto": 0.3,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/da83f4f9-7a4e-4739-9033-79d688aa3b5e.glb",
+      "keyword_busqueda": "musket"
+    },
+    {
+      "id": "objeto_canon_bronce",
+      "nombre": "Cañón de bronce",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 4.16,
+        "y": 0.5,
+        "z": -3.59
+      },
+      "ancho": 2.0,
+      "alto": 1.0,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/6d76c733-c77c-46f5-9d4f-af847d4052b3.glb",
+      "keyword_busqueda": "cannon"
+    },
+    {
+      "id": "objeto_barril_de_polvora",
+      "nombre": "Barril de pólvora",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.2,
+        "y": 0.6,
+        "z": 5.37
+      },
+      "ancho": 0.8,
+      "alto": 1.2,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/dbb58868-50d4-4ef0-945a-12b07222fb69.glb",
+      "keyword_busqueda": "barrel"
+    },
+    {
+      "id": "decorado_farol_hierro_01",
+      "nombre": "Farol de hierro",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -4.58,
+        "y": 0.75,
+        "z": 3.04
+      },
+      "ancho": 0.4,
+      "alto": 1.5,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ecbc7b04-09ca-4068-bb3c-4e5ce1163c9a.glb",
+      "keyword_busqueda": "lantern"
+    },
+    {
+      "id": "decorado_banco_piedra_01",
+      "nombre": "Banco de piedra",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -13.16,
+        "y": 0.25,
+        "z": -4.76
+      },
+      "ancho": 1.5,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/623120d8-bebf-4bd9-bb09-3162c06c9741.glb",
+      "keyword_busqueda": "bench"
+    },
+    {
+      "id": "decorado_caja_frutas_01",
+      "nombre": "Caja de frutas",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.37,
+        "y": 0.3,
+        "z": -8.99
+      },
+      "ancho": 0.6,
+      "alto": 0.6,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/9b0c7d9b-344c-48d2-9a49-a59df0f4f838.glb",
+      "keyword_busqueda": "crate"
+    },
+    {
+      "id": "decorado_carreta_madera_01",
+      "nombre": "Carreta de madera",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.76,
+        "y": 0.5,
+        "z": -19.99
+      },
+      "ancho": 2.0,
+      "alto": 1.0,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/40606bc4-a408-4b9a-85d5-749884f72cde.glb",
+      "keyword_busqueda": "cart"
+    },
+    {
+      "id": "amb_00_0_00",
+      "nombre": "stone bastion",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -13.67,
+        "y": 6.17,
+        "z": 13.58
+      },
+      "ancho": 4.75,
+      "alto": 12.34,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d7bc2b98-2c73-4e78-b0bd-e5e24d65734a.glb",
+      "keyword_busqueda": "stone bastion"
+    },
+    {
+      "id": "amb_00_0_01",
+      "nombre": "stone bastion",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.65,
+        "y": 5.56,
+        "z": -8.9
+      },
+      "ancho": 4.27,
+      "alto": 11.11,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d7bc2b98-2c73-4e78-b0bd-e5e24d65734a.glb",
+      "keyword_busqueda": "stone bastion"
+    },
+    {
+      "id": "amb_00_1_00",
+      "nombre": "stone bastion",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -16.68,
+        "y": 5.22,
+        "z": -1.93
+      },
+      "ancho": 4.02,
+      "alto": 10.44,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d7bc2b98-2c73-4e78-b0bd-e5e24d65734a.glb",
+      "keyword_busqueda": "stone bastion"
+    },
+    {
+      "id": "amb_01_0_00",
+      "nombre": "French townhouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.92,
+        "y": 4.02,
+        "z": 8.59
+      },
+      "ancho": 3.57,
+      "alto": 8.04,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "French townhouse"
+    },
+    {
+      "id": "amb_01_0_01",
+      "nombre": "French townhouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 5.56,
+        "y": 5.0,
+        "z": 20.04
+      },
+      "ancho": 4.45,
+      "alto": 10.01,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "French townhouse"
+    },
+    {
+      "id": "amb_01_0_02",
+      "nombre": "French townhouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 15.99,
+        "y": 5.12,
+        "z": 10.15
+      },
+      "ancho": 4.55,
+      "alto": 10.24,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "French townhouse"
+    },
+    {
+      "id": "amb_01_0_03",
+      "nombre": "French townhouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 19.51,
+        "y": 4.6,
+        "z": -6.67
+      },
+      "ancho": 4.09,
+      "alto": 9.2,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "French townhouse"
+    },
+    {
+      "id": "amb_01_0_04",
+      "nombre": "French townhouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 10.52,
+        "y": 4.48,
+        "z": -18.03
+      },
+      "ancho": 3.99,
+      "alto": 8.97,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "French townhouse"
+    },
+    {
+      "id": "amb_01_0_05",
+      "nombre": "French townhouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -12.84,
+        "y": 3.8,
+        "z": -15.96
+      },
+      "ancho": 3.38,
+      "alto": 7.6,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "French townhouse"
+    },
+    {
+      "id": "amb_01_0_06",
+      "nombre": "French townhouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -19.79,
+        "y": 4.49,
+        "z": -6.01
+      },
+      "ancho": 3.99,
+      "alto": 8.99,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "French townhouse"
+    },
+    {
+      "id": "amb_01_1_00",
+      "nombre": "French townhouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -15.84,
+        "y": 4.31,
+        "z": -5.16
+      },
+      "ancho": 3.83,
+      "alto": 8.61,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "French townhouse"
+    },
+    {
+      "id": "amb_01_1_01",
+      "nombre": "French townhouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -5.4,
+        "y": 4.76,
+        "z": 14.72
+      },
+      "ancho": 4.23,
+      "alto": 9.52,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "French townhouse"
+    },
+    {
+      "id": "amb_02_0_00",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -20.11,
+        "y": 1.31,
+        "z": -2.55
+      },
+      "ancho": 1.75,
+      "alto": 2.62,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    },
+    {
+      "id": "amb_02_0_01",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -0.64,
+        "y": 1.51,
+        "z": 19.21
+      },
+      "ancho": 2.02,
+      "alto": 3.03,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    },
+    {
+      "id": "amb_02_0_02",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 18.15,
+        "y": 1.62,
+        "z": 5.79
+      },
+      "ancho": 2.16,
+      "alto": 3.24,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    },
+    {
+      "id": "amb_02_0_03",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 12.14,
+        "y": 1.45,
+        "z": -14.85
+      },
+      "ancho": 1.94,
+      "alto": 2.91,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    },
+    {
+      "id": "amb_02_0_04",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.47,
+        "y": 1.23,
+        "z": -18.61
+      },
+      "ancho": 1.64,
+      "alto": 2.46,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    },
+    {
+      "id": "amb_02_1_00",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 4.65,
+        "y": 1.21,
+        "z": -16.35
+      },
+      "ancho": 1.61,
+      "alto": 2.42,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    },
+    {
+      "id": "amb_02_1_01",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -1.56,
+        "y": 1.72,
+        "z": 14.25
+      },
+      "ancho": 2.3,
+      "alto": 3.45,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    },
+    {
+      "id": "amb_03_0_00",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.03,
+        "y": 1.09,
+        "z": -8.93
+      },
+      "ancho": 1.64,
+      "alto": 2.19,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_03_0_01",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -20.43,
+        "y": 0.82,
+        "z": 3.21
+      },
+      "ancho": 1.24,
+      "alto": 1.65,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_03_0_02",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -2.59,
+        "y": 1.02,
+        "z": 17.87
+      },
+      "ancho": 1.53,
+      "alto": 2.04,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_03_0_03",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 13.92,
+        "y": 1.04,
+        "z": -14.05
+      },
+      "ancho": 1.56,
+      "alto": 2.07,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_03_1_00",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 2.73,
+        "y": 0.84,
+        "z": 15.85
+      },
+      "ancho": 1.26,
+      "alto": 1.69,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    }
+  ],
+  "cielo": {
+    "tipo": "manana_nublada",
+    "color_fondo": "#9aaaba",
+    "color_ambiente": "#cdd9e5",
+    "intensidad_ambiente": 0.8257333483352615,
+    "color_sol": "#dce9f4",
+    "intensidad_sol": 0.44116517760150226,
+    "pos_sol": {
+      "x": -0.11605632938455046,
+      "y": 3.1538945893387744,
+      "z": -1.7336378843367692
+    },
+    "niebla": {
+      "color": "#9cacbc",
+      "near": 13.5,
+      "far": 16.5
+    }
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_gobernador_bastilla": {
+      "glb_id": "Soldier_Male",
+      "glb_path": "/sandbox/assets/characters/Soldier_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "gris",
+      "clothing_seed": 2396,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_guardia_real_suiza_1": {
+      "glb_id": "BlueSoldier_Male",
+      "glb_path": "/sandbox/assets/characters/BlueSoldier_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 8203,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_sans_culotte_1": {
+      "glb_id": "Casual2_Male",
+      "glb_path": "/sandbox/assets/characters/Casual2_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 4952,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_miliciono_desertor_1": {
+      "glb_id": "Soldier_Male",
+      "glb_path": "/sandbox/assets/characters/Soldier_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 3580,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

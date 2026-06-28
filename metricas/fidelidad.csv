@@ -1,0 +1,7 @@
+id,titulo,entidades_esp,cobertura_pct,escenas_esp,escenas_obt,n_corridas,entidades_no_encontradas
+E1,Apolo 11 y la llegada a la Luna,11,92.7,5,5.0,5,muestras lunares
+E2,Expedición de Magallanes y Elcano: la primera vuelta al mundo,9,91.1,4,4.0,5,espejos
+T1,Juan y las Habichuelas Mágicas,9,97.8,7,7.8,5,
+T2,Elena y Zip: El Faro del Fin del Mundo,9,88.9,6,5.2,5,faro
+T3,Romeo y Julieta,10,96.0,7,8.6,5,
+T4,El último turno,10,98.0,3,3.4,5,

@@ -1,0 +1,221 @@
+{
+  "titulo": "Cuestionario: Vuelta al Mundo",
+  "preguntas": [
+    {
+      "numero": 1,
+      "pregunta": "¿Qué tratado de 1494 dividió los territorios descubiertos entre Portugal y Castilla?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Tratado de Westfalia",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Tratado de Utrecht",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Tratado de Zaragoza",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "Tratado de Tordesillas",
+          "correcta": true
+        }
+      ],
+      "explicacion": "El acuerdo que estableció la línea de demarcación entre las áreas de influencia portuguesa y castellana fue el Tratado de Tordesillas."
+    },
+    {
+      "numero": 2,
+      "pregunta": "¿Cuál documento oficial autorizó a Carlos I a financiar y organizar la expedición de 1519?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Capitulaciones reales",
+          "correcta": true
+        },
+        {
+          "letra": "b",
+          "texto": "Carta de patrocinio",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Carta de navegación",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "Decreto de exploración",
+          "correcta": false
+        }
+      ],
+      "explicacion": "Las condiciones, financiación y autoridad del viaje quedaron recogidas en las Capitulaciones reales."
+    },
+    {
+      "numero": 3,
+      "pregunta": "¿Qué instrumento permitía a los navegantes medir la altura del sol para estimar la latitud?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Brújula magnética",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Cuadrante de madera",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Carta náutica detallada",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "Astrolabio",
+          "correcta": true
+        }
+      ],
+      "explicacion": "El astrolabio era el dispositivo principal para determinar la latitud mediante la observación del sol o las estrellas."
+    },
+    {
+      "numero": 4,
+      "pregunta": "¿Por qué los marineros llamaron \"Pacífico\" al nuevo océano descubierto tras el estrecho?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Porque era el océano más grande conocido hasta entonces",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Porque sus aguas parecían calmadas después del paso turbulento",
+          "correcta": true
+        },
+        {
+          "letra": "c",
+          "texto": "Porque estaba poblado de abundantes bancos de peces",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "Porque estaba situado cerca del ecuador, donde el clima es templado",
+          "correcta": false
+        }
+      ],
+      "explicacion": "El nombre reflejó la impresión de tranquilidad que los navegantes sintieron al salir del estrecho y observar aguas serenas."
+    },
+    {
+      "numero": 5,
+      "pregunta": "¿Cuál causa directa provocó la aparición del escorbuto entre la tripulación durante la travesía del Pacífico?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Falta de frutas y verduras frescas que aportaban vitamina C",
+          "correcta": true
+        },
+        {
+          "letra": "b",
+          "texto": "Consumo excesivo de carne salada sin variedad nutricional",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Escasez de agua potable durante varios meses seguidos",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "Exposición prolongada a bajas temperaturas en el mar",
+          "correcta": false
+        }
+      ],
+      "explicacion": "El escorbuto se desencadena por la deficiencia de vitamina C, que se obtenía principalmente de alimentos frescos."
+    },
+    {
+      "numero": 6,
+      "pregunta": "¿Qué ocurrió con la cadena de mando de la Nao Victoria tras la muerte de Magallanes en Filipinas?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "La expedición se detuvo y la nave quedó varada en la costa",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Un grupo de marineros portugueses tomó el control de la embarcación",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Los oficiales abandonaron la nave y regresaron a España",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "Juan Sebastián Elcano asumió el mando y continuó el viaje",
+          "correcta": true
+        }
+      ],
+      "explicacion": "Elcano, como oficial más alto restante, heredó la autoridad y lideró la vuelta al mundo."
+    },
+    {
+      "numero": 7,
+      "pregunta": "Si la expedición no hubiera llevado suficiente clavo y nuez moscada para el intercambio en las Islas Molucas, ¿cuál habría sido la consecuencia económica más probable para la Corona española?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "El viaje no habría recuperado gran parte de su inversión, generando pérdidas",
+          "correcta": true
+        },
+        {
+          "letra": "b",
+          "texto": "Los indígenas habrían entregado oro a cambio de los bienes europeos",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "La Corona habría obtenido ganancias suficientes mediante la venta de otras especias",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "La Nao Victoria habría sido vendida a Portugal para cubrir los gastos",
+          "correcta": false
+        }
+      ],
+      "explicacion": "Las especias como el clavo y la nuez moscada eran la principal fuente de ingresos que permitía equilibrar el costo del viaje."
+    },
+    {
+      "numero": 8,
+      "pregunta": "¿Cuál de los siguientes impactos a largo plazo se vinculó directamente con el éxito de la primera circunnavegación?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Se puso fin de forma inmediata al monopolio portugués sobre el comercio de especias",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Se produjo una colonización inmediata de todas las islas del Pacífico por parte de España",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Se demostró que los océanos Atlántico y Pacífico están conectados, impulsando nuevas rutas comerciales",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "Se descubrió al mismo tiempo un paso navegable por el norte que conectaba Europa y Asia",
+          "correcta": false
+        }
+      ],
+      "explicacion": "El viaje confirmó la viabilidad de una ruta marítima global, lo que fomentó el desarrollo de comercio intercontinental."
+    }
+  ]
+}

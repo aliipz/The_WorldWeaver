@@ -1,0 +1,155 @@
+{
+  "id_escena": "escena_02",
+  "elementos": [
+    {
+      "id": "personaje_elena",
+      "nombre": "Elena",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 4
+      },
+      "ancho": 1.0,
+      "alto": 1.8,
+      "descripcion": "Mujer joven, cabello castaño, mochila gastada, cuaderno de notas.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_zip",
+      "nombre": "Zip",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 4
+      },
+      "ancho": 0.6,
+      "alto": 0.5,
+      "descripcion": "Zorro naranja de orejas enormes y lengua larga.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_altar",
+      "nombre": "Altar de piedra",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 2.5,
+      "alto": 1.8,
+      "descripcion": "Altar de piedra en el centro del claro, cubierto de enredaderas y runas grabadas que se iluminan al contacto con la brújula.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_brujula",
+      "nombre": "Brújula de metal oscuro",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Brújula de metal oscuro con aguja que apunta al sur, brilla tenuemente aunque no haya sol.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_liana_gruesa_01",
+      "nombre": "Liana colgante de ciprés",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 3
+      },
+      "ancho": 0.5,
+      "alto": 0.3,
+      "descripcion": "Cinta fibrosa y flexible, de color marrón grisáceo, cuelga en cascada desde la copa del árbol, con brotes de hojas pequeñas.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_hongo_gigante_01",
+      "nombre": "Hongo de capuchón anaranjado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 7,
+        "fila": 3
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "descripcion": "Seta enorme con capuchón brillante naranja-ado, tallo blanco y rugoso, crece entre las raíces del árbol.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_arbol_gigante_01",
+      "nombre": "Árbol de caoba colosal",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 4.0,
+      "alto": 10.0,
+      "descripcion": "Tronco ancho y rugoso de madera oscura, cubierto de líquenes verdes y raíces que se hunden en el suelo.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_roca_licuenes_01",
+      "nombre": "Roca cubierta de líquenes",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 0
+      },
+      "ancho": 1.5,
+      "alto": 1.0,
+      "descripcion": "Piedra gris pálida, de forma irregular, con una capa densa de líquenes verdes y amarillos que la envuelven.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_raiz_retorcida_01",
+      "nombre": "Raíz retorcida emergente",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 1
+      },
+      "ancho": 1.5,
+      "alto": 0.8,
+      "descripcion": "Masa de raíces gruesas y nudosas que sobresalen del suelo, cubiertas de musgo esponjoso y pequeñas flores blancas.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_charca_pequenia_01",
+      "nombre": "Charca de agua estancada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "descripcion": "Pequeña depresión de agua clara y tibia, rodeada de piedras lisas y reflejando la densa vegetación circundante.",
+      "keyword_busqueda": null
+    }
+  ]
+}

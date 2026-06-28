@@ -1,0 +1,362 @@
+{
+  "id_escena": "escena_04",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "El presidente alza el mazo, anunciando la sesión.",
+      "guias": [
+        "objeto_mazo_bronce",
+        "personaje_presidente_asamblea"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_mazo_bronce"
+        ],
+        "personajes": [
+          "personaje_presidente_asamblea"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "El diputado firma la declaración de derechos fundamentales.",
+      "guias": [
+        "objeto_pluma",
+        "objeto_declaracion_derechos",
+        "objeto_escritorio_principal",
+        "personaje_diputado_burgues_1"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_pluma",
+          "objeto_declaracion_derechos",
+          "objeto_escritorio_principal"
+        ],
+        "personajes": [
+          "personaje_diputado_burgues_1"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "El ciudadano coloca la escarpela tricolor, celebrando la identidad.",
+      "guias": [
+        "objeto_escarpela_tricolor",
+        "personaje_ciudadano_escarapela_1"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_escarpela_tricolor"
+        ],
+        "personajes": [
+          "personaje_ciudadano_escarapela_1"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_presidente_asamblea",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Presidente de la Asamblea — Líder Constituyente",
+        "texto": "Presidente de la Asamblea Nacional Constituyente durante la Revolución Francesa. Dirigió los debates que culminaron en la redacción de la nueva constitución, marcando el inicio de la ==república==. Su autoridad se simbolizaba con el ==mazo de bronce== que utilizaba para llamar al orden."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Punch",
+          "puntos": [
+            {
+              "frases": [
+                "Con este golpe de ==mazo de bronce==, declaro abierta la sesión de la ==Asamblea Nacional==."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Nuestro objetivo es garantizar la igualdad y la libertad para todos los ciudadanos."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo definís la igualdad en la nueva constitución?",
+                  "respuesta": "La igualdad significa que cada persona tiene los mismos derechos ante la ley, sin privilegios de nacimiento, como establece el artículo ==1== de la Declaración."
+                },
+                {
+                  "etiqueta": "¿Qué medidas tomaréis para garantizar la libertad?",
+                  "respuesta": "Garantizamos la libertad de expresión, prensa y reunión, consagradas en los artículos ==11 a 14== de la nueva carta."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Al cerrar la sesión, recuerdo que la historia juzgará nuestro compromiso con la justicia."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Aplaudir",
+          "descripcion": "Aplaudes la apertura de la sesión, reforzando la autoridad del presidente.",
+          "animacion": "Victory",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "alegria",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_diputado_burgues_1",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Diputado Burgues — Redactor de la Declaración",
+        "texto": "Diputado ilustrado que participó en la redacción de la ==Declaración de los Derechos== durante la Asamblea Nacional. Defendió los principios de libertad, igualdad y fraternidad, que se convirtieron en pilares de la nueva nación."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Al firmar la ==Declaración de los Derechos== con mi ==pluma==, garantizamos la libertad de expresión."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Estos derechos son la base de la nueva sociedad republicana."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué implica la libertad de prensa?",
+                  "respuesta": "Permite que los ciudadanos publiquen y difundan ideas sin censura, como protege el artículo ==11==."
+                },
+                {
+                  "etiqueta": "¿Cómo se asegura la igualdad ante la ley?",
+                  "respuesta": "Mediante la eliminación de privilegios nobles, garantizando que todos los hombres sean juzgados bajo el mismo código, según el artículo ==6==."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Mi firma representa la voluntad del pueblo de construir una nación basada en la razón."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Firmar",
+          "descripcion": "El diputado firma la Declaración con la pluma, consolidando los derechos.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "metal",
+          "dispara": [
+            {
+              "id_nodo": "personaje_ciudadano_escarapela_1",
+              "efecto": null,
+              "color": null,
+              "animacion": "Victory"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_ciudadano_escarapela_1",
+      "fase_aparicion": 2,
+      "ficha_info": {
+        "titulo": "Ciudadano con Escarpela — Símbolo de la Nueva Identidad",
+        "texto": "Joven ciudadano que celebra la revolución vistiendo la ==escarpela tricolor==, símbolo de la nueva bandera nacional. Su entusiasmo refleja la esperanza de una Francia libre y unida."
+      },
+      "dialogos": [
+        {
+          "fase": 2,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "Me coloco la ==escarpela tricolor==, símbolo de la nueva identidad nacional."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Con estos colores, sentimos la unión de la patria."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué representan los colores de la escarpela?",
+                  "respuesta": "El azul simboliza la libertad, el blanco la igualdad y el rojo la fraternidad, los tres pilares de nuestra revolución."
+                },
+                {
+                  "etiqueta": "¿Cómo se vive la nueva identidad en la vida cotidiana?",
+                  "respuesta": "Se celebra con actos públicos, juramentos y la participación activa en la Asamblea, donde cada voz cuenta."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Cada día es una oportunidad para construir la Francia que soñamos."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Desfilar",
+          "descripcion": "El ciudadano coloca la escarpela tricolor, simbolizando la nueva identidad nacional.",
+          "animacion": "Jump",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "alegria",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_luis_xvi",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Luis XVI — Rey Absolutista",
+        "texto": "Último rey de la monarquía absoluta francesa antes de la Revolución. Intentó reformas económicas pero fue incapaz de detener la crisis que llevó a la caída del Antiguo Régimen."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Defeat",
+          "puntos": [
+            {
+              "frases": [
+                "Yo, el rey Luis XVI, observo con preocupación cómo la Asamblea avanza hacia la ==república==."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Mi intención era salvar a Francia sin perder la corona."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué reformas intentaste antes de la revolución?",
+                  "respuesta": "Propuse una reforma fiscal que gravara a los nobles, pero la resistencia de la aristocracia la bloqueó."
+                },
+                {
+                  "etiqueta": "¿Por qué falló tu intento de mantener el poder?",
+                  "respuesta": "La falta de apoyo popular y la crisis financiera hicieron que el pueblo exigiera cambios radicales, culminando en la caída de la monarquía."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Ahora, el eco de mi reinado se pierde entre los gritos de libertad."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_mazo_bronce",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Mazo de bronce",
+        "descripcion": "El mazo de ==bronce== es una herramienta ceremonial usada para señalar el inicio de una sesión parlamentaria. Está fabricado con una aleación de ==cobre y esta==, lo que le otorga peso y durabilidad. Su golpe audible sirve como señal de orden y respeto.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_pluma",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Pluma",
+        "descripcion": "La pluma es un instrumento de escritura tradicional hecho de ==pluma de ave== o de ==metal==. En la época de la Revolución, la pluma simbolizaba la autoridad para legitimar documentos oficiales. Al firmar, la tinta deja un registro permanente de la voluntad legislativa.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_declaracion_derechos",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Declaración de los Derechos",
+        "descripcion": "La Declaración de los Derechos es un documento que enumera los ==derechos fundamentales== reconocidos por la nueva república. Fue redactada para garantizar ==libertad, igualdad y fraternidad== y sirve como base legal para la protección de los ciudadanos.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_escritorio_principal",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Escritorio principal",
+        "descripcion": "El escritorio principal está tallado en ==roble== y funciona como superficie de trabajo para los documentos oficiales. Su diseño incluye cajones secretos para almacenar papeles importantes. En la Asamblea, se coloca la Declaración para su lectura y firma.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_escarpela_tricolor",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Escarpela tricolor",
+        "descripcion": "La escarpela tricolor es una insignia de ==bandera nacional== que representa los colores de la república. Se coloca sobre la vestimenta del ciudadano como muestra de lealtad y unidad. Su uso durante la ceremonia simboliza la consolidación de la identidad nacional.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": []
+}

@@ -1,0 +1,584 @@
+{
+  "titulo_historia": "Juan y las Habichuelas Mágicas",
+  "escenas": [
+    {
+      "id": "escena_01",
+      "titulo": "La granja y la decisión",
+      "entorno": "Sala de estar humilde de la granja, con paredes de piedra gris, techo de paja, una chimenea de barro apagada, una mesa de madera rústica y una ventana que da a los campos vacíos y al viejo establo",
+      "atmosfera": "Mañana triste, luz tenue que entra por la ventana, tensión y pesar en la familia",
+      "cielo": "interior_luminoso",
+      "tipo_ambiente": "habitacion",
+      "tiene_intro": true,
+      "texto_intro": "En una pequeña granja al borde del campo, Juan vivía con su madre en una casa de piedra y techo de paja. El día comenzaba con el eco de los animales y la preocupación de la escasez. La única vaca, Blanquita, estaba enferma y la madre sabía que debía venderla.",
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_juan",
+          "nombre": "Juan",
+          "fisica": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+          "background": "Curioso y responsable, ama a su madre y a la vaca, dispuesto a ayudar",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_madre",
+          "nombre": "Madre de Juan",
+          "fisica": "Mujer de mediana edad, rostro marcado por el trabajo, vestimenta de algodón gris",
+          "background": "Trabajadora y preocupada, lucha por mantener a la familia, siente tristeza por la pérdida de la vaca",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_cow_blancita",
+          "nombre": "Blanquita",
+          "fisica": "Vaca grande y pálida, manchas negras, mirada cansada",
+          "background": "Animal de granja, única fuente de leche, ahora sin producción",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [],
+      "eventos": [
+        {
+          "descripcion": "Juan abraza a Blanquita expresando cariño",
+          "personajes_involucrados": [
+            "personaje_juan",
+            "personaje_cow_blancita"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Madre suspira y le dice a Juan que tendrán que vender a la vaca",
+          "personajes_involucrados": [
+            "personaje_madre",
+            "personaje_juan"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Juan promete que todo saldrá bien mientras la vaca es llevada fuera",
+          "personajes_involucrados": [
+            "personaje_juan",
+            "personaje_cow_blancita"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_02",
+      "titulo": "El intercambio en el camino",
+      "entorno": "Sendero de tierra estrecho que serpentea entre colinas secas y árboles sin hojas, con polvo levantado bajo los pies, bordeado por un viejo establo a la distancia",
+      "atmosfera": "Mañana clara, brisa ligera, curiosidad y esperanza mientras Juan camina hacia el pueblo",
+      "cielo": "manana_despejada",
+      "tipo_ambiente": "campo",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_juan",
+          "nombre": "Juan",
+          "fisica": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+          "background": "Curioso y responsable, ama a su madre y a la vaca, dispuesto a ayudar",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_anciano",
+          "nombre": "Anciano misterioso",
+          "fisica": "Hombre anciano de barba gris, capa raída, sombrero de paja gastado",
+          "background": "Viajero misterioso que ofrece objetos extraños a cambio de favores, habla con voz ronca",
+          "rol": "secundario",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_cow_blancita",
+          "nombre": "Blanquita",
+          "fisica": "Vaca grande y pálida, manchas negras, mirada cansada",
+          "background": "Animal de granja, única fuente de leche, ahora sin producción; Juan la lleva al mercado para venderla",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_habichuelas_magicas",
+          "nombre": "Habichuelas mágicas",
+          "descripcion": "Pequeñas semillas verdes que brillan con una luz tenue, entregadas por el anciano",
+          "skin_id": "escena_02"
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Juan camina por el sendero sujetando la cuerda de la vaca",
+          "personajes_involucrados": [
+            "personaje_juan"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Anciano se cruza con Juan y le propone cambiar la vaca por habichuelas mágicas",
+          "personajes_involucrados": [
+            "personaje_anciano",
+            "personaje_juan"
+          ],
+          "objetos_involucrados": [
+            "objeto_habichuelas_magicas"
+          ]
+        },
+        {
+          "descripcion": "Juan acepta el trato y recibe las habichuelas, dejando la vaca atrás",
+          "personajes_involucrados": [
+            "personaje_juan",
+            "personaje_anciano"
+          ],
+          "objetos_involucrados": [
+            "objeto_habichuelas_magicas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_03",
+      "titulo": "La ira de la madre",
+      "entorno": "Cuarto pequeño de la casa, con una ventana que da al jardín, una cama de paja y una mesa de madera",
+      "atmosfera": "Noche tensa, silencio, lágrimas y reproches",
+      "cielo": "interior_calido",
+      "tipo_ambiente": "habitacion",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_juan",
+          "nombre": "Juan",
+          "fisica": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+          "background": "Curioso y responsable, ama a su madre y a la vaca, dispuesto a ayudar",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_madre",
+          "nombre": "Madre de Juan",
+          "fisica": "Mujer de mediana edad, rostro marcado por el trabajo, vestimenta de algodón gris",
+          "background": "Trabajadora y preocupada, lucha por mantener a la familia, siente tristeza por la pérdida de la vaca",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_habichuelas_magicas",
+          "nombre": "Habichuelas mágicas",
+          "descripcion": "Pequeñas semillas verdes que brillan con una luz tenue, entregadas por el anciano",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Madre se enfada al ver las habichuelas y le grita a Juan",
+          "personajes_involucrados": [
+            "personaje_madre",
+            "personaje_juan"
+          ],
+          "objetos_involucrados": [
+            "objeto_habichuelas_magicas"
+          ]
+        },
+        {
+          "descripcion": "Madre lanza las habichuelas por la ventana con rabia",
+          "personajes_involucrados": [
+            "personaje_madre"
+          ],
+          "objetos_involucrados": [
+            "objeto_habichuelas_magicas"
+          ]
+        },
+        {
+          "descripcion": "Juan se queda solo en el cuarto, cabizbajo, sin cenar",
+          "personajes_involucrados": [
+            "personaje_juan"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_04",
+      "titulo": "El brote nocturno",
+      "entorno": "Jardín trasero de la granja, con tierra húmeda, pequeñas flores silvestres y una cerca de madera; en el centro surge una enorme planta verde que se eleva hacia el cielo",
+      "atmosfera": "Medianoche misteriosa, crujidos extraños, asombro y temor",
+      "cielo": "noche_estrellada",
+      "tipo_ambiente": "campo",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_juan",
+          "nombre": "Juan",
+          "fisica": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+          "background": "Curioso y responsable, ama a su madre y a la vaca, dispuesto a ayudar",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_planta_gigante",
+          "nombre": "Planta gigante",
+          "descripcion": "Tallo verde y retorcido que se eleva hasta las nubes, con hojas gigantes",
+          "skin_id": "escena_04"
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Juan oye un crujido y ve cómo la planta gigante brota del suelo",
+          "personajes_involucrados": [
+            "personaje_juan"
+          ],
+          "objetos_involucrados": [
+            "objeto_planta_gigante"
+          ]
+        },
+        {
+          "descripcion": "Juan se asoma por la ventana y, temeroso pero curioso, decide trepar por la planta gigante",
+          "personajes_involucrados": [
+            "personaje_juan"
+          ],
+          "objetos_involucrados": [
+            "objeto_planta_gigante"
+          ]
+        },
+        {
+          "descripcion": "Juan sube durante mucho tiempo, emergiendo entre las nubes",
+          "personajes_involucrados": [
+            "personaje_juan"
+          ],
+          "objetos_involucrados": [
+            "objeto_planta_gigante"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_05",
+      "titulo": "Sobre las nubes y el castillo",
+      "entorno": "Cima de la planta, un suelo blanco y esponjoso bajo los pies, con nubes densas alrededor y, a lo lejos, un castillo de piedra oscura que se alza entre la niebla",
+      "atmosfera": "Sensación de grandeza, curiosidad y ligera aprensión bajo un sol brillante",
+      "cielo": "mediodia_soleado",
+      "tipo_ambiente": "otro",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_juan",
+          "nombre": "Juan",
+          "fisica": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+          "background": "Curioso y responsable, ama a su madre y a la vaca, dispuesto a ayudar",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [],
+      "eventos": [
+        {
+          "descripcion": "Juan contempla el castillo de piedra oscura entre la niebla desde el suelo blanco",
+          "personajes_involucrados": [
+            "personaje_juan"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Juan avanza despacio hacia el castillo, sin saber qué le espera",
+          "personajes_involucrados": [
+            "personaje_juan"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Juan llega a la gran puerta del castillo y la empuja, entrando al salón",
+          "personajes_involucrados": [
+            "personaje_juan"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_06",
+      "titulo": "El salón del ogro",
+      "entorno": "Salón inmenso del castillo, con columnas como troncos de árbol, antorchas que proyectan sombras sobre tapices polvorientos, una mesa enorme cubierta de huesos y platos sucios",
+      "atmosfera": "Oscuridad interrumpida por llama de antorchas, tensión y miedo mientras Juan se oculta",
+      "cielo": "interior_luminoso",
+      "tipo_ambiente": "interior",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_juan",
+          "nombre": "Juan",
+          "fisica": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+          "background": "Curioso y responsable, ama a su madre y a la vaca, dispuesto a ayudar",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_ogre",
+          "nombre": "Ogro",
+          "fisica": "Criatura enorme de piel verde, ojos amarillos, cuerpo robusto, garras afiladas",
+          "background": "Monstruo hambriento que huele a humanos, guarda la cámara del castillo",
+          "rol": "antagonista",
+          "skin_id": null
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_gallina_dorada",
+          "nombre": "Gallina dorada",
+          "descripcion": "Gallina con plumas brillantes como oro",
+          "skin_id": "escena_06"
+        },
+        {
+          "id": "objeto_arpa_de_oro",
+          "nombre": "Arpa de oro",
+          "descripcion": "Arpa tallada en oro que vibra sola, emitiendo una melodía suave",
+          "skin_id": "escena_06"
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Ogro ruge y huele a niño humano, mientras Juan se esconde detrás de un caldero enorme",
+          "personajes_involucrados": [
+            "personaje_ogre",
+            "personaje_juan"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Juan descubre la gallina dorada y el arpa de oro sobre la mesa y los toma con cuidado",
+          "personajes_involucrados": [
+            "personaje_juan"
+          ],
+          "objetos_involucrados": [
+            "objeto_gallina_dorada",
+            "objeto_arpa_de_oro"
+          ]
+        },
+        {
+          "descripcion": "Juan sale corriendo del salón con la gallina dorada y el arpa de oro en sus manos",
+          "personajes_involucrados": [
+            "personaje_juan"
+          ],
+          "objetos_involucrados": [
+            "objeto_gallina_dorada",
+            "objeto_arpa_de_oro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_07",
+      "titulo": "La caída del gigante",
+      "entorno": "Laderas del tallo gigante, con nubes alrededor, la planta temblando bajo los pasos del ogro, y el suelo de la granja al pie",
+      "atmosfera": "Urgencia y peligro, carrera contra el tiempo mientras el ogro persigue",
+      "cielo": "mediodia_soleado",
+      "tipo_ambiente": "campo",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_juan",
+          "nombre": "Juan",
+          "fisica": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+          "background": "Curioso y responsable, ama a su madre y a la vaca, dispuesto a ayudar",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_madre",
+          "nombre": "Madre de Juan",
+          "fisica": "Mujer de mediana edad, rostro marcado por el trabajo, vestimenta de algodón gris",
+          "background": "Trabajadora y preocupada, lucha por mantener a la familia, siente tristeza por la pérdida de la vaca",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_ogre",
+          "nombre": "Ogro",
+          "fisica": "Criatura enorme de piel verde, ojos amarillos, cuerpo robusto, garras afiladas",
+          "background": "Monstruo hambriento que huele a humanos, guarda la cámara del castillo",
+          "rol": "antagonista",
+          "skin_id": null
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_planta_gigante",
+          "nombre": "Planta gigante",
+          "descripcion": "Tallo verde y retorcido que se eleva hasta las nubes, con hojas gigantes",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_hacha",
+          "nombre": "Hacha",
+          "descripcion": "Hacha de acero con mango de madera, pesada y afilada",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Ogro persigue a Juan por la planta gigante, sacudiendo la planta",
+          "personajes_involucrados": [
+            "personaje_ogre",
+            "personaje_juan"
+          ],
+          "objetos_involucrados": [
+            "objeto_planta_gigante"
+          ]
+        },
+        {
+          "descripcion": "Juan grita a su madre, quien le entrega el hacha",
+          "personajes_involucrados": [
+            "personaje_juan",
+            "personaje_madre"
+          ],
+          "objetos_involucrados": [
+            "objeto_hacha"
+          ]
+        },
+        {
+          "descripcion": "Juan golpea la planta gigante con el hacha, haciendo que la planta se derrumbe y el ogro desaparezca",
+          "personajes_involucrados": [
+            "personaje_juan",
+            "personaje_ogre"
+          ],
+          "objetos_involucrados": [
+            "objeto_planta_gigante",
+            "objeto_hacha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_08",
+      "titulo": "Regreso y prosperidad",
+      "entorno": "Sala de estar de la granja, ahora iluminada por la luz del sol que entra por la ventana, con la gallina dorada en el corral y el arpa de oro sobre una mesa, campos verdes visibles por la ventana",
+      "atmosfera": "Felicidad y alivio, celebración del regreso y la abundancia",
+      "cielo": "interior_luminoso",
+      "tipo_ambiente": "habitacion",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": "Tras la caída del gigante, la granja volvió a latir con vida. Juan y su madre se abrazaron, mientras la gallina dorada ponía huevos de oro y el arpa llenaba la casa de música cálida. Los campos florecieron, el establo se llenó de animales y la familia vivió en paz, recordando siempre la aventura que los salvó.",
+      "personajes": [
+        {
+          "id": "personaje_juan",
+          "nombre": "Juan",
+          "fisica": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+          "background": "Curioso y responsable, ama a su madre y a la vaca, dispuesto a ayudar",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_madre",
+          "nombre": "Madre de Juan",
+          "fisica": "Mujer de mediana edad, rostro marcado por el trabajo, vestimenta de algodón gris",
+          "background": "Trabajadora y preocupada, lucha por mantener a la familia, siente tristeza por la pérdida de la vaca",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_gallina_dorada",
+          "nombre": "Gallina dorada",
+          "descripcion": "Gallina con plumas brillantes como oro",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_arpa_de_oro",
+          "nombre": "Arpa de oro",
+          "descripcion": "Arpa tallada en oro que vibra sola, emitiendo una melodía suave",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Juan y su madre se abrazan, agradecidos por la victoria",
+          "personajes_involucrados": [
+            "personaje_juan",
+            "personaje_madre"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "La gallina dorada pone un huevo de oro mientras el arpa de oro llena la casa con música cálida",
+          "personajes_involucrados": [
+            "personaje_juan",
+            "personaje_madre"
+          ],
+          "objetos_involucrados": [
+            "objeto_gallina_dorada",
+            "objeto_arpa_de_oro"
+          ]
+        },
+        {
+          "descripcion": "Los campos fuera de la ventana reviven, el establo se llena de animales y la granja recupera la vida",
+          "personajes_involucrados": [
+            "personaje_juan",
+            "personaje_madre"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    }
+  ],
+  "personajes_globales": [
+    {
+      "id": "personaje_juan",
+      "nombre": "Juan",
+      "fisica": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+      "background": "Curioso y responsable, ama a su madre y a la vaca, dispuesto a ayudar",
+      "rol": "protagonista",
+      "skin_id": null
+    },
+    {
+      "id": "personaje_madre",
+      "nombre": "Madre de Juan",
+      "fisica": "Mujer de mediana edad, rostro marcado por el trabajo, vestimenta de algodón gris",
+      "background": "Trabajadora y preocupada, lucha por mantener a la familia, siente tristeza por la pérdida de la vaca",
+      "rol": "secundario",
+      "skin_id": null
+    }
+  ],
+  "objetos_globales": [
+    {
+      "id": "objeto_habichuelas_magicas",
+      "nombre": "Habichuelas mágicas",
+      "descripcion": "Pequeñas semillas verdes que brillan con una luz tenue, entregadas por el anciano",
+      "skin_id": null
+    },
+    {
+      "id": "objeto_planta_gigante",
+      "nombre": "Planta gigante",
+      "descripcion": "Tallo verde y retorcido que se eleva hasta las nubes, con hojas gigantes",
+      "skin_id": null
+    },
+    {
+      "id": "objeto_gallina_dorada",
+      "nombre": "Gallina dorada",
+      "descripcion": "Gallina con plumas brillantes como oro",
+      "skin_id": null
+    },
+    {
+      "id": "objeto_arpa_de_oro",
+      "nombre": "Arpa de oro",
+      "descripcion": "Arpa tallada en oro que vibra sola, emitiendo una melodía suave",
+      "skin_id": null
+    }
+  ]
+}

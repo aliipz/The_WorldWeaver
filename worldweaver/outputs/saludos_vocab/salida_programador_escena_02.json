@@ -1,0 +1,278 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Saluda al guía y responde al saludo",
+      "guias": [
+        "personaje_a"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_a"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Pregunta cómo está el alumno y escucha respuesta",
+      "guias": [
+        "personaje_a"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_a"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Agradece al guía y confirma comprensión",
+      "guias": [
+        "personaje_a"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_a"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_03",
+      "fase": 3,
+      "texto_objetivo": "Despedida cordial y cierre de la interacción",
+      "guias": [
+        "personaje_a"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_a"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_a",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Ana — guía de conversación",
+        "texto": "Ana es una joven amable que ayuda a practicar saludos y despedidas."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Hello! / ¡Hola!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Good night!",
+                  "respuesta": "That's a goodbye, not an answer! / ¡Eso es una despedida, no una respuesta!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Thank you!",
+                  "respuesta": "That's a thanks, not a greeting! / ¡Eso es un agradecimiento, no un saludo!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Goodbye!",
+                  "respuesta": "That's a farewell, not a greeting! / ¡Eso es una despedida, no un saludo!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Hi!",
+                  "respuesta": "Great! / ¡Genial! Let's continue. / ¡Continuemos!",
+                  "correcta": true
+                }
+              ]
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Responde con una frase corta en inglés que sea un saludo. / Responde con una frase corta en inglés que sea un saludo."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "How are you? / ¿Cómo estás?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "I'm fine, thanks!",
+                  "respuesta": "Nice! / ¡Qué bien! Let's keep going. / ¡Sigamos!",
+                  "correcta": true
+                },
+                {
+                  "etiqueta": "Good night!",
+                  "respuesta": "That's a night, not an answer! / ¡Eso es de noche, no una respuesta!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Goodbye!",
+                  "respuesta": "That's a farewell, not a response! / ¡Eso es una despedida, no una respuesta!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Thank you!",
+                  "respuesta": "That's a thanks, not a question! / ¡Eso es un agradecimiento, no una pregunta!",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Responde con cómo te sientes en inglés. / Responde con cómo te sientes en inglés."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Thank you! / Gracias"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How are you?",
+                  "respuesta": "That's a question, not a reply to thanks! / ¡Eso es una pregunta, no una respuesta a gracias!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Hello!",
+                  "respuesta": "That's a greeting, not a reply to thanks! / ¡Eso es un saludo, no una respuesta a gracias!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Goodbye!",
+                  "respuesta": "That's a farewell, not a reply to thanks! / ¡Eso es una despedida, no una respuesta a gracias!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "You're welcome!",
+                  "respuesta": "Perfect! / ¡Perfecto! One more step. / ¡Un paso más!",
+                  "correcta": true
+                }
+              ]
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Responde con una expresión de cortesía en inglés. / Responde con una expresión de cortesía en inglés."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 3,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Goodbye! / Adiós"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Hello!",
+                  "respuesta": "That's a greeting, not a farewell! / ¡Eso es un saludo, no una despedida!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "How are you?",
+                  "respuesta": "That's a question, not a goodbye! / ¡Eso es una pregunta, no una despedida!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "See you later!",
+                  "respuesta": "Excellent! / ¡Excelente! Conversation finished. / Conversación terminada.",
+                  "correcta": true
+                },
+                {
+                  "etiqueta": "Thank you!",
+                  "respuesta": "That's a thanks, not a goodbye! / ¡Eso es un agradecimiento, no una despedida!",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Responde con una despedida adecuada en inglés. / Responde con una despedida adecuada en inglés."
+            ],
+            "opciones": []
+          }
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Saludo",
+          "descripcion": "Ana levanta la mano y te saluda, demostrando la importancia del ==contacto visual== en la comunicación interpersonal.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "decorado_arbusto_flores",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un arbusto cubierto de flores silvestres se mece suavemente con la brisa."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": true
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_estatua_heroe",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "La estatua del héroe local vigila la plaza, sus ojos de piedra parecen seguir cada paso."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [],
+  "examen_vocabulario": false,
+  "examen_opciones": true
+}

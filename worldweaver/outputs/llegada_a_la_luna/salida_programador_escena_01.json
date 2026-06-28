@@ -1,0 +1,306 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Tripulación a bordo del Columbia listo para el lanzamiento",
+      "guias": [
+        "objeto_modulo_mando_columbia",
+        "objeto_saturno_v",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin",
+        "personaje_michael_collins"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_modulo_mando_columbia",
+          "objeto_saturno_v"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin",
+          "personaje_michael_collins"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Saturno V eleva al espacio el viaje lunar",
+      "guias": [
+        "objeto_saturno_v"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_saturno_v"
+        ],
+        "personajes": [],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_neil_armstrong",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Neil Armstrong — Astronauta de la NASA",
+        "texto": "Neil Armstrong (1930‑2012) fue el comandante del módulo de mando del ==Apolo 11==, la primera misión que llevó humanos a la Luna. Su histórico paso el la superficie el ==20 de julio de 1969== marcó el triunfo de EE. UU. en la carrera espacial, superando a la URSS. ==Primer hombre en la Luna== es su legado más recordado."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Hoy, el ==16 de julio de 1969==, lanzamos el gigantesco ==Saturn V== de ==cien metros== de altura desde Kennedy, bajo la mirada de toda la nación y del mundo."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Siento el peso de la historia en cada segundo del despegue, como si el futuro de la humanidad dependiera de nuestro éxito."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué pensabas cuando viste el cohete alzar?",
+                  "respuesta": "Vi el cohete como un símbolo de esperanza, una respuesta a la carrera contra la URSS que mostraba que la ciencia podía triunfar."
+                },
+                {
+                  "etiqueta": "¿Cómo manejaste la presión del mundo entero?",
+                  "respuesta": "Entrenamiento riguroso y la confianza en mi equipo me mantuvieron firme; sabíamos que cada paso era para la paz."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Nuestro objetivo es lograr el ==primer alunizaje== y devolver a los astronautas a salvo, demostrando que la exploración es una empresa humana."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Revisar panel",
+          "descripcion": "Neil verifica los indicadores del panel, asegurando que los sistemas estén nominales.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_buzz_aldrin",
+        "efecto": null,
+        "color": null,
+        "animacion": "RecieveHit"
+      }
+    },
+    {
+      "id_nodo": "personaje_buzz_aldrin",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Buzz Aldrin — Astronauta de la NASA",
+        "texto": "Buzz Aldrin (1930‑2023) fue el piloto del módulo lunar del Apolo 11 y el ==segundo hombre== en caminar sobre la superficie lunar. Su entusiasmo por la ingeniería y la exploración marcó un hito en la ==carrera espacial== contra la URSS."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Al ver el ==Saturn V== elevarse, sentí la energía de una generación que quería probar que la tecnología podía superar cualquier frontera."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Cada tornillo y cada circuito fueron diseñados para resistir el vacío y la radiación, una verdadera obra de arte de la ingeniería."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cuál fue el mayor desafío técnico?",
+                  "respuesta": "Mantener el motor del cohete estable durante los primeros 2 minutos fue crítico; cualquier falla habría significado el fin de la misión."
+                },
+                {
+                  "etiqueta": "¿Cómo te sientes al ser el segundo en pisar la Luna?",
+                  "respuesta": "Es un honor compartir ese momento con Neil; la historia nos recuerda que el trabajo en equipo es esencial."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "En plena ==carrera espacial==, cada paso que damos es también un mensaje de paz y progreso para la humanidad."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Ajustar posición",
+          "descripcion": "Buzz ajusta su posición en el asiento para equilibrar la carga.",
+          "animacion": "SitDown",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_michael_collins",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Michael Collins — Astronauta de la NASA",
+        "texto": "Michael Collins (1930‑2021) pilotó el módulo de mando Columbia, permaneciendo en la ==órbita lunar== mientras sus compañeros descendían. Su papel fue esencial para la seguridad de la misión Apolo 11, demostrando que la cooperación y la precisión son vitales en la exploración espacial."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Mientras mis compañeros se acercan a la superficie, yo vigilo la nave desde la órbita lunar, consciente de que mi papel es tan crítico como el de ellos."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "La soledad del espacio me recuerda la inmensidad del universo y la fragilidad de la vida humana."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Te asustó estar solo en el espacio?",
+                  "respuesta": "El silencio es profundo, pero la confianza en el entrenamiento y en el equipo disipó cualquier miedo."
+                },
+                {
+                  "etiqueta": "¿Qué pensabas al mirar la Tierra desde allí?",
+                  "respuesta": "Vi un planeta azul, una visión que reforzó mi compromiso con la paz y la cooperación internacional."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "El éxito de esta misión depende del incansable ==apoyo de la NASA== y de la determinación de todos los que trabajan tras bambalinas."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Observar horizonte",
+          "descripcion": "Michael mira el horizonte, registrando la alineación orbital.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_saturno_v",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Saturno V",
+        "descripcion": "El ==Saturno V== mide ==110 metros== de altura y pesa alrededor de ==2 900 toneladas== al despegar. Sus cinco etapas utilizan combustibles líquidos y sólidos para generar el empuje necesario.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyR",
+          "etiqueta": "Encender motores",
+          "descripcion": "Inicia la ignición de los motores principales, generando un brillo intenso.",
+          "efecto_visual": "brillo",
+          "sonido": "esfuerzo"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_modulo_mando_columbia",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Módulo de Mando Columbia",
+        "descripcion": "El módulo de mando Columbia alberga la cabina de los astronautas. Está equipado con sistemas de navegación, comunicaciones y control de vida. Su masa es de ==2 700 kg== y contiene los controles para la maniobra orbital.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyQ",
+          "etiqueta": "Abrir escotilla",
+          "descripcion": "Abre la escotilla de acceso al módulo, revelando los controles internos.",
+          "efecto_visual": "abrir",
+          "sonido": "metal"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_barrera_seguridad_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una barrera de acero con señalización de advertencia, custodiando la zona de lanzamiento."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_camion_combustible_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Camión cisterna de oxígeno",
+        "descripcion": "Un camión cisterna de oxígeno líquido estacionado cerca del cohete, esencial para los sistemas de propulsión y la seguridad del lanzamiento.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_lanzamiento",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al entrar en la plataforma de lanzamiento, el jugador observa la enorme estructura y el cohete listo para el despegue."
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "id_escena": "escena_06",
+  "elementos": [
+    {
+      "id": "personaje_elena",
+      "nombre": "Elena",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 0.95,
+      "alto": 1.75,
+      "descripcion": "Mujer joven, cabello castaño, mochila gastada, cuaderno de notas.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_zip",
+      "nombre": "Zip",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 5
+      },
+      "ancho": 0.6,
+      "alto": 0.45,
+      "descripcion": "Zorro naranja de orejas enormes y lengua larga.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_brujula",
+      "nombre": "Brújula de metal oscuro",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Brújula de metal oscuro con aguja que apunta al sur, brilla tenuemente aunque no haya sol.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_hierba_alada_01",
+      "nombre": "Almohada de hierba del claro",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 1.5,
+      "alto": 0.2,
+      "descripcion": "Parche de hierba esmeralda, hojas finas y flexibles cubiertas de rocío nocturno que relucen al reflejo de la luna.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_hongo_luminoso_01",
+      "nombre": "Conjunto de hongos bioluminiscentes",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 4
+      },
+      "ancho": 0.8,
+      "alto": 0.5,
+      "descripcion": "Pequeños hongos de sombrero azul pálido que emiten un suave resplandor verde, agrupados sobre la base del roble.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_roble_cenario_01",
+      "nombre": "Roble centenario de Miravel",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 2.0,
+      "alto": 8.0,
+      "descripcion": "Árbol imponente con tronco grueso y nudoso, corteza grisácea, ramas retorcidas cubiertas de hojas verdes oscuras que se mecen bajo la luz tenue del faro.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_nido_aves_01",
+      "nombre": "Nido de pájaros en la rama baja",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "descripcion": "Nido tejido con ramitas y hojas secas, colgado en una rama baja del roble, contiene varios huevos moteados de color crema.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_roca_mohosa_01",
+      "nombre": "Roca musgosa del sendero",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 1
+      },
+      "ancho": 2.5,
+      "alto": 1.0,
+      "descripcion": "Gran piedra redondeada de tono gris oscuro, recubierta parcialmente por musgo verde brillante que crece en manchas irregulares.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_charco_pequeno_01",
+      "nombre": "Charco de aguas tranquilas",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 0
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "descripcion": "Pequeña depresión de agua cristalina, espejo que refleja las estrellas y el faro distante, rodeada de juncos y pequeños guijarros.",
+      "keyword_busqueda": null
+    }
+  ]
+}

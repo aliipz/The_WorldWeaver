@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_01",
+  "query_usada": "busy market crowd ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/582/582962_13143991-hq.mp3",
+    "titulo": "AMBTraf Ambience  market  hawker traffic  near road BY SKY SOUND LIBRARY.wav",
+    "autor": "SFXAFRIK",
+    "duracion_segundos": 123.8,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/856/856502_9034501-hq.mp3",
+    "titulo": "260429_125339_BE_Bruges_downtown_with_carillon",
+    "autor": "kevp888",
+    "duracion_segundos": 333.7,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

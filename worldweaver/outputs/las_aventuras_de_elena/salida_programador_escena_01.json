@@ -1,0 +1,279 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "El susurro del árbol oculta un secreto",
+      "guias": [
+        "personaje_zip"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_zip"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Un mapa tallado revela la ruta del mar",
+      "guias": [
+        "objeto_mapa",
+        "objeto_brujula",
+        "personaje_elena"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_mapa",
+          "objeto_brujula"
+        ],
+        "personajes": [
+          "personaje_elena"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "La brújula apunta al sur, el destino llama",
+      "guias": [
+        "objeto_brujula",
+        "personaje_elena"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_brujula"
+        ],
+        "personajes": [
+          "personaje_elena"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_zip",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "¡Eh, escucha! Hay algo tallado aquí, casi se me escapa la nariz."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¿Te imaginas quién dejó ese dibujo? A lo mejor es un mapa secreto."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué dice el grabado?",
+                  "respuesta": "Solo líneas y símbolos, pero parece una ruta."
+                },
+                {
+                  "etiqueta": "¿Crees que vale la pena investigar?",
+                  "respuesta": "Claro, la curiosidad nunca nos ha fallado."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Brincar burlón",
+          "descripcion": "Zip da un salto juguetón, su pelaje brilla bajo la luz del sol.",
+          "animacion": "alegria",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "alegria",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_elena",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "¡Mira, un mapa tallado y una brújula medio oculta entre las raíces!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Este símbolo parece marcar un camino hacia la costa."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué dice el mapa?",
+                  "respuesta": "Muestra una ruta que sigue el río hasta el mar."
+                },
+                {
+                  "etiqueta": "¿Deberíamos llevar la brújula?",
+                  "respuesta": "Sí, nos guiará cuando el sol se oculte."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "La aguja apunta al sur, al mar. No hay duda, sigamos."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El horizonte nos llama, y la bruma del mar guarda secretos antiguos."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Estás segura?",
+                  "respuesta": "Confío en la brújula, el destino nos llama."
+                },
+                {
+                  "etiqueta": "¿Qué esperas encontrar?",
+                  "respuesta": "Tal vez un secreto enterrado bajo las olas."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_brujula",
+          "consume": false,
+          "puntos": [
+            {
+              "frases": [
+                "¡Una brújula oxidada! Parece haber estado medio enterrada."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Funciona?",
+                  "respuesta": "Aún gira, pero la aguja está firme apuntando al sur."
+                },
+                {
+                  "etiqueta": "¿Qué significa eso?",
+                  "respuesta": "Tal vez el mar guarda lo que buscas."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Recoger brújula",
+          "descripcion": "Elena agarra la brújula, sintiendo su frío metal bajo sus dedos.",
+          "animacion": "PickUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_mapa",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Mapa tallado",
+        "descripcion": "Un mapa tallado en la corteza muestra senderos antiguos y símbolos crípticos.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_brujula",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "Brújula de metal oscuro",
+        "descripcion": "Una brújula oxidada se asoma entre las raíces, su aguja titila con energía misteriosa."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_seta_luminosa_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "La seta emite un suave resplandor azulino.",
+        "texto_desactivacion": "La luz de la seta se desvanece.",
+        "efecto_visual": "brillo",
+        "color_efecto": "#00ffcc",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_nido_pajaros_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un nido de pájaros se balancea entre las ramas, listo para volar."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "escapar",
+        "radio": 2.5,
+        "una_vez": true
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_musgo_corteza_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "El musgo esmeralda vibra al tocarlo, como si respirara."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.0,
+        "una_vez": false
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": []
+}

@@ -1,0 +1,480 @@
+{
+  "id_escena": "escena_05",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Módulo Columbia arde al reentrar",
+      "guias": [
+        "objeto_modulo_mando_columbia",
+        "personaje_michael_collins"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_modulo_mando_columbia"
+        ],
+        "personajes": [
+          "personaje_michael_collins"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Paracaídas despliegan, mar los recibe",
+      "guias": [
+        "objeto_paracaidas_principales",
+        "objeto_uss_hornet",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin",
+        "personaje_michael_collins"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_paracaidas_principales",
+          "objeto_uss_hornet"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin",
+          "personaje_michael_collins"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Astronautas en cuarentena, misión concluida",
+      "guias": [
+        "objeto_instalacion_cuarentena",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin",
+        "personaje_michael_collins"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_instalacion_cuarentena"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin",
+          "personaje_michael_collins"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_michael_collins",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Michael Collins — Piloto del Módulo de mando Columbia",
+        "texto": "Astronauta estadounidense (1930‑1969). Permaneció en ==órbita lunar== mientras sus compañeros descendían, garantizando la seguridad del ==Módulo Columbia== y la misión."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "Veo el ==Módulo Columbia== ardiendo en la ==atmósfera== mientras el calor genera un velo de ==plasma==."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El proceso de ==fricción térmica== es lo que desacelera la nave antes de los paracaídas."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cuánta velocidad pierde la cápsula?",
+                  "respuesta": "Pierde aproximadamente ==7,800 km/h== en los últimos minutos."
+                },
+                {
+                  "etiqueta": "¿Por qué se forma plasma?",
+                  "respuesta": "El aire se ioniza al superar los ==2,500 °C==."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Mantengo la calma, porque mi misión es vigilar los sistemas mientras mis compañeros descienden."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Los paracaídas principales se despliegan y la cápsula se ralentiza sobre el ==Océano Pacífico==."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El helicóptero de la ==USS Hornet== y los buzos están listos para la recuperación."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cuántos buzos participan?",
+                  "respuesta": "Se enviaron ==12 buzos== para asegurar la cápsula."
+                },
+                {
+                  "etiqueta": "¿Cuánto tiempo tardó en tocar el agua?",
+                  "respuesta": "Aproximadamente ==3 minutos== después del despliegue."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Al tocar el agua, la presión disminuye y el módulo se vuelve estable."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Una vez a bordo, somos trasladados a la ==instalación de cuarentena== para evitar cualquier ==contagio espacial==."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Los protocolos incluyen aislamiento de 21 días y análisis de muestras."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Por qué 21 días?",
+                  "respuesta": "Es el tiempo que tarda el cuerpo humano en mostrar síntomas de cualquier patógeno desconocido."
+                },
+                {
+                  "etiqueta": "¿Qué tipo de pruebas se hacen?",
+                  "respuesta": "Se realizan pruebas de ==microbiología== y ==radiación== en el traje y la cápsula."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Concluida la cuarentena, la misión se declara completa."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Hablar de aislamiento",
+          "descripcion": "Le preguntas a Michael sobre los protocolos de cuarentena. Él asiente, señalando la importancia de la contención.",
+          "animacion": "Victory",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_neil_armstrong",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Neil Armstrong — Comandante del Apollo 11",
+        "texto": "Primer ser humano en pisar la ==Luna== el 20 de julio de 1969. Lideró la misión que demostró la capacidad de la humanidad para viajar más allá de la Tierra."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "Veo la cápsula descender y los paracaídas enfriarse al contacto con el vapor del mar."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El helicóptero de la ==USS Hornet== nos recoge con precisión."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cuál es la velocidad de aproximación del helicóptero?",
+                  "respuesta": "Alrededor de ==150 km/h== para mantener estabilidad."
+                },
+                {
+                  "etiqueta": "¿Qué papel juegan los buzos?",
+                  "respuesta": "Aseguran que la cápsula no sufra daños al ser levantada."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "El sonido del motor del helicóptero es un recordatorio de que la Tierra nos recibe."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Entramos a la zona de cuarentena, donde cada superficie se desinfecta meticulosamente."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Los científicos monitorean cualquier señal de contaminación."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué tipo de contaminantes buscan?",
+                  "respuesta": "Partículas de ==microbios== y rastros de ==radiación cósmica==."
+                },
+                {
+                  "etiqueta": "¿Cuánto tiempo dura la observación?",
+                  "respuesta": "Se mantiene la vigilancia durante ==21 días==, como estándar."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Al salir, sabemos que la misión ha cerrado su círculo."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Entrevista",
+          "descripcion": "Le preguntas a Neil sobre la reentrada y el calor. Él responde con calma, explicando los protocolos.",
+          "animacion": "Victory",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": [
+            {
+              "id_nodo": "personaje_buzz_aldrin",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_buzz_aldrin",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Buzz Aldrin — Piloto del Módulo Lunar Eagle",
+        "texto": "Segundo hombre en caminar sobre la ==Luna==, contribuyó a los sistemas de navegación y a la operación del módulo lunar durante la misión Apollo 11."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Los paracaídas se inflan como alas, ralentizando la caída sobre el océano."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Los buzos de la ==USS Hornet== nos saludan al llegar."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo se siente el agua al impactar?",
+                  "respuesta": "El módulo se sacude, pero la estructura mantiene la integridad."
+                },
+                {
+                  "etiqueta": "¿Cuántos buzos están en la operación?",
+                  "respuesta": "Un equipo de ==10 buzos==."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "El cielo se abre y vemos la luz del atardecer mientras nos recuperan."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Dentro de la instalación, la atmósfera es silenciosa, como una cámara de esterilización."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Los médicos revisan nuestros signos vitales."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Hay algún riesgo de enfermedad?",
+                  "respuesta": "El riesgo es bajo, pero se controla con pruebas de ==bacterias==."
+                },
+                {
+                  "etiqueta": "¿Qué ocurre después de la cuarentena?",
+                  "respuesta": "Se emite el informe final y se celebra el regreso."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Al término, nos preparamos para compartir nuestras experiencias con el mundo."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Comentarle sobre la recuperación",
+          "descripcion": "Le indagas a Buzz cómo se coordinó la recuperación naval. Él muestra entusiasmo y levanta el puño.",
+          "animacion": "Victory",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_modulo_mando_columbia",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Módulo de Mando Columbia",
+        "descripcion": "El ==Módulo de Mando Columbia== es la sección de control de la nave espacial, contiene los sistemas de navegación y comunicaciones. Durante la reentrada genera plasma por fricción con la atmósfera, alcanzando temperaturas de ==≈ 3000 °C==.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_paracaidas_principales",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Paracaídas principales",
+        "descripcion": "Los ==paracaídas principales== son dispositivos de desaceleración que despliegan al entrar en la atmósfera, aumentando la resistencia al aire y reduciendo la velocidad de descenso a aproximadamente ==5 m/s==.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_uss_hornet",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "USS Hornet",
+        "descripcion": "El ==USS Hornet== es un portaaviones de la Marina de EE. UU., equipado con helicópteros y buzos para operaciones de rescate. Su cubierta de vuelo permite lanzar helicópteros que capturan la cápsula.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_instalacion_cuarentena",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Instalación Móvil de Cuarentena",
+        "descripcion": "La ==Instalación Móvil de Cuarentena== es una unidad de contención diseñada para aislar a los astronautas y evitar la transmisión de posibles contaminantes espaciales. Funciona con presión negativa y filtros HEPA.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_boya_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Boya naranja que vibra ligeramente, señalando la zona de rescate."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "brillo",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_red_pesca_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Red de pesca abandonada que flota a la deriva, atrapando corrientes y luz."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.0,
+        "una_vez": false
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_oceano",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al entrar al ==Océano Pacífico==, el sol poniente tiñe el agua de rojo."
+    }
+  ]
+}

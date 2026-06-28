@@ -1,0 +1,399 @@
+{
+  "id_escena": "escena_04",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "barco",
+  "radio_escena": 22.0,
+  "limite_jugador": 9.0,
+  "color_suelo": null,
+  "tipo_suelo": null,
+  "tipo_techo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_04",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_04",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 22.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_elena",
+      "nombre": "Elena",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -1.5,
+        "y": 0.9,
+        "z": -2.5
+      },
+      "ancho": 0.95,
+      "alto": 1.8,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual_Female.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_zip",
+      "nombre": "Zip",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 2.2,
+        "y": 0.23,
+        "z": -1.8
+      },
+      "ancho": 0.6,
+      "alto": 0.45,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7707fbb7-3081-445a-8c09-0261db4dcbc9.glb",
+      "keyword_busqueda": "fox"
+    },
+    {
+      "id": "objeto_traje_buceo",
+      "nombre": "Traje de buceo antiguo",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.6,
+        "y": 0.9,
+        "z": 3.2
+      },
+      "ancho": 0.9,
+      "alto": 1.8,
+      "tam_real": 1.8,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/efda7497-db5e-47e9-b317-8e8baeb1c616.glb",
+      "keyword_busqueda": "diving suit"
+    },
+    {
+      "id": "objeto_submarino",
+      "nombre": "Submarino oxidado",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 7.0,
+        "y": 0.0,
+        "z": 4.5
+      },
+      "ancho": 4.0,
+      "alto": 2.0,
+      "tam_real": 4.0,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/fd3a137f-c253-48fc-95d0-c40bb3ce4dcc.glb",
+      "keyword_busqueda": "submarine"
+    },
+    {
+      "id": "objeto_generador",
+      "nombre": "Generador oxidado",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -7.0
+      },
+      "ancho": 1.2,
+      "alto": 1.5,
+      "tam_real": 1.5,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e9fc0901-7600-48f4-881d-b546f3df4cec.glb",
+      "keyword_busqueda": "generator"
+    },
+    {
+      "id": "decorado_madera_podrida_01",
+      "nombre": "Madera podrida del casco",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.89,
+        "y": 0.5,
+        "z": 0.45
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "tam_real": 1.0,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/c60b2bf0-e87d-403c-a31c-828c6f1535dc.glb",
+      "keyword_busqueda": "plank"
+    },
+    {
+      "id": "decorado_caja_volcada_01",
+      "nombre": "Caja de madera volcada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -3.53,
+        "y": 0.5,
+        "z": 2.45
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "tam_real": 1.0,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/9b0c7d9b-344c-48d2-9a49-a59df0f4f838.glb",
+      "keyword_busqueda": "crate"
+    },
+    {
+      "id": "decorado_red_vieja_01",
+      "nombre": "Red de pescar desgastada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 3.56,
+        "y": 0.5,
+        "z": 2.4
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "tam_real": 1.0,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/9d291011-bf4c-4202-ad84-97bf9e964dae.glb",
+      "keyword_busqueda": "fishing net"
+    },
+    {
+      "id": "decorado_barril_oxidado_01",
+      "nombre": "Barril de metal oxidado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.71,
+        "y": 0.5,
+        "z": 1.87
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "tam_real": 1.0,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/6d3e8847-bda4-4d6c-8004-7b03cf848b13.glb",
+      "keyword_busqueda": "barrel"
+    },
+    {
+      "id": "decorado_lanterna_parpadeante_01",
+      "nombre": "Lanterna de aceite colgante",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -1.91,
+        "y": 0.15,
+        "z": -0.62
+      },
+      "ancho": 0.3,
+      "alto": 0.3,
+      "tam_real": 0.3,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ecbc7b04-09ca-4068-bb3c-4e5ce1163c9a.glb",
+      "keyword_busqueda": "lantern"
+    },
+    {
+      "id": "decorado_cadena_metalica_01",
+      "nombre": "Cadena de acero corroída",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 19.94,
+        "y": 0.5,
+        "z": -1.44
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "tam_real": 1.0,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/19984f7a-7609-4636-a8b4-b51e85bcf68e.glb",
+      "keyword_busqueda": "chain"
+    },
+    {
+      "id": "decorado_escalera_metalica_01",
+      "nombre": "Escalera de hierro oxidado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.92,
+        "y": 1.0,
+        "z": -0.4
+      },
+      "ancho": 2.0,
+      "alto": 2.0,
+      "tam_real": 2.0,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65bbfe4b-7a40-4bdc-86bb-7b9f7ecb059a.glb",
+      "keyword_busqueda": "ladder"
+    },
+    {
+      "id": "decorado_barril_02",
+      "nombre": "Barril de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.88,
+        "y": 0.55,
+        "z": -0.48
+      },
+      "ancho": 0.9,
+      "alto": 1.1,
+      "tam_real": 1.1,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/df9e4b83-758a-4fc7-b311-70fc949ed7ff.glb",
+      "keyword_busqueda": "wooden barrel"
+    },
+    {
+      "id": "decorado_barril_03",
+      "nombre": "Barril de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -3.06,
+        "y": 0.55,
+        "z": 1.69
+      },
+      "ancho": 0.9,
+      "alto": 1.1,
+      "tam_real": 1.1,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/df9e4b83-758a-4fc7-b311-70fc949ed7ff.glb",
+      "keyword_busqueda": "wooden barrel"
+    },
+    {
+      "id": "decorado_barril_04",
+      "nombre": "Barril de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 3.0,
+        "y": 0.55,
+        "z": 1.81
+      },
+      "ancho": 0.9,
+      "alto": 1.1,
+      "tam_real": 1.1,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/df9e4b83-758a-4fc7-b311-70fc949ed7ff.glb",
+      "keyword_busqueda": "wooden barrel"
+    },
+    {
+      "id": "decorado_barril_05",
+      "nombre": "Barril de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.03,
+        "y": 0.55,
+        "z": 1.0
+      },
+      "ancho": 0.9,
+      "alto": 1.1,
+      "tam_real": 1.1,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/df9e4b83-758a-4fc7-b311-70fc949ed7ff.glb",
+      "keyword_busqueda": "wooden barrel"
+    }
+  ],
+  "cielo": {
+    "tipo": "atardecer",
+    "color_fondo": "#df3f1f",
+    "color_ambiente": "#d5653a",
+    "intensidad_ambiente": 0.4654894200313899,
+    "color_sol": "#ff6e1f",
+    "intensidad_sol": 0.9744280909068703,
+    "pos_sol": {
+      "x": -4.191429154950289,
+      "y": 0.12885448345676742,
+      "z": -1.4365304139735304
+    },
+    "niebla": {
+      "color": "#c23211",
+      "near": 11.768626786273247,
+      "far": 13.0
+    },
+    "luz_exterior": null
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_elena": {
+      "glb_id": "Casual_Female",
+      "glb_path": "/sandbox/assets/characters/Casual_Female.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_claro",
+      "clothing_seed": 4470,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

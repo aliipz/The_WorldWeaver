@@ -1,0 +1,1007 @@
+{
+  "id_escena": "escena_05",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "otro",
+  "radio_escena": 22.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "tipo_suelo": "nubes",
+  "tipo_techo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_05",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_05",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 22.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_juan",
+      "nombre": "Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.6,
+        "y": 0.7,
+        "z": -1.91
+      },
+      "ancho": 0.5,
+      "alto": 1.4,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_candelabro_etereo_01",
+      "nombre": "candelabro etéreo",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -4.07,
+        "y": 0.4,
+        "z": 3.7
+      },
+      "ancho": 0.3,
+      "alto": 0.8,
+      "tam_real": 0.8,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ecbc7b04-09ca-4068-bb3c-4e5ce1163c9a.glb",
+      "keyword_busqueda": "lantern"
+    },
+    {
+      "id": "decorado_columna_de_cristal_01",
+      "nombre": "columna de cristal",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 3.02,
+        "y": 1.5,
+        "z": 1.77
+      },
+      "ancho": 0.6,
+      "alto": 3.0,
+      "tam_real": 3.0,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/c6b39e97-df63-428e-9d9e-004c9c467275.glb",
+      "keyword_busqueda": "column"
+    },
+    {
+      "id": "decorado_musgo_esponjoso_01",
+      "nombre": "musgo esponjoso",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 1.13,
+        "y": 0.05,
+        "z": -19.97
+      },
+      "ancho": 0.4,
+      "alto": 0.1,
+      "tam_real": 0.4,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5283865a-f61a-4787-b02d-28b5b76df7b9.glb",
+      "keyword_busqueda": "moss"
+    },
+    {
+      "id": "decorado_roca_luminosa_01",
+      "nombre": "roca luminosa",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -10.67,
+        "y": 0.3,
+        "z": 9.06
+      },
+      "ancho": 0.5,
+      "alto": 0.6,
+      "tam_real": 0.6,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "decorado_espora_brillante_01",
+      "nombre": "espora brillante",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 7.07,
+        "y": 0.05,
+        "z": 5.56
+      },
+      "ancho": 0.2,
+      "alto": 0.1,
+      "tam_real": 0.2,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7298b2d4-1848-4ed4-8922-eb3b42cf1625.glb",
+      "keyword_busqueda": "spore"
+    },
+    {
+      "id": "decorado_estatua_guardiana_01",
+      "nombre": "estatua guardiana",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.83,
+        "y": 1.25,
+        "z": -8.96
+      },
+      "ancho": 1.0,
+      "alto": 2.5,
+      "tam_real": 2.5,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/55b0aa03-543c-439d-a7d7-f0ac4c23578f.glb",
+      "keyword_busqueda": "statue"
+    },
+    {
+      "id": "amb_00_0_00",
+      "nombre": "floating island",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 4.04,
+        "y": 0.8,
+        "z": 19.27
+      },
+      "ancho": 2.12,
+      "alto": 1.59,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/45dcc486-aeb4-4316-83c0-38648e8735f0.glb",
+      "keyword_busqueda": "floating island"
+    },
+    {
+      "id": "amb_00_0_01",
+      "nombre": "floating island",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.75,
+        "y": 0.74,
+        "z": 10.83
+      },
+      "ancho": 1.98,
+      "alto": 1.48,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/45dcc486-aeb4-4316-83c0-38648e8735f0.glb",
+      "keyword_busqueda": "floating island"
+    },
+    {
+      "id": "amb_00_0_02",
+      "nombre": "floating island",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 13.47,
+        "y": 0.82,
+        "z": -15.38
+      },
+      "ancho": 2.18,
+      "alto": 1.64,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/45dcc486-aeb4-4316-83c0-38648e8735f0.glb",
+      "keyword_busqueda": "floating island"
+    },
+    {
+      "id": "amb_00_0_03",
+      "nombre": "floating island",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 4.0,
+        "y": 0.63,
+        "z": -20.06
+      },
+      "ancho": 1.68,
+      "alto": 1.26,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/45dcc486-aeb4-4316-83c0-38648e8735f0.glb",
+      "keyword_busqueda": "floating island"
+    },
+    {
+      "id": "amb_00_0_04",
+      "nombre": "floating island",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.22,
+        "y": 0.72,
+        "z": -9.33
+      },
+      "ancho": 1.92,
+      "alto": 1.44,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/45dcc486-aeb4-4316-83c0-38648e8735f0.glb",
+      "keyword_busqueda": "floating island"
+    },
+    {
+      "id": "amb_00_0_05",
+      "nombre": "floating island",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.1,
+        "y": 0.88,
+        "z": 8.05
+      },
+      "ancho": 2.34,
+      "alto": 1.76,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/45dcc486-aeb4-4316-83c0-38648e8735f0.glb",
+      "keyword_busqueda": "floating island"
+    },
+    {
+      "id": "amb_00_1_00",
+      "nombre": "floating island",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -4.36,
+        "y": 0.64,
+        "z": -16.5
+      },
+      "ancho": 1.69,
+      "alto": 1.27,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/45dcc486-aeb4-4316-83c0-38648e8735f0.glb",
+      "keyword_busqueda": "floating island"
+    },
+    {
+      "id": "amb_00_1_01",
+      "nombre": "floating island",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -13.26,
+        "y": 0.76,
+        "z": 3.98
+      },
+      "ancho": 2.02,
+      "alto": 1.52,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/45dcc486-aeb4-4316-83c0-38648e8735f0.glb",
+      "keyword_busqueda": "floating island"
+    },
+    {
+      "id": "amb_00_1_02",
+      "nombre": "floating island",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 13.13,
+        "y": 0.69,
+        "z": 5.5
+      },
+      "ancho": 1.83,
+      "alto": 1.37,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/45dcc486-aeb4-4316-83c0-38648e8735f0.glb",
+      "keyword_busqueda": "floating island"
+    },
+    {
+      "id": "amb_01_0_00",
+      "nombre": "misty pillar",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -12.61,
+        "y": 1.95,
+        "z": 13.75
+      },
+      "ancho": 0.78,
+      "alto": 3.9,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/89d8cf0d-3aa3-4052-acbf-d9fc7de438dc.glb",
+      "keyword_busqueda": "misty pillar"
+    },
+    {
+      "id": "amb_01_0_01",
+      "nombre": "misty pillar",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -0.09,
+        "y": 2.12,
+        "z": 20.9
+      },
+      "ancho": 0.85,
+      "alto": 4.25,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/89d8cf0d-3aa3-4052-acbf-d9fc7de438dc.glb",
+      "keyword_busqueda": "misty pillar"
+    },
+    {
+      "id": "amb_01_0_02",
+      "nombre": "misty pillar",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.84,
+        "y": 2.04,
+        "z": 11.49
+      },
+      "ancho": 0.82,
+      "alto": 4.08,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/89d8cf0d-3aa3-4052-acbf-d9fc7de438dc.glb",
+      "keyword_busqueda": "misty pillar"
+    },
+    {
+      "id": "amb_01_0_03",
+      "nombre": "misty pillar",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 19.64,
+        "y": 2.33,
+        "z": -6.02
+      },
+      "ancho": 0.93,
+      "alto": 4.66,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/89d8cf0d-3aa3-4052-acbf-d9fc7de438dc.glb",
+      "keyword_busqueda": "misty pillar"
+    },
+    {
+      "id": "amb_01_0_04",
+      "nombre": "misty pillar",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 15.9,
+        "y": 1.83,
+        "z": -13.03
+      },
+      "ancho": 0.73,
+      "alto": 3.67,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/89d8cf0d-3aa3-4052-acbf-d9fc7de438dc.glb",
+      "keyword_busqueda": "misty pillar"
+    },
+    {
+      "id": "amb_01_0_05",
+      "nombre": "misty pillar",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -0.34,
+        "y": 2.39,
+        "z": -19.46
+      },
+      "ancho": 0.96,
+      "alto": 4.78,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/89d8cf0d-3aa3-4052-acbf-d9fc7de438dc.glb",
+      "keyword_busqueda": "misty pillar"
+    },
+    {
+      "id": "amb_01_0_06",
+      "nombre": "misty pillar",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.52,
+        "y": 1.88,
+        "z": -0.01
+      },
+      "ancho": 0.75,
+      "alto": 3.75,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/89d8cf0d-3aa3-4052-acbf-d9fc7de438dc.glb",
+      "keyword_busqueda": "misty pillar"
+    },
+    {
+      "id": "amb_01_1_00",
+      "nombre": "misty pillar",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -8.6,
+        "y": 1.7,
+        "z": -12.38
+      },
+      "ancho": 0.68,
+      "alto": 3.39,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/89d8cf0d-3aa3-4052-acbf-d9fc7de438dc.glb",
+      "keyword_busqueda": "misty pillar"
+    },
+    {
+      "id": "amb_01_1_01",
+      "nombre": "misty pillar",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -14.85,
+        "y": 1.82,
+        "z": -5.17
+      },
+      "ancho": 0.73,
+      "alto": 3.64,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/89d8cf0d-3aa3-4052-acbf-d9fc7de438dc.glb",
+      "keyword_busqueda": "misty pillar"
+    },
+    {
+      "id": "amb_01_1_02",
+      "nombre": "misty pillar",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 1.86,
+        "y": 1.68,
+        "z": 14.93
+      },
+      "ancho": 0.67,
+      "alto": 3.36,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/89d8cf0d-3aa3-4052-acbf-d9fc7de438dc.glb",
+      "keyword_busqueda": "misty pillar"
+    },
+    {
+      "id": "amb_01_1_03",
+      "nombre": "misty pillar",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 13.82,
+        "y": 2.25,
+        "z": -6.13
+      },
+      "ancho": 0.9,
+      "alto": 4.5,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/89d8cf0d-3aa3-4052-acbf-d9fc7de438dc.glb",
+      "keyword_busqueda": "misty pillar"
+    },
+    {
+      "id": "amb_02_0_00",
+      "nombre": "ancient tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.85,
+        "y": 2.08,
+        "z": 6.39
+      },
+      "ancho": 1.43,
+      "alto": 4.17,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/0e8292f8-f8ac-4483-987f-93386f07ea58.glb",
+      "keyword_busqueda": "ancient tree"
+    },
+    {
+      "id": "amb_02_0_01",
+      "nombre": "ancient tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -0.22,
+        "y": 1.54,
+        "z": 19.28
+      },
+      "ancho": 1.05,
+      "alto": 3.07,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/0e8292f8-f8ac-4483-987f-93386f07ea58.glb",
+      "keyword_busqueda": "ancient tree"
+    },
+    {
+      "id": "amb_02_0_02",
+      "nombre": "ancient tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 13.73,
+        "y": 1.92,
+        "z": 11.88
+      },
+      "ancho": 1.32,
+      "alto": 3.84,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/0e8292f8-f8ac-4483-987f-93386f07ea58.glb",
+      "keyword_busqueda": "ancient tree"
+    },
+    {
+      "id": "amb_02_0_03",
+      "nombre": "ancient tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 12.26,
+        "y": 1.51,
+        "z": -14.29
+      },
+      "ancho": 1.03,
+      "alto": 3.02,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/0e8292f8-f8ac-4483-987f-93386f07ea58.glb",
+      "keyword_busqueda": "ancient tree"
+    },
+    {
+      "id": "amb_02_0_04",
+      "nombre": "ancient tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -1.82,
+        "y": 1.62,
+        "z": -19.79
+      },
+      "ancho": 1.11,
+      "alto": 3.24,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/0e8292f8-f8ac-4483-987f-93386f07ea58.glb",
+      "keyword_busqueda": "ancient tree"
+    },
+    {
+      "id": "amb_02_1_00",
+      "nombre": "ancient tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.72,
+        "y": 1.85,
+        "z": 3.53
+      },
+      "ancho": 1.27,
+      "alto": 3.7,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/0e8292f8-f8ac-4483-987f-93386f07ea58.glb",
+      "keyword_busqueda": "ancient tree"
+    },
+    {
+      "id": "amb_02_1_01",
+      "nombre": "ancient tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.58,
+        "y": 1.67,
+        "z": 14.83
+      },
+      "ancho": 1.15,
+      "alto": 3.35,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/0e8292f8-f8ac-4483-987f-93386f07ea58.glb",
+      "keyword_busqueda": "ancient tree"
+    },
+    {
+      "id": "amb_03_0_00",
+      "nombre": "glowing crystal",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -12.89,
+        "y": 0.6,
+        "z": -12.94
+      },
+      "ancho": 0.5,
+      "alto": 1.2,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "glowing crystal"
+    },
+    {
+      "id": "amb_03_0_01",
+      "nombre": "glowing crystal",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -14.84,
+        "y": 0.62,
+        "z": 10.8
+      },
+      "ancho": 0.51,
+      "alto": 1.24,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "glowing crystal"
+    },
+    {
+      "id": "amb_03_0_02",
+      "nombre": "glowing crystal",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -3.24,
+        "y": 0.51,
+        "z": 19.59
+      },
+      "ancho": 0.43,
+      "alto": 1.02,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "glowing crystal"
+    },
+    {
+      "id": "amb_03_0_03",
+      "nombre": "glowing crystal",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.29,
+        "y": 0.72,
+        "z": -12.47
+      },
+      "ancho": 0.6,
+      "alto": 1.44,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "glowing crystal"
+    },
+    {
+      "id": "amb_03_1_00",
+      "nombre": "glowing crystal",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 15.12,
+        "y": 0.66,
+        "z": 7.28
+      },
+      "ancho": 0.55,
+      "alto": 1.31,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "glowing crystal"
+    },
+    {
+      "id": "amb_03_1_01",
+      "nombre": "glowing crystal",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -12.19,
+        "y": 0.72,
+        "z": -6.69
+      },
+      "ancho": 0.6,
+      "alto": 1.43,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "glowing crystal"
+    },
+    {
+      "id": "amb_03_2_00",
+      "nombre": "glowing crystal",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.09,
+        "y": 0.53,
+        "z": -0.22
+      },
+      "ancho": 0.44,
+      "alto": 1.06,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "glowing crystal"
+    },
+    {
+      "id": "amb_03_2_01",
+      "nombre": "glowing crystal",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -2.89,
+        "y": 0.62,
+        "z": 7.6
+      },
+      "ancho": 0.52,
+      "alto": 1.24,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "glowing crystal"
+    },
+    {
+      "id": "amb_03_2_02",
+      "nombre": "glowing crystal",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 0.68,
+        "y": 0.62,
+        "z": 8.07
+      },
+      "ancho": 0.52,
+      "alto": 1.25,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "glowing crystal"
+    },
+    {
+      "id": "amb_03_2_03",
+      "nombre": "glowing crystal",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.42,
+        "y": 0.54,
+        "z": 5.99
+      },
+      "ancho": 0.45,
+      "alto": 1.09,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "glowing crystal"
+    },
+    {
+      "id": "amb_03_2_04",
+      "nombre": "glowing crystal",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 8.06,
+        "y": 0.66,
+        "z": -2.8
+      },
+      "ancho": 0.55,
+      "alto": 1.33,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "glowing crystal"
+    },
+    {
+      "id": "amb_03_2_05",
+      "nombre": "glowing crystal",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 0.8,
+        "y": 0.62,
+        "z": -8.64
+      },
+      "ancho": 0.52,
+      "alto": 1.24,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "glowing crystal"
+    },
+    {
+      "id": "amb_03_2_06",
+      "nombre": "glowing crystal",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -4.08,
+        "y": 0.53,
+        "z": -6.26
+      },
+      "ancho": 0.44,
+      "alto": 1.05,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "glowing crystal"
+    },
+    {
+      "id": "amb_03_2_07",
+      "nombre": "glowing crystal",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -6.92,
+        "y": 0.62,
+        "z": -4.98
+      },
+      "ancho": 0.52,
+      "alto": 1.24,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "glowing crystal"
+    }
+  ],
+  "cielo": {
+    "tipo": "mediodia_soleado",
+    "color_fondo": "#5bb2e4",
+    "color_ambiente": "#ffffff",
+    "intensidad_ambiente": 0.7666176226884573,
+    "color_sol": "#ffd223",
+    "intensidad_sol": 1.334308954227178,
+    "pos_sol": {
+      "x": -0.07495834635534704,
+      "y": 6.555404106622194,
+      "z": -0.3809370717183793
+    },
+    "niebla": {
+      "color": "#62a5cb",
+      "near": 5.9,
+      "far": 13.0
+    },
+    "luz_exterior": null
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_juan": {
+      "glb_id": "Casual_Male",
+      "glb_path": "/sandbox/assets/characters/Casual_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_claro",
+      "clothing_seed": 9193,
+      "talla": "nino_enano",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

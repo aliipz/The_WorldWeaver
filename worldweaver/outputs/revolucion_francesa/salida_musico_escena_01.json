@@ -1,0 +1,14 @@
+{
+  "id_escena": "escena_01",
+  "query_usada": "tensi creciente entre nobleza ambience; grand hall echo ambience; palace hall crowd ambience",
+  "pista_principal": {
+    "url_preview": "/assets/music/fallback/interior.mp3",
+    "titulo": "Ambiente: interior",
+    "autor": "freesound (CC0)",
+    "duracion_segundos": 0.0,
+    "loop": true,
+    "volumen": 0.5
+  },
+  "pista_fallback": null,
+  "fuente": "fallback"
+}

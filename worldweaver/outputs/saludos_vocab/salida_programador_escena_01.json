@@ -1,0 +1,402 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Ana contempla la plaza al atardecer...",
+      "guias": [
+        "personaje_a"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_a"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Luis responde con una sonrisa amable...",
+      "guias": [
+        "personaje_b"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_b"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Ana menciona la rutina matutina del pueblo...",
+      "guias": [
+        "personaje_a"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_a"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_03",
+      "fase": 3,
+      "texto_objetivo": "Luis pregunta sobre el estado del día...",
+      "guias": [
+        "personaje_b"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_b"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_04",
+      "fase": 4,
+      "texto_objetivo": "Ana agradece la ayuda recibida...",
+      "guias": [
+        "personaje_a"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_a"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_05",
+      "fase": 5,
+      "texto_objetivo": "Luis despide la tarde con cortesía...",
+      "guias": [
+        "personaje_b"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_b"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_06",
+      "fase": 6,
+      "texto_objetivo": "Ana habla del crepúsculo que llega...",
+      "guias": [
+        "personaje_a"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_a"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_07",
+      "fase": 7,
+      "texto_objetivo": "Luis se despide hasta la próxima reunión...",
+      "guias": [
+        "personaje_b"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_b"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_08",
+      "fase": 8,
+      "texto_objetivo": "Ana cierra la conversación con gratitud...",
+      "guias": [
+        "personaje_a"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_a"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_09",
+      "fase": 9,
+      "texto_objetivo": "Luis finaliza el intercambio con una sonrisa...",
+      "guias": [
+        "personaje_b"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_b"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_a",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Ana — protagonista",
+        "texto": "Joven estudiante de idiomas, amable y didáctica."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Hey! Nice to meet you.\n¡Hola! Encantada de verte."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Good morning! How's your day?\n¡Buenos días! ¿Cómo va tu día?"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 4,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Thanks a lot!\n¡Muchas gracias!"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 6,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Good evening! Ready for dinner?\n¡Buenas noches! ¿Listos para cenar?"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 8,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Goodbye! See you soon.\n¡Adiós! Nos vemos pronto."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Saludar",
+          "descripcion": "Al saludar, se activa el circuito neural del reconocimiento facial, llamado ==saludo==, que fortalece los lazos sociales. Ana muestra una sonrisa y se erige.",
+          "animacion": "Victory",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": [
+            {
+              "id_nodo": "personaje_b",
+              "efecto": null,
+              "color": null,
+              "animacion": "Defeat"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_b",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Luis — secundario",
+        "texto": "Hombre amable, ayuda a practicar."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Hi! Good to see you.\n¡Hola! Me alegro de verte."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 3,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "How are you?\n¿Cómo estás?"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 5,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Good afternoon! How's everything?\n¡Buenas tardes! ¿Cómo va todo?"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 7,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "See you later, take care.\n¡Hasta luego! Cuídate."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 9,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Goodbye! Have a great day.\n¡Adiós! Que tengas un buen día."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Saludar",
+          "descripcion": "Al saludar, el cerebro libera oxitocina, una hormona asociada al vínculo social, conocida como ==oxitocina==. Luis responde con una sonrisa y se inclina ligeramente.",
+          "animacion": "Victory",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": [
+            {
+              "id_nodo": "personaje_a",
+              "efecto": null,
+              "color": null,
+              "animacion": "Defeat"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "decorado_farol_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "El farol de hierro oxidado se enciende, proyectando una cálida llama que corta la penumbra del atardecer.",
+        "texto_desactivacion": "El farol se apaga, dejando sólo el susurro del viento entre las hojas.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_fuente_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Fuente de piedra central",
+        "descripcion": "Una fuente de piedra antigua, con agua que fluye suavemente entre esculturas de criaturas míticas. La luz del atardecer se refleja en su superficie, creando destellos dorados.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_puesto_frutas_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "El puesto rebosa de frutas frescas y verduras coloridas, testimonio de la abundancia del pueblo al caer la tarde."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_plaza_entrada",
+      "columnas": [
+        0
+      ],
+      "texto": "Al entrar en la plaza, el sol poniente crea sombras largas, ilustrando el fenómeno de ==crepúsculo== y la dispersión de la luz."
+    }
+  ],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

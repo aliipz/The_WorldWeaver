@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_02",
+  "query_usada": "farm rooster birds ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/827/827984_9034501-hq.mp3",
+    "titulo": "250727_052111_PH_Roosters_chicken_chicks_and_dogs_in_the_morning",
+    "autor": "kevp888",
+    "duracion_segundos": 185.6,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/688/688993_1648170-hq.mp3",
+    "titulo": "early farmland 0623AM NL EU 220515_0344",
+    "autor": "klankbeeld",
+    "duracion_segundos": 178.1,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

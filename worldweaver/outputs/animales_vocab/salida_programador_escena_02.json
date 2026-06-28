@@ -1,0 +1,522 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "El perro espera bajo el granero rojo",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_dog"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "El gato se esconde entre la paja",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_cat"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "El caballo relincha cerca del pozo",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_horse"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_03",
+      "fase": 3,
+      "texto_objetivo": "La vaca mugra bajo el árbol de manzano",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_cow"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_04",
+      "fase": 4,
+      "texto_objetivo": "El pato chapotea cerca de la cerca de madera",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_duck"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_05",
+      "fase": 5,
+      "texto_objetivo": "El conejo salta entre la pila de heno",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_rabbit"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_06",
+      "fase": 6,
+      "texto_objetivo": "La oveja pasta cerca del pozo de piedra",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_sheep"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_07",
+      "fase": 7,
+      "texto_objetivo": "El pollo cacarea bajo la sombra del granero",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_chicken"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_guia",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Luis — Guía del Granero",
+        "texto": "Luis es un granjero y guía local que ayuda a los visitantes a aprender vocabulario de animales. Con su sombrero de paja y su entusiasmo, dirige retos amistosos en los que los alumnos deben identificar animales en inglés. ==Guía del Granero== es su rol clave."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the ==dog==, please. / Tráeme el ____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the brown, wagging ==dog==. / Tráeme el ____ marrón y moviendo la cola."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the ==cat==, please. / Tráeme el ____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the small, black ==cat==. / Tráeme el ____ pequeño y negro."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the ==horse==, please. / Tráeme el ____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the large, brown ==horse==. / Tráeme el ____ grande y marrón."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 3,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the ==cow==, please. / Tráeme la ____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the large, white ==cow==. / Tráeme la ____ grande y blanca."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 4,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the ==duck==, please. / Tráeme el ____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the small, yellow ==duck==. / Tráeme el ____ pequeño y amarillo."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 5,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the ==rabbit==, please. / Tráeme el ____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the small, gray ==rabbit==. / Tráeme el ____ pequeño y gris."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 6,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the ==sheep==, please. / Tráeme la ____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the white, fluffy ==sheep==. / Tráeme la ____ blanca y esponjosa."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 7,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the ==chicken==, please. / Tráeme el ____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the red, feathered ==chicken==. / Tráeme el ____ rojo y emplumado."
+            ],
+            "opciones": []
+          }
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_dog",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es el perro. / Yes! That's the ==dog==."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_cat",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es el gato. / Yes! That's the ==cat==."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_horse",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es el caballo. / Yes! That's the ==horse==."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_cow",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es la vaca. / Yes! That's the ==cow==."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_duck",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es el pato. / Yes! That's the ==duck==."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_rabbit",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es el conejo. / Yes! That's the ==rabbit==."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_sheep",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es la oveja. / Yes! That's the ==sheep==."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_chicken",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es el pollo. / Yes! That's the ==chicken==."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Animular",
+          "descripcion": "Luis aplaude al recibir el animal, mostrando su entusiasmo.",
+          "animacion": "Victory",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "alegria",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_dog",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "perro",
+        "descripcion": "Los perros, ==Canis familiaris==, son mamíferos domesticados que han evolucionado para colaborar con humanos. Su sentido del ==olfato== supera al de cualquier otro animal terrestre."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_cat",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "gato",
+        "descripcion": "Los gatos, ==Felis catus==, poseen una visión nocturna que les permite detectar movimiento con apenas ==1 lux== de luz. Su capacidad de ==acostarse== en espacios estrechos se debe a una columna vertebral flexible."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_horse",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "caballo",
+        "descripcion": "Los caballos, ==Equus ferus caballus==, pueden alcanzar velocidades de hasta ==70 km/h== en carreras cortas. Su corazón late aproximadamente ==33 veces por minuto== en reposo."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_cow",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "vaca",
+        "descripcion": "Las vacas, ==Bos taurus==, poseen un estómago de cuatro compartimientos que les permite digerir la celulosa. Producen ==30 litros== de leche al día en promedio."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_duck",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "pato",
+        "descripcion": "Los patos, ==Anas platyrhynchos==, pueden volar a velocidades de ==80 km/h== y nadar bajo el agua usando sus pies palmeados. Su pico está adaptado para filtrar alimentos."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_rabbit",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "conejo",
+        "descripcion": "Los conejos, ==Oryctolagus cuniculus==, pueden reproducirse cada ==30 días== y su visión periférica cubre casi ==360 grados==."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_sheep",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "oveja",
+        "descripcion": "Las ovejas, ==Ovis aries==, producen lana con una fibra de ==18 micrómetros== de grosor. Su sistema digestivo permite fermentar la hierba en el estómago."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_chicken",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "pollo",
+        "descripcion": "Los pollos, ==Gallus gallus domesticus==, pueden poner hasta ==300 huevos== al año. Su temperatura corporal se mantiene constante alrededor de ==41°C==."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_pozo_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Pozo de piedra",
+        "descripcion": "Un pozo profundo de piedra gastada, el agua refleja el cielo del atardecer.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [],
+  "examen_vocabulario": true
+}

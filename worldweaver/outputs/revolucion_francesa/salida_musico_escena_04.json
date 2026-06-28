@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_04",
+  "query_usada": "crowd murmuring ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/495/495714_7269524-hq.mp3",
+    "titulo": "Hall Crowd Ambience.wav",
+    "autor": "norris123",
+    "duracion_segundos": 144.7,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/409/409092_3482490-hq.mp3",
+    "titulo": "Shopping mall ambience",
+    "autor": "pfranzen",
+    "duracion_segundos": 646.8,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

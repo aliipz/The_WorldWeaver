@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_06",
+  "query_usada": "forest night ambience loop",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/827/827643_5828667-hq.mp3",
+    "titulo": "AMBDsgn_Night Camp.Lake Shore.Campfire.Gentle Waves.Cricket.Grasshoppers.Designed_EM",
+    "autor": "newlocknew",
+    "duracion_segundos": 130.8,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/853/853607_18827658-hq.mp3",
+    "titulo": "Summer Night in the Swamp – Authentic Frogs & Crickets Soundscape",
+    "autor": "hafijur_rahman",
+    "duracion_segundos": 33.1,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

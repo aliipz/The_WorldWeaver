@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_04",
+  "query_usada": "night insects ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/746/746365_11069322-hq.mp3",
+    "titulo": "Southern Summer Evening Ambience with Crickets 4",
+    "autor": "RyanKingArt",
+    "duracion_segundos": 29.3,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/615/615001_2528723-hq.mp3",
+    "titulo": "Frog Forest",
+    "autor": "absent1010",
+    "duracion_segundos": 103.6,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

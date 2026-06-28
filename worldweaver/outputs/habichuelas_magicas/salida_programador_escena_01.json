@@ -1,0 +1,313 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "El amanecer tiñe la estancia de melancolía...",
+      "guias": [
+        "personaje_juan",
+        "personaje_cow_blancita"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_juan",
+          "personaje_cow_blancita"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "La madre confiesa la dura decisión...",
+      "guias": [
+        "personaje_madre",
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_madre",
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Juan promete mientras la vaca se aleja...",
+      "guias": [
+        "personaje_juan",
+        "personaje_cow_blancita"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_juan",
+          "personaje_cow_blancita"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_juan",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Te abrazo, Blanquita... aunque el día sea gris, tú sigues siendo mi fuerza."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Sé que la leche ya no fluye, pero aún te necesito."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué puedo hacer por ti?",
+                  "respuesta": "Solo estar aquí, sentir mi calor, es ya mucho."
+                },
+                {
+                  "etiqueta": "¿Hay alguna manera de ayudar?",
+                  "respuesta": "Tal vez mañana encontremos otro camino juntos."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "No llores, Blanquita, encontraremos otro camino mientras te lleven lejos."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Prometo que volveremos a sonreír, aunque ahora todo parezca perdido."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Crees que volverá la leche?",
+                  "respuesta": "No lo sé, pero la esperanza nunca se pierde."
+                },
+                {
+                  "etiqueta": "¿Qué haremos sin ella?",
+                  "respuesta": "Juntos, encontraremos otra forma de seguir adelante."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Abrazar",
+          "descripcion": "Juan abraza a Blanquita, transmitiendo calidez.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": [
+            {
+              "id_nodo": "personaje_cow_blancita",
+              "efecto": null,
+              "color": null,
+              "animacion": "alegria"
+            }
+          ]
+        },
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Prometer",
+          "descripcion": "Juan promete que todo saldrá bien mientras la vaca es llevada fuera.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": [
+            {
+              "id_nodo": "personaje_cow_blancita",
+              "efecto": null,
+              "color": null,
+              "animacion": "susto"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_cow_blancita",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Muuu... (un suspiro cansado)"
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Muuu... (mirando al horizonte mientras la llevan)"
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_madre",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Juan, la situación es dura... tendremos que vender a Blanquita."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Sé que es doloroso, pero debemos pensar en el futuro de la familia."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Hay otra opción?",
+                  "respuesta": "Por ahora, no. Necesitamos el dinero para la cosecha."
+                },
+                {
+                  "etiqueta": "¿Podemos intentar otra cosa?",
+                  "respuesta": "He intentado todo, hijo. El tiempo apremia."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Suspirar",
+          "descripcion": "La madre suspira, dejando caer una lágrima mientras mira a Juan.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": [
+            {
+              "id_nodo": "personaje_juan",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "decorado_silla_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Silla de madera rústica",
+        "descripcion": "Una silla tallada a mano, con vetas de madera que revelan la vida del granjero. El asiento está gastado por años de uso, pero aún conserva su firmeza.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_silla_02",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Silla de madera rústica",
+        "descripcion": "Esta silla se apoya contra la pared, su respaldo curvo muestra el paso del tiempo. Un leve polvo cubre su superficie, recordando las mañanas frías.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_silla_03",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Silla de madera rústica",
+        "descripcion": "La tercera silla está ligeramente inclinada, como si alguien se hubiera levantado de repente. Sus patas crujen al peso, pero siguen firmes.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_alfombra_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Alfombra de lana tejida",
+        "descripcion": "Una alfombra de lana gruesa cubre parte del suelo, con patrones de colores apagados que recuerdan los campos cercanos. El tejido muestra signos de desgaste por el paso de los años.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_entrada",
+      "columnas": [
+        1
+      ],
+      "texto": "La luz del alba se cuela por la ventana, anunciando el día triste."
+    }
+  ]
+}

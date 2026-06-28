@@ -1,0 +1,14 @@
+{
+  "id_escena": "escena_02",
+  "query_usada": "cosmic void ambient drone",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/632/632751_12458758-hq.mp3",
+    "titulo": "2022-05-09-cosmic-rumble.wav",
+    "autor": "ilmari_freesound",
+    "duracion_segundos": 70.8,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": null,
+  "fuente": "freesound"
+}

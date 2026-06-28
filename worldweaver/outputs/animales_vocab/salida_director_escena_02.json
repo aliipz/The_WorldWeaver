@@ -1,0 +1,215 @@
+{
+  "id_escena": "escena_02",
+  "elementos": [
+    {
+      "id": "personaje_guia",
+      "nombre": "Luis",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "hombre adulto con sombrero de paja y ropa de granjero",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_horse",
+      "nombre": "caballo",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 2.0,
+      "alto": 1.7,
+      "descripcion": "un caballo que relincha",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_cow",
+      "nombre": "vaca",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 5
+      },
+      "ancho": 1.8,
+      "alto": 1.6,
+      "descripcion": "una vaca que muge",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_sheep",
+      "nombre": "oveja",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 0.8,
+      "descripcion": "una oveja que bala",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_dog",
+      "nombre": "perro",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 0.9,
+      "alto": 0.8,
+      "descripcion": "un perro que ladra",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_pozo_01",
+      "nombre": "Pozo de piedra del patio",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 1.0,
+      "alto": 1.2,
+      "descripcion": "Pozo circular de piedra caliza, bordeado por ladrillos rojizos, con una polea de madera y una cuerda gastada.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_cat",
+      "nombre": "gato",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "descripcion": "un gato que maúlla",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_chicken",
+      "nombre": "pollo",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 4
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "descripcion": "un pollo que cacarea",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_duck",
+      "nombre": "pato",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 3
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "descripcion": "un pato que grazna",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_rabbit",
+      "nombre": "conejo",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 3
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "descripcion": "un conejo que brinca",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_granero_01",
+      "nombre": "Granero rojo de madera envejecida",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 4.5,
+      "alto": 5.0,
+      "descripcion": "Granero de dos pisos con techo de tejas rojas, paredes de madera gastada y una gran puerta de tablas que cruje al abrirse.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_arbol_manzano_01",
+      "nombre": "Árbol de manzano con frutos verdes",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 8,
+        "fila": 0
+      },
+      "ancho": 2.5,
+      "alto": 5.0,
+      "descripcion": "Árbol de tronco grueso y ramas extendidas, cubierto de hojas verdes brillantes y unas cuantas manzanas verdes en los brotes.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_cerca_madera_01",
+      "nombre": "Cerca de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 1
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "descripcion": "Cerca de troncos de pino, postes verticales de 2 m y listones horizontales clavados, con musgo verde en la base.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_pila_heno_01",
+      "nombre": "Pila de heno recién cortado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 2
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "descripcion": "Montón de heno dorado y esponjoso, atado con soga de cáñamo, descansando sobre una base de tierra compacta.",
+      "keyword_busqueda": null
+    }
+  ]
+}

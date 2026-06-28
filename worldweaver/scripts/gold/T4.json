@@ -1,0 +1,10 @@
+{
+  "id": "T4",
+  "fixture": "el_ultimo_turno.txt",
+  "titulo": "El último turno",
+  "modo": "narrativo",
+  "personajes_esperados": ["Marta", "Don Emilio"],
+  "objetos_esperados": ["cafetera", "taza", "mesa", "silla", "taburete", "barra", "periódico", "persiana"],
+  "escenas_esperadas": 3,
+  "notas": "Texto corto y realista, a propósito denso en OBJETOS COTIDIANOS (es el eje que estresa el matching de poly.pizza con cosas mundanas). 2 personajes. 3 beats: apertura del café → Don Emilio → cierre y salida a la calle. Dejé fuera objetos menores (cruasán, sombrero, escoba, llave, cartel) — se pueden añadir si los quieres contar."
+}

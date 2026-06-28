@@ -1,0 +1,356 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Luis XVI convoca a los representantes",
+      "guias": [
+        "personaje_luis_xvi"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_luis_xvi"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Se entrega el cahier de doléances",
+      "guias": [
+        "objeto_cahier_de_doleances",
+        "personaje_representante_tercer_estado_1",
+        "personaje_luis_xvi"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_cahier_de_doleances"
+        ],
+        "personajes": [
+          "personaje_representante_tercer_estado_1",
+          "personaje_luis_xvi"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Cortesano discute la desigualdad social",
+      "guias": [
+        "personaje_cortesano_1",
+        "personaje_luis_xvi"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_cortesano_1",
+          "personaje_luis_xvi"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_luis_xvi",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Luis XVI — Rey de Francia",
+        "texto": "Monarca absoluto que gobernó de 1774 a 1792. Su intento de reformar la administración financiera culminó en la convocatoria de los ==Estados Generales==, un paso decisivo que desencadenó la Revolución francesa."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "Convoco a los representantes del Tercer Estado para iniciar los ==Estados Generales==, una medida sin precedentes en la historia de Francia."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Sé que la corte está dividida, pero el reino necesita una solución urgente."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué esperas lograr con los Estados Generales?",
+                  "respuesta": "Espero que la nobleza acepte compartir la carga fiscal y que se restablezca la armonía."
+                },
+                {
+                  "etiqueta": "¿Temes que el pueblo pierda la paciencia?",
+                  "respuesta": "Sí, la escasez y los impuestos son una llama que podría incendiar a la nación."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "He recibido el ==cahier de doléances==, donde el pueblo expone sus agravios y demandas."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Sus peticiones son claras: igualdad fiscal y fin de los privilegios."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Crees que la nobleza aceptará la igualdad fiscal?",
+                  "respuesta": "Es improbable sin una presión creciente; la resistencia está arraigada."
+                },
+                {
+                  "etiqueta": "¿Qué propones para aliviar la crisis?",
+                  "respuesta": "Considero reformas moderadas, pero el rey debe mantener su autoridad."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Punch",
+          "puntos": [
+            {
+              "frases": [
+                "Defiendo la autoridad del rey y los derechos del ==Antiguo Régimen==, pues sin ellos el orden se desmoronará."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "La estabilidad del reino depende de la lealtad de la nobleza."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo responderías al clamor del Tercer Estado?",
+                  "respuesta": "Con prudencia, intentando conciliar sin ceder demasiado."
+                },
+                {
+                  "etiqueta": "¿Consideras que la revolución es inevitable?",
+                  "respuesta": "Si la injusticia persiste, la revuelta será inevitable."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Escuchar discurso",
+          "descripcion": "Luis XVI explica la estructura del ==Antiguo Régimen==, señalando que la nobleza posee privilegios fiscales y políticos.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_representante_tercer_estado_1",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Representante del Tercer Estado — Burguesía",
+        "texto": "Portador del ==cahier de doléances==, articuló las demandas de igualdad fiscal y fin de los privilegios nobles, impulsando la presión sobre el Antiguo Régimen."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Defeat",
+          "puntos": [
+            {
+              "frases": [
+                "Entrego al rey el ==cahier de doléances==, que recoge las quejas del pueblo y la necesidad de ==igualdad fiscal==."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Exigimos que se eliminen los impuestos injustos que asfixian a la población."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué consecuencias tendría la igualdad fiscal para la nobleza?",
+                  "respuesta": "Perderían gran parte de sus ingresos tradicionales, lo que cambiaría el equilibrio de poder."
+                },
+                {
+                  "etiqueta": "¿Cómo describirías la situación de los campesinos?",
+                  "respuesta": "Viven bajo una carga tributaria opresiva y sin representación real."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Entregar cahier",
+          "descripcion": "El representante entrega el ==cahier de doléances== al rey, exponiendo las quejas del pueblo.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_luis_xvi",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_cortesano_1",
+      "fase_aparicion": 2,
+      "ficha_info": {
+        "titulo": "Cortesano — Noble de la corte",
+        "texto": "Defensor ferviente del ==Antiguo Régimen==, argumentó que los privilegios nobles son esenciales para la estabilidad y el orden social de Francia."
+      },
+      "dialogos": [
+        {
+          "fase": 2,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Los privilegios de la nobleza son la columna vertebral del reino; sin ellos, el caos reinante."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El rey debe proteger nuestras tradiciones y no ceder a las demandas del Tercer Estado."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Crees que la nobleza puede adaptarse a los cambios?",
+                  "respuesta": "La tradición es la garantía de la continuidad; el cambio sólo trae incertidumbre."
+                },
+                {
+                  "etiqueta": "¿Qué propones para calmar al pueblo?",
+                  "respuesta": "Mantener la autoridad real y reforzar la lealtad mediante concesiones menores."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Discutir con el rey",
+          "descripcion": "El cortesano critica la política real, señalando la creciente ==desigualdad social== entre la nobleza y el tercer Estado.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_luis_xvi",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_representante_tercer_estado_2",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Mujer del pueblo llano — Voz del campesinado",
+        "texto": "Portadora de una queja humilde pero poderosa, representa la fatiga y la esperanza del pueblo bajo los impuestos abusivos del Antiguo Régimen."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Los campos están secos y los impuestos nos ahogan; pedimos justicia y alivio ahora."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Si el rey escucha nuestras súplicas, quizás la primavera vuelva a nuestras tierras."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué esperas del rey en esta reunión?",
+                  "respuesta": "Que reconozca nuestro sufrimiento y reduzca la carga tributaria."
+                },
+                {
+                  "etiqueta": "¿Cómo afecta la crisis a tu familia?",
+                  "respuesta": "Nos vemos obligados a vender nuestras cosechas antes de tiempo, lo que nos empobrece."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_cahier_de_doleances",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Cahier de doléances",
+        "descripcion": "Cahier de doléances: documento recopilado por los delegados del == tercer Estado que enumera las demandas del pueblo. Incluye peticiones fiscales, reforma judicial y abolición de privilegios.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "leer",
+          "tecla": "KeyQ",
+          "etiqueta": "Leer",
+          "titulo": "Cahier de doléances",
+          "texto": "El documento contiene ==reformas fiscales==, ==reforma judicial== y la petición de igualdad ante la ley. Cada cláusula refleja la presión del pueblo para cambiar el ==Antiguo Régimen==.",
+          "estilo": "pergamino"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_entrada",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al entrar al salón del ==Palacio de Versalles==, se percibe la opulencia de los candelabros y la tensión palpable entre la nobleza y los representantes del tercer Estado."
+    }
+  ]
+}

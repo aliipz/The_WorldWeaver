@@ -1,0 +1,322 @@
+{
+  "id_escena": "escena_03",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Elena escribe bajo el cielo gris",
+      "guias": [
+        "personaje_elena"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_elena"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "El traje colgado aguarda ser reclamado",
+      "guias": [
+        "objeto_traje_buceo",
+        "personaje_elena"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_traje_buceo"
+        ],
+        "personajes": [
+          "personaje_elena"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "El generador y el submarino esperan la activación",
+      "guias": [
+        "objeto_generador",
+        "objeto_submarino",
+        "personaje_elena"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_generador",
+          "objeto_submarino"
+        ],
+        "personajes": [
+          "personaje_elena"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_elena",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Las coordenadas están anotadas, pero el mar no nos esperará sin el traje adecuado."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Necesitamos el traje de buceo antes de que la marea se levante."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Dónde lo encontramos?",
+                  "respuesta": "Cerca del mástil, colgado de un viejo gancho oxidado."
+                },
+                {
+                  "etiqueta": "¿Hay tiempo suficiente?",
+                  "respuesta": "El viento ya lleva la niebla, cada minuto cuenta."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "PickUp",
+          "puntos": [
+            {
+              "frases": [
+                "Este traje está gastado, pero aún mantiene la presión. Lo tendré que llevar conmigo."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El metal del gancho cruje bajo mis dedos, como si el barco mismo protestara."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Crees que está en buen estado?",
+                  "respuesta": "Podrá aguantar una inmersión, pero cualquier daño será fatal."
+                },
+                {
+                  "etiqueta": "¿Deberíamos buscar otro?",
+                  "respuesta": "No hay tiempo para buscar más; debemos usar lo que hay."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "El generador ruge y el submarino responde; ahora podemos descender al abismo."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "La corriente bajo el barco es fuerte, pero el equipo está listo."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Todo está bajo control?",
+                  "respuesta": "Sí, pero mantente alerta; el fondo es traicionero."
+                },
+                {
+                  "etiqueta": "¿Qué pasa si falla el generador?",
+                  "respuesta": "Nos quedaremos atrapados en la superficie, y el tiempo se agotará."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_traje_buceo",
+          "consume": false,
+          "puntos": [
+            {
+              "frases": [
+                "Ese traje de buceo antiguo... aún conserva la hermética de presión."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Podemos confiar en él?",
+                  "respuesta": "Solo una inmersión corta; cualquier falla será fatal."
+                },
+                {
+                  "etiqueta": "¿Necesitamos repararlo?",
+                  "respuesta": "No hay tiempo para reparaciones; debemos usarlo tal cual está."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Revisar cuaderno",
+          "descripcion": "Abres tu cuaderno y revisas las coordenadas anotadas.",
+          "animacion": "PickUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_zip",
+        "efecto": null,
+        "color": null,
+        "animacion": "susto"
+      }
+    },
+    {
+      "id_nodo": "personaje_zip",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "¡Viento de sirena! Este lugar huele a metal oxidado y a secretos hundidos."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "¡Zas! El generador parece una bestia dormida, pero ya está despierta."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Emitir chillido",
+          "descripcion": "Zip lanza un chillido agudo que atraviesa el viento.",
+          "animacion": "susto",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "criatura",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_elena",
+        "efecto": null,
+        "color": null,
+        "animacion": "RecieveHit"
+      }
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_traje_buceo",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "Traje de buceo antiguo",
+        "descripcion": "Un traje de neopreno gastado, cubierto de algas y barniz salado."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_generador",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "El generador chisporrotea, enviando un pulso azul.",
+        "texto_desactivacion": null,
+        "efecto_visual": "brillo",
+        "color_efecto": "#4488ff",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_submarino",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "El submarino cruje y sus luces giran lentamente.",
+        "texto_desactivacion": null,
+        "efecto_visual": "rotar",
+        "color_efecto": null,
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_barrel_oxidado_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Barril oxidado",
+        "descripcion": "Un viejo barril cubierto de óxido, su metal corroído cruje bajo el viento y oculta posibles objetos dentro.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_cueva_pequeña_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Cavidad rocosa",
+        "descripcion": "Una pequeña caverna en la arena, la abertura revela sombras profundas y el eco de las olas que golpean su interior.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_bahia",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al pisar la arena gris, el viento lleva el eco de las olas rotas."
+    }
+  ]
+}

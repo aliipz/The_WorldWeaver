@@ -1,0 +1,185 @@
+{
+  "id_escena": "escena_06",
+  "elementos": [
+    {
+      "id": "personaje_juan",
+      "nombre": "Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 3
+      },
+      "ancho": 0.6,
+      "alto": 1.2,
+      "descripcion": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_ogre",
+      "nombre": "Ogro",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 3
+      },
+      "ancho": 2.0,
+      "alto": 2.5,
+      "descripcion": "Criatura enorme de piel verde, ojos amarillos, cuerpo robusto, garras afiladas",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_gallina_dorada",
+      "nombre": "Gallina dorada",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_06",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 2
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "descripcion": "Gallina con plumas brillantes como oro",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_arpa_de_oro",
+      "nombre": "Arpa de oro",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_06",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 1.0,
+      "alto": 0.8,
+      "descripcion": "Arpa tallada en oro que vibra sola, emitiendo una melodía suave",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_columna_tronco_01",
+      "nombre": "columna tronco de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 1
+      },
+      "ancho": 3.0,
+      "alto": 1.0,
+      "descripcion": "Columna masiva con forma de tronco de roble, corteza rugosa y ramas talladas, de tono marrón oscuro y ligeramente ennegrecida por el humo.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_columna_tronco_02",
+      "nombre": "columna tronco de haya",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 5
+      },
+      "ancho": 2.5,
+      "alto": 0.9,
+      "descripcion": "Segunda columna similar, hecha de haya, con vetas visibles y una capa de musgo grisáceo en la base, sostiene el techo del salón.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_candelabro_de_hierro_01",
+      "nombre": "candelabro de hierro forjado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 0
+      },
+      "ancho": 0.3,
+      "alto": 0.5,
+      "descripcion": "Candelabro de hierro negro con ocho brazos que sostienen velas de cera goteante, superficie oxidada y remaches expuestos.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_candelabro_de_hierro_02",
+      "nombre": "candelabro de hierro colgante",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 6
+      },
+      "ancho": 0.3,
+      "alto": 0.5,
+      "descripcion": "Candelabro más pequeño, colgando de una viga, con cuatro brazos y una base de metal ennegrecido, sostiene una vela encendida.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_banco_de_madera_01",
+      "nombre": "banco de madera tallada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 5
+      },
+      "ancho": 1.2,
+      "alto": 0.9,
+      "descripcion": "Banco largo de pino con asientos y respaldos tallados en forma de hojas, barniz gastado y manchas de sangre seca.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_banco_de_madera_02",
+      "nombre": "banco de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 1
+      },
+      "ancho": 1.2,
+      "alto": 0.9,
+      "descripcion": "Otro banco de madera gruesa, sin pulir, con clavijas de hierro y una capa de polvo gris que cubre su superficie.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_armadura_de_placa_01",
+      "nombre": "armadura de placa completa",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 0.8,
+      "alto": 1.8,
+      "descripcion": "Armadura de acero completa, con placas dentadas y óxido verde, apoyada contra la pared como si fuera un guardia silencioso.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_caja_de_vino_01",
+      "nombre": "caja de vino de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 0
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "descripcion": "Caja de madera de roble con tirantes de hierro, parcialmente abierta, con botellas rotas y restos de vino derramado en el suelo.",
+      "keyword_busqueda": null
+    }
+  ]
+}

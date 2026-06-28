@@ -1,0 +1,155 @@
+{
+  "id_escena": "escena_07",
+  "elementos": [
+    {
+      "id": "personaje_juan",
+      "nombre": "Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 5
+      },
+      "ancho": 0.6,
+      "alto": 1.2,
+      "descripcion": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_madre",
+      "nombre": "Madre de Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 0.95,
+      "alto": 1.75,
+      "descripcion": "Mujer de mediana edad, rostro marcado por el trabajo, vestimenta de algodón gris",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_ogre",
+      "nombre": "Ogro",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 6
+      },
+      "ancho": 2.5,
+      "alto": 3.0,
+      "descripcion": "Criatura enorme de piel verde, ojos amarillos, cuerpo robusto, garras afiladas",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_planta_gigante",
+      "nombre": "Planta gigante",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 4
+      },
+      "ancho": 3.5,
+      "alto": 9.0,
+      "descripcion": "Tallo verde y retorcido que se eleva hasta las nubes, con hojas gigantes",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_hacha",
+      "nombre": "Hacha",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 3
+      },
+      "ancho": 0.4,
+      "alto": 0.9,
+      "descripcion": "Hacha de acero con mango de madera, pesada y afilada",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_grama_01",
+      "nombre": "Césped alto",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "descripcion": "Hojas largas y verdes que cubren la ladera, ligeramente onduladas por la brisa del gigante.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_arbusto_01",
+      "nombre": "Arbusto silvestre",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 7,
+        "fila": 0
+      },
+      "ancho": 1.5,
+      "alto": 1.0,
+      "descripcion": "Matorral bajo de ramas retorcidas y hojas oscuras, con algunas bayas rojas que sobresalen.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_cerca_01",
+      "nombre": "Cerca de madera desvencijada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 3.0,
+      "alto": 1.5,
+      "descripcion": "Postes de madera gastados y tablas rotas que forman una cerca parcial alrededor del campo, cubiertos de musgo.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_haybale_01",
+      "nombre": "Paca de heno",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 0.8,
+      "alto": 0.6,
+      "descripcion": "Paca compacta de heno seco, amarillenta, apoyada contra la base del tallo, con algunos restos de paja sueltos.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_roca_01",
+      "nombre": "Roca de terreno firme",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 2
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "descripcion": "Gran piedra grisácea con vetas de musgo, situada entre la hierba y el suelo de la granja, proporcionando un punto de apoyo sólido.",
+      "keyword_busqueda": null
+    }
+  ]
+}

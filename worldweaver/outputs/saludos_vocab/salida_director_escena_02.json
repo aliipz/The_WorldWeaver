@@ -1,0 +1,110 @@
+{
+  "id_escena": "escena_02",
+  "elementos": [
+    {
+      "id": "personaje_a",
+      "nombre": "Ana",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 6
+      },
+      "ancho": 0.95,
+      "alto": 1.75,
+      "descripcion": "Mujer joven, cabello castaño, lleva una blusa azul",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_fuente_centro",
+      "nombre": "Fuente de piedra del centro de la plaza",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 2.0,
+      "alto": 0.8,
+      "descripcion": "Una fuente circular de piedra gris con agua que fluye suavemente, rodeada de baldosas de terracota y musgo en los bordes.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_banco_madera",
+      "nombre": "Banco de madera bajo los árboles",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 4
+      },
+      "ancho": 2.5,
+      "alto": 0.9,
+      "descripcion": "Banco largo de madera envejecida con respaldos tallados, pintado en tonos os marrón y ligeramente astillado por el tiempo.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_lampara_terna",
+      "nombre": "Farola de hierro forjado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 0
+      },
+      "ancho": 0.3,
+      "alto": 3.0,
+      "descripcion": "Farola alta de hierro negro con una pantalla de vidrio opaco que emite una luz cálida dorada al atardecer.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_puesto_mercado",
+      "nombre": "Puesto de mercado con toldo de lona",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 2.0,
+      "alto": 2.5,
+      "descripcion": "Estructura de madera con un toldo rojo a rayas blancas, apoyado sobre cajas de frutas y verduras frescas.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_estatua_heroe",
+      "nombre": "Estatua de br hero local",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 2
+      },
+      "ancho": 1.2,
+      "alto": 3.0,
+      "descripcion": "Escultura de bronce de un caballero con espada alzada, situada sobre una base de piedra y decorada con enredaderas.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_arbusto_flores",
+      "nombre": "Arbusto con flores silvestres",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 1.0,
+      "alto": 1.2,
+      "descripcion": "Arbusto bajo de hojas verdes y ramas, cubierto de flores amarillas y rosadas que añaden color al entorno.",
+      "keyword_busqueda": null
+    }
+  ]
+}

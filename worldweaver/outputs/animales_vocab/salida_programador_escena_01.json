@@ -1,0 +1,211 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Descubre los animales de la granja",
+      "guias": [
+        "objeto_dog",
+        "objeto_cat",
+        "objeto_horse",
+        "objeto_cow",
+        "objeto_duck",
+        "objeto_rabbit",
+        "objeto_sheep",
+        "objeto_chicken",
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_dog",
+          "objeto_cat",
+          "objeto_horse",
+          "objeto_cow",
+          "objeto_duck",
+          "objeto_rabbit",
+          "objeto_sheep",
+          "objeto_chicken"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_guia",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Luis — Guía de la granja",
+        "texto": "Luis es un granjero y guía local, conocido por su entusiasmo al presentar la fauna de la granja. Su papel es enseñar a los visitantes sobre los animales domésticos, como el ==perro== y la ==vaca==, resaltando su importancia en la vida rural."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "Here we have a ==dog==, a ==cat== and a ==horse== grazing in the meadow.\nAquí tenemos un perro, un gato y un caballo pastando en el prado."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Next, the ==cow==, the ==duck== and the ==rabbit== join us near the pond.\nLuego, la vaca, el pato y el conejo se acercan al estanque."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué comen esos animales?",
+                  "respuesta": "La vaca come hierba, el pato come insectos y el conejo come verduras frescas."
+                },
+                {
+                  "etiqueta": "¿Cómo se cuidan en la granja?",
+                  "respuesta": "Se les brinda refugio, agua y atención diaria para que estén sanos."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Finally, the ==sheep== and the ==chicken== complete our farm family.\nFinalmente, la oveja y el pollo completan nuestra familia de granja."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué productos nos dan?",
+                  "respuesta": "La oveja nos da lana y la gallina pone huevos."
+                },
+                {
+                  "etiqueta": "¿Son importantes para la granja?",
+                  "respuesta": "Sí, aportan alimentos y materiales esenciales para la vida rural."
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_dog",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "perro / dog",
+        "descripcion": "The ==dog== barks loudly.\nEl perro ladra fuerte.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_cat",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "gato / cat",
+        "descripcion": "The ==cat== purrs when content.\nEl gato ronronea cuando está contento.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_horse",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "caballo / horse",
+        "descripcion": "The ==horse== gallops across the field.\nEl caballo galopa por el campo.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_cow",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "vaca / cow",
+        "descripcion": "The ==cow== produces milk.\nLa vaca produce leche.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_duck",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "pato / duck",
+        "descripcion": "The ==duck== quacks near the pond.\nEl pato grazna cerca del estanque.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_rabbit",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "conejo / rabbit",
+        "descripcion": "The ==rabbit== hops quickly.\nEl conejo salta rápidamente.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_sheep",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "oveja / sheep",
+        "descripcion": "The ==sheep== grazes on grass.\nLa oveja pasta hierba.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_chicken",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "pollo / chicken",
+        "descripcion": "The ==chicken== clucks at sunrise.\nEl pollo cacarea al amanecer.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [],
+  "examen_vocabulario": false
+}

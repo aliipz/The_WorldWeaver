@@ -1,0 +1,612 @@
+{
+  "id_escena": "escena_04",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "ciudad",
+  "radio_escena": 22.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_04",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_04",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 22.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_elcano",
+      "nombre": "Juan Sebastián Elcano",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.32,
+        "y": 0.95,
+        "z": -0.55
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/OldClassy_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_nao_victoria",
+      "nombre": "Nao Victoria",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -5.5,
+        "y": 1.25,
+        "z": -3.0
+      },
+      "ancho": 11.0,
+      "alto": 10.0,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/941391c3-04a0-43fe-9f7a-c8e7d3b3a77d.glb",
+      "keyword_busqueda": "ship"
+    },
+    {
+      "id": "objeto_especias",
+      "nombre": "Especias",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -2.94,
+        "y": 0.2,
+        "z": 1.9
+      },
+      "ancho": 0.3,
+      "alto": 0.3,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/3b9705df-0f31-4239-95c4-7d3aa9f866b3.glb",
+      "keyword_busqueda": "spice"
+    },
+    {
+      "id": "decorado_cajon_01",
+      "nombre": "Cajón de madera tallada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 2.41,
+        "y": 0.2,
+        "z": -2.8
+      },
+      "ancho": 0.6,
+      "alto": 0.4,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/803af4ae-433f-4b05-b1f1-c6a2da02d768.glb",
+      "keyword_busqueda": "chest"
+    },
+    {
+      "id": "decorado_farol_01",
+      "nombre": "Farol de hierro colgado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.88,
+        "y": 0.5,
+        "z": -0.47
+      },
+      "ancho": 0.3,
+      "alto": 1.0,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ecbc7b04-09ca-4068-bb3c-4e5ce1163c9a.glb",
+      "keyword_busqueda": "lantern"
+    },
+    {
+      "id": "decorado_muelle_01",
+      "nombre": "Muelle de madera",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.39,
+        "y": 0.25,
+        "z": -20.0
+      },
+      "ancho": 3.0,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/a34d55ba-16d6-4951-9126-8c15315cb6e4.glb",
+      "keyword_busqueda": "dock"
+    },
+    {
+      "id": "decorado_bandera_01",
+      "nombre": "Bandera de la Corona de Castilla",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -5.11,
+        "y": 1.0,
+        "z": -13.04
+      },
+      "ancho": 0.8,
+      "alto": 2.0,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4cd7e950-9c30-4005-8a7d-81b4d555715e.glb",
+      "keyword_busqueda": "flag"
+    },
+    {
+      "id": "decorado_barril_01",
+      "nombre": "Barril de vino",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -7.91,
+        "y": 0.45,
+        "z": 4.29
+      },
+      "ancho": 0.6,
+      "alto": 0.9,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/6d3e8847-bda4-4d6c-8004-7b03cf848b13.glb",
+      "keyword_busqueda": "barrel"
+    },
+    {
+      "id": "amb_00_0_00",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -3.87,
+        "y": 5.21,
+        "z": 17.79
+      },
+      "ancho": 4.69,
+      "alto": 10.42,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_00_0_01",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 15.8,
+        "y": 4.8,
+        "z": 9.89
+      },
+      "ancho": 4.32,
+      "alto": 9.59,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_00_0_02",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 19.86,
+        "y": 4.99,
+        "z": -3.95
+      },
+      "ancho": 4.49,
+      "alto": 9.97,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_00_0_03",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -7.35,
+        "y": 5.8,
+        "z": -18.3
+      },
+      "ancho": 5.22,
+      "alto": 11.59,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_00_0_04",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.24,
+        "y": 4.9,
+        "z": -11.54
+      },
+      "ancho": 4.41,
+      "alto": 9.81,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_00_0_05",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -14.58,
+        "y": 5.78,
+        "z": 11.02
+      },
+      "ancho": 5.21,
+      "alto": 11.57,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_00_1_00",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -8.67,
+        "y": 4.51,
+        "z": -14.52
+      },
+      "ancho": 4.06,
+      "alto": 9.01,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_00_1_01",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -5.46,
+        "y": 5.36,
+        "z": 16.17
+      },
+      "ancho": 4.83,
+      "alto": 10.72,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_01_0_00",
+      "nombre": "Renaissance palace",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -15.09,
+        "y": 6.93,
+        "z": 12.31
+      },
+      "ancho": 5.77,
+      "alto": 13.85,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/22b576c3-24c2-45c4-a89c-b088901c3695.glb",
+      "keyword_busqueda": "Renaissance palace"
+    },
+    {
+      "id": "amb_01_0_01",
+      "nombre": "Renaissance palace",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 17.01,
+        "y": 5.1,
+        "z": 11.32
+      },
+      "ancho": 4.25,
+      "alto": 10.2,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/22b576c3-24c2-45c4-a89c-b088901c3695.glb",
+      "keyword_busqueda": "Renaissance palace"
+    },
+    {
+      "id": "amb_01_0_02",
+      "nombre": "Renaissance palace",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 19.3,
+        "y": 5.31,
+        "z": -0.28
+      },
+      "ancho": 4.42,
+      "alto": 10.62,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/22b576c3-24c2-45c4-a89c-b088901c3695.glb",
+      "keyword_busqueda": "Renaissance palace"
+    },
+    {
+      "id": "amb_01_0_03",
+      "nombre": "Renaissance palace",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.49,
+        "y": 4.98,
+        "z": -5.62
+      },
+      "ancho": 4.15,
+      "alto": 9.96,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/22b576c3-24c2-45c4-a89c-b088901c3695.glb",
+      "keyword_busqueda": "Renaissance palace"
+    },
+    {
+      "id": "amb_01_1_00",
+      "nombre": "Renaissance palace",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.08,
+        "y": 5.81,
+        "z": -6.29
+      },
+      "ancho": 4.84,
+      "alto": 11.62,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/22b576c3-24c2-45c4-a89c-b088901c3695.glb",
+      "keyword_busqueda": "Renaissance palace"
+    },
+    {
+      "id": "amb_02_0_00",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -7.64,
+        "y": 0.4,
+        "z": 18.18
+      },
+      "ancho": 1.21,
+      "alto": 0.8,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_02_0_01",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.86,
+        "y": 0.34,
+        "z": -12.02
+      },
+      "ancho": 1.01,
+      "alto": 0.67,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_02_2_00",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -7.18,
+        "y": 0.36,
+        "z": -1.89
+      },
+      "ancho": 1.09,
+      "alto": 0.73,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_02_2_01",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -3.31,
+        "y": 0.47,
+        "z": -6.73
+      },
+      "ancho": 1.4,
+      "alto": 0.93,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_03_0_00",
+      "nombre": "oil lantern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -15.39,
+        "y": 1.0,
+        "z": -13.21
+      },
+      "ancho": 0.3,
+      "alto": 1.99,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7f5240a6-e02a-4084-b899-8b84784cd76d.glb",
+      "keyword_busqueda": "oil lantern"
+    },
+    {
+      "id": "amb_03_0_01",
+      "nombre": "oil lantern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -6.85,
+        "y": 0.81,
+        "z": 16.88
+      },
+      "ancho": 0.24,
+      "alto": 1.62,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7f5240a6-e02a-4084-b899-8b84784cd76d.glb",
+      "keyword_busqueda": "oil lantern"
+    },
+    {
+      "id": "amb_03_1_00",
+      "nombre": "oil lantern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 10.48,
+        "y": 0.81,
+        "z": 9.6
+      },
+      "ancho": 0.24,
+      "alto": 1.63,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7f5240a6-e02a-4084-b899-8b84784cd76d.glb",
+      "keyword_busqueda": "oil lantern"
+    },
+    {
+      "id": "amb_03_1_01",
+      "nombre": "oil lantern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -13.22,
+        "y": 1.11,
+        "z": 8.71
+      },
+      "ancho": 0.33,
+      "alto": 2.21,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7f5240a6-e02a-4084-b899-8b84784cd76d.glb",
+      "keyword_busqueda": "oil lantern"
+    }
+  ],
+  "cielo": {
+    "tipo": "amanecer",
+    "color_fondo": "#fea65d",
+    "color_ambiente": "#ff9a61",
+    "intensidad_ambiente": 0.49558757353301747,
+    "color_sol": "#ff9c00",
+    "intensidad_sol": 0.9003277995140813,
+    "pos_sol": {
+      "x": -3.981911486041232,
+      "y": 0.17504547274145132,
+      "z": -1.5839082793099042
+    },
+    "niebla": {
+      "color": "#fb9a53",
+      "near": 10.5,
+      "far": 16.0
+    }
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_elcano": {
+      "glb_id": "OldClassy_Male",
+      "glb_path": "/sandbox/assets/characters/OldClassy_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "negro",
+      "clothing_seed": 7601,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

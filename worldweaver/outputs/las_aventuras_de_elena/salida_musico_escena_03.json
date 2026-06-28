@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_03",
+  "query_usada": "ocean waves crashing rocks ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/768/768359_6652872-hq.mp3",
+    "titulo": "Waves crashing and breaking on rocks and cliffs in Portugal small village",
+    "autor": "khenshom",
+    "duracion_segundos": 71.4,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/803/803679_2520418-hq.mp3",
+    "titulo": "Ocean Waves Crashing on the Coast of Big Lagoon, Redwoods",
+    "autor": "CVLTIV8R",
+    "duracion_segundos": 80.4,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

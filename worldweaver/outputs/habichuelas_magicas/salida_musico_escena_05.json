@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_05",
+  "query_usada": "gentle wind ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/669/669113_1050391-hq.mp3",
+    "titulo": "LateSummer quiet woods and Leaves and Wind SEPTEMBER 13 2022.WAV",
+    "autor": "kvgarlic",
+    "duracion_segundos": 572.1,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/792/792699_1648170-hq.mp3",
+    "titulo": "woodpeckers Haanwijk 1206 PM 250306_1056",
+    "autor": "klankbeeld",
+    "duracion_segundos": 20.5,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

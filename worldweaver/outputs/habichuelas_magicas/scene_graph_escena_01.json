@@ -1,0 +1,311 @@
+{
+  "id_escena": "escena_01",
+  "tipo_escena": "interior",
+  "tipo_ambiente": "habitacion",
+  "radio_escena": 5.5,
+  "limite_jugador": 3.3,
+  "color_suelo": null,
+  "tipo_suelo": null,
+  "tipo_techo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_01",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 3.5,
+        "z": 0.0
+      },
+      "ancho": 5.5,
+      "alto": 7.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_01",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 5.5,
+      "alto": 5.5,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_juan",
+      "nombre": "Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -1.17,
+        "y": 0.7,
+        "z": -1.22
+      },
+      "ancho": 0.5,
+      "alto": 1.4,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_madre",
+      "nombre": "Madre de Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.22,
+        "y": 0.82,
+        "z": -0.9
+      },
+      "ancho": 0.9,
+      "alto": 1.65,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual_Female.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_cow_blancita",
+      "nombre": "Blanquita",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.05,
+        "y": 0.75,
+        "z": 1.48
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/61736f55-5c58-402d-9a4e-7e52fcd7e387.glb",
+      "keyword_busqueda": "cow"
+    },
+    {
+      "id": "decorado_silla_01",
+      "nombre": "silla de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -1.25,
+        "y": 0.4,
+        "z": -0.02
+      },
+      "ancho": 0.4,
+      "alto": 0.8,
+      "tam_real": 0.8,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/84ecc6a3-2751-4f50-912a-b9f4ff033d7a.glb",
+      "keyword_busqueda": "chair"
+    },
+    {
+      "id": "decorado_silla_02",
+      "nombre": "silla de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 1.02,
+        "y": 0.4,
+        "z": 0.17
+      },
+      "ancho": 0.4,
+      "alto": 0.8,
+      "tam_real": 0.8,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/84ecc6a3-2751-4f50-912a-b9f4ff033d7a.glb",
+      "keyword_busqueda": "chair"
+    },
+    {
+      "id": "decorado_silla_03",
+      "nombre": "silla de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -1.11,
+        "y": 0.4,
+        "z": 1.14
+      },
+      "ancho": 0.4,
+      "alto": 0.8,
+      "tam_real": 0.8,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/84ecc6a3-2751-4f50-912a-b9f4ff033d7a.glb",
+      "keyword_busqueda": "chair"
+    },
+    {
+      "id": "decorado_silla_04",
+      "nombre": "silla de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 1.26,
+        "y": 0.4,
+        "z": 0.9
+      },
+      "ancho": 0.4,
+      "alto": 0.8,
+      "tam_real": 0.8,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/84ecc6a3-2751-4f50-912a-b9f4ff033d7a.glb",
+      "keyword_busqueda": "chair"
+    },
+    {
+      "id": "decorado_alfombra_01",
+      "nombre": "alfombra de lana tejida",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.12,
+        "y": 0.1,
+        "z": -0.11
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "tam_real": 2.0,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/93588780-3405-40b7-acb4-9a87c88569f6.glb",
+      "keyword_busqueda": "rug"
+    },
+    {
+      "id": "decorado_lanterna_01",
+      "nombre": "lanterna de hierro colgante",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 4.81,
+        "y": 0.15,
+        "z": -1.36
+      },
+      "ancho": 0.18,
+      "alto": 0.3,
+      "tam_real": 0.3,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ecbc7b04-09ca-4068-bb3c-4e5ce1163c9a.glb",
+      "keyword_busqueda": "lantern"
+    },
+    {
+      "id": "decorado_cofre_01",
+      "nombre": "cofre de ro reutil",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.01,
+        "y": 0.35,
+        "z": -4.85
+      },
+      "ancho": 0.62,
+      "alto": 0.7,
+      "tam_real": 0.7,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/803af4ae-433f-4b05-b1f1-c6a2da02d768.glb",
+      "keyword_busqueda": "chest"
+    },
+    {
+      "id": "decorado_estanteria_pequena_01",
+      "nombre": "estantería de pared pequeña",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -5.07,
+        "y": 0.75,
+        "z": -1.6
+      },
+      "ancho": 1.0,
+      "alto": 1.5,
+      "tam_real": 1.5,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/acb19f85-597f-4737-b4ac-24f7b57bc2fb.glb",
+      "keyword_busqueda": "shelf"
+    }
+  ],
+  "cielo": {
+    "tipo": "interior_calido",
+    "color_fondo": "#150a04",
+    "color_ambiente": "#ff7e2e",
+    "intensidad_ambiente": 0.658157027040752,
+    "color_sol": "#ffae4b",
+    "intensidad_sol": 0.8348850036250813,
+    "pos_sol": {
+      "x": 0.253429239066542,
+      "y": 3.9468582395814895,
+      "z": -0.20576447220560246
+    },
+    "niebla": null,
+    "luz_exterior": null
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_juan": {
+      "glb_id": "Casual_Male",
+      "glb_path": "/sandbox/assets/characters/Casual_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_claro",
+      "clothing_seed": 9193,
+      "talla": "nino_enano",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_madre": {
+      "glb_id": "Casual_Female",
+      "glb_path": "/sandbox/assets/characters/Casual_Female.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "gris",
+      "clothing_seed": 7667,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

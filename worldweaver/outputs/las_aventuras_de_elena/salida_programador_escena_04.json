@@ -1,0 +1,244 @@
+{
+  "id_escena": "escena_04",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Elena se viste entre sombras de la bodega",
+      "guias": [
+        "objeto_traje_buceo",
+        "personaje_elena"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_traje_buceo"
+        ],
+        "personajes": [
+          "personaje_elena"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "El generador ruge, el submarino desciende",
+      "guias": [
+        "objeto_generador",
+        "objeto_submarino",
+        "personaje_elena"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_generador",
+          "objeto_submarino"
+        ],
+        "personajes": [
+          "personaje_elena"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Zip se sumerge, la cabina vibra",
+      "guias": [
+        "objeto_submarino",
+        "personaje_zip"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_submarino"
+        ],
+        "personajes": [
+          "personaje_zip"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_elena",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "El traje chirría bajo mis manos, pero cada correa ajustada es una promesa de que no nos ahogaremos en la oscuridad."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El metal del casco vibra con cada latido del generador, y sé que el tiempo se nos escapa."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cuánto falta para que el generador arranque?",
+                  "respuesta": "Solo unos segundos más, el motor está temblando pero pronto volverá a latir."
+                },
+                {
+                  "etiqueta": "¿Qué pasa si falla el motor?",
+                  "respuesta": "Nos quedaremos atrapados en la niebla, pero siempre podemos usar el impulso manual para salir."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "El humo negro se eleva como una sombra, pero sigo manteniendo la mirada en el panel; la presión nos empuja, pero no nos romperá."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_traje_buceo",
+          "consume": false,
+          "puntos": [
+            {
+              "frases": [
+                "Ese traje viejo... todavía conserva la presión del mar, ¿lo necesitas para la inmersión?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Sí, lo usaré para bucear.",
+                  "respuesta": "Perfecto, ajusta bien las válvulas y no dejes que el frío te paralice."
+                },
+                {
+                  "etiqueta": "No, prefiero seguir sin él.",
+                  "respuesta": "Entiendo, pero recuerda que el agua aquí es traicionera; el traje podría salvarte."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Ordenar",
+          "descripcion": "Le das una orden firme a Elena, quien aprieta su traje y asiente.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "personaje_zip",
+              "efecto": null,
+              "color": null,
+              "animacion": "susto"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_zip",
+      "fase_aparicion": 2,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 2,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "¡Vaya! Este submarino parece una caja de latón, pero al menos tiene aire fresco para mi hocico."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¿Crees que llegaremos al fondo antes de que el oxígeno se agote?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cuánto tiempo tenemos?",
+                  "respuesta": "Aproximadamente diez minutos antes de que el medidor marque rojo."
+                },
+                {
+                  "etiqueta": "¿Hay alguna salida de emergencia?",
+                  "respuesta": "Sí, una escotilla en la parte trasera, pero está sellada con un código que aún no descubrimos."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Chillido",
+          "descripcion": "Zip emite un chillido agudo que reverbera entre las vigas de la bodega.",
+          "animacion": "susto",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "criatura",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_traje_buceo",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "Traje de buceo antiguo",
+        "descripcion": "Un traje de cuero gastado, con correas oxidadas que crujen al ajustarse."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_generador",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "El generador chispea, la luz titila.",
+        "texto_desactivacion": null,
+        "efecto_visual": "brillo",
+        "color_efecto": "#4488ff",
+        "descripcion": "Un generador oxidado, cubierto de polvo, que aún guarda energía latente."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_submarino",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Submarino oxidado",
+        "descripcion": "Una pequeña nave sumergible, corroída por el tiempo, atada a la grúa con cadenas oxidadas.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": []
+}

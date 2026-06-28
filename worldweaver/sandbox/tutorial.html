@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>WorldWeaver — Tutorial</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0d0d1a; overflow: hidden; font-family: 'Segoe UI', sans-serif; }
+        canvas { display: block; }
+
+        #ui {
+            position: absolute; top: 0; left: 0; width: 100%; padding: 12px 16px;
+            display: flex; justify-content: space-between; align-items: flex-start;
+            pointer-events: none;
+        }
+        #titulo {
+            color: #fff; font-size: 15px; font-weight: 600;
+            background: rgba(0,0,0,0.55); padding: 6px 12px; border-radius: 8px;
+        }
+        #titulo span { color: #ffcc44; }
+
+        #hint {
+            position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+            color: rgba(255,255,255,0.4); font-size: 12px;
+            background: rgba(0,0,0,0.4); padding: 4px 10px; border-radius: 20px;
+            transition: color 0.3s;
+        }
+
+        #pause-bar {
+            position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+            display: flex; align-items: center; gap: 18px;
+            pointer-events: none;
+        }
+        #home-btn {
+            pointer-events: auto; cursor: pointer;
+            width: 46px; height: 46px; border-radius: 13px;
+            background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.10);
+            color: #fff; font-size: 21px; line-height: 1;
+            display: flex; align-items: center; justify-content: center;
+            transition: all .18s;
+        }
+        #home-btn:hover {
+            background: rgba(180,60,60,0.55); border-color: rgba(255,120,120,0.4);
+            transform: scale(1.07);
+        }
+
+        #exit-confirm {
+            display: none; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(15,12,24,0.97); border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px; padding: 26px 32px; text-align: center;
+            pointer-events: auto; z-index: 10;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
+        #exit-confirm p { color: #fff; font-size: 16px; font-weight: 600; margin: 0 0 18px; }
+        #exit-confirm .ec-btns { display: flex; gap: 12px; justify-content: center; }
+        #exit-confirm button {
+            cursor: pointer; min-width: 78px; padding: 9px 0; border-radius: 9px;
+            font-size: 14px; font-weight: 600; border: 1px solid transparent; transition: all .15s;
+        }
+        #ec-yes { background: rgba(180,60,60,0.85); color: #fff; }
+        #ec-yes:hover { background: rgba(214,72,72,1); }
+        #ec-no  { background: rgba(255,255,255,0.12); color: #ddd; border-color: rgba(255,255,255,0.15); }
+        #ec-no:hover  { background: rgba(255,255,255,0.2); color: #fff; }
+
+        #btn-modo {
+            pointer-events: auto; cursor: pointer;
+            background: rgba(80,60,160,0.75); border: 1px solid rgba(140,110,255,0.4);
+            color: #ccc; font-size: 12px; padding: 5px 11px; border-radius: 8px;
+            transition: background 0.2s;
+        }
+        #btn-modo:hover { background: rgba(100,80,200,0.9); color: #fff; }
+        #btn-modo.fps-activo { background: rgba(40,120,60,0.85); border-color: rgba(80,220,100,0.5); color: #aeffb8; }
+
+        #crosshair {
+            display: none; position: absolute;
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 18px; height: 18px; pointer-events: none;
+        }
+        #crosshair::before, #crosshair::after {
+            content: ''; position: absolute; background: rgba(255,255,255,0.75);
+            border-radius: 1px;
+        }
+        #crosshair::before { width: 2px; height: 100%; left: 50%; transform: translateX(-50%); }
+        #crosshair::after  { width: 100%; height: 2px; top: 50%; transform: translateY(-50%); }
+
+        #fps-overlay {
+            display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.55); pointer-events: auto; cursor: crosshair;
+            justify-content: center; align-items: center; flex-direction: column; gap: 8px;
+        }
+        #fps-overlay p { color: #fff; font-size: 16px; font-weight: 600; }
+        #fps-overlay small { color: #aaa; font-size: 12px; }
+
+        #tooltip {
+            position: absolute; display: none;
+            background: rgba(10,10,30,0.92); color: #eee;
+            border: 1px solid rgba(255,255,255,0.15); border-radius: 8px;
+            padding: 8px 12px; font-size: 12px; max-width: 220px;
+            pointer-events: none; line-height: 1.6;
+        }
+        #tooltip .tt-nombre { font-weight: 700; font-size: 13px; color: #88aaff; }
+        #tooltip .tt-tipo { color: #aaa; text-transform: uppercase; font-size: 10px; letter-spacing: 1px; }
+
+        #portal-flash {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(ellipse at center, #ffffff 0%, #99bbff 50%, #1a22cc 100%);
+            opacity: 1; pointer-events: none; z-index: 9999;
+        }
+        #portal-hint {
+            display: none; position: absolute; bottom: 48px; left: 50%;
+            transform: translateX(-50%);
+            color: rgba(160,200,255,0.9); font-size: 13px; font-style: italic;
+            letter-spacing: 1.5px; text-align: center;
+            text-shadow: 0 0 16px rgba(80,140,255,1), 0 0 32px rgba(100,80,255,0.6);
+            pointer-events: none;
+        }
+
+        /* ── Tutorial HUD ─────────────────────────────────────────────────────── */
+        #tut-hud {
+            position: absolute; bottom: 52px; left: 50%; transform: translateX(-50%);
+            background: rgba(10,8,20,0.75); border: 1px solid rgba(255,200,80,0.35);
+            border-radius: 14px; padding: 9px 22px 11px;
+            pointer-events: none; text-align: center;
+            transition: opacity 0.5s;
+            max-width: 480px;
+        }
+        #tut-step {
+            color: rgba(255,190,60,0.5); font-size: 10px; letter-spacing: 0.12em;
+            text-transform: uppercase; margin-bottom: 3px;
+        }
+        #tut-obj {
+            color: rgba(255,220,130,0.95); font-size: 13px; line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+<script>const IDIOMA = "es";</script>
+<script>
+const _WW_UI = {
+    es: {
+        escena: 'Tutorial',
+        modo_fps:   '🎮 Modo inmersivo  [F]',
+        modo_orbit: '🖱 Modo escena  [F]',
+        hint_orbit: '🖱 Haz clic en el mundo para activar el movimiento',
+        hint_fps:   '↑↓←→ / WASD mover · ratón mirar · ESC para salir',
+        fps_click:  'Clic para continuar',
+        fps_exit:   'Ajusta el volumen o vuelve al inicio',
+        salir_confirm: '¿Seguro que quieres salir del tutorial?',
+        si: 'Sí', no: 'No',
+    },
+};
+function _wwUI(k) { return (_WW_UI[typeof IDIOMA!=='undefined'?IDIOMA:'es']||_WW_UI.es)[k] ?? ''; }
+
+// En el tutorial las pistas (rastreador de objetivos) salen pronto: 6 s sin
+// interactuar en vez de los 45 s de un mundo normal.
+window._WW_IDLE_UMBRAL = 6000;
+</script>
+
+<div id="ui">
+    <div id="titulo">WorldWeaver &nbsp;·&nbsp; <span>Tutorial</span></div>
+</div>
+<div id="hint"></div>
+<div id="crosshair"></div>
+<div id="fps-overlay">
+    <div id="pause-bar">
+        <button id="home-btn" title="Salir del tutorial">🏠</button>
+    </div>
+    <p id="fps-click-text"></p>
+    <small id="fps-exit-text"></small>
+    <div id="exit-confirm">
+        <p id="exit-confirm-text"></p>
+        <div class="ec-btns">
+            <button id="ec-yes"></button>
+            <button id="ec-no"></button>
+        </div>
+    </div>
+</div>
+<div id="portal-flash"></div>
+<div id="portal-hint">✦ &nbsp;Volver a WorldWeaver</div>
+<div id="tooltip">
+    <div class="tt-tipo" id="tt-tipo"></div>
+    <div class="tt-nombre" id="tt-nombre"></div>
+</div>
+<div id="tut-hud">
+    <div id="tut-step">Paso 1 de 3</div>
+    <div id="tut-obj">Muévete con WASD y el ratón · acércate a la Guía y pulsa E</div>
+</div>
+<!-- El HUD se actualiza dinámicamente vía _actualizarTutHUD() -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script>
+// ── OrbitControls inline (r128 compatible) ──────────────────────────────
+THREE.OrbitControls = function(camera, domElement) {
+    this.camera = camera; this.domElement = domElement;
+    this.target = new THREE.Vector3(0, 1.5, -2.5);
+    this.enabled = true;
+    var scope = this;
+    var STATE = { NONE: -1, ROTATE: 0, DOLLY: 1, PAN: 2 };
+    var state = STATE.NONE;
+    var spherical = new THREE.Spherical();
+    var sphericalDelta = new THREE.Spherical();
+    var scale = 1;
+    var rotateStart = new THREE.Vector2(), rotateEnd = new THREE.Vector2(), rotateDelta = new THREE.Vector2();
+    var panStart  = new THREE.Vector2(), panEnd = new THREE.Vector2(), panDelta = new THREE.Vector2();
+    var offset = new THREE.Vector3();
+    var quat = new THREE.Quaternion().setFromUnitVectors(camera.up, new THREE.Vector3(0,1,0));
+    var quatInverse = quat.clone().invert();
+    var lastPos = new THREE.Vector3();
+    offset.copy(camera.position).sub(scope.target);
+    offset.applyQuaternion(quat);
+    spherical.setFromVector3(offset);
+    var _panLeft = function(distance) {
+        var v = new THREE.Vector3(); v.setFromMatrixColumn(camera.matrix, 0);
+        v.multiplyScalar(-distance); scope.target.add(v); camera.position.add(v);
+    };
+    var _panUp = function(distance) {
+        var v = new THREE.Vector3(); v.setFromMatrixColumn(camera.matrix, 1);
+        v.multiplyScalar(distance); scope.target.add(v); camera.position.add(v);
+    };
+    var _rotateLeft = function(angle) { sphericalDelta.theta -= angle; };
+    var _rotateUp   = function(angle) { sphericalDelta.phi   -= angle; };
+    var rotateSpeed = 1.0;
+    var getAutoRotationAngle = function() { return 2 * Math.PI / 60 / 60 * 2.0; };
+    domElement.addEventListener('mousedown', function(e) {
+        e.preventDefault();
+        if (e.button === 0) { state = STATE.ROTATE; rotateStart.set(e.clientX, e.clientY); }
+    });
+    domElement.addEventListener('mousemove', function(e) {
+        if (!scope.enabled) return;
+        if (state === STATE.ROTATE) {
+            rotateEnd.set(e.clientX, e.clientY);
+            rotateDelta.subVectors(rotateEnd, rotateStart).multiplyScalar(rotateSpeed);
+            var element = domElement === document ? domElement.body : domElement;
+            _rotateLeft(2 * Math.PI * rotateDelta.x / element.clientHeight);
+            _rotateUp  (2 * Math.PI * rotateDelta.y / element.clientHeight);
+            rotateStart.copy(rotateEnd);
+        }
+    });
+    domElement.addEventListener('mouseup', function() { state = STATE.NONE; });
+    domElement.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        if (e.deltaY < 0) scale /= 0.95; else scale *= 0.95;
+    }, { passive: false });
+    this.update = function() {
+        var position = scope.camera.position;
+        offset.copy(position).sub(scope.target);
+        offset.applyQuaternion(quat);
+        spherical.setFromVector3(offset);
+        spherical.theta += sphericalDelta.theta;
+        spherical.phi   += sphericalDelta.phi;
+        spherical.phi = Math.max(0.05, Math.min(Math.PI - 0.05, spherical.phi));
+        spherical.radius = Math.max(1.0, Math.min(20.0, spherical.radius * scale));
+        offset.setFromSpherical(spherical);
+        offset.applyQuaternion(quatInverse);
+        position.copy(scope.target).add(offset);
+        scope.camera.lookAt(scope.target);
+        sphericalDelta.set(0,0,0); scale = 1;
+    };
+};
+</script>
+<script>
+// ── Portal flash: ocultar si no venimos de portal ────────────────────────
+(function() {
+    const _f = document.getElementById('portal-flash');
+    if (!new URLSearchParams(window.location.search).has('portal')) {
+        _f.style.transition = 'none'; _f.style.opacity = '0';
+    }
+})();
+
+if (typeof window._introActiva === 'undefined') window._introActiva = false;
+
+// ── Datos de la escena (hardcoded para el tutorial) ───────────────────────
+const SCENE_GRAPH = {
+    id_escena: "escena_tutorial",
+    tipo_escena: "exterior",
+    tipo_ambiente: "bosque",
+    radio_escena: 22.0,
+    limite_jugador: 6.5,
+    nodos: [
+        {id:"fondo",    nombre:"Cielo del bosque",  tipo:"fondo",    posicion:{x:0,y:0,z:0},    ancho:1,   alto:12,   capa:0},
+        {id:"suelo",    nombre:"Suelo del bosque",   tipo:"suelo",    posicion:{x:0,y:0,z:0},    ancho:1,   alto:1,    capa:0},
+        {id:"guardian", nombre:"la Guía",            tipo:"personaje",origen:"narrativo",         posicion:{x:-2.5,y:0,z:-4.0}, ancho:0.6, alto:1.7, capa:7, gltf_url:"/sandbox/assets/characters/Casual_Female.gltf"},
+        {id:"cristal",  nombre:"Globo terráqueo",    tipo:"objeto",   origen:"narrativo",         posicion:{x:3.0,y:0,z:-4.5},  ancho:0.8, alto:1.1, capa:7, gltf_url:"https://static.poly.pizza/002557d4-03f3-4201-a86c-f66e0af82182.glb"},
+        {id:"amb_00_0_00",nombre:"big tree",tipo:"ambiente",posicion:{x:1.22,y:2.68,z:19.26},ancho:2.62,alto:5.35,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_01",nombre:"big tree",tipo:"ambiente",posicion:{x:5.15,y:1.81,z:17.91},ancho:1.77,alto:3.61,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_02",nombre:"big tree",tipo:"ambiente",posicion:{x:7.38,y:2.1,z:18.44},ancho:2.05,alto:4.19,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_03",nombre:"big tree",tipo:"ambiente",posicion:{x:10.64,y:2.05,z:16.92},ancho:2.0,alto:4.09,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_04",nombre:"big tree",tipo:"ambiente",posicion:{x:13.74,y:2.49,z:12.87},ancho:2.43,alto:4.97,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_05",nombre:"big tree",tipo:"ambiente",posicion:{x:15.38,y:2.45,z:10.9},ancho:2.39,alto:4.89,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_06",nombre:"big tree",tipo:"ambiente",posicion:{x:16.72,y:2.67,z:7.04},ancho:2.61,alto:5.33,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_07",nombre:"big tree",tipo:"ambiente",posicion:{x:17.45,y:2.55,z:4.65},ancho:2.49,alto:5.1,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_08",nombre:"big tree",tipo:"ambiente",posicion:{x:18.89,y:1.89,z:0.6},ancho:1.85,alto:3.78,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_09",nombre:"big tree",tipo:"ambiente",posicion:{x:19.96,y:2.51,z:-2.28},ancho:2.46,alto:5.03,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_10",nombre:"big tree",tipo:"ambiente",posicion:{x:18.92,y:2.19,z:-7.27},ancho:2.14,alto:4.38,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_11",nombre:"big tree",tipo:"ambiente",posicion:{x:17.14,y:2.15,z:-10.9},ancho:2.1,alto:4.3,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_12",nombre:"big tree",tipo:"ambiente",posicion:{x:13.21,y:2.64,z:-12.55},ancho:2.58,alto:5.28,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_13",nombre:"big tree",tipo:"ambiente",posicion:{x:12.75,y:2.22,z:-14.42},ancho:2.18,alto:4.45,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_14",nombre:"big tree",tipo:"ambiente",posicion:{x:7.47,y:2.64,z:-16.94},ancho:2.59,alto:5.29,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_15",nombre:"big tree",tipo:"ambiente",posicion:{x:6.04,y:2.01,z:-18.88},ancho:1.97,alto:4.02,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_16",nombre:"big tree",tipo:"ambiente",posicion:{x:2.05,y:2.11,z:-18.96},ancho:2.06,alto:4.21,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_17",nombre:"big tree",tipo:"ambiente",posicion:{x:-1.78,y:2.19,z:-18.45},ancho:2.14,alto:4.37,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_18",nombre:"big tree",tipo:"ambiente",posicion:{x:-5.88,y:2.23,z:-17.99},ancho:2.18,alto:4.45,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_19",nombre:"big tree",tipo:"ambiente",posicion:{x:-10.31,y:2.25,z:-17.64},ancho:2.2,alto:4.51,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_20",nombre:"big tree",tipo:"ambiente",posicion:{x:-10.63,y:1.83,z:-16.27},ancho:1.79,alto:3.66,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_21",nombre:"big tree",tipo:"ambiente",posicion:{x:-14.16,y:2.66,z:-11.86},ancho:2.6,alto:5.32,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_22",nombre:"big tree",tipo:"ambiente",posicion:{x:-17.26,y:2.34,z:-9.76},ancho:2.29,alto:4.68,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_23",nombre:"big tree",tipo:"ambiente",posicion:{x:-17.65,y:2.03,z:-6.14},ancho:1.98,alto:4.06,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_24",nombre:"big tree",tipo:"ambiente",posicion:{x:-19.95,y:1.89,z:-3.14},ancho:1.85,alto:3.78,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_25",nombre:"big tree",tipo:"ambiente",posicion:{x:-20.85,y:2.58,z:0.28},ancho:2.52,alto:5.16,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_26",nombre:"big tree",tipo:"ambiente",posicion:{x:-18.01,y:1.95,z:6.15},ancho:1.91,alto:3.91,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_27",nombre:"big tree",tipo:"ambiente",posicion:{x:-18.73,y:1.85,z:8.06},ancho:1.81,alto:3.7,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_28",nombre:"big tree",tipo:"ambiente",posicion:{x:-16.75,y:2.42,z:10.76},ancho:2.37,alto:4.84,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_29",nombre:"big tree",tipo:"ambiente",posicion:{x:-13.43,y:2.6,z:14.46},ancho:2.54,alto:5.2,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_30",nombre:"big tree",tipo:"ambiente",posicion:{x:-10.3,y:1.84,z:16.56},ancho:1.8,alto:3.68,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_0_31",nombre:"big tree",tipo:"ambiente",posicion:{x:-7.68,y:2.43,z:17.85},ancho:2.38,alto:4.87,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_0_32",nombre:"big tree",tipo:"ambiente",posicion:{x:-2.4,y:1.83,z:20.06},ancho:1.79,alto:3.66,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_1_00",nombre:"big tree",tipo:"ambiente",posicion:{x:-9.76,y:2.56,z:-13.39},ancho:2.51,alto:5.13,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_1_01",nombre:"big tree",tipo:"ambiente",posicion:{x:-12.94,y:2.54,z:-9.26},ancho:2.48,alto:5.08,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_1_02",nombre:"big tree",tipo:"ambiente",posicion:{x:-14.68,y:2.58,z:-1.23},ancho:2.52,alto:5.16,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_1_03",nombre:"big tree",tipo:"ambiente",posicion:{x:-14.92,y:2.67,z:3.01},ancho:2.61,alto:5.35,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_1_04",nombre:"big tree",tipo:"ambiente",posicion:{x:-12.02,y:2.34,z:11.23},ancho:2.29,alto:4.68,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_1_05",nombre:"big tree",tipo:"ambiente",posicion:{x:-7.94,y:2.3,z:11.76},ancho:2.25,alto:4.6,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_1_06",nombre:"big tree",tipo:"ambiente",posicion:{x:-0.61,y:1.98,z:16.78},ancho:1.94,alto:3.96,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_1_07",nombre:"big tree",tipo:"ambiente",posicion:{x:6.83,y:2.33,z:13.9},ancho:2.28,alto:4.65,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_1_08",nombre:"big tree",tipo:"ambiente",posicion:{x:11.05,y:2.61,z:11.99},ancho:2.56,alto:5.23,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_1_09",nombre:"big tree",tipo:"ambiente",posicion:{x:14.57,y:2.4,z:8.07},ancho:2.35,alto:4.8,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_1_10",nombre:"big tree",tipo:"ambiente",posicion:{x:15.84,y:2.38,z:1.22},ancho:2.33,alto:4.76,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_1_11",nombre:"big tree",tipo:"ambiente",posicion:{x:16.22,y:2.5,z:-5.13},ancho:2.45,alto:5.01,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_1_12",nombre:"big tree",tipo:"ambiente",posicion:{x:11.16,y:2.12,z:-9.81},ancho:2.07,alto:4.23,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:true},
+        {id:"amb_00_1_13",nombre:"big tree",tipo:"ambiente",posicion:{x:4.49,y:2.62,z:-16.18},ancho:2.56,alto:5.24,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_1_14",nombre:"big tree",tipo:"ambiente",posicion:{x:-1.81,y:1.94,z:-13.97},ancho:1.89,alto:3.87,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_00_1_15",nombre:"big tree",tipo:"ambiente",posicion:{x:-6.78,y:2.14,z:-12.67},ancho:2.09,alto:4.27,capa:1,gltf_url:"https://static.poly.pizza/712dc981-3f74-4e74-b31d-d8060709759f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_00",nombre:"pine",tipo:"ambiente",posicion:{x:-14.83,y:2.58,z:13.39},ancho:1.86,alto:5.16,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_0_01",nombre:"pine",tipo:"ambiente",posicion:{x:-10.08,y:2.8,z:15.85},ancho:2.02,alto:5.6,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_02",nombre:"pine",tipo:"ambiente",posicion:{x:-9.58,y:2.96,z:16.25},ancho:2.13,alto:5.92,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_03",nombre:"pine",tipo:"ambiente",posicion:{x:-1.62,y:2.61,z:19.47},ancho:1.88,alto:5.22,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_04",nombre:"pine",tipo:"ambiente",posicion:{x:2.91,y:2.35,z:20.29},ancho:1.69,alto:4.69,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_0_05",nombre:"pine",tipo:"ambiente",posicion:{x:3.38,y:2.98,z:18.38},ancho:2.14,alto:5.95,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_06",nombre:"pine",tipo:"ambiente",posicion:{x:7.74,y:2.02,z:16.8},ancho:1.45,alto:4.03,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_07",nombre:"pine",tipo:"ambiente",posicion:{x:13.73,y:2.99,z:12.02},ancho:2.15,alto:5.98,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_0_08",nombre:"pine",tipo:"ambiente",posicion:{x:16.9,y:2.71,z:10.99},ancho:1.95,alto:5.42,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_0_09",nombre:"pine",tipo:"ambiente",posicion:{x:17.9,y:2.52,z:7.16},ancho:1.81,alto:5.03,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_10",nombre:"pine",tipo:"ambiente",posicion:{x:18.43,y:2.34,z:1.73},ancho:1.69,alto:4.68,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_11",nombre:"pine",tipo:"ambiente",posicion:{x:18.03,y:2.98,z:-3.03},ancho:2.15,alto:5.96,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_12",nombre:"pine",tipo:"ambiente",posicion:{x:16.48,y:2.99,z:-7.98},ancho:2.15,alto:5.98,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_0_13",nombre:"pine",tipo:"ambiente",posicion:{x:16.31,y:2.09,z:-13.04},ancho:1.5,alto:4.17,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_0_14",nombre:"pine",tipo:"ambiente",posicion:{x:10.23,y:2.27,z:-15.38},ancho:1.64,alto:4.54,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_0_15",nombre:"pine",tipo:"ambiente",posicion:{x:9.95,y:2.19,z:-17.36},ancho:1.58,alto:4.39,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_0_16",nombre:"pine",tipo:"ambiente",posicion:{x:3.74,y:2.86,z:-19.0},ancho:2.06,alto:5.73,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_17",nombre:"pine",tipo:"ambiente",posicion:{x:-1.29,y:2.45,z:-19.95},ancho:1.76,alto:4.9,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_18",nombre:"pine",tipo:"ambiente",posicion:{x:-7.09,y:2.85,z:-17.21},ancho:2.05,alto:5.7,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_0_19",nombre:"pine",tipo:"ambiente",posicion:{x:-10.81,y:2.31,z:-14.82},ancho:1.66,alto:4.61,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_20",nombre:"pine",tipo:"ambiente",posicion:{x:-12.89,y:2.24,z:-15.65},ancho:1.61,alto:4.48,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_0_21",nombre:"pine",tipo:"ambiente",posicion:{x:-16.52,y:2.77,z:-8.14},ancho:1.99,alto:5.54,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_22",nombre:"pine",tipo:"ambiente",posicion:{x:-17.39,y:2.93,z:-7.92},ancho:2.11,alto:5.85,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_23",nombre:"pine",tipo:"ambiente",posicion:{x:-18.38,y:2.02,z:0.19},ancho:1.45,alto:4.03,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_0_24",nombre:"pine",tipo:"ambiente",posicion:{x:-19.52,y:2.36,z:5.66},ancho:1.7,alto:4.72,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_0_25",nombre:"pine",tipo:"ambiente",posicion:{x:-18.96,y:2.08,z:8.62},ancho:1.5,alto:4.16,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_1_00",nombre:"pine",tipo:"ambiente",posicion:{x:1.27,y:2.12,z:-15.47},ancho:1.53,alto:4.24,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_1_01",nombre:"pine",tipo:"ambiente",posicion:{x:-2.01,y:2.28,z:-17.0},ancho:1.64,alto:4.55,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_1_02",nombre:"pine",tipo:"ambiente",posicion:{x:-11.33,y:2.62,z:-8.76},ancho:1.88,alto:5.24,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_1_03",nombre:"pine",tipo:"ambiente",posicion:{x:-14.99,y:2.32,z:-0.06},ancho:1.67,alto:4.64,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_1_04",nombre:"pine",tipo:"ambiente",posicion:{x:-11.25,y:2.52,z:11.64},ancho:1.81,alto:5.03,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_1_05",nombre:"pine",tipo:"ambiente",posicion:{x:-8.81,y:2.53,z:11.95},ancho:1.82,alto:5.06,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_1_06",nombre:"pine",tipo:"ambiente",posicion:{x:1.01,y:2.57,z:14.67},ancho:1.85,alto:5.15,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_1_07",nombre:"pine",tipo:"ambiente",posicion:{x:8.46,y:2.04,z:12.18},ancho:1.47,alto:4.08,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_1_08",nombre:"pine",tipo:"ambiente",posicion:{x:14.24,y:2.4,z:7.85},ancho:1.72,alto:4.79,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:true},
+        {id:"amb_01_1_09",nombre:"pine",tipo:"ambiente",posicion:{x:13.31,y:2.15,z:-7.61},ancho:1.55,alto:4.3,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_01_1_10",nombre:"pine",tipo:"ambiente",posicion:{x:12.22,y:2.12,z:-10.23},ancho:1.53,alto:4.24,capa:1,gltf_url:"https://static.poly.pizza/082c2026-56af-4e3f-bea7-9ae5de71101f.glb",voltear_horizontal:false},
+        {id:"amb_02_0_00",nombre:"rock",tipo:"ambiente",posicion:{x:-15.17,y:0.44,z:-12.51},ancho:1.18,alto:0.88,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:true},
+        {id:"amb_02_0_01",nombre:"rock",tipo:"ambiente",posicion:{x:-5.75,y:0.53,z:20.02},ancho:1.4,alto:1.05,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:false},
+        {id:"amb_02_0_02",nombre:"rock",tipo:"ambiente",posicion:{x:15.86,y:0.49,z:12.3},ancho:1.31,alto:0.98,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:true},
+        {id:"amb_02_0_03",nombre:"rock",tipo:"ambiente",posicion:{x:16.48,y:0.44,z:-12.36},ancho:1.18,alto:0.89,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:false},
+        {id:"amb_02_1_00",nombre:"rock",tipo:"ambiente",posicion:{x:14.16,y:0.49,z:-0.62},ancho:1.3,alto:0.98,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:true},
+        {id:"amb_02_1_01",nombre:"rock",tipo:"ambiente",posicion:{x:0.02,y:0.53,z:-14.51},ancho:1.42,alto:1.07,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:true},
+        {id:"amb_02_1_02",nombre:"rock",tipo:"ambiente",posicion:{x:-6.89,y:0.43,z:12.47},ancho:1.16,alto:0.87,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:true},
+        {id:"amb_02_2_00",nombre:"rock",tipo:"ambiente",posicion:{x:-0.26,y:0.51,z:8.94},ancho:1.35,alto:1.02,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:true},
+        {id:"amb_02_2_01",nombre:"rock",tipo:"ambiente",posicion:{x:4.88,y:0.51,z:6.77},ancho:1.36,alto:1.02,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:false},
+        {id:"amb_02_2_02",nombre:"rock",tipo:"ambiente",posicion:{x:7.03,y:0.44,z:2.92},ancho:1.16,alto:0.87,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:false},
+        {id:"amb_02_2_03",nombre:"rock",tipo:"ambiente",posicion:{x:7.6,y:0.51,z:0.86},ancho:1.36,alto:1.02,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:false},
+        {id:"amb_02_2_04",nombre:"rock",tipo:"ambiente",posicion:{x:5.31,y:0.49,z:-7.22},ancho:1.3,alto:0.97,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:true},
+        {id:"amb_02_2_05",nombre:"rock",tipo:"ambiente",posicion:{x:-2.69,y:0.49,z:-8.45},ancho:1.3,alto:0.98,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:false},
+        {id:"amb_02_2_06",nombre:"rock",tipo:"ambiente",posicion:{x:-7.3,y:0.48,z:-5.47},ancho:1.29,alto:0.97,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:true},
+        {id:"amb_02_2_07",nombre:"rock",tipo:"ambiente",posicion:{x:-8.4,y:0.49,z:-3.27},ancho:1.3,alto:0.98,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:true},
+        {id:"amb_02_2_08",nombre:"rock",tipo:"ambiente",posicion:{x:-5.84,y:0.5,z:4.91},ancho:1.34,alto:1.01,capa:1,gltf_url:"https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",voltear_horizontal:true},
+        {id:"amb_03_1_00",nombre:"mushroom",tipo:"ambiente",posicion:{x:8.85,y:0.24,z:12.74},ancho:0.39,alto:0.49,capa:1,gltf_url:"https://static.poly.pizza/7298b2d4-1848-4ed4-8922-eb3b42cf1625.glb",voltear_horizontal:false},
+        {id:"amb_03_1_01",nombre:"mushroom",tipo:"ambiente",posicion:{x:14.3,y:0.3,z:-5.04},ancho:0.47,alto:0.59,capa:1,gltf_url:"https://static.poly.pizza/7298b2d4-1848-4ed4-8922-eb3b42cf1625.glb",voltear_horizontal:false},
+        {id:"amb_03_1_02",nombre:"mushroom",tipo:"ambiente",posicion:{x:-4.97,y:0.22,z:-13.39},ancho:0.34,alto:0.43,capa:1,gltf_url:"https://static.poly.pizza/7298b2d4-1848-4ed4-8922-eb3b42cf1625.glb",voltear_horizontal:true},
+        {id:"amb_03_1_03",nombre:"mushroom",tipo:"ambiente",posicion:{x:-13.12,y:0.28,z:4.72},ancho:0.45,alto:0.56,capa:1,gltf_url:"https://static.poly.pizza/7298b2d4-1848-4ed4-8922-eb3b42cf1625.glb",voltear_horizontal:false},
+        {id:"amb_03_1_04",nombre:"mushroom",tipo:"ambiente",posicion:{x:5.17,y:0.24,z:15.86},ancho:0.38,alto:0.47,capa:1,gltf_url:"https://static.poly.pizza/7298b2d4-1848-4ed4-8922-eb3b42cf1625.glb",voltear_horizontal:false},
+        {id:"amb_03_2_00",nombre:"mushroom",tipo:"ambiente",posicion:{x:-7.07,y:0.25,z:2.13},ancho:0.4,alto:0.5,capa:1,gltf_url:"https://static.poly.pizza/7298b2d4-1848-4ed4-8922-eb3b42cf1625.glb",voltear_horizontal:true},
+        {id:"amb_03_2_01",nombre:"mushroom",tipo:"ambiente",posicion:{x:-4.73,y:0.2,z:5.64},ancho:0.33,alto:0.41,capa:1,gltf_url:"https://static.poly.pizza/7298b2d4-1848-4ed4-8922-eb3b42cf1625.glb",voltear_horizontal:false},
+        {id:"amb_03_2_02",nombre:"mushroom",tipo:"ambiente",posicion:{x:4.76,y:0.22,z:6.38},ancho:0.35,alto:0.43,capa:1,gltf_url:"https://static.poly.pizza/7298b2d4-1848-4ed4-8922-eb3b42cf1625.glb",voltear_horizontal:true},
+        {id:"amb_03_2_03",nombre:"mushroom",tipo:"ambiente",posicion:{x:6.87,y:0.29,z:2.86},ancho:0.46,alto:0.58,capa:1,gltf_url:"https://static.poly.pizza/7298b2d4-1848-4ed4-8922-eb3b42cf1625.glb",voltear_horizontal:true},
+        {id:"amb_03_2_04",nombre:"mushroom",tipo:"ambiente",posicion:{x:7.4,y:0.26,z:-2.73},ancho:0.41,alto:0.51,capa:1,gltf_url:"https://static.poly.pizza/7298b2d4-1848-4ed4-8922-eb3b42cf1625.glb",voltear_horizontal:false},
+        {id:"amb_03_2_05",nombre:"mushroom",tipo:"ambiente",posicion:{x:0.93,y:0.24,z:-7.72},ancho:0.38,alto:0.48,capa:1,gltf_url:"https://static.poly.pizza/7298b2d4-1848-4ed4-8922-eb3b42cf1625.glb",voltear_horizontal:false},
+        {id:"amb_03_2_06",nombre:"mushroom",tipo:"ambiente",posicion:{x:-1.5,y:0.25,z:-8.75},ancho:0.4,alto:0.5,capa:1,gltf_url:"https://static.poly.pizza/7298b2d4-1848-4ed4-8922-eb3b42cf1625.glb",voltear_horizontal:true},
+        {id:"amb_03_2_07",nombre:"mushroom",tipo:"ambiente",posicion:{x:-6.27,y:0.28,z:-5.68},ancho:0.44,alto:0.55,capa:1,gltf_url:"https://static.poly.pizza/7298b2d4-1848-4ed4-8922-eb3b42cf1625.glb",voltear_horizontal:true}
+    ],
+    cielo: {
+        tipo: "manana_despejada",
+        color_fondo: "#9ed5f2",
+        color_ambiente: "#ffffff",
+        intensidad_ambiente: 0.551,
+        color_sol: "#ffce07",
+        intensidad_sol: 1.258,
+        pos_sol: {x:-1.424, y:3.493, z:-1.282},
+        niebla: {color:"#9cc6dd", near:6.6, far:12.3}
+    },
+    camara: {posicion:{x:0,y:1.8,z:0}, mirar_a:{x:0,y:1.8,z:-3}, fov:55},
+    registro_personajes: {
+        guardian: {
+            glb_id: "Casual_Female",
+            glb_path: "/sandbox/assets/characters/Casual_Female.gltf",
+            skin_tone: "claro",
+            skin_hex: "#E0B89A",
+            hair_color: "#5A3A22",
+            clothing_seed: 314,
+            talla: "adulto",
+            animacion_idle: "Idle",
+            animacion_talk: "Victory"
+        }
+    }
+};
+
+const INTERACTION_MANIFEST = {
+    id_escena: "escena_tutorial",
+    fases: [
+        {fase:0, guias:["guardian"], condicion_avance:{nodos:[], personajes:["guardian"], zonas:[]}},
+        {fase:1, guias:["guardian"], condicion_avance:{nodos:[], personajes:["guardian"], zonas:[]}},
+        {fase:2, guias:["cristal"],  condicion_avance:{nodos:["cristal"], personajes:[], zonas:[]}},
+        {fase:3, guias:["guardian"], condicion_avance:{nodos:[], personajes:["guardian"], zonas:[]}}
+    ],
+    personajes: [
+        {
+            id_nodo: "guardian",
+            fase_aparicion: 0,
+            dialogos: [
+                {fase:0, puntos:[
+                    {frases:["¡Bienvenido a WorldWeaver! Soy tu Guía por los Mundos. Muévete con W A S D o las flechas y mira alrededor moviendo el ratón. Para interactuar con algo, acércate a ello y utiliza las teclas indicadas. ¡Inténtalo: acércate y vuelve a hablar conmigo pulsando E!"]}
+                ]},
+                {fase:1, puntos:[
+                    {frases: ["¡Bien hecho! ¿Ves ese aura dorada? Todo lo que brilla así es importante para avanzar en la historia. También puedes interactuar con otros objetos del entorno, aunque no estén marcados como esenciales. Si te quedas atascado, aparecerán pistas en la esquina superior izquierda."
+                    ]},
+                ]},
+                {fase:2, puntos:[
+                    {frases:["El globo te espera. Acércate a él y pulsa E para recogerlo."]}
+                ]},
+                {fase:3, puntos:[
+                    {frases:["Cuando lleves el globo contigo, vuelve aquí y pulsa E para entregármelo."]}
+                ]}
+            ],
+            dialogos_con_item: [
+                {
+                    requiere_objeto: "cristal",
+                    puntos: [{frases:["¡Lo has conseguido! El globo terráqueo... ¡Tutorial completado! Ya sabes moverte, mirar y pulsar E para interactuar con cualquier mundo. ¡Que tengas una gran aventura por WorldWeaver!"]}],
+                    consume: true
+                }
+            ],
+            acciones: [],
+            dispara: null,
+            ficha_info: null
+        }
+    ],
+    objetos: [
+        {
+            id_nodo: "cristal",
+            fase_aparicion: 2,
+            interaccion: {
+                tipo: "recoger",
+                titulo: "Globo terráqueo",
+                descripcion: "Un pequeño globo terráqueo que gira sobre su eje. Tu Guía te ha pedido que se lo lleves."
+            },
+            acciones: [],
+            proximidad: null,
+            dispara: null
+        }
+    ],
+    decorados: [],
+    zonas_narrativas: []
+};
+
+const AUDIO_DATA    = null;
+const CIELO_CONFIG  = SCENE_GRAPH.cielo;
+const NEXT_SCENE_URL = "/";
+const FIN_DATA      = null;
+</script>
+
+<!-- Módulos del viewer -->
+<script src="/sandbox/js/personajes.js"></script>
+<script src="/sandbox/js/scene_loader.js"></script>
+<script src="/sandbox/js/interactions.js"></script>
+<script src="/sandbox/js/sky.js"></script>
+
+<script>
+// ── Setup Three.js ────────────────────────────────────────────────────────
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type    = THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+
+// Cielo / iluminación
+(function aplicarCielo(cielo) {
+    if (!cielo) return;
+    scene.background = new THREE.Color(cielo.color_fondo);
+    renderer.setClearColor(cielo.color_fondo);
+    const intensidadAmb = (cielo.tipo === 'interior_luminoso')
+        ? Math.min(cielo.intensidad_ambiente, 0.62)
+        : cielo.intensidad_ambiente;
+    scene.add(new THREE.AmbientLight(cielo.color_ambiente, intensidadAmb));
+    const intensidadSol = Math.min(cielo.intensidad_sol, 1.2);
+    const sol = new THREE.DirectionalLight(cielo.color_sol, intensidadSol);
+    const p = cielo.pos_sol;
+    sol.position.set(p.x, p.y, p.z);
+    sol.castShadow = true;
+    sol.shadow.mapSize.setScalar(1024);
+    sol.shadow.camera.near = 0.5; sol.shadow.camera.far = 30;
+    sol.shadow.camera.left = -9; sol.shadow.camera.right = 9;
+    sol.shadow.camera.top = 9; sol.shadow.camera.bottom = -9;
+    sol.shadow.bias = -0.001;
+    scene.add(sol);
+    if (cielo.niebla) scene.fog = new THREE.Fog(cielo.niebla.color, cielo.niebla.near, cielo.niebla.far);
+})(CIELO_CONFIG ?? SCENE_GRAPH.cielo);
+
+const cam = SCENE_GRAPH.camara;
+const camera = new THREE.PerspectiveCamera(cam.fov ?? 55, window.innerWidth / window.innerHeight, 0.1, 100);
+camera.position.set(0, 1.8, 0);
+scene.add(camera);
+
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 1.8, -3);
+
+const escenaDinamica = cargarSceneGraph(SCENE_GRAPH, scene);
+const interacciones  = iniciarInteracciones(INTERACTION_MANIFEST, scene, camera, renderer);
+const cieloDinamico  = iniciarCielo(CIELO_CONFIG ?? SCENE_GRAPH.cielo, scene);
+
+// ── Tooltip ────────────────────────────────────────────────────────────────
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+const tooltip = document.getElementById('tooltip');
+
+// Onboarding: el PRIMER gesto (clic o tecla) entra en modo inmersivo y captura el
+// ratón. requestPointerLock() exige un gesto del usuario, igual que el viewer real.
+// {once:true} → no reentra en FPS en cada clic (eso rompía la interacción, que en
+// modo inmersivo es acercarse + pulsar E, no hacer clic).
+const _entrarFpsAlPrimerGesto = () => { if (!fpsModo) entrarFPS(); };
+renderer.domElement.addEventListener('click',   _entrarFpsAlPrimerGesto, { once: true });
+document.addEventListener(            'keydown', _entrarFpsAlPrimerGesto, { once: true });
+
+// ── Pantalla completa (igual que el viewer real index.html) ─────────────────
+// El .exe arranca en fullscreen de NAVEGADOR (--start-fullscreen). Si pedimos
+// pointer lock en ese estado sin pasar antes por la Fullscreen API, Chrome entra
+// en conflicto y la entrada a FPS se queda "pillada". Igual que index.html,
+// re-entramos en Fullscreen API con el primer gesto (antes del click que captura
+// el ratón), de modo que pointer lock conviva con el fullscreen como en el viewer.
+(function _wwBotonFullscreen() {
+    const btn = document.createElement('button');
+    btn.id = 'ww-fs-btn';
+    btn.title = 'Pantalla completa';
+    btn.innerHTML = '⛶';
+    btn.style.cssText = 'position:fixed;bottom:14px;left:14px;z-index:99999;width:40px;height:40px;'
+        + 'border-radius:10px;border:1px solid rgba(255,255,255,0.22);background:rgba(15,20,35,0.55);'
+        + 'color:#dce6f5;font-size:19px;line-height:1;cursor:pointer;display:none;'
+        + 'backdrop-filter:blur(4px);transition:background .2s;';
+    btn.onmouseover = () => { btn.style.background = 'rgba(40,55,90,0.8)'; };
+    btn.onmouseout  = () => { btn.style.background = 'rgba(15,20,35,0.55)'; };
+    btn.onclick = (e) => {
+        e.stopPropagation();
+        const el = document.documentElement;
+        (el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen)?.call(el);
+    };
+    document.body.appendChild(btn);
+    const upd = () => {
+        const fs = document.fullscreenElement || document.webkitFullscreenElement;
+        btn.style.display = fs ? 'none' : 'block';
+    };
+    document.addEventListener('fullscreenchange', upd);
+    document.addEventListener('webkitfullscreenchange', upd);
+    upd();
+})();
+
+(function _wwAutoFullscreen() {
+    let hecho = false;
+    const ir = () => {
+        if (hecho) return;
+        hecho = true;
+        window.removeEventListener('pointerdown', ir, true);
+        window.removeEventListener('keydown', ir, true);
+        const fs = document.fullscreenElement || document.webkitFullscreenElement;
+        if (!fs) {
+            const el = document.documentElement;
+            try { (el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen)?.call(el); }
+            catch (e) { /* requiere gesto válido; si falla, queda el botón manual */ }
+        }
+    };
+    window.addEventListener('pointerdown', ir, true);
+    window.addEventListener('keydown', ir, true);
+})();
+
+renderer.domElement.addEventListener('mousemove', (e) => {
+    if (fpsModo) return;
+    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+    const hits = raycaster.intersectObjects(scene.children, true)
+        .filter(h => h.object.parent?.userData?.id);
+    if (hits.length > 0) {
+        const nodo = hits[0].object.parent.userData;
+        document.getElementById('tt-tipo').textContent  = nodo.tipo;
+        document.getElementById('tt-nombre').textContent = nodo.nombre || nodo.id;
+        tooltip.style.display = 'block';
+        tooltip.style.left = (e.clientX + 14) + 'px';
+        tooltip.style.top  = (e.clientY - 10) + 'px';
+        renderer.domElement.style.cursor = 'pointer';
+    } else {
+        tooltip.style.display = 'none';
+        renderer.domElement.style.cursor = 'default';
+    }
+});
+
+// ── Controles FPS ──────────────────────────────────────────────────────────
+let fpsModo = false;
+let fpsYaw = 0, fpsPitch = 0;
+const fpsKeys = {};
+const FPS_VELOCIDAD    = 0.045;
+const FPS_ALTURA       = 1.8;
+const FPS_SENSIBILIDAD = 0.0022;
+
+const elOverlay   = document.getElementById('fps-overlay');
+const elCrosshair = document.getElementById('crosshair');
+const elHint      = document.getElementById('hint');
+const elBtnModo   = { classList: { add() {}, remove() {} } };  // botón eliminado: stub inocuo
+
+(function _initUI() {
+    const _s = (id, t) => { const el = document.getElementById(id); if (el) el.textContent = t; };
+    _s('fps-click-text',    _wwUI('fps_click'));
+    _s('fps-exit-text',     _wwUI('fps_exit'));
+    _s('exit-confirm-text', _wwUI('salir_confirm'));
+    _s('ec-yes', _wwUI('si')); _s('ec-no', _wwUI('no'));
+    elHint.textContent    = _wwUI('hint_orbit');
+    elBtnModo.textContent = _wwUI('modo_fps');
+})();
+
+function toggleModo() { fpsModo ? salirFPS() : entrarFPS(); }
+
+function entrarFPS() {
+    fpsModo = true;
+    controls.enabled = false;
+    camera.rotation.order = 'YXZ';
+    fpsYaw   = camera.rotation.y;
+    fpsPitch = camera.rotation.x;
+    camera.position.y = FPS_ALTURA;
+    elCrosshair.style.display = 'block';
+    tooltip.style.display = 'none';
+    elHint.textContent = _wwUI('hint_fps');
+    elBtnModo.textContent = _wwUI('modo_orbit');
+    elBtnModo.classList.add('fps-activo');
+    renderer.domElement.requestPointerLock();
+}
+
+function salirFPS() {
+    fpsModo = false;
+    controls.enabled = true;
+    if (document.pointerLockElement) document.exitPointerLock();
+    camera.rotation.order = 'XYZ';
+    camera.position.set(0, 1.8, 0);
+    camera.rotation.set(0, 0, 0);
+    controls.target.set(0, 1.8, -3);
+    elOverlay.style.display   = 'none';
+    elCrosshair.style.display = 'none';
+    tooltip.style.display     = 'none';
+    elHint.textContent = _wwUI('hint_orbit');
+    elBtnModo.textContent = _wwUI('modo_fps');
+    elBtnModo.classList.remove('fps-activo');
+}
+
+window._wwRetomarPointerLock = function() {
+    if (fpsModo && !document.pointerLockElement) renderer.domElement.requestPointerLock();
+};
+
+document.addEventListener('pointerlockchange', () => {
+    if (!fpsModo) return;
+    if (document.pointerLockElement) {
+        elOverlay.style.display = 'none';
+    } else if (!window._wwDialogoAbierto?.()) {
+        elOverlay.style.display = 'flex';
+    }
+});
+
+(function _initPausa() {
+    const elExitConfirm = document.getElementById('exit-confirm');
+    const elHome = document.getElementById('home-btn');
+    elOverlay.addEventListener('click', (e) => {
+        if (elExitConfirm.style.display === 'block') return;
+        if (e.target === elOverlay || e.target.id === 'fps-click-text'
+            || e.target.id === 'fps-exit-text' || e.target.id === 'pause-bar') {
+            renderer.domElement.requestPointerLock();
+        }
+    });
+    elHome?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        elExitConfirm.style.display = 'block';
+    });
+    elExitConfirm.addEventListener('click', e => e.stopPropagation());
+    document.getElementById('ec-yes')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        window.location.href = '/';
+    });
+    document.getElementById('ec-no')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        elExitConfirm.style.display = 'none';
+    });
+})();
+
+document.addEventListener('mousemove', (e) => {
+    if (!fpsModo || !document.pointerLockElement) return;
+    if (window._wwDialogoAbierto?.() || window._wwInspeccionActiva?.()) return;
+    fpsYaw   -= e.movementX * FPS_SENSIBILIDAD;
+    fpsPitch -= e.movementY * FPS_SENSIBILIDAD;
+    fpsPitch = Math.max(-Math.PI / 2.1, Math.min(Math.PI / 2.1, fpsPitch));
+});
+
+document.addEventListener('keydown', (e) => {
+    fpsKeys[e.code] = true;
+});
+document.addEventListener('keyup',   (e) => { fpsKeys[e.code] = false; });
+
+// ── Portal ─────────────────────────────────────────────────────────────────
+let _portalGrupo = null, _portalLuz = null, _portalAnillo1 = null, _portalAnillo2 = null;
+let _portalActivado = false, _portalTransicionInicio = null, _portalPosFinal = null;
+const _elPortalHint  = document.getElementById('portal-hint');
+const _elPortalFlash = document.getElementById('portal-flash');
+
+function _reproducirSonidoPortal() {
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const t0 = ctx.currentTime;
+        function _osc(type, f0, f1, vol, dur, delay) {
+            const o = ctx.createOscillator(), g = ctx.createGain();
+            o.type = type;
+            o.frequency.setValueAtTime(f0, t0+delay);
+            o.frequency.exponentialRampToValueAtTime(f1, t0+delay+dur);
+            g.gain.setValueAtTime(0.001, t0+delay);
+            g.gain.linearRampToValueAtTime(vol, t0+delay+dur*0.18);
+            g.gain.exponentialRampToValueAtTime(0.001, t0+delay+dur);
+            o.connect(g); g.connect(ctx.destination);
+            o.start(t0+delay); o.stop(t0+delay+dur);
+        }
+        _osc('sine',     75,   1400, 0.30, 1.0, 0.0);
+        _osc('triangle', 310,  3800, 0.14, 0.9, 0.05);
+        _osc('sine',     1800, 10000,0.07, 0.55,0.42);
+        const bufLen = Math.ceil(ctx.sampleRate * 1.0);
+        const buf = ctx.createBuffer(1, bufLen, ctx.sampleRate);
+        const d = buf.getChannelData(0);
+        for (let i=0;i<bufLen;i++) d[i]=Math.random()*2-1;
+        const src=ctx.createBufferSource(); src.buffer=buf;
+        const filt=ctx.createBiquadFilter(); filt.type='bandpass';
+        filt.frequency.setValueAtTime(280,t0); filt.frequency.exponentialRampToValueAtTime(7000,t0+1.0);
+        filt.Q.value=1.1;
+        const gn=ctx.createGain(); gn.gain.setValueAtTime(0.001,t0);
+        gn.gain.linearRampToValueAtTime(0.22,t0+0.13);
+        gn.gain.exponentialRampToValueAtTime(0.001,t0+1.0);
+        src.connect(filt); filt.connect(gn); gn.connect(ctx.destination);
+        src.start(t0); src.stop(t0+1.0);
+    } catch(e) {}
+}
+
+function _reproducirSonidoLlegada() {
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const t0 = ctx.currentTime;
+        function _osc(type, f0, f1, vol, dur, delay) {
+            const o = ctx.createOscillator(), g = ctx.createGain();
+            o.type = type;
+            o.frequency.setValueAtTime(f0, t0+delay);
+            o.frequency.exponentialRampToValueAtTime(f1, t0+delay+dur);
+            g.gain.setValueAtTime(0.001, t0+delay);
+            g.gain.linearRampToValueAtTime(vol, t0+delay+dur*0.08);
+            g.gain.exponentialRampToValueAtTime(0.001, t0+delay+dur);
+            o.connect(g); g.connect(ctx.destination);
+            o.start(t0+delay); o.stop(t0+delay+dur);
+        }
+        _osc('sine', 1400, 75, 0.28, 0.85, 0.0);
+        _osc('triangle', 3800, 310, 0.13, 0.75, 0.0);
+        _osc('sine', 880, 880, 0.12, 0.35, 0.55);
+    } catch(e) {}
+}
+
+window.spawnPortal = function() {
+    if (_portalGrupo) return;
+    const _c = { main:0xffaa33, emissive:0x552200, core:0xffeebb, ring:0xffcc44, light:0xff9922, particle:0xffddaa };
+    const g = new THREE.Group();
+    g.add(new THREE.Mesh(
+        new THREE.SphereGeometry(0.72, 32, 32),
+        new THREE.MeshPhongMaterial({color:_c.main, emissive:_c.emissive, emissiveIntensity:0.6, transparent:true, opacity:0.28, shininess:400, side:THREE.DoubleSide, depthWrite:false})
+    ));
+    g.add(new THREE.Mesh(
+        new THREE.SphereGeometry(0.30, 16, 16),
+        new THREE.MeshBasicMaterial({color:_c.core, transparent:true, opacity:0.65, depthWrite:false})
+    ));
+    const _matAnillo = new THREE.MeshBasicMaterial({color:_c.ring, transparent:true, opacity:0.55, side:THREE.DoubleSide, depthWrite:false});
+    _portalAnillo1 = new THREE.Mesh(new THREE.TorusGeometry(0.82,0.04,8,64), _matAnillo);
+    _portalAnillo2 = new THREE.Mesh(new THREE.TorusGeometry(0.82,0.03,8,64), _matAnillo.clone());
+    _portalAnillo2.rotation.x = Math.PI / 2.2;
+    g.add(_portalAnillo1); g.add(_portalAnillo2);
+    _portalLuz = new THREE.PointLight(_c.light, 4.5, 7);
+    g.add(_portalLuz);
+    const N=90, _pos=new Float32Array(N*3);
+    for (let i=0;i<N;i++) {
+        const th=Math.random()*Math.PI*2, ph=Math.random()*Math.PI, r=0.88+Math.random()*0.55;
+        _pos[i*3]=r*Math.sin(ph)*Math.cos(th); _pos[i*3+1]=r*Math.cos(ph); _pos[i*3+2]=r*Math.sin(ph)*Math.sin(th);
+    }
+    const geoP = new THREE.BufferGeometry();
+    geoP.setAttribute('position', new THREE.BufferAttribute(_pos,3));
+    g.add(new THREE.Points(geoP, new THREE.PointsMaterial({color:_c.particle, size:0.055, transparent:true, opacity:0.85, blending:THREE.AdditiveBlending, depthWrite:false, fog:false})));
+    g.position.set(1.8, 1.5, -4.2);
+    scene.add(g);
+    _portalGrupo = g;
+};
+
+// ── Tutorial HUD ───────────────────────────────────────────────────────────
+const _tutHud    = document.getElementById('tut-hud');
+const _tutStep   = document.getElementById('tut-step');
+const _tutObj    = document.getElementById('tut-obj');
+// 4 fases: 0=primera charla, 1=segunda charla (explica pistas+pide globo), 2=recoger, 3=entregar
+const _tutTextos = [
+    { paso:'Paso 1 de 3', obj:'Muévete con WASD y el ratón · acércate a la Guía y pulsa E' },
+    { paso:'Paso 1 de 3', obj:'Acércate otra vez a la Guía y pulsa E para hablar' },
+    { paso:'Paso 2 de 3', obj:'Ve hasta el globo terráqueo ✦ y pulsa E para recogerlo (G para guardar)' },
+    { paso:'Paso 3 de 3', obj:'Vuelve con la Guía y pulsa E para entregarle el globo' },
+];
+let _tutFaseVista = -1;
+
+function _actualizarTutHUD() {
+    const fase = interacciones?.getFase?.();
+    if (fase === undefined || fase === _tutFaseVista) return;
+    _tutFaseVista = fase;
+    if (fase >= _tutTextos.length) {
+        _tutHud.style.opacity = '0';
+        setTimeout(() => { _tutHud.style.display = 'none'; }, 500);
+    } else {
+        _tutStep.textContent = _tutTextos[fase].paso;
+        _tutObj.textContent  = _tutTextos[fase].obj;
+        // Al entrar en fase 2 (recoger el globo): la Guía acaba de mencionar las pistas,
+        // así que forzamos el tracker visible de inmediato. Se ocultará sólo cuando
+        // interactions.js detecte que el globo fue recogido (comportamiento normal).
+        if (fase === 2) {
+            setTimeout(() => {
+                const tracker = document.querySelector('.obj-tracker') || document.getElementById('obj-tracker');
+                if (tracker) tracker.style.opacity = '1';
+            }, 600);
+        }
+    }
+}
+setInterval(_actualizarTutHUD, 400);
+
+// ── Render loop ────────────────────────────────────────────────────────────
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+const _fpsForward = new THREE.Vector3();
+const _fpsRight   = new THREE.Vector3();
+
+const _llegadaPortal = new URLSearchParams(window.location.search).has('portal');
+let _llegadaInicio = null;
+const _DURACION_LLEGADA = 900;
+if (_llegadaPortal) { _llegadaInicio = performance.now(); _reproducirSonidoLlegada(); }
+
+let _lastAnimTime = performance.now() * 0.001;
+
+function animate() {
+    requestAnimationFrame(animate);
+    const t     = performance.now() * 0.001;
+    const delta = Math.min(t - _lastAnimTime, 0.1);
+    _lastAnimTime = t;
+
+    if (window.PersonajesManager) PersonajesManager.update(delta);
+    interacciones.update();
+    cieloDinamico.update(t);
+    escenaDinamica.update(t);
+
+    if (_portalGrupo) {
+        if (!_portalActivado) {
+            _portalGrupo.rotation.y += 0.007;
+            if (_portalAnillo1) _portalAnillo1.rotation.z += 0.020;
+            if (_portalAnillo2) _portalAnillo2.rotation.z -= 0.013;
+            _portalGrupo.position.y = 1.5 + 0.18 * Math.sin(t * 0.85);
+            if (_portalLuz) _portalLuz.intensity = 3.5 + 1.3 * Math.sin(t * 2.1);
+            const _dx = camera.position.x - _portalGrupo.position.x;
+            const _dz = camera.position.z - _portalGrupo.position.z;
+            const _dist = Math.sqrt(_dx*_dx + _dz*_dz);
+            if (_dist < 3.5) {
+                _elPortalHint.style.display = 'block';
+                _elPortalHint.style.opacity = Math.min(1, (3.5-_dist)/2.0).toFixed(2);
+            } else {
+                _elPortalHint.style.display = 'none';
+            }
+            if (_dist < 1.1 && fpsModo) {
+                _portalActivado = true;
+                _portalTransicionInicio = performance.now();
+                _portalPosFinal = _portalGrupo.position.clone();
+                _elPortalHint.style.display = 'none';
+                _reproducirSonidoPortal();
+            }
+        } else if (_portalTransicionInicio !== null) {
+            const elapsed  = performance.now() - _portalTransicionInicio;
+            const progress = Math.min(elapsed / 1100, 1.0);
+            const easeFast = Math.pow(progress, 2.0);
+            const pull = 0.055 + easeFast * 0.18;
+            camera.position.x += (_portalPosFinal.x - camera.position.x) * pull;
+            camera.position.y += (_portalPosFinal.y - camera.position.y) * pull * 0.4;
+            camera.position.z += (_portalPosFinal.z - camera.position.z) * pull;
+            camera.fov = 55 + 120 * easeFast;
+            camera.updateProjectionMatrix();
+            _portalGrupo.scale.setScalar(1 + easeFast * 8);
+            _portalGrupo.rotation.y  += 0.025 + easeFast * 0.25;
+            if (_portalAnillo1) _portalAnillo1.rotation.z += 0.05 + easeFast * 0.35;
+            if (_portalAnillo2) _portalAnillo2.rotation.z -= 0.04 + easeFast * 0.25;
+            if (_portalLuz) _portalLuz.intensity = 5 + easeFast * 25;
+            if (progress > 0.42) {
+                const fp = Math.pow((progress-0.42)/0.58, 1.6);
+                _elPortalFlash.style.opacity = Math.min(fp,1).toFixed(3);
+            }
+            if (progress >= 1.0) {
+                // Tutorial del mundo COMPLETADO → ahora sí se borra el precinto de primera
+                // vez (keepalive: la petición sobrevive a la navegación inmediata).
+                fetch('/api/tutorial-visto', { method: 'POST', keepalive: true }).catch(() => {});
+                window.location.href = NEXT_SCENE_URL + '?tutorial_done=1';
+            }
+        }
+    }
+
+    if (_llegadaInicio !== null) {
+        const elapsed  = performance.now() - _llegadaInicio;
+        const progress = Math.min(elapsed / _DURACION_LLEGADA, 1.0);
+        const easeOut  = 1 - Math.pow(1-progress, 3);
+        camera.fov = 130 - 75 * easeOut;
+        camera.updateProjectionMatrix();
+        _elPortalFlash.style.opacity = (1-easeOut).toFixed(3);
+        if (progress >= 1.0) {
+            camera.fov = 55; camera.updateProjectionMatrix();
+            _elPortalFlash.style.opacity = '0';
+            _llegadaInicio = null;
+        }
+    }
+
+    if (fpsModo) {
+        camera.rotation.set(fpsPitch, fpsYaw, 0, 'YXZ');
+        _fpsForward.set(-Math.sin(fpsYaw), 0, -Math.cos(fpsYaw));
+        _fpsRight.set(Math.cos(fpsYaw), 0, -Math.sin(fpsYaw));
+        if (document.pointerLockElement && !window._wwDialogoAbierto?.()) {
+            if (fpsKeys['ArrowUp']   || fpsKeys['KeyW']) camera.position.addScaledVector(_fpsForward,  FPS_VELOCIDAD);
+            if (fpsKeys['ArrowDown'] || fpsKeys['KeyS']) camera.position.addScaledVector(_fpsForward, -FPS_VELOCIDAD);
+            if (fpsKeys['ArrowLeft'] || fpsKeys['KeyA']) camera.position.addScaledVector(_fpsRight,   -FPS_VELOCIDAD);
+            if (fpsKeys['ArrowRight']|| fpsKeys['KeyD']) camera.position.addScaledVector(_fpsRight,    FPS_VELOCIDAD);
+        }
+        camera.position.y = FPS_ALTURA;
+        // Límite circular para exterior
+        const _limR = SCENE_GRAPH.limite_jugador ?? 6.5;
+        const _dxz = Math.sqrt(camera.position.x**2 + camera.position.z**2);
+        if (_dxz > _limR) { const _f = _limR / _dxz; camera.position.x *= _f; camera.position.z *= _f; }
+    } else {
+        controls.update();
+    }
+
+    renderer.render(scene, camera);
+}
+animate();
+</script>
+</body>
+</html>

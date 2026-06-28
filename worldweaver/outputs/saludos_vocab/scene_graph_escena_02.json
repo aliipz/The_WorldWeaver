@@ -1,0 +1,629 @@
+{
+  "id_escena": "escena_02",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "ciudad",
+  "radio_escena": 22.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "tipo_suelo": null,
+  "tipo_techo": null,
+  "radio_cubierta": null,
+  "variante_barco": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_02",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_02",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 22.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_a",
+      "nombre": "Ana",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.06,
+        "y": 0.88,
+        "z": -1.0
+      },
+      "ancho": 0.95,
+      "alto": 1.75,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual_Female.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_fuente_centro",
+      "nombre": "Fuente de piedra del centro de la plaza",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.25,
+        "y": 0.4,
+        "z": -5.49
+      },
+      "ancho": 2.0,
+      "alto": 0.8,
+      "tam_real": 2.0,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7b386b50-6518-418f-8269-47f0e0a54da9.glb",
+      "keyword_busqueda": "fountain"
+    },
+    {
+      "id": "decorado_banco_madera",
+      "nombre": "Banco de madera bajo los árboles",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 3.43,
+        "y": 0.45,
+        "z": -0.7
+      },
+      "ancho": 2.5,
+      "alto": 0.9,
+      "tam_real": 2.5,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/623120d8-bebf-4bd9-bb09-3162c06c9741.glb",
+      "keyword_busqueda": "bench"
+    },
+    {
+      "id": "decorado_lampara_terna",
+      "nombre": "Farola de hierro forjado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -4.13,
+        "y": 1.5,
+        "z": 19.57
+      },
+      "ancho": 0.3,
+      "alto": 3.0,
+      "tam_real": 3.0,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7770e4ac-63b7-4510-b4ae-95a24afe654d.glb",
+      "keyword_busqueda": "streetlamp"
+    },
+    {
+      "id": "decorado_puesto_mercado",
+      "nombre": "Puesto de mercado con toldo de lona",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -4.5,
+        "y": 1.25,
+        "z": -13.26
+      },
+      "ancho": 2.0,
+      "alto": 2.5,
+      "tam_real": 2.5,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e2633001-4cf5-46fa-ac68-575c9954f4ba.glb",
+      "keyword_busqueda": "market stall"
+    },
+    {
+      "id": "decorado_estatua_heroe",
+      "nombre": "Estatua de br hero local",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 7.53,
+        "y": 1.5,
+        "z": 4.92
+      },
+      "ancho": 1.2,
+      "alto": 3.0,
+      "tam_real": 3.0,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/55b0aa03-543c-439d-a7d7-f0ac4c23578f.glb",
+      "keyword_busqueda": "statue"
+    },
+    {
+      "id": "decorado_arbusto_flores",
+      "nombre": "Arbusto con flores silvestres",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -8.36,
+        "y": 0.6,
+        "z": 3.31
+      },
+      "ancho": 1.0,
+      "alto": 1.2,
+      "tam_real": 1.2,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/76eb9fa0-e20e-4802-9e11-18c348464e40.glb",
+      "keyword_busqueda": "bush"
+    },
+    {
+      "id": "amb_00_0_00",
+      "nombre": "colonial church",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -3.5,
+        "y": 7.69,
+        "z": 18.62
+      },
+      "ancho": 5.92,
+      "alto": 15.38,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/bcc08510-16ab-4f07-bf0b-bde4c9695dd2.glb",
+      "keyword_busqueda": "colonial church"
+    },
+    {
+      "id": "amb_00_0_01",
+      "nombre": "colonial church",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 9.53,
+        "y": 6.14,
+        "z": -15.92
+      },
+      "ancho": 4.72,
+      "alto": 12.28,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/bcc08510-16ab-4f07-bf0b-bde4c9695dd2.glb",
+      "keyword_busqueda": "colonial church"
+    },
+    {
+      "id": "amb_00_1_00",
+      "nombre": "colonial church",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -2.68,
+        "y": 7.75,
+        "z": 14.83
+      },
+      "ancho": 5.96,
+      "alto": 15.5,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/bcc08510-16ab-4f07-bf0b-bde4c9695dd2.glb",
+      "keyword_busqueda": "colonial church"
+    },
+    {
+      "id": "amb_01_0_00",
+      "nombre": "colonial house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.93,
+        "y": 4.34,
+        "z": 16.63
+      },
+      "ancho": 3.86,
+      "alto": 8.69,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "colonial house"
+    },
+    {
+      "id": "amb_01_0_01",
+      "nombre": "colonial house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 1.44,
+        "y": 3.71,
+        "z": 19.77
+      },
+      "ancho": 3.3,
+      "alto": 7.43,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "colonial house"
+    },
+    {
+      "id": "amb_01_0_02",
+      "nombre": "colonial house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.6,
+        "y": 3.69,
+        "z": 9.37
+      },
+      "ancho": 3.28,
+      "alto": 7.38,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "colonial house"
+    },
+    {
+      "id": "amb_01_0_03",
+      "nombre": "colonial house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.02,
+        "y": 3.97,
+        "z": -13.01
+      },
+      "ancho": 3.53,
+      "alto": 7.94,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "colonial house"
+    },
+    {
+      "id": "amb_01_0_04",
+      "nombre": "colonial house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -8.62,
+        "y": 5.04,
+        "z": -17.39
+      },
+      "ancho": 4.48,
+      "alto": 10.09,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "colonial house"
+    },
+    {
+      "id": "amb_01_0_05",
+      "nombre": "colonial house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -13.67,
+        "y": 4.17,
+        "z": -12.38
+      },
+      "ancho": 3.71,
+      "alto": 8.34,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "colonial house"
+    },
+    {
+      "id": "amb_01_1_00",
+      "nombre": "colonial house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -12.53,
+        "y": 5.06,
+        "z": -7.69
+      },
+      "ancho": 4.5,
+      "alto": 10.12,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "colonial house"
+    },
+    {
+      "id": "amb_01_1_01",
+      "nombre": "colonial house",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -16.1,
+        "y": 3.7,
+        "z": 2.1
+      },
+      "ancho": 3.29,
+      "alto": 7.41,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/65d155f6-705c-4e6c-9e3a-b9974bb82324.glb",
+      "keyword_busqueda": "colonial house"
+    },
+    {
+      "id": "amb_02_0_00",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -12.84,
+        "y": 1.4,
+        "z": -16.25
+      },
+      "ancho": 2.8,
+      "alto": 2.8,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    },
+    {
+      "id": "amb_02_0_01",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.38,
+        "y": 1.31,
+        "z": 17.5
+      },
+      "ancho": 2.62,
+      "alto": 2.62,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    },
+    {
+      "id": "amb_02_0_02",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 20.21,
+        "y": 1.03,
+        "z": -3.5
+      },
+      "ancho": 2.06,
+      "alto": 2.06,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    },
+    {
+      "id": "amb_02_1_00",
+      "nombre": "horse carriage",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 5.28,
+        "y": 1.45,
+        "z": -14.12
+      },
+      "ancho": 2.9,
+      "alto": 2.9,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b1c82ee8-219d-42d7-be68-dee16614e21d.glb",
+      "keyword_busqueda": "horse carriage"
+    },
+    {
+      "id": "amb_03_0_00",
+      "nombre": "oil lamp",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 5.57,
+        "y": 0.84,
+        "z": -18.78
+      },
+      "ancho": 0.34,
+      "alto": 1.68,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e3acfd9b-a1c3-4e53-83ab-01ad4d639305.glb",
+      "keyword_busqueda": "oil lamp"
+    },
+    {
+      "id": "amb_03_0_01",
+      "nombre": "oil lamp",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.6,
+        "y": 1.07,
+        "z": 0.53
+      },
+      "ancho": 0.43,
+      "alto": 2.13,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e3acfd9b-a1c3-4e53-83ab-01ad4d639305.glb",
+      "keyword_busqueda": "oil lamp"
+    },
+    {
+      "id": "amb_03_0_02",
+      "nombre": "oil lamp",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 0.9,
+        "y": 1.0,
+        "z": 18.29
+      },
+      "ancho": 0.4,
+      "alto": 2.01,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e3acfd9b-a1c3-4e53-83ab-01ad4d639305.glb",
+      "keyword_busqueda": "oil lamp"
+    },
+    {
+      "id": "amb_03_0_03",
+      "nombre": "oil lamp",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.03,
+        "y": 0.99,
+        "z": -10.09
+      },
+      "ancho": 0.4,
+      "alto": 1.98,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e3acfd9b-a1c3-4e53-83ab-01ad4d639305.glb",
+      "keyword_busqueda": "oil lamp"
+    },
+    {
+      "id": "amb_03_1_00",
+      "nombre": "oil lamp",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -3.56,
+        "y": 0.81,
+        "z": 14.73
+      },
+      "ancho": 0.32,
+      "alto": 1.62,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e3acfd9b-a1c3-4e53-83ab-01ad4d639305.glb",
+      "keyword_busqueda": "oil lamp"
+    },
+    {
+      "id": "amb_03_1_01",
+      "nombre": "oil lamp",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -11.36,
+        "y": 0.96,
+        "z": -7.7
+      },
+      "ancho": 0.38,
+      "alto": 1.91,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e3acfd9b-a1c3-4e53-83ab-01ad4d639305.glb",
+      "keyword_busqueda": "oil lamp"
+    }
+  ],
+  "cielo": {
+    "tipo": "atardecer",
+    "color_fondo": "#de3f1f",
+    "color_ambiente": "#d16138",
+    "intensidad_ambiente": 0.4120788177143194,
+    "color_sol": "#ff641a",
+    "intensidad_sol": 0.9023337744685492,
+    "pos_sol": {
+      "x": -4.270108263449133,
+      "y": 0.07091472941813837,
+      "z": -1.3526967570345263
+    },
+    "niebla": {
+      "color": "#cd3d16",
+      "near": 12.854169217126579,
+      "far": 13.0
+    },
+    "luz_exterior": null
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_a": {
+      "glb_id": "Casual_Female",
+      "glb_path": "/sandbox/assets/characters/Casual_Female.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_claro",
+      "clothing_seed": 1023,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

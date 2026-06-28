@@ -1,0 +1,14 @@
+{
+  "id_escena": "escena_04",
+  "query_usada": "module fan hum loop",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/564/564166_1445263-hq.mp3",
+    "titulo": "Crashing Starship",
+    "autor": "Aemyn",
+    "duracion_segundos": 307.9,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": null,
+  "fuente": "freesound"
+}

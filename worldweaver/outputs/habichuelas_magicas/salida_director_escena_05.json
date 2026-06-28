@@ -1,0 +1,110 @@
+{
+  "id_escena": "escena_05",
+  "elementos": [
+    {
+      "id": "personaje_juan",
+      "nombre": "Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 0.6,
+      "alto": 1.2,
+      "descripcion": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_candelabro_etereo_01",
+      "nombre": "candelabro etéreo",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 3
+      },
+      "ancho": 0.3,
+      "alto": 0.8,
+      "descripcion": "Lámpara flotante hecha de cristal fino, suspendida por hilos invisibles, que proyecta una luz cálida sobre el entorno.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_columna_de_cristal_01",
+      "nombre": "columna de cristal",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 4
+      },
+      "ancho": 0.6,
+      "alto": 3.0,
+      "descripcion": "Alta columna translúcida de cristal azul claro, emergiendo del suelo como un faro que capta la luz solar.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_musgo_esponjoso_01",
+      "nombre": "musgo esponjoso",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "descripcion": "Almohadillas de musgo blanco y suave que cubren parcialmente el suelo, con una textura similar a una esponja húmeda.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_roca_luminosa_01",
+      "nombre": "roca luminosa",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 1
+      },
+      "ancho": 0.5,
+      "alto": 0.6,
+      "descripcion": "Pequeña piedra negra que emite un tenue resplandor azul, incrustada entre el musgo y las nubes bajas.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_espora_brillante_01",
+      "nombre": "espora brillante",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 2
+      },
+      "ancho": 1.5,
+      "alto": 0.2,
+      "descripcion": "Cúmulos de esporas translúcidas que flotan ligeramente sobre el suelo, reflejando la luz del sol con destellos dorados.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_estatua_guardiana_01",
+      "nombre": "estatua guardiana",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 1.0,
+      "alto": 2.5,
+      "descripcion": "Figura tallada en piedra oscura, con forma de criatura alada, semi enterrada en el musgo y mirando hacia el castillo lejano.",
+      "keyword_busqueda": null
+    }
+  ]
+}

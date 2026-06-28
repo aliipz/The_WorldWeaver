@@ -1,0 +1,200 @@
+{
+  "id_escena": "escena_08",
+  "elementos": [
+    {
+      "id": "personaje_juan",
+      "nombre": "Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 0.6,
+      "alto": 1.2,
+      "descripcion": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_madre",
+      "nombre": "Madre de Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 3
+      },
+      "ancho": 1.0,
+      "alto": 1.7,
+      "descripcion": "Mujer de mediana edad, rostro marcado por el trabajo, vestimenta de algodón gris",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_gallina_dorada",
+      "nombre": "Gallina dorada",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "descripcion": "Gallina con plumas brillantes como oro",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_arpa_de_oro",
+      "nombre": "Arpa de oro",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 4
+      },
+      "ancho": 0.9,
+      "alto": 1.5,
+      "descripcion": "Arpa tallada en oro que vibra sola, emitiendo una melodía suave",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_mesa_madera_01",
+      "nombre": "mesa de ro de la granja",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 1.2,
+      "alto": 0.8,
+      "descripcion": "Mesa robusta de roble macizo, superficie pulida con vetas visibles y patas torneadas, ligeramente envejecida por el uso.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_silla_madera_01",
+      "nombre": "silla de roble pintada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 2
+      },
+      "ancho": 0.5,
+      "alto": 0.9,
+      "descripcion": "Silla sencilla con respaldo de listones, pintada de blanco mate, con ligeras marcas de desgaste en los bordes.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_silla_madera_02",
+      "nombre": "silla de roble natural",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 2
+      },
+      "ancho": 0.5,
+      "alto": 0.9,
+      "descripcion": "Silla de madera sin pintar, con acabado rústico y el acabado natural, ligera pátina verde en la base.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_sofa_madera_01",
+      "nombre": "sofá bajo de madera",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 3
+      },
+      "ancho": 1.5,
+      "alto": 0.8,
+      "descripcion": "Sofá bajo con marco de madera de pino, cojines de tela azul descolorida y tirantes de cuerda que sostienen el asiento.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_albornoz_01",
+      "nombre": "alfombra de lana tejida",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 1.8,
+      "alto": 0.2,
+      "descripcion": "Alfombra rectangular de lana natural, tono beige, con patrón floral discreto y bordes ligeramente deshilachados.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_estanteria_madera_01",
+      "nombre": "estantería alta de pino",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 1.2,
+      "alto": 1.8,
+      "descripcion": "Estantería de pino oscuro, cinco niveles, con tarros de cerámica rústica y algunos libros de encuadernación gastada.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_candelabro_metal_01",
+      "nombre": "candelabro de hierro forjado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 0.3,
+      "alto": 1.0,
+      "descripcion": "Candelabro de hierro negro, tres brazos con candelabros redondos, superficie con pátina verdosa y remaches visibles.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_cesto_frutas_01",
+      "nombre": "cesto de mimbre con frutas",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 3
+      },
+      "ancho": 0.6,
+      "alto": 0.5,
+      "descripcion": "Cesto de mimbre trenzado, lleno de manzanas rojas y peras verdes, atado con una cuerda de sisal.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_silla_m00_12",
+      "nombre": "Silla",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 2
+      },
+      "ancho": 0.5,
+      "alto": 0.9,
+      "descripcion": "Silla de madera junto a la mesa.",
+      "keyword_busqueda": null
+    }
+  ]
+}

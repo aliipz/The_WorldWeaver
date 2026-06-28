@@ -1,0 +1,10 @@
+{
+  "id": "T2",
+  "fixture": "las_aventuras_de_elena.txt",
+  "titulo": "Elena y Zip: El Faro del Fin del Mundo",
+  "modo": "narrativo",
+  "personajes_esperados": ["Elena", "Zip (zorro)"],
+  "objetos_esperados": ["brújula", "mapa tallado", "altar de runas", "traje de buceo", "submarino", "cristal de energía", "faro"],
+  "escenas_esperadas": 6,
+  "notas": "Solo 2 personajes (Elena + el zorro Zip). Es densa en OBJETOS/localizaciones: bosque de Miravel → selva de Kael (altar) → playa → barco Estrella Rota → fondo marino (faro) → vuelta al bosque. El barco y el cuaderno los dejo fuera por menores; si quieres los añado."
+}

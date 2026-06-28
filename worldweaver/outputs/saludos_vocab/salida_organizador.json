@@ -1,0 +1,217 @@
+{
+  "titulo_historia": "Saludos y frases sociales en inglés",
+  "escenas": [
+    {
+      "id": "escena_01",
+      "titulo": "Encuentro en la plaza",
+      "entorno": "Plaza del pueblo al atardecer",
+      "atmosfera": "Tono cálido y didáctico",
+      "cielo": "atardecer",
+      "tipo_ambiente": "ciudad",
+      "tiene_intro": true,
+      "texto_intro": "Los personajes se encuentran en una animada plaza para practicar saludos y frases cotidianas. La conversación mostrará cómo usar cada expresión según el momento del día.",
+      "texto_fin": null,
+      "rol_escena": "exposicion",
+      "personajes": [
+        {
+          "id": "personaje_a",
+          "nombre": "Ana",
+          "fisica": "Mujer joven, cabello castaño, lleva una blusa azul",
+          "background": "Carácter cálido y didáctico",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_b",
+          "nombre": "Luis",
+          "fisica": "Hombre adulto, barba ligera, lleva una camisa verde",
+          "background": "Carácter amable",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [],
+      "eventos": [
+        {
+          "descripcion": "personaje_a dice '==Hello==' (Hola).",
+          "personajes_involucrados": [
+            "personaje_a"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_b dice '==Hello==' (Hola).",
+          "personajes_involucrados": [
+            "personaje_b"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_a dice '==Good morning==' (Buenos días).",
+          "personajes_involucrados": [
+            "personaje_a"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_b dice '==How are you?==' (¿Cómo estás?).",
+          "personajes_involucrados": [
+            "personaje_b"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_a dice '==Thank you==' (Gracias).",
+          "personajes_involucrados": [
+            "personaje_a"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_b dice '==Good afternoon==' (Buenas tardes).",
+          "personajes_involucrados": [
+            "personaje_b"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_a dice '==Good evening==' (Buenas noches).",
+          "personajes_involucrados": [
+            "personaje_a"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_b dice '==See you later==' (Hasta luego).",
+          "personajes_involucrados": [
+            "personaje_b"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_a dice '==Goodbye==' (Adiós).",
+          "personajes_involucrados": [
+            "personaje_a"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_b dice '==Goodbye==' (Adiós).",
+          "personajes_involucrados": [
+            "personaje_b"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_02",
+      "titulo": "Reto de despedida",
+      "entorno": "Plaza del pueblo al atardecer",
+      "atmosfera": "Tono de reto amistoso",
+      "cielo": "atardecer",
+      "tipo_ambiente": "ciudad",
+      "tiene_intro": true,
+      "texto_intro": "Ahora el guía pondrá a prueba al alumno con una breve conversación.",
+      "texto_fin": "¡Excelente trabajo! Has usado los saludos y frases correctamente. Ahora puedes pasar al cuestionario.",
+      "rol_escena": "examen",
+      "personajes": [
+        {
+          "id": "personaje_a",
+          "nombre": "Ana",
+          "fisica": "Mujer joven, cabello castaño, lleva una blusa azul",
+          "background": "Carácter cálido y didáctico",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [],
+      "eventos": [
+        {
+          "descripcion": "Turno 1: el guía dice '==Hello==' (Hola) y el alumno responde.",
+          "personajes_involucrados": [
+            "personaje_a"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Turno 2: el guía dice '==How are you?==' (¿Cómo estás?) y el alumno responde.",
+          "personajes_involucrados": [
+            "personaje_a"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Turno 3: el guía dice '==Thank you==' (Gracias) y el alumno responde.",
+          "personajes_involucrados": [
+            "personaje_a"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Turno 4: el guía dice '==Goodbye==' (Adiós) y el alumno responde.",
+          "personajes_involucrados": [
+            "personaje_a"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    }
+  ],
+  "vocabulario": [
+    {
+      "ui": "Hola",
+      "objetivo": "==Hello==",
+      "nota": "saludo informal"
+    },
+    {
+      "ui": "Buenos días",
+      "objetivo": "==Good morning==",
+      "nota": "saludo por la mañana"
+    },
+    {
+      "ui": "Buenas tardes",
+      "objetivo": "==Good afternoon==",
+      "nota": "saludo por la tarde"
+    },
+    {
+      "ui": "Buenas noches",
+      "objetivo": "==Good evening==",
+      "nota": "saludo por la noche"
+    },
+    {
+      "ui": "¿Cómo estás?",
+      "objetivo": "==How are you?==",
+      "nota": "pregunta por el estado"
+    },
+    {
+      "ui": "Gracias",
+      "objetivo": "==Thank you==",
+      "nota": "expresión de gratitud"
+    },
+    {
+      "ui": "Hasta luego",
+      "objetivo": "==See you later==",
+      "nota": "despedida informal"
+    },
+    {
+      "ui": "Adiós",
+      "objetivo": "==Goodbye==",
+      "nota": "despedida final"
+    }
+  ],
+  "personajes_globales": [
+    {
+      "id": "personaje_a",
+      "nombre": "Ana",
+      "fisica": "Mujer joven, cabello castaño, lleva una blusa azul",
+      "background": "Carácter cálido y didáctico",
+      "rol": "protagonista",
+      "skin_id": "escena_01"
+    }
+  ],
+  "objetos_globales": [],
+  "subtipo_educativo": "vocabulario",
+  "tipo_vocabulario": "conceptual",
+  "idioma_objetivo": "en"
+}

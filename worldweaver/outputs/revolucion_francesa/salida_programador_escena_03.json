@@ -1,0 +1,419 @@
+{
+  "id_escena": "escena_03",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Mujer lleva carro bajo lluvia",
+      "guias": [
+        "objeto_carro_de_madera",
+        "personaje_mujer_campesina_1",
+        "personaje_luis_xvi"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_carro_de_madera"
+        ],
+        "personajes": [
+          "personaje_mujer_campesina_1",
+          "personaje_luis_xvi"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Mujer exige harina y pan",
+      "guias": [
+        "objeto_horca_labranza",
+        "objeto_cuchillo_carnicero",
+        "objeto_saco_de_harina",
+        "objeto_hogaza_de_pan",
+        "personaje_mujer_campesina_2"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_horca_labranza",
+          "objeto_cuchillo_carnicero",
+          "objeto_saco_de_harina",
+          "objeto_hogaza_de_pan"
+        ],
+        "personajes": [
+          "personaje_mujer_campesina_2"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Luis XVI abandona palacio",
+      "guias": [
+        "personaje_luis_xvi"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_luis_xvi"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_mujer_campesina_1",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "María González — Campesina líder",
+        "texto": "Mujer campesina de la región de la Beauce que encabezó la marcha bajo la lluvia hacia ==Versalles== en 1789, demandando alimentos para su comunidad. Su acción simboliza la ==Gran Miedo== y la presión popular que precipitaron la Revolución Francesa."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Defeat",
+          "puntos": [
+            {
+              "frases": [
+                "Llevamos semanas sin pan, la tierra está seca y los niños lloran."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Con este carro de madera cargado de lo poco que queda, marchamos para que el rey nos escuche en ==Versalles==."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué esperáis obtener del rey?",
+                  "respuesta": "Queremos al menos un ==saco de harina== y una ==hogaza de pan== para nuestras familias."
+                },
+                {
+                  "etiqueta": "¿Cómo afecta la lluvia a vuestra marcha?",
+                  "respuesta": "La lluvia empeora la ==condición física== y el barro hace que el carro se atasque, pero no nos rendimos."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Animar marcha",
+          "descripcion": "Alzar la voz para motivar a la gente que sigue el ==carro de madera==. La mujer señala el camino y anima a avanzar.",
+          "animacion": "Victory",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "alegria",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_luis_xvi",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Luis XVI — Rey de Francia",
+        "texto": "Monarca absoluto que gobernó desde 1774 hasta 1792, enfrentado a la crisis financiera y la creciente escasez de alimentos. Su incapacidad para reformar el sistema fiscal y la presión de los Estados Generales condujeron al fin del ==Antiguo Régimen==."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "Los rumores de la ==hambruna== llegan a mi salón; los campesinos exigen pan y justicia."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Defeat",
+          "puntos": [
+            {
+              "frases": [
+                "He dejado el palacio; el pueblo me obliga a ir a ==París== y enfrentar su ira."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Mi reino se desmorona, y la monarquía pierde su autoridad."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cuál crees que será el destino de la monarquía?",
+                  "respuesta": "Probablemente la nación pasarás a una ==República==, como sucedió después de mi caída."
+                },
+                {
+                  "etiqueta": "¿Cómo describirías la situación del pueblo?",
+                  "respuesta": "El pueblo sufre una ==crisis de escasez== y una pérdida de fe en la nobleza."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Abandonar palacio",
+          "descripcion": "Luis XVI deja el palacio y se dirige a París, marcando el fin del Antiguo Régimen.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "rugir",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_mujer_campesina_2",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Isabel Pérez — Campesina combatiente",
+        "texto": "Mujer de la región del Loira que, armada con una ==horca de labranza== y un ==cuchillo de carnicero==, exigió al rey un ==saco de harina== y una ==hogaza de pan== en 1789, representando la ira del campo."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Punch",
+          "puntos": [
+            {
+              "frases": [
+                "¡Exigimos ==pan== ahora! No toleraremos más la muerte de nuestros hijos por falta de comida."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Con esta horca y cuchillo, no tememos al guardia; la dignidad del pueblo es más fuerte que cualquier espada."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué simboliza la horca en vuestra protesta?",
+                  "respuesta": "La horca representa la herramienta del trabajo agrícola, convertida en símbolo de resistencia."
+                },
+                {
+                  "etiqueta": "¿Cómo esperáis que responda el rey?",
+                  "respuesta": "Esperamos que entregue un ==saco de harina== y una ==hogaza de pan==, o de contrario la revuelta crecerá."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Exigir alimentos",
+          "descripcion": "Levanta la ==horca de labranza== y el ==cuchillo de carnicero== mientras exige el ==saco de harina== y la ==hogaza de pan== al oficial.",
+          "animacion": "Punch",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "personaje_guardia_nacional_1",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_guardia_nacional_1",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Guardia Nacional — Oficial de la Guardia",
+        "texto": "Miembro de la Guardia Nacional creada en 1789 para mantener el orden durante la crisis. Intentó mediar entre el rey y los campesinos, pero la tensión y la escasez de alimentos dificultaron su labor."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Trato de calmar la muchedumbre, pero la ira del pueblo es como una tormenta que no se detiene."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Provocar guardia",
+          "descripcion": "El jugador lanza un insulto directo al guardia. El guardia responde con un puñetazo.",
+          "animacion": "Punch",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "personaje_mujer_campesina_2",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            },
+            {
+              "id_nodo": "objeto_carro_de_madera",
+              "efecto": "sacudir",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_carro_de_madera",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Carro de madera",
+        "descripcion": "El ==carro de madera== es un vehículo de carga simple hecho de troncos y tablas. Se utiliza para transportar mercancías en terrenos rurales y su estructura permite distribuir el peso sobre el barro.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyR",
+          "etiqueta": "Empujar carro",
+          "descripcion": "Al empujar el ==carro de madera== se muestra la fricción del barro y la resistencia del eje. El movimiento requiere fuerza física.",
+          "efecto_visual": "pulsar",
+          "sonido": "esfuerzo"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_horca_labranza",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Horca de labranza",
+        "descripcion": "La ==horca de labranza== es una herramienta agrícola de madera con una barra transversal para levantar y voltear la tierra. Su diseño permite trabajar suelos compactos sin dañar los cultivos.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_cuchillo_carnicero",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Cuchillo de carnicero",
+        "descripcion": "El ==cuchillo de carnicero== tiene una hoja ancha y afilada de acero, diseñada para cortar carne y hueso. Su mango suele ser de madera o hueso para un agarre firme.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_saco_de_harina",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Saco de harina",
+        "descripcion": "El ==saco de harina== contiene polvo fino de trigo molido, base esencial para la panificación. Cada saco suele pesar alrededor de 25 kg y se almacena en bolsas de yute.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_hogaza_de_pan",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Hogaza de pan",
+        "descripcion": "La ==hogaza de pan== es una pieza grande y redonda de masa cocida, típica de la alimentación campesina. Proporciona energía mediante carbohidratos y se conserva varios días.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_cerca_madera_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una cerca de madera gastada, testigo silente de los pasos de los campesinos."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_pozo_de_piedra_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Pozo de piedra",
+        "descripcion": "El pozo está parcialmente cubierto de barro; su agua se ve turbia pero es vital para los viajeros.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "amb_04_2_00",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una flor silvestre se inclina bajo la lluvia."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_camino_empapado",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al entrar en el ==camino rural empapado== el jugador percibe el olor a tierra húmeda y escucha el crujido del barro bajo los pasos."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_02",
+  "query_usada": "protest crowd chant ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/835/835892_15618458-hq.mp3",
+    "titulo": "Late Evening City Protest",
+    "autor": "Artem_Zaitsev",
+    "duracion_segundos": 168.7,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/682/682519_6652872-hq.mp3",
+    "titulo": "Demonstration in the street - Tel Aviv, Israel - March 2023",
+    "autor": "khenshom",
+    "duracion_segundos": 147.1,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

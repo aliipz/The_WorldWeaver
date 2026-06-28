@@ -1,0 +1,287 @@
+{
+  "titulo_historia": "Animales de la granja - Inglés",
+  "escenas": [
+    {
+      "id": "escena_01",
+      "titulo": "Exploración de la granja",
+      "entorno": "granja",
+      "atmosfera": "Descubrimiento cálido",
+      "cielo": "mediodia_soleado",
+      "tipo_ambiente": "campo",
+      "tiene_intro": true,
+      "texto_intro": "Hoy vamos a descubrir los ==animales de la granja== en inglés. Pasearemos por el campo y conoceremos a cada uno de ellos.",
+      "texto_fin": null,
+      "rol_escena": "exposicion",
+      "personajes": [
+        {
+          "id": "personaje_guia",
+          "nombre": "Luis",
+          "fisica": "hombre adulto con sombrero de paja y ropa de granjero",
+          "background": "amable y entusiasta",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_dog",
+          "nombre": "perro",
+          "descripcion": "un perro que ladra",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "dog",
+          "frase_ejemplo": "The dog barks."
+        },
+        {
+          "id": "objeto_cat",
+          "nombre": "gato",
+          "descripcion": "un gato que maúlla",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "cat",
+          "frase_ejemplo": "The cat meows."
+        },
+        {
+          "id": "objeto_horse",
+          "nombre": "caballo",
+          "descripcion": "un caballo que relincha",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "horse",
+          "frase_ejemplo": "The horse neighs."
+        },
+        {
+          "id": "objeto_cow",
+          "nombre": "vaca",
+          "descripcion": "una vaca que muge",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "cow",
+          "frase_ejemplo": "The cow moos."
+        },
+        {
+          "id": "objeto_duck",
+          "nombre": "pato",
+          "descripcion": "un pato que grazna",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "duck",
+          "frase_ejemplo": "The duck quacks."
+        },
+        {
+          "id": "objeto_rabbit",
+          "nombre": "conejo",
+          "descripcion": "un conejo que brinca",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "rabbit",
+          "frase_ejemplo": "The rabbit hops."
+        },
+        {
+          "id": "objeto_sheep",
+          "nombre": "oveja",
+          "descripcion": "una oveja que bala",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "sheep",
+          "frase_ejemplo": "The sheep bleats."
+        },
+        {
+          "id": "objeto_chicken",
+          "nombre": "pollo",
+          "descripcion": "un pollo que cacarea",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "chicken",
+          "frase_ejemplo": "The chicken clucks."
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Luis presenta los animales de la granja, señalando cada uno.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_dog",
+            "objeto_cat",
+            "objeto_horse",
+            "objeto_cow",
+            "objeto_duck",
+            "objeto_rabbit",
+            "objeto_sheep",
+            "objeto_chicken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_02",
+      "titulo": "Examen en la granja",
+      "entorno": "granja",
+      "atmosfera": "Reto amistoso",
+      "cielo": "mediodia_soleado",
+      "tipo_ambiente": "campo",
+      "tiene_intro": true,
+      "texto_intro": "¡Ahora es tu turno! Luis te pedirá que le entregues cada animal en inglés.",
+      "texto_fin": "¡Excelente! Has aprendido todos los ==animales de la granja== en inglés. Preparémonos para el cuestionario final.",
+      "rol_escena": "examen",
+      "personajes": [
+        {
+          "id": "personaje_guia",
+          "nombre": "Luis",
+          "fisica": "hombre adulto con sombrero de paja y ropa de granjero",
+          "background": "amable y entusiasta",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_dog",
+          "nombre": "perro",
+          "descripcion": "un perro que ladra",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "dog",
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_cat",
+          "nombre": "gato",
+          "descripcion": "un gato que maúlla",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "cat",
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_horse",
+          "nombre": "caballo",
+          "descripcion": "un caballo que relincha",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "horse",
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_cow",
+          "nombre": "vaca",
+          "descripcion": "una vaca que muge",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "cow",
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_duck",
+          "nombre": "pato",
+          "descripcion": "un pato que grazna",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "duck",
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_rabbit",
+          "nombre": "conejo",
+          "descripcion": "un conejo que brinca",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "rabbit",
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_sheep",
+          "nombre": "oveja",
+          "descripcion": "una oveja que bala",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "sheep",
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_chicken",
+          "nombre": "pollo",
+          "descripcion": "un pollo que cacarea",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "chicken",
+          "frase_ejemplo": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "El jugador trae al guía el dog que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_dog"
+          ]
+        },
+        {
+          "descripcion": "El jugador trae al guía el cat que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_cat"
+          ]
+        },
+        {
+          "descripcion": "El jugador trae al guía el horse que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_horse"
+          ]
+        },
+        {
+          "descripcion": "El jugador trae al guía la cow que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_cow"
+          ]
+        },
+        {
+          "descripcion": "El jugador trae al guía el duck que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_duck"
+          ]
+        },
+        {
+          "descripcion": "El jugador trae al guía el rabbit que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_rabbit"
+          ]
+        },
+        {
+          "descripcion": "El jugador trae al guía la sheep que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_sheep"
+          ]
+        },
+        {
+          "descripcion": "El jugador trae al guía el chicken que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_chicken"
+          ]
+        }
+      ]
+    }
+  ],
+  "personajes_globales": [
+    {
+      "id": "personaje_guia",
+      "nombre": "Luis",
+      "fisica": "hombre adulto con sombrero de paja y ropa de granjero",
+      "background": "amable y entusiasta",
+      "rol": "protagonista",
+      "skin_id": "escena_01"
+    }
+  ],
+  "objetos_globales": [],
+  "subtipo_educativo": "vocabulario",
+  "tipo_vocabulario": "tangible",
+  "idioma_objetivo": "en"
+}

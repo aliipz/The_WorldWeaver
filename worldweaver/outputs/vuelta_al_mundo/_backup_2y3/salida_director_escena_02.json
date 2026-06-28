@@ -1,0 +1,117 @@
+{
+  "id_escena": "escena_02",
+  "elementos": [
+    {
+      "id": "personaje_magallanes",
+      "nombre": "Fernando de Magallanes",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Navegante portugués de 45 años, rostro curtido, barba gris, chaqueta de vellón azul, mirada decidida"
+    },
+    {
+      "id": "objeto_brujula",
+      "nombre": "Brújula",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Instrumento de orientación magnética usado para determinar la dirección en el mar"
+    },
+    {
+      "id": "objeto_astrolabio",
+      "nombre": "Astrolabio",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.4,
+      "alto": 0.2,
+      "descripcion": "Instrumento para medir la altura de los astros y calcular la latitud"
+    },
+    {
+      "id": "objeto_cartas_nauticas",
+      "nombre": "Cartas náuticas",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 0.3,
+      "descripcion": "Mapas y notas de navegación que indican costas y rutas marítimas"
+    },
+    {
+      "id": "decorado_iceberg_fragment_01",
+      "nombre": "Fragmento de iceberg desprendido",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 2.0,
+      "alto": 1.0,
+      "descripcion": "Bloque irregular de hielo cristalino, con bordes afilados, parcialmente sumergido y reflejando la luz gris del cielo tormentoso."
+    },
+    {
+      "id": "decorado_balsa_01",
+      "nombre": "Balsa de madera a la deriva",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 3.0,
+      "alto": 0.5,
+      "descripcion": "Estructura de troncos atados, parcialmente sumergida, con restos de cuerdas y pintura desgastada de color grisáceo."
+    },
+    {
+      "id": "decorado_boya_01",
+      "nombre": "Boya de señalización metálica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 1
+      },
+      "ancho": 0.3,
+      "alto": 0.6,
+      "descripcion": "Cilíndrico de hierro fundido, pintado de rojo con una capa de óxido verdoso, flotando anclado a una cadena corta."
+    },
+    {
+      "id": "decorado_caja_01",
+      "nombre": "Caja de suministros flotante",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 1.0,
+      "alto": 0.6,
+      "descripcion": "Cajón de madera reforzada, con tablones rotos y una cubierta de lona gris, parcialmente inundado y flotando sobre el agua helada."
+    }
+  ]
+}

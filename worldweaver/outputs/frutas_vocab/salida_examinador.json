@@ -1,0 +1,221 @@
+{
+  "titulo": "Cuestionario de vocabulario: frutas (en)",
+  "preguntas": [
+    {
+      "numero": 1,
+      "pregunta": "¿Cómo se dice 'manzana' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "banana",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "grape",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "orange",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "apple",
+          "correcta": true
+        }
+      ],
+      "explicacion": "La palabra 'apple' es el nombre en inglés de la fruta conocida en español como manzana."
+    },
+    {
+      "numero": 2,
+      "pregunta": "¿Cómo se dice 'plátano' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "strawberry",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "pear",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "lemon",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "banana",
+          "correcta": true
+        }
+      ],
+      "explicacion": "En inglés, 'banana' corresponde a la fruta amarilla y curva que en español se llama plátano."
+    },
+    {
+      "numero": 3,
+      "pregunta": "I squeezed fresh ___ juice. / Exprimí jugo de naranja fresco.",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "apple",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "grape",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "watermelon",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "orange",
+          "correcta": true
+        }
+      ],
+      "explicacion": "La frase indica que el jugo es de naranja, por lo que la palabra correcta en inglés es 'orange'."
+    },
+    {
+      "numero": 4,
+      "pregunta": "She bought a bunch of ___ for the salad. / Ella compró un manojo de uvas para la ensalada.",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "orange",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "grape",
+          "correcta": true
+        },
+        {
+          "letra": "c",
+          "texto": "banana",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "lemon",
+          "correcta": false
+        }
+      ],
+      "explicacion": "El término inglés para 'uvas' es 'grape', que encaja en la frase."
+    },
+    {
+      "numero": 5,
+      "pregunta": "¿Qué palabra en inglés corresponde a la descripción: 'fruta pequeña, roja, con semillas en la superficie'?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "apple",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "strawberry",
+          "correcta": true
+        },
+        {
+          "letra": "c",
+          "texto": "grape",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "pear",
+          "correcta": false
+        }
+      ],
+      "explicacion": "Una fruta pequeña, roja y con semillas visibles es una 'strawberry' en inglés."
+    },
+    {
+      "numero": 6,
+      "pregunta": "¿Qué palabra en inglés corresponde a la descripción: 'fruta amarilla, ácida, usada para aderezos y bebidas'?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "banana",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "orange",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "watermelon",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "lemon",
+          "correcta": true
+        }
+      ],
+      "explicacion": "La fruta descrita es el 'lemon', que es amarillo y muy ácido."
+    },
+    {
+      "numero": 7,
+      "pregunta": "¿Cómo se dice 'pera' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "grape",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "apple",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "pear",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "strawberry",
+          "correcta": false
+        }
+      ],
+      "explicacion": "El término inglés para la fruta 'pera' es 'pear'."
+    },
+    {
+      "numero": 8,
+      "pregunta": "The picnic had a big ___ cut into slices. / El picnic tenía una gran sandía cortada en rebanadas.",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "banana",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "lemon",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "watermelon",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "orange",
+          "correcta": false
+        }
+      ],
+      "explicacion": "La fruta grande que se corta en rebanadas para un picnic es la 'watermelon'."
+    }
+  ]
+}

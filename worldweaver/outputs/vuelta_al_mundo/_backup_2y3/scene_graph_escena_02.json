@@ -1,0 +1,234 @@
+{
+  "id_escena": "escena_02",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "sobre_agua",
+  "radio_escena": 22.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_02",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_02",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 22.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_magallanes",
+      "nombre": "Fernando de Magallanes",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.64,
+        "y": 0.95,
+        "z": -1.9
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Pirate_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_brujula",
+      "nombre": "Brújula",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -2.88,
+        "y": 0.25,
+        "z": 1.98
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/db18fada-a70e-44da-961c-0cc31dffdaa6.glb",
+      "keyword_busqueda": "compass"
+    },
+    {
+      "id": "objeto_astrolabio",
+      "nombre": "Astrolabio",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.09,
+        "y": 0.12,
+        "z": -3.5
+      },
+      "ancho": 0.5,
+      "alto": 0.25,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/3d9bbf5f-a7fd-4a6a-ad65-6a012ed6cd6e.glb",
+      "keyword_busqueda": "instrument"
+    },
+    {
+      "id": "objeto_cartas_nauticas",
+      "nombre": "Cartas náuticas",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 2.96,
+        "y": 0.15,
+        "z": 1.86
+      },
+      "ancho": 0.5,
+      "alto": 0.3,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/27ff8fbb-47da-4ba2-b4c0-06fda84a6a4b.glb",
+      "keyword_busqueda": "map"
+    },
+    {
+      "id": "decorado_iceberg_fragment_01",
+      "nombre": "Fragmento de iceberg desprendido",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.51,
+        "y": 0.5,
+        "z": -5.48
+      },
+      "ancho": 2.0,
+      "alto": 1.0,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f110136c-3dd7-4959-ae60-2190524874ee.glb",
+      "keyword_busqueda": "iceberg"
+    },
+    {
+      "id": "decorado_balsa_01",
+      "nombre": "Balsa de madera a la deriva",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -7.62,
+        "y": 0.25,
+        "z": 4.78
+      },
+      "ancho": 3.0,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/358f910f-7352-4a9f-be14-b13cc3e55d7a.glb",
+      "keyword_busqueda": "raft"
+    },
+    {
+      "id": "decorado_boya_01",
+      "nombre": "Boya de señalización metálica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 2.17,
+        "y": 0.3,
+        "z": 13.83
+      },
+      "ancho": 0.3,
+      "alto": 0.6,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/6b9eb5e5-a2d9-41b8-b6b1-4db908eadd46.glb",
+      "keyword_busqueda": "buoy"
+    },
+    {
+      "id": "decorado_caja_01",
+      "nombre": "Caja de suministros flotante",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -1.31,
+        "y": 0.3,
+        "z": -19.96
+      },
+      "ancho": 1.0,
+      "alto": 0.6,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/9b0c7d9b-344c-48d2-9a49-a59df0f4f838.glb",
+      "keyword_busqueda": "crate"
+    }
+  ],
+  "cielo": {
+    "tipo": "tormenta",
+    "color_fondo": "#323848",
+    "color_ambiente": "#5c6c8c",
+    "intensidad_ambiente": 0.4011109292597259,
+    "color_sol": "#6a7a95",
+    "intensidad_sol": 0.16366624759545917,
+    "pos_sol": {
+      "x": 0.0,
+      "y": 3.5850566338131618,
+      "z": -1.244657380260998
+    },
+    "niebla": {
+      "color": "#383e4e",
+      "near": 6.124062476374595,
+      "far": 13.0
+    }
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_magallanes": {
+      "glb_id": "Pirate_Male",
+      "glb_path": "/sandbox/assets/characters/Pirate_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "gris",
+      "clothing_seed": 5040,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

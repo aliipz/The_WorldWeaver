@@ -1,0 +1,529 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Entregue la fruta solicitada al guía",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_manzana"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Entregue la fruta solicitada al guía",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_plátano"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Entregue la fruta solicitada al guía",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_naranja"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_03",
+      "fase": 3,
+      "texto_objetivo": "Entregue la fruta solicitada al guía",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_uva"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_04",
+      "fase": 4,
+      "texto_objetivo": "Entregue la fruta solicitada al guía",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_fresa"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_05",
+      "fase": 5,
+      "texto_objetivo": "Entregue la fruta solicitada al guía",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_limón"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_06",
+      "fase": 6,
+      "texto_objetivo": "Entregue la fruta solicitada al guía",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_pera"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_07",
+      "fase": 7,
+      "texto_objetivo": "Entregue la fruta solicitada al guía",
+      "guias": [
+        "personaje_guia"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_sandía"
+        ],
+        "personajes": [
+          "personaje_guia"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_guia",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Edu — Guía didáctico del museo",
+        "texto": "Figura amable y entusiasta que acompaña a los visitantes en la zona de frutas. ==Lleva un sombrero y un delantal de colores vivos== y explica datos curiosos sobre cada fruta que se le entrega."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the apple, please. / Tráeme la _____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the round, red ____. / Tráeme la ____ redonda y roja."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the banana, please. / Tráeme el _____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the long, yellow ____. / Tráeme el ____ largo y amarillo."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the orange, please. / Tráeme la _____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the round, orange ____. / Tráeme la ____ redonda y naranja."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 3,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the grape, please. / Tráeme la _____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the small, purple ____. / Tráeme la ____ pequeña y morada."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 4,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the strawberry, please. / Tráeme la _____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the red, heart-shaped ____. / Tráeme la ____ roja y en forma de corazón."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 5,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the lemon, please. / Tráeme el _____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the sour, yellow ____. / Tráeme el ____ ácido y amarillo."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 6,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the pear, please. / Tráeme la _____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the green, teardrop-shaped ____. / Tráeme la ____ verde y en forma de lágrima."
+            ],
+            "opciones": []
+          }
+        },
+        {
+          "fase": 7,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bring me the watermelon, please. / Tráeme la _____, por favor."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": {
+            "frases": [
+              "Bring me the large, green-striped ____. / Tráeme la ____ grande y con rayas verdes."
+            ],
+            "opciones": []
+          }
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_manzana",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es la manzana. / Yes! That's the apple."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_plátano",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es el plátano. / Yes! That's the banana."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_naranja",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es la naranja. / Yes! That's the orange."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_uva",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es la uva. / Yes! That's the grape."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_fresa",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es la fresa. / Yes! That's the strawberry."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_limón",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es el limón. / Yes! That's the lemon."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_pera",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es la pera. / Yes! That's the pear."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_sandía",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "¡Sí! Es la sandía. / Yes! That's the watermelon."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Saludar",
+          "descripcion": "Edu asiente y muestra una sonrisa, indicando que la fruta entregada es la correcta.",
+          "animacion": "Victory",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "alegria",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_manzana",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "manzana",
+        "descripcion": "La manzana contiene ==fibra== y ==vitamina C==, nutrientes que favorecen la digestión y el sistema inmunológico. Su consumo regular está asociado a una menor incidencia de enfermedades cardiovasculares."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_plátano",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "plátano",
+        "descripcion": "El plátano es rico en ==potasio==, mineral esencial para la función muscular y la regulación de la presión arterial. Además, aporta ==vitamina B6==, importante para el metabolismo de los neurotransmisores."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_naranja",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "naranja",
+        "descripcion": "La naranja destaca por su alto contenido de ==vitamina C==, antioxidante que protege las células del daño oxidativo. Cada por también aporta ==flavonoides==, compuestos que pueden mejorar la salud cardiovascular."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_uva",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "uva",
+        "descripcion": "Las uvas contienen ==resveratrol==, un polifenol asociado a la reducción de la inflamación y la mejora de la salud del corazón. También son fuente de ==antioxidantes== que ayudan a neutralizar los radicales libres."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_fresa",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "fresa",
+        "descripcion": "La fresa aporta ==vitamina C== y ==manganeso==, nutrientes que participan en la síntesis de colágeno y en la actividad antioxidante. Su consumo también está vinculado a la mejora de la salud ocular."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_limón",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "limón",
+        "descripcion": "El limón es una fuente concentrada de ==ácido cítrico==, que favorece la absorción de hierro y ayuda a equilibrar el pH corporal. Además, su aroma estimula la producción de saliva, mejorando la digestión."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_pera",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "pera",
+        "descripcion": "La pera contiene ==fibra soluble==, que ralentiza la absorción de glucosa y contribuye al control del nivel de azúcar en sangre. También es rica en ==cobre==, mineral esencial para la formación de glóbulos rojos."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_sandía",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "sandía",
+        "descripcion": "La sandía está compuesta mayormente por ==agua==, lo que la convierte en una fruta hidratante. Además, aporta ==licopeno==, carotenoide que protege la piel de la radiación UV."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_cesta_mimbre_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una cesta de mimbre tejida, aún llena del aroma de frutas recién cosechadas."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_entrada",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al entrar al puesto, el aroma a ==frutas frescas== llena el aire y despierta la curiosidad del estudiante."
+    }
+  ],
+  "examen_vocabulario": true
+}

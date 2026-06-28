@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_03",
+  "query_usada": "crickets night ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/701/701062_11744683-hq.mp3",
+    "titulo": "AMBRurl_Moab_Crickets-200hzHP_ShaneVincent_XAH8_20220629.WAV",
+    "autor": "ShangusBurger",
+    "duracion_segundos": 447.4,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/836/836178_9034501-hq.mp3",
+    "titulo": "250814_210715_PH_Masasa_beach_at_night",
+    "autor": "kevp888",
+    "duracion_segundos": 276.8,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

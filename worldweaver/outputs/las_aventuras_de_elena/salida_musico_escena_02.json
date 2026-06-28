@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_02",
+  "query_usada": "jungle forest ambience loop",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/559/559471_2282212-hq.mp3",
+    "titulo": "Jungle Mystic Ambient Mastered.wav",
+    "autor": "szegvari",
+    "duracion_segundos": 102.9,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/559/559472_2282212-hq.mp3",
+    "titulo": "Jungle Alien Ambient Mastered.wav",
+    "autor": "szegvari",
+    "duracion_segundos": 95.5,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

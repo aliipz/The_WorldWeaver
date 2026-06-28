@@ -1,0 +1,145 @@
+{
+  "id_escena": "escena_05",
+  "elementos": [
+    {
+      "id": "personaje_neil_armstrong",
+      "nombre": "Neil Armstrong",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Hombre de 38 años, complexión atlética, traje espacial blanco con insignia de la NASA, casco reflectante, mirada concentrada"
+    },
+    {
+      "id": "personaje_buzz_aldrin",
+      "nombre": "Buzz Aldrin",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 0.9,
+      "alto": 1.85,
+      "descripcion": "Hombre de 39 años, estatura media, traje espacial blanco, casco con visor dorado, sonrisa ligera"
+    },
+    {
+      "id": "personaje_michael_collins",
+      "nombre": "Michael Collins",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 5
+      },
+      "ancho": 0.85,
+      "alto": 1.8,
+      "descripcion": "Hombre de 38 años, complexión delgada, traje espacial blanco, casco con visor gris, expresión serena"
+    },
+    {
+      "id": "objeto_paracaidas_principales",
+      "nombre": "Paracaídas principales",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 3.0,
+      "alto": 0.5,
+      "descripcion": "Tres paracaídas que se despliegan para reducir la velocidad de descenso de la cápsula Columbia durante la reentrada"
+    },
+    {
+      "id": "objeto_modulo_mando_columbia",
+      "nombre": "Módulo de Mando Columbia",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 2.5,
+      "alto": 2.5,
+      "descripcion": "Cápsula de comando de la misión Apollo 11, diseñada para el viaje de ida y vuelta entre la Tierra y la Luna"
+    },
+    {
+      "id": "objeto_uss_hornet",
+      "nombre": "USS Hornet",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 6.0,
+      "alto": 5.0,
+      "descripcion": "Portaaviones de la Marina de los EE. UU. que coordinó la recuperación de la cápsula Columbia en el Pacífico"
+    },
+    {
+      "id": "objeto_instalacion_cuarentena",
+      "nombre": "Instalación Móvil de Cuarentena",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 4
+      },
+      "ancho": 3.0,
+      "alto": 2.5,
+      "descripcion": "Unidad hermética a bordo del USS Hornet para aislar a los astronautas y prevenir contagios espaciales"
+    },
+    {
+      "id": "decorado_boya_01",
+      "nombre": "Boya de señalización naranja",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 3
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "descripcion": "Esfera flotante de goma dura, de color naranja brillante, con una luz intermitente roja que parpadea en la cresta de las olas."
+    },
+    {
+      "id": "decorado_red_pesca_01",
+      "nombre": "Red de pesca abandonada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 4.0,
+      "alto": 0.2,
+      "descripcion": "Malla de nylon grisáceo extendida sobre la superficie, sujeta a flotadores de espuma verde, parcialmente sumergida y con algunos restos de peces brillando bajo el sol."
+    },
+    {
+      "id": "decorado_balsa_01",
+      "nombre": "Balsa salvavidas inflable",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 2.0,
+      "alto": 0.3,
+      "descripcion": "Estructura redonda de PVC inflado, de color rojo metálico, con cuerdas de sujeción y una cubierta de lona que se mece sobre el agua."
+    }
+  ]
+}

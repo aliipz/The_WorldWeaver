@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_08",
+  "query_usada": "farm chicken clucking ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/553/553068_6613710-hq.mp3",
+    "titulo": "Chicken close",
+    "autor": "nickcase",
+    "duracion_segundos": 86.9,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/724/724213_1287465-hq.mp3",
+    "titulo": "Chickens_being_fed_spreading_feed_scrapping_wind_distant_traffic",
+    "autor": "nickmaysoundmusic",
+    "duracion_segundos": 61.0,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

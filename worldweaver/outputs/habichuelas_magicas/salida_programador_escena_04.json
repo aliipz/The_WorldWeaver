@@ -1,0 +1,240 @@
+{
+  "id_escena": "escena_04",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Un crujido rompe el silencio nocturno",
+      "guias": [
+        "objeto_planta_gigante",
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_planta_gigante"
+        ],
+        "personajes": [
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "La ventana revela la planta que se eleva",
+      "guias": [
+        "objeto_planta_gigante",
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_planta_gigante"
+        ],
+        "personajes": [
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Entre nubes, la cima susurra secretos",
+      "guias": [
+        "objeto_planta_gigante",
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_planta_gigante"
+        ],
+        "personajes": [
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_juan",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "¡Mira! El suelo se partió y una gigantesca planta surgió bajo la luna."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El crujido me heló la sangre, pero algo dentro de mí me empuja a acercarme."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué sientes ahora?",
+                  "respuesta": "Un miedo mezclado con una extraña curiosidad que no puedo negar."
+                },
+                {
+                  "etiqueta": "¿Crees que sea seguro?",
+                  "respuesta": "No lo sé, pero la noche parece susurrarme que debo descubrirlo."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Me asomo por la ventana, la planta se eleva como una torre de sombras."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Cada paso que doy cruje bajo mis pies, como si la propia noche temblara."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Te asusta?",
+                  "respuesta": "Sí, pero la incertidumbre es más fuerte que el temor."
+                },
+                {
+                  "etiqueta": "¿Qué buscas allí arriba?",
+                  "respuesta": "Tal vez una respuesta a los susurros que escuché antes."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "Llegué a la cima y las nubes me rodean, la luna se refleja en su espuma."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El viento me lleva, y por un instante siento que el mundo entero está bajo mis pies."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Te sientes libre?",
+                  "respuesta": "Libre y pequeño a la vez, como un suspiro en la inmensidad."
+                },
+                {
+                  "etiqueta": "¿Qué harás ahora?",
+                  "respuesta": "Descenderé y contaré a mi madre lo que vi, aunque suene imposible."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Trepar",
+          "descripcion": "Saltas con fuerza, aferrándote a la base de la planta que vibra bajo tu peso.",
+          "animacion": "Jump",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "objeto_planta_gigante",
+              "efecto": "brillo",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_planta_gigante",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "La planta emite un resplandor verde que ilumina la noche.",
+        "texto_desactivacion": null,
+        "efecto_visual": "brillo",
+        "color_efecto": "#00ff88",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_farol_hierro_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "El farol de hierro se enciende, proyectando una llama tenue y temblorosa.",
+        "texto_desactivacion": "El farol se apaga, dejando sólo la sombra de su metal.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_silla_mimbre_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una silla de mimbre cruje ligeramente bajo la brisa nocturna."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_cerca_madera_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "La cerca de madera está cubierta de musgo y marcas de tiempo."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_flores_silvestres_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Pequeñas flores silvestres se balancean al paso del jugador."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": []
+}

@@ -1,0 +1,245 @@
+{
+  "id_escena": "escena_04",
+  "elementos": [
+    {
+      "id": "personaje_elena",
+      "nombre": "Elena",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "descripcion": "Mujer joven, cabello castaño, mochila gastada, cuaderno de notas.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_zip",
+      "nombre": "Zip",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 3
+      },
+      "ancho": 1.0,
+      "alto": 0.8,
+      "descripcion": "Zorro naranja de orejas enormes y lengua larga.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_traje_buceo",
+      "nombre": "Traje de buceo antiguo",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_03",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 0.8,
+      "alto": 1.2,
+      "descripcion": "Traje de buceo colgado de un gancho en la bodega, rígido pero intacto, con aproximadamente treinta años de antigüedad.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_submarino",
+      "nombre": "Submarino oxidado",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_03",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 3
+      },
+      "ancho": 1.5,
+      "alto": 1.0,
+      "descripcion": "Pequeño submarino oxidado conectado a una grúa, listo para descender al agua.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_generador",
+      "nombre": "Generador oxidado",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 0
+      },
+      "ancho": 1.2,
+      "alto": 1.5,
+      "descripcion": "Generador en la proa del barco, cubierto de óxido y conectado a la grúa que sostiene el submarino.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_madera_podrida_01",
+      "nombre": "Madera podrida del casco",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "descripcion": "Tablas ennegrecidas y agrietadas con manchas de humedad, mostrando el desgaste del mar.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_caja_volcada_01",
+      "nombre": "Caja de madera volcada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 3
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "descripcion": "Caja con tablones rotos y restos de mercancía esparcidos por el suelo de la bodega.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_red_vieja_01",
+      "nombre": "Red de pescar desgastada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 3
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "descripcion": "Red de cuerdas enredadas y agujeros quemados, colgando del techo y cubriendo parte del piso.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_barril_oxidado_01",
+      "nombre": "Barril de metal oxidado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "descripcion": "Superficie rugosa con manchas verdes de corrosión y una tapa ligeramente deformada.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_lanterna_parpadeante_01",
+      "nombre": "Lanterna de aceite colgante",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "descripcion": "Luz tenue y parpadeante que atraviesa el vidrio agrietado, iluminando escasamente el entorno.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_cadena_metalica_01",
+      "nombre": "Cadena de acero corroída",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 0
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "descripcion": "Eslabones gruesos cubiertos de óxido, anclada al mástil y sujetando el pequeño submarino.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_escalera_metalica_01",
+      "nombre": "Escalera de hierro oxidado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "descripcion": "Peldaños gastados y remaches sueltos, fijada a la pared para acceso a los niveles superiores.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_barril_02",
+      "nombre": "Barril de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 0.9,
+      "alto": 1.1,
+      "descripcion": "Barril de roble apilable.",
+      "keyword_busqueda": "wooden barrel"
+    },
+    {
+      "id": "decorado_barril_03",
+      "nombre": "Barril de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 0.9,
+      "alto": 1.1,
+      "descripcion": "Barril de roble apilable.",
+      "keyword_busqueda": "wooden barrel"
+    },
+    {
+      "id": "decorado_barril_04",
+      "nombre": "Barril de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 4
+      },
+      "ancho": 0.9,
+      "alto": 1.1,
+      "descripcion": "Barril de roble apilable.",
+      "keyword_busqueda": "wooden barrel"
+    },
+    {
+      "id": "decorado_barril_05",
+      "nombre": "Barril de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 6
+      },
+      "ancho": 0.9,
+      "alto": 1.1,
+      "descripcion": "Barril de roble apilable.",
+      "keyword_busqueda": "wooden barrel"
+    }
+  ]
+}

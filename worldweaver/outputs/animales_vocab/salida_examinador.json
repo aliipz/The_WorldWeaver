@@ -1,0 +1,221 @@
+{
+  "titulo": "Cuestionario de vocabulario: animales de la granja (en)",
+  "preguntas": [
+    {
+      "numero": 1,
+      "pregunta": "¿Cómo se dice 'perro' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "horse",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "cow",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "dog",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "cat",
+          "correcta": false
+        }
+      ],
+      "explicacion": "La palabra 'dog' corresponde al animal doméstico conocido como perro."
+    },
+    {
+      "numero": 2,
+      "pregunta": "¿Cómo se dice 'gato' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "duck",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "cat",
+          "correcta": true
+        },
+        {
+          "letra": "c",
+          "texto": "sheep",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "rabbit",
+          "correcta": false
+        }
+      ],
+      "explicacion": "El término 'cat' es el nombre en inglés del felino doméstico."
+    },
+    {
+      "numero": 3,
+      "pregunta": "The ___ is grazing in the field. / El caballo está pastando en el campo.",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "chicken",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "horse",
+          "correcta": true
+        },
+        {
+          "letra": "c",
+          "texto": "dog",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "cat",
+          "correcta": false
+        }
+      ],
+      "explicacion": "En la frase española se menciona 'caballo', por lo que la opción correcta es 'horse'."
+    },
+    {
+      "numero": 4,
+      "pregunta": "The ___ waddles on the pond. / El pato nada en el estanque.",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "sheep",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "cow",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "rabbit",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "duck",
+          "correcta": true
+        }
+      ],
+      "explicacion": "La descripción corresponde al animal que nada y se llama 'duck' en inglés."
+    },
+    {
+      "numero": 5,
+      "pregunta": "¿Qué palabra en inglés corresponde al animal que dice 'baa' y tiene lana?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "sheep",
+          "correcta": true
+        },
+        {
+          "letra": "b",
+          "texto": "duck",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "horse",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "rabbit",
+          "correcta": false
+        }
+      ],
+      "explicacion": "El animal que balidos 'baa' y produce lana es la 'sheep' en inglés."
+    },
+    {
+      "numero": 6,
+      "pregunta": "¿Cómo se dice 'conejo' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "chicken",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "dog",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "rabbit",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "cat",
+          "correcta": false
+        }
+      ],
+      "explicacion": "La palabra 'rabbit' es el nombre en inglés del conejo."
+    },
+    {
+      "numero": 7,
+      "pregunta": "The ___ lays eggs in the coop. / El pollo pone huevos en el gallinero.",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "cow",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "sheep",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "chicken",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "horse",
+          "correcta": false
+        }
+      ],
+      "explicacion": "En la frase española se menciona 'pollo', cuyo equivalente inglés es 'chicken'."
+    },
+    {
+      "numero": 8,
+      "pregunta": "¿Cómo se dice 'vaca' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "duck",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "cow",
+          "correcta": true
+        },
+        {
+          "letra": "c",
+          "texto": "rabbit",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "cat",
+          "correcta": false
+        }
+      ],
+      "explicacion": "El término 'cow' corresponde al animal de granja conocido como vaca."
+    }
+  ]
+}

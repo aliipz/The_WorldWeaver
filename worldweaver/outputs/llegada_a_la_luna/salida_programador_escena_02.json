@@ -1,0 +1,376 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Neil ajusta sextante bajo estrellas",
+      "guias": [
+        "objeto_sextante_espacial",
+        "personaje_neil_armstrong"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_sextante_espacial"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Módulos se acoplan con precisión",
+      "guias": [
+        "objeto_modulo_mando_columbia",
+        "objeto_modulo_lunar_eagle",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin",
+        "personaje_michael_collins"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_modulo_mando_columbia",
+          "objeto_modulo_lunar_eagle"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin",
+          "personaje_michael_collins"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Collins fotografía Tierra menguante",
+      "guias": [
+        "personaje_michael_collins"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_michael_collins"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_neil_armstrong",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Neil Armstrong — Astronauta de la NASA",
+        "texto": "Comandante del módulo lunar del Apollo 11, fue el primer ser humano en pisar la Luna el ==20 de julio de 1969==. Su uso del ==sextante espacial== demostró la precisión de la navegación sin referencia terrestre."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "Con el ==sextante espacial== alineé la nave usando la constelación de ==Cruz del Sur==, corrigiendo nuestra trayectoria."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Cada estrella es una referencia; sin tierra, el cielo es nuestro mapa."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo calibrabas el sextante en microgravedad?",
+                  "respuesta": "Ajustaba el ángulo del espejo y verificaba la posición de la estrella conocida, compensando la falta de gravedad."
+                },
+                {
+                  "etiqueta": "¿Qué precisión lograbas?",
+                  "respuesta": "Podíamos corregir la trayectoria dentro de ==±5 km==, suficiente para el encuentro con la Luna."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Sentí la emoción de la precisión, como si el espacio mismo aplaudiera."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Al acercarnos, los módulos ==Columbia== y ==Eagle== realizaron un acoplamiento mecánico perfecto en el vacío."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El proceso requería alineación milimétrica; cualquier error hubiera sido catastrófico."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo se controlaba la posición?",
+                  "respuesta": "Usábamos sensores de radar y sistemas de guía que ajustaban los motores en tiempo real."
+                },
+                {
+                  "etiqueta": "¿Cuánto tiempo tomó el acoplamiento?",
+                  "respuesta": "Unos ==12 minutos==, suficiente para que los sistemas estabilizaran la nave."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Ver los módulos abrazarse fue un testimonio de la ingeniería humana."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Consultar",
+          "descripcion": "Neil revisa los ángulos medidos por el sextante para ajustar la trayectoria orbital.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_buzz_aldrin",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Buzz Aldrin — Piloto del módulo Eagle",
+        "texto": "Segundo hombre en caminar sobre la Luna, participó en el acoplamiento mecánico entre los módulos ==Columbia== y ==Eagle== en el ==vacío== del espacio, demostrando la exactitud orbital necesaria para la misión."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Desde el módulo Eagle, observé cómo Columbia se acercaba, cada maniobra una danza en el vacío."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "La precisión del acoplamiento me recordó a los entrenamientos de simulación en la Tierra."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué simulaciones usaban?",
+                  "respuesta": "Entrenábamos con simuladores de gravedad cero y modelos de la nave en computadoras de la NASA."
+                },
+                {
+                  "etiqueta": "¿Sentías presión?",
+                  "respuesta": "Sí, la responsabilidad de unir los módulos era enorme, pero la confianza en el equipo era mayor."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Al completar el enganche, sentí una ola de orgullo, como si hubiéramos unido dos mundos."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Verificar",
+          "descripcion": "Buzz inspecciona los enganches de los módulos para asegurar el acoplamiento mecánico en el vacío.",
+          "animacion": "SitDown",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "metal",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_michael_collins",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Michael Collins — Piloto del módulo de mando Columbia",
+        "texto": "Orbitó la Luna mientras sus compañeros descendían, observó la ==Tierra menguante== y documentó el viaje fotográficamente hacia el ==Mare Tranquillitatis==, proporcionando datos críticos de navegación."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Desde Columbia, vigilaba el acoplamiento, listo para intervenir si algo fallaba."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Mi puesto me obligaba a mantener la nave estable mientras los otros trabajaban."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué sistemas controlabas?",
+                  "respuesta": "Los sistemas de actitud y propulsión, manteniendo la orientación con los thrusters."
+                },
+                {
+                  "etiqueta": "¿Cuán crítico era tu rol?",
+                  "respuesta": "Crítico; cualquier desviación habría puesto en riesgo la misión completa."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "El silencio del espacio era profundo, pero la confianza en la tripulación llenaba la cabina."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Mientras la nave se dirigía al ==Mare Tranquillitatis==, la Tierra se encogía, una bola azul que desaparecía lentamente."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "La vista me recordó la fragilidad de nuestro planeta."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué fotos tomaste?",
+                  "respuesta": "Capturé imágenes de la superficie lunar y de la Tierra en retroceso, usando la cámara de alta resolución del módulo."
+                },
+                {
+                  "etiqueta": "¿Cómo afectó eso a tu perspectiva?",
+                  "respuesta": "Me hizo valorar la paz y la cooperación internacional, pues todos compartimos ese pequeño punto azul."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Ese momento quedó grabado en mi memoria, como un testimonio de la exploración humana."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Fotografiar",
+          "descripcion": "Michael captura imágenes de la ==Tierra== desde la órbita, documentando su apariencia y posición.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_sextante_espacial",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Sextante espacial",
+        "descripcion": "El ==sextante espacial== es un instrumento de navegación que mide el ángulo entre un cuerpo celeste y el horizonte, permitiendo calcular la posición del observador. En la misión Apollo, se utilizó para corregir la trayectoria orbital mediante la referencia a ==estrellas==.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_modulo_mando_columbia",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Módulo de Mando Columbia",
+        "descripcion": "El ==Módulo de Mando Columbia== alberga la cabina de control y la tripulación durante la fase orbital. Tiene una masa de ==30 000 kg== y contiene los sistemas de navegación, comunicación y soporte vital.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_modulo_lunar_eagle",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Módulo Lunar Eagle",
+        "descripcion": "El ==Módulo Lunar Eagle== está diseñado para el alunizaje y el regreso a la órbita. Su masa seca es ==15 000 kg== y cuenta con motores de descenso que utilizan ==hidrazina== como combustible.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_antenna_sband_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Antena parabólica S‑band, esencial para comunicaciones de datos en órbita."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_camara_navegacion_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Cámara de navegación exterior, captura imágenes de estrellas y la Tierra distante."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_espacio",
+      "columnas": [
+        1
+      ],
+      "texto": "Al entrar en la escena, el jugador observa el ==vacío cósmico== y la ==Tierra== reducida, comprendiendo la escala del viaje."
+    }
+  ]
+}

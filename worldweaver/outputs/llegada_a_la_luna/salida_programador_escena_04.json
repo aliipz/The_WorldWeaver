@@ -1,0 +1,398 @@
+{
+  "id_escena": "escena_04",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Primer paso en la superficie lunar",
+      "guias": [
+        "personaje_neil_armstrong"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_neil_armstrong"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Despliegue de la bandera americana",
+      "guias": [
+        "objeto_bandera_estadounidense",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_bandera_estadounidense"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Instalación del experimento científico lunar",
+      "guias": [
+        "objeto_easep",
+        "objeto_sismometro_pasivo",
+        "objeto_retroreflectores_laser",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_easep",
+          "objeto_sismometro_pasivo",
+          "objeto_retroreflectores_laser"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_neil_armstrong",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Neil Armstrong — Astronauta de la NASA",
+        "texto": "Piloto y astronauta estadounidense (1930‑2012). Comandó la misión ==Apollo 11== y, el 20 de julio de 1969, fue el primer ser humano en pisar la Luna."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "==Ese es un pequeño paso para el hombre, pero un gran salto para la humanidad==."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El objetivo era colocar el módulo lunar y recoger datos científicos de la superficie."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué tipo de datos se recogían?",
+                  "respuesta": "Se medían la composición del regolito y la temperatura."
+                },
+                {
+                  "etiqueta": "¿Por qué era importante la misión lunar?",
+                  "respuesta": "Demostró que la humanidad podía llegar a otro cuerpo celeste."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "En la gravedad cero cada paso requiere un control preciso del impulso."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "Desplegamos la ==bandera estadounidense== como símbolo del logro nacional."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Los paneles solares del módulo proporcionan energía a los instrumentos durante la noche lunar."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo funciona la energía solar en la Luna?",
+                  "respuesta": "Los paneles convierten la luz solar en electricidad, almacenándola en baterías."
+                },
+                {
+                  "etiqueta": "¿Qué pasa cuando la Luna está en la oscuridad?",
+                  "respuesta": "Los sistemas usan la energía almacenada para mantener los equipos operativos."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Este acto despertó orgullo en toda la nación y mostró el poder de la ciencia colaborativa."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Instalamos el experimento ==EASEP==, que incluye un ==sismómetro pasivo== y ==retroreflectores láser== para medir la distancia Tierra‑Luna."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Los retroreflectores permiten que estaciones terrestres envíen láseres y calculen la distancia con precisión milimétrica."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Por qué es importante medir la distancia Tierra‑Luna?",
+                  "respuesta": "Ayuda a calibrar la órbita y a probar la teoría de la relatividad."
+                },
+                {
+                  "etiqueta": "¿Cómo se usan los sismómetros en la Luna?",
+                  "respuesta": "Registran temblores internos que revelan la estructura interna del satélite."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Los datos recopilados ampliarán nuestro conocimiento de la actividad sísmica lunar."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Explicar módulo",
+          "descripcion": "Neil describe la función del ==Módulo Eagle== como vehículo de descenso y ascenso lunar.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_buzz_aldrin",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Buzz Aldrin — Astronauta de la NASA",
+        "texto": "Piloto del módulo lunar Eagle y segundo hombre en caminar sobre la Luna. Contribuyó a la ingeniería de los sistemas de soporte vital y a la instalación de experimentos científicos."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Yo planté la segunda ==bandera estadounidense== mientras Neil la aseguraba."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El módulo Eagle está equipado con sistemas de soporte vital que funcionan en vacío y mantienen la presión interna."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo se controla la presión dentro del traje?",
+                  "respuesta": "Los trajes usan sistemas de reciclado de aire y presión regulada para mantener la vida."
+                },
+                {
+                  "etiqueta": "¿Qué desafíos surgieron al operar en vacío?",
+                  "respuesta": "El polvo lunar y la falta de atmósfera dificultan la manipulación de los equipos."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Ver la Tierra desde la Luna me recordó la fragilidad de nuestro planeta."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "Colaboré en la instalación del ==sismómetro pasivo== y los ==retroreflectores láser== del proyecto ==EASEP==."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Los retroreflectores devuelven el haz láser a la Tierra, creando un punto de referencia permanente."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cuántos retroreflectores se colocaron?",
+                  "respuesta": "Se instalaron cinco reflectores distribuidos en la superficie lunar."
+                },
+                {
+                  "etiqueta": "¿Cuánto tiempo tardó la calibración del láser?",
+                  "respuesta": "La calibración tomó varios días de ajustes finos desde los observatorios."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Cada medición nos acerca a entender mejor la geología de la Luna."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Operar sismómetro",
+          "descripcion": "Buzz activa el ==Sismómetro pasivo== para registrar vibraciones lunares.",
+          "animacion": "Punch",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "objeto_sismometro_pasivo",
+              "efecto": "pulsar",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_camara_de_television",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Cámara de televisión",
+        "descripcion": "Dispositivo de captura de imágenes que transmite en tiempo real a la Tierra. Usa un sensor CCD y una antena para enviar datos de vídeo a través de ondas de radio.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_bandera_estadounidense",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Bandera estadounidense",
+        "descripcion": "Bandera de tela sintética con los colores rojo, blanco y azul. Está diseñada para mantenerse extendida en vacío mediante un mástil telescópico y una barra horizontal que la sujeta.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_easep",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "EASEP",
+        "descripcion": "Experimento Apollo Surface Experiments Package, conjunto de instrumentos para medir sismos, reflejo láser y otras variables. Cada componente está montado en una base nivelada para garantizar estabilidad en baja gravedad.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_sismometro_pasivo",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Sismómetro pasivo",
+        "descripcion": "Sensor de movimiento que registra vibraciones de la superficie lunar mediante una masa suspendida. Los datos se almacenan en una memoria interna para su posterior transmisión.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_retroreflectores_laser",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Retroreflectores láser",
+        "descripcion": "Conjunto de prismas que devuelven al haz láser emitido desde la Tierra. Permiten medir la distancia Tierra‑Luna con precisión centimétrica mediante tiempo de vuelo del fotón.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_panel_solar_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "Los paneles solares se despliegan y comienzan a emitir un suave brillo azul.",
+        "texto_desactivacion": "Los paneles se apagan, dejando solo la superficie lunar en silencio.",
+        "efecto_visual": "brillo",
+        "color_efecto": "#4488ff",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_muestra_roca_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Contenedor de muestra de roca",
+        "descripcion": "Un pequeño contenedor metálico alberga una pieza de roca lunar, con una inscripción que indica su origen.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_lunar",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al cruzar el umbral del ==Módulo Eagle==, el polvo lunar se levanta y la superficie gris se extiende bajo el cielo negro."
+    }
+  ]
+}

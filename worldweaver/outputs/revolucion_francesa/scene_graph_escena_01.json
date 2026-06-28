@@ -1,0 +1,353 @@
+{
+  "id_escena": "escena_01",
+  "tipo_escena": "interior",
+  "tipo_ambiente": "interior",
+  "radio_escena": 8.0,
+  "limite_jugador": 5.0,
+  "color_suelo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_01",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 3.5,
+        "z": 0.0
+      },
+      "ancho": 8.0,
+      "alto": 7.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_01",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 8.0,
+      "alto": 8.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_luis_xvi",
+      "nombre": "Luis XVI",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.3,
+        "y": 0.88,
+        "z": 0.45
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/OldClassy_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_cortesano_1",
+      "nombre": "Cortesano",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -1.84,
+        "y": 0.88,
+        "z": -0.4
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/OldClassy_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_representante_tercer_estado_1",
+      "nombre": "Representante del Tercer Estado",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 2.26,
+        "y": 0.88,
+        "z": -0.11
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_representante_tercer_estado_2",
+      "nombre": "Mujer del pueblo llano",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.25,
+        "y": 0.88,
+        "z": -1.75
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Worker_Female.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_cahier_de_doleances",
+      "nombre": "Cahier de doléances",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.02,
+        "y": 0.25,
+        "z": 2.46
+      },
+      "ancho": 0.33,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/8127840e-d767-4dbf-89a8-1aad1fffed13.glb",
+      "keyword_busqueda": "book"
+    },
+    {
+      "id": "decorado_candelabro_01",
+      "nombre": "Candelabro de cristal de la Galería",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 2.21,
+        "y": 1.0,
+        "z": -2.25
+      },
+      "ancho": 1.5,
+      "alto": 2.0,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/6e5a83ce-6631-4ba3-aff6-990c830a06df.glb",
+      "keyword_busqueda": "chandelier"
+    },
+    {
+      "id": "decorado_espejo_01",
+      "nombre": "Espejo de marco dorado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.01,
+        "y": 0.75,
+        "z": -6.35
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/8d8927eb-1a6c-4692-884f-d0e976b71a69.glb",
+      "keyword_busqueda": "mirror"
+    },
+    {
+      "id": "decorado_silla_01",
+      "nombre": "Silla de terciopelo rojo",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -2.51,
+        "y": 0.5,
+        "z": -2.22
+      },
+      "ancho": 0.5,
+      "alto": 1.0,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/84ecc6a3-2751-4f50-912a-b9f4ff033d7a.glb",
+      "keyword_busqueda": "chair"
+    },
+    {
+      "id": "decorado_tapete_01",
+      "nombre": "Tapete persa de seda",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 1.87,
+        "y": 0.1,
+        "z": 2.28
+      },
+      "ancho": 2.5,
+      "alto": 0.2,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/93588780-3405-40b7-acb4-9a87c88569f6.glb",
+      "keyword_busqueda": "rug"
+    },
+    {
+      "id": "decorado_vitrina_01",
+      "nombre": "Vitrina de porcelana de Meissen",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -6.29,
+        "y": 0.75,
+        "z": -0.25
+      },
+      "ancho": 1.2,
+      "alto": 1.5,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/25637d51-d377-4be3-bc6b-fc28a0f28340.glb",
+      "keyword_busqueda": "showcase"
+    },
+    {
+      "id": "decorado_armario_01",
+      "nombre": "Armario de roble con paneles dorados",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 6.08,
+        "y": 1.0,
+        "z": 0.29
+      },
+      "ancho": 1.5,
+      "alto": 2.0,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/87908291-7b01-45e9-90b9-fe41d63f511b.glb",
+      "keyword_busqueda": "wardrobe"
+    },
+    {
+      "id": "decorado_estatua_01",
+      "nombre": "Estatua de Apolo en mármol",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -2.19,
+        "y": 1.25,
+        "z": 1.93
+      },
+      "ancho": 0.8,
+      "alto": 2.5,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/55b0aa03-543c-439d-a7d7-f0ac4c23578f.glb",
+      "keyword_busqueda": "statue"
+    },
+    {
+      "id": "decorado_estanteria_00",
+      "nombre": "Estantería",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -6.94,
+        "y": 1.0,
+        "z": -6.19
+      },
+      "ancho": 1.3,
+      "alto": 2.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/91537fb2-45d2-4b08-b060-7347a52b70ab.glb",
+      "keyword_busqueda": "bookshelf"
+    }
+  ],
+  "cielo": {
+    "tipo": "interior_calido",
+    "color_fondo": "#180b05",
+    "color_ambiente": "#ff8a3a",
+    "intensidad_ambiente": 0.6913675634417193,
+    "color_sol": "#ffa33c",
+    "intensidad_sol": 0.9238516907268532,
+    "pos_sol": {
+      "x": 0.7080445288184283,
+      "y": 4.282766313212964,
+      "z": 0.5453411915933861
+    },
+    "niebla": null
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_luis_xvi": {
+      "glb_id": "OldClassy_Male",
+      "glb_path": "/sandbox/assets/characters/OldClassy_Male.gltf",
+      "skin_tone": "muy_claro",
+      "skin_hex": "#FFCBA4",
+      "hair_color": "castano_claro",
+      "clothing_seed": 2209,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_cortesano_1": {
+      "glb_id": "OldClassy_Male",
+      "glb_path": "/sandbox/assets/characters/OldClassy_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "rubio",
+      "clothing_seed": 3192,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_representante_tercer_estado_1": {
+      "glb_id": "Casual_Male",
+      "glb_path": "/sandbox/assets/characters/Casual_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "negro",
+      "clothing_seed": 8829,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_representante_tercer_estado_2": {
+      "glb_id": "Worker_Female",
+      "glb_path": "/sandbox/assets/characters/Worker_Female.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 7295,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

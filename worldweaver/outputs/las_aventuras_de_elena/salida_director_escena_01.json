@@ -1,0 +1,155 @@
+{
+  "id_escena": "escena_01",
+  "elementos": [
+    {
+      "id": "personaje_elena",
+      "nombre": "Elena",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 0.95,
+      "alto": 1.8,
+      "descripcion": "Mujer joven, cabello castaño, mochila gastada, cuaderno de notas.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_zip",
+      "nombre": "Zip",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 0.6,
+      "alto": 0.45,
+      "descripcion": "Zorro naranja de orejas enormes y lengua larga.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_mapa",
+      "nombre": "Mapa tallado",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.8,
+      "alto": 0.5,
+      "descripcion": "Mapa grabado en la corteza del fresno, muestra costas, rutas y un símbolo azul pulsante en el centro del mar.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_brujula",
+      "nombre": "Brújula de metal oscuro",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Brújula de metal oscuro con aguja que apunta al sur, brilla tenuemente aunque no haya sol.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_seta_luminosa_01",
+      "nombre": "Seta fosforescente de bosque",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 3
+      },
+      "ancho": 0.3,
+      "alto": 0.25,
+      "descripcion": "Pequeña seta de sombrero redondo, de color violeta pálido, que emite un tenue resplandor azul al anochecer.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_nido_pajaros_01",
+      "nombre": "Nido de pájaros en la rama alta",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 3
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "descripcion": "Nido de ramitas y hojas secas, colgado en una rama alta del fresno, con huevos moteados visibles.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_hojarasca_01",
+      "nombre": "Capa de hojas secas",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 3.0,
+      "alto": 0.2,
+      "descripcion": "Manto de hojas caídas, de tonos marrón y ocre, cubriendo el suelo en una alfombra suave y crujiente.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_piedra_musgosa_01",
+      "nombre": "Piedra cubierta de musgo",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 0
+      },
+      "ancho": 1.0,
+      "alto": 0.5,
+      "descripcion": "Roca redonda y lisa, de tono gris piedra, con musgo verde que crece en su superficie, ubicada cerca del tronco.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_raiz_expuesta_01",
+      "nombre": "Raíz retorcida del fresno",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 2.0,
+      "alto": 0.8,
+      "descripcion": "Gigantesca raíz gruesa que emerge del suelo, con corteza agrietada y musgo verde que se aferra a sus surcos.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_musgo_corteza_01",
+      "nombre": "Musgo esmeralda en la corteza del fresno",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 2
+      },
+      "ancho": 1.2,
+      "alto": 0.2,
+      "descripcion": "Capa de musgo húmedo y brillante que cubre parte de la corteza, creando manchas verdes que contrastan con el pino gris.",
+      "keyword_busqueda": null
+    }
+  ]
+}

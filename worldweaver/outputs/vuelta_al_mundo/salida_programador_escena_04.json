@@ -1,0 +1,190 @@
+{
+  "id_escena": "escena_04",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "El barco llega, la gente celebra",
+      "guias": [
+        "objeto_nao_victoria",
+        "personaje_elcano"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_nao_victoria"
+        ],
+        "personajes": [
+          "personaje_elcano"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 1,
+      "texto_objetivo": "Las especias financian nuevas rutas",
+      "guias": [
+        "objeto_especias"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_especias"
+        ],
+        "personajes": [],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_elcano",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Juan Sebastián Elcano — Navegante español",
+        "texto": "Comandó la ==Nao Victoria== y completó la primera ==circunnavegación== del mundo al llegar a ==Sevilla== en ==1522==, tras ==tres años== de travesía. Su liderazgo fue crucial para cerrar la expedición iniciada por Magallanes."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Al ver los muelles de ==Sevilla==, supe que la ==Nao Victoria== había cumplido su destino."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Los cargamentos de ==especias== nos han devuelto la inversión y abierto nuevas rutas comerciales."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué significó ese beneficio para España?",
+                  "respuesta": "Impulsó la expansión marítima y consolidó el poderío comercial del reino."
+                },
+                {
+                  "etiqueta": "¿Cómo afectó a los navegantes futuros?",
+                  "respuesta": "Demostró que la ruta a las Indias era rentable, inspirando más expediciones."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Aún recuerdo la pérdida de Magallanes, pero su visión nos guió hasta este triunfo."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Saludar",
+          "descripcion": "Elcano levanta la mano en señal de saludo a la multitud que celebra la llegada del barco.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_nao_victoria",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Nao Victoria",
+        "descripcion": "La ==Nao Victoria== es la primera nave capaz de cruzar el Atlántico sin escalas. Fue construida con madera de roble y reforzada con bridas de acero, y su casco mide alrededor de 30 metros.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_especias",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Especias",
+        "descripcion": "Las ==especias== transportadas incluyen pimienta, clavo y canela, productos que en el siglo XVI tenían un valor comercial superior al del oro. Cada tonelada aportaba ganancias que financiaban nuevas expediciones.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_cajon_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "El cajón de madera tallada se abre lentamente, revelando su contenido.",
+        "texto_desactivacion": null,
+        "efecto_visual": "abrir",
+        "color_efecto": null,
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_farol_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "La llama del farol se enciende, iluminando el muelle con su cálida luz.",
+        "texto_desactivacion": "El farol se apaga, dejando sólo la sombra del hierro.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_barril_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un barril de vino envejecido, aún desprende el aroma a uvas frescas."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "amb_02_2_00",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un carro de madera cargado con sacos de seda y especias, listo para el próximo viaje."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_puerto_entrada",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al entrar al ==Puerto de Sevilla== en el año ==1522==, se percibe el bullicio de la gente, las banderas ondean y el sonido de los pasos sobre el ==muelle de madera==."
+    }
+  ]
+}

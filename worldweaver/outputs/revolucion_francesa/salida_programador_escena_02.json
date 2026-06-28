@@ -1,0 +1,477 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Pico de hierro rompe la puerta de la Bastilla",
+      "guias": [
+        "objeto_pica_hierro",
+        "objeto_hacha_leñador",
+        "personaje_sans_culotte_1",
+        "personaje_miliciono_desertor_1"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_pica_hierro",
+          "objeto_hacha_leñador"
+        ],
+        "personajes": [
+          "personaje_sans_culotte_1",
+          "personaje_miliciono_desertor_1"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Mosquete y cañón intentan detener la revuelta",
+      "guias": [
+        "objeto_mosquete",
+        "objeto_canon_bronce",
+        "personaje_guardia_real_suiza_1"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_mosquete",
+          "objeto_canon_bronce"
+        ],
+        "personajes": [
+          "personaje_guardia_real_suiza_1"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Gobernador corta cadena y levanta puente",
+      "guias": [
+        "objeto_cadena_hierro",
+        "objeto_barril_de_polvora",
+        "personaje_gobernador_bastilla"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_cadena_hierro",
+          "objeto_barril_de_polvora"
+        ],
+        "personajes": [
+          "personaje_gobernador_bastilla"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_sans_culotte_1",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Sans-culotte — Ciudadano revolucionario",
+        "texto": "Joven obrero de 22 años que tomó parte activa en la toma de la ==Bastilla== en 1789. Representa a la clase trabajadora que buscaba la caída del antiguo régimen. ==Romper las puertas con una pica de hierro y una hacha de leñador== marcó el inicio de la insurrección."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Con la pica de hierro y la hacha, derribamos las pesadas puertas de la ==Bastilla==."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Era un grito de libertad que resonó en cada calle del barrio."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué sentiste al ver las puertas caer?",
+                  "respuesta": "El sonido del metal rompiéndose fue como romper nuestras propias cadenas."
+                },
+                {
+                  "etiqueta": "¿Cómo organizasteis el ataque?",
+                  "respuesta": "Los artesanos y los obreros se reunieron en la plaza y acordamos usar herramientas que ya teníamos."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Ahora la gente sabe que el poder del rey no es invulnerable."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Golpear puerta",
+          "descripcion": "Usas la fuerza del pico para intentar abrir la puerta de la Bastilla.",
+          "animacion": "Punch",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "personaje_guardia_real_suiza_1",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_miliciono_desertor_1",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Milicionero desertor — Exsoldado rebelde",
+        "texto": "Soldado de 35 años que abandonó la milicia real para unirse a los rebeldes. Su decisión mostró la fragilidad del apoyo al rey durante la revuelta. ==Desertó y aportó su hacha de leñador al asalto a la ==Bastilla==."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "Dejé mi fusil y tomé la hacha; la causa valía más que la vida."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Vi a mis compañeros caer y supe que debía cambiar de bando."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué te hizo decidir desertar?",
+                  "respuesta": "El olor a sangre y la injusticia me hirieron más que cualquier bala."
+                },
+                {
+                  "etiqueta": "¿Cómo afectó tu desertión al ánimo de los insurgentes?",
+                  "respuesta": "Les dio esperanza; sabían que incluso los soldados veían la tiranía."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Ahora lucho por la igualdad, no por la corona."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Cortar cadena",
+          "descripcion": "Utilizas el hacha para cortar la cadena que sujeta el puente levadizo.",
+          "animacion": "SwordSlash",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "metal",
+          "dispara": [
+            {
+              "id_nodo": "personaje_gobernador_bastilla",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_guardia_real_suiza_1",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Guardia real suiza — Soldado del rey",
+        "texto": "Joven guardia de 25 años al servicio del rey, armado con mosquete y cañón de bronce. Intentó detener la toma de la ==Bastilla==, pero la presión popular fue demasiado fuerte. ==Disparó contra los asaltantes sin éxito definitivo==."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Punch",
+          "puntos": [
+            {
+              "frases": [
+                "¡Alto! ¡No pasaréis! Disparé mi mosquete y el cañón de bronce contra la muchedumbre."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Los disparos resonaron, pero la gente seguía avanzando."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Por qué crees que tus disparos no detuvieron a la gente?",
+                  "respuesta": "El miedo al rey se había transformado en furia; las balas solo avivaron la llama."
+                },
+                {
+                  "etiqueta": "¿Qué sentiste al ver la resistencia?",
+                  "respuesta": "Una mezcla de orgullo por mi deber y temor al caos que se desataba."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Al final, la Bastilla cayó pese a nuestro fuego."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Disparar mosquete",
+          "descripcion": "Apuntas el mosquete y lo disparas contra los insurgentes.",
+          "animacion": "Shoot_OneHanded",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "personaje_sans_culotte_1",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            },
+            {
+              "id_nodo": "personaje_miliciono_desertor_1",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_gobernador_bastilla",
+      "fase_aparicion": 2,
+      "ficha_info": {
+        "titulo": "Gobernador de la Bastilla — Autoridad penitenciaria",
+        "texto": "Gobernador de 50 años responsable de la seguridad de la prisión. En la revuelta, cortó la cadena de hierro y abrió el puente levadizo, permitiendo que los insurgentes saquen el barril de pólvora. ==Abrir el puente y liberar la pólvora aceleró la caída del orden real==."
+      },
+      "dialogos": [
+        {
+          "fase": 2,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "Corté la cadena de hierro y levanté el puente levadizo; la gente entró sin obstáculos."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El barril de pólvora se volvió un símbolo de la explosión del pueblo."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Por qué decidiste abrir el puente?",
+                  "respuesta": "Sabía que la presión era insostenible y que la violencia sólo aumentaría el derramamiento de sangre."
+                },
+                {
+                  "etiqueta": "¿Qué consecuencias viste al liberar la pólvora?",
+                  "respuesta": "Los incendios se propagaron, pero también encendieron la llama de la revolución en toda la ciudad."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Ahora recuerdo aquel día como el punto de inflexión de la historia."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyG",
+          "etiqueta": "Cortar cadena y levantar puente",
+          "descripcion": "Usas la espada para cortar la cadena y activar el mecanismo del puente levadizo.",
+          "animacion": "SwordSlash",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "metal",
+          "dispara": [
+            {
+              "id_nodo": "personaje_sans_culotte_1",
+              "efecto": null,
+              "color": null,
+              "animacion": "Victory"
+            },
+            {
+              "id_nodo": "personaje_miliciono_desertor_1",
+              "efecto": null,
+              "color": null,
+              "animacion": "Victory"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_pica_hierro",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Pica de hierro",
+        "descripcion": "La ==Pica de hierro== es una herramienta de acero con punta afilada, utilizada para romper estructuras de madera o piedra. Su masa y forma permiten aplicar fuerza concentrada en un punto.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_hacha_leñador",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Hacha de leñador",
+        "descripcion": "El ==Hacha de leñador== combina una hoja de acero curva con un mango de madera, sirviendo para cortar leña y, en contextos de rebelión, para romper cadenas o puertas.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_antorcha",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Antorcha",
+        "descripcion": "La ==Antorcha== es una fuente de luz portátil que quema una mecha impregnada de resina, generando una llama de aproximadamente 800 °C y proporcionando iluminación en la noche.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_mosquete",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Mosquete",
+        "descripcion": "El ==Mosquete== es un arma de fuego de avancarga que dispara una bola de plomo mediante una mecha encendida. Su alcance efectivo ronda los 100 metros.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_canon_bronce",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Cañón de bronce",
+        "descripcion": "El ==Cañón de bronce== es una pieza de artillería que lanza proyectiles de hierro mediante la explosión de pólvora. Su calibre típico era de 12 pulgadas.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_cadena_hierro",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Cadena de hierro",
+        "descripcion": "La ==Cadena de hierro== consiste en eslabones metálicos encadenados, usados para asegurar puertas o puentes. Cada eslabón puede soportar alrededor de 500 kg.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_barril_de_polvora",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Barril de pólvora",
+        "descripcion": "El ==Barril de pólvora== contiene explosivos que, al detonar, liberan energía para impulsar proyectiles. Un barril típico almacena cerca de 50 kg de pólvora.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_farol_hierro_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "Enciendes la farol de hierro, su llama danza bajo la niebla de polvo.",
+        "texto_desactivacion": "Apagas la farol, y la luz se desvanece entre el humo.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_caja_frutas_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Caja de frutas",
+        "descripcion": "Una caja de madera gastada contiene restos de manzanas y peras, algunos aún frescos, otros marchitos.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_plaza_entrada",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al entrar en la ==Plaza frente a la Bastilla==, el polvo y el clamor de la multitud llenan el aire."
+    }
+  ]
+}

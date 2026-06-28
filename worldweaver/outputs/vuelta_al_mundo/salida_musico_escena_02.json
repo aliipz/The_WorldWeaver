@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_02",
+  "query_usada": "wind howling sea ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/615/615439_13628360-hq.mp3",
+    "titulo": "Storm on Sea of Galilee",
+    "autor": "InChristAlone",
+    "duracion_segundos": 30.0,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/671/671860_9034501-hq.mp3",
+    "titulo": "LS_34179_PH_WindyEvening.wav",
+    "autor": "kevp888",
+    "duracion_segundos": 172.7,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

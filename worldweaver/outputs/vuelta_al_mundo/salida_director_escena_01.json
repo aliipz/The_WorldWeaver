@@ -1,0 +1,145 @@
+{
+  "id_escena": "escena_01",
+  "elementos": [
+    {
+      "id": "personaje_carlos_i",
+      "nombre": "Carlos I de España",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Rey de unos 30 años, barba corta, corona dorada, túnica roja con bordes de oro, mirada autoritaria"
+    },
+    {
+      "id": "personaje_magallanes",
+      "nombre": "Fernando de Magallanes",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Navegante portugués de 45 años, rostro curtido, barba gris, chaqueta de vellón azul, mirada decidida"
+    },
+    {
+      "id": "objeto_capitulaciones",
+      "nombre": "Capitulaciones reales",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 6
+      },
+      "ancho": 0.6,
+      "alto": 0.2,
+      "descripcion": "Documento oficial que establece condiciones, financiación y autoridad de la expedición"
+    },
+    {
+      "id": "objeto_brujula",
+      "nombre": "Brújula",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Instrumento de orientación magnética usado para determinar la dirección en el mar"
+    },
+    {
+      "id": "objeto_astrolabio",
+      "nombre": "Astrolabio",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.4,
+      "alto": 0.2,
+      "descripcion": "Instrumento para medir la altura de los astros y calcular la latitud"
+    },
+    {
+      "id": "objeto_cartas_nauticas",
+      "nombre": "Cartas náuticas",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 0.3,
+      "descripcion": "Mapas y notas de navegación que indican costas y rutas marítimas"
+    },
+    {
+      "id": "decorado_barrera_cuerdas_bandera_01",
+      "nombre": "Barrera de cuerdas con banderas españolas",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 2.0,
+      "alto": 2.5,
+      "descripcion": "Red de cuerdas gruesas tensadas entre postes de madera, ondeando banderas rojas y doradas que ondean al viento, señalando la entrada al puerto."
+    },
+    {
+      "id": "decorado_muelle_piedra_01",
+      "nombre": "Muelle de piedra del astillero",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 4.0,
+      "alto": 2.0,
+      "descripcion": "Gran estructura de ladrillos y piedra caliza, con superficies erosionadas por el mar y bordes de madera gastada que sobresalen para amarrar embarcaciones."
+    },
+    {
+      "id": "decorado_barril_vino_01",
+      "nombre": "Barril de vino de la bodega del puerto",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 0.6,
+      "alto": 0.9,
+      "descripcion": "Cilón de roble oscuro con aros de hierro oxidados, tallado con símbolos de la Corona, parcialmente lleno de vino que refleja la luz del amanecer."
+    },
+    {
+      "id": "decorado_caja_madera_especias_01",
+      "nombre": "Caja de madera cargada de especias",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 2
+      },
+      "ancho": 0.8,
+      "alto": 0.6,
+      "descripcion": "Caja rectangular de pino reforzada con correas de cuero, sellada con cera y etiquetada en castellano, contiene sacos de pimienta, canela y clavo."
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Polvo bajo los pies susurra secretos...",
+      "guias": [
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Un anciano se cruza con oferta inesperada...",
+      "guias": [
+        "objeto_habichuelas_magicas",
+        "personaje_anciano",
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_habichuelas_magicas"
+        ],
+        "personajes": [
+          "personaje_anciano",
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Aceptas el trato, la vaca queda atrás...",
+      "guias": [
+        "objeto_habichuelas_magicas",
+        "personaje_juan",
+        "personaje_anciano"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_habichuelas_magicas"
+        ],
+        "personajes": [
+          "personaje_juan",
+          "personaje_anciano"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_juan",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "La mañana se estira, y el canto de los pájaros me acompaña mientras guío a la vaca."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Siento la brisa fresca y me pregunto qué sorpresas me esperarán en el pueblo."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué esperas encontrar allí?",
+                  "respuesta": "Espero que mi madre tenga pan y una sonrisa."
+                },
+                {
+                  "etiqueta": "¿Te preocupa dejar a la vaca?",
+                  "respuesta": "La vaca está bien, pero mi corazón late por la familia."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Un anciano de capa raída se cruza en mi camino, su mirada cargada de misterios."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Me ofrece cambiar la vaca por unas habichuelas que dice son mágicas."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Por qué debería confiar en esas habichuelas?",
+                  "respuesta": "Porque el brillo de la mañana me dice que el destino está escrito en ellas."
+                },
+                {
+                  "etiqueta": "¿Qué pasa si no funcionan?",
+                  "respuesta": "Entonces al menos habré intentado, y la aventura vale más que el miedo."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "¡Mira! Las habichuelas relucen como estrellas, y mi corazón se llena de esperanza."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_habichuelas_magicas",
+          "consume": false,
+          "puntos": [
+            {
+              "frases": [
+                "¡Mira estas habichuelas! Brillan como estrellas en la mañana."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué crees que harán?",
+                  "respuesta": "Dicen que pueden crecer árboles que toquen el cielo."
+                },
+                {
+                  "etiqueta": "¿Son seguras?",
+                  "respuesta": "No lo sé, pero mi corazón late con esperanza."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Observar",
+          "descripcion": "Miras el polvo levantado bajo tus pies, el viento susurra entre los arbustos secos.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_anciano",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Joven, la vida a veces se mide en cambios inesperados."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Estas habichuelas pueden crecer hasta tocar el cielo, si tu corazón es valiente."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo sé que son mágicas?",
+                  "respuesta": "Porque el viento susurra su nombre al pasar."
+                },
+                {
+                  "etiqueta": "¿Qué debo hacer con ellas?",
+                  "respuesta": "Plántalas en la tierra del pueblo y observa cómo el futuro se eleva."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Que la suerte te acompañe, niño valiente."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Ofrecer",
+          "descripcion": "El anciano extiende la mano, ofreciendo las brillantes habichuelas a cambio de la vaca.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 1,
+          "sonido": "magico",
+          "dispara": [
+            {
+              "id_nodo": "objeto_habichuelas_magicas",
+              "efecto": "brillo",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_habichuelas_magicas",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "Habichuelas mágicas",
+        "descripcion": "Pequeñas semillas luminescentes que laten con energía misteriosa."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_arbusto_seco_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un arbusto seco cruje bajo el viento, como susurrando recuerdos del pasado."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": true
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_sendero_entrada",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "El sendero estrecho se abre ante ti, flanqueado por colinas secas y el eco distante de un viejo establo."
+    }
+  ]
+}

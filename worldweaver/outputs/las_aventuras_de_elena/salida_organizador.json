@@ -1,0 +1,470 @@
+{
+  "titulo_historia": "Elena y Zip: El Faro del Fin del Mundo",
+  "escenas": [
+    {
+      "id": "escena_01",
+      "titulo": "Descubrimiento del mapa y la brújula",
+      "entorno": "Claro bajo un fresno centenario en el bosque de Miravel, suelo cubierto de hojarasca, tronco grueso con corteza marcada y raíces que emergen entre la vegetación.",
+      "atmosfera": "Mañana curiosa y silenciosa, Elena siente excitación mientras Zip muestra su curiosidad burlona.",
+      "cielo": "manana_despejada",
+      "tipo_ambiente": "bosque",
+      "tiene_intro": true,
+      "texto_intro": "En el corazón del bosque de Miravel, la luz filtrada entre los árboles revelaba un antiguo fresno. Elena, con su mochila gastada y cuaderno en mano, avanzaba junto a Zip, el zorro naranja de orejas enormes. El aire estaba cargado de la humedad de la tierra y el crujido de las hojas bajo sus pies.",
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_elena",
+          "nombre": "Elena",
+          "fisica": "Mujer joven, cabello castaño, mochila gastada, cuaderno de notas.",
+          "background": "Exploradora curiosa y determinada, busca misterios en la naturaleza, valiente y analítica.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_zip",
+          "nombre": "Zip",
+          "fisica": "Zorro naranja de orejas enormes y lengua larga.",
+          "background": "Compañero sarcástico y leal, curioso, aporta humor y agudeza a la expedición.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_mapa",
+          "nombre": "Mapa tallado",
+          "descripcion": "Mapa grabado en la corteza del fresno, muestra costas, rutas y un símbolo azul pulsante en el centro del mar.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_brujula",
+          "nombre": "Brújula de metal oscuro",
+          "descripcion": "Brújula de metal oscuro con aguja que apunta al sur, brilla tenuemente aunque no haya sol.",
+          "skin_id": "escena_01"
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Zip husmea el tronco del fresno y, con su voz ronca, anuncia que hay algo grabado.",
+          "personajes_involucrados": [
+            "personaje_zip"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Elena se acerca, descubre el mapa tallado y la brújula medio enterrada entre las raíces, y recoge la brújula con cuidado.",
+          "personajes_involucrados": [
+            "personaje_elena"
+          ],
+          "objetos_involucrados": [
+            "objeto_mapa",
+            "objeto_brujula"
+          ]
+        },
+        {
+          "descripcion": "Elena observa que la aguja de la brújula apunta al sur, hacia el mar, y decide seguir esa dirección sin dudar.",
+          "personajes_involucrados": [
+            "personaje_elena"
+          ],
+          "objetos_involucrados": [
+            "objeto_brujula"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_02",
+      "titulo": "El altar de la selva y el holograma del faro",
+      "entorno": "Claro profundo en la selva de Kael, árboles gigantes que bloquean la luz del cielo, lianas colgantes, suelo de raíces retorcidas y un altar de piedra cubierto de enredaderas.",
+      "atmosfera": "Tarde húmeda y misteriosa, el aire huele a tierra antigua mientras Zip lanza comentarios sarcásticos.",
+      "cielo": "manana_nublada",
+      "tipo_ambiente": "selva",
+      "tiene_intro": true,
+      "texto_intro": "Guiados por la brújula, Elena y Zip se adentraron en la selva de Kael, donde los troncos se alzaban como columnas vivas. El manto de lianas y raíces hacía que cada paso fuera un desafío silencioso.",
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_elena",
+          "nombre": "Elena",
+          "fisica": "Mujer joven, cabello castaño, mochila gastada, cuaderno de notas.",
+          "background": "Exploradora curiosa y determinada, busca misterios en la naturaleza, valiente y analítica.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_zip",
+          "nombre": "Zip",
+          "fisica": "Zorro naranja de orejas enormes y lengua larga.",
+          "background": "Compañero sarcástico y leal, curioso, aporta humor y agudeza a la expedición.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_altar",
+          "nombre": "Altar de piedra",
+          "descripcion": "Altar de piedra en el centro del claro, cubierto de enredaderas y runas grabadas que se iluminan al contacto con la brújula.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_brujula",
+          "nombre": "Brújula de metal oscuro",
+          "descripcion": "Brújula de metal oscuro con aguja que apunta al sur, brilla tenuemente aunque no haya sol.",
+          "skin_id": "escena_01"
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Elena coloca la brújula sobre la piedra central del altar; las enredaderas se retiran solas, las runas se iluminan y surge un holograma de un faro submarino con coordenadas.",
+          "personajes_involucrados": [
+            "personaje_elena"
+          ],
+          "objetos_involucrados": [
+            "objeto_brujula",
+            "objeto_altar"
+          ]
+        },
+        {
+          "descripcion": "El holograma muestra la silueta del faro bajo el agua; Elena lo reconoce como un faro submarino y Zip responde con sarcasmo.",
+          "personajes_involucrados": [
+            "personaje_elena",
+            "personaje_zip"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Deciden seguir las coordenadas reveladas por el holograma y emprenden el viaje hacia la costa.",
+          "personajes_involucrados": [
+            "personaje_elena",
+            "personaje_zip"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_03",
+      "titulo": "La playa gris y el barco Estrella Rota",
+      "entorno": "Playa de arena gris bajo un cielo nublado, mar agitado con olas rompiendo contra rocas, viejo barco de casco negro encallado en una pequeña bahía.",
+      "atmosfera": "Atardecer gris y ventoso, tensión mientras buscan equipo para la inmersión.",
+      "cielo": "atardecer",
+      "tipo_ambiente": "playa",
+      "tiene_intro": true,
+      "texto_intro": "Siguiendo las coordenadas, Elena y Zip llegaron a una playa de arena gris donde el mar rugía contra las rocas. En la distancia, el barco Estrella Rota se mecían lentamente en la bahía.",
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_elena",
+          "nombre": "Elena",
+          "fisica": "Mujer joven, cabello castaño, mochila gastada, cuaderno de notas.",
+          "background": "Exploradora curiosa y determinada, busca misterios en la naturaleza, valiente y analítica.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_zip",
+          "nombre": "Zip",
+          "fisica": "Zorro naranja de orejas enormes y lengua larga.",
+          "background": "Compañero sarcástico y leal, curioso, aporta humor y agudeza a la expedición.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_traje_buceo",
+          "nombre": "Traje de buceo antiguo",
+          "descripcion": "Traje de buceo colgado de un gancho en la bodega, rígido pero intacto, con aproximadamente treinta años de antigüedad.",
+          "skin_id": "escena_03"
+        },
+        {
+          "id": "objeto_submarino",
+          "nombre": "Submarino oxidado",
+          "descripcion": "Pequeño submarino oxidado conectado a una grúa, listo para descender al agua.",
+          "skin_id": "escena_03"
+        },
+        {
+          "id": "objeto_generador",
+          "nombre": "Generador oxidado",
+          "descripcion": "Generador en la proa del barco, cubierto de óxido y conectado a la grúa que sostiene el submarino.",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Elena anota las coordenadas en su cuaderno mientras estudia el barco y decide que necesitan equipo para la inmersión.",
+          "personajes_involucrados": [
+            "personaje_elena"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Encuentra el traje de buceo colgado de un gancho y lo recoge con dificultad.",
+          "personajes_involucrados": [
+            "personaje_elena"
+          ],
+          "objetos_involucrados": [
+            "objeto_traje_buceo"
+          ]
+        },
+        {
+          "descripcion": "Descubre el generador oxidado y el submarino, decide activarlos para poder descender al fondo marino.",
+          "personajes_involucrados": [
+            "personaje_elena"
+          ],
+          "objetos_involucrados": [
+            "objeto_generador",
+            "objeto_submarino"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_04",
+      "titulo": "Activación del generador y descenso del submarino",
+      "entorno": "Interior de la bodega del barco Estrella Rota, madera podrida, cajas volcadas, redes viejas, generador oxidado y un pequeño submarino amarrado a una grúa.",
+      "atmosfera": "Oscuridad interior con luces parpadeantes, ambiente claustrofóbico pero lleno de determinación.",
+      "cielo": "atardecer",
+      "tipo_ambiente": "barco",
+      "tiene_intro": true,
+      "texto_intro": "Dentro de la bodega del Estrella Rota, la luz tenue de una lámpara colgante apenas iluminaba los rincones cubiertos de polvo. Elena y Zip se preparaban para la inmersión bajo el crujido del barco.",
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_elena",
+          "nombre": "Elena",
+          "fisica": "Mujer joven, cabello castaño, mochila gastada, cuaderno de notas.",
+          "background": "Exploradora curiosa y determinada, busca misterios en la naturaleza, valiente y analítica.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_zip",
+          "nombre": "Zip",
+          "fisica": "Zorro naranja de orejas enormes y lengua larga.",
+          "background": "Compañero sarcástico y leal, curioso, aporta humor y agudeza a la expedición.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_traje_buceo",
+          "nombre": "Traje de buceo antiguo",
+          "descripcion": "Traje de buceo colgado de un gancho en la bodega, rígido pero intacto, con aproximadamente treinta años de antigüedad.",
+          "skin_id": "escena_03"
+        },
+        {
+          "id": "objeto_submarino",
+          "nombre": "Submarino oxidado",
+          "descripcion": "Pequeño submarino oxidado conectado a una grúa, listo para descender al agua.",
+          "skin_id": "escena_03"
+        },
+        {
+          "id": "objeto_generador",
+          "nombre": "Generador oxidado",
+          "descripcion": "Generador en la proa del barco, cubierto de óxido y conectado a la grúa que sostiene el submarino.",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Elena se coloca el traje de buceo con dificultad, ajustando las correas mientras Zip la observa sentado en una caja.",
+          "personajes_involucrados": [
+            "personaje_elena"
+          ],
+          "objetos_involucrados": [
+            "objeto_traje_buceo"
+          ]
+        },
+        {
+          "descripcion": "Activa el generador oxidado; el motor tosió, escupió humo negro y el submarino comenzó a descender lentamente hacia el agua.",
+          "personajes_involucrados": [
+            "personaje_elena"
+          ],
+          "objetos_involucrados": [
+            "objeto_generador",
+            "objeto_submarino"
+          ]
+        },
+        {
+          "descripcion": "Zip, tras observar el descenso, decide también meterse dentro del submarino y se acomoda en la cabina.",
+          "personajes_involucrados": [
+            "personaje_zip"
+          ],
+          "objetos_involucrados": [
+            "objeto_submarino"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_05",
+      "titulo": "Exploración del faro submarino y activación del cristal",
+      "entorno": "Profundidad bajo el agua frente al faro submarino, columnas de burbujas, bancos de peces plateados y una estructura de metal oscuro cubierta de coral y algas.",
+      "atmosfera": "Silencio profundo, luz azul tenue, sensación de asombro y urgencia mientras el cristal se activa.",
+      "cielo": "cielo_magico",
+      "tipo_ambiente": "bajo_el_agua",
+      "tiene_intro": true,
+      "texto_intro": "El submarino se deslizó entre columnas de burbujas, acercándose al enorme faro de metal oscuro que estaba cubierto de coral. Dentro, la luz azul del holograma guiaba su camino.",
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_elena",
+          "nombre": "Elena",
+          "fisica": "Mujer joven, cabello castaño, mochila gastada, cuaderno de notas.",
+          "background": "Exploradora curiosa y determinada, busca misterios en la naturaleza, valiente y analítica.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_zip",
+          "nombre": "Zip",
+          "fisica": "Zorro naranja de orejas enormes y lengua larga.",
+          "background": "Compañero sarcástico y leal, curioso, aporta humor y agudeza a la expedición.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_submarino",
+          "nombre": "Submarino oxidado",
+          "descripcion": "Pequeño submarino oxidado conectado a una grúa, listo para descender al agua.",
+          "skin_id": "escena_03"
+        },
+        {
+          "id": "objeto_cristal",
+          "nombre": "Cristal esférico",
+          "descripcion": "Cristal esférico opaco y agrietado del tamaño de una cabeza, núcleo de energía del faro, encajado en un pedestal de metal.",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Elena abandona el submarino y nada hasta la base del faro, mientras Zip la sigue observando desde la ventanilla.",
+          "personajes_involucrados": [
+            "personaje_elena",
+            "personaje_zip"
+          ],
+          "objetos_involucrados": [
+            "objeto_submarino"
+          ]
+        },
+        {
+          "descripcion": "Extrae el cristal del núcleo del faro y lo coloca en la ranura central de la cámara.",
+          "personajes_involucrados": [
+            "personaje_elena"
+          ],
+          "objetos_involucrados": [
+            "objeto_cristal"
+          ]
+        },
+        {
+          "descripcion": "El cristal comienza a brillar intensamente, una onda de luz azul‑blanca se expande y el faro vuelve a la vida, iluminando todo el fondo marino.",
+          "personajes_involucrados": [
+            "personaje_elena",
+            "personaje_zip"
+          ],
+          "objetos_involucrados": [
+            "objeto_cristal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_06",
+      "titulo": "Regreso al bosque y reflexión nocturna",
+      "entorno": "Bosque de Miravel al anochecer, roble centenario donde Elena se apoya, luz tenue del faro distante sobre el horizonte marino.",
+      "atmosfera": "Noche tranquila y reflexiva, sensación de cierre y paz mientras el faro sigue girando en la distancia.",
+      "cielo": "noche_estrellada",
+      "tipo_ambiente": "bosque",
+      "tiene_intro": true,
+      "texto_intro": "Con el faro ahora encendido, Elena y Zip regresaron al bosque de Miravel al caer la noche. El cielo estrellado se reflejaba en el agua distante mientras la luz azul del faro giraba lentamente.",
+      "texto_fin": "En el silencio del bosque, el faro lejano siguió girando, marcando el final de una aventura que había unido tierra y mar. Elena cerró su cuaderno, guardó la brújula y, junto a Zip, sintió que el mundo había cambiado, aunque la noche permanecía serena.",
+      "personajes": [
+        {
+          "id": "personaje_elena",
+          "nombre": "Elena",
+          "fisica": "Mujer joven, cabello castaño, mochila gastada, cuaderno de notas.",
+          "background": "Exploradora curiosa y determinada, busca misterios en la naturaleza, valiente y analítica.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_zip",
+          "nombre": "Zip",
+          "fisica": "Zorro naranja de orejas enormes y lengua larga.",
+          "background": "Compañero sarcástico y leal, curioso, aporta humor y agudeza a la expedición.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_brujula",
+          "nombre": "Brújula de metal oscuro",
+          "descripcion": "Brújula de metal oscuro con aguja que apunta al sur, brilla tenuemente aunque no haya sol.",
+          "skin_id": "escena_01"
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Elena guarda la brújula en el bolsillo, cierra el cuaderno y sonríe mientras contempla la luz del faro en la distancia.",
+          "personajes_involucrados": [
+            "personaje_elena"
+          ],
+          "objetos_involucrados": [
+            "objeto_brujula"
+          ]
+        },
+        {
+          "descripcion": "Zip, sin sarcasmo, comenta que la próxima vez elegirá él el destino, dejando entrever nuevas aventuras.",
+          "personajes_involucrados": [
+            "personaje_zip"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    }
+  ],
+  "personajes_globales": [
+    {
+      "id": "personaje_elena",
+      "nombre": "Elena",
+      "fisica": "Mujer joven, cabello castaño, mochila gastada, cuaderno de notas.",
+      "background": "Exploradora curiosa y determinada, busca misterios en la naturaleza, valiente y analítica.",
+      "rol": "protagonista",
+      "skin_id": null
+    },
+    {
+      "id": "personaje_zip",
+      "nombre": "Zip",
+      "fisica": "Zorro naranja de orejas enormes y lengua larga.",
+      "background": "Compañero sarcástico y leal, curioso, aporta humor y agudeza a la expedición.",
+      "rol": "secundario",
+      "skin_id": null
+    }
+  ],
+  "objetos_globales": [
+    {
+      "id": "objeto_brujula",
+      "nombre": "Brújula de metal oscuro",
+      "descripcion": "Brújula de metal oscuro con aguja que apunta al sur, brilla tenuemente aunque no haya sol.",
+      "skin_id": null
+    },
+    {
+      "id": "objeto_traje_buceo",
+      "nombre": "Traje de buceo antiguo",
+      "descripcion": "Traje de buceo colgado de un gancho en la bodega, rígido pero intacto, con aproximadamente treinta años de antigüedad.",
+      "skin_id": null
+    },
+    {
+      "id": "objeto_submarino",
+      "nombre": "Submarino oxidado",
+      "descripcion": "Pequeño submarino oxidado conectado a una grúa, listo para descender al agua.",
+      "skin_id": null
+    }
+  ]
+}

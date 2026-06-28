@@ -1,0 +1,173 @@
+{
+  "id_escena": "escena_03",
+  "elementos": [
+    {
+      "id": "personaje_elcano",
+      "nombre": "Juan Sebastián Elcano",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_03",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.8,
+      "descripcion": "Navegante español de 40 años, barba negra, chaleco de lino gris, mirada resuelta"
+    },
+    {
+      "id": "objeto_nao_victoria",
+      "nombre": "Nao Victoria",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_03",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 5.0,
+      "alto": 2.0,
+      "descripcion": "Única nave que completa la circunnavegación, cargada con especias para el regreso"
+    },
+    {
+      "id": "objeto_especias",
+      "nombre": "Especias",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_03",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 5
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "descripcion": "Productos de alto valor como clavo y nuez moscada obtenidos en Molucas"
+    },
+    {
+      "id": "objeto_clavo",
+      "nombre": "Clavo",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Especia aromática muy codiciada en Europa"
+    },
+    {
+      "id": "objeto_nuez_moscada",
+      "nombre": "Nuez moscada",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Especia valiosa utilizada en cocina y medicina"
+    },
+    {
+      "id": "objeto_tejidos",
+      "nombre": "Tejidos",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.6,
+      "alto": 0.5,
+      "descripcion": "Productos textiles europeos ofrecidos a los comerciantes locales"
+    },
+    {
+      "id": "objeto_herramientas_metalicas",
+      "nombre": "Herramientas metálicas",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 3
+      },
+      "ancho": 0.7,
+      "alto": 0.6,
+      "descripcion": "Objetos de hierro y acero ofrecidos como intercambio"
+    },
+    {
+      "id": "objeto_espejos",
+      "nombre": "Espejos",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 3
+      },
+      "ancho": 0.3,
+      "alto": 0.3,
+      "descripcion": "Objetos reflectantes de valor comercial en Asia"
+    },
+    {
+      "id": "decorado_puesto_madera_01",
+      "nombre": "Puesto de madera del mercado de especias",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 3
+      },
+      "ancho": 2.0,
+      "alto": 2.5,
+      "descripcion": "Estructura de bambú y tablas de pino, techo de hoja de palma, con una barra de madera desgastada donde se exhiben los productos."
+    },
+    {
+      "id": "decorado_farol_aceite_01",
+      "nombre": "Farol de aceite colgado en la entrada del mercado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 0.3,
+      "alto": 1.2,
+      "descripcion": "Lámpara de latón con vidrio esmerilado, soportada por una cadena de hierro forjado, emitiendo una luz cálida."
+    },
+    {
+      "id": "decorado_barril_ron_01",
+      "nombre": "Barril de ron del puerto",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 0.6,
+      "alto": 0.9,
+      "descripcion": "Cilón de madera de roble, con tonos oscuros y marcas de agua salada, sellado con una tapa de metal oxidado."
+    },
+    {
+      "id": "decorado_cesta_mimbre_01",
+      "nombre": "Cesta de mimbre para especias",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 0.8,
+      "alto": 0.6,
+      "descripcion": "Cesta redonda de mimbre trenzado, con una base de bambú, parcialmente llena de granos de pimienta y clavo."
+    }
+  ]
+}

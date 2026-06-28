@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_06",
+  "query_usada": "torch fire crackling ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/483/483692_7662631-hq.mp3",
+    "titulo": "torch ambience loop",
+    "autor": "LordStirling",
+    "duracion_segundos": 816.0,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/412/412793_5355194-hq.mp3",
+    "titulo": "Torch - Scrub 1.wav",
+    "autor": "myrararara",
+    "duracion_segundos": 45.6,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

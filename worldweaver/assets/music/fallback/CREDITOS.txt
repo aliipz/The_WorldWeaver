@@ -1,0 +1,20 @@
+Paisajes sonoros de fallback — todos Creative Commons 0 (CC0, dominio público).
+La atribución NO es obligatoria, pero se incluye por cortesía. Fuente: Freesound.org.
+Refrescar/re-descargar con: python scripts/descargar_musica_fallback.py
+
+bucket       archivo          fuente
+-----------  ---------------  --------------------------------------------------------------
+naturaleza   naturaleza.mp3   'Birds In Spring (Scotland)' — BurghRecords (Freesound id 463903)
+agua         agua.mp3         'Underwater Ambience' — Fission9 (Freesound id 504641)
+arido        arido.mp3        'Looping Gentle Wind Ambience on an Open Desert Plain' — dhallcomposer (id 697217)
+urbano       urbano.mp3       'Shopping Street Ambience' — florianreichelt (Freesound id 451734)
+cosmico      cosmico.mp3      'Wandering' — Andrewkn (Freesound id 455855)
+interior     interior.mp3     'Room Tone Ambience Medium Control Low Hum' — gchase (Freesound id 144046)
+
+Mapeo tipo_ambiente -> bucket en agents/musico.py (_BUCKET_POR_AMBIENTE):
+  naturaleza : naturaleza, bosque, selva, pradera, campo
+  agua       : playa, bajo_el_agua
+  arido      : desierto, sabana, montaña
+  urbano     : ciudad, pueblo, ruinas
+  cosmico    : espacio, superficie_planeta
+  interior   : interior, interior_grande, cueva, otro

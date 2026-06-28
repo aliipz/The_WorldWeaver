@@ -1,0 +1,2897 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldWeaver</title>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #13142a;
+            color: #e8e8f0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* ── Background particles ──────────────────────────────────────── */
+        #bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Screens ───────────────────────────────────────────────────── */
+        .screen {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 440px;
+            padding: 0 28px 56px;
+        }
+
+        .screen.off { display: none; }
+
+        .screen.fade-in { animation: fadeUp .7s ease both; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Logo ──────────────────────────────────────────────────────── */
+        .logo-wrap { display: flex; justify-content: center; }
+
+        /* ── Intro screen ───────────────────────────────────────────────── */
+        #globe-intro {
+            display: block;
+            width: 260px;
+            height: 260px;
+            margin-bottom: 18px;
+            animation: floatY 6s ease-in-out infinite;
+            cursor: grab;
+        }
+        #globe-intro:active { cursor: grabbing; }
+
+        .intro-spin-icon {
+            font-size: 1.5rem;
+            color: rgba(160, 185, 255, 0.50);
+            margin-bottom: 10px;
+            animation: swingHint 2.6s ease-in-out infinite;
+            user-select: none;
+        }
+        @keyframes swingHint {
+            0%, 100% { transform: rotate(-22deg); opacity: 0.35; }
+            50%       { transform: rotate( 22deg); opacity: 0.75; }
+        }
+
+        .intro-spin-hint {
+            font-size: 0.82rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(180, 200, 255, 0.45);
+            text-align: center;
+            user-select: none;
+        }
+
+        /* Ocultar controles no esenciales durante la intro */
+        body.intro #modo-toggle-wrap,
+        body.intro #mm-trigger { opacity: 0; pointer-events: none; transition: opacity .3s; }
+
+        #globe-upload {
+            display: block;
+            width: 220px;
+            height: 220px;
+            margin-bottom: 12px;
+            animation: floatY 5s ease-in-out infinite;
+            cursor: grab;
+        }
+        #globe-upload:active { cursor: grabbing; }
+
+        #s-upload { transform: translateY(60px); }
+
+        #globe-load {
+            display: block;
+            width: 130px;
+            height: 130px;
+            margin-bottom: 36px;
+            cursor: grab;
+        }
+        #globe-load:active { cursor: grabbing; }
+
+        @keyframes floatY {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-10px); }
+        }
+
+        /* ── Wordmark ──────────────────────────────────────────────────── */
+        .wordmark {
+            font-size: 24px;
+            font-weight: 200;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .tagline {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,.5);
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        /* ── Mode tabs ─────────────────────────────────────────────────── */
+        .mode-tabs {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            border-bottom: 1px solid transparent;
+            font-family: inherit;
+            font-size: 9px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.22);
+            cursor: pointer;
+            padding: 0 0 5px;
+            transition: color .2s, border-color .2s;
+        }
+
+        .tab-btn.active {
+            color: rgba(255,255,255,.70);
+            border-bottom-color: rgba(100,140,255,.45);
+        }
+
+        .tab-btn:hover:not(.active) { color: rgba(255,255,255,.44); }
+
+        .tab-sep {
+            font-size: 9px;
+            color: rgba(255,255,255,.10);
+            pointer-events: none;
+        }
+
+        /* ── Mode area: fixed height, both panels overlap ──────────────── */
+        #mode-area {
+            position: relative;
+            width: 100%;
+            height: 212px;
+            margin-bottom: 24px;
+        }
+
+        #file-mode,
+        #text-mode {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            transition: opacity .22s ease;
+        }
+
+        #file-mode.off,
+        #text-mode.off {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* ── Dropzone ──────────────────────────────────────────────────── */
+        #dropzone {
+            position: relative;
+            flex: 1;
+            border: 1px dashed rgba(255,255,255,.12);
+            border-radius: 14px;
+            padding: 0 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color .2s, background .2s;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #dropzone:hover,
+        #dropzone.over {
+            border-color: rgba(100,140,255,.45);
+            background: rgba(100,140,255,.04);
+        }
+
+        #dropzone input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        #dropzone .dz-icon {
+            font-size: 22px;
+            opacity: .3;
+            margin-bottom: 10px;
+        }
+
+        #dropzone .dz-main {
+            font-size: 13px;
+            color: rgba(255,255,255,.6);
+            margin-bottom: 4px;
+        }
+
+        #dropzone .dz-hint {
+            font-size: 12px;
+            color: rgba(255,255,255,.42);
+            letter-spacing: 1px;
+        }
+
+        /* ── File badge — always reserves space, shown via visibility ──── */
+        #file-badge {
+            height: 20px;
+            flex-shrink: 0;
+            visibility: hidden;
+            font-size: 12px;
+            color: rgba(255,255,255,.38);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        #file-badge.visible    { visibility: visible; }
+        #file-badge .f-name    { color: rgba(255,255,255,.72); }
+        #file-badge .f-arrow   { color: rgba(100,140,255,.55); }
+        #file-badge .f-world   { color: rgba(110,150,255,.85); }
+
+        /* ── Story textarea ────────────────────────────────────────────── */
+        #story-area {
+            flex: 1;
+            min-height: 0;
+            background: rgba(255,255,255,.025);
+            border: 1px solid rgba(255,255,255,.10);
+            border-radius: 14px;
+            padding: 16px 20px;
+            color: rgba(255,255,255,.78);
+            font-family: inherit;
+            font-size: 13px;
+            line-height: 1.7;
+            resize: none;
+            outline: none;
+            transition: border-color .25s;
+            margin-bottom: 10px;
+        }
+
+        #story-area::placeholder { color: rgba(255,255,255,.18); }
+        #story-area:focus        { border-color: rgba(100,140,255,.32); }
+
+        /* ── World name input ──────────────────────────────────────────── */
+        .name-field {
+            flex-shrink: 0;
+            height: 20px;
+        }
+
+        .name-field input {
+            width: 100%;
+            background: none;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,.10);
+            padding: 2px 2px;
+            color: rgba(255,255,255,.72);
+            font-family: inherit;
+            font-size: 12px;
+            letter-spacing: 2px;
+            outline: none;
+            transition: border-color .25s;
+        }
+
+        .name-field input::placeholder {
+            color: rgba(255,255,255,.18);
+            letter-spacing: 2px;
+        }
+
+        .name-field input:focus { border-bottom-color: rgba(100,140,255,.4); }
+
+        /* ── Primary button ────────────────────────────────────────────── */
+        .btn {
+            background: transparent;
+            border: 1px solid rgba(100,140,255,.35);
+            color: rgba(110,150,255,.85);
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding: 11px 38px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all .25s;
+        }
+
+        .btn:hover:not(:disabled) {
+            background: rgba(100,140,255,.07);
+            border-color: rgba(100,140,255,.7);
+            color: #fff;
+        }
+
+        .btn:disabled { opacity: .18; cursor: not-allowed; }
+
+        /* ── Step label ────────────────────────────────────────────────── */
+        #step-label {
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.65);
+            transition: opacity .4s ease;
+        }
+
+        #step-label.fade-out     { opacity: 0; }
+        #step-label.fade-in-step { opacity: 1; }
+
+        /* ── Loading tips ──────────────────────────────────────────────── */
+        #tip-label {
+            margin-top: 36px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            color: rgba(255,255,255,.32);
+            max-width: 340px;
+            text-align: center;
+            line-height: 1.7;
+            opacity: 0;
+            transition: opacity 1.1s ease;
+        }
+        #tip-label.tip-visible { opacity: 1; }
+
+        /* ── Progress bar ──────────────────────────────────────────────── */
+        #prog-track {
+            width: 210px;
+            height: 2px;
+            background: rgba(255,255,255,0.10);
+            border-radius: 2px;
+            margin-top: 22px;
+            overflow: hidden;
+        }
+        #prog-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, rgba(120,100,255,0.7), rgba(100,180,255,0.8));
+            border-radius: 2px;
+            transition: width 0.85s ease;
+        }
+
+        /* ── Done screen ───────────────────────────────────────────────── */
+        #done-label {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.35);
+            margin-bottom: 38px;
+        }
+
+        /* ── Orb ───────────────────────────────────────────────────────── */
+        .orb {
+            width: 154px;
+            height: 154px;
+            border-radius: 50%;
+            border: 1px solid rgba(100,140,255,.3);
+            background: radial-gradient(
+                circle at 38% 36%,
+                rgba(120,158,255,.13) 0%,
+                rgba(60,80,200,.07)  55%,
+                rgba(8,8,26,.7)     100%
+            );
+            color: rgba(255,255,255,.8);
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            line-height: 1.7;
+            cursor: pointer;
+            transition: all .3s ease;
+            box-shadow:
+                0 0 22px rgba(80,120,255,.18),
+                0 0 65px rgba(80,120,255,.07),
+                inset 0 0 28px rgba(100,140,255,.05);
+            animation: orbFloat 4s ease-in-out infinite, orbGlow 3.2s ease-in-out infinite;
+        }
+
+        .orb:hover {
+            transform: scale(1.06);
+            border-color: rgba(100,140,255,.65);
+            color: #fff;
+            box-shadow:
+                0 0 34px rgba(80,120,255,.45),
+                0 0 90px rgba(80,120,255,.18),
+                inset 0 0 38px rgba(100,140,255,.1);
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-9px); }
+        }
+
+        @keyframes orbGlow {
+            0%, 100% {
+                box-shadow:
+                    0 0 22px rgba(80,120,255,.18),
+                    0 0 65px rgba(80,120,255,.07),
+                    inset 0 0 28px rgba(100,140,255,.05);
+            }
+            50% {
+                box-shadow:
+                    0 0 38px rgba(80,120,255,.38),
+                    0 0 95px rgba(80,120,255,.15),
+                    inset 0 0 40px rgba(100,140,255,.1);
+            }
+        }
+
+        .orb:hover { animation: none; }
+
+        /* ── Mis mundos — trigger ──────────────────────────────────────── */
+        #mm-trigger {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(100vw, 480px);
+            padding: 12px 28px 20px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+            background: linear-gradient(to top, rgba(19,20,42,.96) 60%, transparent);
+            color: rgba(255,255,255,.5);
+            font-family: inherit;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            transition: color .25s;
+            z-index: 10;
+        }
+        #mm-trigger:hover { color: rgba(255,255,255,.85); }
+
+        .mm-caret {
+            display: inline-block;
+            width: 0; height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 5px solid currentColor;
+        }
+
+        /* ── Mis mundos — panel ───────────────────────────────────────── */
+        #mm-panel {
+            position: fixed;
+            inset: 0;
+            background: #13142a;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            transform: translateY(100%);
+            transition: transform .5s cubic-bezier(.22,.68,0,1.1);
+        }
+        #mm-panel.open { transform: translateY(0); }
+
+        .mm-panel-head {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 36px 36px 22px;
+            border-bottom: 1px solid rgba(255,255,255,.05);
+            flex-shrink: 0;
+        }
+        #mm-close {
+            background: transparent;
+            border: none;
+            font-family: inherit;
+            font-size: 10px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.25);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color .2s;
+            padding: 0;
+        }
+        #mm-close:hover { color: rgba(255,255,255,.6); }
+        .mm-caret-down {
+            display: inline-block;
+            width: 0; height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid currentColor;
+        }
+
+        .mm-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0 24px 48px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,.08) transparent;
+        }
+        .mm-scroll::-webkit-scrollbar { width: 4px; }
+        .mm-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,.1);
+            border-radius: 2px;
+        }
+
+        #mm-shelves { max-width: 500px; margin: 0 auto; }
+
+        .mm-shelf {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0 10px;
+            padding: 20px 0 0;
+            position: relative;
+        }
+        .mm-shelf + .mm-shelf::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                rgba(255,255,255,.08) 20%,
+                rgba(255,255,255,.08) 80%,
+                transparent
+            );
+        }
+
+        .mm-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 6px 22px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .mm-btn-del {
+            position: absolute;
+            top: 6px; right: 4px;
+            width: 17px; height: 17px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.55);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.45);
+            font-size: 12px; line-height: 1;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0;
+            transition: opacity 0.18s, background 0.18s, color 0.18s;
+            cursor: pointer; z-index: 2;
+            padding: 0;
+        }
+        .mm-card:hover .mm-btn-del { opacity: 1; }
+        .mm-btn-del:hover { background: rgba(200,50,50,0.75); color: #fff; border-color: rgba(255,80,80,0.35); }
+
+        .mm-confirm {
+            position: absolute; inset: 0;
+            background: rgba(0,0,0,0.84);
+            border-radius: 10px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 9px; z-index: 5; padding: 8px;
+        }
+        .mm-confirm p {
+            color: rgba(255,255,255,0.70); font-size: 8.5px;
+            letter-spacing: 1.2px; text-transform: uppercase;
+            text-align: center; margin: 0; line-height: 1.7;
+        }
+        .mm-confirm-btns { display: flex; gap: 6px; }
+        .mm-confirm-btn {
+            padding: 4px 11px; border-radius: 5px;
+            font-size: 8.5px; letter-spacing: 1px; text-transform: uppercase;
+            cursor: pointer; border: 1px solid; font-family: inherit;
+        }
+        .mm-confirm-btn.si  { background: rgba(180,40,40,0.75); border-color: rgba(255,80,80,0.3); color: #fff; }
+        .mm-confirm-btn.no  { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.14); color: rgba(255,255,255,0.5); }
+
+        /* El wrap (88px) lleva el glow circular y la flotación. */
+        .mm-orb-wrap {
+            position: relative;
+            width: 88px; height: 88px;
+            border-radius: 50%;
+            animation: orbFloat 4s ease-in-out infinite;
+            transition: transform .3s;
+            flex-shrink: 0;
+        }
+        .mm-card:hover .mm-orb-wrap { transform: scale(1.08); }
+        /* El canvas es más grande que el orbe y NO se recorta: el birrete puede
+           asomar por encima de la silueta del planeta. */
+        .mm-orb {
+            position: absolute;
+            left: 50%; top: 50%;
+            width: 124px; height: 124px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            display: block;
+        }
+
+        .mm-nombre {
+            font-size: 8px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.25);
+            max-width: 80px;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            transition: color .2s;
+        }
+        .mm-card:hover .mm-nombre { color: rgba(255,255,255,.7); }
+
+        /* Distintivo de mundo creado en modo educativo (naranja) */
+        .mm-edu {
+            position: absolute;
+            top: 7px; left: 5px;
+            padding: 2px 6px 1px;
+            border-radius: 6px;
+            background: rgba(255,140,30,0.16);
+            border: 1px solid rgba(255,150,40,0.55);
+            color: #ffae5c;
+            font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase;
+            line-height: 1; z-index: 2; pointer-events: none;
+        }
+        .mm-card.edu .mm-nombre        { color: rgba(255,160,70,.45); }
+        .mm-card.edu:hover .mm-nombre  { color: rgba(255,175,90,.85); }
+
+        /* ── Modo toggle ────────────────────────────────────────────────── */
+        #modo-toggle-wrap {
+            position: fixed;
+            top: 22px;
+            left: 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 7px;
+            z-index: 30;
+        }
+
+        .modo-toggle {
+            position: relative;
+            width: 38px;
+            height: 22px;
+            cursor: pointer;
+        }
+
+        .modo-toggle input { display: none; }
+
+        .toggle-track {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 11px;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.10);
+            transition: background .3s, border-color .3s;
+        }
+
+        .toggle-thumb {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.35);
+            transition: transform .28s cubic-bezier(.4,0,.2,1), background .3s;
+        }
+
+        .modo-toggle input:checked ~ .toggle-track {
+            background: rgba(255,130,40,.22);
+            border-color: rgba(255,130,40,.4);
+        }
+
+        .modo-toggle input:checked ~ .toggle-track .toggle-thumb {
+            transform: translateX(16px);
+            background: rgba(255,150,60,.9);
+        }
+
+        #modo-label {
+            font-size: 8.5px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.5);
+            transition: color .3s;
+            white-space: nowrap;
+        }
+
+        body.edu #modo-label { color: rgba(255,160,70,.8); }
+        body.loading #modo-toggle-wrap { opacity: 0; pointer-events: none; transition: opacity .3s; }
+
+        /* ── Selector de idioma (ES / EN) ──────────────────────────────────── */
+        #lang-toggle-wrap {
+            position: fixed;
+            top: 22px;
+            right: 22px;
+            display: flex;
+            gap: 4px;
+            z-index: 30;
+        }
+        .lang-btn {
+            font-size: 10px;
+            letter-spacing: 2px;
+            padding: 5px 9px;
+            border-radius: 8px;
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.2);
+            color: rgba(255,255,255,.62);
+            cursor: pointer;
+            transition: background .25s, border-color .25s, color .25s;
+        }
+        .lang-btn.active {
+            background: rgba(255,255,255,.12);
+            border-color: rgba(255,255,255,.25);
+            color: rgba(255,255,255,.8);
+        }
+        body.loading #lang-toggle-wrap { opacity: 0; pointer-events: none; transition: opacity .3s; }
+
+        /* ── Edu mode — colour overrides ────────────────────────────────── */
+        body.edu .tab-btn.active {
+            border-bottom-color: rgba(255,130,40,.5);
+        }
+        body.edu .btn {
+            border-color: rgba(255,130,40,.35);
+            color: rgba(255,155,70,.85);
+        }
+        body.edu .btn:hover:not(:disabled) {
+            background: rgba(255,130,40,.07);
+            border-color: rgba(255,130,40,.7);
+            color: #fff;
+        }
+        body.edu #dropzone:hover,
+        body.edu #dropzone.over {
+            border-color: rgba(255,130,40,.45);
+            background: rgba(255,130,40,.04);
+        }
+        body.edu #story-area:focus { border-color: rgba(255,130,40,.32); }
+        body.edu .name-field input:focus { border-bottom-color: rgba(255,130,40,.4); }
+        body.edu #file-badge .f-arrow { color: rgba(255,130,40,.6); }
+        body.edu #file-badge .f-world { color: rgba(255,160,80,.85); }
+        body.edu .orb {
+            border-color: rgba(255,130,40,.3);
+            box-shadow:
+                0 0 22px rgba(255,120,30,.18),
+                0 0 65px rgba(255,120,30,.07),
+                inset 0 0 28px rgba(255,130,40,.05);
+            animation: orbFloat 4s ease-in-out infinite, orbGlowEdu 3.2s ease-in-out infinite;
+        }
+        body.edu .orb:hover {
+            border-color: rgba(255,130,40,.65);
+            box-shadow:
+                0 0 34px rgba(255,120,30,.45),
+                0 0 90px rgba(255,120,30,.18),
+                inset 0 0 38px rgba(255,130,40,.1);
+        }
+        body.edu { background: #3d2a0a; }
+        body.edu #mm-panel { background: #3d2a0a; }
+        body.edu #mm-trigger {
+            background: linear-gradient(to top, rgba(61,42,10,.96) 60%, transparent);
+        }
+        body.edu .mm-panel-head { border-bottom-color: rgba(255,130,40,.08); }
+
+        @keyframes orbGlowEdu {
+            0%, 100% {
+                box-shadow:
+                    0 0 22px rgba(255,120,30,.18),
+                    0 0 65px rgba(255,120,30,.07),
+                    inset 0 0 28px rgba(255,130,40,.05);
+            }
+            50% {
+                box-shadow:
+                    0 0 38px rgba(255,120,30,.38),
+                    0 0 95px rgba(255,120,30,.15),
+                    inset 0 0 40px rgba(255,130,40,.1);
+            }
+        }
+
+        /* ── Info button ──────────────────────────────────────────────── */
+        #info-btn {
+            position: fixed;
+            bottom: 16px;
+            right: 8px;
+            z-index: 10;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,.14);
+            background: rgba(255,255,255,.04);
+            color: rgba(255,255,255,.28);
+            font-size: 13px;
+            font-style: italic;
+            font-family: Georgia, serif;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color .2s, color .2s, background .2s, opacity .2s;
+        }
+        #info-btn:hover {
+            border-color: rgba(100,140,255,.45);
+            color: rgba(255,255,255,.65);
+            background: rgba(100,140,255,.08);
+        }
+        body.edu #info-btn:hover {
+            border-color: rgba(255,130,40,.45);
+            color: rgba(255,255,255,.65);
+            background: rgba(255,130,40,.08);
+        }
+        #info-btn.hidden { opacity: 0; pointer-events: none; }
+        #info-btn.glow {
+            border-color: rgba(100,140,255,.6);
+            color: rgba(180,200,255,.9);
+            animation: infoPulse 2s ease-in-out infinite;
+        }
+        body.edu #info-btn.glow {
+            border-color: rgba(255,130,40,.6);
+            color: rgba(255,200,140,.9);
+            animation: infoPulseEdu 2s ease-in-out infinite;
+        }
+        @keyframes infoPulse {
+            0%, 100% { box-shadow: 0 0 6px rgba(100,140,255,.3), 0 0 14px rgba(100,140,255,.15); }
+            50%       { box-shadow: 0 0 12px rgba(100,140,255,.6), 0 0 28px rgba(100,140,255,.3); }
+        }
+        @keyframes infoPulseEdu {
+            0%, 100% { box-shadow: 0 0 6px rgba(255,130,40,.3), 0 0 14px rgba(255,130,40,.15); }
+            50%       { box-shadow: 0 0 12px rgba(255,130,40,.6), 0 0 28px rgba(255,130,40,.3); }
+        }
+
+        /* ── Info modal ───────────────────────────────────────────────── */
+        #info-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,8,.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            padding: 20px;
+            overflow-y: auto;
+            transition: opacity .25s ease;
+        }
+        #info-overlay.off {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #info-card {
+            position: relative;
+            background: rgba(6,8,20,.96);
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 20px;
+            padding: 38px 42px 80px;
+            max-width: 1000px;
+            width: 100%;
+            box-shadow: 0 32px 80px rgba(0,0,0,.7);
+        }
+        #info-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,.2);
+            font-size: 22px;
+            cursor: pointer;
+            line-height: 1;
+            transition: color .2s;
+        }
+        #info-close:hover { color: rgba(255,255,255,.55); }
+        .info-tag {
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(100,140,255,.6);
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        .info-intro {
+            font-size: 14px;
+            color: rgba(255,255,255,.42);
+            line-height: 1.7;
+            margin-bottom: 30px;
+            max-width: 100%;
+        }
+
+        /* ── Pipeline ─────────────────────────────────────────────────── */
+        .pipeline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 22px 2px 8px;
+        }
+        .pipe-arr {
+            color: rgba(255,255,255,.1);
+            font-size: 14px;
+            flex-shrink: 0;
+            user-select: none;
+        }
+        .pipe-doc {
+            flex-shrink: 0;
+            width: 36px;
+            padding: 9px 6px;
+            border: 1px solid rgba(255,255,255,.09);
+            border-radius: 8px;
+            background: rgba(255,255,255,.025);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-self: center;
+        }
+        .doc-line {
+            height: 2px;
+            border-radius: 1px;
+            background: rgba(255,255,255,.14);
+        }
+        .doc-line.s { width: 55%; }
+        .doc-line.m { width: 72%; }
+        .pipe-orb {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, rgba(120,150,255,.28), rgba(20,40,160,.1));
+            border: 1px solid rgba(100,140,255,.2);
+            box-shadow: 0 0 18px rgba(80,120,255,.18);
+            align-self: center;
+        }
+
+        /* ── Agent cards ──────────────────────────────────────────────── */
+        .agent {
+            position: relative;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 10px 9px;
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 14px;
+            background: rgba(255,255,255,.02);
+            cursor: default;
+            transition: border-color .2s, background .2s, transform .2s;
+            min-width: 84px;
+        }
+        .agent:hover {
+            border-color: rgba(100,140,255,.32);
+            background: rgba(100,140,255,.06);
+            transform: translateY(-3px);
+            z-index: 400;
+        }
+        .agent-img-wrap {
+            position: relative;
+            width: 62px;
+            height: 62px;
+            flex-shrink: 0;
+        }
+        .agent-img-wrap img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: opacity .22s ease;
+        }
+        .agent-img-wrap .img-hover { opacity: 0; }
+        .agent:hover .agent-img-wrap .img-hover { opacity: 1; }
+        .agent:hover .agent-img-wrap .img-default { opacity: 0; }
+        .agent-name {
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.3);
+            white-space: nowrap;
+            transition: color .2s;
+        }
+        .agent:hover .agent-name { color: rgba(180,200,255,.6); }
+
+        /* Tooltip */
+        .agent-tip {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(5,8,24,.98);
+            border: 1px solid rgba(100,140,255,.16);
+            border-radius: 9px;
+            padding: 9px 13px;
+            width: 168px;
+            font-size: 11.5px;
+            color: rgba(255,255,255,.58);
+            line-height: 1.55;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity .18s ease;
+            white-space: normal;
+            text-align: center;
+            box-shadow: 0 8px 28px rgba(0,0,0,.6);
+            z-index: 500;
+        }
+        .agent-tip::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-bottom-color: rgba(100,140,255,.16);
+        }
+        .agent:hover .agent-tip { opacity: 1; }
+
+        /* Edu extra agent row */
+        .info-edu-row {
+            display: none;
+            align-items: center;
+            gap: 16px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,.05);
+        }
+        /* El Examinador (modo educativo) se ve en modo educativo y SIEMPRE durante el
+           tutorial (aunque sea modo narrativo). En narrativo normal queda oculto. */
+        body.edu .info-edu-row,
+        body.tut-activo .info-edu-row { display: flex; }
+        .info-edu-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,130,40,.45);
+            white-space: nowrap;
+        }
+        .agent.agent-edu:hover {
+            border-color: rgba(255,130,40,.32);
+            background: rgba(255,130,40,.06);
+        }
+        .agent.agent-edu:hover .agent-name { color: rgba(255,200,140,.65); }
+        .agent.agent-edu .agent-tip { border-color: rgba(255,130,40,.16); }
+        .agent.agent-edu .agent-tip::after { border-top-color: rgba(255,130,40,.16); }
+        .edu-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,.3);
+            line-height: 1.6;
+            max-width: 480px;
+        }
+
+        /* Edu color overrides */
+        body.edu .info-tag { color: rgba(255,130,40,.5); }
+        body.edu .agent:not(.agent-edu):hover {
+            border-color: rgba(255,130,40,.28);
+            background: rgba(255,130,40,.05);
+        }
+        body.edu .agent:not(.agent-edu):hover .agent-name { color: rgba(255,200,140,.6); }
+        body.edu .agent:not(.agent-edu) .agent-tip { border-color: rgba(255,130,40,.14); }
+        body.edu .agent:not(.agent-edu) .agent-tip::after { border-top-color: rgba(255,130,40,.14); }
+
+        /* ── Info panels carousel ──────────────────────────────────────── */
+        #info-panels-wrap {
+            position: relative;
+        }
+        #info-panels-wrap.animating { overflow: hidden; }
+        .info-panel { width: 100%; }
+        .info-panel.off { display: none; }
+        @keyframes slideInR  { from { transform:translateX( 100%) } to { transform:translateX(0) } }
+        @keyframes slideOutL { from { transform:translateX(0)      } to { transform:translateX(-100%) } }
+        @keyframes slideInL  { from { transform:translateX(-100%)  } to { transform:translateX(0) } }
+        @keyframes slideOutR { from { transform:translateX(0)      } to { transform:translateX( 100%) } }
+        .anim-in-r  { animation: slideInR  .4s ease both; }
+        .anim-out-l { animation: slideOutL .4s ease both; }
+        .anim-in-l  { animation: slideInL  .4s ease both; }
+        .anim-out-r { animation: slideOutR .4s ease both; }
+
+        /* Modo blocks (panel 0) */
+        .info-modes {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 6px;
+        }
+        .info-mode-block {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 16px 18px;
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 12px;
+            background: rgba(255,255,255,.02);
+        }
+        .info-mode-icon {
+            font-size: 19px;
+            color: rgba(100,140,255,.5);
+            flex-shrink: 0;
+            width: 24px;
+            text-align: center;
+            margin-top: 2px;
+        }
+        .info-mode-title {
+            font-size: 11px;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            color: rgba(180,200,255,.6);
+            margin-bottom: 6px;
+        }
+        .info-mode-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,.36);
+            line-height: 1.65;
+            margin: 0;
+        }
+        body.edu .info-mode-icon { color: rgba(255,140,60,.5); }
+        body.edu .info-mode-title { color: rgba(255,200,140,.55); }
+
+        /* Nav arrow */
+        #info-nav-arrow {
+            position: absolute;
+            right: -17px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            background: rgba(6,8,20,.98);
+            border: 1px solid rgba(100,140,255,.22);
+            color: rgba(120,160,255,.7);
+            font-size: 17px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: border-color .2s, color .2s;
+            z-index: 10;
+            box-shadow: 0 4px 14px rgba(0,0,0,.45);
+            line-height: 1;
+        }
+        #info-nav-arrow:hover {
+            border-color: rgba(100,140,255,.55);
+            color: rgba(160,190,255,.9);
+        }
+        body.edu #info-nav-arrow { border-color: rgba(255,140,60,.2); color: rgba(255,160,80,.65); }
+        body.edu #info-nav-arrow:hover { border-color: rgba(255,140,60,.5); color: rgba(255,190,120,.85); }
+
+        /* ── Tutorial de bienvenida (overlay a pantalla completa) ──────────── */
+        #tut-root {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: none;
+        }
+        #tut-root.on { display: block; }
+        #tut-dims { pointer-events: none; }
+        /* Paneles oscuros = pantalla menos los huecos iluminados (uno o varios focos) */
+        .tut-dim {
+            position: fixed;
+            background: rgba(8,9,20,.82);
+            pointer-events: none;
+            transition: top .45s cubic-bezier(.4,0,.2,1), left .45s cubic-bezier(.4,0,.2,1),
+                        width .45s cubic-bezier(.4,0,.2,1), height .45s cubic-bezier(.4,0,.2,1);
+        }
+        body.edu .tut-dim { background: rgba(20,11,3,.84); }
+        /* En pasos interactivos la zona oscura es clicable (avanza); la tarjeta del hueco
+           queda libre para los hovers y controles reales */
+        #tut-root.tut-interactive .tut-dim { pointer-events: auto; cursor: pointer; }
+        /* Anillos que se deslizan fijándose en cada parte */
+        .tut-ring {
+            position: fixed;
+            border-radius: 14px;
+            border: 2px solid rgba(180,205,255,.95);
+            box-shadow: 0 0 0 3px rgba(100,140,255,.28),
+                        0 0 28px rgba(100,140,255,.6),
+                        0 0 72px rgba(100,140,255,.32);
+            pointer-events: none;
+            transition: left .45s cubic-bezier(.4,0,.2,1), top .45s cubic-bezier(.4,0,.2,1),
+                        width .45s cubic-bezier(.4,0,.2,1), height .45s cubic-bezier(.4,0,.2,1),
+                        opacity .3s;
+            animation: tutPulse 1.9s ease-in-out infinite;
+        }
+        @keyframes tutPulse {
+            0%, 100% { border-color: rgba(180,205,255,.95); }
+            50%      { border-color: rgba(120,160,255,.55); }
+        }
+        body.edu .tut-ring {
+            border-color: rgba(255,180,100,.95);
+            box-shadow: 0 0 0 3px rgba(255,140,40,.28),
+                        0 0 28px rgba(255,140,40,.6),
+                        0 0 72px rgba(255,140,40,.32);
+            animation: tutPulseEdu 1.9s ease-in-out infinite;
+        }
+        @keyframes tutPulseEdu {
+            0%, 100% { border-color: rgba(255,180,100,.95); }
+            50%      { border-color: rgba(255,150,60,.55); }
+        }
+        .tut-ring.hidden { opacity: 0; }
+        /* "TUTORIAL" fijo arriba */
+        #tut-header {
+            position: fixed;
+            top: 26px; left: 0; right: 0;
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 7px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.5);
+            pointer-events: none;
+        }
+        body.edu #tut-header { color: rgba(255,175,95,.65); }
+        /* Texto del paso — suelto sobre el overlay, sin caja */
+        .tut-caption {
+            position: fixed;
+            width: min(360px, calc(100vw - 40px));
+            text-align: center;
+            font-size: 17px;
+            line-height: 1.5;
+            font-weight: 300;
+            color: #fff;
+            text-shadow: 0 2px 16px rgba(0,0,0,.95), 0 1px 4px rgba(0,0,0,.9);
+            pointer-events: none;
+            transition: left .45s cubic-bezier(.4,0,.2,1), top .45s cubic-bezier(.4,0,.2,1), opacity .3s;
+        }
+        .tut-caption.hidden { opacity: 0; }
+        /* Botón "Saltar" fijo abajo a la izquierda (único sitio sin botones de la UI) */
+        #tut-skip {
+            position: fixed;
+            bottom: 26px; left: 26px;
+            pointer-events: auto;
+            cursor: pointer;
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.2);
+            color: rgba(255,255,255,.62);
+            font-family: inherit;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 9px 22px;
+            border-radius: 11px;
+            transition: background .2s, border-color .2s, color .2s;
+            z-index: 2;
+        }
+        #tut-skip:hover {
+            background: rgba(255,255,255,.12);
+            border-color: rgba(255,255,255,.35);
+            color: rgba(255,255,255,.9);
+        }
+        body.edu #tut-skip:hover { border-color: rgba(255,160,70,.4); }
+
+        #tut-fin-btn {
+            display: none;
+            position: fixed;
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+            flex-direction: column; align-items: center; gap: 4px;
+            pointer-events: auto; cursor: pointer;
+            z-index: 2;
+            transition: filter .25s;
+        }
+        #tut-fin-btn:hover { filter: brightness(1.18) drop-shadow(0 0 18px rgba(160,130,255,.55)); }
+        #tut-fin-btn .tut-planet-label {
+            font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+            color: rgba(255,255,255,.22); text-align: center;
+        }
+        #tut-fin-btn .tut-planet-sub {
+            font-size: 11px; letter-spacing: 0.5px;
+            color: rgba(190,165,255,.75); text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+<button id="info-btn" class="glow">i</button>
+
+<div id="modo-toggle-wrap">
+    <label class="modo-toggle" for="modo-switch">
+        <input type="checkbox" id="modo-switch">
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+    </label>
+    <span id="modo-label">Narrativo</span>
+</div>
+
+<div id="lang-toggle-wrap">
+    <button class="lang-btn" data-lang="es">ES</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+</div>
+
+<!-- ─────────────────────────────────────────── Mis mundos: trigger + panel -->
+<button id="mm-trigger">
+    Mis mundos <span class="mm-caret"></span>
+</button>
+
+<div id="mm-panel">
+    <div class="mm-panel-head">
+        <button id="mm-close">Mis mundos <span class="mm-caret-down"></span></button>
+    </div>
+    <div class="mm-scroll">
+        <div id="mm-shelves"></div>
+    </div>
+</div>
+
+<!-- ──────────────────────────────────────────────────── Screen 0: Intro -->
+<div class="screen fade-in" id="s-intro">
+    <div class="logo-wrap">
+        <canvas id="globe-intro"></canvas>
+    </div>
+    <div class="intro-spin-icon">↻</div>
+    <div class="intro-spin-hint" id="intro-spin-hint">Gira el globo para comenzar</div>
+</div>
+
+
+<!-- ──────────────────────────────────────────────────── Screen 1: Upload -->
+<div class="screen off" id="s-upload">
+
+    <div class="logo-wrap">
+        <canvas id="globe-upload"></canvas>
+    </div>
+
+    <div class="wordmark">WorldWeaver</div>
+    <div class="tagline">Convierte historias en mundos</div>
+
+    <div class="mode-tabs">
+        <button class="tab-btn active" id="tab-archivo">Archivo</button>
+        <span class="tab-sep">·</span>
+        <button class="tab-btn" id="tab-texto">Texto</button>
+    </div>
+
+    <!-- Contenedor de altura fija: ambos modos se superponen dentro -->
+    <div id="mode-area">
+
+        <div id="file-mode">
+            <div id="dropzone">
+                <input type="file" id="file-input" accept=".txt,.pdf">
+                <div class="dz-icon">◎</div>
+                <div class="dz-main">Arrastra tu texto aquí</div>
+                <div class="dz-hint">o haz clic para seleccionar &nbsp;·&nbsp; .txt &nbsp;·&nbsp; .pdf</div>
+            </div>
+            <div id="file-badge">
+                <span class="f-name" id="f-name"></span>
+                <span class="f-arrow">→</span>
+                <span class="f-world" id="f-world"></span>
+            </div>
+        </div>
+
+        <div id="text-mode" class="off">
+            <textarea id="story-area" placeholder="Escribe o pega tu historia aquí..."></textarea>
+            <div class="name-field">
+                <input type="text" id="world-name-input" placeholder="Nombre del mundo" maxlength="48">
+            </div>
+        </div>
+
+    </div>
+
+    <button class="btn" id="btn-crear" disabled>Crear mundo</button>
+</div>
+
+
+<!-- ───────────────────────────────────────────────────── Screen 2: Loading -->
+<div class="screen off" id="s-load">
+    <div class="logo-wrap">
+        <canvas id="globe-load"></canvas>
+    </div>
+    <div id="step-label"></div>
+    <div id="prog-track"><div id="prog-fill"></div></div>
+    <div id="tip-label"></div>
+</div>
+
+
+<!-- ──────────────────────────────────────────────────────── Screen 3: Done -->
+<div class="screen off" id="s-done">
+    <div id="done-label">Tu mundo está listo</div>
+    <button class="orb" id="btn-entrar">Comenzar<br>la historia</button>
+</div>
+
+<!-- ── Pantalla: servicio externo de modelos 3D caído ──────────────────────── -->
+<div class="screen off" id="s-servicio-caido"
+     style="flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px;padding:0 32px;">
+    <svg viewBox="0 0 24 24" width="118" height="118" fill="none" stroke="#5b7fb4"
+         stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.92;">
+        <path d="M17.5 19a4.5 4.5 0 0 0 .9-8.94A6 6 0 0 0 6.6 8.2 4.5 4.5 0 0 0 6 17"/>
+        <line x1="3" y1="3" x2="21" y2="21"/>
+    </svg>
+    <div id="caido-title" style="font-size:25px;font-weight:700;color:#cdd9ee;letter-spacing:.3px;">
+        Servicio externo no disponible</div>
+    <div id="caido-msg" style="max-width:500px;color:#9aa8c4;line-height:1.55;font-size:15px;">
+        El servicio externo de búsqueda de modelos 3D (poly.pizza) no responde ahora mismo.
+        No es un problema de WorldWeaver.</div>
+    <div id="caido-retry" style="color:#7d8aa6;font-size:13.5px;">Vuelve a intentarlo en unos minutos.</div>
+    <button id="btn-inicio"
+            style="margin-top:10px;padding:12px 30px;border-radius:24px;border:1px solid #3a4a6a;
+                   background:#1a2740;color:#cdd9ee;cursor:pointer;font-size:15px;transition:background .2s;"
+            onmouseover="this.style.background='#243456'" onmouseout="this.style.background='#1a2740'">
+        Volver al inicio</button>
+</div>
+
+
+<!-- ── Info modal ───────────────────────────────────────────────────────────── -->
+<div id="info-overlay" class="off">
+    <div id="info-card">
+        <button id="info-close">×</button>
+        <button id="info-nav-arrow">›</button>
+
+        <div id="info-panels-wrap">
+
+            <!-- Panel 0: Qué es WorldWeaver (carta de arriba) -->
+            <div class="info-panel" id="info-panel-0">
+                <div class="info-tag" id="info-tag-0">¿Qué es WorldWeaver?</div>
+                <p class="info-intro" id="info-intro-0">Convierte textos narrativos en mundos 3D inmersivos que puedes explorar en primera persona: personajes con los que hablar, objetos con los que interactuar y escenas que cobran vida.</p>
+                <div class="info-modes">
+                    <div class="info-mode-block">
+                        <div class="info-mode-icon">✦</div>
+                        <div>
+                            <div class="info-mode-title" id="info-mode-narr-title">Modo narrativo</div>
+                            <p class="info-mode-desc" id="info-mode-narr-desc">Explora la historia en un mundo 3D inmersivo, interactuando con personajes y objetos y avanzando por la trama.</p>
+                        </div>
+                    </div>
+                    <div class="info-mode-block">
+                        <div class="info-mode-icon">◎</div>
+                        <div>
+                            <div class="info-mode-title" id="info-mode-edu-title">Modo educativo</div>
+                            <p class="info-mode-desc" id="info-mode-edu-desc">Transforma un texto en un entorno educativo interactivo, ideal para estudiar una obra o sumergirte en un capítulo de historia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel 1: Cómo funciona WorldWeaver (carta de abajo) -->
+            <div class="info-panel off" id="info-panel-1">
+                <div class="info-tag" id="info-tag-1">¿Cómo funciona WorldWeaver?</div>
+                <p class="info-intro" id="info-intro-1">Seis agentes de inteligencia artificial leen tu historia, diseñan las escenas, construyen el espacio 3D, lo pueblan de interacciones y lo ensamblan en un mundo que puedes explorar en primera persona.</p>
+
+                <div class="pipeline">
+                    <div class="pipe-doc" title="Tu texto narrativo">
+                        <div class="doc-line"></div>
+                        <div class="doc-line s"></div>
+                        <div class="doc-line"></div>
+                        <div class="doc-line m"></div>
+                        <div class="doc-line s"></div>
+                    </div>
+                    <div class="pipe-arr">→</div>
+                    <div class="agent">
+                        <div class="agent-img-wrap"><img class="img-default" src="/sandbox/assets/agents/organizador.png" alt=""><img class="img-hover" src="/sandbox/assets/agents/organizador2.png" alt="" style="transform:scale(1.18) translate(2px, -6px);"></div>
+                        <span class="agent-name">Organizador</span>
+                        <div class="agent-tip">Lee el texto y extrae las escenas, personajes, objetos y eventos narrativos</div>
+                    </div>
+                    <div class="pipe-arr">→</div>
+                    <div class="agent">
+                        <div class="agent-img-wrap"><img class="img-default" src="/sandbox/assets/agents/director.png" alt=""><img class="img-hover" src="/sandbox/assets/agents/director2.png" alt=""></div>
+                        <span class="agent-name">Director</span>
+                        <div class="agent-tip">Diseña la composición visual de cada escena, situando a los objetos, personajes y decorados</div>
+                    </div>
+                    <div class="pipe-arr">→</div>
+                    <div class="agent">
+                        <div class="agent-img-wrap"><img class="img-default" src="/sandbox/assets/agents/constructor.png" alt=""><img class="img-hover" src="/sandbox/assets/agents/constructor2.png" alt="" style="transform:translate(3px, 0);"></div>
+                        <span class="agent-name">Constructor</span>
+                        <div class="agent-tip">Busca modelos 3D para cada elemento de la escena y construye el fondo, el suelo y el cielo</div>
+                    </div>
+                    <div class="pipe-arr">→</div>
+                    <div class="agent">
+                        <div class="agent-img-wrap"><img class="img-default" src="/sandbox/assets/agents/programador.png" alt=""><img class="img-hover" src="/sandbox/assets/agents/programador2.png" alt="" style="transform:translate(-3px, 0);"></div>
+                        <span class="agent-name">Programador</span>
+                        <div class="agent-tip">Crea el sistema de interacciones, diálogos y zonas narrativas</div>
+                    </div>
+                    <div class="pipe-arr">→</div>
+                    <div class="agent">
+                        <div class="agent-img-wrap"><img class="img-default" src="/sandbox/assets/agents/musico.png" alt=""><img class="img-hover" src="/sandbox/assets/agents/musico2.png" alt="" style="transform:scale(1.15) translate(-5px, 0);"></div>
+                        <span class="agent-name">Músico</span>
+                        <div class="agent-tip">Selecciona la música ambiental para cada escena</div>
+                    </div>
+                    <div class="pipe-arr">→</div>
+                    <div class="agent">
+                        <div class="agent-img-wrap"><img class="img-default" src="/sandbox/assets/agents/ensamblador.png" alt=""><img class="img-hover" src="/sandbox/assets/agents/ensamblador2.png" alt=""></div>
+                        <span class="agent-name">Ensamblador</span>
+                        <div class="agent-tip">Compila todos los outputs en un HTML 3D navegable e independiente</div>
+                    </div>
+                    <div class="pipe-arr">→</div>
+                    <div class="pipe-orb"></div>
+                </div>
+
+                <!-- Modo educativo: Examinador -->
+                <div class="info-edu-row">
+                    <span class="info-edu-label">Modo educativo</span>
+                    <div class="agent agent-edu">
+                        <div class="agent-img-wrap"><img class="img-default" src="/sandbox/assets/agents/examinador.png" alt=""><img class="img-hover" src="/sandbox/assets/agents/examinador2.png" alt="" style="transform:translate(3px, 0);"></div>
+                        <span class="agent-name">Examinador</span>
+                        <div class="agent-tip">Genera preguntas de comprensión y actividades basadas en la historia y el mundo creado</div>
+                    </div>
+                    <p class="edu-desc">En modo educativo, el Examinador analiza la narrativa y propone actividades de comprensión lectora adaptadas al mundo generado.</p>
+                </div>
+            </div>
+
+        </div><!-- /info-panels-wrap -->
+    </div>
+</div>
+
+
+<script>
+// ── Background particles ────────────────────────────────────────────────────
+(function () {
+    const cv  = document.getElementById('bg');
+    const ctx = cv.getContext('2d');
+    const pts = [];
+
+    function resize() { cv.width = window.innerWidth; cv.height = window.innerHeight; }
+
+    function init() {
+        resize();
+        pts.length = 0;
+        for (let i = 0; i < 55; i++) {
+            pts.push({
+                x:  Math.random() * cv.width,
+                y:  Math.random() * cv.height,
+                r:  Math.random() * 1.1 + 0.2,
+                vx: (Math.random() - .5) * .12,
+                vy: (Math.random() - .5) * .12,
+                a:  Math.random() * .45 + .08,
+            });
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, cv.width, cv.height);
+        for (const p of pts) {
+            p.x = (p.x + p.vx + cv.width)  % cv.width;
+            p.y = (p.y + p.vy + cv.height) % cv.height;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = document.body.classList.contains('edu')
+                ? `rgba(255,130,40,${p.a})`
+                : `rgba(100,140,255,${p.a})`;
+            ctx.fill();
+        }
+        requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', init);
+    init();
+    draw();
+})();
+
+// ── i18n: idioma de la interfaz Y de generación del mundo ───────────────────
+const I18N = {
+  es: {
+    intro_spin: "Gira el globo para comenzar",
+    tagline: "Convierte historias en mundos",
+    tab_archivo: "Archivo", tab_texto: "Texto",
+    dz_main: "Arrastra tu texto aquí",
+    dz_hint: "o haz clic para seleccionar &nbsp;·&nbsp; .txt &nbsp;·&nbsp; .pdf",
+    ph_story: "Escribe o pega tu historia aquí...",
+    ph_name: "Nombre del mundo",
+    btn_crear: "Crear mundo",
+    welcome_done: "¡Que tengas una buena estancia en WorldWeaver! 🌍",
+    done_label: "Tu mundo está listo",
+    btn_entrar: "Comenzar<br>la historia",
+    mm_mundos: "Mis mundos",
+    modo_narrativo: "Narrativo", modo_educativo: "Educativo",
+    world_prefix: "mundo: ",
+    info_tag_what: "¿Qué es WorldWeaver?",
+    info_intro_what: "Convierte textos narrativos en mundos 3D inmersivos que puedes explorar en primera persona: personajes con los que hablar, objetos con los que interactuar y escenas que cobran vida.",
+    info_mode_narr_title: "Modo narrativo",
+    info_mode_narr_desc: "Explora la historia en un mundo 3D inmersivo, interactuando con personajes y objetos y avanzando por la trama.",
+    info_mode_edu_title: "Modo educativo",
+    info_mode_edu_desc: "Transforma un texto en un entorno educativo interactivo, ideal para estudiar una obra o sumergirte en un capítulo de historia.",
+    info_tag: "¿Cómo funciona WorldWeaver?",
+    info_intro: "Seis agentes de inteligencia artificial leen tu historia, diseñan las escenas, construyen el espacio 3D, lo pueblan de interacciones y lo ensamblan en un mundo que puedes explorar en primera persona.",
+    info_edu_label: "Modo educativo",
+    edu_desc: "En modo educativo, el Examinador analiza la narrativa y propone actividades de comprensión lectora adaptadas al mundo generado.",
+    agent_names: ["Organizador","Director","Constructor","Programador","Músico","Ensamblador","Examinador"],
+    agent_tips: [
+      "Lee el texto y extrae las escenas, personajes, objetos y eventos narrativos",
+      "Diseña la composición visual de cada escena, situando a los objetos, personajes y decorados",
+      "Busca modelos 3D para cada elemento de la escena y construye el fondo, el suelo y el cielo",
+      "Crea el sistema de interacciones, diálogos y zonas narrativas",
+      "Selecciona la música ambiental para cada escena",
+      "Compila todos los outputs en un HTML 3D navegable e independiente",
+      "Genera preguntas de comprensión y actividades basadas en la historia y el mundo creado",
+    ],
+    tips: [
+      "Muévete con WASD o las flechas del teclado. Arrastra el ratón para mirar alrededor.",
+      "Acércate a personajes y objetos — aparecerán teclas de acción para interactuar con ellos.",
+      "Algunos personajes tienen más cosas que decir. Vuelve a hablar con ellos más adelante.",
+      "Completa las piezas clave de cada escena para abrir el portal a la siguiente.",
+      "Cada mundo está lleno de detalles. Tómate tu tiempo para explorar.",
+      "Pulsa ESC en cualquier momento para salir del modo inmersivo.",
+    ],
+    err_connect: "Error al conectar con el servidor.",
+    err_server:  "Algo salió mal. Revisa la consola del servidor.",
+    err_lost:    "Conexión perdida con el servidor.",
+    caido_title: "Servicio externo no disponible",
+    caido_msg:   "El servicio externo de búsqueda de modelos 3D (poly.pizza) no responde ahora mismo. No es un problema de WorldWeaver.",
+    caido_retry: "Vuelve a intentarlo en unos minutos.",
+    caido_btn:   "Volver al inicio",
+  },
+  en: {
+    intro_spin: "Spin the globe to begin",
+    tagline: "Turn stories into worlds",
+    tab_archivo: "File", tab_texto: "Text",
+    dz_main: "Drag your text here",
+    dz_hint: "or click to choose &nbsp;·&nbsp; .txt &nbsp;·&nbsp; .pdf",
+    ph_story: "Write or paste your story here...",
+    ph_name: "World name",
+    btn_crear: "Create world",
+    welcome_done: "Enjoy your stay in WorldWeaver! 🌍",
+    done_label: "Your world is ready",
+    btn_entrar: "Begin<br>the story",
+    mm_mundos: "My worlds",
+    modo_narrativo: "Narrative", modo_educativo: "Educational",
+    world_prefix: "world: ",
+    info_tag_what: "What is WorldWeaver?",
+    info_intro_what: "Turns narrative texts into immersive 3D worlds you can explore in first person: characters to talk to, objects to interact with and scenes that come to life.",
+    info_mode_narr_title: "Narrative mode",
+    info_mode_narr_desc: "Explore the story in an immersive 3D world, interacting with characters and objects and progressing through the plot.",
+    info_mode_edu_title: "Educational mode",
+    info_mode_edu_desc: "Turns any text into an interactive educational environment — perfect for studying a literary work or diving into a chapter of history.",
+    info_tag: "How does WorldWeaver work?",
+    info_intro: "Six artificial-intelligence agents read your story, design the scenes, build the 3D space, fill it with interactions and assemble it into a world you can explore in first person.",
+    info_edu_label: "Educational mode",
+    edu_desc: "In educational mode, the Examiner analyzes the narrative and proposes reading-comprehension activities tailored to the generated world.",
+    agent_names: ["Organizer","Director","Constructor","Programmer","Musician","Assembler","Examiner"],
+    agent_tips: [
+      "Reads the text and extracts the scenes, characters, objects and narrative events",
+      "Designs the visual composition of each scene, placing objects, characters and props",
+      "Searches for 3D models for each scene element and builds the background, ground and sky",
+      "Creates the system of interactions, dialogues and narrative zones",
+      "Selects the ambient music for each scene",
+      "Compiles all outputs into a standalone, navigable 3D HTML",
+      "Generates comprehension questions and activities based on the story and the created world",
+    ],
+    tips: [
+      "Move with WASD or the arrow keys. Drag the mouse to look around.",
+      "Approach characters and objects — action keys will appear to interact with them.",
+      "Some characters have more to say. Come back and talk to them later.",
+      "Complete the key pieces of each scene to open the portal to the next one.",
+      "Every world is full of details. Take your time to explore.",
+      "Press ESC at any time to exit immersive mode.",
+    ],
+    err_connect: "Could not connect to the server.",
+    err_server:  "Something went wrong. Check the server console.",
+    err_lost:    "Connection to the server was lost.",
+    caido_title: "External service unavailable",
+    caido_msg:   "The external 3D model search service (poly.pizza) is not responding right now. This is not a WorldWeaver problem.",
+    caido_retry: "Please try again in a few minutes.",
+    caido_btn:   "Back to start",
+  },
+};
+
+let idiomaActual = localStorage.getItem('ww_idioma') || 'es';
+
+// ── Modo educativo / narrativo ──────────────────────────────────────────────
+let modoActual = 'narrativo';
+const modoSwitch = document.getElementById('modo-switch');
+const modoLabel  = document.getElementById('modo-label');
+
+function _modoLabelText() {
+    const T = I18N[idiomaActual];
+    return modoSwitch.checked ? T.modo_educativo : T.modo_narrativo;
+}
+
+modoSwitch.addEventListener('change', () => {
+    modoActual = modoSwitch.checked ? 'educativo' : 'narrativo';
+    document.body.classList.toggle('edu', modoSwitch.checked);
+    modoLabel.textContent = _modoLabelText();
+});
+
+function aplicarIdioma(lang) {
+    idiomaActual = lang;
+    localStorage.setItem('ww_idioma', lang);
+    document.documentElement.lang = lang;
+    const T = I18N[lang];
+    const set  = (sel, val) => { const el = document.querySelector(sel); if (el) el.textContent = val; };
+    const setH = (sel, val) => { const el = document.querySelector(sel); if (el) el.innerHTML  = val; };
+    set('#intro-spin-hint', T.intro_spin);
+    set('.tagline', T.tagline);
+    set('#tab-archivo', T.tab_archivo);
+    set('#tab-texto', T.tab_texto);
+    set('.dz-main', T.dz_main);
+    setH('.dz-hint', T.dz_hint);
+    set('#btn-crear', T.btn_crear);
+    set('#done-label', T.done_label);
+    setH('#btn-entrar', T.btn_entrar);
+    set('#info-tag-0',           T.info_tag_what);
+    set('#info-intro-0',         T.info_intro_what);
+    set('#info-mode-narr-title', T.info_mode_narr_title);
+    set('#info-mode-narr-desc',  T.info_mode_narr_desc);
+    set('#info-mode-edu-title',  T.info_mode_edu_title);
+    set('#info-mode-edu-desc',   T.info_mode_edu_desc);
+    set('#info-tag-1',           T.info_tag);
+    set('#info-intro-1',         T.info_intro);
+    set('.info-edu-label', T.info_edu_label);
+    set('.edu-desc', T.edu_desc);
+    const story = document.getElementById('story-area');       if (story) story.placeholder = T.ph_story;
+    const wname = document.getElementById('world-name-input'); if (wname) wname.placeholder = T.ph_name;
+    setH('#mm-trigger', T.mm_mundos + ' <span class="mm-caret"></span>');
+    setH('#mm-close',   T.mm_mundos + ' <span class="mm-caret-down"></span>');
+    document.querySelectorAll('.agent-name').forEach((el, i) => { if (T.agent_names[i]) el.textContent = T.agent_names[i]; });
+    document.querySelectorAll('.agent-tip').forEach((el, i)  => { if (T.agent_tips[i])  el.textContent = T.agent_tips[i];  });
+    modoLabel.textContent = _modoLabelText();
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => aplicarIdioma(btn.dataset.lang));
+});
+aplicarIdioma(idiomaActual);
+
+// ── Mode tabs ───────────────────────────────────────────────────────────────
+let activeMode = 'archivo';
+const tabArchivo  = document.getElementById('tab-archivo');
+const tabTexto    = document.getElementById('tab-texto');
+const fileMode    = document.getElementById('file-mode');
+const textMode    = document.getElementById('text-mode');
+
+tabArchivo.addEventListener('click', () => {
+    activeMode = 'archivo';
+    tabArchivo.classList.add('active');
+    tabTexto.classList.remove('active');
+    fileMode.classList.remove('off');
+    textMode.classList.add('off');
+    updateBtn();
+});
+
+tabTexto.addEventListener('click', () => {
+    activeMode = 'texto';
+    tabTexto.classList.add('active');
+    tabArchivo.classList.remove('active');
+    fileMode.classList.add('off');
+    textMode.classList.remove('off');
+    updateBtn();
+});
+
+// ── File handling ───────────────────────────────────────────────────────────
+const fileInput  = document.getElementById('file-input');
+const dropzone   = document.getElementById('dropzone');
+const fileBadge  = document.getElementById('file-badge');
+const fName      = document.getElementById('f-name');
+const fWorld     = document.getElementById('f-world');
+const btnCrear   = document.getElementById('btn-crear');
+let   worldName  = '';
+let   selectedFile = null;
+
+function onFile(file) {
+    if (!file || !/\.(txt|pdf)$/i.test(file.name)) return;
+    selectedFile       = file;
+    worldName          = file.name.replace(/\.(txt|pdf)$/i, '').toLowerCase().replace(/[\s\-]+/g, '_');
+    fName.textContent  = file.name;
+    fWorld.textContent = I18N[idiomaActual].world_prefix + worldName;
+    fileBadge.classList.add('visible');
+    updateBtn();
+}
+
+fileInput.addEventListener('change', e => onFile(e.target.files[0]));
+dropzone.addEventListener('dragover',  e => { e.preventDefault(); dropzone.classList.add('over'); });
+dropzone.addEventListener('dragleave', ()  => dropzone.classList.remove('over'));
+dropzone.addEventListener('drop', e => {
+    e.preventDefault();
+    dropzone.classList.remove('over');
+    onFile(e.dataTransfer.files[0]);
+});
+
+// ── Text mode validation ────────────────────────────────────────────────────
+const storyArea      = document.getElementById('story-area');
+const worldNameInput = document.getElementById('world-name-input');
+
+storyArea.addEventListener('input', updateBtn);
+worldNameInput.addEventListener('input', updateBtn);
+worldNameInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !btnCrear.disabled) btnCrear.click();
+});
+
+function updateBtn() {
+    if (activeMode === 'archivo') {
+        btnCrear.disabled = !worldName;
+    } else {
+        const hasText = storyArea.value.trim().length > 10;
+        const hasName = worldNameInput.value.trim().length > 0;
+        btnCrear.disabled = !(hasText && hasName);
+    }
+}
+
+// ── Música de fondo ──────────────────────────────────────────────────────────
+// assets/music/intro.mp3  → landing + pantalla de carga/generación
+// assets/music/quizz.mp3  → quiz educativo (llamar _MUS.quiz() cuando esté listo)
+const _MUS = (() => {
+    const _tracks = {};
+    let _current = null, _fadeTimer = null;
+
+    function _get(name) {
+        if (!_tracks[name]) {
+            const a = new Audio(`/assets/music/${name}.mp3`);
+            a.loop = true; a.volume = 0;
+            _tracks[name] = a;
+        }
+        return _tracks[name];
+    }
+
+    function _fadeTo(audio, target, ms) {
+        if (_fadeTimer) clearInterval(_fadeTimer);
+        const steps = 40, interval = ms / steps;
+        const delta = (target - audio.volume) / steps;
+        let i = 0;
+        _fadeTimer = setInterval(() => {
+            audio.volume = Math.max(0, Math.min(1, audio.volume + delta));
+            if (++i >= steps) { audio.volume = target; clearInterval(_fadeTimer); _fadeTimer = null; }
+        }, interval);
+    }
+
+    function _play(name) {
+        if (_current === name) return;
+        if (_current && _current !== name) {
+            const prev = _get(_current);
+            _fadeTo(prev, 0, 1200);
+            setTimeout(() => { prev.pause(); prev.currentTime = 0; }, 1300);
+        }
+        _current = name;
+        const a = _get(name);
+        a.volume = 0;
+        a.play().catch(() => {});
+        setTimeout(() => _fadeTo(a, 0.38, 2000), 50);
+    }
+
+    return {
+        landing() { _play('intro'); },
+        load()    { _play('intro'); },   // misma pista durante la generación
+        quiz()    { _play('quizz'); },   // para el quiz educativo (futuro)
+        stop()    {
+            if (!_current) return;
+            const a = _get(_current);
+            _fadeTo(a, 0, 1000);
+            setTimeout(() => { a.pause(); a.currentTime = 0; }, 1100);
+            _current = null;
+        }
+    };
+})();
+
+// Si viene del fin de historia (o de completar el tutorial), ir directo a la
+// pantalla de creación. Al volver del tutorial se muestra además un saludo de
+// bienvenida ("que tengas una buena estancia").
+const _qsEntrada = new URLSearchParams(location.search);
+if (_qsEntrada.has('tutorial_done')) {
+    show('s-upload');
+    _mostrarBienvenida();
+} else if (_qsEntrada.has('upload')) {
+    show('s-upload');
+} else {
+    document.body.classList.add('intro');
+}
+
+// Banner transitorio de bienvenida tras completar el tutorial.
+function _mostrarBienvenida() {
+    const el = document.createElement('div');
+    el.id = 'ww-welcome-toast';
+    el.textContent = (I18N[idiomaActual] || I18N.es).welcome_done;
+    el.style.cssText = 'position:fixed;top:26px;left:50%;transform:translateX(-50%) translateY(-12px);'
+        + 'z-index:9000;max-width:90vw;padding:14px 26px;border-radius:16px;'
+        + 'background:rgba(20,16,38,0.92);border:1px solid rgba(140,110,255,0.45);'
+        + 'color:#eadcff;font-size:15px;font-weight:600;text-align:center;'
+        + 'box-shadow:0 16px 48px rgba(0,0,0,0.5);opacity:0;'
+        + 'transition:opacity .6s ease, transform .6s ease;pointer-events:none;';
+    document.body.appendChild(el);
+    requestAnimationFrame(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(-50%) translateY(0)';
+    });
+    setTimeout(() => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateX(-50%) translateY(-12px)';
+        setTimeout(() => el.remove(), 700);
+    }, 6000);
+}
+
+
+// ── Screen helpers ──────────────────────────────────────────────────────────
+function show(id) {
+    ['s-intro', 's-upload', 's-load', 's-done', 's-servicio-caido'].forEach(sid => {
+        const el = document.getElementById(sid);
+        if (!el) return;
+        el.classList.toggle('off', sid !== id);
+        if (sid === id) {
+            el.classList.remove('fade-in');
+            void el.offsetWidth;
+            el.classList.add('fade-in');
+        }
+    });
+    document.body.classList.toggle('intro',   id === 's-intro');
+    document.body.classList.toggle('loading', id === 's-load');
+    document.getElementById('info-btn').classList.toggle('hidden', id === 's-done');
+    if (id === 's-load') _MUS.load();
+    else if (id === 's-upload') _MUS.landing();
+    else if (id === 's-done') _MUS.stop();
+}
+
+// ── Step display ────────────────────────────────────────────────────────────
+const stepLabel = document.getElementById('step-label');
+
+function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function setStep(text) {
+    stepLabel.classList.add('fade-out');
+    await delay(380);
+    stepLabel.textContent = text;
+    stepLabel.classList.remove('fade-out');
+}
+
+// ── Loading tips ─────────────────────────────────────────────────────────────
+// Los tips de carga viven en I18N[idiomaActual].tips (cambian con el idioma)
+
+const tipLabel  = document.getElementById('tip-label');
+const progFill  = document.getElementById('prog-fill');
+let _tipTimer = null;
+let _tipIdx = 0;
+let _stepsReceived = 0;
+
+function _setProgress(pct) { progFill.style.width = pct + '%'; }
+
+function _startTips() {
+    _tipIdx = Math.floor(Math.random() * I18N[idiomaActual].tips.length);
+    _tipTimer = setTimeout(function _nextTip() {
+        tipLabel.classList.remove('tip-visible');
+        setTimeout(() => {
+            const _t = I18N[idiomaActual].tips;
+            tipLabel.textContent = _t[_tipIdx % _t.length];
+            _tipIdx++;
+            tipLabel.classList.add('tip-visible');
+            _tipTimer = setTimeout(_nextTip, 7000);
+        }, 1200);
+    }, 3000);
+}
+
+function _stopTips() {
+    clearTimeout(_tipTimer);
+    _tipTimer = null;
+    tipLabel.classList.remove('tip-visible');
+    tipLabel.textContent = '';
+}
+
+// ── Info modal ──────────────────────────────────────────────────────────────
+const infoBtn     = document.getElementById('info-btn');
+const infoOverlay = document.getElementById('info-overlay');
+const infoClose   = document.getElementById('info-close');
+const infoNavArrow = document.getElementById('info-nav-arrow');
+
+// ── Info card carousel (efecto baraja) ─────────────────────────────────────
+let _infoCardIdx   = 0;
+let _infoAnimating = false;
+const _INFO_ANIM   = 400;
+
+function _updateInfoNav() {
+    infoNavArrow.textContent = _infoCardIdx === 0 ? '›' : '‹';
+}
+
+function _goInfoCard(toIdx) {
+    if (toIdx === _infoCardIdx || _infoAnimating) return;
+    _infoAnimating = true;
+    const forward = toIdx > _infoCardIdx;
+    const outEl = document.getElementById(`info-panel-${_infoCardIdx}`);
+    const inEl  = document.getElementById(`info-panel-${toIdx}`);
+    const wrap  = document.getElementById('info-panels-wrap');
+    wrap.style.height = wrap.offsetHeight + 'px';
+    wrap.classList.add('animating');
+    const abs = 'position:absolute;top:0;left:0;width:100%;';
+    outEl.style.cssText = abs;
+    inEl.classList.remove('off');
+    inEl.style.cssText = abs;
+    void inEl.offsetWidth;
+    outEl.classList.add(forward ? 'anim-out-l' : 'anim-out-r');
+    inEl.classList.add(forward ? 'anim-in-r' : 'anim-in-l');
+    _infoCardIdx = toIdx;
+    _updateInfoNav();
+    setTimeout(() => {
+        outEl.classList.remove('anim-out-l', 'anim-out-r');
+        outEl.style.cssText = ''; outEl.classList.add('off');
+        inEl.classList.remove('anim-in-r', 'anim-in-l');
+        inEl.style.cssText = '';
+        wrap.style.height = '';
+        wrap.classList.remove('animating');
+        _infoAnimating = false;
+    }, _INFO_ANIM + 30);
+}
+
+infoNavArrow.addEventListener('click', () => _goInfoCard(_infoCardIdx === 0 ? 1 : 0));
+
+let _infoPanelsEqualized = false;
+function _equalizeInfoPanels() {
+    const p0 = document.getElementById('info-panel-0');
+    const p1 = document.getElementById('info-panel-1');
+    const wrap = document.getElementById('info-panels-wrap');
+    p1.style.cssText = 'position:absolute;visibility:hidden;';
+    p1.classList.remove('off');
+    const h = Math.max(p0.offsetHeight, p1.offsetHeight);
+    p1.classList.add('off');
+    p1.style.cssText = '';
+    wrap.style.minHeight = h + 'px';
+}
+
+infoBtn.addEventListener('click', () => {
+    infoBtn.classList.remove('glow');
+    infoOverlay.classList.remove('off');
+    if (!_infoPanelsEqualized) { _equalizeInfoPanels(); _infoPanelsEqualized = true; }
+    if (_infoCardIdx !== 0) {
+        document.getElementById(`info-panel-${_infoCardIdx}`).classList.add('off');
+        document.getElementById('info-panel-0').classList.remove('off');
+        _infoCardIdx = 0;
+        _updateInfoNav();
+    }
+});
+infoClose.addEventListener('click', () => infoOverlay.classList.add('off'));
+infoOverlay.addEventListener('click', e => { if (e.target === infoOverlay) infoOverlay.classList.add('off'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') infoOverlay.classList.add('off'); });
+
+// ── Launch ──────────────────────────────────────────────────────────────────
+btnCrear.addEventListener('click', async () => {
+    show('s-load');
+    _stepsReceived = 0;
+    _setProgress(0);
+    _startTips();
+
+    let job_id;
+    try {
+        if (activeMode === 'archivo') {
+            const file = fileInput.files[0] || selectedFile;
+            if (!file) return;
+            const form = new FormData();
+            form.append('file', file);
+            form.append('modo', modoActual);
+            form.append('idioma', idiomaActual);
+            const res  = await fetch('/crear', { method: 'POST', body: form });
+            const data = await res.json();
+            job_id    = data.job_id;
+            worldName = data.world;
+        } else {
+            const texto  = storyArea.value.trim();
+            const nombre = worldNameInput.value.trim();
+            const res  = await fetch('/crear-texto', {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body:    JSON.stringify({ texto, nombre, modo: modoActual, idioma: idiomaActual }),
+            });
+            const data = await res.json();
+            job_id    = data.job_id;
+            worldName = data.world;
+        }
+    } catch (err) {
+        setStep(I18N[idiomaActual].err_connect);
+        return;
+    }
+
+    const sse = new EventSource(`/progreso/${job_id}`);
+
+    sse.onmessage = async (e) => {
+        const msg = JSON.parse(e.data);
+        if (msg.type === 'step') {
+            setStep(msg.label);
+            _stepsReceived++;
+            _setProgress(Math.min(_stepsReceived / 7 * 100, 90));
+        } else if (msg.type === 'done') {
+            sse.close();
+            _stopTips();
+            _setProgress(100);
+            stepLabel.classList.add('fade-out');
+            await delay(500);
+            show('s-done');
+        } else if (msg.type === 'error') {
+            sse.close();
+            _stopTips();
+            if (msg.code === 'servicio_modelos_caido') {
+                // Servicio externo de modelos 3D caído → pantalla dedicada (no es culpa nuestra)
+                const T = I18N[idiomaActual];
+                document.getElementById('caido-title').textContent = T.caido_title;
+                document.getElementById('caido-msg').textContent   = T.caido_msg;
+                document.getElementById('caido-retry').textContent = T.caido_retry;
+                document.getElementById('btn-inicio').textContent  = T.caido_btn;
+                show('s-servicio-caido');
+            } else {
+                setStep(I18N[idiomaActual].err_server);
+            }
+        }
+    };
+
+    sse.onerror = () => {
+        sse.close();
+        setStep(I18N[idiomaActual].err_lost);
+    };
+});
+
+// ── Enter world ─────────────────────────────────────────────────────────────
+document.getElementById('btn-entrar').addEventListener('click', () => {
+    window.location.href = `/outputs/${worldName}/preview_escena_01.html`;
+});
+
+// Volver al inicio desde la pantalla de servicio caído → landing limpia
+document.getElementById('btn-inicio').addEventListener('click', () => {
+    window.location.reload();
+});
+
+// ── Mis mundos ────────────────────────────────────────────────────────────────
+function _hex(h) {
+    return {r:parseInt(h.slice(1,3),16),g:parseInt(h.slice(3,5),16),b:parseInt(h.slice(5,7),16)};
+}
+function _rgba(hex, a) { const c=_hex(hex); return `rgba(${c.r},${c.g},${c.b},${a})`; }
+function _hue(hex) {
+    const {r,g,b}=_hex(hex), rn=r/255,gn=g/255,bn=b/255;
+    const mx=Math.max(rn,gn,bn), mn=Math.min(rn,gn,bn), d=mx-mn;
+    if (d<0.07) return null;
+    if (mx===rn) return (((gn-bn)/d+(gn<bn?6:0))*60+360)%360;
+    if (mx===gn) return (((bn-rn)/d+2)*60+360)%360;
+    return (((rn-gn)/d+4)*60+360)%360;
+}
+function _rng(seed) {
+    let h=2166136261>>>0;
+    for (let i=0;i<seed.length;i++) h=Math.imul(h^seed.charCodeAt(i),16777619)>>>0;
+    return ()=>{h^=h<<13;h^=h>>17;h^=h<<5;h>>>=0;return h/4294967296;};
+}
+
+// Birrete de graduación ladeado, dibujado sobre la esfera (mundos educativos)
+function drawBirrete(ctx, cx, cy, s = 1) {
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.scale(s, s);
+    ctx.rotate(0.13);                         // ligeramente ladeado
+
+    // sombra sobre la esfera para asentarlo
+    ctx.fillStyle = 'rgba(0,0,0,0.30)';
+    ctx.beginPath();
+    ctx.ellipse(2, 10, 17, 4.5, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // parte que abraza la "cabeza" (casquete negro)
+    ctx.fillStyle = '#16161e';
+    ctx.beginPath();
+    ctx.moveTo(-9, 1);
+    ctx.quadraticCurveTo(-10.5, 12, 0, 13.5);
+    ctx.quadraticCurveTo(10.5, 12, 9, 1);
+    ctx.closePath();
+    ctx.fill();
+
+    // tabla superior (mortarboard) en rombo aplanado → perspectiva
+    const bw = 19, bh = 8;
+    ctx.beginPath();
+    ctx.moveTo(-bw, 0);
+    ctx.lineTo(0, -bh);
+    ctx.lineTo(bw, 0);
+    ctx.lineTo(0, bh);
+    ctx.closePath();
+    const bg = ctx.createLinearGradient(0, -bh, 0, bh);
+    bg.addColorStop(0, '#30303d');
+    bg.addColorStop(1, '#0f0f16');
+    ctx.fillStyle = bg;
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,0.20)';
+    ctx.lineWidth = 0.8;
+    ctx.stroke();
+
+    // botón central
+    ctx.fillStyle = '#f5c542';
+    ctx.beginPath();
+    ctx.arc(0, 0, 2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // borla: cordón desde el botón hasta la esquina y caída
+    ctx.strokeStyle = '#f5c542';
+    ctx.lineWidth = 1.4;
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(bw * 0.70, -bh * 0.28);
+    ctx.lineTo(bw * 0.80, 11);
+    ctx.stroke();
+
+    // pompón
+    ctx.fillStyle = '#ffd968';
+    ctx.beginPath();
+    ctx.arc(bw * 0.80, 12.6, 2.4, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#e8b830';
+    ctx.lineWidth = 0.8;
+    for (let k = -1; k <= 1; k++) {
+        ctx.beginPath();
+        ctx.moveTo(bw * 0.80 + k * 0.9, 13.6);
+        ctx.lineTo(bw * 0.80 + k * 1.3, 17);
+        ctx.stroke();
+    }
+
+    ctx.restore();
+}
+
+function drawPlanet(cv, cf, cs, ca, nombre, edu) {
+    const dpr=window.devicePixelRatio||1, S=88, M=18, CS=S+2*M;
+    cv.width=CS*dpr; cv.height=CS*dpr;
+    const ctx=cv.getContext('2d');
+    ctx.scale(dpr,dpr);
+    ctx.translate(M, M);                 // margen para que el birrete asome sin recorte
+    const cx=S/2, cy=S/2, r=S/2-1;
+    const rng=_rng(nombre);
+    const hs=(h,s,l,a=1)=>`hsla(${h|0},${s|0}%,${l|0}%,${a})`;
+
+    const h1 = _hue(cf) ?? (rng()*360);
+    const h2 = _hue(cs) ?? ((h1+110+rng()*90)%360);
+    const s1=55+rng()*28|0, s2=62+rng()*25|0;
+    const lBase=22+rng()*14|0, lMid=38+rng()*14|0;
+    const lLight=56+rng()*18|0, lDark=6+rng()*7|0;
+
+    // Clip a la silueta del planeta: las esquinas quedan transparentes y el
+    // birrete (dibujado después del restore) puede sobresalir del círculo.
+    ctx.save();
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.clip();
+
+    const base=ctx.createRadialGradient(cx*.68,cy*.63,0,cx,cy,r);
+    base.addColorStop(0,   hs(h1,s1,lLight));
+    base.addColorStop(0.42,hs(h1,s1,lBase));
+    base.addColorStop(0.82,hs(h1,s1,lDark));
+    base.addColorStop(1,  '#020308');
+    ctx.fillStyle=base; ctx.fillRect(0,0,S,S);
+
+    const type=rng()*3|0;
+    if (type===0) {
+        const n=4+(rng()*4|0);
+        for (let i=0;i<n;i++) {
+            const y0=(i/n)*S*1.12-S*0.06;
+            const bh=(S/n)*(0.45+rng()*0.5);
+            const amp=1.5+rng()*2.5, freq=0.07+rng()*0.06, phase=rng()*Math.PI*2;
+            ctx.fillStyle=i%2===0
+                ? hs(h2,s2,lMid,   0.30+rng()*0.22)
+                : hs(h1,s1,lLight, 0.10+rng()*0.10);
+            ctx.beginPath();
+            ctx.moveTo(0,y0+Math.sin(phase)*amp);
+            for (let x=0;x<=S;x+=3) ctx.lineTo(x,y0+Math.sin(x*freq+phase)*amp);
+            ctx.lineTo(S,y0+bh); ctx.lineTo(0,y0+bh); ctx.closePath();
+            ctx.fill();
+        }
+    } else if (type===1) {
+        const nC=2+(rng()*4|0);
+        for (let i=0;i<nC;i++) {
+            const bx=rng()*S, by=rng()*S, br=r*(0.18+rng()*0.30);
+            const g=ctx.createRadialGradient(bx,by,0,bx,by,br);
+            g.addColorStop(0,  hs(h2,s2,lLight+8, 0.90));
+            g.addColorStop(0.5,hs(h2,s2,lMid,     0.40));
+            g.addColorStop(1, 'transparent');
+            ctx.fillStyle=g; ctx.fillRect(0,0,S,S);
+        }
+        for (let i=0;i<1+(rng()*3|0);i++) {
+            const bx=rng()*S, by=rng()*S*0.9, br=r*(0.10+rng()*0.18);
+            const g=ctx.createRadialGradient(bx,by,0,bx,by,br);
+            g.addColorStop(0,'rgba(255,255,255,0.58)');
+            g.addColorStop(1,'transparent');
+            ctx.fillStyle=g; ctx.fillRect(0,0,S,S);
+        }
+    } else {
+        for (let i=0;i<4+(rng()*4|0);i++) {
+            const ang=rng()*Math.PI*2, dist=rng()*r*0.68;
+            const bx=cx+Math.cos(ang)*dist, by=cy+Math.sin(ang)*dist;
+            const br=r*(0.15+rng()*0.32);
+            const g=ctx.createRadialGradient(bx,by,0,bx,by,br);
+            g.addColorStop(0,  i%2===0
+                ? hs(h2,s2,lLight,   0.38+rng()*0.22)
+                : hs(h1,s1,lMid+14, 0.22+rng()*0.18));
+            g.addColorStop(1,'transparent');
+            ctx.fillStyle=g; ctx.fillRect(0,0,S,S);
+        }
+    }
+
+    const term=ctx.createLinearGradient(S*0.50,0,S*1.06,0);
+    term.addColorStop(0,'transparent');
+    term.addColorStop(1,'rgba(0,0,0,0.55)');
+    ctx.fillStyle=term; ctx.fillRect(0,0,S,S);
+
+    const rim=ctx.createRadialGradient(cx,cy,r*0.72,cx,cy,r);
+    rim.addColorStop(0,'transparent');
+    rim.addColorStop(0.72,hs(h2,s2,lMid+5,  0.10));
+    rim.addColorStop(1,   hs(h2,s2,lLight,  0.52));
+    ctx.fillStyle=rim; ctx.fillRect(0,0,S,S);
+
+    const hx=cx*0.50, hy=cy*0.37;
+    const sp=ctx.createRadialGradient(hx,hy,0,hx,hy,r*0.20);
+    sp.addColorStop(0,  'rgba(255,255,255,0.92)');
+    sp.addColorStop(0.3,'rgba(255,255,255,0.10)');
+    sp.addColorStop(1,  'transparent');
+    ctx.fillStyle=sp; ctx.fillRect(0,0,S,S);
+
+    ctx.restore();                       // fin del clip del planeta
+
+    if (edu) drawBirrete(ctx, cx + r * 0.34, cy - r * 0.9, 1.6);  // ~1 en punto, asomando del borde
+}
+
+(async function () {
+    const trigger = document.getElementById('mm-trigger');
+    const panel   = document.getElementById('mm-panel');
+
+    const modoToggleWrap = document.getElementById('modo-toggle-wrap');
+    trigger.addEventListener('click', () => {
+        panel.classList.add('open');
+        modoToggleWrap.style.display = 'none';
+    });
+    document.getElementById('mm-close').addEventListener('click', () => {
+        panel.classList.remove('open');
+        modoToggleWrap.style.display = '';
+    });
+
+    try {
+        const res    = await fetch('/api/mundos');
+        const mundos = await res.json();
+        if (!mundos.length) return;
+
+        const container = document.getElementById('mm-shelves');
+        const COLS = 4;
+
+        for (let i = 0; i < mundos.length; i += COLS) {
+            const shelf = document.createElement('div');
+            shelf.className = 'mm-shelf';
+
+            for (const m of mundos.slice(i, i + COLS)) {
+                const d      = (Math.random() * 3.5).toFixed(2);
+                const nombre = m.nombre.replace(/_/g, ' ');
+                const glow   = `0 0 22px ${_rgba(m.color_fondo,.55)},0 0 58px ${_rgba(m.color_fondo,.18)}`;
+                const card   = document.createElement('div');
+                card.className = m.educativo ? 'mm-card edu' : 'mm-card';
+                card.title     = m.educativo ? nombre + ' · modo educativo' : nombre;
+                card.onclick   = (e) => {
+                    if (e.target.closest('.mm-btn-del') || e.target.closest('.mm-confirm')) return;
+                    const conf = card.querySelector('.mm-confirm');
+                    if (conf) { conf.remove(); return; }
+                    location.href = m.url;
+                };
+                card.innerHTML = `
+                    <button class="mm-btn-del" title="Eliminar mundo">×</button>
+                    <div class="mm-orb-wrap" style="box-shadow:${glow};animation-delay:-${d}s">
+                        <canvas class="mm-orb"
+                            data-cf="${m.color_fondo}" data-cs="${m.color_sol}"
+                            data-ca="${m.color_ambiente}" data-n="${m.nombre}"
+                            data-edu="${m.educativo ? '1' : ''}"></canvas>
+                    </div>
+                    <div class="mm-nombre">${nombre}</div>`;
+
+                card.querySelector('.mm-btn-del').onclick = (e) => {
+                    e.stopPropagation();
+                    if (card.querySelector('.mm-confirm')) return;
+                    const conf = document.createElement('div');
+                    conf.className = 'mm-confirm';
+                    conf.innerHTML = `<p>¿Borrar<br>${nombre}?</p>
+                        <div class="mm-confirm-btns">
+                            <button class="mm-confirm-btn si">Sí</button>
+                            <button class="mm-confirm-btn no">No</button>
+                        </div>`;
+                    conf.onclick = (e) => e.stopPropagation();
+                    conf.querySelector('.no').onclick = () => conf.remove();
+                    conf.querySelector('.si').onclick = async () => {
+                        const r = await fetch(`/api/mundos/${encodeURIComponent(m.nombre)}`, { method: 'DELETE' });
+                        if (!r.ok) { conf.remove(); return; }
+
+                        // 1. Animar salida de la card borrada
+                        card.style.transition = 'transform 0.26s ease, opacity 0.26s ease';
+                        card.style.transform  = 'scale(0.35)';
+                        card.style.opacity    = '0';
+                        await new Promise(res => setTimeout(res, 270));
+
+                        // 2. FLIP — registrar posiciones ANTES de reordenar
+                        const restantes = [...container.querySelectorAll('.mm-card')].filter(c => c !== card);
+                        const antes = restantes.map(c => c.getBoundingClientRect());
+
+                        // 3. Eliminar card y reagrupar
+                        card.remove();
+                        container.innerHTML = '';
+                        for (let j = 0; j < restantes.length; j += COLS) {
+                            const fila = document.createElement('div');
+                            fila.className = 'mm-shelf';
+                            restantes.slice(j, j + COLS).forEach(c => fila.appendChild(c));
+                            container.appendChild(fila);
+                        }
+
+                        // 4. FLIP — aplicar desplazamiento inverso y animar a posición final
+                        restantes.forEach((c, i) => {
+                            const despues = c.getBoundingClientRect();
+                            const dx = antes[i].left - despues.left;
+                            const dy = antes[i].top  - despues.top;
+                            if (!dx && !dy) return;
+                            c.style.transition = 'none';
+                            c.style.transform  = `translate(${dx}px,${dy}px)`;
+                            c.getBoundingClientRect(); // forzar reflow
+                            c.style.transition = 'transform 0.32s ease';
+                            c.style.transform  = '';
+                            setTimeout(() => { c.style.transition = ''; c.style.transform = ''; }, 340);
+                        });
+
+                        if (!restantes.length) trigger.style.display = 'none';
+                    };
+                    card.appendChild(conf);
+                };
+
+                shelf.appendChild(card);
+            }
+
+            container.appendChild(shelf);
+            shelf.querySelectorAll('canvas.mm-orb').forEach(cv => {
+                drawPlanet(cv, cv.dataset.cf, cv.dataset.cs, cv.dataset.ca, cv.dataset.n, cv.dataset.edu === '1');
+            });
+        }
+
+        trigger.style.display = 'flex';
+    } catch (_) {}
+})();
+
+// ── Tutorial de bienvenida (primera vez) ────────────────────────────────────
+// Spotlight guiado: oscurece la pantalla y resalta un elemento cada paso. Solo
+// sale si el servidor dice que es la primera vez (archivo "precinto"). Al
+// terminar/saltar avisa al servidor para borrar el precinto.
+const Tutorial = (function () {
+    const TXT = {
+        es: {
+            title: 'Tutorial', skip: 'Saltar tutorial',
+            info:     'Pulsa para descubrir qué es WorldWeaver y cómo funciona.',
+            infoNav:  'Pulsa la flecha para ver cómo funciona.',
+            infoClose:'Pasa el ratón por los personajes para descubrir qué hace cada uno. Luego cierra la ventana para seguir.',
+            input:    'Aquí escribes tu historia o arrastras un fichero .txt o .pdf.',
+            crear:    'Con este botón creas tu mundo.',
+            galeria:  'Aquí ves los mundos que ya has creado.',
+            modo:     'Cambia entre modo narrativo y educativo.',
+            idioma:   'Elige el idioma del mundo y de la interfaz.',
+            fin:      '',
+            fin_btn:  'Entrar al mundo de prueba →',
+        },
+        en: {
+            title: 'Tutorial', skip: 'Skip tutorial',
+            info:     'Click to discover what WorldWeaver is and how it works.',
+            infoNav:  'Click the arrow to see how it works.',
+            infoClose:'Hover over the characters to discover what each one does. Then close the window to continue.',
+            input:    'Here you write your story or drag in a .txt or .pdf file.',
+            crear:    'This button creates your world.',
+            galeria:  'Here you see the worlds you have already created.',
+            modo:     'Switch between narrative and educational mode.',
+            idioma:   'Choose the language of the world and the interface.',
+            fin:      '',
+            fin_btn:  'Enter the tutorial world →',
+        },
+    };
+    const t = (k) => (TXT[idiomaActual] || TXT.es)[k];
+
+    let steps = [], idx = -1, running = false, rafId = 0;
+    let root, dimsBox, dimPool = [], rings = [], caps = [], header, skipBtn, finBtn;
+
+    function buildDOM() {
+        if (root) return;
+        root = document.createElement('div');
+        root.id = 'tut-root';
+        root.addEventListener('click', advance);     // pulsar en cualquier sitio avanza
+        dimsBox = document.createElement('div'); dimsBox.id = 'tut-dims'; root.appendChild(dimsBox);
+        for (let i = 0; i < 2; i++) {
+            const rg = document.createElement('div'); rg.className = 'tut-ring'; root.appendChild(rg); rings.push(rg);
+            const cp = document.createElement('div'); cp.className = 'tut-caption'; root.appendChild(cp); caps.push(cp);
+        }
+        header = document.createElement('div'); header.id = 'tut-header'; root.appendChild(header);
+        skipBtn = document.createElement('button'); skipBtn.id = 'tut-skip';
+        skipBtn.addEventListener('click', (e) => { e.stopPropagation(); finish(); });
+        root.appendChild(skipBtn);
+        finBtn = document.createElement('div'); finBtn.id = 'tut-fin-btn';
+        finBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            finish(false);   // no borrar el precinto aún: se borra al completar el mundo
+            window.location.href = '/sandbox/tutorial.html';
+        });
+        // Planeta procedural (semilla "tutorial" → siempre el mismo aspecto)
+        const _tutOrbWrap = document.createElement('div'); _tutOrbWrap.className = 'mm-orb-wrap';
+        const _tutCv = document.createElement('canvas'); _tutCv.className = 'mm-orb';
+        _tutOrbWrap.appendChild(_tutCv);
+        finBtn.appendChild(_tutOrbWrap);
+        const _tutLbl = document.createElement('div'); _tutLbl.className = 'tut-planet-label';
+        _tutLbl.textContent = 'Tutorial';
+        finBtn.appendChild(_tutLbl);
+        const _tutSub = document.createElement('div'); _tutSub.className = 'tut-planet-sub';
+        _tutSub.id = 'tut-fin-sub';
+        finBtn.appendChild(_tutSub);
+        root.appendChild(finBtn);
+        // Dibujar el planeta en el siguiente frame (drawPlanet ya está definido)
+        requestAnimationFrame(() => drawPlanet(_tutCv, '#6644aa', '#ffcc44', '#aa88ff', 'tutorial', false));
+        document.body.appendChild(root);
+    }
+
+    function buildSteps() {
+        const mmTrigger = document.getElementById('mm-trigger');
+        const galeriaVisible = mmTrigger && getComputedStyle(mmTrigger).display !== 'none';
+        // Los pasos de info llevan `act`: el clic abre el panel, pasa de tarjeta y lo cierra
+        // por ti (reusa los handlers reales). El foco solo enseña de qué se habla.
+        const card = () => document.getElementById('info-card');
+        const s = [
+            { key: 'info',      el: () => infoBtn,      act: () => infoBtn.click() },
+            // infoNav/infoClose: la tarjeta entera se ilumina y queda interactiva (hovers de
+            // los agentes + flecha/✕ reales). El anillo apunta al control; se avanza al hacer
+            // la acción real (until). `act` permite avanzar también pulsando la zona oscura.
+            { key: 'infoNav',   el: () => infoNavArrow, spot: card, interactive: true, capPos: 'bottom',
+              act: () => infoNavArrow.click(),
+              until: () => _infoCardIdx === 1 || infoOverlay.classList.contains('off') },
+            { key: 'infoClose', el: () => infoClose,    spot: card, interactive: true, capPos: 'bottom',
+              act: () => infoClose.click(),
+              until: () => infoOverlay.classList.contains('off') },
+            { key: 'input', el: () => document.getElementById('mode-area') },
+            { key: 'crear', el: () => document.getElementById('btn-crear') },
+        ];
+        if (galeriaVisible) s.push({ key: 'galeria', el: () => mmTrigger });
+        // Modo e idioma a la vez, con un texto a cada lado
+        s.push({ dual: true, keys: ['modo', 'idioma'],
+                 els: [() => document.getElementById('modo-toggle-wrap'),
+                       () => document.getElementById('lang-toggle-wrap')] });
+        s.push({ key: 'fin', el: () => null, final: true });
+        return s;
+    }
+
+    function showStep(i) {
+        idx = i;
+        const step = steps[i];
+        // Interactivo: root deja pasar el ratón a la tarjeta (hovers/controles reales);
+        // los paneles oscuros se vuelven clicables para poder avanzar desde fuera.
+        root.style.pointerEvents = step.interactive ? 'none' : 'auto';
+        root.classList.toggle('tut-interactive', !!step.interactive);
+        if (step.dual) {
+            caps[0].textContent = t(step.keys[0]);
+            caps[1].textContent = t(step.keys[1]);
+        } else {
+            caps[0].textContent = t(step.key);
+            caps[1].textContent = '';
+        }
+        // Botón-planeta solo en el paso final
+        if (finBtn) {
+            const sub = document.getElementById('tut-fin-sub');
+            if (sub) sub.textContent = t('fin_btn');
+            finBtn.style.display = step.final ? 'flex' : 'none';
+        }
+        position(step);
+    }
+
+    function goNext() {
+        if (idx + 1 >= steps.length) return finish();
+        showStep(idx + 1);
+    }
+
+    // Clic en pasos pasivos → avanza (y ejecuta la demostración, p. ej. abrir info).
+    function advance() {
+        const step = steps[idx];
+        if (step && step.interactive) return;        // los interactivos avanzan vía `until`
+        if (step && step.act) step.act();
+        goNext();
+    }
+
+    // Clic en la zona oscura de un paso interactivo → dispara la acción real (flecha/cerrar).
+    function onDimClick(e) {
+        e.stopPropagation();
+        const step = steps[idx];
+        if (step && step.interactive && step.act) step.act();
+    }
+
+    function rectOf(el, vw, vh, pad) {
+        // Nota: no usar offsetParent — es null para elementos position:fixed (info, modo,
+        // idioma, mis mundos), que es justo lo que queremos resaltar. Comprobamos tamaño real.
+        if (!el || !el.getBoundingClientRect) return null;
+        const b = el.getBoundingClientRect();
+        if (b.width === 0 && b.height === 0) return null;
+        return { left: Math.max(0, b.left - pad), top: Math.max(0, b.top - pad),
+                 right: Math.min(vw, b.right + pad), bottom: Math.min(vh, b.bottom + pad) };
+    }
+
+    function placeCaption(cap, r, vw, vh, gap) {
+        const cw = cap.offsetWidth, ch = cap.offsetHeight;
+        const topMin = 64, botMax = vh - 108;
+        const cx = (r.left + r.right) / 2;
+        let cy;
+        if (r.bottom + gap + ch <= botMax)      cy = r.bottom + gap;
+        else if (r.top - gap - ch >= topMin)    cy = r.top - gap - ch;
+        else                                    cy = Math.min(Math.max(topMin, (vh - ch) / 2), botMax - ch);
+        cap.style.left = Math.min(Math.max(16, cx - cw / 2), vw - cw - 16) + 'px';
+        cap.style.top  = cy + 'px';
+        cap.classList.remove('hidden');
+    }
+
+    // Pantalla oscura MENOS los huecos → rectángulos oscuros (barrido por bandas Y).
+    // Permite varios focos separados (p. ej. modo a la izquierda + idioma a la derecha,
+    // con overlay oscuro en medio), no una sola franja.
+    function computeDark(holes, vw, vh) {
+        if (!holes.length) return [{ left: 0, top: 0, right: vw, bottom: vh }];
+        const ys = [0, vh];
+        holes.forEach(h => ys.push(h.top, h.bottom));
+        const uy = [...new Set(ys)].filter(y => y >= 0 && y <= vh).sort((a, b) => a - b);
+        const out = [];
+        for (let i = 0; i < uy.length - 1; i++) {
+            const y0 = uy[i], y1 = uy[i + 1];
+            if (y1 - y0 <= 0) continue;
+            const midY = (y0 + y1) / 2;
+            const active = holes.filter(h => h.top < midY && h.bottom > midY).sort((a, b) => a.left - b.left);
+            let x = 0;
+            for (const h of active) {
+                if (h.left > x) out.push({ left: x, top: y0, right: h.left, bottom: y1 });
+                x = Math.max(x, h.right);
+            }
+            if (x < vw) out.push({ left: x, top: y0, right: vw, bottom: y1 });
+        }
+        return out;
+    }
+
+    function applyDarks(rects) {
+        rects.forEach((rc, i) => {
+            let d = dimPool[i];
+            if (!d) { d = document.createElement('div'); d.className = 'tut-dim'; d.addEventListener('click', onDimClick); dimsBox.appendChild(d); dimPool[i] = d; }
+            d.style.display = 'block';
+            d.style.left = rc.left + 'px'; d.style.top = rc.top + 'px';
+            d.style.width = (rc.right - rc.left) + 'px'; d.style.height = (rc.bottom - rc.top) + 'px';
+        });
+        for (let i = rects.length; i < dimPool.length; i++) dimPool[i].style.display = 'none';
+    }
+
+    function setRing(rg, r) {
+        if (r) {
+            rg.classList.remove('hidden');
+            rg.style.left = r.left + 'px'; rg.style.top = r.top + 'px';
+            rg.style.width = (r.right - r.left) + 'px'; rg.style.height = (r.bottom - r.top) + 'px';
+        } else {
+            rg.classList.add('hidden');
+        }
+    }
+
+    function position(step) {
+        const vw = innerWidth, vh = innerHeight, pad = 10, gap = 24;
+
+        if (step.dual) {
+            const rs = step.els.map(f => rectOf(f(), vw, vh, pad));
+            applyDarks(computeDark(rs.filter(Boolean), vw, vh));   // dos huecos separados
+            rings.forEach((rg, i) => setRing(rg, rs[i]));
+            caps.forEach((cap, i) => {
+                if (rs[i] && step.keys[i]) placeCaption(cap, rs[i], vw, vh, gap);
+                else cap.classList.add('hidden');
+            });
+            return;
+        }
+
+        const r    = rectOf(step.el && step.el(), vw, vh, pad);          // a qué apunta el anillo
+        const spot = step.spot ? rectOf(step.spot(), vw, vh, pad) : r;   // qué se ilumina (hueco)
+        applyDarks(computeDark(spot ? [spot] : [], vw, vh));
+        setRing(rings[0], r);
+        rings[1].classList.add('hidden');
+
+        const capRect = spot || r;
+        if (step.capPos === 'bottom') {                   // texto fijo abajo (tarjeta grande)
+            const cw = caps[0].offsetWidth, ch = caps[0].offsetHeight;
+            caps[0].classList.remove('hidden');
+            caps[0].style.left = (vw - cw) / 2 + 'px';
+            caps[0].style.top  = (vh - ch - 40) + 'px';
+        } else if (capRect) {
+            placeCaption(caps[0], capRect, vw, vh, gap);
+        } else {                                          // paso final centrado, sin foco
+            const cw = caps[0].offsetWidth, ch = caps[0].offsetHeight;
+            caps[0].classList.remove('hidden');
+            caps[0].style.left = (vw - cw) / 2 + 'px';
+            caps[0].style.top  = (vh - ch) / 2 + 'px';
+        }
+        caps[1].classList.add('hidden');
+    }
+
+    // Bucle: reposiciona (resiste resize/animaciones) y, en pasos interactivos,
+    // avanza cuando se cumple `until` (el usuario pasó de tarjeta o cerró).
+    function tick() {
+        if (!running) return;
+        const step = steps[idx];
+        if (step) {
+            position(step);
+            if (step.interactive && step.until && step.until()) goNext();
+        }
+        rafId = requestAnimationFrame(tick);
+    }
+
+    function finish(borrarPrecinto = true) {
+        if (!running) return;
+        running = false;
+        cancelAnimationFrame(rafId);
+        document.body.classList.remove('tut-activo');
+        if (root) root.classList.remove('on');
+        if (finBtn) finBtn.style.display = 'none';
+        // El precinto de primera vez solo se borra aquí al SALTAR/descartar. Si el usuario
+        // entra al mundo de prueba (finBtn → finish(false)), el precinto se borrará al
+        // COMPLETAR el tutorial del mundo en sandbox/tutorial.html, no antes.
+        if (borrarPrecinto) fetch('/api/tutorial-visto', { method: 'POST' }).catch(() => {});
+    }
+
+    function start() {
+        if (running) return;
+        buildDOM();
+        steps = buildSteps();
+        running = true;
+        document.body.classList.add('tut-activo');   // fuerza ver la fila educativa en el tutorial
+        header.textContent = t('title');
+        skipBtn.textContent = t('skip');
+        if (finBtn) { finBtn.style.display = 'none'; }
+        root.classList.add('on');
+        showStep(0);
+        rafId = requestAnimationFrame(tick);
+    }
+
+    return { start, finish };
+})();
+
+// Llamado desde el script del globo tras girar y entrar a la pantalla de subida.
+function comprobarPrimeraVez() {
+    fetch('/api/primera-vez')
+        .then(r => r.json())
+        .then(d => { if (d && d.primera_vez) Tutorial.start(); })
+        .catch(() => {});
+}
+</script>
+
+<script type="module">
+import * as THREE from 'https://esm.sh/three@0.169.0';
+import { OBJLoader } from 'https://esm.sh/three@0.169.0/examples/jsm/loaders/OBJLoader.js';
+
+const OBJ_URL = '/sandbox/assets/WorldWeaverSphere.obj';
+
+let sharedGeometry = null;
+
+async function loadGeometry() {
+    if (sharedGeometry) return sharedGeometry;
+    return new Promise((resolve, reject) => {
+        new OBJLoader().load(OBJ_URL, obj => {
+            sharedGeometry = obj;
+            resolve(obj);
+        }, undefined, reject);
+    });
+}
+
+function initGlobe(canvasId, { sizePx, autoSpeed, interactive, onSpin }) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(dpr);
+    renderer.setSize(sizePx, sizePx);
+    renderer.setClearColor(0x000000, 0);
+
+    const scene  = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+    camera.position.set(0, 0, 3.4);
+
+    scene.add(new THREE.AmbientLight(0x3a4aaa, 1.6));
+    const sun = new THREE.DirectionalLight(0xaabbff, 2.8);
+    sun.position.set(-1.8, 2.2, 2.0);
+    scene.add(sun);
+    const rim = new THREE.DirectionalLight(0x2244cc, 1.2);
+    rim.position.set(2.0, -1.0, -1.5);
+    scene.add(rim);
+
+    const mat = new THREE.MeshStandardMaterial({
+        color:       0x5575e8,
+        emissive:    0x0b1460,
+        metalness:   0.30,
+        roughness:   0.38,
+        side:        THREE.FrontSide,
+        transparent: false,
+        depthWrite:  true,
+        depthTest:   true,
+    });
+
+    let pivot = null;
+
+    loadGeometry().then(objSrc => {
+        const obj = objSrc.clone(true);
+        obj.traverse(c => {
+            if (c.isMesh) c.material = mat;
+            c.renderOrder = 1;
+        });
+
+        const box  = new THREE.Box3().setFromObject(obj);
+        const ctr  = box.getCenter(new THREE.Vector3());
+        const span = box.getSize(new THREE.Vector3());
+        obj.position.sub(ctr);
+        obj.scale.setScalar(2.0 / Math.max(span.x, span.y, span.z));
+
+        const maskSphere = new THREE.Mesh(
+            new THREE.SphereGeometry(0.97, 64, 64),
+            new THREE.MeshBasicMaterial({ colorWrite: false, depthWrite: true })
+        );
+        maskSphere.renderOrder = 0;
+
+        pivot = new THREE.Object3D();
+        pivot.add(obj);
+        pivot.add(maskSphere);
+        scene.add(pivot);
+    });
+
+    /* ── Drag + inertia ───────────────────────────────────────────────── */
+    let autoRotate   = true;
+    let dragging     = false;
+    let lastX        = 0;
+    let dragMoved    = false;
+    let currentSpeed = autoSpeed;
+    let velocity     = currentSpeed;
+    let _spun        = false;
+
+    if (interactive) {
+        canvas.addEventListener('pointerdown', e => {
+            dragging  = true;
+            lastX     = e.clientX;
+            dragMoved = false;
+            canvas.setPointerCapture(e.pointerId);
+        });
+
+        canvas.addEventListener('pointermove', e => {
+            if (!dragging || !pivot) return;
+            const dx = e.clientX - lastX;
+            if (Math.abs(dx) > 2) dragMoved = true;
+            velocity = dx * 0.010;
+            pivot.rotation.y += velocity;
+            lastX = e.clientX;
+        });
+
+        const onUp = () => {
+            if (!dragging) return;
+            dragging = false;
+            if (!dragMoved) {
+                autoRotate = !autoRotate;
+            } else if (onSpin && !_spun) {
+                _spun = true;
+                onSpin();
+            }
+        };
+        canvas.addEventListener('pointerup',     onUp);
+        canvas.addEventListener('pointercancel', onUp);
+    }
+
+    /* ── Render loop ──────────────────────────────────────────────────── */
+    (function tick() {
+        requestAnimationFrame(tick);
+        if (pivot && !dragging) {
+            const target = autoRotate ? currentSpeed : 0;
+            velocity += (target - velocity) * 0.04;
+            pivot.rotation.y += velocity;
+        }
+        renderer.render(scene, camera);
+    })();
+
+    return {
+        spinUp(speed) { currentSpeed = speed; autoRotate = true; },
+    };
+}
+
+const _introGlobe = initGlobe('globe-intro',  { sizePx: 260, autoSpeed: 0.006, interactive: true, onSpin: () => {
+    // 1. Desvanece el texto
+    const hint = document.getElementById('intro-spin-hint');
+    const icon = document.querySelector('.intro-spin-icon');
+    [hint, icon].forEach(el => { if (el) { el.style.transition = 'opacity 0.35s'; el.style.opacity = '0'; } });
+    // 2. Acelera el globo
+    _introGlobe.spinUp(0.055);
+    // 3. Pausa de giro, luego cambia de pantalla
+    _MUS.landing();
+    setTimeout(() => show('s-upload'), 1800);
+    // 4. Tutorial guiado de bienvenida (solo la primera vez; lo decide el servidor)
+    setTimeout(() => comprobarPrimeraVez(), 2700);
+}});
+initGlobe('globe-upload', { sizePx: 220, autoSpeed: 0.007, interactive: true  });
+initGlobe('globe-load',   { sizePx: 130, autoSpeed: 0.013, interactive: true  });
+
+// ── Botón de pantalla completa (abajo a la izquierda) ───────────────────────
+// Aparece solo cuando NO estás en pantalla completa (tras Esc / barra del navegador).
+(function _wwBotonFullscreen() {
+    const btn = document.createElement('button');
+    btn.title = 'Pantalla completa';
+    btn.innerHTML = '⛶';
+    btn.style.cssText = 'position:fixed;bottom:14px;left:14px;z-index:99999;width:38px;height:38px;'
+        + 'border-radius:10px;border:1px solid rgba(255,255,255,0.18);background:rgba(15,20,35,0.5);'
+        + 'color:#dce6f5;font-size:18px;line-height:1;cursor:pointer;display:none;'
+        + 'backdrop-filter:blur(4px);transition:background .2s;';
+    btn.onmouseover = () => { btn.style.background = 'rgba(40,55,90,0.78)'; };
+    btn.onmouseout  = () => { btn.style.background = 'rgba(15,20,35,0.5)'; };
+    btn.onclick = (e) => {
+        e.stopPropagation();
+        const el = document.documentElement;
+        (el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen)?.call(el);
+    };
+    document.body.appendChild(btn);
+    const upd = () => {
+        const fs = document.fullscreenElement || document.webkitFullscreenElement;
+        btn.style.display = fs ? 'none' : 'block';
+    };
+    document.addEventListener('fullscreenchange', upd);
+    document.addEventListener('webkitfullscreenchange', upd);
+    upd();
+})();
+</script>
+</body>
+</html>

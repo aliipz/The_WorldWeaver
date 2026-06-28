@@ -1,0 +1,200 @@
+{
+  "id_escena": "escena_03",
+  "elementos": [
+    {
+      "id": "personaje_juan",
+      "nombre": "Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 0.6,
+      "alto": 1.2,
+      "descripcion": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_madre",
+      "nombre": "Madre de Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 3
+      },
+      "ancho": 0.95,
+      "alto": 1.7,
+      "descripcion": "Mujer de mediana edad, rostro marcado por el trabajo, vestimenta de algodón gris",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_habichuelas_magicas",
+      "nombre": "Habichuelas mágicas",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 3
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Pequeñas semillas verdes que brillan con una luz tenue, entregadas por el anciano",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_cama_paja_01",
+      "nombre": "cama de paja",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 3
+      },
+      "ancho": 1.5,
+      "alto": 0.5,
+      "descripcion": "Estructura de madera rústica con un colchón de paja entrelazada, cubierta por una manta gris clara y almohadas de lino.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_mesa_madera_01",
+      "nombre": "mesa de madera",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 2
+      },
+      "ancho": 1.2,
+      "alto": 0.8,
+      "descripcion": "Mesa de roble envejecido, de forma rectangular, con una superficie pulida y patas talladas que muestran el desgaste del tiempo.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_silla_madera_01",
+      "nombre": "silla de madera",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 0.9,
+      "descripcion": "Silla sencilla de pino, respaldo curvo y asiento de tablón liso, pintada de blanco desvaído.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_albornoz_01",
+      "nombre": "alfombra de lana",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "descripcion": "Alfombra rectangular de lana gruesa, de color azul marino con patrones geométricos en tonos grisáceos.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_lampara_01",
+      "nombre": "lampara de aceite",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 2
+      },
+      "ancho": 0.3,
+      "alto": 0.5,
+      "descripcion": "Pequeña lámpara de hierro fundido con un cristal ahumado que contiene una mecha encendida, proyectando una luz tenue y cálida.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_cortina_01",
+      "nombre": "cortina de algodón",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 0
+      },
+      "ancho": 1.0,
+      "alto": 2.0,
+      "descripcion": "Cortina ligera de algodón blanco, con bordes ligeramente deshilachados y una pequeña abertura que deja entrar la luz de la luna.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_estanteria_01",
+      "nombre": "estantería de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 2.0,
+      "descripcion": "Estantería baja de roble, con tres baldas llenas de libros encuadernados en cuero y algunos frascos de vidrio.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_cofre_01",
+      "nombre": "cofre de madera",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 6
+      },
+      "ancho": 0.8,
+      "alto": 0.5,
+      "descripcion": "Cofre pequeño de madera de caoba, con bisagras de hierro y una cerradura oxidada, tapado con una capa de polvo.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_silla_m00_42",
+      "nombre": "Silla",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 2
+      },
+      "ancho": 0.5,
+      "alto": 0.9,
+      "descripcion": "Silla de madera junto a la mesa.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_silla_m00_31",
+      "nombre": "Silla",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 1
+      },
+      "ancho": 0.5,
+      "alto": 0.9,
+      "descripcion": "Silla de madera junto a la mesa.",
+      "keyword_busqueda": null
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+MIT License
+
+Copyright (c) 2026 Alicia Pina Zapata
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+Nota sobre recursos de terceros:
+
+Esta licencia MIT cubre el código fuente de WorldWeaver. NO cubre los recursos
+de terceros que el sistema utiliza o empaqueta, que conservan sus propias
+licencias:
+
+  - Modelos de personajes Quaternius (assets/characters/): CC0.
+  - Paisajes sonoros de respaldo (assets/music/): CC0.
+  - Modelos 3D recuperados en tiempo de ejecución de Poly Pizza: según la
+    licencia de cada modelo en poly.pizza.
+  - Audio recuperado en tiempo de ejecución de Freesound: según la licencia
+    Creative Commons de cada sonido.

@@ -1,0 +1,117 @@
+{
+  "id_escena": "escena_04",
+  "elementos": [
+    {
+      "id": "personaje_elcano",
+      "nombre": "Juan Sebastián Elcano",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Navegante español de 40 años, barba negra, chaleco de lino gris, mirada resuelta"
+    },
+    {
+      "id": "objeto_nao_victoria",
+      "nombre": "Nao Victoria",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 4.0,
+      "alto": 2.5,
+      "descripcion": "Única nave que completa la circunnavegación, cargada con especias para el regreso"
+    },
+    {
+      "id": "objeto_especias",
+      "nombre": "Especias",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "descripcion": "Productos de alto valor como clavo y nuez moscada obtenidos en Molucas"
+    },
+    {
+      "id": "decorado_cajon_01",
+      "nombre": "Cajón de madera tallada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 4
+      },
+      "ancho": 0.6,
+      "alto": 0.4,
+      "descripcion": "Cajón de roble con herrajes de hierro, acabado gastado, de color pardo claro, con marcas de uso."
+    },
+    {
+      "id": "decorado_farol_01",
+      "nombre": "Farol de hierro colgado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 0.3,
+      "alto": 1.0,
+      "descripcion": "Farol de hierro forjado con vidrio esmerilado ámbar, sostenido por una cadena de bronce, iluminando la zona del muelle."
+    },
+    {
+      "id": "decorado_muelle_01",
+      "nombre": "Muelle de madera",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 3.0,
+      "alto": 0.5,
+      "descripcion": "Travesía de tablones de pino envejecido, con clavos de hierro expuestos y una capa de barniz agrietado."
+    },
+    {
+      "id": "decorado_bandera_01",
+      "nombre": "Bandera de la Corona de Castilla",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 0.8,
+      "alto": 2.0,
+      "descripcion": "Bandera rectangular de lino rojo con el escudo de Castilla bordado en oro, ondeando al viento desde un mástil de madera."
+    },
+    {
+      "id": "decorado_barril_01",
+      "nombre": "Barril de vino",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 0.6,
+      "alto": 0.9,
+      "descripcion": "Barril de roble acanalado, atado con cuerda de cáñamo, con manchas de vino rojo en su superficie."
+    }
+  ]
+}

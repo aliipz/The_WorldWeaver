@@ -1,0 +1,221 @@
+{
+  "titulo": "Cuestionario: Llegada a la Luna",
+  "preguntas": [
+    {
+      "numero": 1,
+      "pregunta": "¿En qué fecha se lanzó la misión Apolo 11 desde el Centro Espacial Kennedy?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "El 12 de abril de 1969, fecha del primer vuelo orbital tripulado de EE. UU.",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "El 16 de julio de 1969, fecha en que se lanzó el Saturno V desde el Centro Kennedy.",
+          "correcta": true
+        },
+        {
+          "letra": "c",
+          "texto": "El 20 de julio de 1969, día en que la nave entró en órbita lunar.",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "El 4 de julio de 1969, fecha del histórico alunizaje del Apolo 11.",
+          "correcta": false
+        }
+      ],
+      "explicacion": "El lanzamiento se realizó el 16 de julio de 1969, cuando el Saturno V despegó del Centro Kennedy."
+    },
+    {
+      "numero": 2,
+      "pregunta": "¿Cuál astronauta permaneció en el Módulo de Mando Columbia mientras los demás descendían al módulo lunar?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Buzz Aldrin, piloto del módulo lunar Eagle.",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "James Lovell, piloto del módulo de mando Gemini.",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Neil Armstrong, comandante del módulo lunar Eagle.",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "Michael Collins, piloto del módulo de mando Columbia.",
+          "correcta": true
+        }
+      ],
+      "explicacion": "Michael Collins quedó en el módulo de mando Columbia para vigilar la nave y preparar el retorno."
+    },
+    {
+      "numero": 3,
+      "pregunta": "¿Qué código de error mostró el ordenador de navegación durante el descenso al Mare Tranquillitatis?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Código 1101, indicando un fallo menor en los sensores.",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Código 1405, relacionado con un problema de combustible.",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Código 1202, señalando una saturación del procesador de navegación.",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "Código 1300, referente a una pérdida de comunicación.",
+          "correcta": false
+        }
+      ],
+      "explicacion": "El número 1202 se mostró cuando el procesador de navegación se sobrecargó, obligando a la intervención manual."
+    },
+    {
+      "numero": 4,
+      "pregunta": "¿Por qué fue necesario que Neil Armstrong tomara el control manual durante el alunizaje?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Porque la NASA quería demostrar la capacidad de los astronautas para volar sin asistencia automática.",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Porque la señal de radio con la Tierra se había interrumpido, impidiendo cualquier comando automático.",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Porque el error 1202 hizo que el computador dejara de seguir la trayectoria, obligando a Armstrong a pilotar manualmente para evitar cráteres y ahorrar combustible.",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "Porque el módulo lunar había perdido toda energía eléctrica, requiriendo control manual para mantener la órbita.",
+          "correcta": false
+        }
+      ],
+      "explicacion": "El fallo del computador obligó a Armstrong a pilotar manualmente para garantizar un aterrizaje seguro y eficiente."
+    },
+    {
+      "numero": 5,
+      "pregunta": "¿Cómo ilustra el uso del sextante espacial los retos de la navegación sin referencias terrestres?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "El sextante permitía a los astronautas fijar su posición usando estrellas, lo que exigía cálculos precisos y compensación del movimiento del vehículo espacial.",
+          "correcta": true
+        },
+        {
+          "letra": "b",
+          "texto": "El sextante era principalmente una herramienta de entrenamiento para los pilotos, sin uso práctico en la misión.",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "El sextante servía como respaldo al sistema de GPS, que no estaba disponible en esa época.",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "El sextante se utilizó para medir la distancia a la Tierra, ayudando a calibrar los sensores de temperatura.",
+          "correcta": false
+        }
+      ],
+      "explicacion": "Sin GPS, los astronautas dependían del sextante para orientarse mediante estrellas, lo que requería cálculos meticulosos."
+    },
+    {
+      "numero": 6,
+      "pregunta": "¿Cuál era el objetivo científico principal de los instrumentos instalados en la superficie lunar?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Los sismómetros pasivos y los retroreflectores láser se instalaron para registrar temblores lunares y medir la distancia Tierra‑Luna, datos esenciales para la geología y la navegación.",
+          "correcta": true
+        },
+        {
+          "letra": "b",
+          "texto": "Los paneles solares fueron instalados para probar la generación de energía en la superficie lunar.",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Los instrumentos de fotografía fueron llevados para captar imágenes panorámicas del paisaje lunar.",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "La bandera estadounidense y el módulo de comunicación se colocaron para demostrar la presencia humana y mantener contacto con la Tierra.",
+          "correcta": false
+        }
+      ],
+      "explicacion": "Los sismómetros y retroreflectores proporcionaron datos sobre la actividad sísmica lunar y la distancia Tierra‑Luna."
+    },
+    {
+      "numero": 7,
+      "pregunta": "Si el módulo lunar hubiera agotado su combustible durante el descenso, ¿qué fase de la misión se habría visto más afectada y por qué?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "El alunizaje habría fallado, ya que sin suficiente combustible el módulo no podría haber controlado su descenso ni evitado el terreno peligroso.",
+          "correcta": true
+        },
+        {
+          "letra": "b",
+          "texto": "El reingreso habría sido imposible, pues el módulo necesitaba combustible para activar los paracaídas.",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "El acoplamiento en órbita lunar habría sido inviable, pues el módulo de mando requería combustible para la maniobra de rendezvous.",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "El lanzamiento inicial habría sido cancelado, pues el cohete Saturno V necesitaba combustible para alcanzar la órbita terrestre.",
+          "correcta": false
+        }
+      ],
+      "explicacion": "Sin combustible suficiente el módulo no podría haber completado el descenso controlado necesario para alunizar."
+    },
+    {
+      "numero": 8,
+      "pregunta": "¿Qué preocupación biológica se abordó con los protocolos de cuarentena después del amerizaje?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Reducir la exposición de los astronautas a la radiación cósmica durante el traslado al centro de cuarentena.",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Proteger los instrumentos científicos de la contaminación por bacterias humanas al manipular muestras lunares.",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Evitar la posible transmisión de microorganismos extraterrestres a la biosfera terrestre, garantizando la seguridad biológica.",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "Prevenir la filtración de información clasificada sobre la tecnología de la nave al público.",
+          "correcta": false
+        }
+      ],
+      "explicacion": "Los protocolos de cuarentena estaban diseñados para impedir que posibles patógenos extraterrestres contaminasen la Tierra."
+    }
+  ]
+}

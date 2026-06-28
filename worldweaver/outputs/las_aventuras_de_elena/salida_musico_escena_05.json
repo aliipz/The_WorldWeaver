@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_05",
+  "query_usada": "underwater bubbles ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/852/852478_18763192-hq.mp3",
+    "titulo": "WATRUndwtr_Underwater Bubble Flow Loop_KOLBYR_FREE SOUNDS",
+    "autor": "KolbyRFX",
+    "duracion_segundos": 98.7,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/475/475245_1648170-hq.mp3",
+    "titulo": "river buried hydrophones 190617_0038.flac",
+    "autor": "klankbeeld",
+    "duracion_segundos": 746.0,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

@@ -1,0 +1,159 @@
+{
+  "id_escena": "escena_04",
+  "elementos": [
+    {
+      "id": "personaje_neil_armstrong",
+      "nombre": "Neil Armstrong",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Hombre de 38 años, complexión atlética, traje espacial blanco con insignia de la NASA, casco reflectante, mirada concentrada"
+    },
+    {
+      "id": "objeto_camara_de_television",
+      "nombre": "Cámara de televisión",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "descripcion": "Dispositivo de transmisión en vivo que capturó el alunizaje y la caminata lunar para la audiencia terrestre"
+    },
+    {
+      "id": "personaje_buzz_aldrin",
+      "nombre": "Buzz Aldrin",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 0.9,
+      "alto": 1.8,
+      "descripcion": "Hombre de 39 años, estatura media, traje espacial blanco, casco con visor dorado, sonrisa ligera"
+    },
+    {
+      "id": "objeto_bandera_estadounidense",
+      "nombre": "Bandera estadounidense",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 0.5,
+      "alto": 2.0,
+      "descripcion": "Bandera de EE. UU. plantada en la superficie lunar, izada con un mástil para simular el ondeo en el vacío"
+    },
+    {
+      "id": "objeto_easep",
+      "nombre": "EASEP",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 4
+      },
+      "ancho": 0.8,
+      "alto": 0.5,
+      "descripcion": "Paquete de Experimentos Científicos que incluye un sismómetro pasivo y retroreflectores láser para mediciones lunares"
+    },
+    {
+      "id": "objeto_sismometro_pasivo",
+      "nombre": "Sismómetro pasivo",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "descripcion": "Instrumento para detectar vibraciones sísmicas en la Luna, parte del EASEP"
+    },
+    {
+      "id": "objeto_retroreflectores_laser",
+      "nombre": "Retroreflectores láser",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 4
+      },
+      "ancho": 0.3,
+      "alto": 0.3,
+      "descripcion": "Dispositivos que reflejan láseres desde la Tierra para medir con precisión la distancia Tierra-Luna"
+    },
+    {
+      "id": "decorado_panel_solar_01",
+      "nombre": "Panel solar de soporte",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "descripcion": "Placa rectangular de silicio azulada, montada sobre un marco de aleación negra, con bordes reflejantes y polvo acumulado en su superficie."
+    },
+    {
+      "id": "decorado_modulo_eagle_01",
+      "nombre": "Módulo Eagle (etenso)",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 3.0,
+      "alto": 2.5,
+      "descripcion": "Estructura metálica gris con paneles de aluminio, patas de soporte extendidas y una escotilla abierta, parcialmente cubierta de polvo lunar."
+    },
+    {
+      "id": "decorado_antena_comunicacion_01",
+      "nombre": "Antena de comunicación parabólica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 1
+      },
+      "ancho": 1.0,
+      "alto": 1.5,
+      "descripcion": "Cúpula metálica de acero inoxidable con una superficie reflectante, soportada por un mástil telescópico gris, inclinada ligeramente hacia el horizonte."
+    },
+    {
+      "id": "decorado_muestra_roca_01",
+      "nombre": "Contenedor de muestra de roca lunar",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "descripcion": "Cilindro de fibra de carbono negra con tapa sellada, apoyado sobre una pequeña base de metal, mostrando marcas de agarre y polvo alrededor."
+    }
+  ]
+}

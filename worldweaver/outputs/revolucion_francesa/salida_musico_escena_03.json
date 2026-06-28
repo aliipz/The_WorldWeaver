@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_03",
+  "query_usada": "rainy field ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/196/196125_770707-hq.mp3",
+    "titulo": "distant thunders meadow",
+    "autor": "Yuval",
+    "duracion_segundos": 507.6,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/399/399682_5902878-hq.mp3",
+    "titulo": "Rainy night with thunder and water dropping.WAV",
+    "autor": "BonnyOrbit",
+    "duracion_segundos": 401.1,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

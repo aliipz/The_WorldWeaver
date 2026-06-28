@@ -1,0 +1,359 @@
+{
+  "id_escena": "escena_08",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "El abrazo de la victoria renueva el corazón.",
+      "guias": [
+        "personaje_juan",
+        "personaje_madre"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_juan",
+          "personaje_madre"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "La gallina dorada engendra tesoros bajo notas de arpa.",
+      "guias": [
+        "objeto_gallina_dorada",
+        "objeto_arpa_de_oro",
+        "personaje_juan",
+        "personaje_madre"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_gallina_dorada",
+          "objeto_arpa_de_oro"
+        ],
+        "personajes": [
+          "personaje_juan",
+          "personaje_madre"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Los campos reviven y la granja se llena de vida.",
+      "guias": [
+        "personaje_juan",
+        "personaje_madre"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_juan",
+          "personaje_madre"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_juan",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "¡Mamá, lo logramos! El sol vuelve a brillar para nosotros."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¿Recuerdas cómo empezó todo?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué fue lo primero que hicimos?",
+                  "respuesta": "Primero, nos reunimos bajo el viejo roble y prometimos no rendirnos."
+                },
+                {
+                  "etiqueta": "¿Cómo superamos el miedo?",
+                  "respuesta": "Con la fuerza de nuestro vínculo y la canción que cantamos juntos."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "¡Mira, el huevo de oro reluce como el amanecer!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¿Qué crees que signifique este regalo?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Una señal de prosperidad?",
+                  "respuesta": "Sí, la granja recibirá abundancia mientras cuidemos la tierra."
+                },
+                {
+                  "etiqueta": "¿Un mensaje de la gallina?",
+                  "respuesta": "Tal vez nos recuerda que la generosidad siempre vuelve a nosotros."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Los campos están verdes de nuevo, y los animales cantan al viento."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¿Te imaginas cuántas cosechas nos esperan?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cientos de sacos de grano?",
+                  "respuesta": "Muchos, suficiente para compartir con todo el pueblo."
+                },
+                {
+                  "etiqueta": "¿Más animales en el establo?",
+                  "respuesta": "Sí, la vida vuelve a llenarse de sonidos y alegría."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Tocar arpa",
+          "descripcion": "Juan coloca sus dedos sobre las cuerdas doradas y la arpa vibra con una canción de gratitud.",
+          "animacion": "SitDown",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "magico",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_madre",
+        "efecto": null,
+        "color": null,
+        "animacion": "Victory"
+      }
+    },
+    {
+      "id_nodo": "personaje_madre",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Gracias, hijo, por traer de vuelta la esperanza a nuestro hogar."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¿Cómo sientes que ha cambiado todo?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Más paz en el corazón?",
+                  "respuesta": "Sí, ahora el aire huele a futuro y a nuevas posibilidades."
+                },
+                {
+                  "etiqueta": "¿Un futuro sin temor?",
+                  "respuesta": "Exacto, cada día se siente como un regalo que podemos abrir juntos."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "El canto del arpa llena la casa de una calidez que nunca había sentido."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¿Qué crees que nos está diciendo la música?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Que la abundancia llega?",
+                  "respuesta": "Así es, cada nota trae promesas de prosperidad y unión."
+                },
+                {
+                  "etiqueta": "¿Que debemos proteger este tesoro?",
+                  "respuesta": "Sí, cuidaremos la gallina y el huevo como nuestro mayor tesoro."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Ver los campos revivir me llena el alma de gratitud y serenidad."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¿Qué esperas para el futuro de nuestra granja?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Más cosechas y animales?",
+                  "respuesta": "Sí, y también compartiré lo que tenemos con los vecinos."
+                },
+                {
+                  "etiqueta": "¿Una vida más tranquila?",
+                  "respuesta": "Exactamente, ahora podemos descansar sabiendo que la tierra nos cuida."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Cantar",
+          "descripcion": "Madre levanta la voz y entona una canción de alegría que llena la estancia.",
+          "animacion": "Victory",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_juan",
+        "efecto": null,
+        "color": null,
+        "animacion": "Victory"
+      }
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_gallina_dorada",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Gallina dorada",
+        "descripcion": "Una gallina de plumas brillantes que cría huevos de puro oro bajo la luz del sol.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_arpa_de_oro",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "Al tocar sus cuerdas, la arpa emite una melodía cálida que envuelve la estancia.",
+        "texto_desactivacion": null,
+        "efecto_visual": "brillo",
+        "color_efecto": "#ffd700",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_mesa_madera_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Mesa de roble",
+        "descripcion": "Una robusta mesa de roble barnizada, con marcas de años de trabajo y el brillo del sol que la ilumina.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_albornoz_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una alfombra de lana tejida que parece susurrar bajo los pasos."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_silla_madera_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una silla de roble pintada de rojo, todavía fresca con el aroma de la pintura."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_entrada",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "El sol se cuela por la ventana, bañando la estancia en luz dorada."
+    }
+  ]
+}

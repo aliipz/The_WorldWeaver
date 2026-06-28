@@ -1,0 +1,348 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Carlos I firma capitulaciones para la expedición",
+      "guias": [
+        "objeto_capitulaciones",
+        "personaje_carlos_i"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_capitulaciones"
+        ],
+        "personajes": [
+          "personaje_carlos_i"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Magallanes recibe autoridad y organiza la tripulación",
+      "guias": [
+        "personaje_magallanes"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_magallanes"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Magallanes supervisa carga y instrumentos de navegación",
+      "guias": [
+        "objeto_brujula",
+        "objeto_astrolabio",
+        "objeto_cartas_nauticas",
+        "personaje_magallanes"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_brujula",
+          "objeto_astrolabio",
+          "objeto_cartas_nauticas"
+        ],
+        "personajes": [
+          "personaje_magallanes"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_carlos_i",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Carlos I — Rey de España y Portugal",
+        "texto": "Monarca que, tras el ==Tratado de Tordesillas== de ==1494==, buscó expandir el imperio mediante la exploración marítima. Autoriza las ==Capitulaciones reales== que financian la primera circunnavegación del planeta. ==Su decisión marcó el inicio de la competencia por rutas de especias==."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Hoy firmo las ==Capitulaciones reales==, otorgando a los navegantes la autoridad para buscar la ruta del oeste."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Con esta decisión, pretendemos romper el monopolio de ==Portugal== y asegurar la riqueza para la corona."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo afectará esta decisión al equilibrio con Portugal?",
+                  "respuesta": "Creemos que al abrir una ruta occidental reduciremos la dependencia del paso por el Cabo de Buena Esperanza, debilitando la posición portuguesa."
+                },
+                {
+                  "etiqueta": "¿Qué riesgos ve en esta empresa?",
+                  "respuesta": "Los mares son desconocidos y la resistencia de los pueblos locales puede ser grande, pero la recompensa de las especias justifica el peligro."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "El éxito de la expedición será la señal de nuestro poder frente a ==Castilla== y el resto de Europa."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Ordenar",
+          "descripcion": "Ordenas la salida de la flota, señalando la urgencia de la misión. El rey asiente, mostrando su autoridad.",
+          "animacion": "Victory",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "personaje_magallanes",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_magallanes",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Fernando de Magallanes — Navegante portugués",
+        "texto": "Explorador al mando de la expedición que partió bajo la autoridad de Carlos I en ==1519==, buscó una ruta occidental hacia las ==especias== de Asia. Su liderazgo y conocimiento de la navegación fueron cruciales para la primera circunnavegación del globo."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "He recibido la autoridad del rey y ahora organizo la tripulación y las cinco naves que surcarán el Atlántico."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Cada barco lleva marineros de distintas naciones, todos ansiosos por la promesa de las ==especias==."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué papel juegan las especias en la economía europea?",
+                  "respuesta": "Las especias como la pimienta y la canela son bienes de lujo que impulsan el comercio y la riqueza de los reinos."
+                },
+                {
+                  "etiqueta": "¿Cómo se organizó la tripulación?",
+                  "respuesta": "Seleccionamos marineros experimentados, asignando a cada nave un capitán y un oficial de navegación para mantener la disciplina."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "El viaje será largo y peligroso, pero la gloria de descubrir una ruta nueva nos impulsa."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Superviso la carga de provisiones y los instrumentos esenciales: la ==brújula==, el ==astrolabio== y las ==cartas náuticas==."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Sin estos artefactos, la navegación sería una apuesta al viento y a la suerte."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo funciona la brújula en alta mar?",
+                  "respuesta": "La aguja magnética se alinea con el campo terrestre, indicando el norte y permitiendo mantener la dirección."
+                },
+                {
+                  "etiqueta": "¿Qué información contienen las cartas náuticas?",
+                  "respuesta": "Mapas de costas, corrientes y peligros, basados en los descubrimientos de viajes anteriores."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Con todo listo, partiremos al amanecer, confiando en la ciencia y la fe."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Consultar",
+          "descripcion": "Revisas la ==brújula== para confirmar su calibración antes de zarpar. El navegante verifica el norte magnético.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "magico",
+          "dispara": [
+            {
+              "id_nodo": "objeto_brujula",
+              "efecto": "brillo",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_capitulaciones",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Capitulaciones reales",
+        "descripcion": "Las ==Capitulaciones reales== son un documento legal que otorga a la corona los derechos para financiar y organizar la expedición. En ==1519== establecen los términos de la empresa marítima, incluyendo la distribución de ganancias y la autoridad del capitán.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_brujula",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Brújula",
+        "descripcion": "La ==brújula== es un instrumento de navegación que utiliza una aguja magnetizada para señalar el norte. Funciona gracias al campo magnético terrestre y permite a los navegantes determinar la dirección sin referencias visuales.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_astrolabio",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Astrolabio",
+        "descripcion": "El ==astrolabio== es un dispositivo antiguo usado para medir la altura de los cuerpos celestes. Sirve para calcular la latitud estimando la posición del sol o estrellas sobre el horizonte.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_cartas_nauticas",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Cartas náuticas",
+        "descripcion": "Las ==cartas náuticas== son mapas marinos que representan costas, peligros y rutas. En el siglo XVI incluían información sobre corrientes, vientos y puntos de referencia para la navegación.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "amb_03_2_00",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "La lámpara de aceite se enciende, lanzando una llama temblorosa que ilumina el muelle.",
+        "texto_desactivacion": "La llama se apaga, dejando solo el tenue resplandor del metal.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "amb_03_2_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "La lámpara de aceite chisporrotea al encenderse, proyectando una luz cálida sobre la madera del astillero.",
+        "texto_desactivacion": "El fuego se extingue, sumiendo la zona en una penumbra suave.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "amb_03_2_02",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "Una llama dorada se alza en la lámpara de aceite, iluminando los contenedores de especias.",
+        "texto_desactivacion": "La llama se desvanece, dejando solo el humo grisáceo.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_barrera_cuerdas_bandera_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Banderas españolas ondean al viento, recordando la rivalidad entre reinos."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_entrada",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al entrar al astillero de ==Sevilla== en ==1519==, observas la actividad portuaria bajo la tensión del ==Tratado de Tordesillas==."
+    }
+  ]
+}

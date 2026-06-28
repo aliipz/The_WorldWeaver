@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_01",
+  "query_usada": "town square crowd ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/543/543510_1648170-hq.mp3",
+    "titulo": "market people bells NL 02 160319_00.flac",
+    "autor": "klankbeeld",
+    "duracion_segundos": 243.2,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/344/344767_1648170-hq.mp3",
+    "titulo": "shoppingstreet on 50m kerkplein 03 160409_21.flac",
+    "autor": "klankbeeld",
+    "duracion_segundos": 853.1,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

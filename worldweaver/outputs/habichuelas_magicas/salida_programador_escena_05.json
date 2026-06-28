@@ -1,0 +1,208 @@
+{
+  "id_escena": "escena_05",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "El horizonte de piedra se alza entre la niebla",
+      "guias": [
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Cada paso resuena en la bruma",
+      "guias": [
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "La puerta cruje, revelando un salón sombrío",
+      "guias": [
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_juan",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Bajo este sol radiante, el castillo parece un gigante de sombra y piedra, y mi corazón late con mezcla de asombro y temor."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "He oído que dentro se guardan secretos que el tiempo ha olvidado, pero el brillo del día me anima a seguir."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué tipo de secretos?",
+                  "respuesta": "Se dice que una vieja crónica yace bajo el salón, escrita por los fundadores."
+                },
+                {
+                  "etiqueta": "¿Y si es peligroso?",
+                  "respuesta": "El sol nos protege, pero la prudencia nunca está de más."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "Cada paso que doy cruje bajo mis pies, como si el propio suelo susurrara historias antiguas."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Aún no sé qué me espera tras esas puertas, pero el calor del sol me da valor."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Te sientes listo?",
+                  "respuesta": "Listo para descubrir, aunque mi pecho templa con cada sombra."
+                },
+                {
+                  "etiqueta": "¿Y si te pierdes?",
+                  "respuesta": "Mi madre me enseñó a no perder la brújula del corazón."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "La puerta cedió bajo mi empujón y el interior se llenó de luz dorada, como si el propio sol hubiera entrado."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Ahora el salón se extiende ante mí, majestuoso y silencioso, y siento que cada paso resonará en la historia."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué buscas aquí?",
+                  "respuesta": "Una pista que me lleve a la cabaña de la vaca, donde mi madre espera."
+                },
+                {
+                  "etiqueta": "¿Te atreves a seguir?",
+                  "respuesta": "Con la luz del día como aliada, no hay sombra que me detenga."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_llave",
+          "consume": false,
+          "puntos": [
+            {
+              "frases": [
+                "Esa llave oxidada… la reconozco. ¿De dónde la has sacado tú?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "La encontré cerca del pedestal.",
+                  "respuesta": "Era parte del altar antiguo, olvidada por el tiempo."
+                },
+                {
+                  "etiqueta": "No importa cómo. ¿Para qué sirve?",
+                  "respuesta": "Abre la cámara secreta bajo la biblioteca; allí yace el mapa del tesoro."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "acciones": [],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "decorado_candelabro_etereo_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "Las llamas del candelabro se encienden con un suave parpadeo dorado.",
+        "texto_desactivacion": "Las llamas se apagan, dejando solo un leve humo.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_espora_brillante_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una espora luminosa flota delicadamente, dejando un rastro de chispeantes destellos."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_entrada",
+      "columnas": [
+        0,
+        1,
+        2
+      ],
+      "texto": "Al cruzar el umbral, la luz tenue del salón se despliega"
+    }
+  ]
+}

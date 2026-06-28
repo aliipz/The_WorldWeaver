@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_02",
+  "query_usada": "fruit market crowd ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/387/387439_1648170-hq.mp3",
+    "titulo": "green market NL 160409_08.wav",
+    "autor": "klankbeeld",
+    "duracion_segundos": 109.0,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/588/588257_9034501-hq.mp3",
+    "titulo": "210925_1684_FR_DowntownMarket.wav",
+    "autor": "kevp888",
+    "duracion_segundos": 507.5,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

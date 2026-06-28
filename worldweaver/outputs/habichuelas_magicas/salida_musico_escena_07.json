@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_07",
+  "query_usada": "wind rustling leaves ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/848/848978_12606846-hq.mp3",
+    "titulo": "Wind rustling leaves through tree Cardiff",
+    "autor": "gsparrysound",
+    "duracion_segundos": 141.1,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/460/460114_1287465-hq.mp3",
+    "titulo": "suburban_ambience_windy_distant_traffic_rustles_town_city_nature_reserve.wav",
+    "autor": "nickmaysoundmusic",
+    "duracion_segundos": 121.9,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

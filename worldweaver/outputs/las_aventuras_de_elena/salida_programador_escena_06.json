@@ -1,0 +1,200 @@
+{
+  "id_escena": "escena_06",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Elena contempla la luz del faro distante...",
+      "guias": [
+        "objeto_brujula",
+        "personaje_elena"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_brujula"
+        ],
+        "personajes": [
+          "personaje_elena"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Zip susurra futuros inciertos bajo la noche...",
+      "guias": [
+        "personaje_zip"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_zip"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_elena",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "El faro gira en la distancia, su luz me recuerda que cada camino tiene su final."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Guardo la brújula cerca, pero sé que el verdadero norte está dentro de mí."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué buscas ahora?",
+                  "respuesta": "Descansar un momento y escuchar el mar, antes de seguir adelante."
+                },
+                {
+                  "etiqueta": "¿Crees que el faro guía tus pasos?",
+                  "respuesta": "Solo ilumina el camino; la decisión sigue siendo mía."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_brujula",
+          "consume": false,
+          "puntos": [
+            {
+              "frases": [
+                "Veo la brújula de metal oscuro en tu mano, aún girando con su propia voluntad."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "acciones": [],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_zip",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "La próxima vez, elijo yo el destino, aunque el viento siempre tiene su propia opinión."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Pero por ahora, dejemos que la noche nos cuente sus historias."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Alguna historia que compartir?",
+                  "respuesta": "Sólo que la luna es la mejor narradora cuando el mar susurra."
+                },
+                {
+                  "etiqueta": "¿Te gustaría volver a la costa?",
+                  "respuesta": "Siempre que la brújula nos guíe, el viaje continúa."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [],
+      "dispara": {
+        "id_nodo": "decorado_hongo_luminoso_01",
+        "efecto": "flotar",
+        "color": null,
+        "animacion": null
+      }
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_brujula",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "Brújula de metal oscuro",
+        "descripcion": "Una brújula antigua, su aguja vibra bajo la tenue luz del faro."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_hongo_luminoso_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "Los hongos bioluminescentes se encienden, llenando el claro con una suave luz verdosa.",
+        "texto_desactivacion": "La luz de los hongos se apaga, dejando sólo la penumbra nocturna.",
+        "efecto_visual": "brillo",
+        "color_efecto": "#44ff88",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_roble_cenario_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "El roble centenario se inclina ligeramente, como susurrando historias del pasado bajo la luz del faro."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_nido_aves_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un pequeño pájaro revolotea alrededor del nido, listo para escabullirse al acercarse."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "escapar",
+        "radio": 2.0,
+        "una_vez": true
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_bosque",
+      "columnas": [
+        1
+      ],
+      "texto": "El bosque susurra bajo la luz del faro, un velo de paz envuelve el claro."
+    }
+  ]
+}

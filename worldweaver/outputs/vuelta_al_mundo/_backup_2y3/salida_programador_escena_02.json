@@ -1,0 +1,259 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Navega el estrecho de ==Magallanes== bajo hielo",
+      "guias": [
+        "personaje_magallanes"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_magallanes"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Nombran el nuevo océano ==Pacífico== tras calmarse",
+      "guias": [
+        "personaje_magallanes"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_magallanes"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Escasez de alimentos lleva al racionamiento y ==escorbuto==",
+      "guias": [
+        "personaje_magallanes"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_magallanes"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_magallanes",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Fernando de Magallanes — Navegante portugués",
+        "texto": "Fernando de Magallanes (1480‑1521) fue un navegante portugués que lideró la primera expedición en circunnavegar la Tierra. Su travesía buscó una ruta occidental hacia las ==Indias orientales== y demostró la existencia del ==Pacífico==. ==Su muerte en Filipinas== marcó el fin de su liderazgo, pero su legado perdura."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Nos adentramos en el ==Estrecho de Magallanes==, donde el hielo y los vientos huracanados ponen a prueba la resistencia de la nave."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El hielo se aferra a los cascos como una bestia, pero mantenemos el rumbo con la brújula y la fe en nuestro objetivo."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo evitaste el encallamiento?",
+                  "respuesta": "Utilizamos sondas de madera para sentir la profundidad y desviábamos cuando el hielo se acercaba menos de diez metros."
+                },
+                {
+                  "etiqueta": "¿Qué papel jugó la experiencia portuguesa en esta travesía?",
+                  "respuesta": "Mi entrenamiento en la Armada portuguesa me enseñó a leer los vientos del Atlántico, lo que fue vital en estas aguas desconocidas."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Al cruzar, sentimos la victoria de abrir una ruta occidental que cambiará el comercio mundial."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "Al salir del estrecho, la calma del nuevo océano nos sorprendió; lo llamamos ==Pacífico== por su aparente serenidad."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Sin embargo, la quietud es engañosa; bajo esa superficie yace una inmensidad que pondrá a prueba nuestra provisión."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cuántos días estimaron que durarían los suministros?",
+                  "respuesta": "Calculamos que los víveres durarían aproximadamente cuarenta días, pero la incertidumbre nos obligó a racionar."
+                },
+                {
+                  "etiqueta": "¿Qué medidas tomaron para conservar alimentos?",
+                  "respuesta": "Secamos carne y pescado, y almacenamos granos en barriles sellados para evitar la humedad."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Esta nueva etapa marcó el inicio de la mayor travesía marítima de la historia."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Defeat",
+          "puntos": [
+            {
+              "frases": [
+                "Con los meses, la escasez de alimentos provocó racionamiento severo y la aparición del ==escorbuto== entre la tripulación."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Los síntomas se manifestaron en encías sangrantes y debilidad, y temí que la enfermedad diezmaría a mi gente."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo intentaron tratar el escorbuto?",
+                  "respuesta": "Buscamos frutas cítricas en islas cercanas, pero la falta de ellas nos obligó a usar hierbas locales y descanso."
+                },
+                {
+                  "etiqueta": "¿Qué efectos tuvo el racionamiento en la moral?",
+                  "respuesta": "El hambre generó tensiones, pero el liderazgo y la promesa de tierra nueva mantuvieron la esperanza."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "A pesar de la adversidad, seguimos adelante, pues el objetivo de alcanzar las Indias orientales nos impulsaba."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Dar orden",
+          "descripcion": "Magallanes levanta la voz y dirige a la tripulación a seguir el rumbo indicado por la brújula.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "objeto_brujula",
+              "efecto": "brillo",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_brujula",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Brújula",
+        "descripcion": "Instrumento de navegación que contiene una ==aguja magnetizada== alineada con el ==campo magnético== terrestre. La aguja gira libremente sobre un pivote y siempre apunta al norte magnético, permitiendo determinar la dirección sin referencias visuales.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_astrolabio",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Astrolabio",
+        "descripcion": "Dispositivo antiguo usado para medir el ==ángulo de elevación== de un ==cuerpo celeste== sobre el horizonte. Con su escala graduada permite calcular la latitud del observador, herramienta esencial antes de la llegada del cronómetro marino.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_cartas_nauticas",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Cartas náuticas",
+        "descripcion": "Mapas detallados que representan costas, profundidades y peligros marítimos. Incluyen coordenadas de ==latitud y longitud== y símbolos de corrientes, sirviendo como guía visual para la planificación de rutas en alta mar.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_iceberg_fragment_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un fragmento de iceberg flotante, reluciente bajo la escasa luz del cielo gris."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_balsa_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una balsa de madera a la deriva, crujiente bajo el peso del hielo y del viento."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_estrecho",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al entrar en el estrecho de ==Magallanes==, la temperatura desciende ==bajo cero== y el hielo circunda la nave, creando un entorno hostil para la navegación."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# ─── Entorno y temporales ───────────────────────────────────────────────
+/venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+
+# ─── Claves (NUNCA subir) ───────────────────────────────────────────────
+.env
+worldweaver/.env
+
+# ─── Artefactos de empaquetado (PyInstaller) y binarios pesados ─────────
+# Regenerables con `python -m PyInstaller worldweaver.spec`. Además, el .exe
+# puede contener claves embebidas y los .zip superan el límite de GitHub.
+worldweaver/build/
+worldweaver/dist/
+*.exe
+*.pkg
+*.zip
+
+# ─── Material que no se publica en el repo abierto ──────────────────────
+memoria/
+CLAUDE.md
+.claude/

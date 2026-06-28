@@ -1,0 +1,10 @@
+{
+  "id": "E2",
+  "fixture": "vuelta_al_mundo.txt",
+  "titulo": "Expedición de Magallanes y Elcano: la primera vuelta al mundo",
+  "modo": "educativo",
+  "personajes_esperados": ["Fernando de Magallanes", "Juan Sebastián Elcano", "Carlos I"],
+  "objetos_esperados": ["nao Victoria", "brújula", "astrolabio", "cartas náuticas", "especias (clavo y nuez moscada)", "espejos"],
+  "escenas_esperadas": 4,
+  "notas": "Educativo/historia (4 secciones = 4 escenas: preparación en Sevilla 1519 → navegación/estrecho/Pacífico/escorbuto → muerte de Magallanes/Elcano/Molucas → regreso a Sevilla 1522). Carlos I aparece solo como quien autoriza; si lo ves marginal, fuera. 'especias' y 'espejos' son las mercancías del trueque en las Molucas."
+}

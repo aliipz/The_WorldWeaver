@@ -1,0 +1,39 @@
+# Orquestación
+langgraph>=0.2.0
+langchain>=0.3.0
+langchain-ollama>=0.1.0
+langchain-community>=0.3.0
+langchain-openai>=0.2.0
+
+# LLMs locales
+ollama>=0.3.0
+
+# Validación de datos
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# Generación de imágenes / recorte de fondo
+fal-client>=0.10.0
+rembg>=2.0.0
+onnxruntime>=1.17.0
+Pillow>=10.0.0
+requests>=2.31.0
+google-genai>=1.0.0
+
+# Servidor web
+fastapi>=0.111.0
+uvicorn>=0.29.0
+python-multipart>=0.0.9
+
+# Frontend / Sandbox
+# (Three.js se carga vía CDN, no requiere instalación)
+
+# Utilidades
+pypdf>=4.0.0
+python-dotenv>=1.0.0
+rich>=13.0.0
+numpy>=1.24.0
+
+# Tests
+pytest>=8.0.0
+pytest-asyncio>=0.23.0

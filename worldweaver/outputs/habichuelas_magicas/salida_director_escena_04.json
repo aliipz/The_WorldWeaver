@@ -1,0 +1,155 @@
+{
+  "id_escena": "escena_04",
+  "elementos": [
+    {
+      "id": "personaje_juan",
+      "nombre": "Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 5
+      },
+      "ancho": 0.6,
+      "alto": 1.2,
+      "descripcion": "Niño de unos 10 años, cabello castaño desordenado, ropa de lino simple",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_planta_gigante",
+      "nombre": "Planta gigante",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_04",
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 2.5,
+      "alto": 6.0,
+      "descripcion": "Tallo verde y retorcido que se eleva hasta las nubes, con hojas gigantes",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_silla_mimbre_01",
+      "nombre": "Silla de jardín de mimbre",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 0.8,
+      "descripcion": "Silla de mimbre trenzado, con asiento de tela azul descolorido, situada bajo la sombra de la planta gigante.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_cerca_madera_01",
+      "nombre": "Sección de cerca de madera",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 4
+      },
+      "ancho": 1.5,
+      "alto": 1.0,
+      "descripcion": "Postes de pino envejecido con tablas gastadas y clavos oxidados, ligeramente inclinada por la humedad.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_farol_hierro_01",
+      "nombre": "Farol de hierro",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 0.6,
+      "alto": 1.5,
+      "descripcion": "Farol de hierro forjado con una vela encendida, la llama titila creando sombras sobre la tierra.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_flores_silvestres_01",
+      "nombre": "Ramo de flores silvestres",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 0.5,
+      "alto": 0.3,
+      "descripcion": "Pequeñas flores de colores pastel, margaritas y amapolas, creciendo entre la tierra húmeda.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_piedra_camino_01",
+      "nombre": "Piedra del camino",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 1
+      },
+      "ancho": 0.8,
+      "alto": 0.5,
+      "descripcion": "Piedra redondeada de granito gris, parcialmente cubierta de musgo, formando parte del sendero que cruza el jardín.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_regadera_oxidada_01",
+      "nombre": "Regadera oxidada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 1
+      },
+      "ancho": 0.4,
+      "alto": 0.5,
+      "descripcion": "Regadera de metal con óxido verde, mango de madera rota, llena de agua que refleja la luz de la luna.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_balde_heno_01",
+      "nombre": "Balde de heno",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 0
+      },
+      "ancho": 0.5,
+      "alto": 0.6,
+      "descripcion": "Balde de heno atado, con paja seca y amarilla asomando por los bordes, apoyado contra la cerca.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_charca_nenufares_01",
+      "nombre": "Charca con nenúfares",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 7,
+        "fila": 0
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "descripcion": "Pequeña charca de agua tranquila, rodeada de nenúfares blancos y lirios verdes, reflejando las estrellas.",
+      "keyword_busqueda": null
+    }
+  ]
+}

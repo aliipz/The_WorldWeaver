@@ -1,0 +1,10 @@
+{
+  "id": "T3",
+  "fixture": "romeo_y_julieta.txt",
+  "titulo": "Romeo y Julieta",
+  "modo": "narrativo",
+  "personajes_esperados": ["Romeo", "Julieta", "Mercucio", "Tebaldo", "Fray Lorenzo", "el príncipe"],
+  "objetos_esperados": ["espada", "máscara", "poción", "veneno"],
+  "escenas_esperadas": 7,
+  "notas": "El príncipe aparece poco (ordena separar la riña, destierra a Romeo) — si lo ves marginal, lo quitamos. Beats: plaza/riña → baile en el palacio → jardín/balcón → celda de Fray Lorenzo (boda) → duelo en la plaza → despedida → cripta = 7."
+}

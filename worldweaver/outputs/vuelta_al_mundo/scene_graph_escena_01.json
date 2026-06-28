@@ -1,0 +1,713 @@
+{
+  "id_escena": "escena_01",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "ciudad",
+  "radio_escena": 22.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_01",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_01",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 22.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_carlos_i",
+      "nombre": "Carlos I de España",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -1.79,
+        "y": 0.95,
+        "z": -0.9
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/OldClassy_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_magallanes",
+      "nombre": "Fernando de Magallanes",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.9,
+        "y": 0.95,
+        "z": 0.64
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Pirate_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_capitulaciones",
+      "nombre": "Capitulaciones reales",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.01,
+        "y": 0.1,
+        "z": -1.0
+      },
+      "ancho": 0.6,
+      "alto": 0.2,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/70d8c1cc-c3ca-4c43-8a5b-5825d7fa620b.glb",
+      "keyword_busqueda": "document"
+    },
+    {
+      "id": "objeto_brujula",
+      "nombre": "Brújula",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -3.49,
+        "y": 0.25,
+        "z": -0.34
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/db18fada-a70e-44da-961c-0cc31dffdaa6.glb",
+      "keyword_busqueda": "compass"
+    },
+    {
+      "id": "objeto_astrolabio",
+      "nombre": "Astrolabio",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.09,
+        "y": 0.12,
+        "z": -3.5
+      },
+      "ancho": 0.4,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/c9a055de-363b-4d31-9525-ac044f2958f1.glb",
+      "keyword_busqueda": "instrument"
+    },
+    {
+      "id": "objeto_cartas_nauticas",
+      "nombre": "Cartas náuticas",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 3.47,
+        "y": 0.15,
+        "z": -0.48
+      },
+      "ancho": 0.5,
+      "alto": 0.3,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/27ff8fbb-47da-4ba2-b4c0-06fda84a6a4b.glb",
+      "keyword_busqueda": "map"
+    },
+    {
+      "id": "decorado_barrera_cuerdas_bandera_01",
+      "nombre": "Barrera de cuerdas con banderas españolas",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.48,
+        "y": 1.25,
+        "z": -5.48
+      },
+      "ancho": 2.0,
+      "alto": 2.5,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "decorado_muelle_piedra_01",
+      "nombre": "Muelle de piedra del astillero",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -1.79,
+        "y": 1.0,
+        "z": -19.92
+      },
+      "ancho": 4.0,
+      "alto": 2.0,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c55ba08-c218-4526-bfdc-3f6a0a2b7e7f.glb",
+      "keyword_busqueda": "pier"
+    },
+    {
+      "id": "decorado_barril_vino_01",
+      "nombre": "Barril de vino de la bodega del puerto",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -5.41,
+        "y": 0.45,
+        "z": -12.92
+      },
+      "ancho": 0.6,
+      "alto": 0.9,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/6d3e8847-bda4-4d6c-8004-7b03cf848b13.glb",
+      "keyword_busqueda": "barrel"
+    },
+    {
+      "id": "decorado_caja_madera_especias_01",
+      "nombre": "Caja de madera cargada de especias",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -8.31,
+        "y": 0.3,
+        "z": -3.44
+      },
+      "ancho": 0.8,
+      "alto": 0.6,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/9b0c7d9b-344c-48d2-9a49-a59df0f4f838.glb",
+      "keyword_busqueda": "crate"
+    },
+    {
+      "id": "amb_00_0_00",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -2.69,
+        "y": 5.34,
+        "z": 19.81
+      },
+      "ancho": 4.37,
+      "alto": 10.67,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_00_0_01",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.92,
+        "y": 5.98,
+        "z": 7.98
+      },
+      "ancho": 4.89,
+      "alto": 11.97,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_00_0_02",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 13.0,
+        "y": 6.21,
+        "z": -13.87
+      },
+      "ancho": 5.08,
+      "alto": 12.42,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_00_0_03",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -1.96,
+        "y": 6.08,
+        "z": -20.53
+      },
+      "ancho": 4.98,
+      "alto": 12.16,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_00_0_04",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.92,
+        "y": 4.7,
+        "z": -3.75
+      },
+      "ancho": 3.84,
+      "alto": 9.4,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_00_0_05",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -16.68,
+        "y": 5.29,
+        "z": 11.1
+      },
+      "ancho": 4.33,
+      "alto": 10.59,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_00_1_00",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -11.6,
+        "y": 6.23,
+        "z": 9.64
+      },
+      "ancho": 5.09,
+      "alto": 12.45,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_00_1_01",
+      "nombre": "stone warehouse",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 11.12,
+        "y": 5.39,
+        "z": 9.63
+      },
+      "ancho": 4.41,
+      "alto": 10.77,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b946d1a0-babe-4249-9964-5c3368f706d5.glb",
+      "keyword_busqueda": "stone warehouse"
+    },
+    {
+      "id": "amb_01_0_00",
+      "nombre": "watch tower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -19.52,
+        "y": 7.56,
+        "z": -3.24
+      },
+      "ancho": 3.24,
+      "alto": 15.13,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5d56ff95-db7a-43d6-997f-e9eea3f13f53.glb",
+      "keyword_busqueda": "watch tower"
+    },
+    {
+      "id": "amb_01_0_01",
+      "nombre": "watch tower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 15.32,
+        "y": 5.87,
+        "z": 10.9
+      },
+      "ancho": 2.52,
+      "alto": 11.74,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5d56ff95-db7a-43d6-997f-e9eea3f13f53.glb",
+      "keyword_busqueda": "watch tower"
+    },
+    {
+      "id": "amb_01_0_02",
+      "nombre": "watch tower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 3.75,
+        "y": 6.8,
+        "z": -19.6
+      },
+      "ancho": 2.92,
+      "alto": 13.61,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5d56ff95-db7a-43d6-997f-e9eea3f13f53.glb",
+      "keyword_busqueda": "watch tower"
+    },
+    {
+      "id": "amb_01_1_00",
+      "nombre": "watch tower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 1.18,
+        "y": 7.28,
+        "z": 16.92
+      },
+      "ancho": 3.12,
+      "alto": 14.56,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5d56ff95-db7a-43d6-997f-e9eea3f13f53.glb",
+      "keyword_busqueda": "watch tower"
+    },
+    {
+      "id": "amb_02_0_00",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.02,
+        "y": 0.38,
+        "z": 6.94
+      },
+      "ancho": 0.51,
+      "alto": 0.77,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_02_0_01",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.33,
+        "y": 0.4,
+        "z": -14.38
+      },
+      "ancho": 0.54,
+      "alto": 0.81,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_02_1_00",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -8.93,
+        "y": 0.46,
+        "z": 11.34
+      },
+      "ancho": 0.62,
+      "alto": 0.93,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_02_2_00",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 2.02,
+        "y": 0.37,
+        "z": 9.03
+      },
+      "ancho": 0.49,
+      "alto": 0.73,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_02_2_01",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 7.96,
+        "y": 0.4,
+        "z": 0.15
+      },
+      "ancho": 0.53,
+      "alto": 0.8,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_02_2_02",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 5.79,
+        "y": 0.52,
+        "z": -5.52
+      },
+      "ancho": 0.69,
+      "alto": 1.04,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_02_2_03",
+      "nombre": "wooden cart",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -8.08,
+        "y": 0.46,
+        "z": 2.99
+      },
+      "ancho": 0.62,
+      "alto": 0.92,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/713b3099-a66a-417e-8c2e-1fe55497f325.glb",
+      "keyword_busqueda": "wooden cart"
+    },
+    {
+      "id": "amb_03_0_00",
+      "nombre": "oil lantern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.37,
+        "y": 0.88,
+        "z": -6.7
+      },
+      "ancho": 0.23,
+      "alto": 1.76,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7f5240a6-e02a-4084-b899-8b84784cd76d.glb",
+      "keyword_busqueda": "oil lantern"
+    },
+    {
+      "id": "amb_03_0_01",
+      "nombre": "oil lantern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 18.28,
+        "y": 0.9,
+        "z": 5.87
+      },
+      "ancho": 0.24,
+      "alto": 1.8,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7f5240a6-e02a-4084-b899-8b84784cd76d.glb",
+      "keyword_busqueda": "oil lantern"
+    },
+    {
+      "id": "amb_03_2_00",
+      "nombre": "oil lantern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -6.89,
+        "y": 0.72,
+        "z": 4.18
+      },
+      "ancho": 0.19,
+      "alto": 1.44,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7f5240a6-e02a-4084-b899-8b84784cd76d.glb",
+      "keyword_busqueda": "oil lantern"
+    },
+    {
+      "id": "amb_03_2_01",
+      "nombre": "oil lantern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 3.37,
+        "y": 0.79,
+        "z": 7.28
+      },
+      "ancho": 0.21,
+      "alto": 1.58,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7f5240a6-e02a-4084-b899-8b84784cd76d.glb",
+      "keyword_busqueda": "oil lantern"
+    },
+    {
+      "id": "amb_03_2_02",
+      "nombre": "oil lantern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 1.02,
+        "y": 0.67,
+        "z": -7.28
+      },
+      "ancho": 0.18,
+      "alto": 1.35,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7f5240a6-e02a-4084-b899-8b84784cd76d.glb",
+      "keyword_busqueda": "oil lantern"
+    }
+  ],
+  "cielo": {
+    "tipo": "manana_despejada",
+    "color_fondo": "#9ed5f2",
+    "color_ambiente": "#ffffff",
+    "intensidad_ambiente": 0.6396539388535907,
+    "color_sol": "#ffd00e",
+    "intensidad_sol": 1.2043987872715292,
+    "pos_sol": {
+      "x": 0.5971146079297212,
+      "y": 4.574873014302577,
+      "z": -1.5200301849579108
+    },
+    "niebla": {
+      "color": "#9cc6dd",
+      "near": 6.6,
+      "far": 13.0
+    }
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_carlos_i": {
+      "glb_id": "OldClassy_Male",
+      "glb_path": "/sandbox/assets/characters/OldClassy_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 3031,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_magallanes": {
+      "glb_id": "Pirate_Male",
+      "glb_path": "/sandbox/assets/characters/Pirate_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "gris",
+      "clothing_seed": 252,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

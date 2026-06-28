@@ -1,0 +1,298 @@
+{
+  "id_escena": "escena_03",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "La noche se vuelve tensa en el cuarto",
+      "guias": [
+        "objeto_habichuelas_magicas",
+        "personaje_madre",
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_habichuelas_magicas"
+        ],
+        "personajes": [
+          "personaje_madre",
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Las habichuelas vuelan por la ventana",
+      "guias": [
+        "objeto_habichuelas_magicas",
+        "personaje_madre"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_habichuelas_magicas"
+        ],
+        "personajes": [
+          "personaje_madre"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Juan queda solo entre sombras",
+      "guias": [
+        "personaje_juan"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_juan"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_madre",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Punch",
+          "puntos": [
+            {
+              "frases": [
+                "¡¿Qué haces con esas habichuelas haces ¡Destruirás lo que nos queda!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "No entiendo por qué arriesgas todo por un sueño imposible."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué pasa si fallamos?",
+                  "respuesta": "Entonces nos quedaremos sin nada, sin vaca, sin sustento."
+                },
+                {
+                  "etiqueta": "¿Qué esperas de mí?",
+                  "respuesta": "Que escuches y no vuelvas a poner esas semillas en la mesa."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "Punch",
+          "puntos": [
+            {
+              "frases": [
+                "¡Basta! No quiero volver a ver esas malditas habichuelas."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Si no puedes entender mi dolor, al menos mantén la puerta cerrada."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Por qué la puerta?",
+                  "respuesta": "Porque la noche trae más que frío, trae recuerdos que duelen."
+                },
+                {
+                  "etiqueta": "¿Qué quieres que haga?",
+                  "respuesta": "Que guardes lo poco que nos queda y no pierdas la esperanza."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Gritar",
+          "descripcion": "Le grita a Juan con voz desgarrada, la ira chisporrotea en sus palabras.",
+          "animacion": "Punch",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "personaje_juan",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            },
+            {
+              "id_nodo": "objeto_habichuelas_magicas",
+              "efecto": "flotar",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_juan",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Defeat",
+          "puntos": [
+            {
+              "frases": [
+                "Mamá, lo siento... no pensé que te haría daño."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Yo solo quería ayudar, pero ahora veo mi error."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Hay alguna forma de arreglarlo?",
+                  "respuesta": "Tal vez, pero primero debemos aceptar lo que hemos perdido."
+                },
+                {
+                  "etiqueta": "¿Qué haremos ahora?",
+                  "respuesta": "Nos quedamos aquí, en la oscuridad, esperando que la mañana nos dé una señal."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "La habitación está vacía, el estómago vacío, y el silencio grita."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¿Qué será de la vaca? ¿Y de la familia?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Hay alguna esperanza?",
+                  "respuesta": "Solo la noche nos recuerda lo frágil que es la vida."
+                },
+                {
+                  "etiqueta": "¿Debo seguir adelante?",
+                  "respuesta": "Sí, aunque el camino sea oscuro, la luz siempre regresa al final."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Sentarse",
+          "descripcion": "Se sienta en la cama de paja, la cabeza gacha bajo el peso del silencio.",
+          "animacion": "SitDown",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_habichuelas_magicas",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Habichuelas mágicas",
+        "descripcion": "Pequeñas legumbres que destellan con una luz interior, cargadas de promesas y temores.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyR",
+          "etiqueta": "Hacer brillar",
+          "descripcion": "Al tocar las habichuelas, su brillo se intensifica, llenando la habitación de luz tenue.",
+          "efecto_visual": "brillo",
+          "sonido": "magico"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_mesa_madera_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Mesa de madera",
+        "descripcion": "Una mesa rústica de madera gastada, con marcas de años de uso y una ligera curvatura en sus bordes.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_albornoz_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Alfombra de lana",
+        "descripcion": "Una alfombra gruesa de lana, con patrones de tonos oscuros que absorben la escasa luz de la habitación.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_silla_m00_42",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una silla cruje ligeramente al asentarse, recordando los susurros de los que la ocuparon antes."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_cuarto",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "El cuarto se envuelve en sombras, la ventana muestra un jardín distante bajo la luna."
+    }
+  ]
+}

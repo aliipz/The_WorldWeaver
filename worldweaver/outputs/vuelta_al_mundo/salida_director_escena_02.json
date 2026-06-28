@@ -1,0 +1,131 @@
+{
+  "id_escena": "escena_02",
+  "elementos": [
+    {
+      "id": "personaje_magallanes",
+      "nombre": "Fernando de Magallanes",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Navegante portugués de 45 años, rostro curtido, barba gris, chaqueta de vellón azul, mirada decidida"
+    },
+    {
+      "id": "objeto_brujula",
+      "nombre": "Brújula",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Instrumento de orientación magnética usado para determinar la dirección en el mar"
+    },
+    {
+      "id": "objeto_astrolabio",
+      "nombre": "Astrolabio",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "descripcion": "Instrumento para medir la altura de los astros y calcular la latitud"
+    },
+    {
+      "id": "objeto_cartas_nauticas",
+      "nombre": "Cartas náuticas",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 4
+      },
+      "ancho": 0.6,
+      "alto": 0.2,
+      "descripcion": "Mapas y notas de navegación que indican costas y rutas marítimas"
+    },
+    {
+      "id": "decorado_cubeta_agua_01",
+      "nombre": "Cubeta de agua de mar",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 4
+      },
+      "ancho": 0.4,
+      "alto": 0.5,
+      "descripcion": "Cubeta de metal galvanizado, con agua salada que refleja el gris del cielo, con una manija de hierro oxidado y algunas algas adheridas."
+    },
+    {
+      "id": "decorado_canon_01",
+      "nombre": "Cañón de bronce",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 1.2,
+      "alto": 0.8,
+      "descripcion": "Cañón de bronce pulido, de calibre medio, con una barra de disparo de madera y una base de hierro oxidado, apoyado contra la cubierta."
+    },
+    {
+      "id": "decorado_barril_01",
+      "nombre": "Barril de pólvora",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 5
+      },
+      "ancho": 0.6,
+      "alto": 0.9,
+      "descripcion": "Cilón de madera ennegrecida, con herrajes de hierro oxidado, sellado con una tapa de metal gastada, lleno de polvo negro."
+    },
+    {
+      "id": "decorado_cofre_01",
+      "nombre": "Cofre de caudales",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 5
+      },
+      "ancho": 0.8,
+      "alto": 0.6,
+      "descripcion": "Cofre de roble macizo, con bisagras de bronce envejecido y una cerradura de hierro, cubierto de una capa de barniz agrietado."
+    },
+    {
+      "id": "decorado_cuerda_01",
+      "nombre": "Bobina de cuerda de cáñamo",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "descripcion": "Bobina de fibra gruesa de cáñamo, enrollada en forma de cilindro, con extremos deshilachados y manchas de sal marina."
+    }
+  ]
+}

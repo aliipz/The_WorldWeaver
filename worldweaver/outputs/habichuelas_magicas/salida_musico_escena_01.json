@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_01",
+  "query_usada": "farm morning wind ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/688/688993_1648170-hq.mp3",
+    "titulo": "early farmland 0623AM NL EU 220515_0344",
+    "autor": "klankbeeld",
+    "duracion_segundos": 178.1,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/745/745555_1648170-hq.mp3",
+    "titulo": "field forest 615AM NL EU 220515_0344",
+    "autor": "klankbeeld",
+    "duracion_segundos": 62.2,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

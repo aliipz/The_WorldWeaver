@@ -1,0 +1,434 @@
+{
+  "titulo_historia": "La Revolución Francesa y la caída del Antiguo Régimen (1789-1791)",
+  "escenas": [
+    {
+      "id": "escena_01",
+      "titulo": "Crisis de la monarquía y los Estados Generales en Versalles",
+      "entorno": "Salón principal del Palacio de Versalles, interior opulento con enormes espejos y columnas de mármol blanco, tronos de oro y mesas de caoba, luz de candelabros que ilumina el espacio.",
+      "atmosfera": "Tensión creciente entre la nobleza y el Tercer Estado, crisis económica y social que agota al Antiguo Régimen, tono de expectativa y debate.",
+      "cielo": "interior_calido",
+      "tipo_ambiente": "interior",
+      "tiene_intro": true,
+      "texto_intro": "En ==Mayo 1789==, Francia se encuentra al borde de la crisis. El rey Luis XVI convoca los ==Estados Generales== en el opulento Palacio de Versalles, donde la profunda desigualdad del Antiguo Régimen se vuelve palpable.",
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_luis_xvi",
+          "nombre": "Luis XVI",
+          "fisica": "Hombre de 45 años, rostro pálido, barba recortada, cabello castaño bajo peluca empolvada, traje de corte francés con medallón de oro, expresión seria",
+          "background": "Rey de Francia, monarca absolutista; busca mantener el poder frente a la crisis financiera y social, convoca los Estados Generales para intentar reformas.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_cortesano_1",
+          "nombre": "Cortesano",
+          "fisica": "Hombre de 30 años, traje de seda azul con bordados dorados, peluca alta, mirada altiva",
+          "background": "Noble cortesano, defensor del Antiguo Régimen, apoya al rey y sus privilegios.",
+          "rol": "secundario",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_representante_tercer_estado_1",
+          "nombre": "Representante del Tercer Estado",
+          "fisica": "Hombre de 40 años, ropa de lana negra, rostro serio, sostiene un cuaderno de cuero",
+          "background": "Burguesía del Tercer Estado, reclama igualdad fiscal y fin de los privilegios nobles.",
+          "rol": "protagonista",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_representante_tercer_estado_2",
+          "nombre": "Mujer del pueblo llano",
+          "fisica": "Mujer de 35 años, vestido de lana gris, rostro cansado, manos ásperas que sujetan un cuaderno de cuero",
+          "background": "Representante del pueblo llano, demanda justicia y fin de los impuestos abusivos.",
+          "rol": "protagonista",
+          "skin_id": null
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_cahier_de_doleances",
+          "nombre": "Cahier de doléances",
+          "descripcion": "Cuaderno de cuero donde los representantes del Tercer Estado anotan sus quejas y demandas.",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_luis_xvi convoca a los representantes del Tercer Estado en el Palacio de Versalles, iniciando los ==Estados Generales==.",
+          "personajes_involucrados": [
+            "personaje_luis_xvi"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_representante_tercer_estado_1 entrega objeto_cahier_de_doleances al rey, exponiendo las quejas del pueblo.",
+          "personajes_involucrados": [
+            "personaje_representante_tercer_estado_1",
+            "personaje_luis_xvi"
+          ],
+          "objetos_involucrados": [
+            "objeto_cahier_de_doleances"
+          ]
+        },
+        {
+          "descripcion": "personaje_cortesano_1 discute con el rey mientras la desigualdad social se hace visible, reforzando la tensión entre la nobleza y el Tercer Estado.",
+          "personajes_involucrados": [
+            "personaje_cortesano_1",
+            "personaje_luis_xvi"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_02",
+      "titulo": "Estallido urbano y toma de la Bastilla",
+      "entorno": "Plaza frente a la Bastilla, fortaleza de piedra en París, muros gruesos, cadenas colgantes y torres, humo y polvo en el aire, adoquines rotos bajo los pies de la muchedumbre.",
+      "atmosfera": "Rebelión popular contra la represión, tensión explosiva, clamor de libertad y temor a la violencia.",
+      "cielo": "manana_nublada",
+      "tipo_ambiente": "ciudad",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_gobernador_bastilla",
+          "nombre": "Gobernador de la Bastilla",
+          "fisica": "Hombre de 50 años, uniforme militar gris, gorro de plomo, barba gris, mirada severa",
+          "background": "Gobernador de la prisión de la Bastilla, encargado de la seguridad y de mantener el orden.",
+          "rol": "antagonista",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_guardia_real_suiza_1",
+          "nombre": "Guardia real suiza",
+          "fisica": "Joven de 25 años, uniforme rojo con chaqueta azul, capa corta, espada al cinto",
+          "background": "Soldado suizo al servicio del rey, protege la Bastilla.",
+          "rol": "antagonista",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_sans_culotte_1",
+          "nombre": "Sans-culotte",
+          "fisica": "Joven de 22 años, pantalón sin medias, camisa blanca, chaqueta azul, rostro enérgico",
+          "background": "Ciudadano revolucionario, representa a la clase trabajadora que lucha contra la opresión.",
+          "rol": "protagonista",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_miliciono_desertor_1",
+          "nombre": "Milicionero desertor",
+          "fisica": "Hombre de 35 años, ropa militar gastada, barba descuidada, mirada cansada",
+          "background": "Exsoldado que abandona el ejército real para unirse a la revuelta popular.",
+          "rol": "protagonista",
+          "skin_id": null
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_cadena_hierro",
+          "nombre": "Cadena de hierro",
+          "descripcion": "Enorme cadena de hierro que ciñe el puente levadizo de la Bastilla.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_pica_hierro",
+          "nombre": "Pica de hierro",
+          "descripcion": "Larga herramienta de hierro utilizada por los asaltantes para romper estructuras.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_hacha_leñador",
+          "nombre": "Hacha de leñador",
+          "descripcion": "Hacha de acero con mango de madera, empleada por la muchedumbre para romper puertas.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_antorcha",
+          "nombre": "Antorcha",
+          "descripcion": "Bastón de madera envuelto en tela y encendido, ilumina la noche de la revuelta.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_mosquete",
+          "nombre": "Mosquete",
+          "descripcion": "Arma de fuego de avancarga utilizada por la guardia real suiza.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_canon_bronce",
+          "nombre": "Cañón de bronce",
+          "descripcion": "Cañón de bronce de gran calibre, disparado desde las murallas de la Bastilla.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_barril_de_polvora",
+          "nombre": "Barril de pólvora",
+          "descripcion": "Gran tonel de madera lleno de pólvora, almacenado en la Bastilla.",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_sans_culotte_1 y personaje_miliciono_desertor_1 utilizan objeto_pica_hierro y objeto_hacha_leñador para romper las puertas de la Bastilla.",
+          "personajes_involucrados": [
+            "personaje_sans_culotte_1",
+            "personaje_miliciono_desertor_1"
+          ],
+          "objetos_involucrados": [
+            "objeto_pica_hierro",
+            "objeto_hacha_leñador"
+          ]
+        },
+        {
+          "descripcion": "personaje_guardia_real_suiza_1 dispara objeto_mosquete y objeto_canon_bronce contra los asaltantes, intentando detener la revuelta.",
+          "personajes_involucrados": [
+            "personaje_guardia_real_suiza_1"
+          ],
+          "objetos_involucrados": [
+            "objeto_mosquete",
+            "objeto_canon_bronce"
+          ]
+        },
+        {
+          "descripcion": "personaje_gobernador_bastilla corta objeto_cadena_hierro y abre el puente levadizo, mientras los insurgentes saquean objeto_barril_de_polvora.",
+          "personajes_involucrados": [
+            "personaje_gobernador_bastilla"
+          ],
+          "objetos_involucrados": [
+            "objeto_cadena_hierro",
+            "objeto_barril_de_polvora"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_03",
+      "titulo": "Presión campesina y marcha sobre Versalles",
+      "entorno": "Caminos rurales empapados, lodazales y campos de trigo alrededor de Versalles, cielo gris y lluvia ligera, caravanas de mujeres y carros de madera avanzan entre barro.",
+      "atmosfera": "Desesperación por la escasez de alimentos, determinación popular, tono de protesta y urgencia.",
+      "cielo": "lluvia_suave",
+      "tipo_ambiente": "campo",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_luis_xvi",
+          "nombre": "Luis XVI",
+          "fisica": "Hombre de 45 años, rostro pálido, barba recortada, cabello castaño bajo peluca empolvada, traje de corte francés con medallón de oro, expresión seria",
+          "background": "Rey de Francia, monarca absolutista; busca mantener el poder frente a la crisis financiera y social, convoca los Estados Generales para intentar reformas.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_mujer_campesina_1",
+          "nombre": "Mujer campesina",
+          "fisica": "Mujer de 30 años, del de lino gris, rostro cubierto de barro, lleva una cesta de mimbre",
+          "background": "Campesina protestante, marcha a Versalles exigiendo alimentos.",
+          "rol": "protagonista",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_mujer_campesina_2",
+          "nombre": "Mujer campesina",
+          "fisica": "Mujer de 28 años, vestido de lana oscura, manos endurecidas, expresión decidida",
+          "background": "Otra campesina que acompaña la marcha, simboliza la fuerza del pueblo rural.",
+          "rol": "protagonista",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_guardia_nacional_1",
+          "nombre": "Guardia Nacional",
+          "fisica": "Hombre de 28 años, uniforme azul con insignia de la Guardia Nacional, casco de cuero",
+          "background": "Miembro de la recién creada Guardia Nacional, intenta mediar entre la monarquía y la población.",
+          "rol": "secundario",
+          "skin_id": null
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_carro_de_madera",
+          "nombre": "Carro de madera",
+          "descripcion": "Carro de madera tirado por bueyes, usado para transportar mercancías.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_horca_labranza",
+          "nombre": "Horca de labranza",
+          "descripcion": "Herramienta agrícola de madera con gancho, utilizada por los campesinos.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_cuchillo_carnicero",
+          "nombre": "Cuchillo de carnicero",
+          "descripcion": "Cuchillo de acero con hoja curva, usado para cortar carne.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_saco_de_harina",
+          "nombre": "Saco de harina",
+          "descripcion": "Saco de tela que contiene harina, esencial para el sustento del pueblo.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_hogaza_de_pan",
+          "nombre": "Hogaza de pan",
+          "descripcion": "Gran pieza de pan rústico, símbolo de la escasez alimentaria.",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_mujer_campesina_1 arrastra objeto_carro_de_madera bajo la lluvia, liderando la marcha hacia Versalles.",
+          "personajes_involucrados": [
+            "personaje_mujer_campesina_1",
+            "personaje_luis_xvi"
+          ],
+          "objetos_involucrados": [
+            "objeto_carro_de_madera"
+          ]
+        },
+        {
+          "descripcion": "personaje_mujer_campesina_2 empuña objeto_horca_labranza y objeto_cuchillo_carnicero, exigiendo objeto_saco_de_harina y objeto_hogaza_de_pan.",
+          "personajes_involucrados": [
+            "personaje_mujer_campesina_2"
+          ],
+          "objetos_involucrados": [
+            "objeto_horca_labranza",
+            "objeto_cuchillo_carnicero",
+            "objeto_saco_de_harina",
+            "objeto_hogaza_de_pan"
+          ]
+        },
+        {
+          "descripcion": "personaje_luis_xvi, bajo presión, abandona el palacio y se traslada a París, marcando el fin del Antiguo Régimen.",
+          "personajes_involucrados": [
+            "personaje_luis_xvi"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_04",
+      "titulo": "Asamblea Nacional y cimentación de la soberanía",
+      "entorno": "Amplio salón neoclásico de la Asamblea Nacional, gradas de madera, atril elevado, escritorio principal de roble, luz natural que entra por grandes ventanales, banderas tricolores ondeando.",
+      "atmosfera": "Clima de debate intenso, construcción de la nueva identidad republicana, tono de esperanza y consolidación de derechos.",
+      "cielo": "interior_luminoso",
+      "tipo_ambiente": "interior",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_luis_xvi",
+          "nombre": "Luis XVI",
+          "fisica": "Hombre de 45 años, rostro pálido, barba recortada, cabello castaño bajo peluca empolvada, traje de corte francés con medallón de oro, expresión seria",
+          "background": "Rey de Francia, monarca absolutista; busca mantener el poder frente a la crisis financiera y social, convoca los Estados Generales para intentar reformas.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_presidente_asamblea",
+          "nombre": "Presidente de la Asamblea",
+          "fisica": "Hombre de 45 años, traje negro, peluca blanca, mazo de bronce en mano",
+          "background": "Presidente de la Asamblea Nacional Constituente, lidera los debates para crear la nueva constitución.",
+          "rol": "protagonista",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_diputado_burgues_1",
+          "nombre": "Diputado burgues",
+          "fisica": "Hombre de 40 años, traje gris, barba corta, mirada intelectual",
+          "background": "Diputado ilustrado, participa en la redacción de la Declaración de los Derechos.",
+          "rol": "secundario",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_ciudadano_escarapela_1",
+          "nombre": "Ciudadano con escarpela",
+          "fisica": "Hombre de 25 años, ropa sencilla, lleva una escarpela tricolor en el pecho",
+          "background": "Ciudadano entusiasta, celebra la revolución vistiendo los colores de la nueva bandera.",
+          "rol": "protagonista",
+          "skin_id": null
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_mazo_bronce",
+          "nombre": "Mazo de bronce",
+          "descripcion": "Mazo de bronce usado por el presidente de la Asamblea para llamar al orden.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_declaracion_derechos",
+          "nombre": "Declaración de los Derechos",
+          "descripcion": "Documento impreso que proclama los derechos universales del hombre y del ciudadano.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_pluma",
+          "nombre": "Pluma",
+          "descripcion": "Pluma de ave utilizada para firmar documentos oficiales.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_escritorio_principal",
+          "nombre": "Escritorio principal",
+          "descripcion": "Mesa larga de madera donde se depositan los documentos oficiales.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_escarpela_tricolor",
+          "nombre": "Escarpela tricolor",
+          "descripcion": "Bandera de tela tricolor (azul, blanco y rojo) que los ciudadanos llevan como símbolo de la revolución.",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_presidente_asamblea golpea objeto_mazo_bronce, llamando al orden para iniciar la sesión de la Asamblea Nacional.",
+          "personajes_involucrados": [
+            "personaje_presidente_asamblea"
+          ],
+          "objetos_involucrados": [
+            "objeto_mazo_bronce"
+          ]
+        },
+        {
+          "descripcion": "personaje_diputado_burgues_1 firma con objeto_pluma el objeto_declaracion_derechos sobre el objeto_escritorio_principal, estableciendo los derechos fundamentales.",
+          "personajes_involucrados": [
+            "personaje_diputado_burgues_1"
+          ],
+          "objetos_involucrados": [
+            "objeto_pluma",
+            "objeto_declaracion_derechos",
+            "objeto_escritorio_principal"
+          ]
+        },
+        {
+          "descripcion": "personaje_ciudadano_escarapela_1 se coloca objeto_escarpela_tricolor, celebrando la nueva identidad nacional.",
+          "personajes_involucrados": [
+            "personaje_ciudadano_escarapela_1"
+          ],
+          "objetos_involucrados": [
+            "objeto_escarpela_tricolor"
+          ]
+        }
+      ]
+    }
+  ],
+  "personajes_globales": [
+    {
+      "id": "personaje_luis_xvi",
+      "nombre": "Luis XVI",
+      "fisica": "Hombre de 45 años, rostro pálido, barba recortada, cabello castaño bajo peluca empolvada, traje de corte francés con medallón de oro, expresión seria",
+      "background": "Rey de Francia, monarca absolutista; busca mantener el poder frente a la crisis financiera y social, convoca los Estados Generales para intentar reformas.",
+      "rol": "protagonista",
+      "skin_id": null
+    }
+  ],
+  "objetos_globales": []
+}

@@ -1,0 +1,362 @@
+{
+  "id_escena": "escena_03",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "El mando de la Nao Victoria se consolida",
+      "guias": [
+        "objeto_nao_victoria",
+        "personaje_elcano"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_nao_victoria"
+        ],
+        "personajes": [
+          "personaje_elcano"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Negociación de clavo y nuez moscada",
+      "guias": [
+        "objeto_clavo",
+        "objeto_nuez_moscada",
+        "personaje_elcano"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_clavo",
+          "objeto_nuez_moscada"
+        ],
+        "personajes": [
+          "personaje_elcano"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Carga de especias para el regreso a España",
+      "guias": [
+        "objeto_nao_victoria",
+        "objeto_especias",
+        "personaje_elcano"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_nao_victoria",
+          "objeto_especias"
+        ],
+        "personajes": [
+          "personaje_elcano"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_elcano",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Juan Sebastián Elcano — Navegante español",
+        "texto": "Juan Sebastián Elcano (c. 1486‑1526) fue el capitán que completó la primera circunnavegación del mundo tras la muerte de Ferdinand Magallanes. Lideró la ==Nao Victoria== en su regreso a España, asegurando la carga de ==especias== que recuperó parte de la inversión de la corona. ==Su regreso en 1522== marcó el inicio de la era de los descubrimientos españoles."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "La muerte de ==Magallanes== en las costas de Filipinas dejó al barco sin líder, y yo, con la responsabilidad de la ==Nao Victoria==, tuve que decidir el rumbo."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Asumí el mando con la convicción de que la misión debía concluir, aunque la tripulación estaba abatida."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo mantuviste la moral?",
+                  "respuesta": "Les recordé que la historia nos observaría y que cada día sin regresar sería una derrota para España."
+                },
+                {
+                  "etiqueta": "¿Qué riesgos enfrentasteis?",
+                  "respuesta": "El hambre, la tormenta y la posible hostilidad de los isleños eran constantes amenazas."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Nos preparamos para el largo viaje de regreso, conscientes de que el éxito dependería de nuestras decisiones en alta mar."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Llegamos a la bahía de Ternate y nos encontramos con comerciantes que ofrecían ==clavo== y ==nuez moscada== a cambio de nuestras telas y armas."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Los precios eran altos, pero sabíamos que esas especias valían una fortuna en Europa."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cuánto valían esas especias en España?",
+                  "respuesta": "Un solo gramo de ==clavo== podía costar más de diez veces su peso en oro."
+                },
+                {
+                  "etiqueta": "¿Por qué cambiaban telas por especias?",
+                  "respuesta": "Nuestras telas eran abundantes, mientras que las especias eran escasas y muy demandadas en el mercado europeo."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Al cerrar el trato, la tripulación sintió una renovada esperanza de recuperar parte de la inversión de la corona."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "La ==Nao Victoria== se cargó con barriles de ==especias==, incluyendo clavo y nuez moscada, listos para el regreso a España."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Sabíamos que el viaje sería peligroso, pero la carga valiosa nos impulsaba a seguir."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué peligros temían en el regreso?",
+                  "respuesta": "Tormentas en el Pacífico, escasez de alimentos y la amenaza de piratas eran nuestras mayores temores."
+                },
+                {
+                  "etiqueta": "¿Cuánto peso llevaba la nave?",
+                  "respuesta": "Cargamos aproximadamente ocho toneladas de especias, lo que acercó la nave al límite de su capacidad."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Con la nave lista, nos despedimos de las islas, llevando el sueño de la corona de volver con tesoros."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Negociar",
+          "descripcion": "Hablas con Elcano y le preguntas sobre los precios del clavo y la nuez moscada. Él responde explicando la demanda europea y la disponibilidad local.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "objeto_clavo",
+              "efecto": "brillo",
+              "color": null,
+              "animacion": null
+            },
+            {
+              "id_nodo": "objeto_nuez_moscada",
+              "efecto": "brillo",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        },
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Planificar carga",
+          "descripcion": "Elcano revisa la lista de especias y asigna espacio en la Nao Victoria para el regreso a España.",
+          "animacion": "PickUp",
+          "narrativa": true,
+          "fase_aparicion": 2,
+          "sonido": "metal",
+          "dispara": [
+            {
+              "id_nodo": "objeto_especias",
+              "efecto": "brillo",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_nao_victoria",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Nao Victoria",
+        "descripcion": "La ==Nao Victoria== es la primera nave europea en circunnar el mundo. Fue construida en 1492 y cuenta con un casco de madera reforzada y velas de algodón. Su diseño permitió transportar carga y tripulación durante largos viajes marítimos.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_clavo",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Clavo",
+        "descripcion": "El ==clavo== es una especia aromática proveniente de las islas Molucas. Se utiliza como conservante y para dar sabor a los alimentos. En el siglo XVI, su valor comercial era comparable al del oro.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_nuez_moscada",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Nuez moscada",
+        "descripcion": "La ==nuez moscada== es la semilla de un árbol tropical de la familia Myristicaceae. Posee propiedades aromáticas y medicinales, y en la época de los descubrimientos fue altamente codiciada por su uso en la cocina y la medicina.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_especias",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Especias",
+        "descripcion": "Las ==especias== son productos vegetales secados o procesados que se utilizan para dar sabor, aroma o conservar alimentos. En el siglo XV, el comercio de especias impulsó la expansión marítima europea.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_tejidos",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Tejidos",
+        "descripcion": "Los ==tejidos== de algodón y lana se comercializaban en los mercados de Ternate. Servían para confeccionar ropa y velas de barcos, y su calidad era evaluada por la densidad del hilo.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_herramientas_metalicas",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Herramientas metálicas",
+        "descripcion": "Las ==herramientas metálicas==, como hachas y martillos, eran esenciales para la construcción y reparación de embarcaciones. Estaban forjadas en hierro y acero, y su resistencia se medía por la dureza del metal.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_espejos",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Espejos",
+        "descripcion": "Los ==espejos== de metal pulido se usaban para señalizar entre barcos y para inspeccionar la cubierta. Su superficie reflectante permitía detectar la posición del sol y la dirección del viento.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "amb_02_2_00",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un pozo de piedra, cuyas aguas reflejan el crepúsculo del puerto."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "amb_03_2_00",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un barril de madera gastado, aún conserva el aroma a especias exóticas."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "amb_04_2_00",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un banco de madera tallada, testigo silencioso de negociaciones intensas."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_mercado",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al entrar al mercado de Ternate, percibes el intenso aroma de ==clavo== y ==nuez moscada==, mientras los comerciantes exhiben sus mercancías bajo faroles de aceite."
+    }
+  ]
+}

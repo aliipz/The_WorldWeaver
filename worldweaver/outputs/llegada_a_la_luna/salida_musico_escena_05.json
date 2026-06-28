@@ -1,0 +1,14 @@
+{
+  "id_escena": "escena_05",
+  "query_usada": "helicopter rotor ocean ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/187/187358_1648170-hq.mp3",
+    "titulo": "BeachWaves ShipDrone 130428_02.flac",
+    "autor": "klankbeeld",
+    "duracion_segundos": 586.1,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": null,
+  "fuente": "freesound"
+}

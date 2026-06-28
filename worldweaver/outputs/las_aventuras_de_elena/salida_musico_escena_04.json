@@ -1,0 +1,14 @@
+{
+  "id_escena": "escena_04",
+  "query_usada": "rusty generator ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/456/456501_735175-hq.mp3",
+    "titulo": "Freesound 2018 in Sound, by Ratings",
+    "autor": "frederic.font",
+    "duracion_segundos": 1128.8,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": null,
+  "fuente": "freesound"
+}

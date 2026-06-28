@@ -1,0 +1,155 @@
+{
+  "id_escena": "escena_03",
+  "elementos": [
+    {
+      "id": "personaje_elena",
+      "nombre": "Elena",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.8,
+      "descripcion": "Mujer joven, cabello castaño, mochila gastada, cuaderno de notas.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_zip",
+      "nombre": "Zip",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 0.7,
+      "alto": 0.6,
+      "descripcion": "Zorro naranja de orejas enormes y lengua larga.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_traje_buceo",
+      "nombre": "Traje de buceo antiguo",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_03",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 5
+      },
+      "ancho": 0.9,
+      "alto": 1.8,
+      "descripcion": "Traje de buceo colgado de un gancho en la bodega, rígido pero intacto, con aproximadamente treinta años de antigüedad.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_submarino",
+      "nombre": "Submarino oxidado",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_03",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 0.5,
+      "descripcion": "Pequeño submarino oxidado conectado a una grúa, listo para descender al agua.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_generador",
+      "nombre": "Generador oxidado",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 1.2,
+      "alto": 0.8,
+      "descripcion": "Generador en la proa del barco, cubierto de óxido y conectado a la grúa que sostiene el submarino.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_barrel_oxidado_01",
+      "nombre": "Barril oxidado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 4
+      },
+      "ancho": 0.6,
+      "alto": 1.0,
+      "descripcion": "Cilindro de metal corroído, pintado de rojo desvanecido, medio volteado, con manchas de salitre y algas adheridas.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_madera_deriva_01",
+      "nombre": "Tronco de madera flotante",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 3.0,
+      "alto": 0.8,
+      "descripcion": "Corte grueso de pino, barnizado por la sal, cubierto de algas verdes y musgo, medio enterrado en la arena gris.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_redes_depesca_01",
+      "nombre": "Red de pesca derrumbada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 2.0,
+      "alto": 0.5,
+      "descripcion": "Malla de nylon gris desgastada, enredada entre rocas, con trozos de cuerda deshilachada y restos de pescado seco.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_cueva_pequeña_01",
+      "nombre": "Cavidad rocosa en la playa",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 2.0,
+      "alto": 2.5,
+      "descripcion": "Abertura escarpada en la formación rocosa, interior sombreado, con pequeñas conchas y guijarros brillantes.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_ancla_antigua_01",
+      "nombre": "Ancla antigua semienterrada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 7,
+        "fila": 0
+      },
+      "ancho": 1.5,
+      "alto": 0.6,
+      "descripcion": "Masa de hierro forjado, cubierta de óxido verde, parcialmente sumergida en la arena, con cuerdas rotas atadas.",
+      "keyword_busqueda": null
+    }
+  ]
+}

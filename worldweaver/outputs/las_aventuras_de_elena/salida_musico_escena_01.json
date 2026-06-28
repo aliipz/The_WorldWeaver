@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_01",
+  "query_usada": "forest morning birds ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/619/619718_1648170-hq.mp3",
+    "titulo": "edge forest 0738AM 210221_0257.wav",
+    "autor": "klankbeeld",
+    "duracion_segundos": 52.5,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/792/792699_1648170-hq.mp3",
+    "titulo": "woodpeckers Haanwijk 1206 PM 250306_1056",
+    "autor": "klankbeeld",
+    "duracion_segundos": 20.5,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

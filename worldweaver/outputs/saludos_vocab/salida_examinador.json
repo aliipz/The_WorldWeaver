@@ -1,0 +1,221 @@
+{
+  "titulo": "Cuestionario de vocabulario: saludos (en)",
+  "preguntas": [
+    {
+      "numero": 1,
+      "pregunta": "¿Cómo se dice 'Buenos días' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Good afternoon",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Good morning",
+          "correcta": true
+        },
+        {
+          "letra": "c",
+          "texto": "Hello",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "Goodbye",
+          "correcta": false
+        }
+      ],
+      "explicacion": "La expresión 'Buenos días' se traduce como 'Good morning' en inglés."
+    },
+    {
+      "numero": 2,
+      "pregunta": "I say ___ to my neighbor in the morning. / Yo digo ___ a mi vecino por la mañana.",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Good afternoon",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Hello",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Good evening",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "Good morning",
+          "correcta": true
+        }
+      ],
+      "explicacion": "En el contexto de la mañana, la frase adecuada es 'Good morning'."
+    },
+    {
+      "numero": 3,
+      "pregunta": "¿Cuál de estas palabras corresponde a la frase '¿Cómo estás?' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "How are you?",
+          "correcta": true
+        },
+        {
+          "letra": "b",
+          "texto": "Thank you",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Goodbye",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "Hello",
+          "correcta": false
+        }
+      ],
+      "explicacion": "La pregunta '¿Cómo estás?' se traduce como 'How are you?'."
+    },
+    {
+      "numero": 4,
+      "pregunta": "¿Cómo se dice 'Gracias' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Good evening",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Good morning",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "See you later",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "Thank you",
+          "correcta": true
+        }
+      ],
+      "explicacion": "La palabra 'Gracias' se traduce como 'Thank you' en inglés."
+    },
+    {
+      "numero": 5,
+      "pregunta": "She replied ___ after I thanked her. / Ella respondió ___ después de que le di las gracias.",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Thank you",
+          "correcta": true
+        },
+        {
+          "letra": "b",
+          "texto": "Hello",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Good afternoon",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "Goodbye",
+          "correcta": false
+        }
+      ],
+      "explicacion": "En esa situación la respuesta adecuada es 'Thank you'."
+    },
+    {
+      "numero": 6,
+      "pregunta": "¿Cuál de estas palabras se usa para despedirse diciendo 'Hasta luego'?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Hello",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Good morning",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Good evening",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "See you later",
+          "correcta": true
+        }
+      ],
+      "explicacion": "La expresión 'Hasta luego' se traduce como 'See you later'."
+    },
+    {
+      "numero": 7,
+      "pregunta": "¿Cómo se dice 'Adiós' en inglés?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Good afternoon",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Thank you",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Hello",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "Goodbye",
+          "correcta": true
+        }
+      ],
+      "explicacion": "La palabra 'Adiós' corresponde a 'Goodbye' en inglés."
+    },
+    {
+      "numero": 8,
+      "pregunta": "We will meet again ___ . / Nos volvemos a encontrar ___ .",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Goodbye",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "See you later",
+          "correcta": true
+        },
+        {
+          "letra": "c",
+          "texto": "Good evening",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "How are you?",
+          "correcta": false
+        }
+      ],
+      "explicacion": "Para indicar 'Hasta luego' se utiliza la frase 'See you later'."
+    }
+  ]
+}

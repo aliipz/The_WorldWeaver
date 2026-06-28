@@ -1,0 +1,252 @@
+{
+  "id_escena": "escena_02",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "barco",
+  "radio_escena": 22.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_02",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_02",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 22.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_magallanes",
+      "nombre": "Fernando de Magallanes",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 2.44,
+        "y": 0.95,
+        "z": 0.89
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Pirate_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_brujula",
+      "nombre": "Brújula",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.75,
+        "y": 0.25,
+        "z": 3.03
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/db18fada-a70e-44da-961c-0cc31dffdaa6.glb",
+      "keyword_busqueda": "compass"
+    },
+    {
+      "id": "objeto_astrolabio",
+      "nombre": "Astrolabio",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.45,
+        "y": 0.19,
+        "z": 2.56
+      },
+      "ancho": 0.4,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/c9a055de-363b-4d31-9525-ac044f2958f1.glb",
+      "keyword_busqueda": "instrument"
+    },
+    {
+      "id": "objeto_cartas_nauticas",
+      "nombre": "Cartas náuticas",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -2.68,
+        "y": 0.1,
+        "z": 2.25
+      },
+      "ancho": 0.6,
+      "alto": 0.2,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/c06cc95b-6a05-469c-aa4a-a44fdac2e9c0.glb",
+      "keyword_busqueda": "map"
+    },
+    {
+      "id": "decorado_cubeta_agua_01",
+      "nombre": "Cubeta de agua de mar",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -2.6,
+        "y": 0.25,
+        "z": -0.0
+      },
+      "ancho": 0.4,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ab9720c1-bfc4-4afc-a4d5-349fc725f6ae.glb",
+      "keyword_busqueda": "bucket"
+    },
+    {
+      "id": "decorado_canon_01",
+      "nombre": "Cañón de bronce",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -2.68,
+        "y": 0.4,
+        "z": -2.25
+      },
+      "ancho": 1.2,
+      "alto": 0.8,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/6d76c733-c77c-46f5-9d4f-af847d4052b3.glb",
+      "keyword_busqueda": "cannon"
+    },
+    {
+      "id": "decorado_barril_01",
+      "nombre": "Barril de pólvora",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.45,
+        "y": 0.45,
+        "z": -2.56
+      },
+      "ancho": 0.6,
+      "alto": 0.9,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/6d3e8847-bda4-4d6c-8004-7b03cf848b13.glb",
+      "keyword_busqueda": "barrel"
+    },
+    {
+      "id": "decorado_cofre_01",
+      "nombre": "Cofre de caudales",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 1.75,
+        "y": 0.3,
+        "z": -3.03
+      },
+      "ancho": 0.8,
+      "alto": 0.6,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/803af4ae-433f-4b05-b1f1-c6a2da02d768.glb",
+      "keyword_busqueda": "chest"
+    },
+    {
+      "id": "decorado_cuerda_01",
+      "nombre": "Bobina de cuerda de cáñamo",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 2.44,
+        "y": 0.2,
+        "z": -0.89
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/79c58249-2b9e-41ca-89f5-b7ff4e7a58c5.glb",
+      "keyword_busqueda": "rope"
+    }
+  ],
+  "cielo": {
+    "tipo": "tormenta",
+    "color_fondo": "#323848",
+    "color_ambiente": "#536383",
+    "intensidad_ambiente": 0.40223729536437686,
+    "color_sol": "#667693",
+    "intensidad_sol": 0.1735635322015074,
+    "pos_sol": {
+      "x": 0.0,
+      "y": 3.0461954115543506,
+      "z": -1.8662977248455617
+    },
+    "niebla": {
+      "color": "#2a3040",
+      "near": 6.244126095075941,
+      "far": 13.0
+    }
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_magallanes": {
+      "glb_id": "Pirate_Male",
+      "glb_path": "/sandbox/assets/characters/Pirate_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "gris",
+      "clothing_seed": 2612,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

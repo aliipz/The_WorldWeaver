@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_01",
+  "query_usada": "rocket launch roar loop",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/627/627112_5828667-hq.mp3",
+    "titulo": "AERORckt_Rocket roar 12.Very Distant.Steady.Crackle_EM_(7lrs).wav",
+    "autor": "newlocknew",
+    "duracion_segundos": 25.2,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/627/627117_5828667-hq.mp3",
+    "titulo": "AERORckt_Rocket roar 3-3.Steady (more low end).Crackle.Squawking_EM_(11lrs).wav",
+    "autor": "newlocknew",
+    "duracion_segundos": 28.4,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

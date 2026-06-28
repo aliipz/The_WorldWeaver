@@ -1,0 +1,349 @@
+{
+  "id_escena": "escena_08",
+  "tipo_escena": "interior",
+  "tipo_ambiente": "habitacion",
+  "radio_escena": 5.5,
+  "limite_jugador": 3.3,
+  "color_suelo": null,
+  "tipo_suelo": null,
+  "tipo_techo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_08",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 3.5,
+        "z": 0.0
+      },
+      "ancho": 5.5,
+      "alto": 7.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_08",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 5.5,
+      "alto": 5.5,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_juan",
+      "nombre": "Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.07,
+        "y": 0.7,
+        "z": -0.12
+      },
+      "ancho": 0.5,
+      "alto": 1.4,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_madre",
+      "nombre": "Madre de Juan",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.22,
+        "y": 0.82,
+        "z": 0.2
+      },
+      "ancho": 0.9,
+      "alto": 1.65,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual_Female.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_gallina_dorada",
+      "nombre": "Gallina dorada",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.01,
+        "y": 0.19,
+        "z": 1.25
+      },
+      "ancho": 0.5,
+      "alto": 0.38,
+      "tam_real": 0.5,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/622d2b3d-e280-48fd-9a82-b0e60443def5.glb",
+      "keyword_busqueda": "chicken"
+    },
+    {
+      "id": "objeto_arpa_de_oro",
+      "nombre": "Arpa de oro",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.29,
+        "y": 0.75,
+        "z": 1.08
+      },
+      "ancho": 0.9,
+      "alto": 1.5,
+      "tam_real": 1.5,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/bdccab14-4489-48e2-ad91-5d7905109d9a.glb",
+      "keyword_busqueda": "harp"
+    },
+    {
+      "id": "decorado_mesa_madera_01",
+      "nombre": "mesa de ro de la granja",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.98,
+        "y": 0.4,
+        "z": -1.16
+      },
+      "ancho": 1.2,
+      "alto": 0.8,
+      "tam_real": 1.2,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d792dfcb-6a53-471d-9989-ee8340519d5d.glb",
+      "keyword_busqueda": "table"
+    },
+    {
+      "id": "decorado_silla_madera_01",
+      "nombre": "silla de roble pintada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.08,
+        "y": 0.45,
+        "z": -1.17
+      },
+      "ancho": 0.5,
+      "alto": 0.9,
+      "tam_real": 0.9,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/84ecc6a3-2751-4f50-912a-b9f4ff033d7a.glb",
+      "keyword_busqueda": "chair"
+    },
+    {
+      "id": "decorado_silla_madera_02",
+      "nombre": "silla de roble natural",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.95,
+        "y": 0.45,
+        "z": -0.98
+      },
+      "ancho": 0.5,
+      "alto": 0.9,
+      "tam_real": 0.9,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/84ecc6a3-2751-4f50-912a-b9f4ff033d7a.glb",
+      "keyword_busqueda": "chair"
+    },
+    {
+      "id": "decorado_sofa_madera_01",
+      "nombre": "sofá bajo de madera",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -1.2,
+        "y": 0.4,
+        "z": -0.11
+      },
+      "ancho": 1.5,
+      "alto": 0.8,
+      "tam_real": 1.5,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5898397b-8949-479b-a07a-9b9e058222a5.glb",
+      "keyword_busqueda": "sofa"
+    },
+    {
+      "id": "decorado_albornoz_01",
+      "nombre": "alfombra de lana tejida",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.98,
+        "y": 0.1,
+        "z": 1.2
+      },
+      "ancho": 1.8,
+      "alto": 0.2,
+      "tam_real": 1.8,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/93588780-3405-40b7-acb4-9a87c88569f6.glb",
+      "keyword_busqueda": "rug"
+    },
+    {
+      "id": "decorado_estanteria_madera_01",
+      "nombre": "estantería alta de pino",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -4.71,
+        "y": 0.9,
+        "z": -1.49
+      },
+      "ancho": 1.2,
+      "alto": 1.8,
+      "tam_real": 1.8,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/91537fb2-45d2-4b08-b060-7347a52b70ab.glb",
+      "keyword_busqueda": "bookshelf"
+    },
+    {
+      "id": "decorado_candelabro_metal_01",
+      "nombre": "candelabro de hierro forjado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 1.47,
+        "y": 0.25,
+        "z": -5.03
+      },
+      "ancho": 0.15,
+      "alto": 0.5,
+      "tam_real": 0.5,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7d0c3d9c-ce38-487e-b707-eca67ef14b1f.glb",
+      "keyword_busqueda": "candelabra"
+    },
+    {
+      "id": "decorado_cesto_frutas_01",
+      "nombre": "cesto de mimbre con frutas",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 4.75,
+        "y": 0.25,
+        "z": -0.06
+      },
+      "ancho": 0.6,
+      "alto": 0.5,
+      "tam_real": 0.6,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/2d220908-21c7-42f6-bd9d-90235d564205.glb",
+      "keyword_busqueda": "basket"
+    },
+    {
+      "id": "decorado_silla_m00_12",
+      "nombre": "Silla",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -2.22,
+        "y": 0.45,
+        "z": -1.01
+      },
+      "ancho": 0.5,
+      "alto": 0.9,
+      "tam_real": 0.9,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/84ecc6a3-2751-4f50-912a-b9f4ff033d7a.glb",
+      "keyword_busqueda": "chair"
+    }
+  ],
+  "cielo": {
+    "tipo": "interior_calido",
+    "color_fondo": "#150a04",
+    "color_ambiente": "#ff7e2e",
+    "intensidad_ambiente": 0.658157027040752,
+    "color_sol": "#ffae4b",
+    "intensidad_sol": 0.8348850036250813,
+    "pos_sol": {
+      "x": 0.253429239066542,
+      "y": 3.9468582395814895,
+      "z": -0.20576447220560246
+    },
+    "niebla": null,
+    "luz_exterior": null
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_juan": {
+      "glb_id": "Casual_Male",
+      "glb_path": "/sandbox/assets/characters/Casual_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_claro",
+      "clothing_seed": 9193,
+      "talla": "nino_enano",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_madre": {
+      "glb_id": "Casual_Female",
+      "glb_path": "/sandbox/assets/characters/Casual_Female.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "gris",
+      "clothing_seed": 7667,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

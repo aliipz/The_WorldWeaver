@@ -1,0 +1,215 @@
+{
+  "id_escena": "escena_02",
+  "elementos": [
+    {
+      "id": "personaje_gobernador_bastilla",
+      "nombre": "Gobernador de la Bastilla",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Hombre de 50 años, uniforme militar gris, gorro de plomo, barba gris, mirada severa"
+    },
+    {
+      "id": "personaje_guardia_real_suiza_1",
+      "nombre": "Guardia real suiza",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 0.9,
+      "alto": 1.8,
+      "descripcion": "Joven de 25 años, uniforme rojo con chaqueta azul, capa corta, espada al cinto"
+    },
+    {
+      "id": "personaje_sans_culotte_1",
+      "nombre": "Sans-culotte",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 5
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "descripcion": "Joven de 22 años, pantalón sin medias, camisa blanca, chaqueta azul, rostro enérgico"
+    },
+    {
+      "id": "personaje_miliciono_desertor_1",
+      "nombre": "Milicionero desertor",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.85,
+      "descripcion": "Hombre de 35 años, ropa militar gastada, barba descuidada, mirada cansada"
+    },
+    {
+      "id": "objeto_cadena_hierro",
+      "nombre": "Cadena de hierro",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 3.5,
+      "alto": 0.9,
+      "descripcion": "Enorme cadena de hierro que ciñe el puente levadizo de la Bastilla."
+    },
+    {
+      "id": "objeto_pica_hierro",
+      "nombre": "Pica de hierro",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "descripcion": "Larga herramienta de hierro utilizada por los asaltantes para romper estructuras."
+    },
+    {
+      "id": "objeto_hacha_leñador",
+      "nombre": "Hacha de leñador",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 1.0,
+      "descripcion": "Hacha de acero con mango de madera, empleada por la muchedumbre para romper puertas."
+    },
+    {
+      "id": "objeto_antorcha",
+      "nombre": "Antorcha",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 1.2,
+      "descripcion": "Bastón de madera envuelto en tela y encendido, ilumina la noche de la revuelta."
+    },
+    {
+      "id": "objeto_mosquete",
+      "nombre": "Mosquete",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 3
+      },
+      "ancho": 1.5,
+      "alto": 0.3,
+      "descripcion": "Arma de fuego de avancarga utilizada por la guardia real suiza."
+    },
+    {
+      "id": "objeto_canon_bronce",
+      "nombre": "Cañón de bronce",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 3
+      },
+      "ancho": 2.0,
+      "alto": 1.0,
+      "descripcion": "Cañón de bronce de gran calibre, disparado desde las murallas de la Bastilla."
+    },
+    {
+      "id": "objeto_barril_de_polvora",
+      "nombre": "Barril de pólvora",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 7,
+        "fila": 3
+      },
+      "ancho": 0.8,
+      "alto": 1.2,
+      "descripcion": "Gran tonel de madera lleno de pólvora, almacenado en la Bastilla."
+    },
+    {
+      "id": "decorado_farol_hierro_01",
+      "nombre": "Farol de hierro",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 3
+      },
+      "ancho": 0.4,
+      "alto": 1.5,
+      "descripcion": "Farol de hierro forjado con una lámpara de vidrio ahumado, oxidado en la base y con una luz tenue que apenas atraviesa la niebla."
+    },
+    {
+      "id": "decorado_banco_piedra_01",
+      "nombre": "Banco de piedra",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 1
+      },
+      "ancho": 1.5,
+      "alto": 0.5,
+      "descripcion": "Banco bajoado de bloques de piedra gris, con superficies erosionadas por el tiempo y musgos verdes en los bordes."
+    },
+    {
+      "id": "decorado_caja_frutas_01",
+      "nombre": "Caja de frutas",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 0.6,
+      "alto": 0.6,
+      "descripcion": "Caja de madera envejecida, con tablones sueltos y manchas de jugo de manzana, cargada de manzanas rojas y peras verdes."
+    },
+    {
+      "id": "decorado_carreta_madera_01",
+      "nombre": "Carreta de madera",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 2.0,
+      "alto": 1.0,
+      "descripcion": "Carreta de dos ejes de madera cruda, con ruedas de hierro oxidadas y una lona rasgada que revela sacos de harina."
+    }
+  ]
+}

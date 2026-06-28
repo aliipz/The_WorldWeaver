@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_02",
+  "query_usada": "stormy sea wind ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/426/426076_3380363-hq.mp3",
+    "titulo": "Storm waves breaking on sandy beach in Bournemouth - clean recording",
+    "autor": "chris_dagorne",
+    "duracion_segundos": 84.4,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/426/426074_3380363-hq.mp3",
+    "titulo": "11ft waves breaking on sandy beach in the distance from the top of the cliff",
+    "autor": "chris_dagorne",
+    "duracion_segundos": 62.4,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

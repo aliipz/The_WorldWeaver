@@ -1,0 +1,201 @@
+{
+  "id_escena": "escena_03",
+  "elementos": [
+    {
+      "id": "personaje_luis_xvi",
+      "nombre": "Luis XVI",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Hombre de 45 años, rostro pálido, barba recortada, cabello castaño bajo peluca empolvada, traje de corte francés con medallón de oro, expresión seria"
+    },
+    {
+      "id": "personaje_guardia_nacional_1",
+      "nombre": "Guardia Nacional",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.8,
+      "descripcion": "Hombre de 28 años, uniforme azul con insignia de la Guardia Nacional, casco de cuero"
+    },
+    {
+      "id": "objeto_carro_de_madera",
+      "nombre": "Carro de madera",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 6
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "descripcion": "Carro de madera tirado por bueyes, usado para transportar mercancías."
+    },
+    {
+      "id": "personaje_mujer_campesina_1",
+      "nombre": "Mujer campesina",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 5
+      },
+      "ancho": 0.9,
+      "alto": 1.7,
+      "descripcion": "Mujer de 30 años, del de lino gris, rostro cubierto de barro, lleva una cesta de mimbre"
+    },
+    {
+      "id": "personaje_mujer_campesina_2",
+      "nombre": "Mujer campesina",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 0.9,
+      "alto": 1.7,
+      "descripcion": "Mujer de 28 años, vestido de lana oscura, manos endurecidas, expresión decidida"
+    },
+    {
+      "id": "objeto_horca_labranza",
+      "nombre": "Horca de labranza",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 0.3,
+      "alto": 1.0,
+      "descripcion": "Herramienta agrícola de madera con gancho, utilizada por los campesinos."
+    },
+    {
+      "id": "objeto_cuchillo_carnicero",
+      "nombre": "Cuchillo de carnicero",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Cuchillo de acero con hoja curva, usado para cortar carne."
+    },
+    {
+      "id": "objeto_saco_de_harina",
+      "nombre": "Saco de harina",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 4
+      },
+      "ancho": 0.6,
+      "alto": 0.8,
+      "descripcion": "Saco de tela que contiene harina, esencial para el sustento del pueblo."
+    },
+    {
+      "id": "objeto_hogaza_de_pan",
+      "nombre": "Hogaza de pan",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 0.3,
+      "descripcion": "Gran pieza de pan rústico, símbolo de la escasez alimentaria."
+    },
+    {
+      "id": "decorado_cerca_madera_01",
+      "nombre": "Cerca de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 3.0,
+      "alto": 1.0,
+      "descripcion": "Postes de troncos gruesos con listones de tablas envejecidas, clavados en el barro y cubiertos de musgo verde."
+    },
+    {
+      "id": "decorado_pozo_de_piedra_01",
+      "nombre": "Pozo de piedra",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 1.0,
+      "alto": 2.0,
+      "descripcion": "Pozo circular de ladrillos y piedra, con una balda de madera gastada y una cuerda colgando, rodeado de tierra húmeda."
+    },
+    {
+      "id": "decorado_mazo_de_heno_01",
+      "nombre": "Montón de heno",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 1.5,
+      "alto": 1.2,
+      "descripcion": "Gran pila de heno seco, atada con una cuerda de sisal, de color dorado amarillento, parcialmente empapada por la lluvia."
+    },
+    {
+      "id": "decorado_molino_de_viento_01",
+      "nombre": "Molino de viento de ladrillo",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 1
+      },
+      "ancho": 2.5,
+      "alto": 5.0,
+      "descripcion": "Estructura de ladrillo rojo con una torre alta y aspas de madera pintadas de gris, situada al borde del campo."
+    },
+    {
+      "id": "decorado_espanta_pajaros_01",
+      "nombre": "Espantapájaros de trapo",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 8,
+        "fila": 0
+      },
+      "ancho": 0.6,
+      "alto": 1.5,
+      "descripcion": "Figura de trapo con ropa vieja, sombrero de paja y una escoba, clavada en el suelo entre los surcos de trigo."
+    }
+  ]
+}

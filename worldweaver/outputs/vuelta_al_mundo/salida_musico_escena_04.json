@@ -1,0 +1,14 @@
+{
+  "id_escena": "escena_04",
+  "query_usada": "harbor crowd ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/324/324251_1648170-hq.mp3",
+    "titulo": "old harbour ambiance NL 150920_0781.wav",
+    "autor": "klankbeeld",
+    "duracion_segundos": 194.9,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": null,
+  "fuente": "freesound"
+}

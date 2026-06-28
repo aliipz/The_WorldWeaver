@@ -1,0 +1,425 @@
+{
+  "id_escena": "escena_04",
+  "tipo_escena": "interior",
+  "tipo_ambiente": "interior",
+  "radio_escena": 8.0,
+  "limite_jugador": 5.0,
+  "color_suelo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_04",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 3.5,
+        "z": 0.0
+      },
+      "ancho": 8.0,
+      "alto": 7.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_04",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 8.0,
+      "alto": 8.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_luis_xvi",
+      "nombre": "Luis XVI",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.3,
+        "y": 0.88,
+        "z": 0.45
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/OldClassy_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_presidente_asamblea",
+      "nombre": "Presidente de la Asamblea",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -2.05,
+        "y": 0.88,
+        "z": -0.16
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Suit_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_diputado_burgues_1",
+      "nombre": "Diputado burgues",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.97,
+        "y": 0.88,
+        "z": -0.37
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Suit_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_ciudadano_escarapela_1",
+      "nombre": "Ciudadano con escarpela",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.12,
+        "y": 0.88,
+        "z": -2.6
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_mazo_bronce",
+      "nombre": "Mazo de bronce",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -2.42,
+        "y": 0.2,
+        "z": -2.22
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/12964432-8f32-481b-99ec-8f86dbc99243.glb",
+      "keyword_busqueda": "gavel"
+    },
+    {
+      "id": "objeto_declaracion_derechos",
+      "nombre": "Declaración de los Derechos",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 2.16,
+        "y": 0.17,
+        "z": -2.48
+      },
+      "ancho": 0.5,
+      "alto": 0.33,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/21235460-c47c-48ef-bcf2-4fbc104aa4d1.glb",
+      "keyword_busqueda": "paper"
+    },
+    {
+      "id": "objeto_pluma",
+      "nombre": "Pluma",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -2.55,
+        "y": 0.25,
+        "z": 2.06
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/9d308f09-46aa-4c09-9e1c-75b13085b5fb.glb",
+      "keyword_busqueda": "quill"
+    },
+    {
+      "id": "objeto_escritorio_principal",
+      "nombre": "Escritorio principal",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 2.19,
+        "y": 0.4,
+        "z": 2.02
+      },
+      "ancho": 1.4,
+      "alto": 0.8,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/91c2bf8d-0876-4801-abd3-8dd5d017ecbd.glb",
+      "keyword_busqueda": "desk"
+    },
+    {
+      "id": "objeto_escarpela_tricolor",
+      "nombre": "Escarpela tricolor",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.29,
+        "y": 0.3,
+        "z": 2.05
+      },
+      "ancho": 0.4,
+      "alto": 0.6,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4cd7e950-9c30-4005-8a7d-81b4d555715e.glb",
+      "keyword_busqueda": "flag"
+    },
+    {
+      "id": "decorado_columna_01",
+      "nombre": "Columna de mármol corintio",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -6.16,
+        "y": 1.5,
+        "z": -2.21
+      },
+      "ancho": 0.6,
+      "alto": 3.0,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/c6b39e97-df63-428e-9d9e-004c9c467275.glb",
+      "keyword_busqueda": "column"
+    },
+    {
+      "id": "decorado_candelabro_01",
+      "nombre": "Candelabro de bronce con cristales",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.04,
+        "y": 0.25,
+        "z": -6.58
+      },
+      "ancho": 1.0,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/95f8e0fa-f59e-4ade-b2eb-b629703c13e3.glb",
+      "keyword_busqueda": "candelabrum"
+    },
+    {
+      "id": "decorado_tapiz_republica_01",
+      "nombre": "Tapiz de la República",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.43,
+        "y": 0.75,
+        "z": 6.32
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "voltear_horizontal": false,
+      "capa": 6,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/93588780-3405-40b7-acb4-9a87c88569f6.glb",
+      "keyword_busqueda": "tapestry"
+    },
+    {
+      "id": "decorado_reloj_de_pared_01",
+      "nombre": "Reloj de péndulo de bronce",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 6.43,
+        "y": 0.25,
+        "z": 0.1
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/83ac02a5-b467-464a-b874-17317b9e5dac.glb",
+      "keyword_busqueda": "wall clock"
+    },
+    {
+      "id": "decorado_banco_madera_01",
+      "nombre": "Banco de madera tallada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -6.87,
+        "y": 0.4,
+        "z": 2.48
+      },
+      "ancho": 2.0,
+      "alto": 0.8,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/623120d8-bebf-4bd9-bb09-3162c06c9741.glb",
+      "keyword_busqueda": "bench"
+    },
+    {
+      "id": "decorado_candelabro_pequeno_01",
+      "nombre": "Candelabro de cristal para el atril",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 6.83,
+        "y": 0.2,
+        "z": -2.16
+      },
+      "ancho": 0.3,
+      "alto": 0.4,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7d0c3d9c-ce38-487e-b707-eca67ef14b1f.glb",
+      "keyword_busqueda": "candlestick"
+    },
+    {
+      "id": "decorado_pintura_juramento_01",
+      "nombre": "Pintura al óleo del juramento",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -6.63,
+        "y": 0.5,
+        "z": 4.16
+      },
+      "ancho": 1.5,
+      "alto": 1.0,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/cd0af234-561a-461c-a048-0e0c58d96ac5.glb",
+      "keyword_busqueda": "painting"
+    },
+    {
+      "id": "decorado_estanteria_00",
+      "nombre": "Estantería",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -6.94,
+        "y": 1.0,
+        "z": -6.19
+      },
+      "ancho": 1.3,
+      "alto": 2.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/91537fb2-45d2-4b08-b060-7347a52b70ab.glb",
+      "keyword_busqueda": "bookshelf"
+    }
+  ],
+  "cielo": {
+    "tipo": "interior_luminoso",
+    "color_fondo": "#eaeff5",
+    "color_ambiente": "#fbfcff",
+    "intensidad_ambiente": 0.6181743927854843,
+    "color_sol": "#fdfdff",
+    "intensidad_sol": 1.1889278156313605,
+    "pos_sol": {
+      "x": -1.0691835484027927,
+      "y": 5.848118893572893,
+      "z": -1.6228700783532464
+    },
+    "niebla": null
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_luis_xvi": {
+      "glb_id": "OldClassy_Male",
+      "glb_path": "/sandbox/assets/characters/OldClassy_Male.gltf",
+      "skin_tone": "muy_claro",
+      "skin_hex": "#FFCBA4",
+      "hair_color": "castano_claro",
+      "clothing_seed": 2209,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_presidente_asamblea": {
+      "glb_id": "Suit_Male",
+      "glb_path": "/sandbox/assets/characters/Suit_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "blanco",
+      "clothing_seed": 655,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Idle"
+    },
+    "personaje_diputado_burgues_1": {
+      "glb_id": "Suit_Male",
+      "glb_path": "/sandbox/assets/characters/Suit_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 7889,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Idle"
+    },
+    "personaje_ciudadano_escarapela_1": {
+      "glb_id": "Casual_Male",
+      "glb_path": "/sandbox/assets/characters/Casual_Male.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 4900,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

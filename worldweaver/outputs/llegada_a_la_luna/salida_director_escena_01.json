@@ -1,0 +1,131 @@
+{
+  "id_escena": "escena_01",
+  "elementos": [
+    {
+      "id": "personaje_neil_armstrong",
+      "nombre": "Neil Armstrong",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 3
+      },
+      "ancho": 1.0,
+      "alto": 1.85,
+      "descripcion": "Hombre de 38 años, complexión atlética, traje espacial blanco con insignia de la NASA, casco reflectante, mirada concentrada"
+    },
+    {
+      "id": "personaje_buzz_aldrin",
+      "nombre": "Buzz Aldrin",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 0.9,
+      "alto": 1.8,
+      "descripcion": "Hombre de 39 años, estatura media, traje espacial blanco, casco con visor dorado, sonrisa ligera"
+    },
+    {
+      "id": "personaje_michael_collins",
+      "nombre": "Michael Collins",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 3
+      },
+      "ancho": 0.85,
+      "alto": 1.8,
+      "descripcion": "Hombre de 38 años, complexión delgada, traje espacial blanco, casco con visor gris, expresión serena"
+    },
+    {
+      "id": "objeto_saturno_v",
+      "nombre": "Saturno V",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 3
+      },
+      "ancho": 2.8,
+      "alto": 10.0,
+      "descripcion": "Cohete de lanzamiento de tres fases, supera los cien metros de altura, utilizado para enviar la misión Apollo 11 al espacio"
+    },
+    {
+      "id": "objeto_modulo_mando_columbia",
+      "nombre": "Módulo de Mando Columbia",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 7,
+        "fila": 3
+      },
+      "ancho": 2.3,
+      "alto": 1.7,
+      "descripcion": "Cápsula de comando de la misión Apollo 11, diseñada para el viaje de ida y vuelta entre la Tierra y la Luna"
+    },
+    {
+      "id": "decorado_barrera_seguridad_01",
+      "nombre": "Barrera de seguridad de acero con señalización",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 5.7,
+      "alto": 1.1,
+      "descripcion": "Cerca metálica de postes y alambre de cadena, pintada en rojo y blanco, con carteles de advertencia y luces intermitentes."
+    },
+    {
+      "id": "decorado_plataforma_lanzamiento_01",
+      "nombre": "Plataforma de lanzamiento de hormigón",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 6.0,
+      "alto": 0.3,
+      "descripcion": "Gran superficie plana de hormigón gris con canales de drenaje para el fuego, bordes reforzados por acero, con marcas de calibración amarillas."
+    },
+    {
+      "id": "decorado_torre_control_01",
+      "nombre": "Torre de control Kennedy",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 4.6,
+      "alto": 10.0,
+      "descripcion": "Estructura alta de ladrillo rojo con ventanales de acero, cubierta por una cúpula metálica, pintada en blanco y gris, situada al norte de la plataforma."
+    },
+    {
+      "id": "decorado_camion_combustible_01",
+      "nombre": "Camión cisterna de oxígeno líquido",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 2
+      },
+      "ancho": 4.6,
+      "alto": 1.7,
+      "descripcion": "Vehículo pesado de acero inoxidable con tanque azul brillante, ruedas gruesas, equipado con mangueras y válvulas de alta presión."
+    }
+  ]
+}

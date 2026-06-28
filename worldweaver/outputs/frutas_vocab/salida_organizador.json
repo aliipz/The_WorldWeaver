@@ -1,0 +1,287 @@
+{
+  "titulo_historia": "Frutas en inglés",
+  "escenas": [
+    {
+      "id": "escena_01",
+      "titulo": "Exploración del puesto de frutas",
+      "entorno": "puesto de frutas al aire libre",
+      "atmosfera": "descubrimiento cálido",
+      "cielo": "mediodia_soleado",
+      "tipo_ambiente": "campo",
+      "tiene_intro": true,
+      "texto_intro": "Hoy aprenderás los nombres de ==las frutas más comunes== en inglés en nuestro puesto de frutas. Exploraremos cada fruta y escucharemos cómo se dice.",
+      "texto_fin": null,
+      "rol_escena": "exposicion",
+      "personajes": [
+        {
+          "id": "personaje_guia",
+          "nombre": "Edu",
+          "fisica": "hombre de mediana edad con delbo y delantal de colores vivos",
+          "background": "Carácter cálido y didáctico",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_manzana",
+          "nombre": "manzana",
+          "descripcion": "Una manzana roja y jugosa",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "apple",
+          "frase_ejemplo": "I like to eat a ==apple==."
+        },
+        {
+          "id": "objeto_plátano",
+          "nombre": "plátano",
+          "descripcion": "Un plátano amarillo y curvo",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "banana",
+          "frase_ejemplo": "She peeled a ==banana== for snack."
+        },
+        {
+          "id": "objeto_naranja",
+          "nombre": "naranja",
+          "descripcion": "Una naranja naranja brillante",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "orange",
+          "frase_ejemplo": "He squeezed fresh ==orange== juice."
+        },
+        {
+          "id": "objeto_uva",
+          "nombre": "uva",
+          "descripcion": "Un racimo de uvas moradas",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "grape",
+          "frase_ejemplo": "The child ate a sweet ==grape==."
+        },
+        {
+          "id": "objeto_fresa",
+          "nombre": "fresa",
+          "descripcion": "Una fresa roja con semillas pequeñas",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "strawberry",
+          "frase_ejemplo": "She added a ==strawberry== to the salad."
+        },
+        {
+          "id": "objeto_limón",
+          "nombre": "limón",
+          "descripcion": "Un limón verde y ácido",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "lemon",
+          "frase_ejemplo": "A splash of ==lemon== brightens the sauce."
+        },
+        {
+          "id": "objeto_pera",
+          "nombre": "pera",
+          "descripcion": "Una pera verde y jugosa",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "pear",
+          "frase_ejemplo": "He sliced a ripe ==pear== for dessert."
+        },
+        {
+          "id": "objeto_sandía",
+          "nombre": "sandía",
+          "descripcion": "Una sandía grande y roja por dentro",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "watermelon",
+          "frase_ejemplo": "We shared cold ==watermelon== on a hot day."
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Carlos muestra cada fruta y dice su nombre en inglés.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_manzana",
+            "objeto_plátano",
+            "objeto_naranja",
+            "objeto_uva",
+            "objeto_fresa",
+            "objeto_limón",
+            "objeto_pera",
+            "objeto_sandía"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_02",
+      "titulo": "Desafío de reconocimiento",
+      "entorno": "puesto de frutas al aire libre",
+      "atmosfera": "reto amistoso",
+      "cielo": "mediodia_soleado",
+      "tipo_ambiente": "campo",
+      "tiene_intro": true,
+      "texto_intro": "¡Ahora es tu turno! Carlos te pedirá cada fruta en inglés. Busca la correcta y entrégasela.",
+      "texto_fin": "¡Excelente! Has dominado todo el vocabulario de ==las frutas más comunes==. Ahora puedes pasar al cuestionario final.",
+      "rol_escena": "examen",
+      "personajes": [
+        {
+          "id": "personaje_guia",
+          "nombre": "Edu",
+          "fisica": "hombre de mediana edad con sombrero y delantal de colores vivos",
+          "background": "Carácter cálido y didáctico",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_manzana",
+          "nombre": "manzana",
+          "descripcion": "Una manzana roja y jugosa",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "apple",
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_plátano",
+          "nombre": "plátano",
+          "descripcion": "Un plátano amarillo y curvo",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "banana",
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_naranja",
+          "nombre": "naranja",
+          "descripcion": "Una naranja naranja brillante",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "orange",
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_uva",
+          "nombre": "uva",
+          "descripcion": "Un racimo de uvas moradas",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "grape",
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_fresa",
+          "nombre": "fresa",
+          "descripcion": "Una fresa roja con semillas pequeñas",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "strawberry",
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_limón",
+          "nombre": "limón",
+          "descripcion": "Un limón verde y ácido",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "lemon",
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_pera",
+          "nombre": "pera",
+          "descripcion": "Una pera verde y jugosa",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "pear",
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_sandía",
+          "nombre": "sandía",
+          "descripcion": "Una sandía grande y roja por dentro",
+          "skin_id": "escena_01",
+          "nombre_objetivo": "watermelon",
+          "frase_ejemplo": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "El jugador trae al guía el/la ==apple== que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_manzana"
+          ]
+        },
+        {
+          "descripcion": "El jugador trae al guía el/la ==banana== que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_plátano"
+          ]
+        },
+        {
+          "descripcion": "El jugador trae al guía el/la ==orange== que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_naranja"
+          ]
+        },
+        {
+          "descripcion": "El jugador trae al guía el/la ==grape== que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_uva"
+          ]
+        },
+        {
+          "descripcion": "El jugador trae al guía el/la ==strawberry== que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_fresa"
+          ]
+        },
+        {
+          "descripcion": "El jugador trae al guía el/la ==lemon== que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_limón"
+          ]
+        },
+        {
+          "descripcion": "El jugador trae al guía el/la ==pear== que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_pera"
+          ]
+        },
+        {
+          "descripcion": "El jugador trae al guía el/la ==watermelon== que le pide.",
+          "personajes_involucrados": [
+            "personaje_guia"
+          ],
+          "objetos_involucrados": [
+            "objeto_sandía"
+          ]
+        }
+      ]
+    }
+  ],
+  "personajes_globales": [
+    {
+      "id": "personaje_guia",
+      "nombre": "Edu",
+      "fisica": "hombre de mediana edad con sombrero y delantal de colores vivos",
+      "background": "Carácter cálido y didáctico",
+      "rol": "protagonista",
+      "skin_id": "escena_01"
+    }
+  ],
+  "objetos_globales": [],
+  "subtipo_educativo": "vocabulario",
+  "tipo_vocabulario": "tangible",
+  "idioma_objetivo": "en"
+}
