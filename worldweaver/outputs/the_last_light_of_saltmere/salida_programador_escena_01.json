@@ -1,0 +1,449 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "The sea has sent a message that cannot wait...",
+      "guias": [
+        "objeto_botella_mapa",
+        "personaje_finn",
+        "personaje_mara"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_botella_mapa"
+        ],
+        "personajes": [
+          "personaje_finn",
+          "personaje_mara"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "A torn map whispers of a harbor plunged into night...",
+      "guias": [
+        "objeto_botella_mapa",
+        "personaje_mara"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_botella_mapa"
+        ],
+        "personajes": [
+          "personaje_mara"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Three tolls of the bell turn the ship toward the dark shore...",
+      "guias": [
+        "objeto_campana_laton",
+        "objeto_timonel",
+        "personaje_mara"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_campana_laton",
+          "objeto_timonel"
+        ],
+        "personajes": [
+          "personaje_mara"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_finn",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "I found this bottle tangled in the kelp under the south rocks, girl. Sealed tight with Saltmere's wax—and that wax don't lie. Read it. Now, before the storm eats the light."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How can you be sure it's from Saltmere?",
+                  "respuesta": "Look at the anchor pressed in the wax. I've seen a thousand like it in the harbor office. This is no driftwood charm—it's a cry.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Then stop rattling and hand it over.",
+                  "respuesta": "Here. Mind the tear along the fold—someone fought to keep this secret. Read it bold, captain.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Forty years I've fed this crew, and I've learned to read the sea's moods. Tonight the sea is angry, Mara. And this bottle came riding that anger."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What's your gut telling you?",
+                  "respuesta": "That something dark is stirring beyond the shoals. And that whoever sent this knew we'd be the ones to answer.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "You think it's a warning?",
+                  "respuesta": "A warning with a shape to it. Maps and seals and salt—this is no prank. This is a summons.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Three rings on the bell, just like the old tales. She's steering us straight into the black. If I didn't know better, I'd say she was born for this. She was."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Demand answers",
+          "descripcion": "You demand Finn tell you where the bottle came from. He flinches as if struck, then nods grimly toward the wild sea beyond the rail.",
+          "animacion": "RecieveHit",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_mara",
+        "efecto": null,
+        "color": null,
+        "animacion": "RecieveHit"
+      }
+    },
+    {
+      "id_nodo": "personaje_mara",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Easy, Finn. You're white as a sail. Give me that bottle and let's see what's spooked you."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "It's Saltmere's seal. The harbor mark, I'd know it blind.",
+                  "respuesta": "Then this isn't flotsam—it's a message. Crack it open. Let's hear what the sea wants from us.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "The wind's rising. Should we get under cover?",
+                  "respuesta": "After we read it. A storm can wait; a message from home can't.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "A bottle sealed tight, bobbing in from the dark. Whoever sent this wanted it found—and found by us."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Could be a trick of the currents.",
+                  "respuesta": "Currents don't seal wax with a harbor anchor. This came from hands, not waves.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Open it, captain. Let's end the guessing.",
+                  "respuesta": "Gladly. Steady now—let's see what fate stuffed inside.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "Saltmere's beacon... it's extinguished. The map says the light died at midnight, and nothing but the Sun Crystal can relight it. And that crystal is lost somewhere in the dark beyond the shoals."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How far is this place on the map?",
+                  "respuesta": "Far enough to cost us days we don't have. But the map shows a channel—if we thread it, we can reach the island before the next moonless night.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Who put out the light?",
+                  "respuesta": "Nobody puts out a lighthouse by accident. Someone wanted Saltmere blind. And they're still out there, waiting.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Every stroke of ink on this parchment feels like a warning. The coastline's wrong—drawn by a trembling hand. Whatever happened at Saltmere broke someone's nerve."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Do you trust the map?",
+                  "respuesta": "I trust the need behind it. Even a trembling hand points true when it's desperate.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What will we find when we get there?",
+                  "respuesta": "Either the crystal, or the ones who stole the light. I'll settle for both.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Three rings on the brass—one for the light we lost, one for the ember we carry, one for the shore ahead. Helm's turned. Hold fast, Saltmere. We're coming."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Are we truly ready for the dark?",
+                  "respuesta": "Ready? No. But we're moving, and that's the heart of it.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Orders, captain?",
+                  "respuesta": "Trim sails, arm the rails, keep your eyes seaward. We don't chase the dark—we ride through it.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "The sea has teeth tonight, but so do we. Every sailor learns to ride the storm; tonight we prove it."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "You're sure of this heading?",
+                  "respuesta": "Sure as a compass points north. The map said the crystal lies past the breakers. We'll go find it.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "And if the dark pushes back?",
+                  "respuesta": "Then we push harder. Saltmere didn't raise a captain who turns from a fight.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Counsel her",
+          "descripcion": "You rest a steady hand on Mara's shoulder. She looks up with storm-light in her eyes and grips the wheel with new resolve.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_biscuit",
+        "efecto": null,
+        "color": null,
+        "animacion": "susto"
+      }
+    },
+    {
+      "id_nodo": "personaje_biscuit",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "WOOF! GRRRR... WOOF! WOOF!"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Woof! ... grrr... woooof!"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyZ",
+          "etiqueta": "Call Biscuit",
+          "descripcion": "You whistle into the gale. Biscuit skitters across the wet planks, feathers slick with spray, and squawks at the lightning.",
+          "animacion": "alegria",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "criatura",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_botella_mapa",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Bottle with map",
+        "descripcion": "A salt-crusted bottle, corked against the storm, a pale scroll curled within its glass belly. Whatever it carries, the sea fought hard to keep it.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "leer",
+          "tecla": "KeyQ",
+          "etiqueta": "Read the map",
+          "titulo": "The torn map",
+          "texto": "The chart traces the Saltmere coast, its lighthouse crossed out in faded ink. A hurried scrawl fills the margin: 'The light is dead. Find the Sun Crystal before the dark swallows every harbor.'",
+          "estilo": "pergamino"
+        }
+      ],
+      "proximidad": null,
+      "dispara": {
+        "id_nodo": "decorado_lantern_01",
+        "efecto": "llama",
+        "color": null,
+        "animacion": null
+      }
+    },
+    {
+      "id_nodo": "objeto_campana_laton",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "You seize the brass bell and toll it three times. Each ring cleaves the roar of the storm, calling the deck to order.",
+        "texto_desactivacion": null,
+        "efecto_visual": "sacudir",
+        "color_efecto": null,
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": {
+        "id_nodo": "personaje_biscuit",
+        "efecto": null,
+        "color": null,
+        "animacion": "susto"
+      }
+    },
+    {
+      "id_nodo": "objeto_timonel",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "You strain against the spokes and wrench the wheel around until the ship's prow swings toward the black smear of the distant shore.",
+        "texto_desactivacion": null,
+        "efecto_visual": "rotar",
+        "color_efecto": null,
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_lantern_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "The storm lantern flares to life, casting a warm, swaying cone of light across the rain-soaked deck.",
+        "texto_desactivacion": "You shield the flame and the lantern goes dark, plunging the deck back into the storm's gloom.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_cannon_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Deck cannon",
+        "descripcion": "A heavy iron cannon lashed to the deck, its muzzle grimly pointed at the churning sea. Rain beads on the cold metal as the crew scrambles around it, ready for whatever the night throws at them.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_water_cask_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A cask of fresh water, double-lashed to survive the storm. It sloshes heavily with every pitch of the ship."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

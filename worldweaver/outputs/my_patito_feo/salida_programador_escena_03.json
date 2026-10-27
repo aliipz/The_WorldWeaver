@@ -1,0 +1,231 @@
+{
+  "id_escena": "escena_03",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Patito feo busca refugio entre sombras...",
+      "guias": [
+        "objeto_cuenco_leche",
+        "personaje_patito_feo"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_cuenco_leche"
+        ],
+        "personajes": [
+          "personaje_patito_feo"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "El gato gruñón desafía al visitante...",
+      "guias": [
+        "objeto_alfombra_vieja",
+        "personaje_patito_feo",
+        "personaje_gato_grunon"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_alfombra_vieja"
+        ],
+        "personajes": [
+          "personaje_patito_feo",
+          "personaje_gato_grunon"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_patito_feo",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "El calor de la chimenea me abraza, pero el silencio me pesa."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¿Hay alguien allí que pueda compartir un poco de calor?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Estás perdido?",
+                  "respuesta": "Sí, el viento del exterior me arrastró hasta aquí sin rumbo."
+                },
+                {
+                  "etiqueta": "¿Qué te trae aquí?",
+                  "respuesta": "Solo buscaba un refugio del invierno que me golpea sin piedad."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "null",
+          "puntos": [
+            {
+              "frases": [
+                "El gato me mira con ojos de hielo; su gruñido corta el aire."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "No sé cómo calmar su ira."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Inténtalo con una canción.",
+                  "respuesta": "Mi canto es solo un susurro que se pierde en la madera."
+                },
+                {
+                  "etiqueta": "Ofrece la leche.",
+                  "respuesta": "El gato la olfatea y se retira, pero su mirada sigue siendo un muro."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Observar",
+          "descripcion": "Miras el cuenco de leche con ojos tristes, tembloroso.",
+          "animacion": "susto",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_gato_grunon",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "null",
+          "puntos": [
+            {
+              "frases": [
+                "Este lugar pertenece a mí; no permitiré que un intruso lo caliente."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¿Qué haces aquí, plumón deslucido?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Solo busco refugio.",
+                  "respuesta": "Refugio es para los fuertes, no para los débiles."
+                },
+                {
+                  "etiqueta": "Quiero compartir la leche.",
+                  "respuesta": "La leche es para mí; aleja tus patitas."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Gruñir",
+          "descripcion": "El gato levanta la cabeza, sus ojos brillan y lanza un gruñido agudo.",
+          "animacion": "susto",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "criatura",
+          "dispara": [
+            {
+              "id_nodo": "personaje_patito_feo",
+              "efecto": null,
+              "color": null,
+              "animacion": "susto"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_cuenco_leche",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Cuenco de leche",
+        "descripcion": "Un cuenco de cerámica roto, medio lleno de leche tibia, humeante bajo la luz de la chimenea.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_alfombra_vieja",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Alfombra vieja",
+        "descripcion": "Una alfombra de yute gastada, cubierta de polvo y huellas de patas, cruje bajo cada paso.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_cofre_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "Abres el cofre de roble, revelando su contenido.",
+        "texto_desactivacion": null,
+        "efecto_visual": "abrir",
+        "color_efecto": null,
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_entrada",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Al cruzar el umbral de la cabaña, el aire frío del exterior se mezcla con el calor chispeante de la chimenea, y el silencio del invierno se vuelve un susurro que envuelve al visitante."
+    }
+  ]
+}

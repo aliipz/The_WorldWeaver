@@ -1,0 +1,131 @@
+{
+  "id_escena": "escena_04",
+  "elementos": [
+    {
+      "id": "personaje_patito_feo",
+      "nombre": "Patito feo",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 1.2,
+      "alto": 1.0,
+      "descripcion": "Patito de plumaje gris apagado, tamaño grande, pico corto y ojos tristes."
+    },
+    {
+      "id": "personaje_cisne_01",
+      "nombre": "Cisne 1",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 5
+      },
+      "ancho": 1.5,
+      "alto": 1.2,
+      "descripcion": "Cisne blanco elegante, plumaje reluciente, cuello largo."
+    },
+    {
+      "id": "personaje_cisne_02",
+      "nombre": "Cisne 2",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 1.5,
+      "alto": 1.2,
+      "descripcion": "Otro cisne blanco, similar al anterior."
+    },
+    {
+      "id": "decorado_flor_silvestre_01",
+      "nombre": "Ramillete de flores silvestres",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 4
+      },
+      "ancho": 0.3,
+      "alto": 0.2,
+      "descripcion": "Grupo de pequeñas flores silvesres de colores amarillos y púrpuras, creciendo entre la hierba fresca de la orilla."
+    },
+    {
+      "id": "decorado_hierba_fresca_01",
+      "nombre": "Hierba fresca",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Tufos de hierba verde vivo, cortos y densos, ondulando suavemente con la brisa primaveral."
+    },
+    {
+      "id": "decorado_sauce_llorón_01",
+      "nombre": "Sauce llorón",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 2.0,
+      "alto": 5.5,
+      "descripcion": "Árbol de tronco grisáceo con ramas largas y colgantes cubiertas de hojas verdes brillantes que tocan la superficie del lago."
+    },
+    {
+      "id": "decorado_tronco_caído_01",
+      "nombre": "Tronco caído",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 3.0,
+      "alto": 0.8,
+      "descripcion": "Tronco grueso de madera oscura, cubierto de musgo verde, apoyado parcialmente en la orilla y parcialmente sumergido."
+    },
+    {
+      "id": "decorado_piedra_laguna_01",
+      "nombre": "Piedra de la laguna",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 2
+      },
+      "ancho": 1.5,
+      "alto": 0.8,
+      "descripcion": "Roca lisa y redondeada de tono gris claro, medio sumergida, con algas delicadas adheridas a su superficie."
+    },
+    {
+      "id": "decorado_hoja_de_loto_01",
+      "nombre": "Hoja de loto",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 2
+      },
+      "ancho": 0.8,
+      "alto": 0.2,
+      "descripcion": "Hoja ancha y flotante de color verde esmeralda, descansando sobre la superficie cristalina del lago."
+    }
+  ]
+}

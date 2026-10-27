@@ -1,0 +1,376 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Neil adjusts the sextant under the stars",
+      "guias": [
+        "objeto_sextante_espacial",
+        "personaje_neil_armstrong"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_sextante_espacial"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Modules dock with precision",
+      "guias": [
+        "objeto_modulo_mando_columbia",
+        "objeto_modulo_lunar_eagle",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin",
+        "personaje_michael_collins"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_modulo_mando_columbia",
+          "objeto_modulo_lunar_eagle"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin",
+          "personaje_michael_collins"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Collins photographs the waning Earth",
+      "guias": [
+        "personaje_michael_collins"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_michael_collins"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_neil_armstrong",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Neil Armstrong — NASA Astronaut",
+        "texto": "Commander of the Apollo 11 lunar module, he was the first human to set foot on the Moon on ==July 20, 1969==. His use of the ==space sextant== demonstrated the precision of navigation without a terrestrial reference."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "With the ==space sextant== I aligned the ship using the ==Southern Cross== constellation, correcting our trajectory."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Every star is a reference; without land, the sky is our map."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How did you calibrate the sextant in microgravity?",
+                  "respuesta": "I adjusted the mirror's angle and verified the position of the known star, compensating for the lack of gravity."
+                },
+                {
+                  "etiqueta": "What precision did you achieve?",
+                  "respuesta": "We could correct the trajectory to within ==±5 km==, enough for the rendezvous with the Moon."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "I felt the thrill of precision, as if space itself were applauding."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "As we approached, the ==Columbia== and ==Eagle== modules made a perfect mechanical docking in the vacuum."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The process required millimeter alignment; any error would have been catastrophic."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How was the position controlled?",
+                  "respuesta": "We used radar sensors and guidance systems that adjusted the engines in real time."
+                },
+                {
+                  "etiqueta": "How long did the docking take?",
+                  "respuesta": "About ==12 minutes==, enough for the systems to stabilize the ship."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Seeing the modules embrace was a testament to human engineering."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Consult",
+          "descripcion": "Neil reviews the angles measured by the sextant to adjust the orbital trajectory.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_buzz_aldrin",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Buzz Aldrin — Pilot of the Eagle module",
+        "texto": "Second man to walk on the Moon, he took part in the mechanical docking between the ==Columbia== and ==Eagle== modules in the ==vacuum== of space, demonstrating the orbital accuracy required for the mission."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "From the Eagle module, I watched Columbia approach, each maneuver a dance in the vacuum."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The precision of the docking reminded me of the simulation training on Earth."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What simulations did you use?",
+                  "respuesta": "We trained with zero-gravity simulators and models of the ship on NASA computers."
+                },
+                {
+                  "etiqueta": "Did you feel pressure?",
+                  "respuesta": "Yes, the responsibility of joining the modules was enormous, but trust in the team was greater."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "When the coupling was complete, I felt a wave of pride, as if we had joined two worlds."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Verify",
+          "descripcion": "Buzz inspects the modules' couplings to ensure the mechanical docking in the vacuum.",
+          "animacion": "SitDown",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "metal",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_michael_collins",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Michael Collins — Pilot of the Columbia command module",
+        "texto": "He orbited the Moon while his companions descended, observed the ==waning Earth== and documented the journey photographically toward the ==Mare Tranquillitatis==, providing critical navigation data."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "From Columbia, I watched the docking, ready to intervene if something failed."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "My post required me to keep the ship stable while the others worked."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What systems did you control?",
+                  "respuesta": "The attitude and propulsion systems, keeping orientation with the thrusters."
+                },
+                {
+                  "etiqueta": "How critical was your role?",
+                  "respuesta": "Critical; any deviation would have jeopardized the entire mission."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "The silence of space was profound, but trust in the crew filled the cabin."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "As the ship headed toward the ==Mare Tranquillitatis==, Earth shrank, a blue ball slowly disappearing."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The view reminded me of the fragility of our planet."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What photos did you take?",
+                  "respuesta": "I captured images of the lunar surface and of the receding Earth, using the module's high-resolution camera."
+                },
+                {
+                  "etiqueta": "How did that affect your perspective?",
+                  "respuesta": "It made me value peace and international cooperation, for we all share that little blue dot."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "That moment was etched in my memory, as a testament to human exploration."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Photograph",
+          "descripcion": "Michael captures images of ==Earth== from orbit, documenting its appearance and position.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_sextante_espacial",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Space Sextant",
+        "descripcion": "The ==space sextant== is a navigation instrument that measures the angle between a celestial body and the horizon, allowing the observer's position to be calculated. In the Apollo mission, it was used to correct the orbital trajectory by referencing the ==stars==.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_modulo_mando_columbia",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Columbia Command Module",
+        "descripcion": "The ==Columbia Command Module== houses the control cabin and the crew during the orbital phase. It has a mass of ==30,000 kg== and contains the navigation, communication and life-support systems.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_modulo_lunar_eagle",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Eagle Lunar Module",
+        "descripcion": "The ==Eagle Lunar Module== is designed for the Moon landing and the return to orbit. Its dry mass is ==15,000 kg== and it has descent engines that use ==hydrazine== as fuel.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_antenna_sband_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "S-band parabolic antenna, essential for data communications in orbit."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_camara_navegacion_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Exterior navigation camera, captures images of stars and the distant Earth."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_espacio",
+      "columnas": [
+        1
+      ],
+      "texto": "Upon entering the scene, the player sees the ==cosmic void== and the shrunken ==Earth==, grasping the scale of the journey."
+    }
+  ]
+}

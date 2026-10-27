@@ -1,0 +1,145 @@
+{
+  "id_escena": "escena_01",
+  "elementos": [
+    {
+      "id": "personaje_mama_pata",
+      "nombre": "Mamá Pata",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "descripcion": "Pato adulto de plumaje amarillo brillante, ojos cálidos y pico anaranjado."
+    },
+    {
+      "id": "personaje_patito_feo",
+      "nombre": "Patito feo",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 0.7,
+      "descripcion": "Patito de plumaje gris apagado, tamaño grande, pico corto y ojos tristes."
+    },
+    {
+      "id": "personaje_patito_hermanos_01",
+      "nombre": "Hermano patito 1",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 5
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "descripcion": "Patito pequeño de plumaje amarillo, ojos curiosos."
+    },
+    {
+      "id": "personaje_patito_hermanos_02",
+      "nombre": "Hermano patito 2",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "descripcion": "Patito pequeño de plumaje amarillo, pico pequeño."
+    },
+    {
+      "id": "objeto_nido_paja",
+      "nombre": "nido de paja",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.8,
+      "alto": 0.3,
+      "descripcion": "Nido hecho de paja entrelazada, ubicado en el corral de la granja, contiene huevos."
+    },
+    {
+      "id": "decorado_pozo_de_agua",
+      "nombre": "Pozo de piedra",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 0.9,
+      "alto": 1.2,
+      "descripcion": "Pozo circular de piedra con borde de ladrillos rojos; el agua clara refleja el cielo azul y una pequeña bomba de madera sobresale del borde."
+    },
+    {
+      "id": "decorado_arbol_cerezo",
+      "nombre": "Árbol de cerezo",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 2.0,
+      "alto": 5.0,
+      "descripcion": "Árbol de cerezo con tronco rugoso y hojas verdes brillantes; algunas flores rosadas aparecen entre el follaje."
+    },
+    {
+      "id": "decorado_cerca_madera",
+      "nombre": "Cerca de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 1.5,
+      "alto": 0.8,
+      "descripcion": "Cerca de madera con postes de pino y tablas gastadas, pintada de blanco descolorido y ligeramente desvencijada."
+    },
+    {
+      "id": "decorado_pila_heno",
+      "nombre": "Pila de heno seco",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 2
+      },
+      "ancho": 1.2,
+      "alto": 0.6,
+      "descripcion": "Fardos de heno atados con cuerda de sisal, de color dorado y apilados de forma ligeramente desordenada sobre la hierba."
+    },
+    {
+      "id": "decorado_cesto_de_frutas",
+      "nombre": "Cesto de mimbre con frutas",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 7,
+        "fila": 0
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "descripcion": "Cesto de mimbre trenzado, lleno de manzanas rojas y peras verdes, apoyado sobre una tabla de madera rústica."
+    }
+  ]
+}

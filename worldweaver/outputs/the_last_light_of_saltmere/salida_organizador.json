@@ -1,0 +1,534 @@
+{
+  "titulo_historia": "The Last Light of Saltmere",
+  "escenas": [
+    {
+      "id": "escena_01",
+      "titulo": "Storm on the Silver Gull",
+      "entorno": "Deck of the Silver Gull, a wooden sailing ship pitching on stormy seas; rain-soaked planks, flapping canvas sails, taut rigging, a brass helm and a ship's bell near the wheel.",
+      "atmosfera": "Dark and violent evening, thunder and salt spray; urgent danger and rising tension as the crew receives a desperate message.",
+      "cielo": "tormenta",
+      "tipo_ambiente": "barco",
+      "tiene_intro": true,
+      "texto_intro": "Night had fallen over the coast of Saltmere when the storm caught the Silver Gull on the open sea. Waves battered the deck and thunder rolled as the ship struggled to hold its course. None aboard knew that a message sealed inside a bottle would soon change their fate.",
+      "texto_fin": null,
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_mara",
+          "nombre": "Mara",
+          "fisica": "Young woman in her twenties with a red bandana, weathered coat and high boots.",
+          "background": "Bold and quick-witted pirate captain; determined to save Saltmere and protective of her crew.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_biscuit",
+          "nombre": "Biscuit",
+          "fisica": "Small pug with wrinkled face, curly tail and glossy brown coat.",
+          "background": "Excitable, loyal dog; barks at lightning, waves and strangers but always stays at Mara's side.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_finn",
+          "nombre": "Old Finn",
+          "fisica": "Elderly man with a grey beard, stained coat and a sailor's cap.",
+          "background": "Ship's cook; gruff but kind, he finds the bottle and pushes Mara to act.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_botella_mapa",
+          "nombre": "Bottle with map",
+          "descripcion": "A sealed bottle containing a wet, torn map signed by the Saltmere lighthouse keeper, asking for the Sun Crystal.",
+          "skin_id": null,
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_campana_laton",
+          "nombre": "Brass bell",
+          "descripcion": "The Silver Gull's brass bell, rung to signal orders and answered by the ship.",
+          "skin_id": "escena_01",
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_timonel",
+          "nombre": "Ship's wheel",
+          "descripcion": "The wooden wheel used to steer the Silver Gull toward the dark shore.",
+          "skin_id": null,
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_finn hands personaje_mara objeto_botella_mapa and insists she read the message it carries.",
+          "personajes_involucrados": [
+            "personaje_finn",
+            "personaje_mara"
+          ],
+          "objetos_involucrados": [
+            "objeto_botella_mapa"
+          ]
+        },
+        {
+          "descripcion": "personaje_mara reads the torn map inside objeto_botella_mapa and learns that the Saltmere light has gone out and the Sun Crystal must be found.",
+          "personajes_involucrados": [
+            "personaje_mara"
+          ],
+          "objetos_involucrados": [
+            "objeto_botella_mapa"
+          ]
+        },
+        {
+          "descripcion": "personaje_mara rings objeto_campana_laton three times and turns objeto_timonel toward the dark shore.",
+          "personajes_involucrados": [
+            "personaje_mara"
+          ],
+          "objetos_involucrados": [
+            "objeto_campana_laton",
+            "objeto_timonel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_02",
+      "titulo": "The Beach of the Keeper",
+      "entorno": "Deserted sandy cove lined with palm trees, littered with broken barrels and old fishing nets; a small wooden hut stands near a campfire, and dark rocks jut into the sea.",
+      "atmosfera": "Still, starry night; cold wind and sadness, but also hope and mysterious resolve before the dive.",
+      "cielo": "noche_estrellada",
+      "tipo_ambiente": "playa",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_mara",
+          "nombre": "Mara",
+          "fisica": "Young woman in her twenties with a red bandana, weathered coat and high boots.",
+          "background": "Bold and quick-witted pirate captain; determined to save Saltmere and protective of her crew.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_biscuit",
+          "nombre": "Biscuit",
+          "fisica": "Small pug with wrinkled face, curly tail and glossy brown coat.",
+          "background": "Excitable, loyal dog; barks at waves and strangers but always stays at Mara's side.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_agnes",
+          "nombre": "Agnes",
+          "fisica": "Elderly woman in a long dark coat, grey hair and weather-lined face.",
+          "background": "Guardian of the Saltmere lighthouse; sad but hopeful, speaks with authority and gives Mara the lantern.",
+          "rol": "secundario",
+          "skin_id": "escena_02"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_lanterna",
+          "nombre": "Lantern",
+          "descripcion": "An unlit lantern given by Agnes; when lit with the hearth fire it glows soft blue and guides the way underwater.",
+          "skin_id": "escena_02",
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_agnes gives objeto_lanterna to personaje_mara and tells her that a sea witch stole the Sun Crystal and hid it under the waves.",
+          "personajes_involucrados": [
+            "personaje_agnes",
+            "personaje_mara"
+          ],
+          "objetos_involucrados": [
+            "objeto_lanterna"
+          ]
+        },
+        {
+          "descripcion": "personaje_mara lights objeto_lanterna in the campfire, and the lantern begins to glow with a soft blue light.",
+          "personajes_involucrados": [
+            "personaje_mara"
+          ],
+          "objetos_involucrados": [
+            "objeto_lanterna"
+          ]
+        },
+        {
+          "descripcion": "personaje_agnes points toward the black water beyond the rocks and reveals that the sunken city sleeps there.",
+          "personajes_involucrados": [
+            "personaje_agnes",
+            "personaje_mara"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_03",
+      "titulo": "The Sunken City",
+      "entorno": "Submerged ruins of a sunken city: broken stone columns draped in coral, green seaweed drifting, schools of bright fish, and a ruined temple with a stone altar at its center.",
+      "atmosfera": "Magical and eerie underwater silence, blue glow, witch's challenge; wonder mixed with suspense.",
+      "cielo": "cielo_magico",
+      "tipo_ambiente": "bajo_el_agua",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_mara",
+          "nombre": "Mara",
+          "fisica": "Young woman in her twenties with a red bandana, weathered coat and high boots.",
+          "background": "Bold and quick-witted pirate captain; determined to save Saltmere and protective of her crew.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_morwen",
+          "nombre": "Morwen",
+          "fisica": "Tall figure with a pointed hat and glowing eyes, wrapped in seaweed-like robes.",
+          "background": "Sea witch who guards the sunken city; proud and fond of riddles, respects intelligence over force.",
+          "rol": "antagonista",
+          "skin_id": null
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_lanterna",
+          "nombre": "Lantern",
+          "descripcion": "The blue-glowing lantern carried by Mara, lit by Agnes to guide the way through the deep.",
+          "skin_id": "escena_02",
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_altar_inscripcion",
+          "nombre": "Stone altar with inscription",
+          "descripcion": "Ancient cracked stone altar bearing the warning: 'Only the brave may wake the sun.'",
+          "skin_id": null,
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_morwen confronts personaje_mara and asks the riddle: 'What has a face but no eyes, and hands but cannot hold?'",
+          "personajes_involucrados": [
+            "personaje_morwen",
+            "personaje_mara"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_mara answers 'A clock'; personaje_morwen laughs, makes the coral shine, and reveals the crystal is in the goblin king's cave.",
+          "personajes_involucrados": [
+            "personaje_mara",
+            "personaje_morwen"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_mara reads the warning on objeto_altar_inscripcion: 'Only the brave may wake the sun.'",
+          "personajes_involucrados": [
+            "personaje_mara"
+          ],
+          "objetos_involucrados": [
+            "objeto_altar_inscripcion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_04",
+      "titulo": "The Goblin King's Cave",
+      "entorno": "Dark underwater cave with dripping stalactites, glowing purple mushrooms, hills of gold coins and treasure chests, and a throne made of bones in the deepest corner.",
+      "atmosfera": "Cold, claustrophobic greed and menace, lightened by absurdity when the goblin king is charmed by the singing shell.",
+      "cielo": "interior_frio",
+      "tipo_ambiente": "cueva",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_mara",
+          "nombre": "Mara",
+          "fisica": "Young woman in her twenties with a red bandana, weathered coat and high boots.",
+          "background": "Bold and quick-witted pirate captain; determined to save Saltmere and protective of her crew.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_goblin_king",
+          "nombre": "Goblin King",
+          "fisica": "Small goblin in a crude crown, with spindly limbs and a bony throne.",
+          "background": "Greedy and paranoid, but easily won over by music and gifts; guards the Sun Crystal blindly.",
+          "rol": "secundario",
+          "skin_id": null
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_cofre_goblino",
+          "nombre": "Enormous locked chest",
+          "descripcion": "Large padlocked treasure chest guarded by the goblin king; it holds the Sun Crystal.",
+          "skin_id": null,
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_llave_oxidada",
+          "nombre": "Rusty iron key",
+          "descripcion": "Rusty key thrown by the goblin king; it opens the enormous chest.",
+          "skin_id": null,
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_caracola_rosa",
+          "nombre": "Pink seashell",
+          "descripcion": "Big pink shell that sings softly with the sea breeze when held to the ear.",
+          "skin_id": null,
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_sun_cristal",
+          "nombre": "Sun Crystal",
+          "descripcion": "A radiant golden crystal found inside the chest, shining like a small sun.",
+          "skin_id": "escena_04",
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_goblin_king spots personaje_mara, screams 'Thieves!', and jumps onto his bone throne.",
+          "personajes_involucrados": [
+            "personaje_goblin_king",
+            "personaje_mara"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_mara finds objeto_caracola_rosa among the coins, bows politely, and offers it to personaje_goblin_king.",
+          "personajes_involucrados": [
+            "personaje_mara",
+            "personaje_goblin_king"
+          ],
+          "objetos_involucrados": [
+            "objeto_caracola_rosa"
+          ]
+        },
+        {
+          "descripcion": "personaje_goblin_king listens to objeto_caracola_rosa, dances with joy, and throws objeto_llave_oxidada at personaje_mara's feet.",
+          "personajes_involucrados": [
+            "personaje_goblin_king",
+            "personaje_mara"
+          ],
+          "objetos_involucrados": [
+            "objeto_caracola_rosa",
+            "objeto_llave_oxidada"
+          ]
+        },
+        {
+          "descripcion": "personaje_mara uses objeto_llave_oxidada to open objeto_cofre_goblino, revealing objeto_sun_cristal in a burst of golden light.",
+          "personajes_involucrados": [
+            "personaje_mara"
+          ],
+          "objetos_involucrados": [
+            "objeto_llave_oxidada",
+            "objeto_cofre_goblino",
+            "objeto_sun_cristal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_05",
+      "titulo": "The Light Returns",
+      "entorno": "Round chamber at the top of the Saltmere lighthouse; a giant brass lamp housing stands in the center, surrounded by old nautical books and coastal maps, with a small wooden table holding an open velvet box.",
+      "atmosfera": "Clear dawn light, quiet anticipation and triumph; relief and celebration as the lighthouse blazes again.",
+      "cielo": "interior_luminoso",
+      "tipo_ambiente": "habitacion",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": "When the golden beam finally swept across the sea, the long darkness over Saltmere was over. The Sun Crystal had returned to its lamp, and Captain Mara's name was written forever in the keeper's book. The storm, the witch, and the goblin king were behind them, and the light on the cliff shone at last.",
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_mara",
+          "nombre": "Mara",
+          "fisica": "Young woman in her twenties with a red bandana, weathered coat and high boots.",
+          "background": "Bold and quick-witted pirate captain; determined to save Saltmere and protective of her crew.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_biscuit",
+          "nombre": "Biscuit",
+          "fisica": "Small pug with wrinkled face, curly tail and glossy brown coat.",
+          "background": "Excitable, loyal dog; barks happily as the sun rises and the light returns.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_agnes",
+          "nombre": "Agnes",
+          "fisica": "Elderly woman in a long dark coat, grey hair and weather-lined face.",
+          "background": "Guardian of the Saltmere lighthouse; solemn and proud as she writes Mara's name in the keeper's book.",
+          "rol": "secundario",
+          "skin_id": "escena_02"
+        },
+        {
+          "id": "personaje_finn",
+          "nombre": "Old Finn",
+          "fisica": "Elderly man with a grey beard, stained coat and a sailor's cap.",
+          "background": "Ship's cook; waves his hat from the deck as the lighthouse beam lights the sea.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_sun_cristal",
+          "nombre": "Sun Crystal",
+          "descripcion": "Golden crystal resting in an open velvet box, ready to be placed into the lighthouse lamp.",
+          "skin_id": "escena_04",
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_lamp_light",
+          "nombre": "Lamp of the Saltmere lighthouse",
+          "descripcion": "Giant brass lamp housing at the top of the tower, designed to hold the Sun Crystal.",
+          "skin_id": null,
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_campana_laton",
+          "nombre": "Brass bell",
+          "descripcion": "The Silver Gull's brass bell, rung in celebration as the light returns.",
+          "skin_id": "escena_01",
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        },
+        {
+          "id": "objeto_libro_grande",
+          "nombre": "Great book of the lighthouse",
+          "descripcion": "Large official volume where Agnes writes the names of those who have kept the light safe.",
+          "skin_id": null,
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_mara takes objeto_sun_cristal from the open velvet box and places it inside objeto_lamp_light.",
+          "personajes_involucrados": [
+            "personaje_mara"
+          ],
+          "objetos_involucrados": [
+            "objeto_sun_cristal",
+            "objeto_lamp_light"
+          ]
+        },
+        {
+          "descripcion": "The golden beam bursts from objeto_lamp_light across the ocean, the Silver Gull rings objeto_campana_laton, and personaje_finn waves his hat from the deck.",
+          "personajes_involucrados": [
+            "personaje_finn"
+          ],
+          "objetos_involucrados": [
+            "objeto_lamp_light",
+            "objeto_campana_laton"
+          ]
+        },
+        {
+          "descripcion": "personaje_agnes declares that Saltmere will never be dark again and writes personaje_mara's name in objeto_libro_grande.",
+          "personajes_involucrados": [
+            "personaje_agnes",
+            "personaje_mara"
+          ],
+          "objetos_involucrados": [
+            "objeto_libro_grande"
+          ]
+        }
+      ]
+    }
+  ],
+  "vocabulario": [],
+  "personajes_globales": [
+    {
+      "id": "personaje_mara",
+      "nombre": "Mara",
+      "fisica": "Young woman in her twenties with a red bandana, weathered coat and high boots.",
+      "background": "Bold and quick-witted pirate captain; determined to save Saltmere and protective of her crew.",
+      "rol": "protagonista",
+      "skin_id": null
+    },
+    {
+      "id": "personaje_biscuit",
+      "nombre": "Biscuit",
+      "fisica": "Small pug with wrinkled face, curly tail and glossy brown coat.",
+      "background": "Excitable, loyal dog; barks at lightning, waves and strangers but always stays at Mara's side.",
+      "rol": "secundario",
+      "skin_id": null
+    },
+    {
+      "id": "personaje_agnes",
+      "nombre": "Agnes",
+      "fisica": "Elderly woman in a long dark coat, grey hair and weather-lined face.",
+      "background": "Guardian of the Saltmere lighthouse; sad but hopeful, speaks with authority and gives Mara the lantern.",
+      "rol": "secundario",
+      "skin_id": null
+    },
+    {
+      "id": "personaje_finn",
+      "nombre": "Old Finn",
+      "fisica": "Elderly man with a grey beard, stained coat and a sailor's cap.",
+      "background": "Ship's cook; gruff but kind, he finds the bottle and pushes Mara to act.",
+      "rol": "secundario",
+      "skin_id": null
+    }
+  ],
+  "objetos_globales": [
+    {
+      "id": "objeto_campana_laton",
+      "nombre": "Brass bell",
+      "descripcion": "The Silver Gull's brass bell, rung to signal orders and answered by the ship.",
+      "skin_id": null,
+      "nombre_objetivo": null,
+      "frase_ejemplo": null
+    },
+    {
+      "id": "objeto_lanterna",
+      "nombre": "Lantern",
+      "descripcion": "An unlit lantern given by Agnes; when lit with the hearth fire it glows soft blue and guides the way underwater.",
+      "skin_id": null,
+      "nombre_objetivo": null,
+      "frase_ejemplo": null
+    },
+    {
+      "id": "objeto_sun_cristal",
+      "nombre": "Sun Crystal",
+      "descripcion": "A radiant golden crystal that powers the Saltmere lighthouse; found in the goblin king's chest and returned to the lamp.",
+      "skin_id": null,
+      "nombre_objetivo": null,
+      "frase_ejemplo": null
+    }
+  ],
+  "subtipo_educativo": null,
+  "tipo_vocabulario": null,
+  "idioma_objetivo": null
+}

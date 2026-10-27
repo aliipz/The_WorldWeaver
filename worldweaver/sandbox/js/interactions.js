@@ -71,6 +71,7 @@ const _T_DATA = {
         close:      'cerrar',
         keep_drop:  '<kbd>G</kbd> Guardar &nbsp;&nbsp; <kbd>E</kbd> Soltar',
         drag_rotate: 'Arrastra para girar',
+        move_rotate: 'Mueve el ratón para girar',
         vocab_counter: (n, max) => `Fallos: ${n}/${max}`,
         vocab_wrong:   rem => `Ese no es. Te ${rem === 1 ? 'queda' : 'quedan'} ${rem} ${rem === 1 ? 'intento' : 'intentos'}.`,
         vocab_reset:   'Demasiados fallos. Reiniciando el reto…',
@@ -99,6 +100,7 @@ const _T_DATA = {
         close:      'close',
         keep_drop:  '<kbd>G</kbd> Keep &nbsp;&nbsp; <kbd>E</kbd> Drop',
         drag_rotate: 'Drag to rotate',
+        move_rotate: 'Move the mouse to rotate',
         vocab_counter: (n, max) => `Mistakes: ${n}/${max}`,
         vocab_wrong:   rem => `Not that one. ${rem} ${rem === 1 ? 'try' : 'tries'} left.`,
         vocab_reset:   'Too many mistakes. Restarting the challenge…',
@@ -235,8 +237,12 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
     const _INSP_DIST        = 0.65;  // distancia frente a la cámara
     const _INSP_TARGET_SIZE = 0.30;  // tamaño objetivo del objeto inspeccionado (u)
 
-    // Mini renderers del inventario: id_nodo → { renderer, rafId }
-    const _invMinis = {};
+    // Mini visores del inventario: UN solo WebGLRenderer compartido que pinta cada objeto
+    // y lo copia al canvas 2D de su hueco. (Antes había un renderer por hueco y por cada
+    // cambio de inventario: cada uno es un contexto WebGL y Chrome solo admite ~16.)
+    const _INV_SZ = 72;
+    let _invRenderer = null, _invCam = null, _invRaf = 0, _invT = 0;
+    const _invItems = [];   // { ctx, scene, clone }
 
     const estadoActivar      = {};   // id → bool (toggle on/off)
     const proximidadActivados = new Set();  // ids de objetos cuya proximidad ya se disparó
@@ -764,25 +770,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
                 o.start(t+0.02); o.stop(t+0.24);
             } catch(e){}
         },
-        // Portal: whoosh dramático grave→agudo con cola
-        portal() {
-            try {
-                const c=this._c(), t=c.currentTime, dur=1.2;
-                const buf=c.createBuffer(1,Math.ceil(c.sampleRate*dur),c.sampleRate);
-                const d=buf.getChannelData(0);
-                for(let i=0;i<d.length;i++) d[i]=Math.random()*2-1;
-                const src=c.createBufferSource(); src.buffer=buf;
-                const f=c.createBiquadFilter(); f.type='bandpass'; f.Q.value=1.2;
-                f.frequency.setValueAtTime(55,t);
-                f.frequency.exponentialRampToValueAtTime(1800,t+0.75);
-                f.frequency.exponentialRampToValueAtTime(400,t+dur);
-                const g=c.createGain();
-                g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(0.52,t+0.25);
-                g.gain.setValueAtTime(0.52,t+0.65); g.gain.exponentialRampToValueAtTime(0.001,t+dur);
-                src.connect(f); f.connect(g); g.connect(c.destination);
-                src.start(t); src.stop(t+dur+0.05);
-            } catch(e){}
-        },
         // Chapoteo: pisada sobre agua (ruido filtrado lowpass con caída rápida)
         chapoteo() {
             try {
@@ -799,7 +786,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             } catch(e){}
         },
     };
-    window._sfxPortal = () => {};
     window._wwChapoteo = () => { try { _SFX.chapoteo(); } catch(e){} };
 
     // Exponer estado de diálogo para que index.html pueda bloquear el movimiento
@@ -911,12 +897,10 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             document.body.appendChild(el);
         }
 
-        // Limpiar mini renderers anteriores
-        for (const id in _invMinis) {
-            cancelAnimationFrame(_invMinis[id].rafId);
-            try { _invMinis[id].renderer.dispose(); } catch(_) {}
-            delete _invMinis[id];
-        }
+        // Parar el bucle y soltar las escenas de los huecos anteriores
+        cancelAnimationFrame(_invRaf);
+        _invRaf = 0;
+        _invItems.length = 0;
 
         el.innerHTML = '';
         if (inventario.size === 0) { el.style.display = 'none'; return; }
@@ -950,63 +934,63 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
     }
 
     function _crearMiniVisor(idNodo, container) {
-        const entry = mapa[idNodo];
-        const SZ = 72;
-
-        const miniRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        miniRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        miniRenderer.setSize(SZ, SZ);
-        miniRenderer.setClearColor(0x000000, 0);
-        container.appendChild(miniRenderer.domElement);
-
-        const miniScene  = new THREE.Scene();
-        miniScene.add(new THREE.AmbientLight(0xffffff, 0.9));
-        const dir = new THREE.DirectionalLight(0xffeedd, 1.4);
-        dir.position.set(1, 2, 2);
-        miniScene.add(dir);
-
-        const miniCam = new THREE.PerspectiveCamera(34, 1, 0.01, 100);
-        miniCam.position.set(0, 0, 1.6);
-        miniCam.lookAt(0, 0, 0);
-
-        if (entry?.obj3d) {
-            try {
-                const clone = entry.obj3d.clone(true);
-                clone.visible = true;
-                clone.position.set(0, 0, 0);
-                clone.rotation.set(0, 0, 0);
-                clone.traverse(c => { c.frustumCulled = false; if (c.isMesh && c.material) {
-                    const mats = Array.isArray(c.material) ? c.material : [c.material];
-                    c.material = mats.map(m => m ? m.clone() : m);
-                    if (!Array.isArray(entry.obj3d.material)) c.material = c.material[0];
-                }});
-                clone.updateMatrixWorld(true);
-
-                const box    = new THREE.Box3().setFromObject(clone);
-                const center = box.getCenter(new THREE.Vector3());
-                const size   = box.getSize(new THREE.Vector3());
-                const factor = 0.75 / Math.max(size.x, size.y, size.z, 0.001);
-                clone.position.set(-center.x * factor, -center.y * factor, -center.z * factor);
-                clone.scale.multiplyScalar(factor);
-                miniScene.add(clone);
-
-                let t = 0;
-                const tick = () => {
-                    t += 0.014;
-                    clone.rotation.y = t;
-                    clone.rotation.x = Math.sin(t * 0.41) * 0.5;
-                    clone.rotation.z = Math.sin(t * 0.27) * 0.3;
-                    miniRenderer.render(miniScene, miniCam);
-                    _invMinis[idNodo].rafId = requestAnimationFrame(tick);
-                };
-                _invMinis[idNodo] = { renderer: miniRenderer, rafId: requestAnimationFrame(tick) };
-                return;
-            } catch(_) {}
+        const dpr = Math.min(window.devicePixelRatio, 2);
+        if (!_invRenderer) {
+            _invRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            _invRenderer.setPixelRatio(dpr);
+            _invRenderer.setSize(_INV_SZ, _INV_SZ);
+            _invRenderer.setClearColor(0x000000, 0);
+            _invCam = new THREE.PerspectiveCamera(34, 1, 0.01, 100);
+            _invCam.position.set(0, 0, 1.6);
+            _invCam.lookAt(0, 0, 0);
         }
+        const cv = document.createElement('canvas');
+        cv.width = cv.height = Math.round(_INV_SZ * dpr);
+        container.appendChild(cv);
 
-        // Fallback sin modelo: solo renderiza el fondo vacío
-        miniRenderer.render(miniScene, miniCam);
-        _invMinis[idNodo] = { renderer: miniRenderer, rafId: 0 };
+        const entry = mapa[idNodo];
+        if (!entry?.obj3d) return;   // sin modelo: el hueco queda vacío
+        try {
+            const miniScene = new THREE.Scene();
+            miniScene.add(new THREE.AmbientLight(0xffffff, 0.9));
+            const dir = new THREE.DirectionalLight(0xffeedd, 1.4);
+            dir.position.set(1, 2, 2);
+            miniScene.add(dir);
+
+            const clone = entry.obj3d.clone(true);
+            clone.visible = true;
+            clone.position.set(0, 0, 0);
+            clone.rotation.set(0, 0, 0);
+            clone.traverse(c => { c.frustumCulled = false; if (c.isMesh && c.material) {
+                const mats = Array.isArray(c.material) ? c.material : [c.material];
+                c.material = mats.map(m => m ? m.clone() : m);
+                if (!Array.isArray(entry.obj3d.material)) c.material = c.material[0];
+            }});
+            clone.updateMatrixWorld(true);
+            const box    = new THREE.Box3().setFromObject(clone);
+            const center = box.getCenter(new THREE.Vector3());
+            const size   = box.getSize(new THREE.Vector3());
+            const factor = 0.75 / Math.max(size.x, size.y, size.z, 0.001);
+            clone.position.set(-center.x * factor, -center.y * factor, -center.z * factor);
+            clone.scale.multiplyScalar(factor);
+            miniScene.add(clone);
+
+            _invItems.push({ ctx: cv.getContext('2d'), scene: miniScene, clone });
+            if (!_invRaf) _invRaf = requestAnimationFrame(_invTick);
+        } catch(_) {}
+    }
+
+    function _invTick() {
+        _invT += 0.014;
+        for (const it of _invItems) {
+            it.clone.rotation.y = _invT;
+            it.clone.rotation.x = Math.sin(_invT * 0.41) * 0.5;
+            it.clone.rotation.z = Math.sin(_invT * 0.27) * 0.3;
+            _invRenderer.render(it.scene, _invCam);
+            it.ctx.clearRect(0, 0, it.ctx.canvas.width, it.ctx.canvas.height);
+            it.ctx.drawImage(_invRenderer.domElement, 0, 0, it.ctx.canvas.width, it.ctx.canvas.height);
+        }
+        _invRaf = _invItems.length ? requestAnimationFrame(_invTick) : 0;
     }
 
     function _construirTracker(fase, sinFade) {
@@ -1550,6 +1534,14 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             if (_inspeccionModo === 'recoger') _cerrarInspeccion(true);
             return;
         }
+        // Opciones de diálogo con las teclas 1-9: con el ratón capturado no se puede
+        // clicar, y soltarlo para eso hacía que el navegador repitiera su aviso de
+        // "pulsa Esc para salir de pantalla completa" en cada conversación.
+        if (dialogoAbierto && window._intOpcion && elDialogo.style.display !== 'none'
+            && elDialogo.querySelector('.int-d-opciones')) {
+            const _op = /^(?:Digit|Numpad)([1-9])$/.exec(e.code);
+            if (_op) { window._intOpcion(+_op[1] - 1); return; }
+        }
         if (e.code === 'KeyE') {
             if (_inspeccionActiva) {
                 _cerrarInspeccion(false);
@@ -1584,7 +1576,11 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
                 if (ac) _ejecutarAccionObjeto(nodoEnRango, ac);
             }
         }
-        if (e.code === 'Escape') _cerrarTodos();
+        // Esc = menú de pausa: cierra los paneles y saca el menú (nunca recaptura).
+        if (e.code === 'Escape') {
+            _cerrarTodos();
+            window._wwMostrarPausa?.();
+        }
     });
 
     // ── Click (modo órbita) ───────────────────────────────────────────────────
@@ -1632,7 +1628,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             `<div class="int-d-texto"><span class="int-tw-txt"></span></div>` +
             _teclaHint();
         elDialogo.style.display = 'block';
-        if (document.pointerLockElement) document.exitPointerLock();
 
         const twEl = elDialogo.querySelector('.int-tw-txt');
 
@@ -1641,7 +1636,10 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             if (punto.opciones?.length) {
                 let opHtml = `<div class="int-d-opciones">`;
                 punto.opciones.forEach((op, i) => {
-                    opHtml += `<button class="int-d-btn" onclick="_intOpcion(${i})">▸ ${op.etiqueta}</button>`;
+                    // Numeradas: con el ratón capturado no hay cursor con el que clicar,
+                    // así que se eligen con las teclas 1-9 (ver el keydown de más arriba).
+                    opHtml += `<button class="int-d-btn" onclick="_intOpcion(${i})">`
+                            + `<kbd>${i + 1}</kbd> ${op.etiqueta}</button>`;
                 });
                 opHtml += `</div>`;
                 twEl.closest('.int-d-texto').insertAdjacentHTML('afterend', opHtml);
@@ -1729,7 +1727,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             ${_teclaHint()}
         `;
         elExaminar.style.display = 'block';
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Acción de personaje (texto narrador sin caja, abajo) ─────────────────
@@ -1741,7 +1738,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         elAccion.style.opacity = '0';
         elAccion.style.display = 'block';
         requestAnimationFrame(() => { elAccion.style.opacity = '1'; });
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Ficha de información educativa (tecla I) ──────────────────────────────
@@ -1756,7 +1752,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         elAccion.style.opacity = '0';
         elAccion.style.display = 'block';
         requestAnimationFrame(() => { elAccion.style.opacity = '1'; });
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Toast de activación ───────────────────────────────────────────────────
@@ -1784,6 +1779,10 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
 
     function _detectarZona() {
         if (!document.pointerLockElement || !ZONAS.length) return;
+        // Las zonas son 5 sectores angulares alrededor del centro (columnas 0-4, la 2 al
+        // frente). Solo cuentan si el jugador se ha ALEJADO del centro: en el punto de
+        // salida el ángulo no significa nada y disparaba la zona frontal sin moverse.
+        if (Math.hypot(camera.position.x, camera.position.z) < 1.5) return;
 
         const ang = Math.atan2(camera.position.x, -camera.position.z) * (180 / Math.PI);
         const angPorCol = [-150, -75, 0, 75, 150];
@@ -2080,8 +2079,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             }
         }
 
-        if (document.pointerLockElement) document.exitPointerLock();
-
         // Overlay de viñeta
         const overlay = document.getElementById('int-insp-overlay');
         if (overlay) {
@@ -2097,7 +2094,12 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         document.getElementById('exam3d-desc').innerHTML   = _wwResaltar(desc);
 
         const dragHint = document.querySelector('#int-examinar-3d .int-insp-drag');
-        if (dragHint) dragHint.style.display = _inspeccionFlotante ? 'block' : 'none';
+        if (dragHint) {
+            // Con el ratón capturado el objeto gira solo con moverlo, sin arrastrar.
+            dragHint.textContent = document.pointerLockElement ? _T('move_rotate')
+                                                              : _T('drag_rotate');
+            dragHint.style.display = _inspeccionFlotante ? 'block' : 'none';
+        }
 
         const pistaEl = document.getElementById('exam3d-pista');
         if (pistaEl) pistaEl.innerHTML = modo === 'recoger'
@@ -2159,7 +2161,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         _inspeccionIdNodo   = null;
         _inspeccionInter    = null;
         dialogoAbierto      = false;
-        window._wwRetomarPointerLock?.();
     }
 
     // Drag para rotar el objeto inspeccionado
@@ -2170,15 +2171,25 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         _inspeccionLastY = e.clientY;
     });
     document.addEventListener('mousemove', (e) => {
-        if (!_inspeccionActiva || !_inspeccionDrag || !_inspeccionWrapper) return;
-        const dx = e.clientX - _inspeccionLastX;
-        const dy = e.clientY - _inspeccionLastY;
+        if (!_inspeccionActiva || !_inspeccionWrapper) return;
+        // Con el puntero capturado no hay cursor que arrastrar (y soltarlo es justo lo
+        // que hacía repetir el aviso de pantalla completa del navegador): el objeto gira
+        // con el movimiento del ratón. Sin captura (modo órbita) se sigue arrastrando.
+        let dx, dy;
+        if (document.pointerLockElement) {
+            dx = e.movementX;
+            dy = e.movementY;
+        } else {
+            if (!_inspeccionDrag) return;
+            dx = e.clientX - _inspeccionLastX;
+            dy = e.clientY - _inspeccionLastY;
+            _inspeccionLastX = e.clientX;
+            _inspeccionLastY = e.clientY;
+        }
         // Acumular rotación en espacio local del objeto (ejes Y y X)
         const qY = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), dx * 0.013);
         const qX = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), dy * 0.013);
         _inspeccionDragQuat.multiply(qY).multiply(qX);
-        _inspeccionLastX = e.clientX;
-        _inspeccionLastY = e.clientY;
     });
     document.addEventListener('mouseup', () => { _inspeccionDrag = false; });
 
@@ -2199,13 +2210,12 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             PersonajesManager.callar(_personajeHablando);
             _personajeHablando = null;
         }
-        // Si el navegador soltó el pointer lock durante el diálogo, retomarlo.
-        // La tecla E que cierra el diálogo cuenta como gesto de usuario.
-        window._wwRetomarPointerLock?.();
     }
 
     // ── Helpers ───────────────────────────────────────────────────────────────
     function _encontrarNodo(scene, id) {
+        const reg = window._wwNodos && window._wwNodos[id];
+        if (reg) return reg;
         let found = null;
         scene.traverse(obj => {
             if (!found && obj.userData?.id === id) found = obj;
@@ -2279,9 +2289,12 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         frameCount++;
 
         // ── Resolución lazy de obj3d + guías iniciales ───────────────────────
+        // Registro primero (barato); el recorrido completo de la escena como respaldo
+        // solo cada 30 frames, para no hacerlo en cada frame por un modelo que no carga.
         for (const [id, entry] of Object.entries(mapa)) {
             if (!entry.obj3d) {
-                entry.obj3d = _encontrarNodo(scene, id);
+                const reg = window._wwNodos && window._wwNodos[id];
+                entry.obj3d = reg || (frameCount % 30 === 0 ? _encontrarNodo(scene, id) : null);
                 if (entry.obj3d && entry.fase_aparicion <= faseActual) {
                     if (_guiasDeFase(faseActual).includes(id) && _guiaPendiente(id)) _activarGuia(entry, faseActual);
                     // Refrescar label del tracker con el nombre real
@@ -2346,19 +2359,24 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             }
 
             if (dialogoAbierto) {
+                // Con un panel abierto el raton puede seguir capturado, asi que la
+                // deteccion se congela aqui (antes la congelaba el soltar el puntero).
                 elHint.style.display = 'none';
-            } else if (mirado !== nodoEnRango) {
-                nodoEnRango = mirado;
-                if (mirado) {
-                    elHint.innerHTML = _textoHint(mirado);
-                    elHint.style.display = 'flex';
-                } else {
-                    elHint.style.display = 'none';
+                nodoEnRango = null;
+            } else {
+                if (mirado !== nodoEnRango) {
+                    nodoEnRango = mirado;
+                    if (mirado) {
+                        elHint.innerHTML = _textoHint(mirado);
+                        elHint.style.display = 'flex';
+                    } else {
+                        elHint.style.display = 'none';
+                    }
                 }
-            }
 
-            if (frameCount % 45 === 0) _detectarZona();
-            if (frameCount % 20 === 0) _detectarLoreFPS();
+                if (frameCount % 45 === 0) _detectarZona();
+                if (frameCount % 20 === 0) _detectarLoreFPS();
+            }
 
         } else if (nodoEnRango) {
             nodoEnRango = null;
@@ -2599,6 +2617,17 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
                 transition: background 0.18s, color 0.18s;
             }
             .int-d-btn:hover { background: rgba(100,75,210,0.8); color: #fff; }
+            /* Número de la opción: es la tecla con la que se elige (1-9) */
+            .int-d-btn kbd {
+                display: inline-block;
+                background: rgba(255,255,255,0.16);
+                border: 1px solid rgba(255,255,255,0.32);
+                border-bottom-width: 2px;
+                border-radius: 4px;
+                padding: 0px 7px;
+                font-family: monospace; font-size: 11px;
+                color: #fff; margin-right: 5px;
+            }
             .int-pista {
                 color: rgba(255,255,255,0.28); font-size: 11px;
                 text-align: right; margin-top: 10px; letter-spacing: 0.5px;
@@ -2918,7 +2947,9 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         ruinas:            'piedra',
         montaña:           'piedra',
         cueva:             'piedra_eco',
+        habitacion:        'madera',
         interior:          'madera',
+        interior_grande:   'piedra',
         espacio:           'silencio',
         superficie_planeta:'polvo',
         bajo_el_agua:      'agua',
@@ -3014,7 +3045,13 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
     }
 
     function _superficie() {
-        const ta = (typeof SCENE_GRAPH !== 'undefined' && SCENE_GRAPH.tipo_ambiente) || 'otro';
+        const sg = (typeof SCENE_GRAPH !== 'undefined') ? SCENE_GRAPH : {};
+        const ta = sg.tipo_ambiente || 'otro';
+        // Sobre el agua suenan los chapoteos de index.html, no pasos.
+        if (ta === 'sobre_agua' || sg.tipo_suelo === 'agua') return 'silencio';
+        if (ta === 'barco') return (typeof _enBarco !== 'undefined' && !_enBarco) ? 'silencio' : 'madera';
+        if (sg.tipo_suelo === 'nubes') return 'polvo';
+        if (sg.tipo_suelo === 'cristal') return 'piedra';
         return _PERFILES[ta] || 'tierra';
     }
 

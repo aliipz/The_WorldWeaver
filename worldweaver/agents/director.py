@@ -3,12 +3,14 @@ Agente 2 — El Director
 Entrada:  Escena + historial de mensajes (para reintentos con feedback de error)
 Salida:   (SalidaDirector, mensajes_actualizados)
 
-Arquitectura de dos pasadas en el primer intento:
-  P1 — Posiciona los narrativos (personajes y objetos del Organizador)
-  P2 — Genera los decorados, conociendo qué narrativos ya están y dónde
+Primer intento:
+  P1 — Inventa los DECORADOS de la escena (sin posiciones).
+  P2 — Coloca TODO (narrativos + decorados) en la rejilla pirámide y fija tamaños.
+       En interiores en caja, P2 se sustituye por la pasada rectangular 7×7.
+Después, reparaciones deterministas (cobertura, separación, colisiones, mobiliario).
 
-En caso de reintento (mensajes_previos presente), hace una sola pasada combinada
-para que el LLM pueda corregir su salida con el contexto de error del validador.
+Reintento (mensajes_previos presente): una sola pasada combinada con el historial
+y el feedback del validador.
 """
 
 import json
@@ -20,8 +22,8 @@ from typing import List
 from pydantic import BaseModel, Field
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 
-from config.prompts import get_prompts, DIRECTOR_TAMAÑOS_SYSTEM, DIRECTOR_TAMAÑOS_USER
-from config.llm import get_llm, provider_name
+from config.prompts import get_prompts
+from config.llm import get_llm
 from config.geometria import N_COLS_POR_FILA, params_escena
 from pipeline.errors import AgentError
 from pipeline import metricas
@@ -94,61 +96,6 @@ def _arc_len_por_col(fila: int, radio_por_fila: dict, arco_por_fila: dict) -> fl
 def _limpiar_json(texto: str) -> str:
     texto = re.sub(r"```(?:json)?\s*", "", texto)
     return texto.replace("```", "").strip()
-
-
-def _ajustar_tamaños(salida: SalidaDirector, escena: Escena, llm) -> SalidaDirector:
-    """
-    Pasada 2 — ajusta los tamaños de todos los elementos razonando
-    su escala relativa en contexto de la escena completa.
-    Si falla, devuelve la salida original sin modificar.
-    """
-    # Construir lista de elementos para el prompt
-    lineas = []
-    for e in salida.elementos:
-        desc = f" — {e.descripcion}" if e.descripcion else ""
-        lineas.append(f'- {e.id}: "{e.nombre}" ({e.tipo}){desc}')
-    lista_elementos = "\n".join(lineas)
-
-    user_prompt = DIRECTOR_TAMAÑOS_USER.format(
-        entorno=escena.entorno,
-        atmosfera=escena.atmosfera,
-        lista_elementos=lista_elementos,
-    )
-
-    messages = [
-        SystemMessage(content=DIRECTOR_TAMAÑOS_SYSTEM),
-        HumanMessage(content=user_prompt),
-    ]
-
-    try:
-        respuesta = llm.invoke(messages)
-        json_limpio = _limpiar_json(respuesta.content)
-        datos = json.loads(json_limpio)
-
-        # Aplicar los tamaños a cada elemento
-        actualizados = 0
-        for elem in salida.elementos:
-            if elem.id in datos:
-                t = datos[elem.id]
-                ancho = float(t.get("ancho", elem.ancho))
-                alto  = float(t.get("alto",  elem.alto))
-                # Validar rangos del schema
-                elem.ancho = max(0.1, min(20.0, ancho))
-                elem.alto  = max(0.1, min(30.0, alto))
-                actualizados += 1
-
-        logger.info(
-            f"[Director/Tamaños] ✓ {actualizados}/{len(salida.elementos)} "
-            "tamaños ajustados en pasada 2."
-        )
-    except Exception as e:
-        logger.warning(
-            f"[Director/Tamaños] Pasada 2 fallida ({e}). "
-            "Se usan los tamaños de la pasada 1."
-        )
-
-    return salida
-
 
 
 def _reparar_separacion(salida: SalidaDirector, cielo: str, tipo_ambiente: str = "") -> int:

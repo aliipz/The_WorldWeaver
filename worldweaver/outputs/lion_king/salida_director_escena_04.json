@@ -1,0 +1,155 @@
+{
+  "id_escena": "escena_04",
+  "elementos": [
+    {
+      "id": "personaje_simba",
+      "nombre": "Simba",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.2,
+      "descripcion": "Young male lion, golden fur, bright eyes, later grown into a strong adult with a scar over his eye.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_scar",
+      "nombre": "Scar",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.2,
+      "descripcion": "Adult male lion with black mane, dark eyes, gaunt, tattered cloak.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_leona_01",
+      "nombre": "Leona guerrera",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.2,
+      "descripcion": "Adult lioness, muscular, golden fur, fierce eyes.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_hiena_01",
+      "nombre": "Hiena",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 0.8,
+      "alto": 0.8,
+      "descripcion": "Spotted hyena, lean, scarred, snarling.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_statue_01",
+      "nombre": "Weathered lion statue",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 1.0,
+      "alto": 2.0,
+      "descripcion": "Stone lion crouching, cracked surface, mossy patches, dark brown patina.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_firepit_01",
+      "nombre": "Charred fire pit",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 4
+      },
+      "ancho": 0.8,
+      "alto": 0.3,
+      "descripcion": "Circular pit of blackened stone, ash-covered edges, occasional ember glows.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_tree_01",
+      "nombre": "Acacia savanna tree",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 2.0,
+      "alto": 5.0,
+      "descripcion": "Tall, slender acacia with twisted branches, pale bark, and a sparse canopy of green leaves.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_rock_01",
+      "nombre": "Jagged basalt outcrop",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 2.5,
+      "alto": 1.5,
+      "descripcion": "Dark gray basalt rock formation, sharp edges, weathered surface with cracks.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_skeleton_01",
+      "nombre": "Giant animal skeleton",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 1
+      },
+      "ancho": 3.0,
+      "alto": 2.0,
+      "descripcion": "Half-buried ribcage of a massive herbivore, bleached bone, scattered over the grass.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_grassbundle_01",
+      "nombre": "Dried grass bundle",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 0.4,
+      "alto": 0.2,
+      "descripcion": "Tied bunch of golden dried grass, frayed edges, lying near the ground.",
+      "keyword_busqueda": null
+    }
+  ]
+}

@@ -554,12 +554,16 @@ renderer.domElement.addEventListener('click',   _entrarFpsAlPrimerGesto, { once:
 document.addEventListener(            'keydown', _entrarFpsAlPrimerGesto, { once: true });
 
 // ── Pantalla completa (igual que el viewer real index.html) ─────────────────
-// El .exe arranca en fullscreen de NAVEGADOR (--start-fullscreen). Si pedimos
-// pointer lock en ese estado sin pasar antes por la Fullscreen API, Chrome entra
-// en conflicto y la entrada a FPS se queda "pillada". Igual que index.html,
-// re-entramos en Fullscreen API con el primer gesto (antes del click que captura
-// el ratón), de modo que pointer lock conviva con el fullscreen como en el viewer.
+// Antes esta página entraba en la Fullscreen API sola, al primer gesto, para que el
+// pointer lock no chocara con el --start-fullscreen del .exe. Ya no hace falta: el
+// pointer lock convive bien con el fullscreen de ventana (ver index.html), y entrar en
+// la API tenía un efecto secundario feo — al volver a la landing y entrar en un mundo,
+// la API se caía y la ventana salía de pantalla completa. Ahora seguimos el mismo
+// criterio que el viewer: solo la recuperamos si el usuario la pidió a mano.
 (function _wwBotonFullscreen() {
+    const esFS = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
+    const pantallaCompleta = () => esFS() || Math.abs(innerHeight - screen.height) <= 4;
+
     const btn = document.createElement('button');
     btn.id = 'ww-fs-btn';
     btn.title = 'Pantalla completa';
@@ -576,31 +580,40 @@ document.addEventListener(            'keydown', _entrarFpsAlPrimerGesto, { once
         (el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen)?.call(el);
     };
     document.body.appendChild(btn);
-    const upd = () => {
-        const fs = document.fullscreenElement || document.webkitFullscreenElement;
-        btn.style.display = fs ? 'none' : 'block';
-    };
+    const upd = () => { btn.style.display = pantallaCompleta() ? 'none' : 'block'; };
     document.addEventListener('fullscreenchange', upd);
     document.addEventListener('webkitfullscreenchange', upd);
+    addEventListener('resize', upd);
     upd();
 })();
 
-(function _wwAutoFullscreen() {
-    let hecho = false;
-    const ir = () => {
-        if (hecho) return;
-        hecho = true;
-        window.removeEventListener('pointerdown', ir, true);
-        window.removeEventListener('keydown', ir, true);
-        const fs = document.fullscreenElement || document.webkitFullscreenElement;
-        if (!fs) {
-            const el = document.documentElement;
-            try { (el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen)?.call(el); }
-            catch (e) { /* requiere gesto válido; si falla, queda el botón manual */ }
-        }
+(function _wwFullscreenPersistente() {
+    const FLAG = 'ww_fs';
+    const esFS = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
+
+    // Ver index.html: separamos Esc de navegación por supervivencia del timer, no con
+    // pagehide/beforeunload (al navegar, Chrome dispara antes el fullscreenchange).
+    let t = null;
+    const onCambio = () => {
+        clearTimeout(t);
+        if (esFS()) sessionStorage.setItem(FLAG, '1');
+        else t = setTimeout(() => sessionStorage.removeItem(FLAG), 150);
     };
-    window.addEventListener('pointerdown', ir, true);
-    window.addEventListener('keydown', ir, true);
+    document.addEventListener('fullscreenchange', onCambio);
+    document.addEventListener('webkitfullscreenchange', onCambio);
+
+    if (sessionStorage.getItem(FLAG) !== '1') return;
+
+    const ir = () => {
+        removeEventListener('pointerdown', ir, true);
+        removeEventListener('keydown', ir, true);
+        if (esFS()) return;
+        const el = document.documentElement;
+        try { (el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen)?.call(el); }
+        catch (e) { /* si el gesto no sirve, queda el botón manual */ }
+    };
+    addEventListener('pointerdown', ir, true);
+    addEventListener('keydown', ir, true);
 })();
 
 renderer.domElement.addEventListener('mousemove', (e) => {

@@ -1,0 +1,482 @@
+{
+  "id_escena": "escena_04",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "A furious screech echoes amid the dripping dark...",
+      "guias": [
+        "personaje_goblin_king",
+        "personaje_mara"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_goblin_king",
+          "personaje_mara"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Beneath the glittering gold hums a tiny sweet voice...",
+      "guias": [
+        "objeto_caracola_rosa",
+        "personaje_mara",
+        "personaje_goblin_king"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_caracola_rosa"
+        ],
+        "personajes": [
+          "personaje_mara",
+          "personaje_goblin_king"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Greed melts into a strange, hopping little jig...",
+      "guias": [
+        "objeto_caracola_rosa",
+        "objeto_llave_oxidada",
+        "personaje_goblin_king",
+        "personaje_mara"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_caracola_rosa",
+          "objeto_llave_oxidada"
+        ],
+        "personajes": [
+          "personaje_goblin_king",
+          "personaje_mara"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_03",
+      "fase": 3,
+      "texto_objetivo": "One rusted key — the cave's deepest secret gasps open...",
+      "guias": [
+        "objeto_llave_oxidada",
+        "objeto_cofre_goblino",
+        "objeto_sun_cristal",
+        "personaje_mara"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_llave_oxidada",
+          "objeto_cofre_goblino",
+          "objeto_sun_cristal"
+        ],
+        "personajes": [
+          "personaje_mara"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_goblin_king",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Punch",
+          "puntos": [
+            {
+              "frases": [
+                "THIEVES! THIEVES! Out of my hoard! This gold is MINE! Every coin, every trinket — MINE!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "We came for the Sun Crystal.",
+                  "respuesta": "The SUN CRYSTAL? HAH! Not a chance! That crystal is my crown jewel — brighter than a thousand torches! You'll never touch it!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "We're just passing through.",
+                  "respuesta": "Passing THROUGH? Through MY lair? Ha! 'Passing through' means 'stealing everything' in thief language! I've heard that lie a hundred times!",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "You tread dangerous ground, sailor! My bone throne has seen a hundred trespassers, and every single one ended up as fertilizer for the mushroom gardens!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "We'll be quick.",
+                  "respuesta": "Quick, slow, I care not! All intruders end the same way — as compost! HA!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "We have nothing to steal.",
+                  "respuesta": "LIES! Everything is worth stealing! I once lost my favorite skull to a mouse! A MOUSE! I've hated mice ever since!",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "OHHH! What a song! What a beautiful, magical song! This shell has brought more joy to my heart than all the gold in my hoard! Take anything you want — ANYTHING!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "The rusty key, then.",
+                  "respuesta": "HA! Wise choice! Here — catch! Use it on my finest coffer — the big one behind the throne. You've earned it, song-bringer!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "We'll take our leave now.",
+                  "respuesta": "LEAVE? Already? Ahh, well, a gift deserves a gift! Take this rusty key to my secret coffer — a proper reward for the best music I've heard in decades!",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "I've been dancing all afternoon! This shell is my new best friend! It hums even when I put it down — such magic, such wonder!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Happy to hear it.",
+                  "respuesta": "Happy? I'm ECSTATIC! I shall name it Flourish! My first musical treasure!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "We'll just take our reward and go.",
+                  "respuesta": "Take whatever your heart desires, friend! As long as you don't take THIS shell — it's MINE now! I'll guard it with my life!",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_caracola_rosa",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "A seashell for me! Let me inspect it... mmm, it hums. It glows. WITCHERY! Pure WITCHERY!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Put it to your ear.",
+                  "respuesta": "My ear? Very well... OH! OH-HO! Singing! Whales! SECRETS OF THE DEEP! You've given me a great treasure, sailor! I accept!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "It's a token of goodwill.",
+                  "respuesta": "Goodwill? GOODWILL! Ha! Fine — I'll take it! But if this is a trick, you'll end up as a necklace on my throne!",
+                  "correcta": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "requiere_objeto": "objeto_llave_oxidada",
+          "consume": false,
+          "puntos": [
+            {
+              "frases": [
+                "Ah, my old rusty key! I remember giving it to you — good times! I bet it opened my coffer like a charm!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Yes, thank you.",
+                  "respuesta": "Marvelous! I knew you were trustworthy! Enjoy whatever treasure you found — I've got plenty more!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Not yet, but soon.",
+                  "respuesta": "Eh? Still haven't opened it? Well, hurry up! I want to hear about the gold inside!",
+                  "correcta": false
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Provoke",
+          "descripcion": "You mock his crooked crown. The Goblin King shrieks, fangs bared, and slams his fist upon the throne's armrest.",
+          "animacion": "Punch",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "metal",
+          "dispara": [
+            {
+              "id_nodo": "personaje_mara",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        },
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Count his gold",
+          "descripcion": "The king scoops up a fistful of coins, lets them trickle between his claws, and giggles with greedy glee.",
+          "animacion": "Victory",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "alegria",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_mara",
+        "efecto": null,
+        "color": null,
+        "animacion": "RecieveHit"
+      }
+    },
+    {
+      "id_nodo": "personaje_mara",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Hold your nerve, Captain. You've weathered worse storms than a noisey goblin on a throne of bones."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "That crystal isn't going to save itself. Focus. Don't let his screeching get under your skin."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "A pink seashell... nestled between solid gold bricks. Odd. But sometimes the strangest things are the best currency."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "If this shell sings half as sweet as it looks, we might just buy our way into that coffer."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "He's dancing like a drunken herring. Fine — let the little tyrant have his fun. That key is ours."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "If I didn't need that key, I'd watch him trip over his own crown for hours."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 3,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "There it is... the Sun Crystal. By the tides, the stories didn't do it justice. Saltmere, we're coming home."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "This light... it could break the curse. I can feel it. Time to set sail and save our crew."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Search the hoard",
+          "descripcion": "Mara crouches over the coins, sifting them through her fingers, squinting at the glint of old treasure.",
+          "animacion": "PickUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        },
+        {
+          "tecla": "KeyZ",
+          "etiqueta": "Sigh",
+          "descripcion": "Mara exhales slowly, her breath clouding in the cold air as she studies the towering throne of bones.",
+          "animacion": null,
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_caracola_rosa",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "Pink seashell",
+        "descripcion": "A fragile shell, blushing pink, humming with a faint, impossibly sweet melody. It seems almost to sing to the cavern."
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyQ",
+          "etiqueta": "Listen closely",
+          "descripcion": "You press the shell to your ear. A drowsy lullaby hums out, curling through the cold air like a thread of warmth.",
+          "efecto_visual": "brillo",
+          "sonido": "suave"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_llave_oxidada",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "Rusty iron key",
+        "descripcion": "A heavy iron key crusted with rust, still warm as if clutched moments ago. It smells of old gold and ancient spite."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_cofre_goblino",
+      "fase_aparicion": 3,
+      "interaccion": {
+        "tipo": "usar_con",
+        "requiere_objeto": "objeto_llave_oxidada",
+        "titulo": "Enormous locked chest",
+        "descripcion": "With a groan of tortured hinges the chest yawns open, spilling a bloom of golden light across the cavern floor.",
+        "efecto_visual": "abrir",
+        "color_efecto": null,
+        "sonido": "metal"
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": {
+        "id_nodo": "objeto_sun_cristal",
+        "efecto": "aparecer",
+        "color": null,
+        "animacion": null
+      }
+    },
+    {
+      "id_nodo": "objeto_sun_cristal",
+      "fase_aparicion": 3,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "The Sun Crystal pulses, flooding the cave with a warm aurora. Treasure dims to nothing beside its quiet dawn.",
+        "texto_desactivacion": null,
+        "efecto_visual": "brillo",
+        "color_efecto": "#ffb347",
+        "descripcion": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyQ",
+          "etiqueta": "Cup the light",
+          "descripcion": "You cup your hands around the crystal. A shimmer of golden sparks spirals up through the darkness.",
+          "efecto_visual": "emitir_particulas",
+          "sonido": "magico"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_torch_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "The torch flares to life, its flames licking the damp stone walls and casting dancing shadows.",
+        "texto_desactivacion": "You extinguish the torch, plunging the cave back into cold, oppressive darkness.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_entrada",
+      "columnas": [
+        0,
+        1
+      ],
+      "texto": "Cold drips echo from unseen heights. In the gloom, the glint of gold swallows the cave like a hungry maw."
+    },
+    {
+      "id": "zona_trono",
+      "columnas": [
+        3,
+        4
+      ],
+      "texto": "A throne of bones rises from the deepest shadow. Upon it, two small, furious eyes fix upon you like embers."
+    }
+  ],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

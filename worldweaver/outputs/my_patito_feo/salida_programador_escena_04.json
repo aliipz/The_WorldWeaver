@@ -1,0 +1,329 @@
+{
+  "id_escena": "escena_04",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "El patito feo cruza el bosque al alba",
+      "guias": [
+        "personaje_patito_feo"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_patito_feo"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "El espejo del lago revela un nuevo destino",
+      "guias": [
+        "personaje_patito_feo"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_patito_feo"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Dos cisnes majestuosos emergen para guiar",
+      "guias": [
+        "personaje_patito_feo",
+        "personaje_cisne_01",
+        "personaje_cisne_02"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_patito_feo",
+          "personaje_cisne_01",
+          "personaje_cisne_02"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_patito_feo",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "null",
+          "puntos": [
+            {
+              "frases": [
+                "El sol acaricia mis plumas y el lago brilla como espejo; por fin siento que puedo respirar."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Miro el agua y me pregunto si algún día seré más que un patito gris."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué ves en tu reflejo?",
+                  "respuesta": "Veo una sombra que podría convertirse en luz."
+                },
+                {
+                  "etiqueta": "¿Te sientes listo para cambiar?",
+                  "respuesta": "Tal vez el destino me guíe, pero mi corazón late con esperanza."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "null",
+          "puntos": [
+            {
+              "frases": [
+                "Al sumergir mi mirada, mi reflejo se vuelve blanco y elegante, como un sueño que se hace realidad."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Siento que el lago susurra mi nombre nuevo, como si la primavera me estuviera acogiendo."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué nombre escuchas?",
+                  "respuesta": "Un canto suave que dice 'renacer'."
+                },
+                {
+                  "etiqueta": "¿Te asusta la transformación?",
+                  "respuesta": "Solo el miedo de perder lo que soy, pero la luz me anima a seguir."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "Dos cisnes se deslizan a mi lado, sus alas rozan el agua y me invitan a volar con ellos."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Por fin he encontrado mi familia, y el sol celebra nuestro encuentro."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué sentirás ahora?",
+                  "respuesta": "Una alegría que rebosa como el río en primavera."
+                },
+                {
+                  "etiqueta": "¿Vas a quedarte aquí?",
+                  "respuesta": "Sí, aquí donde el cielo y el agua se abrazan."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Nadar",
+          "descripcion": "Te sumerges y sientes la corriente acariciar tus alas mientras el lago reluce bajo el sol.",
+          "animacion": "alegria",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "magico",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_cisne_01",
+      "fase_aparicion": 2,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 2,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "Bienvenido, pequeño. El lago ha esperado tu regreso bajo el canto de los árboles."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Juntos surcaremos los cielos y navegaremos estas aguas eternas."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo es volar con ustedes?",
+                  "respuesta": "Como deslizarse sobre la brisa, libre y ligera."
+                },
+                {
+                  "etiqueta": "¿Qué secretos guarda este lago?",
+                  "respuesta": "Historias de renacimiento que solo la primavera puede contar."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Aletear",
+          "descripcion": "Extiende sus alas blancas y crea una brisa suave que ondula la superficie del agua.",
+          "animacion": "alegria",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "magico",
+          "dispara": [
+            {
+              "id_nodo": "personaje_patito_feo",
+              "efecto": null,
+              "color": null,
+              "animacion": "alegria"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_cisne_02",
+      "fase_aparicion": 2,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 2,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "¡Qué alegría verte! El sol pinta de dorado nuestras plumas y tu corazón."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Este es el comienzo de una nueva canción, donde cada nota es un latido de esperanza."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cuál será la primera nota?",
+                  "respuesta": "El susurro del viento entre los juncos."
+                },
+                {
+                  "etiqueta": "¿Quieres unirte a nuestro vuelo?",
+                  "respuesta": "Sí, sigue mi ritmo y juntos brillaremos."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Cantar",
+          "descripcion": "Emite un canto cristalino que se mezcla con el susurro del viento entre los sauces.",
+          "animacion": "alegria",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "magico",
+          "dispara": [
+            {
+              "id_nodo": "personaje_patito_feo",
+              "efecto": null,
+              "color": null,
+              "animacion": "alegria"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "decorado_flor_silvestre_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un pequeño ramillete de flores silvestres se mece al viento, desprendiendo un dulce aroma."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": true
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "amb_01_2_00",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Tronco caído",
+        "descripcion": "Un tronco grueso yace sobre la orilla, cubierto de musgo y pequeñas setas que emergen entre sus grietas.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.0,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_hoja_de_loto_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una hoja de loto verde y brillante descansa sobre el agua, reflejando la luz del sol."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": true
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_lago_entrada",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "El sol se refleja en el agua cristalina, anunciando un nuevo comienzo bajo los sauces llorones."
+    }
+  ]
+}

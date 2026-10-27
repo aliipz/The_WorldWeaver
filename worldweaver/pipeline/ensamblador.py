@@ -1,14 +1,14 @@
 """
 Ensamblador — función determinística sin LLM.
 
-Toma los outputs de Constructor, Programador y Dibujante y produce
+Toma los outputs de Constructor, Programador y Músico y produce
 el HTML final. Actúa como compilador/linker: sin lógica narrativa,
 sin llamadas a API, completamente testeable.
 
 Entradas:
   - SceneGraph          (Constructor)
   - SalidaProgramador   (Programador, opcional)
-  - SalidaDibujante     (Dibujante, opcional)
+  - SalidaMusico        (Músico, opcional)
 
 Salida:
   - HTML standalone con scene_loader.js e interactions.js inlinados
@@ -20,9 +20,7 @@ from typing import Optional
 
 from schemas.scene_graph import SceneGraph
 from schemas.escenas import Escena
-from schemas.especificacion import SalidaDirector
 from schemas.interacciones import SalidaProgramador
-from schemas.assets import SalidaDibujante
 from schemas.audio import SalidaMusico
 from schemas.quiz import SalidaExaminador
 
@@ -40,9 +38,7 @@ def ensamblar(
     scene_graph: SceneGraph,
     manifest: Optional[SalidaProgramador] = None,
     musico: Optional[SalidaMusico] = None,
-    dibujante: Optional[SalidaDibujante] = None,
     escena: Optional[Escena] = None,
-    director: Optional[SalidaDirector] = None,  # kept for backwards compat, unused
     next_scene_url: Optional[str] = None,
     portal_label: Optional[str] = None,
     texto_fin: Optional[str] = None,
@@ -63,8 +59,13 @@ def ensamblar(
     sky_code       = (SANDBOX / "js" / "sky.js").read_text(encoding="utf-8")
 
     # ── Idioma + modo globales (deben inyectarse antes de cualquier otro script) ─
+    # Constantes compartidas con el viewer: se inyectan desde Python para que no haya
+    # dos copias que puedan divergir (alturas por talla del catálogo de personajes).
+    from config.catalogo_personajes import TALLA_ALTURA
+    ww_const = json.dumps({"tallas": TALLA_ALTURA})
     html = template.replace("__IDIOMA_PLACEHOLDER__",
-                            f'<script>const IDIOMA = "{idioma}"; const MODO = "{modo}";</script>')
+                            f'<script>const IDIOMA = "{idioma}"; const MODO = "{modo}"; '
+                            f'window.WW_CONST = {ww_const};</script>')
 
     # ── Inline scripts ────────────────────────────────────────────────────────
     html = html.replace(
@@ -102,15 +103,6 @@ def ensamblar(
             "autor":       musico.pista_principal.autor,
         }, ensure_ascii=False)
     html = html.replace("__AUDIO_PLACEHOLDER__", audio_js)
-
-    # ── Assets del Dibujante (rutas para inyección futura de base64) ──────────
-    # Por ahora scene_loader.js ya resuelve las rutas por convención:
-    #   assets/<id_escena>/<id_nodo>.png
-    # Si dibujante está disponible, podemos usarlo para verificación futura.
-    # El placeholder se deja preparado para la siguiente iteración.
-    assets_js = _construir_assets_js(dibujante)
-    if "__ASSETS_PLACEHOLDER__" in html:
-        html = html.replace("__ASSETS_PLACEHOLDER__", assets_js)
 
     # ── URL de la siguiente escena (portal de transición) ────────────────────
     next_url_js = f'"{next_scene_url}"' if next_scene_url else "null"
@@ -630,18 +622,3 @@ def generar_quiz_html(salida: SalidaExaminador, output_path: Path, idioma: str =
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(html, encoding="utf-8")
     return html
-
-
-def _construir_assets_js(dibujante: Optional[SalidaDibujante]) -> str:
-    """
-    Genera un objeto JS con las rutas de assets disponibles.
-    Permite que scene_loader.js sepa qué PNGs existen sin hacer peticiones 404.
-    """
-    if not dibujante:
-        return "{}"
-
-    assets = {
-        asset.id_elemento: asset.ruta_png
-        for asset in dibujante.assets
-    }
-    return json.dumps(assets, ensure_ascii=False)

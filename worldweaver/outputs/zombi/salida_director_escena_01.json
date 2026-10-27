@@ -1,0 +1,140 @@
+{
+  "id_escena": "escena_01",
+  "elementos": [
+    {
+      "id": "personaje_couple_male",
+      "nombre": "Young Man",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Late teens, short dark hair, simple linen shirt, worn trousers.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_couple_female",
+      "nombre": "Young Woman",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 0.9,
+      "alto": 1.9,
+      "descripcion": "Late teens, long flowing hair that catches the wind, light dress stained with mud.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_zombie_01",
+      "nombre": "Green Zombie",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.9,
+      "alto": 2.2,
+      "descripcion": "Tall, decayed skin with a sickly green hue, empty eyes, tattered clothing draped over a gaunt frame.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_pine_log_01",
+      "nombre": "Pine log",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 3.5,
+      "alto": 0.9,
+      "descripcion": "Thick pine log with stripped bark, dark brown wood dampened by dew, speckled with patches of green moss.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_rusted_lantern_01",
+      "nombre": "Rusted lantern",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 0.4,
+      "alto": 0.8,
+      "descripcion": "Old iron lantern with a rusted exterior, cracked glass, hanging from a low branch.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_pine_cone_01",
+      "nombre": "Pine cone",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 2
+      },
+      "ancho": 0.3,
+      "alto": 0.3,
+      "descripcion": "Closed brown pine cone with tightly overlapping scales, nestled among leaf litter.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_mushroom_cluster_01",
+      "nombre": "Mushroom cluster",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 2
+      },
+      "ancho": 0.5,
+      "alto": 0.3,
+      "descripcion": "Cluster of small brown mushrooms with white caps, sprouting from damp soil and moss.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_mossy_rock_01",
+      "nombre": "Mossy rock",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 1
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "descripcion": "Rounded stone blanketed in soft green moss, its surface slick from morning moisture.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_fallen_branch_01",
+      "nombre": "Fallen pine branch",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 1
+      },
+      "ancho": 1.5,
+      "alto": 0.3,
+      "descripcion": "Bent pine branch broken at one end, littered with pine needles and a thin layer of lichen.",
+      "keyword_busqueda": null
+    }
+  ]
+}

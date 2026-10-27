@@ -43,6 +43,13 @@ window.iniciarCielo = function (cielo, scene) {
     const animados = [];
     const rng = (a, b) => a + Math.random() * (b - a);
 
+    // En barco el jugador está sobre la cubierta: nubes y precipitación se suben esa altura
+    // (si no, en el galeón las nubes bajas cruzaban la cabeza). La precipitación cubre toda
+    // la zona transitable (en barco se puede bajar al agua, más allá de ±6.5).
+    const _sg = (typeof SCENE_GRAPH !== 'undefined') ? SCENE_GRAPH : {};
+    const yBase = (_sg.tipo_ambiente === 'barco') ? (window._BARCO_DECK_H || 0) : 0;
+    const L = Math.max(6.5, (_sg.limite_jugador || 6.5) + 1.5);
+
     // ── Degradado de fondo (atardecer / amanecer) ─────────────────────────────
     if (tipo === 'atardecer') {
         scene.background = null;
@@ -271,7 +278,7 @@ window.iniciarCielo = function (cielo, scene) {
             scene.add(pivote);
 
             const nube = new THREE.Group();
-            nube.position.set(rng(2.8, 4.8), rng(4.0, 6.0), 0);
+            nube.position.set(rng(2.8, 4.8), yBase + rng(4.0, 6.0), 0);
             pivote.add(nube);
 
             const nBolas = 4 + Math.floor(rng(0, 4));
@@ -303,9 +310,9 @@ window.iniciarCielo = function (cielo, scene) {
         const N = tipo === 'tormenta' ? 900 : 500;
         const pos = new Float32Array(N * 3);
         for (let i = 0; i < N; i++) {
-            pos[i * 3]     = rng(-6.5, 6.5);
-            pos[i * 3 + 1] = rng(0, 10);
-            pos[i * 3 + 2] = rng(-6.5, 6.5);
+            pos[i * 3]     = rng(-L, L);
+            pos[i * 3 + 1] = yBase + rng(0, 10);
+            pos[i * 3 + 2] = rng(-L, L);
         }
         const geo = new THREE.BufferGeometry();
         geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
@@ -317,7 +324,7 @@ window.iniciarCielo = function (cielo, scene) {
             const a = puntos.geometry.attributes.position;
             for (let i = 0; i < N; i++) {
                 const y = a.getY(i) - 0.10;
-                a.setY(i, y < 0 ? 10 : y);
+                a.setY(i, y < yBase ? yBase + 10 : y);
             }
             a.needsUpdate = true;
         }});
@@ -331,9 +338,9 @@ window.iniciarCielo = function (cielo, scene) {
         const freqX  = new Float32Array(N);  // frecuencia deriva
         const velY   = new Float32Array(N);  // velocidad caída
         for (let i = 0; i < N; i++) {
-            pos[i * 3]     = rng(-6.5, 6.5);
-            pos[i * 3 + 1] = rng(0, 10);
-            pos[i * 3 + 2] = rng(-6.5, 6.5);
+            pos[i * 3]     = rng(-L, L);
+            pos[i * 3 + 1] = yBase + rng(0, 10);
+            pos[i * 3 + 2] = rng(-L, L);
             phaseX[i] = rng(0, Math.PI * 2);
             freqX[i]  = 0.18 + rng(0, 0.22);
             velY[i]   = 0.028 + rng(0, 0.022);
@@ -351,7 +358,7 @@ window.iniciarCielo = function (cielo, scene) {
             for (let i = 0; i < N; i++) {
                 let y = a.getY(i) - velY[i];
                 let x = a.getX(i) + Math.sin(t * freqX[i] + phaseX[i]) * 0.004;
-                if (y < 0) { y = 10; x = rng(-6.5, 6.5); }
+                if (y < yBase) { y = yBase + 10; x = rng(-L, L); }
                 a.setY(i, y);
                 a.setX(i, x);
             }

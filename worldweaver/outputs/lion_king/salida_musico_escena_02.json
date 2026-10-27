@@ -1,0 +1,14 @@
+{
+  "id_escena": "escena_02",
+  "query_usada": "horse hooves roar loop; horse hooves canyon ambience; horse gallop canyon ambience",
+  "pista_principal": {
+    "url_preview": "/assets/music/fallback/arido.mp3",
+    "titulo": "Ambiente: arido",
+    "autor": "freesound (CC0)",
+    "duracion_segundos": 0.0,
+    "loop": true,
+    "volumen": 0.5
+  },
+  "pista_fallback": null,
+  "fuente": "fallback"
+}

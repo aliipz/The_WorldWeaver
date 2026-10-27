@@ -1,0 +1,155 @@
+{
+  "id_escena": "escena_02",
+  "elementos": [
+    {
+      "id": "personaje_simba",
+      "nombre": "Simba",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 0.9,
+      "alto": 0.8,
+      "descripcion": "Young male lion, golden fur, bright eyes, later grown into a strong adult with a scar over his eye.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_scar",
+      "nombre": "Scar",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 0.9,
+      "descripcion": "Adult male lion with black mane, dark eyes, gaunt, tattered cloak.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_mufasa",
+      "nombre": "Mufasa",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 1.1,
+      "alto": 0.95,
+      "descripcion": "Adult male lion, golden mane, regal bearing, simple leather collar.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_nu_01",
+      "nombre": "Ñu desbocado",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 1.5,
+      "alto": 1.2,
+      "descripcion": "Adult wildebeest, shaggy brown coat, large horns.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_well_01",
+      "nombre": "Abandoned stone well",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 4
+      },
+      "ancho": 1.0,
+      "alto": 1.2,
+      "descripcion": "Circular stone well with a cracked limestone rim, half‑filled with dust and a broken wooden bucket.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_campfire_01",
+      "nombre": "Smoldering campfire pit",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "descripcion": " shallow pit lined with basalt stones, containing a faint ember glow and a few scattered charred logs.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_rock_01",
+      "nombre": "Jagged red boulder",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 0
+      },
+      "ancho": 3.0,
+      "alto": 1.5,
+      "descripcion": "Massive stone with sharp edges, weathered red sandstone, and a rough, pitted surface.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_cactus_01",
+      "nombre": "Spiky desert cactus",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 0.6,
+      "alto": 2.0,
+      "descripcion": "Tall, columnar cactus with thick green ribs and long, needle‑like spines, scarred by wind.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_shrub_01",
+      "nombre": "Dry scrub brush",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 1.2,
+      "alto": 0.9,
+      "descripcion": "Low, twisted shrub with brown, brittle leaves and twisted woody stems, clinging to the canyon floor.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_skeletal_remains_01",
+      "nombre": "Scattered animal bones",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 2
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "descripcion": "A handful of bleached bone fragments and rib cages, half‑buried in the gravel, hinting at past predators.",
+      "keyword_busqueda": null
+    }
+  ]
+}

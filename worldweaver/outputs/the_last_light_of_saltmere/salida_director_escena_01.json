@@ -1,0 +1,155 @@
+{
+  "id_escena": "escena_01",
+  "elementos": [
+    {
+      "id": "personaje_mara",
+      "nombre": "Mara",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "descripcion": "Young woman in her twenties with a red bandana, weathered coat and high boots.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_biscuit",
+      "nombre": "Biscuit",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 0.35,
+      "alto": 0.3,
+      "descripcion": "Small pug with wrinkled face, curly tail and glossy brown coat.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_finn",
+      "nombre": "Old Finn",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 5
+      },
+      "ancho": 0.9,
+      "alto": 1.72,
+      "descripcion": "Elderly man with a grey beard, stained coat and a sailor's cap.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_botella_mapa",
+      "nombre": "Bottle with map",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 0.2,
+      "alto": 0.4,
+      "descripcion": "A sealed bottle containing a wet, torn map signed by the Saltmere lighthouse keeper, asking for the Sun Crystal.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_campana_laton",
+      "nombre": "Brass bell",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 0.6,
+      "descripcion": "The Silver Gull's brass bell, rung to signal orders and answered by the ship.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_timonel",
+      "nombre": "Ship's wheel",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 1.5,
+      "alto": 1.5,
+      "descripcion": "The wooden wheel used to steer the Silver Gull toward the dark shore.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_rope_coil_01",
+      "nombre": "Coiled deck rope",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 0.3,
+      "descripcion": "Thick, brine-stiffened hemp rope coiled neatly against the bulwark, its ends frayed from salt and weather.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_lantern_01",
+      "nombre": "Storm lantern",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 3
+      },
+      "ancho": 0.3,
+      "alto": 0.5,
+      "descripcion": "Brass and iron lantern with clouded glass panes, swaying softly from a rusted chain hook, casting a dim orange glow.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_water_cask_01",
+      "nombre": "Lashed water cask",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 0.6,
+      "alto": 0.9,
+      "descripcion": "Stout oak cask bound with tarred rope and iron bands, lashed to the deck cleats, its lid sealed with wax.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_cannon_01",
+      "nombre": "Deck cannon",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 6
+      },
+      "ancho": 2.0,
+      "alto": 1.2,
+      "descripcion": "Black cast-iron cannon with a weathered wooden carriage, its muzzle plugged with canvas and lashed down for heavy seas.",
+      "keyword_busqueda": null
+    }
+  ]
+}

@@ -1,0 +1,356 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "A trembling confession in the clearing...",
+      "guias": [
+        "personaje_zombie_01",
+        "personaje_couple_female"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_zombie_01",
+          "personaje_couple_female"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "She freezes as wind stirs her hair...",
+      "guias": [
+        "personaje_couple_female",
+        "personaje_zombie_01"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_couple_female",
+          "personaje_zombie_01"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "A vow of protection against the horde...",
+      "guias": [
+        "personaje_zombie_01",
+        "personaje_couple_female",
+        "personaje_couple_male"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_zombie_01",
+          "personaje_couple_female",
+          "personaje_couple_male"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_zombie_01",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "I never thought my dead heart could beat faster, but your presence stirs something within me."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Even in decay, the wind carries your scent, a reminder of life I once knew."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Your hair flutters like a living flag, and for a moment I feel less like a monster."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "If I could, I would shield you from the storm that follows us."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "I swear on the remnants of my soul, I will stand between you and the horde, no matter the cost."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "My rotting limbs may fail, but my resolve is fresh as sunrise."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Can you truly keep us safe?",
+                  "respuesta": "I will not falter; each step I take is for you.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What if the horde overwhelms you?",
+                  "respuesta": "Then I will become a wall of flesh, even if it means my end.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Confess love",
+          "descripcion": "The zombie lifts its decayed hand, whispering a trembling confession of love to the woman.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_couple_female",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            },
+            {
+              "id_nodo": "personaje_couple_male",
+              "efecto": null,
+              "color": null,
+              "animacion": "Victory"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_couple_female",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Your words are a strange lullaby, and my fear trembles like a leaf in the wind."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "I cannot decide if this is madness or a miracle."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "The wind steals my hair, but it also seems to cradle my heart."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "In this moment, the world feels both terrifying and tender."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "If you keep your promise, I will trust the dead with my life."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Your protection is a strange comfort amidst the chaos."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Freeze",
+          "descripcion": "She freezes, hair fluttering, eyes wide with startled wonder.",
+          "animacion": "SitDown",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_couple_male",
+      "fase_aparicion": 2,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 2,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "I have never trusted a corpse, yet your vow cuts through my suspicion."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "If you betray her, I will end you myself."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Do you understand the stakes?",
+                  "respuesta": "I understand more than you think; her life is my purpose.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Will you fight the horde with us?",
+                  "respuesta": "I will stand beside you, undead as I am, until the last breath.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Vow to protect",
+          "descripcion": "The young man steps forward, fists clenched, vowing to shield her from the looming horde.",
+          "animacion": "Victory",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "decorado_tree_02",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A young pine sapling sways gently, its needles whispering with the wind."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_flower_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A tuft of wildflowers nods, releasing a faint scent as you pass."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_mushroom_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Red‑capped mushrooms glisten with dew, their caps trembling slightly."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_birdnest_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A small bird watches from its nest, ready to flutter away."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "escapar",
+        "radio": 2.0,
+        "una_vez": true
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

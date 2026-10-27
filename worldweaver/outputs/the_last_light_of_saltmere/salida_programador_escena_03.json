@@ -1,0 +1,413 @@
+{
+  "id_escena": "escena_03",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Morwen's riddle ripples through the sunken silence...",
+      "guias": [
+        "personaje_morwen",
+        "personaje_mara"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_morwen",
+          "personaje_mara"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Glowing coral points the way to the goblin king's cave...",
+      "guias": [
+        "personaje_mara",
+        "personaje_morwen"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_mara",
+          "personaje_morwen"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Only the brave may wake the sun, the altar warns...",
+      "guias": [
+        "objeto_altar_inscripcion",
+        "personaje_mara"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_altar_inscripcion"
+        ],
+        "personajes": [
+          "personaje_mara"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_morwen",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "You have come far to stand before me, captain. The drowned city grants passage only to those who answer what the deep asks. Hear my riddle: what has a face but no eyes, and hands but cannot hold?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "I'll play your game.",
+                  "respuesta": "Then speak, and let the coral judge whether your words ring true.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What if I refuse?",
+                  "respuesta": "Then you'll stay a guest of my city — and my hospitality runs deeper than any anchor.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Most visitors drown in my questions. You carry yourself like someone who has already cheated death twice and plans a third time."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Have you eaten many captains?",
+                  "respuesta": "Eaten is such a crude word. I prefer 'collected'. Their stories decorate my gardens.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Do you miss the surface?",
+                  "respuesta": "The surface has sunsets and salt spray. Down here, I have silence and secrets. Silence is kinder.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "A clock! Ah, beautifully done. You have the wit I hoped for — the coral burns bright in your honor. Follow its shine through the drowned bell-tower: the crystal you seek waits in the goblin king's cave."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "The goblin king's cave? How do I get past him?",
+                  "respuesta": "He hoards light and riddles of his own. Bring him something that shines, or bring him a cleverer tongue than mine.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Why would you help me?",
+                  "respuesta": "Because the goblin king has owed me a debt for three hundred years. See that he pays it, and we are even.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "You came back. Most souls who survive my riddle flee with their prize and never look behind. What else does a pirate want from a witch?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Answers, maybe.",
+                  "respuesta": "Answers are the only currency the deep accepts. Ask, and I will decide if you deserve them.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Your blessing for the road.",
+                  "respuesta": "I do not bless; I weigh. Go on, then. The tide will tell us both if you are worthy.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyX",
+          "etiqueta": "Conjure",
+          "descripcion": "Morwen lifts her hands and whispers to the water; a thread of blue light coils from her palms and winds toward the old lantern, which answers with a faint glimmer.",
+          "animacion": "SwordSlash",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "ritual",
+          "dispara": [
+            {
+              "id_nodo": "objeto_lanterna",
+              "efecto": "brillo",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": {
+        "id_nodo": "decorado_coral_01",
+        "efecto": "brillo",
+        "color": null,
+        "animacion": null
+      }
+    },
+    {
+      "id_nodo": "personaje_mara",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Morwen, the drowned queen... I've heard the songs. They say she takes a riddle for tribute and a heartbeat for payment. Well, I've got one heartbeat left, and I'm spending it on this crossing."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The water here hums. Every bubble carries a voice that almost spells a word. Reminds me of my mother humming while she mended sails."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Careful, captain. Could be a spell.",
+                  "respuesta": "Spells and songs wear the same dress down here. If it lulls me, I'll sing right back.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What does she want from us?",
+                  "respuesta": "A game. Witches always want a game. Fine — I'll play, and I don't plan to lose.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "A clock. Face without eyes, hands that cannot hold. The oldest trick in the deep, and she thought it would sink me."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "She laughed, and the whole reef lit up like a drowned sunrise. The witch knows where the crystal is — and she pointed me to the goblin king's cave. Great. From one trap into another."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "'Only the brave may wake the sun.' Chiselled in letters that breathe. Brave — that's a word sailors use to excuse what terror is. Means whatever comes next, I walk toward it."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Sun's asleep. Someone put it to bed and bolted the door. I wonder who, and why, and what wakes on the day the lock breaks."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_altar_inscripcion",
+          "consume": false,
+          "puntos": [
+            {
+              "frases": [
+                "This inscription — I've seen its twin in the temple under Saltmere. Same silver letters, same warning. It means the altar's maker once stood where I stand, and chose to walk forward."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What did they find ahead?",
+                  "respuesta": "No one knows. But the sun still sleeps, so either they failed — or they woke it and the light went elsewhere.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Is it a trap?",
+                  "respuesta": "Brave can mean fearless. It can also mean foolish. The stone won't tell you which.",
+                  "correcta": false
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Stir the water",
+          "descripcion": "Mara stirs the still water with her fingertips; the nearby seaweed shudders awake and sways in a slow dance.",
+          "animacion": "PickUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "agua",
+          "dispara": [
+            {
+              "id_nodo": "decorado_seaweed_01",
+              "efecto": "sacudir",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_morwen",
+        "efecto": null,
+        "color": null,
+        "animacion": "Victory"
+      }
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_lanterna",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "You kindle the drowned lantern. A soft blue flame blooms within the glass, pushing back the pressing dark.",
+        "texto_desactivacion": "The lantern dims, and the deep shadows creep closer once more.",
+        "efecto_visual": "brillo",
+        "color_efecto": "#4488ff",
+        "descripcion": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyQ",
+          "etiqueta": "Peer into the glow",
+          "descripcion": "You lean close to the flame and it dances across your eyes, carrying the memory of a surface world long forgotten.",
+          "efecto_visual": null,
+          "sonido": "suave"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_altar_inscripcion",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Stone altar with inscription",
+        "descripcion": "A weathered stone altar rises from the silt, its surface etched with letters worn by centuries of sea. Faint words still cling to the rock, waiting for a reader.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "leer",
+          "tecla": "KeyQ",
+          "etiqueta": "Decipher the inscription",
+          "titulo": "Warning upon the altar",
+          "texto": "Only the brave may wake the sun, for the deep guards what it loves. Let the faint of heart turn back, lest the current claim their breath before the dawn returns.",
+          "estilo": "inscripcion"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_statue_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "This sunken statue was once a guardian of the old temple, its stone features now worn by centuries of silent water."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_column_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Broken columns and woven with coral, remnants of a city that bowed to the sea."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_fish_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A school of bright fish darts between the pillars, flashes of color in the blue gloom."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "escapar",
+        "radio": 2.5,
+        "una_vez": true
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_coral_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Branching coral sways gently in the currents, its tips glowing faintly with a soft blue sheen."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.0,
+        "una_vez": false
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_altar",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "The ruined temple swallows the light. Columns draped in coral rise like drowned sentinels, and the water around the altar holds an unnatural stillness, as if the deep itself were listening."
+    }
+  ],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

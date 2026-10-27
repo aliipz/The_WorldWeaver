@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_01",
+  "query_usada": "pond water ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/425/425372_4421503-hq.mp3",
+    "titulo": "ambient pond big birds eurasian reed warbler seagulls and eurasian bittern with subtle wind stereo M10.wav",
+    "autor": "Soundholder",
+    "duracion_segundos": 138.5,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/573/573823_97550-hq.mp3",
+    "titulo": "Calm pond bright wind in reeds geese water TTP 190401.flac",
+    "autor": "TRP",
+    "duracion_segundos": 84.8,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

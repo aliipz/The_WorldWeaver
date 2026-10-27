@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_05",
+  "query_usada": "lighthouse wind ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/829/829624_9250976-hq.mp3",
+    "titulo": "Ambiance_Ocean_Ponta_do_Arnel_Loop_Stereo_01",
+    "autor": "Nox_Sound",
+    "duracion_segundos": 60.0,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/854/854560_18681946-hq.mp3",
+    "titulo": "Ghost Harbor Lighthouse Ambience – Creepy Horror Wind Atmosphere",
+    "autor": "TommasoMotteran",
+    "duracion_segundos": 62.0,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

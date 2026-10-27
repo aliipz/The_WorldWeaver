@@ -2,6 +2,7 @@
 
 from langchain_ollama import ChatOllama
 from langchain_openai import ChatOpenAI
+from openai import RateLimitError
 
 from config.settings import settings
 
@@ -48,12 +49,21 @@ def get_llm(provider: str = "mercury") -> ChatOpenAI | ChatOllama:
             "MERCURY_API_KEY no está configurada en el archivo .env. "
             "Usa --provider ollama si quieres usar Ollama local."
         )
-    return ChatOpenAI(
+    llm = ChatOpenAI(
         model=settings.mercury_model,
         base_url=settings.mercury_base_url,
         api_key=api_key,
         temperature=0.2,
         callbacks=list(_CALLBACKS),
+    )
+    # Límite por minuto de la API (≈10k tokens de salida/min): ante un 429 esperamos
+    # de verdad a que se renueve la ventana (5s → 30s, hasta ~3 min en total) en vez
+    # de quemar los reintentos del grafo en segundos. Los agentes solo usan .invoke.
+    return llm.with_retry(
+        retry_if_exception_type=(RateLimitError,),
+        wait_exponential_jitter=True,
+        exponential_jitter_params={"initial": 5, "max": 30},
+        stop_after_attempt=10,
     )
 
 

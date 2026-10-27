@@ -1709,6 +1709,7 @@ const _T_DATA = {
         close:      'cerrar',
         keep_drop:  '<kbd>G</kbd> Guardar &nbsp;&nbsp; <kbd>E</kbd> Soltar',
         drag_rotate: 'Arrastra para girar',
+        move_rotate: 'Mueve el ratón para girar',
     },
     en: {
         talk:       nombre => `<kbd>E</kbd> Talk to <em>${nombre}</em>`,
@@ -1734,6 +1735,7 @@ const _T_DATA = {
         close:      'close',
         keep_drop:  '<kbd>G</kbd> Keep &nbsp;&nbsp; <kbd>E</kbd> Drop',
         drag_rotate: 'Drag to rotate',
+        move_rotate: 'Move the mouse to rotate',
     },
 };
 const _T = k => {
@@ -3067,6 +3069,14 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             if (_inspeccionModo === 'recoger') _cerrarInspeccion(true);
             return;
         }
+        // Opciones de diálogo con las teclas 1-9: con el ratón capturado no se puede
+        // clicar, y soltarlo para eso hacía que el navegador repitiera su aviso de
+        // "pulsa Esc para salir de pantalla completa" en cada conversación.
+        if (dialogoAbierto && window._intOpcion && elDialogo.style.display !== 'none'
+            && elDialogo.querySelector('.int-d-opciones')) {
+            const _op = /^(?:Digit|Numpad)([1-9])$/.exec(e.code);
+            if (_op) { window._intOpcion(+_op[1] - 1); return; }
+        }
         if (e.code === 'KeyE') {
             if (_inspeccionActiva) {
                 _cerrarInspeccion(false);
@@ -3101,7 +3111,11 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
                 if (ac) _ejecutarAccionObjeto(nodoEnRango, ac);
             }
         }
-        if (e.code === 'Escape') _cerrarTodos();
+        // Esc = menú de pausa: cierra los paneles y saca el menú (nunca recaptura).
+        if (e.code === 'Escape') {
+            _cerrarTodos();
+            window._wwMostrarPausa?.();
+        }
     });
 
     // ── Click (modo órbita) ───────────────────────────────────────────────────
@@ -3145,7 +3159,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             `<div class="int-d-texto"><span class="int-tw-txt"></span></div>` +
             _teclaHint();
         elDialogo.style.display = 'block';
-        if (document.pointerLockElement) document.exitPointerLock();
 
         const twEl = elDialogo.querySelector('.int-tw-txt');
 
@@ -3154,7 +3167,10 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             if (punto.opciones?.length) {
                 let opHtml = `<div class="int-d-opciones">`;
                 punto.opciones.forEach((op, i) => {
-                    opHtml += `<button class="int-d-btn" onclick="_intOpcion(${i})">▸ ${op.etiqueta}</button>`;
+                    // Numeradas: con el ratón capturado no hay cursor con el que clicar,
+                    // así que se eligen con las teclas 1-9 (ver el keydown de más arriba).
+                    opHtml += `<button class="int-d-btn" onclick="_intOpcion(${i})">`
+                            + `<kbd>${i + 1}</kbd> ${op.etiqueta}</button>`;
                 });
                 opHtml += `</div>`;
                 twEl.closest('.int-d-texto').insertAdjacentHTML('afterend', opHtml);
@@ -3191,7 +3207,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             ${_teclaHint()}
         `;
         elExaminar.style.display = 'block';
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Acción de personaje (texto narrador sin caja, abajo) ─────────────────
@@ -3203,7 +3218,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         elAccion.style.opacity = '0';
         elAccion.style.display = 'block';
         requestAnimationFrame(() => { elAccion.style.opacity = '1'; });
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Ficha de información educativa (tecla I) ──────────────────────────────
@@ -3218,7 +3232,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         elAccion.style.opacity = '0';
         elAccion.style.display = 'block';
         requestAnimationFrame(() => { elAccion.style.opacity = '1'; });
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Toast de activación ───────────────────────────────────────────────────
@@ -3542,8 +3555,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             }
         }
 
-        if (document.pointerLockElement) document.exitPointerLock();
-
         // Overlay de viñeta
         const overlay = document.getElementById('int-insp-overlay');
         if (overlay) {
@@ -3559,7 +3570,12 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         document.getElementById('exam3d-desc').innerHTML   = _wwResaltar(desc);
 
         const dragHint = document.querySelector('#int-examinar-3d .int-insp-drag');
-        if (dragHint) dragHint.style.display = _inspeccionFlotante ? 'block' : 'none';
+        if (dragHint) {
+            // Con el ratón capturado el objeto gira solo con moverlo, sin arrastrar.
+            dragHint.textContent = document.pointerLockElement ? _T('move_rotate')
+                                                              : _T('drag_rotate');
+            dragHint.style.display = _inspeccionFlotante ? 'block' : 'none';
+        }
 
         const pistaEl = document.getElementById('exam3d-pista');
         if (pistaEl) pistaEl.innerHTML = modo === 'recoger'
@@ -3613,7 +3629,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         _inspeccionIdNodo   = null;
         _inspeccionInter    = null;
         dialogoAbierto      = false;
-        window._wwRetomarPointerLock?.();
     }
 
     // Drag para rotar el objeto inspeccionado
@@ -3624,15 +3639,25 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         _inspeccionLastY = e.clientY;
     });
     document.addEventListener('mousemove', (e) => {
-        if (!_inspeccionActiva || !_inspeccionDrag || !_inspeccionWrapper) return;
-        const dx = e.clientX - _inspeccionLastX;
-        const dy = e.clientY - _inspeccionLastY;
+        if (!_inspeccionActiva || !_inspeccionWrapper) return;
+        // Con el puntero capturado no hay cursor que arrastrar (y soltarlo es justo lo
+        // que hacía repetir el aviso de pantalla completa del navegador): el objeto gira
+        // con el movimiento del ratón. Sin captura (modo órbita) se sigue arrastrando.
+        let dx, dy;
+        if (document.pointerLockElement) {
+            dx = e.movementX;
+            dy = e.movementY;
+        } else {
+            if (!_inspeccionDrag) return;
+            dx = e.clientX - _inspeccionLastX;
+            dy = e.clientY - _inspeccionLastY;
+            _inspeccionLastX = e.clientX;
+            _inspeccionLastY = e.clientY;
+        }
         // Acumular rotación en espacio local del objeto (ejes Y y X)
         const qY = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), dx * 0.013);
         const qX = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), dy * 0.013);
         _inspeccionDragQuat.multiply(qY).multiply(qX);
-        _inspeccionLastX = e.clientX;
-        _inspeccionLastY = e.clientY;
     });
     document.addEventListener('mouseup', () => { _inspeccionDrag = false; });
 
@@ -3653,9 +3678,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             PersonajesManager.callar(_personajeHablando);
             _personajeHablando = null;
         }
-        // Si el navegador soltó el pointer lock durante el diálogo, retomarlo.
-        // La tecla E que cierra el diálogo cuenta como gesto de usuario.
-        window._wwRetomarPointerLock?.();
     }
 
     // ── Helpers ───────────────────────────────────────────────────────────────
@@ -3800,19 +3822,24 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             }
 
             if (dialogoAbierto) {
+                // Con un panel abierto el raton puede seguir capturado, asi que la
+                // deteccion se congela aqui (antes la congelaba el soltar el puntero).
                 elHint.style.display = 'none';
-            } else if (mirado !== nodoEnRango) {
-                nodoEnRango = mirado;
-                if (mirado) {
-                    elHint.innerHTML = _textoHint(mirado);
-                    elHint.style.display = 'flex';
-                } else {
-                    elHint.style.display = 'none';
+                nodoEnRango = null;
+            } else {
+                if (mirado !== nodoEnRango) {
+                    nodoEnRango = mirado;
+                    if (mirado) {
+                        elHint.innerHTML = _textoHint(mirado);
+                        elHint.style.display = 'flex';
+                    } else {
+                        elHint.style.display = 'none';
+                    }
                 }
-            }
 
-            if (frameCount % 45 === 0) _detectarZona();
-            if (frameCount % 20 === 0) _detectarLoreFPS();
+                if (frameCount % 45 === 0) _detectarZona();
+                if (frameCount % 20 === 0) _detectarLoreFPS();
+            }
 
         } else if (nodoEnRango) {
             nodoEnRango = null;
@@ -4053,6 +4080,17 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
                 transition: background 0.18s, color 0.18s;
             }
             .int-d-btn:hover { background: rgba(100,75,210,0.8); color: #fff; }
+            /* Número de la opción: es la tecla con la que se elige (1-9) */
+            .int-d-btn kbd {
+                display: inline-block;
+                background: rgba(255,255,255,0.16);
+                border: 1px solid rgba(255,255,255,0.32);
+                border-bottom-width: 2px;
+                border-radius: 4px;
+                padding: 0px 7px;
+                font-family: monospace; font-size: 11px;
+                color: #fff; margin-right: 5px;
+            }
             .int-pista {
                 color: rgba(255,255,255,0.28); font-size: 11px;
                 text-align: right; margin-top: 10px; letter-spacing: 0.5px;
@@ -5633,13 +5671,20 @@ window._wwRetomarPointerLock = function () {
     }
 };
 
-// Pointer Lock: cuando se captura el ratón ocultamos el overlay.
-// Si se pierde mientras hay un diálogo abierto, no mostramos el overlay.
+// Menú de pausa a petición: si el puntero ya estaba suelto (lo había soltado un
+// panel), pulsar Esc no dispara ningún 'pointerlockchange', así que interactions.js
+// pide el menú explícitamente para que Esc siempre acabe en la pausa.
+window._wwMostrarPausa = function () {
+    if (fpsModo && !document.pointerLockElement) elOverlay.style.display = 'flex';
+};
+
+// Pointer Lock: cuando se captura el ratón ocultamos el overlay; si se pierde,
+// sacamos el menú de pausa (ningún panel suelta ya el puntero por su cuenta).
 document.addEventListener('pointerlockchange', () => {
     if (!fpsModo) return;
     if (document.pointerLockElement) {
         elOverlay.style.display = 'none';
-    } else if (!window._wwDialogoAbierto?.()) {
+    } else {
         elOverlay.style.display = 'flex';
     }
 });

@@ -1,0 +1,390 @@
+{
+  "id_escena": "escena_05",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "A sliver of captive sunlight waits beside the cold flame.",
+      "guias": [
+        "objeto_sun_cristal",
+        "objeto_lamp_light",
+        "personaje_mara"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_sun_cristal",
+          "objeto_lamp_light"
+        ],
+        "personajes": [
+          "personaje_mara"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "The golden needle of the lamp threads the morning sea.",
+      "guias": [
+        "objeto_lamp_light",
+        "objeto_campana_laton",
+        "personaje_finn"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_lamp_light",
+          "objeto_campana_laton"
+        ],
+        "personajes": [
+          "personaje_finn"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Agnes inks a name into the lighthouse's immortal ledger.",
+      "guias": [
+        "objeto_libro_grande",
+        "personaje_agnes",
+        "personaje_mara"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_libro_grande"
+        ],
+        "personajes": [
+          "personaje_agnes",
+          "personaje_mara"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_mara",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "This crystal was cut for darkness, and tonight it goes back to the light."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Agnes said this lamp hasn't burned in forty years. My hands are steady, but my heart isn't."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What will happen when it lights?",
+                  "respuesta": "Either we sail home with a legend, or we don't sail home at all.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Are you afraid?",
+                  "respuesta": "Afraid is part of the job. I just don't let it take the wheel.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "Mara, keeper's ink, and a lighthouse burning over Saltmere. I never thought my name would sit so well."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The book says the light is mine to watch until I pass it on. That's a promise I intend to keep."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Will you stay here long?",
+                  "respuesta": "As long as Saltmere needs me. But I suspect the sea will call me out again.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What about the crew?",
+                  "respuesta": "They're already mending sails and planning a feast. A captain's place is wherever they are.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Salute the beam",
+          "descripcion": "Mara lifts her chin and touches her brow in a grave, joyful salute to the returning light.",
+          "animacion": "Victory",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "alegria",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "objeto_sun_cristal",
+        "efecto": "brillo",
+        "color": null,
+        "animacion": null
+      }
+    },
+    {
+      "id_nodo": "personaje_finn",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "There she goes! The old girl's painted the whole ocean gold, and I've got the best seat in the house."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "That beam will reach every boat from here to the eastern rocks. Saltmere's calling her folk home."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Will we sail out to meet them?",
+                  "respuesta": "Not yet. First we let the light settle, and then we feast.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Can the beam really reach that far?",
+                  "respuesta": "Aye. This lamp has been sleeping too long. Now it's roaring like a bonfire.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Cheer",
+          "descripcion": "Old Finn wheels his cap overhead and shouts a hoarse sailor's cheer toward the tower.",
+          "animacion": "Victory",
+          "narrativa": false,
+          "fase_aparicion": 1,
+          "sonido": "alegria",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_biscuit",
+        "efecto": null,
+        "color": null,
+        "animacion": "alegria"
+      }
+    },
+    {
+      "id_nodo": "personaje_agnes",
+      "fase_aparicion": 2,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 2,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Saltmere will never be dark again. And your name, Mara, will guard it longer than my old bones."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "I have written many names in this book, but yours came with a storm behind it."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What happens to the lighthouse now?",
+                  "respuesta": "It burns, child. And you'll come back to see it, won't you?",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Why did you choose me?",
+                  "respuesta": "Because you didn't ask for this. You simply saw the dark and answered it.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Swear the oath",
+          "descripcion": "Agnes lays her palm flat on the great book and swears Saltmere will never again be left dark.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "ritual",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "objeto_libro_grande",
+        "efecto": "emitir_particulas",
+        "color": null,
+        "animacion": null
+      }
+    },
+    {
+      "id_nodo": "personaje_biscuit",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "Woof! Woof! The sun's up, the light's back, and the whole world smells like breakfast!"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Pounce",
+          "descripcion": "Biscuit springs after a drifting sunbeam and lands in a happy tangle of paws.",
+          "animacion": "alegria",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "criatura",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_sun_cristal",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Sun Crystal",
+        "descripcion": "A fist-sized crystal holding a captive dawn. It rests in its velvet box, waiting for the lamp's embrace.",
+        "efecto_visual": "brillo",
+        "color_efecto": "#ffb300"
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_lamp_light",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "You turn the brass lens to catch the crystal's light; a golden lance bursts across the open sea.",
+        "texto_desactivacion": null,
+        "efecto_visual": "brillo",
+        "color_efecto": "#ffd700",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_campana_laton",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Brass bell",
+        "descripcion": "The Silver Gull's bell, scoured by salt wind, hangs eager to carry the good news over the water.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyR",
+          "etiqueta": "Ring",
+          "descripcion": "You tug the worn rope, and the brass bell throws a bright note wheeling across the harbor.",
+          "efecto_visual": "sacudir",
+          "sonido": "metal"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_libro_grande",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Great Book of Saltmere",
+        "descripcion": "A leather-bound ledger of every keeper who ever held the light. One last line still waits to be filled.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "leer",
+          "tecla": "KeyQ",
+          "etiqueta": "Read",
+          "titulo": "The Lighthouse Ledger",
+          "texto": "Each keeper of the storm has signed this page. Tonight Agnes will add a new name in careful ink: Mara, who carried the sunlight home to the lamp.",
+          "estilo": "libro"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_stool_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "This worn stool has held the weight of countless sleepless keepers watching the distant horizon."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

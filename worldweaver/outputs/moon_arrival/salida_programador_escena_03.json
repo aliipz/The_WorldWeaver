@@ -1,0 +1,389 @@
+{
+  "id_escena": "escena_03",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Identify the module's navigation error",
+      "guias": [
+        "objeto_modulo_lunar_eagle",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_modulo_lunar_eagle"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Manually control the Eagle's descent",
+      "guias": [
+        "personaje_neil_armstrong"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_neil_armstrong"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Secure the critical fuel reserve",
+      "guias": [
+        "objeto_modulo_lunar_eagle",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_modulo_lunar_eagle"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_neil_armstrong",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Neil Armstrong — NASA Astronaut",
+        "texto": "Commander of the Eagle lunar module on the ==Apollo 11== mission (1969). He was the first human to set foot on the Moon, making the historic landing on the ==Mare Tranquillitatis==."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "The Eagle module shows error code ==1202== on its navigation computer, indicating a failure in the automatic guidance."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "I must take manual control and correct the trajectory before the fuel runs out."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How much time did you have before running out of fuel?",
+                  "respuesta": "We had about ==30 seconds== of reserve fuel, so every adjustment had to be precise."
+                },
+                {
+                  "etiqueta": "How did you know the error was critical?",
+                  "respuesta": "Code ==1202== signaled a loss of signal from the guidance system, making it impossible to trust the automation."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "I stay calm, adjust the engines and aim for a safe area of the ==Mare Tranquillitatis==."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "With manual control, I avoid rocky craters and reduce fuel consumption, achieving a smooth insertion."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The module decelerates to ==1.68 m/s== just before contact with the surface."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What speed was safe for the landing?",
+                  "respuesta": "A descent speed of around ==1.5 to 2 m/s== is considered safe to avoid damage to the module."
+                },
+                {
+                  "etiqueta": "How did you calculate the distance to the ground?",
+                  "respuesta": "I used the descent radar data and the rate of change of altitude to estimate the distance in real time."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "On touching the surface, the fuel gauge shows a critical reserve, but enough to complete the mission."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "This is the first crewed Moon landing in history, marking a milestone for humanity."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What was the global impact of this achievement?",
+                  "respuesta": "The Moon landing inspired generations, boosted space research and demonstrated the technological capacity of humanity."
+                },
+                {
+                  "etiqueta": "What did you learn for future missions?",
+                  "respuesta": "We learned the importance of redundancy in the guidance systems and of reserving a greater fuel margin for emergencies."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Talk",
+          "descripcion": "You explain error ==1202== and the need for manual control to Neil.",
+          "animacion": "Idle",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_buzz_aldrin",
+        "efecto": null,
+        "color": null,
+        "animacion": "StandUp"
+      }
+    },
+    {
+      "id_nodo": "personaje_buzz_aldrin",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Buzz Aldrin — NASA Astronaut",
+        "texto": "Pilot of the Eagle lunar module and second man to walk on the Moon during the ==Apollo 11== mission. He contributed to the success of the landing with his experience in navigation systems."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "I observe code ==1202== and understand that the navigation system needs human intervention."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Fuel consumption is rising rapidly; we must act before it runs out."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What was the consumption rate?",
+                  "respuesta": "Consumption rose to ==0.6 kg/s==, far more than expected for the descent phase."
+                },
+                {
+                  "etiqueta": "What emergency procedures did you have?",
+                  "respuesta": "We had a plan to abort the insertion and return to the command module, but the priority was to achieve the landing."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "As we set down, we feel the slight vibration of the module as the fuel runs out, but the ship is stable."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "We are on the ==Mare Tranquillitatis==, the first time two humans set foot on the Moon."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How would you describe the lunar surface?",
+                  "respuesta": "The surface is a fine dust called regolith, with craters and rocks that require careful navigation."
+                },
+                {
+                  "etiqueta": "What did you feel when you saw the Earth?",
+                  "respuesta": "Seeing the Earth as a blue sphere from the Moon was an overwhelming experience that reinforced human unity."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Confirm",
+          "descripcion": "Buzz nods and checks the remaining fuel indicators.",
+          "animacion": "Idle",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_neil_armstrong",
+        "efecto": null,
+        "color": null,
+        "animacion": "StandUp"
+      }
+    },
+    {
+      "id_nodo": "personaje_michael_collins",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Michael Collins — NASA Astronaut",
+        "texto": "Pilot of the Columbia command module, he remained in lunar orbit while his companions descended to the ==Mare Tranquillitatis== on the ==Apollo 11== mission, ensuring the crew's safety and communication."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "From lunar orbit, I monitor the mission's systems while the Eagle descends and code ==1202== appears in the telemetry."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "I keep the communication line open, ready to help in an emergency, though I know control is in the hands of Armstrong and Aldrin."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Observe",
+          "descripcion": "Michael observes the Eagle's trajectory from orbit and records position data.",
+          "animacion": "Idle",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_modulo_lunar_eagle",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Eagle Lunar Module",
+        "descripcion": "The ==Eagle Module== is the lunar descent craft. It is equipped with a ==liquid hydrogen and oxygen== engine that produces ==thrust== to decelerate and land. Its navigation panel shows error codes such as ==1202== when the computer fails.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyR",
+          "etiqueta": "Ignite engines",
+          "descripcion": "The engines generate thrust by burning liquid hydrogen and oxygen, providing ==thrust== for the descent phase.",
+          "efecto_visual": "brillo",
+          "sonido": "esfuerzo"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_modulo_mando_columbia",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Columbia Command Module",
+        "descripcion": "The ==Columbia Module== houses the command cabin and the life-support systems. Its ==fuel== consumption is critical during lunar orbit.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyQ",
+          "etiqueta": "Open hatches",
+          "descripcion": "The hatches allow the transfer of gases between the modules, regulating the internal pressure.",
+          "efecto_visual": "rotar",
+          "sonido": "metal"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_bandera_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A flag waves faintly, its colors faded under the starlight."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_roca_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Blackened basaltic rock, marked by microcraters that reflect the history of the mare."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_crater_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A tiny crater, its irregular rim suggesting a recent impact."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": []
+}

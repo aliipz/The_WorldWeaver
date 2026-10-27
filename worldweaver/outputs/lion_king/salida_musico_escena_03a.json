@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_03a",
+  "query_usada": "tropical waterfall ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/468/468241_652422-hq.mp3",
+    "titulo": "Thailand Phangan Jungle Waterfall 2",
+    "autor": "Archos",
+    "duracion_segundos": 37.5,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/795/795998_14157557-hq.mp3",
+    "titulo": "A small waterfall in the rainforest",
+    "autor": "ricardoemfield",
+    "duracion_segundos": 94.4,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

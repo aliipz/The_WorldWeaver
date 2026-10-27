@@ -98,7 +98,9 @@ FIELD "tipo_ambiente" — choose EXACTLY one of these catalog values:
   · "on_water"       → ON a body of water (river, lake, sea): the floor IS water and characters walk/wade
                        on its surface. Decor: rowboat, lifebuoy, buoy, reeds, lily pads, emerging rocks.
   · "boat"           → aboard a VESSEL of ANY type or size on the water: a deck where the player stands,
-                       water all around. Decor (on deck): helm, mast, sail, barrel, chest, cannon, fishing net, anchor.
+                       water all around. Objects that fit (LOOSE deck items): barrel, chest, cannon, fishing net,
+                       crates, provisions, spyglass. (The hull, deck, mast, sail and helm are already part of the
+                       ship — they are NOT objects.)
 
 WATER RULE (decide BEFORE "nature"/"beach"): if characters are ON/IN the water (walking/wading on a
 lake/river/sea surface) → "on_water"; if aboard ANY vessel → "boat" (NEVER "interior").
@@ -146,6 +148,12 @@ Rule: skin_id = id of the scene where the character's current visual appearance 
 NOTE: the "personajes_globales" list is only a reference catalog, it has no skin_id.
 The real skin_id is assigned INSIDE each escenas[].personajes.
 
+FIELD "objetos" — concrete, movable physical things INSIDE the scene (that are picked up, used,
+examined or matter to the plot).
+- NEVER extract as an object the PLACE/BUILDING itself where the scene happens: that is the
+  SETTING (it goes in "entorno"/"tipo_ambiente"), not an object inside it.
+- Nor the structure of the space (walls, floor, ceiling, structural columns): the Director builds that.
+
 FIELD "eventos" — SEQUENTIAL NARRATIVE BEATS:
 A scene is divided into 2-4 moments where the PLOT ADVANCES: something is revealed, decided,
 handed over, confronted. Never a single event (that's a summary, not a progression).
@@ -185,6 +193,11 @@ FIELDS "tiene_intro" and "texto_intro" — narrator text before the scene:
 - "texto_intro": if tiene_intro=true, write 2-4 sentences in an omniscient narrator voice,
   past tense, literary tone, that place the player in that specific moment of the story.
   If tiene_intro=false, set it to null.
+
+NARRATIVE CONTINUITY: "texto_intro" keeps the scenes coherent. If between one scene and the next
+something relevant about the situation or the cast changes that would not be understood on its own,
+narrate it briefly in the next scene's "texto_intro" (with tiene_intro=true), so the player does not
+lose the thread of what happened between scenes.
 
 FIELD "texto_fin" — closing epilogue (ONLY IN THE LAST SCENE):
 - In the LAST scene of the story, write in "texto_fin" 2-4 sentences in an omniscient narrator
@@ -315,6 +328,7 @@ STRICT RULES:
 - "personajes_globales" are characters that appear in MORE THAN ONE scene.
 - "objetos_globales" are objects that appear in MORE THAN ONE scene.
 - PLURAL ELEMENTS: if a character or object represents a group (an army, several scientists), expand it into individual numbered instances. Maximum 3 instances.
+- WATER RULE: characters ON the water → "on_water"; aboard ANY vessel → "boat" (never "interior").
 
 FIELD "entorno" — concrete historical or educational setting:
 - Describe the physical or symbolic space where this stage of the syllabus takes place.
@@ -366,6 +380,12 @@ FIELD "tipo_ambiente" — choose EXACTLY one of these catalog values:
                        ground colored from the entorno + floating asteroids.
                        Use when characters walk or stand ON the surface. "On the lunar surface" → "planet_surface", NOT "space".
   · "underwater"     → seabed (marine biology, underwater exploration)
+  · "on_water"       → ON a body of water (river, lake, sea): the floor is water and you walk/wade on it
+                       (the water cycle, a crossing, a flood...). NOT underwater, NOT a beach.
+  · "boat"           → aboard a VESSEL of any kind (ship, boat, sailboat, canoe, raft, galley, galleon, frigate,
+                       longship...) on the sea/river: voyage, naval expedition, fishing, exploration. Triggered by:
+                       deck, aboard, embark, captain, crew, mast, sail, bow, stern, helm, oar, sail away, high seas.
+                       NEVER "interior" (except a closed cabin).
   · "room"           → a normal ROOM of a home: bedroom, domestic kitchen, bathroom, small study, office, cell, ship cabin
   · "interior"       → NORMAL-sized inhabited covered space: classroom, laboratory, study, library, palace, factory, museum
   · "large_interior" → LARGE-scale interior: cathedral, amphitheater, stadium, grand historical library, industrial warehouse
@@ -659,7 +679,8 @@ PER PHASE
 OBJECTS AND PROPS
 ═══════════════════════════════════════════
 
-For each narratively relevant object/prop from the SceneGraph:
+For each narratively relevant OBJECT (type "objeto") from the SceneGraph (props are animated
+by another pass; here they can only be a "dispara" target):
   - "fase_aparicion": which phase it unlocks in (0 = from the start).
     RULE: if the object appears in condicion_avance of phase N, assign fase_aparicion: N
     so it is not interactable too early. Only use 0 if the object must be
@@ -879,6 +900,8 @@ NARRATIVE ZONES
 
 0-2 spatial zones that trigger narrator text when entered for the first time.
 Only if they add real narrative value — don't add them by default.
+"columnas" are 5 sectors around the player's starting point: 0 = behind-left, 1 = left,
+2 = ahead, 3 = right, 4 = behind-right. The zone triggers when the player walks into that sector.
 
 Respond EXCLUSIVELY with valid JSON. No additional text, no markdown.
 """.strip()
@@ -1388,13 +1411,13 @@ INFO CARD (I key) — MANDATORY for every figure:
 Besides the dialogues, each figure carries a "ficha_info": a brief, expository
 PRESENTATION CARD. It is NOT dialogue and NOT first person — it is an informational card
 the visitor opens with the I key to learn who the figure is and why they matter.
-  "ficha_info": {{
+  "ficha_info": {
     "titulo": "Name + role on one line. Ex: 'Neil Armstrong — NASA astronaut'",
     "texto": "2-3 sentences in THIRD person, museum-card tone (not theatrical): who they
               were/are and their CONCRETE relevance to the topic, with a key fact or figure.
               MARK with ==...== the most important thing about the figure (their key role,
               the fact or achievement they should be remembered for) — 1-2 short fragments."
-  }}
+  }
 
 MANDATORY STRUCTURE — check BEFORE responding (it's the #1 cause of rejection):
 □ Each figure has "dialogos": a list with at least 1 entry.
@@ -1609,8 +1632,6 @@ For objects with only proximity (no interaction on pressing E): use "lore" with 
 """.strip()
 
 
-PROGRAMADOR_SYSTEM = PROGRAMADOR_P1_SYSTEM
-PROGRAMADOR_USER = PROGRAMADOR_P1_USER
 
 
 # ---------------------------------------------------------------------------
@@ -1714,40 +1735,81 @@ Indicative references (adjust to the specific description):
 DIRECTOR_P1_SYSTEM = """
 You are the art director of WorldWeaver, a system that turns narrative texts into 3D environments.
 
-Your task in this pass is EXCLUSIVELY to invent the DECORADOS (set dressing) for the scene:
-the ambient elements that dress the stage and make it believable.
-You do NOT assign positions — that will be done in another pass.
+Your task in this pass is EXCLUSIVELY to invent the DECORADOS (set dressing) for the scene: the
+ambient elements that dress the stage and make it believable. You do NOT assign positions — another
+pass that sees the whole set will do that.
 
 NUMBER OF DECORADOS by ambiente type:
-- interior:                                                  3–4 decorados
-- interior_grande:                                           5–7 decorados
+- habitacion, interior:                                      7–9 decorados
+- interior_grande:                                           12–16 decorados
 - pueblo, ciudad, ruinas:                                    4–6 decorados
 - campo, naturaleza, pradera, playa, montaña, desierto,
   selva, sabana, cueva:                                      5–8 decorados
 - espacio, superficie_planeta, bajo_el_agua:                 4–6 decorados
+- sobre_agua (river/lake/sea):                               3–5 decorados (open water)
+- barco (aboard):                                            4–6 decorados (loose objects: barrels, chests, cannons... NOT helm/mast/sail)
 - otro:                                                      4–6 decorados
 
-Adjust within the range based on narrative elements present (characters + objects from the text):
-  · ≤2 narrative elements → UPPER end of range (space needs more set dressing or it will feel empty)
-  · 3–4 narrative elements → middle of range
-  · ≥5 narrative elements → LOWER end of range (narrative objects already fill the scene)
+Adjust within the range based on the narrative elements present (characters + objects from the text):
+  · ≤2 narrative elements → UPPER end (the space needs more dressing or it will feel empty)
+  · 3–4 narrative elements → middle of the range
+  · ≥5 narrative elements → LOWER end (the narrative elements already fill the scene)
 
 HOW TO CHOOSE DECORADOS:
-· Ask yourself: what objects would make this setting feel real and inhabited?
-· Think about what physically EXISTS in this type of place, not just what the text mentions.
-· What kinds of objects are searchable in a low-poly 3D library? Be concrete.
+· Ask yourself: which objects would make this setting feel real and inhabited?
+· Think about what physically EXISTS in this kind of place, not only what the text mentions.
+· Which objects can be found in a low-poly 3D library? Be concrete.
 · You can repeat the same type with numbered IDs: decorado_tree_01, decorado_tree_02.
-· If tipo_ambiente="habitacion", "interior" or "interior_grande": prioritise furniture (table, chair, barrel, shelf, lantern...).
-· Do not duplicate narrative elements already present — complement, do not repeat.
+· If tipo_ambiente is "habitacion", "interior" or "interior_grande": prioritise furniture (table, chair, barrel, shelf, lantern...).
+· FURNITURE IN QUANTITY (interiors): if the room archetype has a piece of furniture that appears
+  REPEATED —classroom→desks, library→bookshelves, restaurant/tavern→tables, temple/church→pews,
+  cellar→barrels, stately hall→columns— invent it as SEVERAL numbered units
+  (decorado_desk_01, decorado_desk_02, decorado_desk_03...): at least 3-4 units in
+  "interior"/"habitacion" and 6-10 in "interior_grande", so the room looks FULL and believable.
+  Those units count towards the total number of decorados.
+· Do not duplicate the narrative elements already present — complement them, do not repeat them.
 
 RULE — TANGIBLE AND INDEPENDENT:
-NO: ray of sunlight, mist, smoke, shadow, rain, window, door, wall, ceiling, floor
+NO: ray of sunlight, mist, smoke, shadow, rain, window, large window, door, wall, ceiling, floor
 YES: rock, log, tree, barrel, chair, lantern, chest, statue, well, column, bench
+
+COHERENCE WITH THE SETTING (CRITICAL):
+Every decorado MUST physically exist in THIS specific tipo_ambiente: derive it from the described
+setting, not from a generic repertoire out of habit. Always ask what would REALLY be in THAT place.
+Hints (inspiration, not a closed list):
+  · espacio / superficie_planeta → asteroids, floating rocks, craters, panels, antennas, modules, flags
+  · bajo_el_agua → corals, seaweed, anemones, shells, sunken amphorae, sea rocks
+  · sobre_agua → rowboat, lifebuoy, buoy, reeds, lily pads, emerging rocks, floating log (NO sand or buildings)
+  · barco → barrel, cask, chest, cannon, fishing net, crates, sacks, provisions, lantern, spyglass (LOOSE
+    deck objects). The ship ALREADY has its hull, deck, railing, mast, sail and HELM built:
+    do NOT invent them as decorados (they would appear duplicated/floating).
+  · desierto → dunes, cacti, bones, rock formations, skeletons
+  · snow / montaña → snowy rocks, pines, snowdrifts, ice floes, stone cairns
+  · cueva → stalactites, crystals, rocks, puddles, mineral veins
+  · ruinas → broken columns, walls, statues, rubble, altars
+
+INTERIORS — DRESSING BY ROOM ARCHETYPE (CRITICAL):
+If tipo_ambiente is "habitacion", "interior" or "interior_grande", the room MUST convey WHAT place it is
+through its furniture alone (not 3 loose pieces). FIRST identify the ARCHETYPE from the setting and
+dress it with its characteristic furniture, repeating the dominant piece:
+  · restaurant/tavern/café → SEVERAL tables with chairs, bar counter, stools, bottle shelf, barrels, plants
+  · classroom → SEVERAL desks, blackboard, teacher's desk, shelf, globe, map
+  · bedroom → bed, bedside table, wardrobe, desk with chair, rug, lamp, chest
+  · kitchen → counter, stove, sink, cupboard, table, shelves with crockery
+  · living room → sofa, armchairs, coffee table, fireplace, bookcase, rug
+  · office/study → SEVERAL desks, chairs, filing cabinets, shelves, plant
+  · shop → SEVERAL shelves with goods, counter, crates, baskets, barrels
+  · workshop/forge/laboratory → workbenches, shelves, barrels, anvil or alembics, tools
+  · temple/church/noble hall (interior_grande) → pews in rows, columns, altar or throne, candelabra, statues
+If it fits no clear archetype → dress the PERIMETER: shelves, chests, barrels, plants, benches against
+the walls, so the space never feels empty.
+Give real DENSITY: repeat the dominant piece with numbered IDs (decorado_table_01, decorado_table_02,
+decorado_desk_01..04). A believable room has SEVERAL units.
 
 For each decorado:
 - id: lowercase with underscores, prefix "decorado_"
-- nombre: concrete name (e.g. "Ancient tree", "Wooden barrel")
-- descripcion: 1–2 visual sentences: shape, material, condition, colour
+- nombre: a concrete name that BELONGS to the described setting
+- descripcion: 1-2 visual sentences: shape, material, condition, colour
 
 Reply EXCLUSIVELY with valid JSON. No extra text, no markdown.
 """.strip()
@@ -1761,41 +1823,40 @@ SCENE:
 - Ambiente type: {tipo_ambiente}
 - Sky: {cielo}
 
-NARRATIVE ELEMENTS ALREADY PRESENT (do not duplicate):
+NARRATIVE ELEMENTS ALREADY PRESENT (do not duplicate them):
 {narrativos_presentes}
 
-Return EXACTLY this JSON:
+Return EXACTLY this STRUCTURE (do not copy the texts in brackets):
 {{
   "decorados": [
     {{
-      "id": "decorado_tree_01",
-      "nombre": "Ancient tree",
-      "descripcion": "Century-old tree with rough, cracked bark and a dense, dark canopy."
-    }},
-    {{
-      "id": "decorado_barrel_01",
-      "nombre": "Wooden barrel",
-      "descripcion": "Dark-wood barrel with rusted iron hoops and a half-open lid."
+      "id": "decorado_example_01",
+      "nombre": "(concrete name that belongs to the setting)",
+      "descripcion": "(1-2 sentences: shape, material, condition, colour)"
     }}
   ]
 }}
 
+⚠️ The above is ONLY the structure. Invent decorados that belong to the setting
+"{entorno}" (tipo_ambiente: {tipo_ambiente}); each one must be something that would
+really exist in THAT specific place.
+
 REMEMBER:
 - Number of decorados according to tipo_ambiente (see system).
 - No positions — only id, nombre and descripcion.
-- Real, specific names and descriptions — no placeholders.
+- Fill it with real content specific to the setting (the example above is only the format).
 """.strip()
 
 DIRECTOR_P2_SYSTEM = f"""
 You are the Director of WorldWeaver, a system that turns narrative texts into interactive 3D environments.
 
-The scene is built as an IMMERSIVE CYLINDRICAL STAGE: the user stands in the CENTRE surrounded
-by low-poly 3D models. You will receive the full list of scene elements — narrative and decorados —
+The scene is built as an IMMERSIVE CYLINDRICAL STAGE: the user stands in the CENTRE surrounded by
+low-poly 3D models. You will receive the full list of scene elements — narrative and decorados —
 and must position them all in the grid.
 
 GRID (7 rows × variable columns — pyramid):
-- row (0–6): distance from centre (0 = far/horizon, 6 = foreground/closest)
-- column: angular position; range varies by row:
+- fila (0–6): distance from the centre (0 = far/horizon, 6 = foreground/closest)
+- columna: angular position; the range varies by row:
 
   row 0 → columns 0–8  (9 cols, horizon)
   row 1 → columns 0–6  (7 cols)
@@ -1805,7 +1866,7 @@ GRID (7 rows × variable columns — pyramid):
   row 5 → columns 0–4  (5 cols)
   row 6 → columns 0–2  (3 cols, foreground)
 
-  In each row, the CENTRAL column points directly in front of the player.
+  In each row, the CENTRAL column points straight ahead of the player.
 
 ═══════════════════════════════════════════
 NARRATIVES (characters and objects)
@@ -1813,56 +1874,77 @@ NARRATIVES (characters and objects)
 ALWAYS in rows 3–6 — the interactive zone where the player will find them.
 
 FUNDAMENTAL DISTRIBUTION RULE:
-Several characters/objects → place them in the SAME row at different columns, not in
-different rows. Stacking elements in consecutive rows (one in front of another) looks
-unnatural. Use row difference only to mark genuine narrative importance.
+Several characters/objects → put them in the SAME row at different columns, not in different rows.
+Stacking elements in consecutive rows (one in front of another) looks unnatural. Use a row
+difference only to mark real narrative importance.
 
 Row criteria:
-- Row 6 (3 cols): max 2–3 elements — foreground. Spread well: col 0, col 1, col 2.
-- Row 5 (5 cols, arc ~180°): max 2–3 elements. Spread columns well.
+- Row 6 (3 cols): max 2–3 elements — the foreground. Spread them: col 0, col 1, col 2.
+- Row 5 (5 cols, arc ~180°): max 2–3 elements. Spread the columns well.
   E.g. 2 characters: col 1 and col 3. Leave gaps — do NOT fill every column.
-- Row 4 (7 cols, arc ~240°): max 3–4 elements. More angular space — spread further:
-  col 0, col 3, col 6. Never consecutive columns for all.
-- Row 3 (8 cols, arc ~300°): can hold more elements (up to 5–6). Use it for secondary
-  objects — widest arc, room for more without crowding.
+- Row 4 (7 cols, arc ~240°): max 3–4 elements. More angular room, spread further:
+  col 0, col 3, col 6. Never consecutive columns for all of them.
+- Row 3 (8 cols, arc ~300°): can hold more (up to 5–6). Use it for secondary objects —
+  it has the widest arc and fits more without crowding.
 
-Central column of each row = directly ahead. Extreme columns = sides.
+Central column of each row = straight ahead. Extreme columns = sides.
 
 ═══════════════════════════════════════════
 DECORADOS
 ═══════════════════════════════════════════
-Split between background (rows 0–2) and playable zone (rows 3–4) based on the number of
-narratives (characters + objects) present in rows 3–6:
-  · ≤3 narratives → ~40% of total decorados go to the playable zone
-  · 4–6 narratives → ~25% of total
-  · ≥7 narratives → ~12% of total (minimum 1; the zone is already full of narratives)
-Round to the nearest integer. The rest goes to the background.
+Split them between background (rows 0–2) and playable zone (rows 3–4) according to the number of
+narratives (characters + objects) in rows 3–6:
+  · ≤3 narratives → ~40% of all decorados go to the playable zone
+  · 4–6 narratives → ~25% of the total
+  · ≥7 narratives → ~12% of the total (minimum 1; the zone is already full of narratives)
+Round to the nearest integer. The rest go to the background.
 
-- Rows 0–2 (background): the rest — create the visual context of the stage.
+- Rows 0–2 (background): the rest — they create the visual context of the stage.
 - Rows 3–4 (foreground): decorados with personality: candle, well, statue, chest, lantern.
+
+INTERIORS (habitacion / interior / interior_grande) — WALL vs FLOOR RULE:
+In a room, rows 0–2 are the PERIMETER (against the walls) and rows 3–5 are the central FLOOR the
+player walks on. Place each piece accordingly:
+- AGAINST THE WALL → rows 0–2: shelf, wardrobe, bed, bar counter, kitchen counter, blackboard,
+  bookcase, shop counter, wall bench, filing cabinet, display case, cupboard.
+- ON THE FLOOR (you walk between them) → rows 3–5: table, desk, writing desk, sofa, armchair,
+  coffee table, rug. Spread SEVERAL units across different columns of the same row
+  (e.g. 4 desks in row 4 at columns 0, 2, 4, 6) to fill the floor sensibly.
+
+BOAT — DECK vs WATER RULE (CRITICAL):
+The ship is ALREADY built (hull, deck, railing, mast, sail and helm): do NOT place them as
+decorados — they would appear duplicated or floating.
+The player is on the DECK (centre). Rows 3–6 are the deck; rows 0–2 are the WATER around the ship.
+Place each object according to WHAT it is:
+- SHIP/DECK OBJECTS → rows 3–6 (deck): barrel, cask, chest, cannon, rope, tool box, anchor on deck,
+  instruments, food, and ALL the narrative objects the crew uses (picks, knives, maps,
+  astrolabes...). They go WHERE the people are.
+- THINGS IN THE WATER → rows 0–2 (water, around): ice floe/block, emerging rock, buoy, floating
+  lifebuoy, shipwreck debris, drifting log, seabird, a distant ship.
+NEVER put barrels, chests or crew objects in the water (rows 0–2): they go on deck.
 
 ═══════════════════════════════════════════
 SPATIAL COMPOSITION — reason about relationships
 ═══════════════════════════════════════════
 Before assigning positions, identify the relationships between elements:
-- Which decorado accompanies or contextualises which character?
-  → Place it in the same column or adjacent, in a farther row.
+- Which decorado accompanies or gives context to which character?
+  → Put it in the same or an adjacent column, in a farther row.
   Example: throne (decorado, row 2, col 4) behind the king (character, row 5, col 3).
 - Which decorados form a coherent visual zone?
-  → Group them in close columns and similar rows.
-- Use the FLANKS: place elements in extreme columns, not everything in the centre.
-- Vary the DEPTH: combine background (row 0–1), midground (row 2) and foreground (rows 3–6).
-- Do not distribute uniformly — create densities and natural gaps.
+  → Group them in nearby columns and similar rows.
+- Use the FLANKS: put elements in extreme columns, not everything in the centre.
+- Vary the DEPTH: combine background (rows 0–1), middle (row 2) and foreground (rows 3–6).
+- Do not distribute uniformly — create natural densities and gaps.
 
 ═══════════════════════════════════════════
 SIZES — reason FIRST, then position
 ═══════════════════════════════════════════
-Before positioning, reason about the real sizes of ALL elements comparing them to each
-other. A duck is not the same size as a dog. A hollow log is much wider than tall.
-A century-old tree is much taller than a person.
+Before positioning, reason about the real sizes of ALL elements by comparing them with each other.
+A duck is not the size of a dog. A hollow log is much wider than tall. A century-old tree is much
+taller than a person.
 
-The JSON you return includes FIRST a "tamaños" block with your reasoning,
-and AFTER "posicionamiento" using those values. The "tamaños" block is mandatory.
+The JSON you return includes FIRST a "tamaños" block with your reasoning, and THEN
+"posicionamiento" using those values. The "tamaños" block is mandatory.
 
 {_REFERENCIAS_TAMAÑOS_EN}
 
@@ -1955,12 +2037,14 @@ PART 2 — INVENT DECORADOS (field "decorados")
 ═══════════════════════════════════════════
 
 NUMBER OF DECORADOS by scene type:
-- interior (tipo_ambiente="interior"):          3–4  decorados (reduced space)
-- interior_grande (cathedral, stadium...):      5–7  decorados (large scale, no auto-fill)
+- habitacion / interior:                        7–9  decorados (furniture by room archetype)
+- interior_grande (cathedral, stadium...):      12–16 decorados (large scale, furniture by archetype)
 - pueblo, ciudad, ruinas:                       4–6  decorados
 - campo, naturaleza, pradera, playa, montaña,
   desierto, selva, sabana, cueva:               5–8  decorados (wide open space)
 - espacio, superficie_planeta, bajo_el_agua:    4–6  decorados (partly procedural)
+- sobre_agua (river/lake/sea):                  3–5  decorados (open water, few elements)
+- barco (aboard):                               4–6  decorados (loose objects: barrels, chests, cannons... NOT helm/mast/sail)
 - otro:                                         4–6  decorados
 
 Adjust within the range based on narrative elements (characters + objects from the text):
@@ -1978,7 +2062,13 @@ STEP 2 — CHOOSE OBJECTS coherent with the setting:
   · What objects would make this setting feel real?
   · What types of objects are searchable in a low-poly 3D library?
   You can repeat the same type with numbered IDs: decorado_tree_01, decorado_tree_02.
-  If tipo_ambiente="habitacion", "interior" or "interior_grande": prioritise furniture (table, chair, barrel, shelf, lantern...).
+  HABITACION / INTERIOR / interior_grande: identify the room ARCHETYPE (restaurant, classroom, bedroom,
+  kitchen, living room, office, shop, workshop, temple...) and dress it with its characteristic furniture
+  REPEATED (several tables/desks/shelves), not loose pieces. If it fits none, dress the perimeter with
+  shelves/chests/plants. Wall pieces (shelf, bed, bar, wardrobe, blackboard) → rows 0-2; floor pieces
+  (table, desk, sofa, rug) → rows 3-5.
+  BARCO: the ship already has hull, deck, mast, sail and helm — never invent them. Deck objects → rows 3-6,
+  things in the water (buoys, floes, debris, birds) → rows 0-2.
 
 STEP 3 — DISTRIBUTE with aesthetic criteria:
   · Use the FLANKS: place elements at cols 0 and/or 4, not everything in the centre (cols 1–3).
@@ -2062,6 +2152,70 @@ Return EXACTLY this JSON:
     }}
   ]
 }}""".strip()
+
+DIRECTOR_SYSTEM_INTERIOR = f"""
+You are the Director of WorldWeaver placing the elements of an INTERIOR: a room with 4 walls, a
+ceiling and a floor. The player starts in the CENTRE and can walk around the whole room, almost up
+to the walls.
+
+You place every element on a RECTANGULAR 7×7 GRID of the FLOOR (top view):
+- columna (0-6): left (0) → right (6).  column 3 = centre.
+- fila (0-6): the FRONT wall you see when entering, with the door (0) → the back wall (6).  row 3 = centre.
+- EDGE of the grid (column 0 or 6, OR row 0 or 6) = AGAINST THE WALL.
+- CENTRE (columns 2-4 and rows 2-4) = free floor to walk on.
+
+WALL vs FLOOR RULE (what makes the room look real):
+- Furniture AGAINST THE WALL → EDGE cells (row 0/6 or column 0/6):
+  bed, wardrobe, chest of drawers, shelf, bookcase, bar counter, kitchen counter, stove, sink,
+  cupboard, sideboard, blackboard, shop counter, wall bench, filing cabinet, display case.
+- FLOOR furniture (you walk between them) → CENTRE cells (rows/columns 2-4):
+  table, desk, writing desk, sofa, armchair, coffee table, rug, lectern.
+- CHARACTERS → central cells (rows/columns 2-4), where the player finds them.
+- GROUP sensibly: the chairs around THEIR table; the bedside table next to the bed; the desks in
+  rows facing the blackboard (blackboard on wall row 0, desks in rows 2-4).
+  Several units of the same piece in adjacent cells.
+- Do NOT place loose or extra chairs: a chair is ALWAYS next to a table or desk, never isolated in
+  the middle of the room. Few chairs, only those that go with a table.
+
+Identify the room ARCHETYPE (restaurant, classroom, bedroom, kitchen, living room, office, shop,
+workshop, temple...) and respect its typical layout.
+
+ONE cell per element (do not repeat the same (columna, fila)). There are 49 cells and usually
+<15 elements: SPREAD them around the room, do not pile them up in the centre.
+
+{_REFERENCIAS_TAMAÑOS_EN}
+
+Return EXCLUSIVELY this JSON (no markdown, no extra text):
+{{
+  "id_escena": "{{id_escena}}",
+  "posicionamiento": [
+    {{"id": "personaje_x", "columna": 3, "fila": 3, "ancho": 0.9, "alto": 1.75}}
+  ],
+  "decorados": [
+    {{"id": "decorado_y", "nombre": "(copy the given name)", "descripcion": "(copy the given description)", "columna": 0, "fila": 2, "ancho": 1.3, "alto": 2.0}}
+  ]
+}}
+- "posicionamiento": one item for EACH narrative (character/object) in the list.
+- "decorados": one item for EACH decorado in the list, copying its nombre and descripcion.
+""".strip()
+
+DIRECTOR_USER_INTERIOR = """
+Place all the elements of this interior room on the rectangular 7×7 grid.
+
+SCENE:
+{escena_json}
+
+NARRATIVES TO POSITION (all of them, in "posicionamiento"):
+  - characters → central cells (rows/columns 2-4)
+  - furniture objects → wall or floor (bed/bar/counter → edge; table/rug → centre)
+{narrativos_lista}
+
+DECORADOS TO POSITION (all of them, in "decorados", copying nombre and descripcion as given):
+{decorados_lista}
+
+First reason about the layout of the room (which piece goes against which wall and what goes in the
+centre), then give each element a unique cell. Return ONLY the JSON.
+""".strip()
 
 
 # ===========================================================================
@@ -2411,6 +2565,51 @@ Response format:
 }}
 """.strip()
 
+PROGRAMADOR_P2_CONVERSACIONAL_SYSTEM = """
+You are the scriptwriter of a LANGUAGE-learning world (conversational vocabulary): greetings, social phrases,
+everyday situations. You write the characters' DIALOGUES phase by phase, following each phase's milestone.
+It is an EVERYDAY conversation in the language being learned — NOT historical theatre or testimonies.
+
+Each character in the JSON has:
+- "id_nodo": its id (exactly as it appears in the character list).
+- "fase_aparicion": 0.
+- "ficha_info": { "titulo": "Name — role in one line", "texto": "1-2 sentences about who they are" }.
+- "dialogos": list of turns; each turn = { "fase": N, "animacion": null, "puntos": [{ "frases": ["ONE sentence"], "opciones": [...] }], "pista": <optional> }.
+
+Rules: each "frases" has EXACTLY 1 sentence. SHORT, natural sentences. GENDER AGREEMENT in any gendered
+language (articles and adjectives agree with the noun). The ROLE block below gives the EXACT format of each
+turn and of the options.
+
+Respond EXCLUSIVELY with valid JSON { "personajes": [...] }. No extra text, no markdown.
+""".strip()
+
+PROGRAMADOR_P2_CONVERSACIONAL_USER = """
+Generate the characters' dialogues for scene "{id_escena}".
+
+ATMOSPHERE: {atmosfera}
+
+TURNS / MILESTONES PER PHASE (they define what happens in each phase):
+{fases_json}
+
+CHARACTERS (use these EXACT id_nodo):
+{personajes_brief}
+
+Return EXACTLY this JSON (include ALL characters in the list):
+{{
+  "personajes": [
+    {{
+      "id_nodo": "personaje_a",
+      "fase_aparicion": 0,
+      "ficha_info": {{ "titulo": "Name — their role", "texto": "1-2 sentences about who they are." }},
+      "dialogos": [
+        {{ "fase": 0, "animacion": null, "puntos": [{{ "frases": ["Their bilingual line."], "opciones": [] }}] }}
+      ]
+    }}
+  ]
+}}
+{items_brief}
+""".strip()
+
 
 # ===========================================================================
 # EDUCATIONAL MODE — VOCABULARY subtype, Type B CONVERSACIONAL — ENGLISH UI
@@ -2419,14 +2618,14 @@ Response format:
 ORGANIZADOR_VOCABULARIO_CONVERSACIONAL_SYSTEM = """
 You are the Organizador of WorldWeaver in EDUCATIONAL MODE, CONVERSACIONAL VOCABULARY subtype (Type B).
 The vocabulary are CONCEPTS or PHRASES that are NOT physical objects: greetings and social phrases,
-months, numbers, emotions, professions... The learner first MEETS them (a guide models them by speaking)
-and then PRACTICES them in a CONVERSATION where they choose the correct answer.
+months, numbers, emotions, professions... The learner first MEETS them (two characters use them in a real
+conversation) and then PRACTISES them in a CONVERSATION with the guide where they choose the right answer.
 
 You are given the TARGET LANGUAGE and a list of concepts. The UI language is the one of THIS prompt (English).
 
 "vocabulario" FIELD (ROOT LEVEL, REQUIRED): a list of 6-10 concept↔translation pairs:
-  {{ "ui": "<concept in English>", "objetivo": "<concept in the target language>", "nota": "<short usage>" }}
-  E.g. {{ "ui": "Good morning", "objetivo": "Buenos días", "nota": "morning greeting" }}
+  { "ui": "<concept in English>", "objetivo": "<concept in the target language>", "nota": "<short usage>" }
+  E.g. { "ui": "Good morning", "objetivo": "Buenos días", "nota": "morning greeting" }
 
 STRUCTURE — EXACTLY 2 scenes in the SAME place (coherent with the theme: a plaza or street for greetings,
 a classroom for school concepts, etc.):
@@ -2448,18 +2647,20 @@ EVENTS:
   "personajes_involucrados"=[the speaker]. personaje_a starts.
   ⚠ ORDER THE TURNS BY CONVERSATIONAL LOGIC, NOT by the order of the vocabulary list. Each turn RESPONDS to
   the previous one: if A greets, B greets back; if A asks "how are you?", B ANSWERS (does not ask something
-  else); a "Thank you" only appears AFTER a favour, compliment or kind reply, never on its own. Typical arc:
-  greeting → greeting back → "how are you?" → "fine, thanks" → (brief chat) → "see you later" → "goodbye".
+  else); a "Thank you" only appears AFTER a favour, a compliment or a kind reply, never on its own. Typical
+  arc: greeting → greeting back → "how are you?" → "fine, thanks" → (brief chat) → "see you later" → "goodbye".
   ⛔ Do NOT chain greetings from different times of day in the SAME chat (not "Good morning" then "Good
   afternoon" then "Good evening"): pick ONE consistent with the scene's time/sky and, if another variant does
   not fit naturally, do NOT force it. Conversational COHERENCE outweighs using literally every concept —
-  cover the ones that flow with meaning (the exam and quiz revisit the rest).
-- escena_02 (examen): ONE event PER concept in "vocabulario", IN ORDER. "descripcion" EXACTLY:
-  "The guide assesses the concept '<objetivo>' (<ui>)." "personajes_involucrados"=["personaje_a"]; "objetos_involucrados"=[].
-  The number of exam events = number of concepts in the vocabulary.
+  cover the ones that flow with meaning (the exam and the quiz revisit the rest).
+- escena_02 (examen): a CONVERSATION of 4-5 TURNS between the guide (personaje_a) and the LEARNER, with a
+  coherent ARC (e.g. greeting → how are you? → ... → goodbye) that uses the vocabulary concepts. ONE event
+  per learner turn. "descripcion": "Turno N: el guía <does something> y el alumno responde."
+  "personajes_involucrados"=["personaje_a"]; "objetos_involucrados"=[]. Generate 4-5 events (NOT one per concept).
 
 INTRO/CLOSE — frame the GLOBAL THEME (do not list individual concepts). escena_01 "tiene_intro": true with
-"texto_intro"; escena_02 "texto_fin" (recap + invite to the quiz). GENDER AGREEMENT in any gendered language.
+"texto_intro" (2-3 sentences presenting the theme and the place). escena_02 "texto_fin" (recap + invitation
+to the quiz). GENDER AGREEMENT in any gendered language (articles and adjectives agree with the noun).
 
 SETTING/SKY/AMBIENCE: choose the natural place of the theme (outdoor town/city for a plaza; interior for a
 classroom...), the SAME in both scenes, respecting sky↔ambience coherence (interior↔interior sky).
@@ -2491,7 +2692,7 @@ Respond with this JSON (include ALL fields; "vocabulario" at the root; "objetos"
       "cielo": "choose by place — SAME in both scenes",
       "tipo_ambiente": "choose the natural place (pueblo | ciudad | interior | habitacion | naturaleza...) — SAME in both scenes",
       "tiene_intro": true,
-      "texto_intro": "2-3 sentences presenting the theme and place.",
+      "texto_intro": "2-3 sentences presenting the theme and the place.",
       "texto_fin": null,
       "rol_escena": "exposicion",
       "personajes": [
@@ -2520,7 +2721,8 @@ Respond with this JSON (include ALL fields; "vocabulario" at the root; "objetos"
       ],
       "objetos": [],
       "eventos": [
-        {{ "descripcion": "The guide assesses the concept '<objetivo>' (<ui>).", "personajes_involucrados": ["personaje_a"], "objetos_involucrados": [] }}
+        {{ "descripcion": "Turno 1: el guía saluda al alumno y el alumno responde.", "personajes_involucrados": ["personaje_a"], "objetos_involucrados": [] }},
+        {{ "descripcion": "Turno 2: el guía pregunta cómo está y el alumno responde.", "personajes_involucrados": ["personaje_a"], "objetos_involucrados": [] }}
       ]
     }}
   ],
@@ -2530,9 +2732,11 @@ Respond with this JSON (include ALL fields; "vocabulario" at the root; "objetos"
   "objetos_globales": []
 }}
 
-In the exposition, "eventos" must be the FULL CONVERSATION: 6-10 turns alternating personaje_a and
-personaje_b, covering ALL vocabulary concepts in natural order. Repeat the two example events as many
-times as there are turns.
+In the EXPOSITION, "eventos" is the FULL CONVERSATION: 6-10 turns alternating personaje_a and personaje_b,
+ordered by conversational logic. Cover the concepts that fit naturally: coherence matters more than using
+them all (the exam and the quiz revisit the rest).
+In the EXAM, "eventos" is a CONVERSATION of 4-5 learner turns with the guide (a coherent arc:
+greeting → how are you → ... → goodbye). Repeat the pattern of the example events for each turn.
 """.strip()
 
 
@@ -2540,42 +2744,58 @@ times as there are turns.
 
 PROGRAMADOR_P2_CONVERSACIONAL_EXPOSICION_EXTRA = """
 ═══════════════════════════════════════════
-CONVERSACIONAL VOCABULARY — EXPOSITION (the guide models)
+CONVERSACIONAL VOCABULARY — EXPOSITION (a conversation the learner witnesses)
 ═══════════════════════════════════════════
-The guide is the TEACHER: they present the concepts by speaking (target language: {idioma_objetivo}). Give
-the guide ONE fase-0 dialogue with 3 "puntos" (rotating lines) that, TOGETHER, model ALL the concepts in
-use. Each "frases" is bilingual: first in the target language, then below (newline \n) its English version,
-showing the concept IN CONTEXT. E.g.:
-  "Decimos 'Buenos días' por la mañana.\nWe say 'Buenos días' in the morning."
-Spread the concepts across the 3 points to cover them ALL. Warm tone. GENDER AGREEMENT in any gendered
-language (articles and adjectives agree with the noun).
+The exposition is a CONVERSATION between the characters (target language: {idioma_objetivo}) that the
+learner witnesses turn by turn. Each phase = ONE turn of ONE character (look at each phase's milestone:
+"personaje_X dice '<objetivo>' (<ui>)").
+
+It is a REAL DIALOGUE between the two: each turn ANSWERS what the other has just said. If A asks, B ANSWERS
+(does not ask something else); if B greets, A greets back; etc. Read it as a real conversation between two
+people looking at and talking to each other, NOT as two parallel lists of sentences.
+
+For EACH phase, give the character WHO SPEAKS in that phase a dialogue with "fase" = that number and EXACTLY 1
+point: their LINE, a NATURAL sentence that (a) ANSWERS the previous turn and (b) uses the milestone's concept.
+Bilingual (target language on top / English below, newline \\n). SHORT sentences.
+Example of a COHERENT conversation (each line answers the previous one):
+  fase 0 (personaje_a): "puntos": [{{ "frases": ["¡Hola! Buenos días, Ana.\\nHello! Good morning, Ana."], "opciones": [] }}]
+  fase 1 (personaje_b): "puntos": [{{ "frases": ["¡Buenos días! ¿Cómo estás?\\nGood morning! How are you?"], "opciones": [] }}]
+  fase 2 (personaje_a): "puntos": [{{ "frases": ["¡Estoy bien, gracias! ¿Y tú?\\nI'm fine, thank you! And you?"], "opciones": [] }}]
+  fase 3 (personaje_b): "puntos": [{{ "frases": ["¡Muy bien! Hasta luego.\\nVery well! See you later."], "opciones": [] }}]
+Each character ONLY speaks in THEIR phases. Across all turns, use the vocabulary ALWAYS with conversational
+sense (if a concept does not fit as a direct answer, work it in so the chat still makes sense). GENDER
+AGREEMENT in any gendered language.
+⛔ FORBIDDEN: a line that is just the bare word or "word (translation)", or a turn that ignores what the other
+said. The milestone says which concept to USE, not the text to copy.
 VOCABULARY (ui = target):
 {vocab_lista}
 """.strip()
 
 PROGRAMADOR_P2_CONVERSACIONAL_EXAMEN_EXTRA = """
 ═══════════════════════════════════════════
-CONVERSACIONAL VOCABULARY — EXAM (conversation with options)
+CONVERSACIONAL EXAM — CONVERSATION (the learner answers by choosing)
 ═══════════════════════════════════════════
-The guide CONVERSES and assesses (target language: {idioma_objetivo}). There is ONE phase per concept; each
-phase milestone says which concept to assess ("The guide assesses the concept '<objetivo>' (<ui>)").
+The exam is ONE conversation between the guide (personaje_a) and the LEARNER (target language: {idioma_objetivo}).
+There are 4-5 turns (one per phase, following the milestone). In each turn the guide SAYS something and the
+learner CHOOSES what to answer. The whole conversation forms a coherent arc (greeting → how are you? → ... →
+goodbye) using the vocabulary.
 
-For EACH phase, the guide's dialogue is EXACTLY 1 point with its question and "opciones":
-- "frases": the QUESTION, bilingual (target language / English). It can be situational ("Es de mañana y te
-  encuentras a alguien. ¿Qué dices? / It's morning and you meet someone. What do you say?") or translation
-  ("¿Cómo se dice 'Good morning'? / How do you say 'Good morning'?").
-- "opciones": 3 or 4 options, ALL in the TARGET LANGUAGE. EXACTLY ONE with "correcta": true (the right
-  answer to this phase's concept); the others "correcta": false, other vocabulary concepts clearly
-  INAPPROPRIATE for this question (no subtleties). Each option:
-    "etiqueta": the option text (what the player picks), in the target language.
-    "respuesta": the guide's reaction to that choice — if correct, PRAISE; if not, gentle, specific SURPRISE
-      ("¡Eso es una despedida, no un saludo! / That's a goodbye, not a greeting!"). Bilingual.
+Give ONLY the guide (personaje_a) one dialogue per phase. Each phase is EXACTLY 1 point:
+- "frases": the LINE the GUIDE says in that turn, bilingual (target language / English). It follows the
+  milestone's arc and CONNECTS with the previous turn (the conversation flows). E.g. "¡Hola! ¿Cómo estás? / Hello! How are you?".
+- "opciones": ALWAYS 4, the learner's possible ANSWERS, ALL in the target language. EXACTLY ONE with
+  "correcta": true (the one that continues the conversation appropriately and on topic); the other 3
+  "correcta": false (off topic, do not fit what the guide just said, or are rude). Each option:
+    "etiqueta": the sentence the LEARNER would say (target language).
+    "respuesta": the guide's reaction. If it is the correct one, react WELL and LINK to the next turn; if not,
+      gentle, specific SURPRISE ("¡Eso es una despedida, no una respuesta! / That's a goodbye, not an answer!"). Bilingual.
     "correcta": true or false.
-- "pista": a bilingual point shown if the player fails: rephrases the question with a HINT that narrows the
-  answer without giving it away. E.g. "pista": {{ "frases": ["Pista: es lo que dices por la mañana. / Hint: it's what you say in the morning."], "opciones": [] }}.
-Each phase dialogue: {{ "fase": N, "animacion": null, "puntos": [<question with options>], "pista": <hint point> }}
-Do NOT add more points. GENDER AGREEMENT in any gendered language.
+- "pista": a point shown on a wrong answer. ONE sentence IN ENGLISH (it is help for the learner, NOT
+  vocabulary): it reminds what KIND of answer fits here without fully giving it away. Do not duplicate it or use " / ".
+  E.g. "pista": {{ "frases": ["Hint: here you answer a greeting."], "opciones": [] }}.
+Each phase: {{ "fase": N, "animacion": null, "puntos": [{{ "frases": ["<guide's line>"], "opciones": [4 learner answers] }}], "pista": {{ "frases": ["Hint in English."], "opciones": [] }} }}
+ALWAYS 4 options. personaje_b is NOT in the exam. GENDER AGREEMENT in any gendered language.
 
-VOCABULARY (ui = target) — use it for the correct answer and the distractors:
+VOCABULARY (ui = target) — use it to build the lines and answers:
 {vocab_lista}
 """.strip()

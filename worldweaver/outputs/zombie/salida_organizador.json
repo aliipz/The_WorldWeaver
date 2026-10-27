@@ -1,0 +1,179 @@
+{
+  "titulo_historia": "Zombies in the Woods",
+  "escenas": [
+    {
+      "id": "escena_01",
+      "titulo": "Fleeing the Hordes",
+      "entorno": "Dense pine woods with twisted trunks, damp leaf litter, low‑hanging mist, gnarled roots, and shafts of dim sunlight filtering through the canopy",
+      "atmosfera": "Tense, frantic chase at night; cold wind rattles leaves, fear and desperation grip the young couple as they sprint through the shadowy forest",
+      "cielo": "noche_cerrada",
+      "tipo_ambiente": "bosque",
+      "tiene_intro": true,
+      "texto_intro": "The night was thick with mist as a horde of decaying corpses shambled through the pine‑laden woods. A young couple, Emily and Mark, darted between gnarled trunks, their breath visible in the cold air. The undead moans echoed, pressing them onward toward an uncertain fate.",
+      "texto_fin": null,
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_female",
+          "nombre": "Emily",
+          "fisica": "Young woman, late teens, long dark hair fluttering in the wind, simple tunic",
+          "background": "Courageous and caring, determined to survive and protect her partner",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_male",
+          "nombre": "Mark",
+          "fisica": "Young man, early twenties, short brown hair, worn leather jacket",
+          "background": "Protective of Emily, pragmatic, willing to risk everything for her safety",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_zombie_01",
+          "nombre": "Zombie 1",
+          "fisica": "Decayed corpse, ragged clothing, empty eye sockets that suddenly hold a soft gaze",
+          "background": "Member of the mindless horde, until a sudden surge of love alters his purpose",
+          "rol": "antagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_zombie_02",
+          "nombre": "Zombie 2",
+          "fisica": "Rotting figure, torn shirt, arms outstretched, eyes glazed",
+          "background": "Typical mindless undead pursuing the couple",
+          "rol": "antagonista",
+          "skin_id": null
+        }
+      ],
+      "objetos": [],
+      "eventos": [
+        {
+          "descripcion": "The horde of zombies, led by Zombie 1 and Zombie 2, chase Emily and Mark through the tangled forest, their guttural moans growing louder.",
+          "personajes_involucrados": [
+            "personaje_female",
+            "personaje_male",
+            "personaje_zombie_01",
+            "personaje_zombie_02"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Emily trips over a gnarled root, slowing their escape; Mark pulls her up and urges her forward, heightening the urgency of their flight.",
+          "personajes_involucrados": [
+            "personaje_female",
+            "personaje_male"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "A sudden gust of wind scatters leaves, and the zombies' numbers seem to swell, forcing the couple to duck behind a fallen log as darkness presses in.",
+          "personajes_involucrados": [
+            "personaje_female",
+            "personaje_male",
+            "personaje_zombie_01",
+            "personaje_zombie_02"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_02",
+      "titulo": "A Zombie's Unexpected Love",
+      "entorno": "Dense pine woods with twisted trunks, damp leaf litter, low‑hanging mist, gnarled roots, and shafts of dim sunlight filtering through the canopy",
+      "atmosfera": "Surreal and tender amidst horror; moonlight glimmers on the couple, and a single zombie's heart beats with an unexpected affection",
+      "cielo": "noche_cerrada",
+      "tipo_ambiente": "bosque",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": "In the hush of the night, the forest held its breath as a lone zombie chose love over hunger. Emily's hair danced with the wind, a silent promise that she would live. The horde fell silent, and the woods seemed to mourn the loss of its endless chase, leaving only the soft echo of a strange, hopeful heartbeat.",
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_female",
+          "nombre": "Emily",
+          "fisica": "Young woman, late teens, long dark hair fluttering in the wind, simple tunic",
+          "background": "Courageous and caring, determined to survive and protect her partner",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_male",
+          "nombre": "Mark",
+          "fisica": "Young man, early twenties, short brown hair, worn leather jacket",
+          "background": "Protective of Emily, pragmatic, willing to risk everything for her safety",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_zombie_01",
+          "nombre": "Zombie 1",
+          "fisica": "Decayed corpse, ragged clothing, empty eye sockets that suddenly hold a soft gaze",
+          "background": "Member of the mindless horde, until a sudden surge of love alters his purpose",
+          "rol": "antagonista",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [],
+      "eventos": [
+        {
+          "descripcion": "Zombie 1 stops in his tracks, eyes locking onto Emily as an unexpected surge of love washes over him.",
+          "personajes_involucrados": [
+            "personaje_zombie_01",
+            "personaje_female"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "He steps between Emily and the other undead, raising a trembling arm to halt the chase, his instinct now to protect rather than devour.",
+          "personajes_involucrados": [
+            "personaje_zombie_01",
+            "personaje_female",
+            "personaje_male"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Emily whispers a breathless thank you, and Zombie 1 vows silently to keep her alive, his former hunger replaced by fierce devotion.",
+          "personajes_involucrados": [
+            "personaje_female",
+            "personaje_zombie_01"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    }
+  ],
+  "vocabulario": [],
+  "personajes_globales": [
+    {
+      "id": "personaje_female",
+      "nombre": "Emily",
+      "fisica": "Young woman, late teens, long dark hair fluttering in the wind, simple tunic",
+      "background": "Courageous and caring, determined to survive and protect her partner",
+      "rol": "protagonista",
+      "skin_id": null
+    },
+    {
+      "id": "personaje_male",
+      "nombre": "Mark",
+      "fisica": "Young man, early twenties, short brown hair, worn leather jacket",
+      "background": "Protective of Emily, pragmatic, willing to risk everything for her safety",
+      "rol": "secundario",
+      "skin_id": null
+    },
+    {
+      "id": "personaje_zombie_01",
+      "nombre": "Zombie 1",
+      "fisica": "Decayed corpse, ragged clothing, empty eye sockets that suddenly hold a soft gaze",
+      "background": "Member of the mindless horde, until a sudden surge of love alters his purpose",
+      "rol": "antagonista",
+      "skin_id": null
+    }
+  ],
+  "objetos_globales": [],
+  "subtipo_educativo": null,
+  "tipo_vocabulario": null,
+  "idioma_objetivo": null
+}

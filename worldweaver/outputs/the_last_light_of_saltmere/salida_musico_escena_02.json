@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_02",
+  "query_usada": "ocean waves night ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/476/476886_3840537-hq.mp3",
+    "titulo": "Ocean Ambiance Night",
+    "autor": "nick121087",
+    "duracion_segundos": 59.2,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/790/790352_3288322-hq.mp3",
+    "titulo": "Seaside Morning Post Rain Ambience - Hambantota, Sri Lanka",
+    "autor": "seventhsamurai",
+    "duracion_segundos": 180.8,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

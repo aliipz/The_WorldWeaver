@@ -161,7 +161,7 @@ def _resumen_sesgo_quiz() -> dict:
 
 # ── Una corrida ───────────────────────────────────────────────────────────────
 
-def correr_una(provider: str, item: dict, k: int, modo_dibujante: str) -> tuple[dict, list[dict]]:
+def correr_una(provider: str, item: dict, k: int) -> tuple[dict, list[dict]]:
     texto_path = FIXTURES / item["fixture"]
     corrida_id = f"{item['id']}_{provider}_k{k}"
     mundo = f"eval_{corrida_id}"
@@ -183,7 +183,6 @@ def correr_una(provider: str, item: dict, k: int, modo_dibujante: str) -> tuple[
             texto=texto_path.read_text(encoding="utf-8"),
             nombre_mundo=mundo,
             provider=provider,
-            modo_dibujante=modo_dibujante,
             modo=item["modo"],
             idioma=item["idioma"],
         )
@@ -242,7 +241,6 @@ def main() -> None:
     ap.add_argument("--k", type=int, default=5, help="Repeticiones por (modelo x texto).")
     ap.add_argument("--smoke", action="store_true",
                     help="Modo humo: K=1 y solo fixtures que existan.")
-    ap.add_argument("--modo-dibujante", default="mock", help="mock|auto (mock = sin fondos PNG).")
     ap.add_argument("--out", default=str(OUTPUTS / "_evaluacion"),
                     help="Carpeta destino de los CSV.")
     ap.add_argument("--limpiar", action="store_true",
@@ -278,7 +276,7 @@ def main() -> None:
             for k in range(1, k_total + 1):
                 i += 1
                 print(f"[{i}/{total}] {item['id']} · {provider} · k{k} ...")
-                fila, filas_llm = correr_una(provider, item, k, args.modo_dibujante)
+                fila, filas_llm = correr_una(provider, item, k)
                 resultados.append(fila)
                 llamadas.extend(filas_llm)
                 estado = "FALLO" if fila["fallo_terminal"] else "ok"

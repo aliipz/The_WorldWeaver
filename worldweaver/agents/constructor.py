@@ -2,10 +2,11 @@
 Agente 3 — El Constructor
 
 Responsabilidades:
-  1. Posicionamiento espacial (determinístico): convierte el grid del Director
-     a coordenadas 3D en el escenario cilíndrico.
-  2. Búsqueda de modelos 3D (poly.pizza): para cada elemento usa la keyword_busqueda
-     del Director para encontrar el glTF correspondiente.
+  1. Posicionamiento: rejilla del Director → coordenadas 3D (pirámide en exterior,
+     7×7 en interiores en caja; en barco, anillos propios en cubierta y agua).
+  2. Modelos 3D: personajes humanoides del catálogo Quaternius; el resto en Poly Pizza
+     con una keyword derivada por el LLM (o la del Director / idioma objetivo).
+  3. Cielo, niebla, relleno ambiental y coherencia de tamaños.
 
 Grid 7 filas × columnas variables (pirámide):
   - fila    0-6 → radio desde el centro (0=horizonte, 6=primer plano)
@@ -37,7 +38,7 @@ from config.settings import settings
 from config.llm import get_llm
 from config.catalogo_personajes import (
     CATALOGO, PERSONAJES, SKIN_TONES, SKIN_TONE_HEX, HAIR_COLORS,
-    TALLAS, TALLA_DEFECTO, TALLA_ALTURA,
+    TALLAS, TALLA_DEFECTO,
 )
 from pipeline.errors import ServicioModelosCaido
 
@@ -55,8 +56,9 @@ _poly_estado = {"timeouts_seguidos": 0}
 
 
 def _reset_estado_poly() -> None:
-    """Reinicia el contador de timeouts (al inicio de cada escena/generación)."""
+    """Reinicia el contador de timeouts y la caché de búsquedas (al inicio de cada escena)."""
     _poly_estado["timeouts_seguidos"] = 0
+    _poly_cache.clear()
 
 
 def _diagnosticar_poly_caido(api_key: str) -> bool:
@@ -196,8 +198,7 @@ def _grid_rect_a_posicion(columna: int, fila: int, alto: float, radio: float) ->
 # Barco (tipo_ambiente='barco'): cubierta (rejilla rect) + agua (anillos)
 # ---------------------------------------------------------------------------
 
-# Palabras que delatan un elemento que vive en el AGUA, no en la cubierta. Sirve de
-# fallback determinista si la clasificación LLM falla (y para sembrar al LLM).
+# Palabras que delatan un elemento narrativo que vive en el AGUA, no en la cubierta.
 _BARCO_KW_AGUA = (
     "submarino", "submarine", "barca", "bote", "boya", "buoy", "isla", "island",
     "pez", "fish", "ballena", "whale", "delfin", "delfín", "dolphin", "tiburon",
@@ -215,8 +216,8 @@ def _elegir_variante_barco(id_escena: str) -> str:
 
 
 def _heuristica_zona_barco(elem: ElementoEscena) -> str:
-    """Fallback: 'agua' si el nombre es marino o el objeto es grande (≥3 m); si no,
-    'cubierta'. Los personajes se quedan en cubierta salvo que el nombre sea marino."""
+    """'agua' si el nombre es marino o el objeto es grande (≥3 m); si no, 'cubierta'.
+    Los personajes se quedan en cubierta salvo que el nombre sea marino."""
     nombre = (elem.nombre or "").lower()
     if any(k in nombre for k in _BARCO_KW_AGUA):
         return "agua"
@@ -225,75 +226,95 @@ def _heuristica_zona_barco(elem: ElementoEscena) -> str:
     return "cubierta"
 
 
-def _clasificar_zona_barco(
-    elementos: list, entorno: str, atmosfera: str, provider: str
-) -> dict:
-    """Una llamada LLM que decide, por cada elemento, si va en la CUBIERTA del barco
-    o en el AGUA alrededor. Devuelve {id: 'cubierta'|'agua'}. Degrada a la heurística
-    determinista ante cualquier fallo (patrón de _elegir_atmosfera_otro)."""
-    items = [{"id": e.id, "nombre": e.nombre, "tipo": e.tipo} for e in elementos]
-    prompt = (
-        "Escena marina con un barco sobre el agua. Para cada elemento decide dónde está:\n"
-        "- \"cubierta\": sobre la cubierta del barco (personas, objetos de a bordo, "
-        "barriles, cofres, cuerdas, timón, mástil, cajas, herramientas...).\n"
-        "- \"agua\": flotando en el agua alrededor del barco, NO a bordo (submarinos, "
-        "boyas, peces, corales, islas, otras barcas, criaturas marinas, naufragios...).\n"
-        "Si dudas, 'cubierta'. Responde SOLO con JSON {id: \"cubierta\"|\"agua\"}.\n\n"
-        f"Entorno: \"{entorno}\"\nAtmósfera: \"{atmosfera}\"\n"
-        f"Elementos: {items}"
-    )
-    zonas: dict = {}
-    try:
-        import json as _json
-        import re as _re
-        raw = get_llm(provider).invoke(prompt).content
-        m = _re.search(r'\{.*\}', raw, _re.DOTALL)
-        d = _json.loads(m.group()) if m else {}
-        for e in elementos:
-            v = str(d.get(e.id, "")).lower().strip()
-            zonas[e.id] = v if v in ("cubierta", "agua") else _heuristica_zona_barco(e)
-        logger.info(
-            "[Constructor/LLM] Zona barco → "
-            + ", ".join(f"{k}={v}" for k, v in zonas.items())
-        )
-    except Exception as e:
-        logger.warning(f"[Constructor/LLM] Error clasificando zona barco (heurística): {e}")
-        zonas = {el.id: _heuristica_zona_barco(el) for el in elementos}
+def _zonas_barco(elementos: list) -> dict:
+    """Decide, por elemento, si va en la CUBIERTA del barco o en el AGUA alrededor.
+    Devuelve {id: 'cubierta'|'agua'}.
+      - Decorados: la decisión ya la tomó el Director (prompt de barco: filas 3-6 =
+        cubierta, 0-2 = agua; `_reparar_cubierta_barco` corrige los de cubierta que
+        dejó en el agua), así que se respeta su fila.
+      - Narrativos: el Director siempre los lleva a filas 3-6 (`_reparar_narrativos`),
+        así que su fila no informa; se usa la heurística determinista (nombre marino o
+        tamaño ≥3 m → agua)."""
+    zonas = {}
+    for e in elementos:
+        if e.tipo == "decorado":
+            zonas[e.id] = "agua" if e.posicion_grid.fila <= 2 else "cubierta"
+        else:
+            zonas[e.id] = _heuristica_zona_barco(e)
+    logger.info("[Constructor] Zona barco → " + ", ".join(f"{k}={v}" for k, v in zonas.items()))
     return zonas
+
+
+def _repartir_arco(n: int, r: float, centro_deg: float, max_span_deg: float,
+                   sep: float, excluir: list) -> list:
+    """n ángulos (grados, 0 = -Z, frente al jugador) repartidos uniformemente en un arco
+    centrado en centro_deg, de amplitud justa para separar `sep` metros a radio r (hasta
+    max_span_deg). Se saltan los sectores `excluir` [(centro, semiancho)]. Si el arco no
+    da para todos, devuelve los que caben (el llamante desborda el resto)."""
+    if n <= 0:
+        return []
+    def _libre(a: float) -> bool:
+        return all(abs((a - c + 180) % 360 - 180) > w for c, w in excluir)
+    paso = math.degrees(sep / r)
+    if max_span_deg >= 360:
+        # Anillo completo: grados libres (paso de 1°) y n puntos equiespaciados entre ellos,
+        # empezando por detrás (+Z) para que los primeros decorados no tapen la vista.
+        cand = [a % 360 for a in range(180, 540) if _libre(a)]
+        n_ok = min(n, int(math.radians(len(cand)) * r / sep))
+        return [cand[int((i + 0.5) * len(cand) / n_ok)] for i in range(n_ok)]
+    # Arco: se toman ángulos libres de dentro hacia afuera (los más cercanos al centro
+    # primero) respetando la separación mínima → grupo compacto frente al jugador que
+    # rodea los sectores excluidos en vez de perder elementos en ellos.
+    cand = sorted(
+        (a for a in range(int(-max_span_deg / 2), int(max_span_deg / 2) + 1) if _libre(centro_deg + a)),
+        key=abs,
+    )
+    elegidos: list = []
+    for a in cand:
+        if all(abs(a - b) >= paso for b in elegidos):
+            elegidos.append(a)
+            if len(elegidos) == n:
+                break
+    return sorted(centro_deg + a for a in elegidos)
 
 
 def _planificar_barco(
     elementos: list, zonas: dict, radio_cubierta: float, player_limit: float,
+    popa: bool = False,
 ) -> dict:
     """Asigna a cada elemento su posición en el barco:
-      - cubierta → celda (columna, fila) de la rejilla 7×7 (personajes al centro,
-        decorados hacia los bordes), repartidas de dentro hacia afuera.
+      - cubierta → (x, z) en anillos por tipo, repartidos en arco: personajes en un
+        anillo interior frente al jugador, objetos en uno medio (intercalados) y
+        decorados junto a la baranda alrededor del barco. El centro queda libre (allí
+        aparece el jugador y está el mástil); se evitan el timón (proa, -Z) y, en el
+        galeón, el castillo de popa (+Z).
       - agua → (x, z) en anillos alrededor del casco, repartidos por ángulo áureo.
         Los NARRATIVOS de agua (personaje/objeto) van en un anillo cercano dentro del
         alcance del jugador (al desembarcar con B se les llega); los decorados de agua
         pueden ir en anillos más lejanos (son fondo).
-    Devuelve {id: ("deck", col, fila)} | {id: ("water", x, z)}."""
-    N = GRID_INT_N
-    medio = (N - 1) / 2.0
-    # Celdas ordenadas de dentro hacia afuera (centro = personajes; borde = decorados)
-    celdas = sorted(
-        ((c, f) for c in range(N) for f in range(N)),
-        key=lambda cf: (cf[0] - medio) ** 2 + (cf[1] - medio) ** 2,
-    )
-    prioridad = {"personaje": 0, "objeto": 1, "decorado": 2}
-    cubierta = sorted(
-        [e for e in elementos if zonas.get(e.id) != "agua"],
-        key=lambda e: prioridad.get(e.tipo, 3),
-    )
-    agua = [e for e in elementos if zonas.get(e.id) == "agua"]
-    # Desbordamiento de cubierta (más elementos que celdas) → al agua
-    if len(cubierta) > len(celdas):
-        agua += cubierta[len(celdas):]
-        cubierta = cubierta[:len(celdas)]
+    Devuelve {id: ("deck", x, z)} | {id: ("water", x, z)}."""
+    R = radio_cubierta
+    timon = (0.0, 18.0)                        # timón en proa, junto a la baranda
+    excl_popa = [(180.0, 62.0)] if popa else []
 
+    cubierta = [e for e in elementos if zonas.get(e.id) != "agua"]
+    agua = [e for e in elementos if zonas.get(e.id) == "agua"]
+
+    # (tipo, radio, centro del arco, amplitud máxima, separación, sectores excluidos)
+    anillos = [
+        ("personaje", 0.45 * R, 0.0, 150.0, 1.4, excl_popa),
+        ("objeto",    0.63 * R, 0.0, 230.0, 1.3, excl_popa + [timon]),
+        ("decorado",  0.80 * R, 0.0, 360.0, 1.2, excl_popa + [timon]),
+    ]
     plan: dict = {}
-    for e, (c, f) in zip(cubierta, celdas):
-        plan[e.id] = ("deck", c, f)
+    for tipo, r, centro, span, sep, excluir in anillos:
+        grupo = [e for e in cubierta if (e.tipo if e.tipo in ("personaje", "objeto") else "decorado") == tipo]
+        angs = _repartir_arco(len(grupo), r, centro, span, sep, excluir)
+        for e, a in zip(grupo, angs):
+            rad = math.radians(a)
+            plan[e.id] = ("deck", round(r * math.sin(rad), 2), round(-r * math.cos(rad), 2))
+        # Lo que no cabe en su anillo → al agua (como el desbordamiento de antes)
+        agua += grupo[len(angs):]
 
     GA = math.pi * (3.0 - math.sqrt(5.0))  # ángulo áureo → reparto uniforme
     # Anillo cercano para narrativos: justo fuera del casco, pero SIEMPRE dentro del
@@ -423,7 +444,66 @@ _BAN_PLURALES = [
 ]
 
 
+# Caché de búsquedas por escena (se vacía en _reset_estado_poly): los decorados
+# repetidos (barril, árbol...) y el relleno de fondo repiten keywords. Solo se guardan
+# resultados positivos: un "sin resultados" puede ser un fallo de red pasajero.
+_poly_cache: dict = {}
+_POLY_PARALELO = 6   # búsquedas simultáneas como máximo (no saturar la API)
+
+
 def _buscar_polypizza(keyword: str, api_key: str, ban: list[str] | None = None) -> Optional[str]:
+    """Primera URL válida para la keyword (con caché). Ver _buscar_polypizza_api."""
+    clave = ("url", (keyword or "").strip().lower(), tuple(ban or ()))
+    if clave in _poly_cache:
+        return _poly_cache[clave]
+    url = _buscar_polypizza_api(keyword, api_key, ban)
+    if url:
+        _poly_cache[clave] = url
+    return url
+
+
+def _buscar_resultados_polypizza(keyword: str, api_key: str, limit: int = 5) -> list[dict]:
+    """Lista de resultados para la keyword (con caché). Ver _buscar_resultados_polypizza_api."""
+    clave = ("res", (keyword or "").strip().lower(), limit)
+    if clave in _poly_cache:
+        return _poly_cache[clave]
+    res = _buscar_resultados_polypizza_api(keyword, api_key, limit)
+    if res:
+        _poly_cache[clave] = res
+    return res
+
+
+def _buscar_cascada(keywords: list[str], api_key: str, modo: str, ban: list[str] | None = None):
+    """Prueba las keywords EN ORDEN (de específica a genérica) y para en la primera que
+    devuelve algo. modo='url' → primera URL válida (decorados, relleno);
+    modo='resultados' → lista de resultados para que el LLM elija (narrativos).
+    Devuelve (keyword_que_funcionó, resultado) o (None, None)."""
+    for kw in keywords:
+        if modo == "url":
+            r = _buscar_polypizza(kw, api_key, ban=ban)
+        else:
+            r = _buscar_resultados_polypizza(kw, api_key)
+        if r:
+            return kw, r
+    return None, None
+
+
+def _buscar_en_paralelo(tareas: dict, api_key: str) -> dict:
+    """tareas = {clave: (keywords, modo, ban)} → {clave: (kw, resultado)}.
+    Cada elemento hace su cascada de keywords; los ELEMENTOS van en paralelo (hasta
+    _POLY_PARALELO a la vez). Un ServicioModelosCaido en cualquier hilo se propaga."""
+    from concurrent.futures import ThreadPoolExecutor
+    if not tareas:
+        return {}
+    with ThreadPoolExecutor(max_workers=_POLY_PARALELO) as pool:
+        futuros = {
+            clave: pool.submit(_buscar_cascada, kws, api_key, modo, ban)
+            for clave, (kws, modo, ban) in tareas.items()
+        }
+        return {clave: f.result() for clave, f in futuros.items()}
+
+
+def _buscar_polypizza_api(keyword: str, api_key: str, ban: list[str] | None = None) -> Optional[str]:
     """
     Busca un modelo 3D en poly.pizza por keyword.
     Devuelve la URL del glTF (.glb) del primer resultado, o None si no se encuentra.
@@ -437,6 +517,8 @@ def _buscar_polypizza(keyword: str, api_key: str, ban: list[str] | None = None) 
     """
     if not api_key:
         logger.warning(f"[Constructor] polypizza_api_key no configurada. Saltando búsqueda para '{keyword}'")
+        return None
+    if not (keyword or "").strip():
         return None
 
     url     = f"https://api.poly.pizza/v1.1/search/{requests.utils.quote(keyword)}"
@@ -500,41 +582,12 @@ def _buscar_polypizza(keyword: str, api_key: str, ban: list[str] | None = None) 
     return None
 
 
-def _keyword_para_escena(entorno: str) -> str:
+def _buscar_resultados_polypizza_api(keyword: str, api_key: str, limit: int = 5) -> list[dict]:
     """
-    Extrae una keyword simple en inglés a partir de la descripción del entorno
-    para buscar en poly.pizza Category=10 (Scenes & Levels).
-    Mapeo basado en palabras clave comunes del entorno.
-    """
-    entorno_lower = entorno.lower()
-    mapeo = [
-        (["bosque", "forest", "árbol", "tree", "wood"],        "forest"),
-        (["cocina", "kitchen"],                                 "kitchen"),
-        (["cabaña", "cabin", "cottage"],                        "cottage"),
-        (["castillo", "castle", "fortaleza"],                   "castle"),
-        (["cueva", "cave", "caverna"],                          "cave"),
-        (["playa", "beach", "mar", "ocean", "sea"],             "beach"),
-        (["montaña", "mountain", "nieve", "snow"],              "mountain"),
-        (["ciudad", "city", "calle", "street", "town"],         "city"),
-        (["campo", "meadow", "prado", "granja", "farm"],        "meadow"),
-        (["mazmorra", "dungeon", "subterráneo"],                 "dungeon"),
-        (["mercado", "market", "pueblo", "village"],            "village"),
-        (["habitación", "bedroom", "room", "interior"],         "room"),
-        (["jardín", "garden", "parque", "park"],                "garden"),
-        (["lago", "pond", "estanque", "river", "río"],          "pond"),
-    ]
-    for palabras, keyword in mapeo:
-        if any(p in entorno_lower for p in palabras):
-            return keyword
-    return "landscape"  # fallback genérico
-
-
-def _buscar_resultados_polypizza(keyword: str, api_key: str, limit: int = 5) -> list[dict]:
-    """
-    Igual que _buscar_polypizza pero devuelve la lista completa de resultados
+    Igual que _buscar_polypizza_api pero devuelve la lista completa de resultados
     en lugar de solo la primera URL. Usada para selección inteligente por LLM.
     """
-    if not api_key:
+    if not api_key or not (keyword or "").strip():
         return []
 
     url     = f"https://api.poly.pizza/v1.1/search/{requests.utils.quote(keyword)}"
@@ -562,16 +615,21 @@ def _buscar_resultados_polypizza(keyword: str, api_key: str, limit: int = 5) -> 
     return []
 
 
-def _generar_keyword_inicial(
-    nombre: str,
-    descripcion: str,
-    tipo: str,
-    provider: str,
-) -> str:
+def _limpiar_keyword(texto: str) -> str:
+    """Primera línea de la respuesta del LLM, sin comillas ni puntuación, en minúsculas.
+    Puede devolver "" (el llamador decide el respaldo): una keyword vacía hacía buscar
+    `.../search/` y Poly Pizza respondía 404."""
+    import re as _re
+    linea = (texto or "").strip().splitlines()[0] if (texto or "").strip() else ""
+    return _re.sub(r"[^\w\s&'-]", "", linea).strip().strip("'").lower()[:40]
+
+
+def _generar_keyword(nombre: str, descripcion: str, tipo: str, provider: str) -> str:
     """
-    Genera la keyword inicial para buscar el modelo 3D en poly.pizza a partir de la
-    DESCRIPCIÓN física (qué ES el elemento), ignorando el nombre propio: un perro
-    llamado "Bip" debe buscar "dog", no "bip" (que devuelve cualquier cosa).
+    Keyword para buscar el modelo 3D en poly.pizza a partir de la DESCRIPCIÓN física
+    (qué ES el elemento), ignorando el nombre propio: un perro llamado "Bip" busca
+    "dog", no "bip". Una sola keyword genérica: pedir varias ordenadas disparaba los
+    tokens de razonamiento y la más específica solía traer modelos peores (medido).
     """
     prompt = (
         f"Pick a 1-2 word ENGLISH noun to find a low-poly 3D model on poly.pizza.\n"
@@ -585,27 +643,22 @@ def _generar_keyword_inicial(
         f"Reply with ONLY the keyword, nothing else."
     )
     try:
-        llm = get_llm(provider)
-        kw = llm.invoke(prompt).content.strip().strip('"').strip("'").lower()
-        logger.info(f"[Constructor/LLM] Keyword inicial para '{nombre}': '{kw}'")
-        return kw
+        kw = _limpiar_keyword(get_llm(provider).invoke(prompt).content)
+        if kw:
+            logger.info(f"[Constructor/LLM] Keyword para '{nombre}': '{kw}'")
+            return kw
+        logger.warning(f"[Constructor/LLM] Keyword vacía para '{nombre}' — uso el nombre.")
     except Exception as e:
         logger.warning(f"[Constructor/LLM] Error generando keyword para '{nombre}': {e}")
-        return nombre.lower().split()[0]
+    return _limpiar_keyword(nombre) or tipo
 
 
-def _refinar_keyword_modelo(
-    nombre: str,
-    tipo: str,
-    keywords_anteriores: list[str],
-    provider: str,
-) -> str:
+def _refinar_keyword(nombre: str, tipo: str, probadas: list[str], provider: str) -> str:
     """
-    Pide al LLM una keyword alternativa para poly.pizza cuando las anteriores
-    no devolvieron resultados. Sugiere sinónimos, categorías más amplias o
-    aproximaciones visuales simples.
+    Keyword alternativa cuando las anteriores no dieron resultados: sinónimo,
+    categoría más amplia o aproximación visual. Devuelve "" si no hay una nueva.
     """
-    historial = ", ".join(f'"{k}"' for k in keywords_anteriores)
+    historial = ", ".join(f'"{k}"' for k in probadas)
     prompt = (
         f"You are searching for a low-poly 3D model on poly.pizza for a scene element.\n"
         f"Element: \"{nombre}\" (type: {tipo})\n"
@@ -616,13 +669,13 @@ def _refinar_keyword_modelo(
         f"Reply with ONLY the keyword, nothing else."
     )
     try:
-        llm = get_llm(provider)
-        kw = llm.invoke(prompt).content.strip().strip('"').strip("'").lower()
-        logger.info(f"[Constructor/LLM] Keyword refinada para '{nombre}': '{kw}'")
-        return kw
+        kw = _limpiar_keyword(get_llm(provider).invoke(prompt).content)
+        if kw and kw not in {k.lower() for k in probadas}:
+            logger.info(f"[Constructor/LLM] Keyword refinada para '{nombre}': '{kw}'")
+            return kw
     except Exception as e:
         logger.warning(f"[Constructor/LLM] Error refinando keyword para '{nombre}': {e}")
-        return keywords_anteriores[-1]
+    return ""
 
 
 def _elegir_mejor_modelo(
@@ -675,42 +728,6 @@ def _elegir_mejor_modelo(
 
     # Fallback: primer resultado
     return resultados[0].get("Download")
-
-
-def _buscar_escena_base(entorno: str, api_key: str) -> tuple[Optional[str], Optional[str]]:
-    """
-    Busca un modelo 3D de escena completa en poly.pizza (Category=10 Scenes & Levels).
-    Devuelve (gltf_url, keyword_usada) o (None, None) si no se encuentra.
-    """
-    keyword = _keyword_para_escena(entorno)
-    url     = f"https://api.poly.pizza/v1.1/search/{requests.utils.quote(keyword)}"
-    headers = {"x-auth-token": api_key}
-    params  = {"Limit": 5, "Category": 10}
-
-    try:
-        resp = _POLY_SESSION.get(url, headers=headers, params=params, timeout=10)
-        if resp.status_code != 200:
-            logger.warning(f"[Constructor] escena base: error {resp.status_code} para '{keyword}'")
-            return None, None
-
-        results = resp.json().get("results", [])
-        if not results:
-            logger.warning(f"[Constructor] escena base: sin resultados para '{keyword}' (Category=10)")
-            return None, None
-
-        for model in results:
-            url_glb = model.get("Download")
-            if url_glb:
-                logger.info(
-                    f"[Constructor] escena base '{keyword}' → '{model.get('Title', '?')}' "
-                    f"({model.get('Licence', '?')}) — {url_glb}"
-                )
-                return url_glb, keyword
-
-    except requests.RequestException as e:
-        logger.warning(f"[Constructor] escena base: error de red — {e}")
-
-    return None, None
 
 
 # ---------------------------------------------------------------------------
@@ -1383,6 +1400,11 @@ def _poblar_ambiente(
         r_near_min = max(radio_cilindro * 0.30, player_limit + 1.0)
         r_near_max = max(r_near_min + 2.5, radio_cilindro * 0.55)
 
+    # Una búsqueda por keyword de la receta, todas en paralelo (el modelo se reutiliza
+    # en todas las instancias); el resultado queda en caché para el bucle de abajo.
+    _buscar_en_paralelo(
+        {i: ([it["keyword"]], "url", it.get("ban", [])) for i, it in enumerate(receta)}, api_key)
+
     for idx, item in enumerate(receta):
         keyword = item["keyword"]
         ancho   = float(item.get("ancho", 1.0))
@@ -1410,11 +1432,10 @@ def _poblar_ambiente(
 
         logger.info(f"[Constructor/Ambiente] '{keyword}' — buscando modelo ({n_far} far + {n_mid} mid + {n_near} near)...")
 
-        # Una sola búsqueda en poly.pizza; el modelo se reutiliza en todas las instancias
-        gltf_url = _buscar_polypizza(keyword, api_key, ban=ban)
+        gltf_url = _buscar_polypizza(keyword, api_key, ban=ban)   # ya en caché si existe
         if not gltf_url:
-            kw_ref = _refinar_keyword_modelo(keyword, "decorado", [keyword], provider)
-            gltf_url = _buscar_polypizza(kw_ref, api_key)
+            kw_ref = _refinar_keyword(keyword, "decorado", [keyword], provider)
+            gltf_url = _buscar_polypizza(kw_ref, api_key) if kw_ref else None
             if gltf_url:
                 keyword = kw_ref
 
@@ -1450,7 +1471,6 @@ def _poblar_ambiente(
                     keyword_busqueda=keyword,
                 ))
 
-        time.sleep(0.3)
 
     logger.info(
         f"[Constructor] Ambiente '{tipo_ambiente}': {len(nodos)} nodos generados "
@@ -1809,22 +1829,22 @@ def ejecutar_constructor(
             capa=0,
         ))
 
-    # Barco: variante (→ radio de cubierta) + clasificación cubierta/agua de cada
-    # elemento (LLM, fallback heurístico) + plan de posiciones (rejilla en cubierta,
-    # anillos en el agua). Se hace ANTES del bucle para tener las posiciones listas.
+    # Barco: variante (→ radio de cubierta) + cubierta/agua de cada elemento (fila del
+    # Director para decorados, heurística para narrativos) + plan de posiciones (anillos
+    # en cubierta y en el agua). Se hace ANTES del bucle para tener las posiciones listas.
     variante_barco = radio_cubierta_barco = plan_barco = None
     if tipo_ambiente == "barco":
         variante_barco = _elegir_variante_barco(salida_director.id_escena)
         radio_cubierta_barco = RADIO_CUBIERTA_BARCO[variante_barco]
-        _zonas_barco = _clasificar_zona_barco(
-            salida_director.elementos, entorno, atmosfera, provider
-        )
+        _zonas = _zonas_barco(salida_director.elementos)
         plan_barco = _planificar_barco(
-            salida_director.elementos, _zonas_barco, radio_cubierta_barco, player_limit
+            salida_director.elementos, _zonas, radio_cubierta_barco, player_limit,
+            popa=(variante_barco == "galeon"),
         )
 
-    # Elementos 3D
+    # Elementos 3D: posición y tamaño (en orden), luego modelos (búsquedas en paralelo)
     total = len(salida_director.elementos)
+    preparados: list[dict] = []
     for i, elem in enumerate(salida_director.elementos, 1):
         # Tamaño canónico por skin_id: el mismo personaje/objeto debe medir igual en
         # todas las escenas. El Director redimensiona por escena sin memoria (puede dar
@@ -1851,18 +1871,17 @@ def ejecutar_constructor(
                 ancho_final, alto_final = round(ancho_final * _f, 2), round(alto_final * _f, 2)
 
         if tipo_ambiente == "barco" and plan_barco is not None:
-            # Barco: posición del plan (cubierta = rejilla rect dentro de la borda;
+            # Barco: posición del plan (cubierta = anillos por tipo dentro de la borda;
             # agua = anillos alrededor del casco). Ignora la rejilla cilíndrica del
             # Director, que dejaba a los narrativos pegados a la borda.
             _p = plan_barco.get(elem.id)
             if _p and _p[0] == "deck":
-                # Radio efectivo < cubierta para que ni las celdas de borde toquen la borda.
-                posicion = _grid_rect_a_posicion(
-                    _p[1], _p[2], alto_final, radio_cubierta_barco * 0.82,
-                )
                 _seed = zlib.crc32(elem.id.encode())
-                posicion.x = round(posicion.x + ((_seed & 0xffff) / 0xffff - 0.5) * 0.3, 2)
-                posicion.z = round(posicion.z + (((_seed >> 16) & 0xffff) / 0xffff - 0.5) * 0.3, 2)
+                posicion = Vector3(
+                    x=round(_p[1] + ((_seed & 0xffff) / 0xffff - 0.5) * 0.2, 2),
+                    y=round(alto_final / 2, 2),
+                    z=round(_p[2] + (((_seed >> 16) & 0xffff) / 0xffff - 0.5) * 0.2, 2),
+                )
                 capa = 5
             else:
                 # Agua: y=0 (el viewer NO eleva lo que está fuera del radio de cubierta).
@@ -1904,163 +1923,103 @@ def ejecutar_constructor(
         #     ("watermelon", "pear") — el mejor término de búsqueda, evita que el LLM generalice a
         #     "fruit" y acabe eligiendo una naranja. Sin coste de LLM.
         #  2) Keyword fija del Director (mobiliario del filler: "dining set", "bookshelf"...).
-        #  3) Derivada con el LLM desde nombre/descripción.
-        keyword = keywords_objetivo.get(elem.id) \
-            or getattr(elem, "keyword_busqueda", None) \
-            or _generar_keyword_inicial(elem.nombre, elem.descripcion, elem.tipo, provider)
+        #  3) Derivadas con el LLM desde nombre/descripción (3, de específica a genérica).
+        _fija = keywords_objetivo.get(elem.id) or getattr(elem, "keyword_busqueda", None)
 
-        gltf_url = None
-        skin: Optional[SkinPersonaje] = None
+        item = {"elem": elem, "posicion": posicion, "ancho": ancho_final, "alto": alto_final,
+                "capa": capa, "gltf_url": None, "skin": None, "keyword": _fija,
+                "keywords": [_fija] if _fija else None, "modo": None}
+        preparados.append(item)
 
-        # ── PERSONAJES ───────────────────────────────────────────────────────
-        if elem.tipo == "personaje":
-            sid = elem.skin_id
-            escena_actual = salida_director.id_escena
-            humanoide = _es_humanoide(elem.nombre, keyword, elem.descripcion or "", provider)
+        # Reutilizar el modelo de una escena anterior si el elemento mantiene su skin_id
+        sid = elem.skin_id
+        if (elem.tipo in ("personaje", "objeto") and not _ablar_reuso and sid
+                and sid != salida_director.id_escena and sid in scene_graphs_previos):
+            nodo_previo = next((n for n in scene_graphs_previos[sid].nodos if n.id == elem.id), None)
+            if nodo_previo and nodo_previo.gltf_url:
+                item["gltf_url"] = nodo_previo.gltf_url
 
-            if humanoide:
-                # ── Humano/humanoide → catálogo Quaternius con animaciones ──
-                if not _ablar_reuso and sid and sid != escena_actual and elem.id in registro_personajes:
-                    skin = registro_personajes[elem.id]
-                    logger.info(
-                        f"[Constructor] '{elem.id}': skin copiada de escena '{sid}' "
-                        f"→ [{skin.glb_id}] skin={skin.skin_tone} hair={skin.hair_color}"
-                    )
-                else:
-                    logger.info(
-                        f"[Constructor] [{i}/{total}] '{elem.id}' (personaje humanoide) "
-                        f"— eligiendo del catálogo Quaternius..."
-                    )
-                    skin = _elegir_skin_personaje(elem, atmosfera, provider)
-                gltf_url = skin.glb_path
-                registro_escena[elem.id] = skin
-
-            else:
-                # ── Animal/criatura/objeto → poly.pizza, sin animaciones ──
+        # ── PERSONAJES humanoides → catálogo Quaternius (sin búsqueda ni keyword) ──
+        if elem.tipo == "personaje" and _es_humanoide(elem.nombre, _fija or "", elem.descripcion or "", provider):
+            if not _ablar_reuso and sid and sid != salida_director.id_escena and elem.id in registro_personajes:
+                skin = registro_personajes[elem.id]
                 logger.info(
-                    f"[Constructor] [{i}/{total}] '{elem.id}' (personaje no-humano: '{elem.nombre}') "
-                    f"— buscando '{keyword}' en poly.pizza..."
+                    f"[Constructor] '{elem.id}': skin copiada de escena '{sid}' "
+                    f"→ [{skin.glb_id}] skin={skin.skin_tone} hair={skin.hair_color}"
                 )
-                # Reutilizar de escena anterior si tiene skin_id
-                if not _ablar_reuso and sid and sid != escena_actual and sid in scene_graphs_previos:
-                    nodo_previo = next(
-                        (n for n in scene_graphs_previos[sid].nodos if n.id == elem.id),
-                        None,
-                    )
-                    if nodo_previo and nodo_previo.gltf_url:
-                        gltf_url = nodo_previo.gltf_url
-                        logger.info(f"[Constructor] '{elem.id}': modelo reutilizado de '{sid}'")
+            else:
+                logger.info(f"[Constructor] [{i}/{total}] '{elem.id}' (humanoide) — catálogo Quaternius...")
+                skin = _elegir_skin_personaje(elem, atmosfera, provider)
+            item["skin"], item["gltf_url"], item["keyword"] = skin, skin.glb_path, None
+            registro_escena[elem.id] = skin
+            continue
 
-                keywords_usadas = [keyword]
-                for intento in range(3) if not gltf_url else []:
-                    if intento > 0:
-                        keyword = _refinar_keyword_modelo(
-                            elem.nombre, elem.tipo, keywords_usadas, provider
-                        )
-                        keywords_usadas.append(keyword)
-                    resultados = _buscar_resultados_polypizza(keyword, api_key)
-                    gltf_url = _elegir_mejor_modelo(
-                        nombre=elem.nombre, tipo="objeto",
-                        resultados=resultados, provider=provider,
-                    )
-                    if gltf_url:
-                        break
+        if item["gltf_url"]:
+            logger.info(f"[Constructor] '{elem.id}': modelo reutilizado de '{sid}'")
+            continue
 
-                if not gltf_url:
-                    logger.warning(
-                        f"[Constructor] '{elem.id}': sin modelo en poly.pizza. "
-                        f"Sandbox usará fallback de color."
-                    )
+        # ── Resto → Poly Pizza. Narrativos (personaje no humano, objeto): el LLM elige
+        #    entre los resultados; decorados: primer resultado válido. ──
+        item["modo"] = "url" if elem.tipo == "decorado" else "resultados"
+        if not item["keywords"]:
+            item["keywords"] = [_generar_keyword(elem.nombre, elem.descripcion, elem.tipo, provider)]
+        item["keyword"] = item["keywords"][0]
 
-        # ── OBJETOS Y DECORADOS → poly.pizza ────────────────────────────────
-        else:
-            logger.info(
-                f"[Constructor] [{i}/{total}] '{elem.id}' ({elem.tipo}) "
-                f"— buscando '{keyword}' en poly.pizza..."
+    # ── Búsquedas en Poly Pizza: una keyword por elemento y los elementos EN PARALELO.
+    #    Los que no encuentran nada piden al LLM una keyword alternativa y se vuelve a
+    #    buscar (también en paralelo); como mucho 2 rondas de refinado. ──
+    pendientes = {k: it for k, it in enumerate(preparados) if it["modo"]}
+    encontrados_r = _buscar_en_paralelo(
+        {k: (it["keywords"], it["modo"], None) for k, it in pendientes.items()}, api_key)
+    for _ronda in range(2):
+        fallidos = [k for k, (kw, r) in encontrados_r.items() if not r]
+        nuevas = {}
+        for k in fallidos:
+            it = pendientes[k]
+            kw = _refinar_keyword(it["elem"].nombre, it["elem"].tipo, it["keywords"], provider)
+            if kw:
+                it["keywords"].append(kw)
+                nuevas[k] = ([kw], it["modo"], None)
+        if not nuevas:
+            break
+        encontrados_r.update(_buscar_en_paralelo(nuevas, api_key))
+
+    for k, it in pendientes.items():
+        kw_ok, r = encontrados_r.get(k, (None, None))
+        elem = it["elem"]
+        if r:
+            it["keyword"] = kw_ok
+            it["gltf_url"] = (_elegir_mejor_modelo(nombre=elem.nombre, tipo=elem.tipo,
+                                                   resultados=r, provider=provider)
+                              if it["modo"] == "resultados" else r)
+        if not it["gltf_url"]:
+            kws = " → ".join(f"'{x}'" for x in it["keywords"])
+            logger.warning(
+                f"[Constructor] '{elem.id}' ('{elem.nombre}'): sin modelo. Keywords probadas: "
+                f"{kws}. Sandbox usará fallback de color."
             )
 
-            # Reutilizar modelo de escena anterior si el elemento mantiene la misma skin
-            if elem.tipo == "objeto":
-                sid = elem.skin_id
-                if sid and sid != salida_director.id_escena and sid in scene_graphs_previos:
-                    nodo_previo = next(
-                        (n for n in scene_graphs_previos[sid].nodos if n.id == elem.id),
-                        None,
-                    )
-                    if nodo_previo and nodo_previo.gltf_url:
-                        gltf_url = nodo_previo.gltf_url
-                        logger.info(
-                            f"[Constructor] '{elem.id}': modelo objeto reutilizado de '{sid}'"
-                        )
-
-            keywords_usadas = [keyword]
-
-            for intento in range(3) if not gltf_url else []:
-                if intento > 0:
-                    keyword = _refinar_keyword_modelo(
-                        elem.nombre, elem.tipo, keywords_usadas, provider
-                    )
-                    keywords_usadas.append(keyword)
-                    logger.info(
-                        f"[Constructor] [{i}/{total}] '{elem.id}' reintento {intento}/2 "
-                        f"— keyword refinada: '{keyword}'"
-                    )
-
-                if elem.tipo == "objeto":
-                    resultados = _buscar_resultados_polypizza(keyword, api_key)
-                    if resultados:
-                        logger.debug(
-                            f"[Constructor] '{elem.id}': opciones → "
-                            f"{[r.get('Title','?') for r in resultados]}"
-                        )
-                    gltf_url = _elegir_mejor_modelo(
-                        nombre=elem.nombre, tipo=elem.tipo,
-                        resultados=resultados, provider=provider,
-                    )
-                else:
-                    gltf_url = _buscar_polypizza(keyword, api_key)
-
-                if gltf_url:
-                    break
-
-            if not gltf_url:
-                kws = " → ".join(f"'{k}'" for k in keywords_usadas)
-                logger.warning(
-                    f"[Constructor] '{elem.id}' ('{elem.nombre}'): sin modelo tras "
-                    f"{len(keywords_usadas)} intentos. Keywords probadas: {kws}. "
-                    f"Sandbox usará fallback de color."
-                )
-
-        nodo = NodoEscena(
+    # ── Nodos, en el orden del Director ──
+    for it in preparados:
+        elem = it["elem"]
+        nodos.append(NodoEscena(
             id=elem.id,
             nombre=elem.nombre,
             tipo=elem.tipo,
             origen=elem.origen,
-            posicion=posicion,
-            ancho=ancho_final,
-            alto=alto_final,
-            capa=capa,
-            gltf_url=gltf_url,
-            # Personajes humanos usan catálogo Quaternius — no tiene keyword de búsqueda.
-            # Personajes no-humanos y el resto van por poly.pizza — guardamos la keyword.
-            keyword_busqueda=keyword if (elem.tipo != "personaje" or not skin) else None,
-        )
-        nodos.append(nodo)
-
-        # (El mobiliario colectivo —varios pupitres/mesas/estanterías— lo emite el DIRECTOR
-        # como elementos numerados (pupitre_01, _02...); el Constructor no clona nada.)
-
+            posicion=it["posicion"],
+            ancho=it["ancho"],
+            alto=it["alto"],
+            capa=it["capa"],
+            gltf_url=it["gltf_url"],
+            # Personajes humanos (catálogo Quaternius) no tienen keyword de búsqueda.
+            keyword_busqueda=it["keyword"],
+        ))
         logger.debug(
             f"[Constructor] {elem.id:35} ({elem.tipo:10}) "
-            f"grid({elem.posicion_grid.columna},{elem.posicion_grid.fila}) "
-            f"→ ({posicion.x:+.2f}, {posicion.y:.2f}, {posicion.z:+.2f}) "
-            f"{ancho_final:.1f}×{alto_final:.1f} "
-            f"{'✓ ' + (gltf_url[:40] + '...') if gltf_url else '✗ sin modelo'}"
+            f"→ ({it['posicion'].x:+.2f}, {it['posicion'].y:.2f}, {it['posicion'].z:+.2f}) "
+            f"{'✓ ' + it['gltf_url'][:40] if it['gltf_url'] else '✗ sin modelo'}"
         )
-
-        # Pequeña pausa para no sobrecargar la API
-        if i < total:
-            time.sleep(0.3)
 
     # Cielo + niebla — se computan ANTES del relleno ambiental para que los anillos
     # de fondo se coloquen coordinados con la rampa de niebla (ver _poblar_ambiente).

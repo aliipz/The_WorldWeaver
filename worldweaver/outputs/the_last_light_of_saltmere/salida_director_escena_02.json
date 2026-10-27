@@ -1,0 +1,170 @@
+{
+  "id_escena": "escena_02",
+  "elementos": [
+    {
+      "id": "personaje_mara",
+      "nombre": "Mara",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 1.0,
+      "alto": 1.8,
+      "descripcion": "Young woman in her twenties with a red bandana, weathered coat and high boots.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_agnes",
+      "nombre": "Agnes",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_02",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 0.9,
+      "alto": 1.7,
+      "descripcion": "Elderly woman in a long dark coat, grey hair and weather-lined face.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_biscuit",
+      "nombre": "Biscuit",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 0.45,
+      "alto": 0.35,
+      "descripcion": "Small pug with wrinkled face, curly tail and glossy brown coat.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_lanterna",
+      "nombre": "Lantern",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_02",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 6
+      },
+      "ancho": 0.25,
+      "alto": 0.4,
+      "descripcion": "An unlit lantern given by Agnes; when lit with the hearth fire it glows soft blue and guides the way underwater.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_palm_tree_01",
+      "nombre": "Wind-blown palm tree",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 0
+      },
+      "ancho": 3.0,
+      "alto": 10.0,
+      "descripcion": "A tall, leaning palm with rough grey-brown trunk and a crown of dry, drooping fronds that rustle in the breeze.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_palm_tree_02",
+      "nombre": "Young palm tree",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 0
+      },
+      "ancho": 1.8,
+      "alto": 4.0,
+      "descripcion": "A smaller, younger palm with smooth green-tinted trunk and a few fresh, arching fronds catching the starlight.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_rowboat_01",
+      "nombre": "Overturned rowboat",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 2.5,
+      "alto": 0.9,
+      "descripcion": "An old wooden rowboat resting upside down on the beach, its dark blue paint peeling and its hull scarred by salt and time.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_fishing_net_01",
+      "nombre": "Torn fishing net",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 1
+      },
+      "ancho": 2.0,
+      "alto": 0.5,
+      "descripcion": "An old, coarse net with frayed ropes and a large tear, draped loosely over a low cluster of dark rocks.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_mooring_post_01",
+      "nombre": "Weathered mooring post",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 2
+      },
+      "ancho": 0.5,
+      "alto": 1.8,
+      "descripcion": "A stout wooden post driven into the sand, its surface grey and cracked, with a coil of thick, frayed rope tied around its base.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_driftwood_01",
+      "nombre": "Bleached driftwood log",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 3
+      },
+      "ancho": 3.0,
+      "alto": 0.7,
+      "descripcion": "A long, weather-worn log with pale, silvery bark and smooth, water-polished ends, half-buried in the sand.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_seashells_01",
+      "nombre": "Moonlit seashell scatter",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 3
+      },
+      "ancho": 0.8,
+      "alto": 0.2,
+      "descripcion": "A scattered cluster of small shells, broken coral pieces, and smooth pebbles glinting softly under the starry sky.",
+      "keyword_busqueda": null
+    }
+  ]
+}

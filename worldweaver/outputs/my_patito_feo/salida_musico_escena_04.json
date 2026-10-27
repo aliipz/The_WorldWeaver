@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_04",
+  "query_usada": "lake water ripple ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/846/846578_1648170-hq.mp3",
+    "titulo": "lake Zandmeren Hoenzadriel Gelderland Netherlands 1127 am 260225_0078",
+    "autor": "klankbeeld",
+    "duracion_segundos": 120.0,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/846/846492_1648170-hq.mp3",
+    "titulo": "lake Zandmeren Hoenzadriel Gelderland Netherlands 1137 am 260225_0078",
+    "autor": "klankbeeld",
+    "duracion_segundos": 89.0,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

@@ -1,0 +1,274 @@
+{
+  "id_escena": "escena_02",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "espacio",
+  "radio_escena": 22.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_02",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_neil_armstrong",
+      "nombre": "Neil Armstrong",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.76,
+        "y": 0.93,
+        "z": -0.38
+      },
+      "ancho": 1.0,
+      "alto": 1.85,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Doctor_Male_Young.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_buzz_aldrin",
+      "nombre": "Buzz Aldrin",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.75,
+        "y": 0.9,
+        "z": -0.65
+      },
+      "ancho": 0.9,
+      "alto": 1.8,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Doctor_Male_Young.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_sextante_espacial",
+      "nombre": "Sextante espacial",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.11,
+        "y": 0.1,
+        "z": -0.99
+      },
+      "ancho": 0.3,
+      "alto": 0.2,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/70f0867c-4b60-43d1-87de-826731012ffc.glb",
+      "keyword_busqueda": "sextant"
+    },
+    {
+      "id": "personaje_michael_collins",
+      "nombre": "Michael Collins",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.74,
+        "y": 0.9,
+        "z": -1.86
+      },
+      "ancho": 0.85,
+      "alto": 1.8,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Suit_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_modulo_mando_columbia",
+      "nombre": "Módulo de Mando Columbia",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -2.04,
+        "y": 0.85,
+        "z": -0.71
+      },
+      "ancho": 2.3,
+      "alto": 1.7,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b7333339-3024-4312-9111-070ace6e6ead.glb",
+      "keyword_busqueda": "space capsule"
+    },
+    {
+      "id": "objeto_modulo_lunar_eagle",
+      "nombre": "Módulo Lunar Eagle",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.98,
+        "y": 1.5,
+        "z": 0.87
+      },
+      "ancho": 4.0,
+      "alto": 3.0,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5379a0b6-95ee-40c8-8468-ce23bde03e68.glb",
+      "keyword_busqueda": "moon lander"
+    },
+    {
+      "id": "decorado_antenna_sband_01",
+      "nombre": "Antena parabólica S‑band",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.31,
+        "y": 0.75,
+        "z": -3.49
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/c3519412-2dc7-424b-96dc-8a8dc9cd0c25.glb",
+      "keyword_busqueda": "satellite dish"
+    },
+    {
+      "id": "decorado_camara_navegacion_01",
+      "nombre": "Cámara de navegación exterior",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.91,
+        "y": 0.25,
+        "z": -8.95
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5816c144-82dc-4e1b-a0d9-7f3609d6887c.glb",
+      "keyword_busqueda": "camera"
+    },
+    {
+      "id": "decorado_panel_isolante_termico_01",
+      "nombre": "Panel de aislamiento térmico",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -12.23,
+        "y": 0.1,
+        "z": 6.82
+      },
+      "ancho": 2.5,
+      "alto": 0.2,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7a7d151e-b40a-4f5f-9372-7d5c9fb18072.glb",
+      "keyword_busqueda": "thermal panel"
+    },
+    {
+      "id": "decorado_residuo_debris_01",
+      "nombre": "Fragmento de micro‑escombros metálico",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 16.15,
+        "y": 0.1,
+        "z": 11.81
+      },
+      "ancho": 0.4,
+      "alto": 0.2,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/005a46a8-7f5b-4313-bf5a-96dc3f97efa3.glb",
+      "keyword_busqueda": "metal shard"
+    }
+  ],
+  "cielo": {
+    "tipo": "noche_estrellada",
+    "color_fondo": "#060614",
+    "color_ambiente": "#334064",
+    "intensidad_ambiente": 0.44615601065215343,
+    "color_sol": "#d3e5ff",
+    "intensidad_sol": 0.39476588671367635,
+    "pos_sol": {
+      "x": -1.5672966796277095,
+      "y": 3.2230926205956782,
+      "z": -2.948629618762787
+    },
+    "niebla": {
+      "color": "#050513",
+      "near": 9.104755688481935,
+      "far": 13.0
+    }
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_neil_armstrong": {
+      "glb_id": "Doctor_Male_Young",
+      "glb_path": "/sandbox/assets/characters/Doctor_Male_Young.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 5650,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_buzz_aldrin": {
+      "glb_id": "Doctor_Male_Young",
+      "glb_path": "/sandbox/assets/characters/Doctor_Male_Young.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 6058,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_michael_collins": {
+      "glb_id": "Suit_Male",
+      "glb_path": "/sandbox/assets/characters/Suit_Male.gltf",
+      "skin_tone": "muy_claro",
+      "skin_hex": "#FFCBA4",
+      "hair_color": "castano_claro",
+      "clothing_seed": 1861,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Idle"
+    }
+  }
+}

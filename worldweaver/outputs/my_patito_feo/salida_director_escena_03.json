@@ -1,0 +1,173 @@
+{
+  "id_escena": "escena_03",
+  "elementos": [
+    {
+      "id": "personaje_patito_feo",
+      "nombre": "Patito feo",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 1.6,
+      "alto": 1.8,
+      "descripcion": "Patito de plumaje gris apagado, tamaño grande, pico corto y ojos tristes."
+    },
+    {
+      "id": "personaje_gato_grunon",
+      "nombre": "Gato gruñón",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 3
+      },
+      "ancho": 1.0,
+      "alto": 0.6,
+      "descripcion": "Gato de pelaje gris oscuro, ojos verdes, orejas erizadas."
+    },
+    {
+      "id": "objeto_cuenco_leche",
+      "nombre": "cuenco de leche",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 2
+      },
+      "ancho": 0.25,
+      "alto": 0.2,
+      "descripcion": "Cuenco de cerámica blanco, medio lleno de leche fresca, colocado en el suelo de la cabaña."
+    },
+    {
+      "id": "objeto_alfombra_vieja",
+      "nombre": "alfombra vieja",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "descripcion": "Alfombra de tela gastada y decolorada, extendida en una esquina de la cabaña."
+    },
+    {
+      "id": "decorado_mesa_01",
+      "nombre": "mesa de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 3
+      },
+      "ancho": 1.2,
+      "alto": 0.8,
+      "descripcion": "Mesa robusta de roble con superficie gastada y manchas de cera, bordes redondeados y patas gruesas."
+    },
+    {
+      "id": "decorado_silla_01",
+      "nombre": "silla de tronco tallado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 2
+      },
+      "ancho": 0.5,
+      "alto": 0.9,
+      "descripcion": "Silla tallada en tronco de pino, respaldo curvo y patina gris que muestra el paso del tiempo."
+    },
+    {
+      "id": "decorado_silla_02",
+      "nombre": "silla de tronco tallado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 0.9,
+      "descripcion": "Segunda silla idéntica, con asiento de tablón y apoyabrazos rústicos."
+    },
+    {
+      "id": "decorado_banco_01",
+      "nombre": "banco de madera contra la pared",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 3
+      },
+      "ancho": 1.0,
+      "alto": 0.6,
+      "descripcion": "Banco bajo de madera de pino, asientos de tablón liso y respaldo ligeramente inclinado."
+    },
+    {
+      "id": "decorado_estanteria_01",
+      "nombre": "estantería de leña",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 1.2,
+      "alto": 1.8,
+      "descripcion": "Estantería rústica de vigas de madera oscura, sostiene varios troncos apilados list fuego."
+    },
+    {
+      "id": "decorado_farol_01",
+      "nombre": "farol de hierro colgado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 0
+      },
+      "ancho": 0.4,
+      "alto": 1.2,
+      "descripcion": "Farol de hierro forjado con vidrio ahumado, cuelga sobre la chimenea y emite una luz cálida."
+    },
+    {
+      "id": "decorado_cesto_01",
+      "nombre": "cesto de mimbre con ropa",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 0.7,
+      "alto": 0.6,
+      "descripcion": "Cesto tejido de mimbre, lleno de mantas de lana y guantes de colores neutros."
+    },
+    {
+      "id": "decorado_cofre_01",
+      "nombre": "cofre de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "descripcion": "Cofre de roble macizo con bisagras oxidadas y cerradura de hierro, tapa ligeramente gastada."
+    }
+  ]
+}

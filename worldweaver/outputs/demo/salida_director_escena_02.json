@@ -1,0 +1,145 @@
+{
+  "id_escena": "escena_02",
+  "elementos": [
+    {
+      "id": "personaje_neil_armstrong",
+      "nombre": "Neil Armstrong",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Hombre de 38 años, complexión atlética, traje espacial blanco con insignia de la NASA, casco reflectante, mirada concentrada"
+    },
+    {
+      "id": "personaje_buzz_aldrin",
+      "nombre": "Buzz Aldrin",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 0.95,
+      "alto": 1.85,
+      "descripcion": "Hombre de 39 años, estatura media, traje espacial blanco, casco con visor dorado, sonrisa ligera"
+    },
+    {
+      "id": "objeto_sextante_espacial",
+      "nombre": "Sextante espacial",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 6
+      },
+      "ancho": 0.3,
+      "alto": 0.2,
+      "descripcion": "Instrumento de navegación que permite orientarse mediante estrellas de fondo y corregir la trayectoria de la nave"
+    },
+    {
+      "id": "personaje_michael_collins",
+      "nombre": "Michael Collins",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 0.9,
+      "alto": 1.8,
+      "descripcion": "Hombre de 38 años, complexión delgada, traje espacial blanco, casco con visor gris, expresión serena"
+    },
+    {
+      "id": "objeto_modulo_mando_columbia",
+      "nombre": "Módulo de Mando Columbia",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 5
+      },
+      "ancho": 3.5,
+      "alto": 3.0,
+      "descripcion": "Cápsula de comando de la misión Apollo 11, diseñada para el viaje de ida y vuelta entre la Tierra y la Luna"
+    },
+    {
+      "id": "objeto_modulo_lunar_eagle",
+      "nombre": "Módulo Lunar Eagle",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_02",
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 4.0,
+      "alto": 3.0,
+      "descripcion": "Módulo de alunizaje de la misión Apollo 11, usado para descender y ascender desde la superficie lunar"
+    },
+    {
+      "id": "decorado_antenna_sband_01",
+      "nombre": "Antena parabólica S‑band",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "descripcion": "Antena parabólica de comunicación S‑band, estructura metálica gris con superficie reflectante y soporte extendido hacia el vacío."
+    },
+    {
+      "id": "decorado_camara_navegacion_01",
+      "nombre": "Cámara de navegación exterior",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "descripcion": "Cámara de navegación de alta resolución, cuerpo de titanio negro con lente de vidrio reforzado, fijada en el costado del módulo de mando."
+    },
+    {
+      "id": "decorado_panel_isolante_termico_01",
+      "nombre": "Panel de aislamiento térmico",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 1
+      },
+      "ancho": 2.5,
+      "alto": 0.2,
+      "descripcion": "Panel de aislamiento térmico de fibra de vidrio, cubierto de una capa plateada de Mylar, rígido y ligeramente ondulado."
+    },
+    {
+      "id": "decorado_residuo_debris_01",
+      "nombre": "Fragmento de micro‑escombros metálico",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 7,
+        "fila": 0
+      },
+      "ancho": 0.4,
+      "alto": 0.2,
+      "descripcion": "Fragmento de micro‑escombros metálico, forma irregular, superficie oxidada y bordes afilados, flotando cerca del módulo Lunar Eagle."
+    }
+  ]
+}

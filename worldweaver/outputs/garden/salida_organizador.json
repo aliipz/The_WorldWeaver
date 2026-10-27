@@ -1,0 +1,80 @@
+{
+  "titulo_historia": "Jungle Mischief",
+  "escenas": [
+    {
+      "id": "escena_01",
+      "titulo": "The Monkey's Prank",
+      "entorno": "Dense tropical jungle with towering ferns, thick vines draping ancient trunks, broad-leafed trees forming a high canopy, scattered mushroom clusters on the damp forest floor, and shafts of bright sunlight piercing through the foliage.",
+      "atmosfera": "Playful yet slightly frantic, midday heat, a mix of curiosity and annoyance as the explorer is teased.",
+      "cielo": "mediodia_soleado",
+      "tipo_ambiente": "selva",
+      "tiene_intro": true,
+      "texto_intro": "The explorer had ventured deep into the verdant jungle, surrounded by a chorus of chirping insects and the scent of moist earth. Sunlight filtered through the dense canopy, casting dappled patterns on the ground. Amidst the towering ferns, a mischievous monkey observed the newcomer with gleaming eyes.",
+      "texto_fin": "The explorer finally reclaimed his hat, though the jungle's laughter lingered in his mind. He walked onward, more wary of playful primates, yet grateful for the wild's vivid reminder of nature's caprice.",
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_narrador",
+          "nombre": "Explorer",
+          "fisica": "Adult male, weathered skin, tan shirt, cargo pants, wide-brimmed explorer's hat.",
+          "background": "Curious and adventurous, seeks new discoveries, easily amused but proud of his gear.",
+          "rol": "protagonista",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_monkey",
+          "nombre": "Silly Monkey",
+          "fisica": "Small brown monkey with bright eyes, agile limbs, no clothing.",
+          "background": "Mischievous and playful, enjoys teasing larger creatures, seeks attention.",
+          "rol": "antagonista",
+          "skin_id": null
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_explorers_hat",
+          "nombre": "Explorer's Hat",
+          "descripcion": "Wide-brimmed leather hat worn by the explorer, sturdy and weathered.",
+          "skin_id": null,
+          "nombre_objetivo": null,
+          "frase_ejemplo": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_monkey teases personaje_narrador, laughing and making fun of him.",
+          "personajes_involucrados": [
+            "personaje_monkey",
+            "personaje_narrador"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_monkey grabs and removes objeto_explorers_hat from personaje_narrador's head.",
+          "personajes_involucrados": [
+            "personaje_monkey",
+            "personaje_narrador"
+          ],
+          "objetos_involucrados": [
+            "objeto_explorers_hat"
+          ]
+        },
+        {
+          "descripcion": "personaje_narrador runs after the hat, attempting to retrieve it.",
+          "personajes_involucrados": [
+            "personaje_narrador"
+          ],
+          "objetos_involucrados": [
+            "objeto_explorers_hat"
+          ]
+        }
+      ]
+    }
+  ],
+  "vocabulario": [],
+  "personajes_globales": [],
+  "objetos_globales": [],
+  "subtipo_educativo": null,
+  "tipo_vocabulario": null,
+  "idioma_objetivo": null
+}

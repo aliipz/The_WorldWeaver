@@ -820,7 +820,7 @@ const _COLOR_SUELO = {
 // viejo), sino una paleta propia por tipo de cielo. pared/techo/suelo/zocalo/puerta.
 const _PALETA_INTERIOR = {
     interior_calido:   { pared: 0xc2a079, techo: 0x8a6a4a, suelo: 0x8a6038, zocalo: 0x5a4430, puerta: 0x4a3320 },
-    interior_luminoso: { pared: 0xd6dbe1, techo: 0xe4e8ec, suelo: 0xc2b08e, zocalo: 0xb6bcc2, puerta: 0x9a7f5e },
+    interior_luminoso: { pared: 0xd6dbe1, techo: 0xe4e8ec, suelo: 0x8f744a, zocalo: 0xb6bcc2, puerta: 0x9a7f5e },
     interior_frio:     { pared: 0x70757d, techo: 0x565a61, suelo: 0x4c5057, zocalo: 0x383c42, puerta: 0x2e3238 },
 };
 function _paletaInterior(cieloTipo) {
@@ -890,10 +890,11 @@ function _texturaCieloVentana(hexArriba, hexAbajo) {
 
 // Construye una ventana creíble (mira hacia +Z en local): cristal con cielo + marco de
 // 4 barras + cruz de montantes (4 cuadrantes) + alféizar. Se coloca y rota por pared.
-function _crearVentana(wW, wH, esLuminoso, colorMarco) {
+function _crearVentana(wW, wH, luz, colorMarco) {
     const g = new THREE.Group();
-    const arriba = esLuminoso ? '#bfe4ff' : '#ffcf86';
-    const abajo  = esLuminoso ? '#eaf6ff' : '#ffe7c2';
+    // Tono del cristal según la luz exterior de la historia (día / tarde / noche).
+    const _G = { dia: ['#bfe4ff', '#eaf6ff'], tarde: ['#ffcf86', '#ffe7c2'], noche: ['#10183a', '#22305e'] };
+    const [arriba, abajo] = _G[luz] || _G.dia;
     const matGlass = new THREE.MeshBasicMaterial({ map: _texturaCieloVentana(arriba, abajo), fog: false });
     const matMarco = new THREE.MeshLambertMaterial({ color: colorMarco, side: THREE.DoubleSide, fog: false });
     g.add(new THREE.Mesh(new THREE.PlaneGeometry(wW, wH), matGlass));   // cristal
@@ -908,6 +909,24 @@ function _crearVentana(wW, wH, esLuminoso, colorMarco) {
     const sill = new THREE.Mesh(new THREE.BoxGeometry(wW + 2 * t + 0.12, 0.1, 0.2), matMarco);
     sill.position.set(0, -wH / 2 - t, 0.1);                             // alféizar que sobresale
     g.add(sill);
+
+    // Haz de luz que entra por la ventana: plano additive de baja opacidad que cae hacia
+    // el interior (local +Z) y hacia abajo. Tenue de noche (luz de luna fría), dorado de
+    // tarde, cálido de día. Doble cara y sin escritura de profundidad → lee como luz.
+    const _BEAM = { dia: ['#fff3d8', 0.10], tarde: ['#ffcc88', 0.13], noche: ['#9fb6ff', 0.05] };
+    const [beamCol, beamOp] = _BEAM[luz] || _BEAM.dia;
+    const shaftLen = 4.0;
+    const shaft = new THREE.Mesh(
+        new THREE.PlaneGeometry(wW * 0.9, shaftLen),
+        new THREE.MeshBasicMaterial({
+            color: beamCol, transparent: true, opacity: beamOp,
+            blending: THREE.AdditiveBlending, side: THREE.DoubleSide,
+            depthWrite: false, fog: false,
+        })
+    );
+    shaft.rotation.x = -Math.PI / 3;                 // inclinado: de la ventana al suelo
+    shaft.position.set(0, -shaftLen * 0.30, shaftLen * 0.42);
+    g.add(shaft);
     return g;
 }
 
@@ -920,7 +939,9 @@ function crearHabitacion(nodo, radio, cieloTipo) {
     const grupo = new THREE.Group();
     // alto_cilindro es 7 para ambos tipos; en interior_grande (radio≈16) eso queda
     // aplastado (32×32×7), así que damos algo más de altura a las salas grandes.
-    const alto  = radio > 12 ? nodo.alto * 1.45 : nodo.alto;
+    // Techo: salas grandes (radio>12) algo más altas; habitación pequeña (radio<7) más
+    // baja y acogedora; interior normal usa la altura tal cual.
+    const alto  = radio > 12 ? nodo.alto * 1.45 : (radio < 7 ? Math.min(nodo.alto, 4.6) : nodo.alto);
     const half  = radio;          // paredes en ±radio
     const pal   = _paletaInterior(cieloTipo);
 
@@ -987,6 +1008,14 @@ function crearHabitacion(nodo, radio, cieloTipo) {
     // Tono según el cielo: luminoso → luz fría de día; cálido → luz dorada.
     if (cieloTipo !== 'interior_frio') {
         const esLuminoso = (cieloTipo === 'interior_luminoso');
+        // Luz exterior de la historia (día/tarde/noche). Si el Constructor no la fijó,
+        // genérico: luminoso → día, cálido → tarde.
+        const luz = (typeof SCENE_GRAPH !== 'undefined' && SCENE_GRAPH.cielo && SCENE_GRAPH.cielo.luz_exterior)
+                    || (esLuminoso ? 'dia' : 'tarde');
+        const _POOL    = { dia: '#fff3d8', tarde: '#ffcc88', noche: '#7fa0e0' };
+        const _POOL_OP = { dia: 0.16, tarde: 0.18, noche: 0.07 };
+        const poolCol = _POOL[luz] || _POOL.dia;
+        const poolOp  = _POOL_OP[luz] ?? 0.16;
         const wW = 1.5, wH = 1.7, wy = 1.9;     // centro a 1.9 → alféizar ~1.0, alto ~2.8
         const eps = 0.06;
         // Cada pared: eje fijo + su valor (posición en la normal) + rotación hacia dentro
@@ -1000,10 +1029,25 @@ function crearHabitacion(nodo, radio, cieloTipo) {
             offs.forEach(t => {
                 const px = mu.fijo === 'x' ? mu.val : t;
                 const pz = mu.fijo === 'z' ? mu.val : t;
-                const win = _crearVentana(wW, wH, esLuminoso, pal.zocalo);
+                const win = _crearVentana(wW, wH, luz, pal.zocalo);
                 win.position.set(px, wy, pz);
                 win.rotation.y = mu.rotY;
                 grupo.add(win);
+
+                // Charco de luz en el suelo, desplazado hacia el interior de la sala.
+                let ix = px, iz = pz;
+                if (mu.fijo === 'x') ix += (mu.val > 0 ? -1.5 : 1.5);
+                else                 iz += (mu.val > 0 ? -1.5 : 1.5);
+                const pool = new THREE.Mesh(
+                    new THREE.CircleGeometry(1.1, 24),
+                    new THREE.MeshBasicMaterial({
+                        color: poolCol, transparent: true, opacity: poolOp,
+                        blending: THREE.AdditiveBlending, depthWrite: false, fog: false,
+                    })
+                );
+                pool.rotation.x = -Math.PI / 2;
+                pool.position.set(ix, 0.04, iz);
+                grupo.add(pool);
             });
         });
     }
@@ -1034,12 +1078,127 @@ function _crearSueloAgua(radio, opacidad) {
     return mesh;
 }
 
-function crearSuelo(nodo, idEscena, radio, tipoAmbiente, tipoCielo, colorOverride) {
+// Mar de NUBES como suelo ('otro' con tipo_suelo='nubes'): el personaje camina sobre un
+// manto de nubes (reino del cielo de un cuento). Base blanca + esferas aplastadas que
+// forman los cúmulos, más densas y grandes hacia el horizonte para ocultar el borde, y
+// unas pocas flotando algo más arriba para dar profundidad.
+function _crearSueloNubes(radio) {
+    const g = new THREE.Group();
+    // Material base con emisivo MUY bajo: antes (0.25) lavaba todos los cúmulos a un
+    // blanco plano sin relieve. Bajándolo, la luz de la escena modela cada esfera
+    // (sombra abajo / luz arriba) y se aprecia el volumen de las nubes.
+    const matNube = new THREE.MeshStandardMaterial({
+        color: 0xffffff, roughness: 1.0, metalness: 0.0,
+        emissive: 0x9fb4d8, emissiveIntensity: 0.04, fog: false,
+    });
+    // Base blanca que tapa el borde inferior del cilindro
+    const base = new THREE.Mesh(
+        new THREE.CircleGeometry(radio * 1.5, 48),
+        new THREE.MeshStandardMaterial({ color: 0xeaf0fc, emissive: 0xc8d6f0,
+            emissiveIntensity: 0.12, roughness: 1.0, fog: false }),
+    );
+    base.rotation.x = -Math.PI / 2; base.position.y = -1.4; base.receiveShadow = true;
+    g.add(base);
+    const _puff = (x, y, z, s, scY) => {
+        // Tono por cúmulo: blanco con un punto de azul y luminosidad variable, para que
+        // las nubes contiguas contrasten entre sí (textura visible) en vez de fundirse.
+        const mat = matNube.clone();
+        mat.color.setHSL(0.58, 0.16, 0.66 + Math.random() * 0.30);
+        const m = new THREE.Mesh(new THREE.SphereGeometry(s, 7, 5), mat);
+        m.position.set(x, y, z);
+        m.scale.y = scY !== undefined ? scY : (0.28 + Math.random() * 0.14);
+        g.add(m);
+    };
+    // Capa principal: cúmulos bajos y pequeños, la cima justo al nivel del suelo
+    for (let i = 0; i < 200; i++) {
+        const t = Math.pow(Math.random(), 0.5);
+        const r = t * radio * 1.3;
+        const a = Math.random() * Math.PI * 2;
+        const s = 0.3 + Math.random() * 0.8 + (r / radio) * 0.7;  // max ~1.8 lejos, ~1.1 cerca
+        _puff(Math.cos(a) * r, -1.1 + Math.random() * 0.5, Math.sin(a) * r, s);
+    }
+    // Pocas nubes flotando en el horizonte (más pequeñas y más bajas que antes)
+    for (let i = 0; i < 10; i++) {
+        const a = Math.random() * Math.PI * 2, r = radio * (0.75 + Math.random() * 0.5);
+        _puff(Math.cos(a) * r, 1.2 + Math.random() * 2.0, Math.sin(a) * r,
+              0.8 + Math.random() * 1.2, 0.4 + Math.random() * 0.15);
+    }
+    // Niebla a ras de suelo: discos planos translúcidos que dan efecto de humo/vapor
+    const matNiebla = new THREE.MeshStandardMaterial({
+        color: 0xffffff, transparent: true, opacity: 0.18,
+        roughness: 1.0, metalness: 0.0, fog: false, depthWrite: false,
+    });
+    for (let i = 0; i < 40; i++) {
+        const r = Math.sqrt(Math.random()) * radio * 0.85;
+        const a = Math.random() * Math.PI * 2;
+        const s = 1.5 + Math.random() * 3.5;
+        const m = new THREE.Mesh(new THREE.CircleGeometry(s, 10), matNiebla);
+        m.rotation.x = -Math.PI / 2;
+        m.position.set(Math.cos(a) * r, 0.04 + Math.random() * 0.3, Math.sin(a) * r);
+        g.add(m);
+    }
+    return g;
+}
+
+// Suelo de LAVA ('otro', tipo_suelo='lava'): roca oscura con charcos incandescentes.
+function _crearSueloLava(radio) {
+    const g = new THREE.Group();
+    const base = new THREE.Mesh(
+        new THREE.CircleGeometry(radio, 48),
+        new THREE.MeshStandardMaterial({ color: 0x1a0d08, roughness: 0.95, metalness: 0.0,
+            emissive: 0x3a1402, emissiveIntensity: 0.4 }),
+    );
+    base.rotation.x = -Math.PI / 2; base.position.y = 0.001; base.receiveShadow = true; g.add(base);
+    for (let i = 0; i < 44; i++) {
+        const a = Math.random() * Math.PI * 2, r = Math.sqrt(Math.random()) * radio * 0.95;
+        const s = 0.4 + Math.random() * 1.6;
+        const m = new THREE.Mesh(new THREE.CircleGeometry(s, 12),
+            new THREE.MeshBasicMaterial({ color: new THREE.Color().setHSL(0.055, 1.0, 0.48 + Math.random() * 0.16), fog: false }));
+        m.rotation.x = -Math.PI / 2; m.position.set(Math.cos(a) * r, 0.02, Math.sin(a) * r);
+        g.add(m);
+    }
+    return g;
+}
+
+// Suelo de CRISTAL/HIELO ('otro', tipo_suelo='cristal'): translúcido, brillante, especular.
+function _crearSueloCristal(radio) {
+    const m = new THREE.Mesh(
+        new THREE.CircleGeometry(radio, 64),
+        new THREE.MeshStandardMaterial({ color: 0xbfe6ff, roughness: 0.08, metalness: 0.25,
+            emissive: 0x2a4a66, emissiveIntensity: 0.15, transparent: true, opacity: 0.55,
+            side: THREE.DoubleSide, fog: false }),
+    );
+    m.rotation.x = -Math.PI / 2; m.position.y = 0.001; m.receiveShadow = true;
+    return m;
+}
+
+// TECHO de nubes bajas ('otro', tipo_techo='nubes_bajas'): manto de nubes a ~10 de altura
+// que oculta lo alto (un tallo/torre gigante se pierde dentro y no se ve dónde acaba).
+function _crearTechoNubes(radio) {
+    const g = new THREE.Group();
+    const mat = new THREE.MeshStandardMaterial({ color: 0xeef2fb, roughness: 1.0, metalness: 0.0,
+        emissive: 0xdfe8ff, emissiveIntensity: 0.2, transparent: true, opacity: 0.97, fog: false });
+    for (let i = 0; i < 120; i++) {
+        const a = Math.random() * Math.PI * 2, r = Math.sqrt(Math.random()) * radio * 1.35;
+        const s = 1.6 + Math.random() * 2.8;
+        const m = new THREE.Mesh(new THREE.SphereGeometry(s, 8, 6), mat);
+        m.position.set(Math.cos(a) * r, 9.5 + Math.random() * 3.2, Math.sin(a) * r);
+        m.scale.y = 0.4 + Math.random() * 0.2;
+        g.add(m);
+    }
+    return g;
+}
+
+function crearSuelo(nodo, idEscena, radio, tipoAmbiente, tipoCielo, colorOverride, tipoSuelo) {
+    if (tipoSuelo === 'nubes')          return _crearSueloNubes(radio);
+    if (tipoSuelo === 'agua')           return _crearSueloAgua(radio, 0.9);
+    if (tipoSuelo === 'lava')           return _crearSueloLava(radio);
+    if (tipoSuelo === 'cristal')        return _crearSueloCristal(radio);
     if (tipoAmbiente === 'sobre_agua') return _crearSueloAgua(radio, 0.92);
     if (tipoAmbiente === 'barco')      return _crearSueloAgua(radio, 0.68);  // translúcido: se ven los peces
     // Interiores construidos (interior / interior_grande): suelo CUADRADO que casa con
     // las paredes en caja, con color de la paleta de habitación. Cueva y exteriores → círculo.
-    const esInteriorCaja = (tipoAmbiente === 'interior' || tipoAmbiente === 'interior_grande');
+    const esInteriorCaja = (tipoAmbiente === 'habitacion' || tipoAmbiente === 'interior' || tipoAmbiente === 'interior_grande');
     const geo = esInteriorCaja
         ? new THREE.PlaneGeometry(2 * radio, 2 * radio)
         : new THREE.CircleGeometry(radio, 48);
@@ -1135,12 +1294,27 @@ function crearModelo3D(nodo, scene) {
                     targetAlto = _TALLA_ALTURA[_skin.talla];
                 }
             }
-            const escala = esPersonajeCatalogo
-                ? targetAlto / Math.max(size.y, 0.001)
-                : Math.min(
+            //    Importante: se limita también la PROFUNDIDAD (size.z) con un presupuesto
+            //    GENEROSO (3× la mayor dimensión declarada). Así se recorta solo un modelo
+            //    con Z desproporcionada (p.ej. una rama de canela de poly.pizza, que de otro
+            //    modo se cuela gigante porque el escalado solo miraba X e Y), SIN encoger
+            //    objetos legítimamente largos (un carro, una horca, un banco).
+            let escala;
+            if (esPersonajeCatalogo) {
+                escala = targetAlto / Math.max(size.y, 0.001);
+            } else if (nodo.tam_real) {
+                // Tamaño coherente fijado por el pase del Constructor: escala INVARIANTE
+                // A LA ORIENTACIÓN — el eje más largo del modelo se lleva a tam_real,
+                // preservando proporciones (un palo mide igual tumbado o de pie).
+                escala = nodo.tam_real / Math.max(size.x, size.y, size.z, 0.001);
+            } else {
+                const _escalaXY = Math.min(
                     nodo.ancho / Math.max(size.x, 0.001),
                     targetAlto / Math.max(size.y, 0.001)
                 );
+                const _budgetZ = Math.max(nodo.ancho, targetAlto) * 3.0;
+                escala = Math.min(_escalaXY, _budgetZ / Math.max(size.z, 0.001));
+            }
             model.scale.setScalar(escala);
 
             // 3. Posicionar el modelo correctamente en el espacio del grupo
@@ -1191,24 +1365,45 @@ function crearModelo3D(nodo, scene) {
             // la sala (un armario/cama/estantería contra la pared debe mirar al centro, no de
             // lado). atan2(x,z) hace que el frente del modelo (-Z) apunte al centro. Los
             // personajes no se giran (van al centro y mantienen su orientación de diálogo).
-            if ((_tipoAmbiente === 'interior' || _tipoAmbiente === 'interior_grande') && nodo.tipo !== 'personaje') {
+            if ((_tipoAmbiente === 'habitacion' || _tipoAmbiente === 'interior' || _tipoAmbiente === 'interior_grande') && nodo.tipo !== 'personaje') {
                 const _r = SCENE_GRAPH.radio_escena ?? 10;
                 const _half = _r - 1.5;
                 const _x = nodo.posicion.x, _z = nodo.posicion.z;
-                if (Math.max(Math.abs(_x), Math.abs(_z)) > _half * 0.55) {
+                // Objetos PLANOS de suelo (alfombra, tapiz, tapete...) NUNCA se giran ni
+                // cuelgan: se quedan tumbados en el suelo aunque estén pegados a una pared
+                // (subidos un pelín para no "vibrar" por z-fighting con el suelo).
+                // Se detectan por NOMBRE (lista) o por GEOMETRÍA: una pieza mucho más
+                // ancha/larga que alta (size.y ≪ size.x|z) es algo tumbado en el suelo, sea
+                // cual sea su nombre. Lo segundo atrapa la alfombra que llega con un nombre
+                // inesperado o un modelo de poly.pizza que el regex no cubre — y NO confunde
+                // un cuadro (alto y fino en profundidad: size.y NO es pequeña frente a size.x).
+                const _nomPlano = (nodo.nombre || '').toLowerCase();
+                const _planoPorNombre = /alfombra|moqueta|tapete|felpudo|estera|alfombrilla|rug|carpet/.test(_nomPlano);
+                const _planoPorGeom = size.y < 0.30 * Math.max(size.x, size.z);
+                const _esPlano = _planoPorNombre || _planoPorGeom;
+                if (_esPlano) grupo.position.y = 0.05;
+                if (!_esPlano && Math.max(Math.abs(_x), Math.abs(_z)) > _half * 0.55) {
                     // Gira el mueble para que encare la sala PERPENDICULAR a su pared más
                     // cercana (de frente, plano contra el muro — no de lado ni en diagonal).
-                    // El frente del modelo (-Z) apunta hacia el interior de la sala.
                     const _enParedX = Math.abs(_x) >= Math.abs(_z);
                     if (_enParedX) grupo.rotation.y = (_x > 0 ? Math.PI / 2 : -Math.PI / 2);
                     else           grupo.rotation.y = (_z < 0 ? Math.PI : 0);
-                    // Items COLGABLES (cuadro, espejo, reloj, mapa...): se pegan al muro y
-                    // suben a altura de ojos, en vez de quedar tirados en el suelo.
+                    // SOLO se cuelgan a la pared cuadros/espejos/retratos (arte de pared real).
+                    // El resto se queda en el SUELO contra la pared (NO todo se cuelga).
                     const _nom = (nodo.nombre || '').toLowerCase();
-                    if (/cuadro|espejo|reloj|mapa|retrato|pintura|lienzo|tapiz|cartel|placa|estandarte/.test(_nom)) {
+                    // Mobiliario de SUELO de pie: NUNCA se cuelga aunque el nombre mencione un
+                    // objeto mural (p.ej. "estantería con relojes" lleva 'reloj' pero es un mueble
+                    // que va en el suelo). Se comprueba ANTES que el colgado.
+                    const _muebleSuelo = /estanter|estante|armario|vitrina|aparador|c[oó]moda|alacena|mueble|mesa|banco|repisa|c[oó]nsola|escritorio|cajoner/.test(_nom);
+                    // Arte/objetos MURALES se elevan y cuelgan; el resto se queda en el SUELO en
+                    // la celda donde lo puso el Director (que ya distingue pared vs centro).
+                    if (!_muebleSuelo && /cuadro|espejo|retrato|pintura|lienzo|reloj|mapa|estandarte|escudo|placa|tapiz/.test(_nom)) {
                         if (_enParedX) grupo.position.x = Math.sign(_x || 1) * (_r - 0.35);
                         else           grupo.position.z = Math.sign(_z || 1) * (_r - 0.35);
-                        grupo.position.y = 1.3;
+                        // Altura según el tamaño: borde inferior ~1.0 m (sobre el mobiliario)
+                        // y sube con la pieza, en vez de un 1.3 fijo que enterraba los espejos
+                        // grandes y dejaba flotando los marcos pequeños. Tope para no clipar techo.
+                        grupo.position.y = Math.min(1.0 + (nodo.alto || 1) / 2, 3.0);
                     }
                 }
             }
@@ -1217,7 +1412,20 @@ function crearModelo3D(nodo, scene) {
             // los de fuera se quedan en el agua (y=0), alcanzables al desembarcar.
             if (_tipoAmbiente === 'barco') {
                 const _dc = Math.hypot(nodo.posicion.x, nodo.posicion.z);
-                if (_dc < (window._BARCO_DECK_R ?? 4.6) * 0.95) grupo.position.y = (window._BARCO_DECK_H ?? 1.0);
+                if (_dc < (window._BARCO_DECK_R ?? 4.6)) grupo.position.y = (window._BARCO_DECK_H ?? 1.0) + 0.1;
+            }
+
+            // Escena de conversación (idiomas): cada personaje MIRA hacia el/los otro(s)
+            // personaje(s), como si hablasen entre sí. A diferencia del mobiliario, los GLB
+            // humanos de Quaternius miran a +Z, así que para encararlos al objetivo se usa
+            // rotation.y = atan2(tx - x, tz - z) (vector self→objetivo, NO el inverso del mueble).
+            if (SCENE_GRAPH.escena_conversacion && nodo.tipo === 'personaje') {
+                const otros = (SCENE_GRAPH.nodos || []).filter(n => n.tipo === 'personaje' && n.id !== nodo.id);
+                if (otros.length) {
+                    const tx = otros.reduce((s, n) => s + n.posicion.x, 0) / otros.length;
+                    const tz = otros.reduce((s, n) => s + n.posicion.z, 0) / otros.length;
+                    grupo.rotation.y = Math.atan2(tx - nodo.posicion.x, tz - nodo.posicion.z);
+                }
             }
 
             scene.add(grupo);
@@ -1554,30 +1762,48 @@ function _hashCadena(s) {
     return h >>> 0;
 }
 
+// Timón fijo de poly.pizza (Wood Wheel, CC-BY) — siempre el mismo, gira en el loop.
+const _URL_TIMON = 'https://static.poly.pizza/8fcaf8e9-720e-4d93-95f9-ab15769745eb.glb';
+
 const _VARIANTES_BARCO = {
-    balsa:  { H: 1.5, R: 4.3, mastiles: 1, hull: 0x6b4a2e, deck: 0x9a7548 },
-    barco:  { H: 2.1, R: 4.8, mastiles: 1, hull: 0x5e3f26, deck: 0x8a6a44 },
-    galeon: { H: 2.8, R: 5.4, mastiles: 2, hull: 0x4a3320, deck: 0x7a5a38, popa: true },
+    balsa:  { H: 1.5, R: 5.6, mastiles: 1, hull: 0x6b4a2e, deck: 0x9a7548 },
+    barco:  { H: 2.1, R: 6.2, mastiles: 1, hull: 0x5e3f26, deck: 0x8a6a44 },
+    galeon: { H: 2.8, R: 6.8, mastiles: 2, hull: 0x4a3320, deck: 0x7a5a38, popa: true },
 };
 
-function _crearBarco(scene) {
+// Elige la variante de barco y fija window._BARCO_DECK_H/R. DEBE llamarse ANTES de
+// cargar los objetos (para que la elevación a cubierta use la altura correcta y no la
+// por defecto, que dejaba objetos hundidos en modelos cacheados).
+let _barcoVariante = null;
+function _prepararBarco() {
     const tipos = ['balsa', 'barco', 'galeon'];
-    // Semilla por escena + color del cielo (varía por mundo) → distintos tipos de barco.
-    const semilla = (SCENE_GRAPH.id_escena || 'barco') + ((SCENE_GRAPH.cielo && SCENE_GRAPH.cielo.color_fondo) || '');
-    const tipo = tipos[_hashCadena(semilla) % 3];
-    const v = _VARIANTES_BARCO[tipo];
-    window._BARCO_DECK_H = v.H;
-    window._BARCO_DECK_R = v.R;
+    // El Constructor fija la variante (y coloca la rejilla de cubierta con su radio).
+    // Si está, la usamos para que casco y rejilla coincidan; si no (mundos antiguos),
+    // caemos al hash de siempre.
+    let nombre = SCENE_GRAPH.variante_barco;
+    if (!nombre || !_VARIANTES_BARCO[nombre]) {
+        const semilla = (SCENE_GRAPH.id_escena || 'barco') + ((SCENE_GRAPH.cielo && SCENE_GRAPH.cielo.color_fondo) || '');
+        nombre = tipos[_hashCadena(semilla) % 3];
+    }
+    _barcoVariante = _VARIANTES_BARCO[nombre];
+    window._BARCO_DECK_H = _barcoVariante.H;
+    window._BARCO_DECK_R = SCENE_GRAPH.radio_cubierta ?? _barcoVariante.R;
+}
+
+function _crearBarco(scene) {
+    if (!_barcoVariante) _prepararBarco();
+    const v = _barcoVariante;
     const H = v.H, R = v.R;
-    console.log(`[WorldWeaver] Barco: variante '${tipo}' (H=${H}, R=${R})`);
+    console.log(`[WorldWeaver] Barco: variante H=${H}, R=${R}`);
 
     const matCasco = new THREE.MeshLambertMaterial({ color: v.hull });
     const matCub   = new THREE.MeshLambertMaterial({ color: v.deck });
     const matBarra = new THREE.MeshLambertMaterial({ color: 0x3a2818 });
 
-    // Casco (cilindro cónico, sobresale del agua)
+    // Casco (cilindro cónico): su TOPE coincide con el plano de cubierta (y=H), para que
+    // los objetos apoyen sobre la cubierta y no queden hundidos en un "cuenco".
     const casco = new THREE.Mesh(new THREE.CylinderGeometry(R, R * 0.78, H + 0.9, 30), matCasco);
-    casco.position.y = H - (H + 0.9) / 2 + 0.25; casco.receiveShadow = true; scene.add(casco);
+    casco.position.y = H - (H + 0.9) / 2; casco.receiveShadow = true; scene.add(casco);
 
     // Cubierta
     const cub = new THREE.Mesh(new THREE.CircleGeometry(R * 0.98, 30), matCub);
@@ -1612,9 +1838,43 @@ function _crearBarco(scene) {
         vela.position.set(0, H + altoM * 0.6, z - 0.12); scene.add(vela);
     }
 
-    // Timón decorativo en proa (-Z)
-    const timon = new THREE.Mesh(new THREE.TorusGeometry(0.4, 0.06, 6, 14), matBarra);
-    timon.position.set(0, H + 0.9, -R * 0.7); scene.add(timon);
+    // Timón: modelo poly.pizza FIJO (Wood Wheel), de pie sobre la cubierta y QUIETO.
+    // El modelo es un DISCO (rueda); puede venir authored tumbado o de canto, así que
+    // lo orientamos y escalamos según sus dimensiones reales en vez de asumir nada:
+    //   1) ponerlo VERTICAL mirando al jugador (eje fino del disco → Z),
+    //   2) escalar por el DIÁMETRO a ~1.3 m (un timón de barco), NUNCA por size.y
+    //      (en una rueda fina tumbada, size.y es el grosor → la agrandaba gigante).
+    if (window.THREE && THREE.GLTFLoader) {
+        new THREE.GLTFLoader().load(_URL_TIMON, (gltf) => {
+            const wheel = gltf.scene;
+
+            // 1) Orientar de pie. El eje FINO (menor dimensión) es el eje de la rueda;
+            //    debe apuntar en Z para que la cara del timón mire al jugador.
+            let size = new THREE.Box3().setFromObject(wheel).getSize(new THREE.Vector3());
+            if (size.y <= size.x && size.y <= size.z)       wheel.rotation.x = Math.PI / 2; // tumbada → levantar
+            else if (size.x <= size.y && size.x <= size.z)  wheel.rotation.y = Math.PI / 2; // de canto lateral → girar
+            // (si el eje fino ya es Z, se queda de pie mirando al jugador)
+            wheel.updateMatrixWorld(true);
+
+            // 2) Escalar por el diámetro (mayor dimensión ya orientada) a ~1.3 m.
+            size = new THREE.Box3().setFromObject(wheel).getSize(new THREE.Vector3());
+            wheel.scale.setScalar(1.3 / Math.max(size.x, size.y, size.z, 0.01));
+            wheel.updateMatrixWorld(true);
+
+            // 3) Centrar en XZ y apoyar la base en y=0 del grupo (ya escalado/rotado).
+            const box = new THREE.Box3().setFromObject(wheel);
+            const center = box.getCenter(new THREE.Vector3());
+            wheel.position.set(-center.x, -box.min.y, -center.z);
+
+            wheel.traverse(c => { if (c.isMesh) { c.castShadow = true; } });
+            const g = new THREE.Group();
+            g.add(wheel);
+            g.position.set(0, H + 0.05, -R * 0.88);   // apoyado en cubierta, casi en el borde de proa (junto a la baranda)
+            scene.add(g);
+        }, undefined, () => { /* si falla la carga, simplemente no hay timón */ });
+    }
+    // (Los barriles/cofres y demás objetos de cubierta los pone el Director como
+    //  decorados poly.pizza, colocados en la cubierta; no usamos props procedurales.)
 }
 
 // Vida submarina bajo la superficie (peces + algas), visible a través del agua translúcida.
@@ -1655,6 +1915,9 @@ function cargarSceneGraph(sceneGraph, scene) {
 
     // Registrar tipo de ambiente activo (usado por crearModelo3D para flotación)
     _tipoAmbiente = sceneGraph.tipo_ambiente;
+    // Barco: fijar la altura/radio de cubierta ANTES de cargar objetos, para que se
+    // eleven a la cubierta correcta (no a la altura por defecto → no quedan hundidos).
+    if (_tipoAmbiente === 'barco') _prepararBarco();
 
     let modelos3d = 0, billboards = 0;
 
@@ -1663,11 +1926,11 @@ function cargarSceneGraph(sceneGraph, scene) {
             // Interiores construidos → habitación en caja (paredes + techo + puerta/ventanas).
             // Cueva (tipo_ambiente 'cueva') se deja como vacío + relleno ambiental.
             // En exteriores el cielo lo gestiona scene.background + sky.js.
-            if (_tipoAmbiente === 'interior' || _tipoAmbiente === 'interior_grande') {
+            if (_tipoAmbiente === 'habitacion' || _tipoAmbiente === 'interior' || _tipoAmbiente === 'interior_grande') {
                 scene.add(crearHabitacion(nodo, radio, sceneGraph.cielo.tipo));
             }
         } else if (nodo.tipo === 'suelo') {
-            scene.add(crearSuelo(nodo, idEscena, radio, sceneGraph.tipo_ambiente, sceneGraph.cielo.tipo, sceneGraph.color_suelo));
+            scene.add(crearSuelo(nodo, idEscena, radio, sceneGraph.tipo_ambiente, sceneGraph.cielo.tipo, sceneGraph.color_suelo, sceneGraph.tipo_suelo));
         } else if (nodo.gltf_url) {
             crearModelo3D(nodo, scene);  // asíncrono
             modelos3d++;
@@ -1685,6 +1948,11 @@ function cargarSceneGraph(sceneGraph, scene) {
     } else if (_tipoAmbiente === 'barco') {
         _crearBarco(scene);
         _crearVidaSubmarina(radio, scene);
+    }
+
+    // Techo de nubes bajas ('otro'): oculta lo alto (un tallo/torre gigante que se pierde).
+    if (sceneGraph.tipo_techo === 'nubes_bajas') {
+        scene.add(_crearTechoNubes(radio));
     }
 
     console.log(
@@ -1769,6 +2037,10 @@ const _T_DATA = {
         close:      'cerrar',
         keep_drop:  '<kbd>G</kbd> Guardar &nbsp;&nbsp; <kbd>E</kbd> Soltar',
         drag_rotate: 'Arrastra para girar',
+        move_rotate: 'Mueve el ratón para girar',
+        vocab_counter: (n, max) => `Fallos: ${n}/${max}`,
+        vocab_wrong:   rem => `Ese no es. Te ${rem === 1 ? 'queda' : 'quedan'} ${rem} ${rem === 1 ? 'intento' : 'intentos'}.`,
+        vocab_reset:   'Demasiados fallos. Reiniciando el reto…',
     },
     en: {
         talk:       nombre => `<kbd>E</kbd> Talk to <em>${nombre}</em>`,
@@ -1794,6 +2066,10 @@ const _T_DATA = {
         close:      'close',
         keep_drop:  '<kbd>G</kbd> Keep &nbsp;&nbsp; <kbd>E</kbd> Drop',
         drag_rotate: 'Drag to rotate',
+        move_rotate: 'Move the mouse to rotate',
+        vocab_counter: (n, max) => `Mistakes: ${n}/${max}`,
+        vocab_wrong:   rem => `Not that one. ${rem} ${rem === 1 ? 'try' : 'tries'} left.`,
+        vocab_reset:   'Too many mistakes. Restarting the challenge…',
     },
 };
 const _T = k => {
@@ -1897,6 +2173,13 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
     // ── Estado de fases ───────────────────────────────────────────────────────
     const FASES = manifest.fases || [];
     const ZONAS = manifest.zonas_narrativas || [];
+
+    // Examen de vocabulario: el avance se gatea por ENTREGA al guía (no por recoger).
+    const EXAMEN_VOCAB = !!manifest.examen_vocabulario;
+    // Examen conceptual (Tipo B): el avance se gatea por elegir la OPCIÓN correcta.
+    const EXAMEN_OPCIONES = !!manifest.examen_opciones;
+    const EXAMEN_VOCAB_MAX_FALLOS = 3;
+    let _examenFallos = 0;
 
     let faseActual = 0;
     const nodosCompletados    = new Set();  // id_nodo de objetos interactuados
@@ -2496,7 +2779,7 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
 
     // ── Tracker de objetivos ──────────────────────────────────────────────────
     let _objetivos = [];  // [{id, tipo, completado, el}]
-    const IDLE_UMBRAL = 45000;
+    const IDLE_UMBRAL = (typeof window._WW_IDLE_UMBRAL !== 'undefined') ? window._WW_IDLE_UMBRAL : 45000;
     let _idleTimer = null;
 
     function _resetIdleTimer() {
@@ -2784,8 +3067,10 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         entry.obj3d.worldToLocal(centro);
         const altura = box.max.y - box.min.y;
 
-        // Luz intensa de corto alcance — ilumina el objeto pero no se derrama
-        entry.luzGuia = new THREE.PointLight(0xffdd55, 2.5, Math.max(2.0, altura * 0.9));
+        // Luz intensa de corto alcance — ilumina el objeto pero no se derrama.
+        // Brillante y de buen alcance para que el "brillo dorado" se lea también en
+        // escenas diurnas muy claras (donde el sprite aditivo casi desaparece).
+        entry.luzGuia = new THREE.PointLight(0xffcc33, 3.6, Math.max(3.2, altura * 1.5));
         entry.luzGuia.position.copy(centro);
         entry.obj3d.add(entry.luzGuia);
 
@@ -2794,10 +3079,10 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             blending:    THREE.AdditiveBlending,
             transparent: true,
             depthWrite:  false,
-            opacity:     0.9,
+            opacity:     1.0,
         });
         entry.spriteAura = new THREE.Sprite(mat);
-        const escala = Math.max(0.7, altura * 0.55);
+        const escala = Math.max(1.1, altura * 0.85);
         entry.escalaAura = escala;
         entry.spriteAura.scale.set(escala, escala, 1);
         entry.spriteAura.position.copy(centro);
@@ -2816,7 +3101,10 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             entry.spritePuntos = new THREE.Sprite(matPuntos);
             const anchoPuntos = 0.55;
             entry.spritePuntos.scale.set(anchoPuntos, anchoPuntos * (72 / 128), 1);
-            entry.puntosCabeceraY = altura + 0.29;
+            // Justo encima de la cabeza. La caja de un personaje con esqueleto suele
+            // salir algo más alta que su cuerpo visible, así que un offset pequeño basta
+            // (un +0.3 los disparaba muy arriba y se salían de pantalla al acercarse).
+            entry.puntosCabeceraY = altura + 0.10;
             entry.spritePuntos.position.set(centro.x, entry.puntosCabeceraY, centro.z);
             entry.obj3d.add(entry.spritePuntos);
         }
@@ -2977,6 +3265,102 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         }
     }
 
+    // ── Examen de vocabulario: HUD de fallos + entrega al guía ────────────────
+    // Devuelve un objeto recogido a su posición original (lo hace visible de nuevo y lo
+    // saca del inventario). El recoger nunca movió el objeto, solo lo ocultó, así que
+    // vuelve exactamente a su sitio. Usado en el examen al coger otro o al fallar.
+    function _devolverObjeto(idNodo) {
+        const e = mapa[idNodo];
+        if (e?.obj3d) e.obj3d.visible = true;
+        inventario.delete(idNodo);
+        recogidos.delete(idNodo);
+    }
+
+    function _actualizarFallosHUD() {
+        let el = document.getElementById('int-fallos-hud');
+        if (!el) {
+            el = document.createElement('div');
+            el.id = 'int-fallos-hud';
+            el.style.cssText = 'position:fixed;top:16px;left:50%;transform:translateX(-50%);' +
+                'z-index:60;padding:6px 14px;border-radius:14px;font:600 14px system-ui,sans-serif;' +
+                'color:#fff;background:rgba(20,20,28,.62);backdrop-filter:blur(4px);' +
+                'border:1px solid rgba(255,255,255,.14);letter-spacing:.3px;pointer-events:none;';
+            document.body.appendChild(el);
+        }
+        el.textContent = _T('vocab_counter')(_examenFallos, EXAMEN_VOCAB_MAX_FALLOS);
+    }
+
+    // Gestiona el hablar-con-el-guía durante el examen. Devuelve true si lo gestionó
+    // (acierto o fallo); false si el jugador no lleva ningún objeto del vocabulario
+    // (entonces sigue el flujo normal y se muestra la petición de la fase).
+    function _entregaVocab(idNodo, entry) {
+        const dci = entry.dialogos_con_item || [];
+        if (!dci.length) return false;            // este personaje no es el guía del examen
+        const fm = FASES[faseActual];
+        const requested = fm?.condicion_avance?.nodos?.[0] || null;
+        const vocabObjs = new Set(dci.map(d => d.requiere_objeto));
+        const llevaAlguno = [...inventario.keys()].some(id => vocabObjs.has(id));
+
+        // Acierto: lleva el objeto que pide esta fase
+        if (requested && inventario.has(requested)) {
+            const dic   = dci.find(d => d.requiere_objeto === requested);
+            const punto = dic?.puntos?.[0] || { frases: ['¡Correcto!'], opciones: [] };
+            _SFX.faseAvance?.();
+            _mostrarDialogo(punto);
+            dialogoAbierto = true;
+            if (window.PersonajesManager) { PersonajesManager.hablar(idNodo); _personajeHablando = idNodo; }
+            inventario.delete(requested);
+            _actualizarInventarioUI();
+            nodosCompletados.add(requested);
+            personajesHablados.add(idNodo);
+            _verificarAvance();
+            return true;
+        }
+
+        // Fallo: lleva objeto(s) del vocabulario pero ninguno es el pedido
+        if (llevaAlguno) {
+            _examenFallos++;
+            _SFX.activarOff?.();
+            // El objeto entregado por error NO te lo quedas: vuelve a su posición.
+            for (const id of [...inventario.keys()]) if (vocabObjs.has(id)) _devolverObjeto(id);
+            _actualizarInventarioUI();
+            _actualizarFallosHUD();
+            if (_examenFallos >= EXAMEN_VOCAB_MAX_FALLOS) {
+                _mostrarActivacion(_T('vocab_reset'));
+                setTimeout(() => window.location.reload(), 1900);
+                return true;
+            }
+            // María "quiere hablarte": muestra la PISTA de la fase (reformula la petición con
+            // un rasgo visual). Si no hay pista en el manifest, cae al aviso breve.
+            const df = _dialogoActual(entry);
+            const pista = df && df.pista;
+            if (pista && (pista.frases || []).length) {
+                _mostrarDialogo(pista);
+                dialogoAbierto = true;
+                if (window.PersonajesManager) { PersonajesManager.hablar(idNodo); _personajeHablando = idNodo; }
+            } else {
+                _mostrarActivacion(_T('vocab_wrong')(EXAMEN_VOCAB_MAX_FALLOS - _examenFallos));
+            }
+            return true;
+        }
+
+        // No lleva nada relevante → flujo normal (mostrar la petición de la fase)
+        return false;
+    }
+
+    // Examen conceptual (Tipo B): al hablar con el guía, muestra la PREGUNTA de la fase con
+    // sus opciones. NO marca personajesHablados ni avanza: el avance lo decide elegir la
+    // opción correcta (gestionado en _intOpcion vía examenCtx). Devuelve true si lo gestionó.
+    function _preguntaConceptual(idNodo, entry) {
+        const df = _dialogoActual(entry);
+        const punto = df && df.puntos && df.puntos[0];
+        if (!punto || !(punto.opciones || []).length) return false;  // no es pregunta de examen
+        _mostrarDialogo(punto, { esExamen: true, pista: df.pista, idNodo });
+        dialogoAbierto = true;
+        if (window.PersonajesManager) { PersonajesManager.hablar(idNodo); _personajeHablando = idNodo; }
+        return true;
+    }
+
     // ── Activar interacción ───────────────────────────────────────────────────
     function _activar(idNodo) {
         const entry = mapa[idNodo];
@@ -2985,6 +3369,13 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         _cerrarTodos();
 
         if (entry.tipo === 'personaje') {
+            // Examen de vocabulario: la entrega del objeto pedido (o el fallo) se gestiona
+            // aparte. Si el jugador no lleva ningún objeto del vocabulario, sigue el flujo
+            // normal y se muestra la petición de la fase.
+            if (EXAMEN_VOCAB && _entregaVocab(idNodo, entry)) return;
+            // Examen conceptual: muestra la pregunta de la fase con opciones (el avance lo decide
+            // elegir la opción correcta, no el hablar).
+            if (EXAMEN_OPCIONES && _preguntaConceptual(idNodo, entry)) return;
             // dialogos_con_item: item-specific lines take priority over phase dialogue
             let puntoAMostrar = null;
             let dicActivado   = null;
@@ -3127,6 +3518,14 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             if (_inspeccionModo === 'recoger') _cerrarInspeccion(true);
             return;
         }
+        // Opciones de diálogo con las teclas 1-9: con el ratón capturado no se puede
+        // clicar, y soltarlo para eso hacía que el navegador repitiera su aviso de
+        // "pulsa Esc para salir de pantalla completa" en cada conversación.
+        if (dialogoAbierto && window._intOpcion && elDialogo.style.display !== 'none'
+            && elDialogo.querySelector('.int-d-opciones')) {
+            const _op = /^(?:Digit|Numpad)([1-9])$/.exec(e.code);
+            if (_op) { window._intOpcion(+_op[1] - 1); return; }
+        }
         if (e.code === 'KeyE') {
             if (_inspeccionActiva) {
                 _cerrarInspeccion(false);
@@ -3161,12 +3560,20 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
                 if (ac) _ejecutarAccionObjeto(nodoEnRango, ac);
             }
         }
-        if (e.code === 'Escape') _cerrarTodos();
+        // Esc = menú de pausa: cierra los paneles y saca el menú (nunca recaptura).
+        if (e.code === 'Escape') {
+            _cerrarTodos();
+            window._wwMostrarPausa?.();
+        }
     });
 
     // ── Click (modo órbita) ───────────────────────────────────────────────────
     renderer.domElement.addEventListener('click', (e) => {
         if (document.pointerLockElement) return;
+        // Con un diálogo/inspección abierto el puntero está suelto (no bloqueado): sin esta
+        // guarda, un clic en el lienzo raycastearía y activaría otro objeto "a través" del
+        // panel abierto (o re-dispararía el actual). Solo se interactúa con el panel cerrado.
+        if (window._wwDialogoAbierto?.() || _inspeccionActiva) return;
         const id = _raycastRaton(e.clientX, e.clientY);
         if (id) _activar(id);
     });
@@ -3196,7 +3603,7 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
     });
 
     // ── Mostrar diálogo ───────────────────────────────────────────────────────
-    function _mostrarDialogo(punto) {
+    function _mostrarDialogo(punto, examenCtx = null) {
         const frase = punto.frases[0];
         const textoCompleto = `“${frase}”`;  // comillas tipográficas
 
@@ -3205,7 +3612,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             `<div class="int-d-texto"><span class="int-tw-txt"></span></div>` +
             _teclaHint();
         elDialogo.style.display = 'block';
-        if (document.pointerLockElement) document.exitPointerLock();
 
         const twEl = elDialogo.querySelector('.int-tw-txt');
 
@@ -3214,7 +3620,10 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             if (punto.opciones?.length) {
                 let opHtml = `<div class="int-d-opciones">`;
                 punto.opciones.forEach((op, i) => {
-                    opHtml += `<button class="int-d-btn" onclick="_intOpcion(${i})">▸ ${op.etiqueta}</button>`;
+                    // Numeradas: con el ratón capturado no hay cursor con el que clicar,
+                    // así que se eligen con las teclas 1-9 (ver el keydown de más arriba).
+                    opHtml += `<button class="int-d-btn" onclick="_intOpcion(${i})">`
+                            + `<kbd>${i + 1}</kbd> ${op.etiqueta}</button>`;
                 });
                 opHtml += `</div>`;
                 twEl.closest('.int-d-texto').insertAdjacentHTML('afterend', opHtml);
@@ -3226,20 +3635,71 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
 
         _twEscribir(twEl, textoCompleto, onDone);
 
+        // Helper: escribe la respuesta del personaje y, al terminar, ejecuta `tras`.
+        const _mostrarResp = (resp, tras) => {
+            _twCancelar();
+            const twEl2 = elDialogo.querySelector('.int-tw-txt');
+            if (twEl2) { twEl2.textContent = ''; }
+            elDialogo.querySelectorAll('.int-d-opciones, .int-pista').forEach(el => el.remove());
+            elDialogo.querySelector('.int-d-texto').innerHTML = '<span class="int-tw-txt"></span>';
+            elDialogo.insertAdjacentHTML('beforeend', _teclaHint());
+            _twEscribir(elDialogo.querySelector('.int-tw-txt'), `“${resp}”`, tras || null);
+        };
+
         window._intOpcion = (i) => {
-            const resp = punto.opciones[i]?.respuesta;
-            if (resp) {
-                _twCancelar();
-                const twEl2 = elDialogo.querySelector('.int-tw-txt');
-                if (twEl2) { twEl2.textContent = ''; }
-                // Limpiar opciones y hint anteriores
-                elDialogo.querySelectorAll('.int-d-opciones, .int-pista').forEach(el => el.remove());
-                // Mostrar respuesta con typewriter
-                const resp_texto = `“${resp}”`;
-                elDialogo.querySelector('.int-d-texto').innerHTML = '<span class="int-tw-txt"></span>';
-                elDialogo.insertAdjacentHTML('beforeend', _teclaHint());
-                _twEscribir(elDialogo.querySelector('.int-tw-txt'), resp_texto, null);
+            const op = punto.opciones[i];
+            if (!op) return;
+
+            // ── Examen conceptual (Tipo B): la correcta avanza; la mala falla ──
+            if (examenCtx && examenCtx.esExamen) {
+                if (op.correcta) {
+                    _SFX.faseAvance?.();
+                    _avanzarFase();   // faseActual++ (o portal si era la última)
+                    if (faseActual >= FASES.length) {
+                        // Conversación completada: réplica final. El jugador cierra con E
+                        // (re-engancha el ratón); el portal ya se invocó en _avanzarFase.
+                        _mostrarResp(op.respuesta || '¡Muy bien!', null);
+                    } else {
+                        // Conversación CONTINUA: muestra la réplica y luego la siguiente
+                        // pregunta del guía en el MISMO diálogo (sin caminar ni perder el ratón).
+                        _mostrarResp(op.respuesta || '', () => {
+                            setTimeout(() => {
+                                const eg = mapa[examenCtx.idNodo];
+                                const df2 = eg && _dialogoActual(eg);
+                                const pt2 = df2 && df2.puntos && df2.puntos[0];
+                                if (pt2 && (pt2.opciones || []).length) {
+                                    _mostrarDialogo(pt2, { esExamen: true, pista: df2.pista, idNodo: examenCtx.idNodo });
+                                } else {
+                                    _cerrarTodos();  // sin más preguntas → cerrar y re-enganchar ratón
+                                }
+                            }, 1100);
+                        });
+                    }
+                    return;
+                }
+                _examenFallos++;
+                _SFX.activarOff?.();
+                _actualizarFallosHUD();
+                if (_examenFallos >= EXAMEN_VOCAB_MAX_FALLOS) {
+                    _mostrarResp(op.respuesta || '', () => {
+                        _mostrarActivacion(_T('vocab_reset'));
+                        setTimeout(() => window.location.reload(), 1700);
+                    });
+                } else {
+                    // El guía reacciona con extrañeza y, tras la pista, re-ofrece las opciones.
+                    _mostrarResp(op.respuesta || '', () => {
+                        const pista = examenCtx.pista;
+                        const reintento = (pista && (pista.frases || []).length)
+                            ? { frases: pista.frases, opciones: punto.opciones }
+                            : punto;
+                        setTimeout(() => _mostrarDialogo(reintento, examenCtx), 950);
+                    });
+                }
+                return;
             }
+
+            // ── Diálogo normal: solo muestra la respuesta ──
+            if (op.respuesta) _mostrarResp(op.respuesta, null);
         };
     }
 
@@ -3251,7 +3711,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             ${_teclaHint()}
         `;
         elExaminar.style.display = 'block';
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Acción de personaje (texto narrador sin caja, abajo) ─────────────────
@@ -3263,7 +3722,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         elAccion.style.opacity = '0';
         elAccion.style.display = 'block';
         requestAnimationFrame(() => { elAccion.style.opacity = '1'; });
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Ficha de información educativa (tecla I) ──────────────────────────────
@@ -3278,7 +3736,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         elAccion.style.opacity = '0';
         elAccion.style.display = 'block';
         requestAnimationFrame(() => { elAccion.style.opacity = '1'; });
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Toast de activación ───────────────────────────────────────────────────
@@ -3602,8 +4059,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             }
         }
 
-        if (document.pointerLockElement) document.exitPointerLock();
-
         // Overlay de viñeta
         const overlay = document.getElementById('int-insp-overlay');
         if (overlay) {
@@ -3619,7 +4074,12 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         document.getElementById('exam3d-desc').innerHTML   = _wwResaltar(desc);
 
         const dragHint = document.querySelector('#int-examinar-3d .int-insp-drag');
-        if (dragHint) dragHint.style.display = _inspeccionFlotante ? 'block' : 'none';
+        if (dragHint) {
+            // Con el ratón capturado el objeto gira solo con moverlo, sin arrastrar.
+            dragHint.textContent = document.pointerLockElement ? _T('move_rotate')
+                                                              : _T('drag_rotate');
+            dragHint.style.display = _inspeccionFlotante ? 'block' : 'none';
+        }
 
         const pistaEl = document.getElementById('exam3d-pista');
         if (pistaEl) pistaEl.innerHTML = modo === 'recoger'
@@ -3650,15 +4110,23 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
 
         if (guardar) {
             _SFX.recoger();
+            // Examen: inventario de UN solo hueco — al coger otro, el que llevabas vuelve a su sitio.
+            if (EXAMEN_VOCAB) {
+                for (const prevId of [...inventario.keys()]) _devolverObjeto(prevId);
+            }
             inventario.set(idNodo, { titulo, nombre: _nombreNodo(idNodo) });
             recogidos.add(idNodo);
             if (entry?.obj3d) entry.obj3d.visible = false;  // recogido — desaparece
             _actualizarInventarioUI();
             if (inter?.descripcion) _mostrarActivacion(_T('saved_item')(titulo));
-            nodosCompletados.add(idNodo);
-            _marcarObjetivoCompletado(idNodo);
-            if (entry) _desactivarGuia(entry);
-            _verificarAvance();
+            // En el examen de vocabulario, recoger NO avanza la fase: solo la ENTREGA del
+            // objeto correcto al guía cuenta. Así se puede coger todo libremente.
+            if (!EXAMEN_VOCAB) {
+                nodosCompletados.add(idNodo);
+                _marcarObjetivoCompletado(idNodo);
+                if (entry) _desactivarGuia(entry);
+                _verificarAvance();
+            }
         } else {
             // Soltar sin guardar: restaurar visibilidad si habíamos ocultado el original
             if (_inspeccionFlotante && entry?.obj3d) entry.obj3d.visible = true;
@@ -3673,7 +4141,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         _inspeccionIdNodo   = null;
         _inspeccionInter    = null;
         dialogoAbierto      = false;
-        window._wwRetomarPointerLock?.();
     }
 
     // Drag para rotar el objeto inspeccionado
@@ -3684,15 +4151,25 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         _inspeccionLastY = e.clientY;
     });
     document.addEventListener('mousemove', (e) => {
-        if (!_inspeccionActiva || !_inspeccionDrag || !_inspeccionWrapper) return;
-        const dx = e.clientX - _inspeccionLastX;
-        const dy = e.clientY - _inspeccionLastY;
+        if (!_inspeccionActiva || !_inspeccionWrapper) return;
+        // Con el puntero capturado no hay cursor que arrastrar (y soltarlo es justo lo
+        // que hacía repetir el aviso de pantalla completa del navegador): el objeto gira
+        // con el movimiento del ratón. Sin captura (modo órbita) se sigue arrastrando.
+        let dx, dy;
+        if (document.pointerLockElement) {
+            dx = e.movementX;
+            dy = e.movementY;
+        } else {
+            if (!_inspeccionDrag) return;
+            dx = e.clientX - _inspeccionLastX;
+            dy = e.clientY - _inspeccionLastY;
+            _inspeccionLastX = e.clientX;
+            _inspeccionLastY = e.clientY;
+        }
         // Acumular rotación en espacio local del objeto (ejes Y y X)
         const qY = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), dx * 0.013);
         const qX = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), dy * 0.013);
         _inspeccionDragQuat.multiply(qY).multiply(qX);
-        _inspeccionLastX = e.clientX;
-        _inspeccionLastY = e.clientY;
     });
     document.addEventListener('mouseup', () => { _inspeccionDrag = false; });
 
@@ -3713,9 +4190,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             PersonajesManager.callar(_personajeHablando);
             _personajeHablando = null;
         }
-        // Si el navegador soltó el pointer lock durante el diálogo, retomarlo.
-        // La tecla E que cierra el diálogo cuenta como gesto de usuario.
-        window._wwRetomarPointerLock?.();
     }
 
     // ── Helpers ───────────────────────────────────────────────────────────────
@@ -3812,12 +4286,12 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         for (const entry of Object.values(mapa)) {
             if (entry.luzGuia || entry.spriteAura) {
                 const pulse = 0.5 + 0.5 * Math.sin(t * 2.4);
-                if (entry.luzGuia)    entry.luzGuia.intensity = 1.4 + 1.4 * pulse;
+                if (entry.luzGuia)    entry.luzGuia.intensity = 2.4 + 1.6 * pulse;
                 if (entry.spriteAura) {
-                    const base = entry.escalaAura || 0.7;
+                    const base = entry.escalaAura || 1.1;
                     const sc = base * (0.94 + 0.06 * pulse);
                     entry.spriteAura.scale.set(sc, sc, 1);
-                    entry.spriteAura.material.opacity = 0.60 + 0.35 * pulse;
+                    entry.spriteAura.material.opacity = 0.80 + 0.20 * pulse;
                 }
                 if (entry.spritePuntos) {
                     // Bobbing suave hacia arriba y abajo
@@ -3860,19 +4334,24 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             }
 
             if (dialogoAbierto) {
+                // Con un panel abierto el raton puede seguir capturado, asi que la
+                // deteccion se congela aqui (antes la congelaba el soltar el puntero).
                 elHint.style.display = 'none';
-            } else if (mirado !== nodoEnRango) {
-                nodoEnRango = mirado;
-                if (mirado) {
-                    elHint.innerHTML = _textoHint(mirado);
-                    elHint.style.display = 'flex';
-                } else {
-                    elHint.style.display = 'none';
+                nodoEnRango = null;
+            } else {
+                if (mirado !== nodoEnRango) {
+                    nodoEnRango = mirado;
+                    if (mirado) {
+                        elHint.innerHTML = _textoHint(mirado);
+                        elHint.style.display = 'flex';
+                    } else {
+                        elHint.style.display = 'none';
+                    }
                 }
-            }
 
-            if (frameCount % 45 === 0) _detectarZona();
-            if (frameCount % 20 === 0) _detectarLoreFPS();
+                if (frameCount % 45 === 0) _detectarZona();
+                if (frameCount % 20 === 0) _detectarLoreFPS();
+            }
 
         } else if (nodoEnRango) {
             nodoEnRango = null;
@@ -4113,6 +4592,17 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
                 transition: background 0.18s, color 0.18s;
             }
             .int-d-btn:hover { background: rgba(100,75,210,0.8); color: #fff; }
+            /* Número de la opción: es la tecla con la que se elige (1-9) */
+            .int-d-btn kbd {
+                display: inline-block;
+                background: rgba(255,255,255,0.16);
+                border: 1px solid rgba(255,255,255,0.32);
+                border-bottom-width: 2px;
+                border-radius: 4px;
+                padding: 0px 7px;
+                font-family: monospace; font-size: 11px;
+                color: #fff; margin-right: 5px;
+            }
             .int-pista {
                 color: rgba(255,255,255,0.28); font-size: 11px;
                 text-align: right; margin-top: 10px; letter-spacing: 0.5px;
@@ -4404,7 +4894,10 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
     // Iniciar tracker con la fase 0 (sin fade de entrada)
     _construirTracker(0, true);
 
-    return { update };
+    // Examen de vocabulario: mostrar el contador de fallos desde el principio
+    if (EXAMEN_VOCAB) _actualizarFallosHUD();
+
+    return { update, getFase: () => faseActual };
 };
 
 // ── Footsteps procedurales ────────────────────────────────────────────────────
@@ -4941,6 +5434,11 @@ const SCENE_GRAPH          = {
   "radio_escena": 22.0,
   "limite_jugador": 6.5,
   "color_suelo": null,
+  "tipo_suelo": null,
+  "tipo_techo": null,
+  "radio_cubierta": null,
+  "variante_barco": null,
+  "escena_conversacion": false,
   "nodos": [
     {
       "id": "fondo_escena_01",
@@ -4954,6 +5452,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 22.0,
       "alto": 12.0,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 0,
       "prompt_imagen": null,
@@ -4972,6 +5471,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 22.0,
       "alto": 22.0,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 0,
       "prompt_imagen": null,
@@ -4990,6 +5490,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 1.0,
       "alto": 1.85,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 5,
       "prompt_imagen": null,
@@ -5008,6 +5509,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 0.9,
       "alto": 1.8,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 5,
       "prompt_imagen": null,
@@ -5026,6 +5528,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 0.85,
       "alto": 1.8,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 5,
       "prompt_imagen": null,
@@ -5044,6 +5547,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 2.8,
       "alto": 10.0,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 5,
       "prompt_imagen": null,
@@ -5062,6 +5566,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 2.3,
       "alto": 1.7,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 5,
       "prompt_imagen": null,
@@ -5080,6 +5585,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 5.7,
       "alto": 1.1,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 7,
       "prompt_imagen": null,
@@ -5098,6 +5604,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 6.0,
       "alto": 0.3,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 1,
       "prompt_imagen": null,
@@ -5116,6 +5623,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 4.6,
       "alto": 10.0,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 2,
       "prompt_imagen": null,
@@ -5134,6 +5642,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 4.6,
       "alto": 1.7,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 3,
       "prompt_imagen": null,
@@ -5152,6 +5661,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 4.12,
       "alto": 12.35,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 1,
       "prompt_imagen": null,
@@ -5170,6 +5680,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 3.77,
       "alto": 11.32,
+      "tam_real": null,
       "voltear_horizontal": true,
       "capa": 1,
       "prompt_imagen": null,
@@ -5188,6 +5699,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 3.55,
       "alto": 10.66,
+      "tam_real": null,
       "voltear_horizontal": true,
       "capa": 1,
       "prompt_imagen": null,
@@ -5206,6 +5718,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 3.49,
       "alto": 10.48,
+      "tam_real": null,
       "voltear_horizontal": true,
       "capa": 1,
       "prompt_imagen": null,
@@ -5224,6 +5737,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 3.96,
       "alto": 11.88,
+      "tam_real": null,
       "voltear_horizontal": true,
       "capa": 1,
       "prompt_imagen": null,
@@ -5242,6 +5756,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 3.62,
       "alto": 10.87,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 1,
       "prompt_imagen": null,
@@ -5260,6 +5775,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 4.75,
       "alto": 14.25,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 1,
       "prompt_imagen": null,
@@ -5278,6 +5794,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 4.2,
       "alto": 12.61,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 1,
       "prompt_imagen": null,
@@ -5296,6 +5813,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 5.03,
       "alto": 10.06,
+      "tam_real": null,
       "voltear_horizontal": true,
       "capa": 1,
       "prompt_imagen": null,
@@ -5314,6 +5832,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 4.66,
       "alto": 9.32,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 1,
       "prompt_imagen": null,
@@ -5332,6 +5851,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 5.89,
       "alto": 11.78,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 1,
       "prompt_imagen": null,
@@ -5350,6 +5870,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 4.13,
       "alto": 8.26,
+      "tam_real": null,
       "voltear_horizontal": true,
       "capa": 1,
       "prompt_imagen": null,
@@ -5368,6 +5889,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 4.7,
       "alto": 9.39,
+      "tam_real": null,
       "voltear_horizontal": true,
       "capa": 1,
       "prompt_imagen": null,
@@ -5386,6 +5908,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 1.62,
       "alto": 2.03,
+      "tam_real": null,
       "voltear_horizontal": true,
       "capa": 1,
       "prompt_imagen": null,
@@ -5404,6 +5927,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 1.78,
       "alto": 2.23,
+      "tam_real": null,
       "voltear_horizontal": true,
       "capa": 1,
       "prompt_imagen": null,
@@ -5422,6 +5946,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 1.65,
       "alto": 2.07,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 1,
       "prompt_imagen": null,
@@ -5440,6 +5965,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 1.61,
       "alto": 2.02,
+      "tam_real": null,
       "voltear_horizontal": true,
       "capa": 1,
       "prompt_imagen": null,
@@ -5458,6 +5984,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 1.91,
       "alto": 2.39,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 1,
       "prompt_imagen": null,
@@ -5476,6 +6003,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 1.73,
       "alto": 2.16,
+      "tam_real": null,
       "voltear_horizontal": true,
       "capa": 1,
       "prompt_imagen": null,
@@ -5494,6 +6022,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 2.09,
       "alto": 2.61,
+      "tam_real": null,
       "voltear_horizontal": true,
       "capa": 1,
       "prompt_imagen": null,
@@ -5512,6 +6041,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 0.53,
       "alto": 2.65,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 1,
       "prompt_imagen": null,
@@ -5530,6 +6060,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 0.56,
       "alto": 2.79,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 1,
       "prompt_imagen": null,
@@ -5548,6 +6079,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 0.43,
       "alto": 2.17,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 1,
       "prompt_imagen": null,
@@ -5566,6 +6098,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 0.42,
       "alto": 2.11,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 1,
       "prompt_imagen": null,
@@ -5584,6 +6117,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 0.52,
       "alto": 2.59,
+      "tam_real": null,
       "voltear_horizontal": true,
       "capa": 1,
       "prompt_imagen": null,
@@ -5602,6 +6136,7 @@ const SCENE_GRAPH          = {
       },
       "ancho": 0.51,
       "alto": 2.56,
+      "tam_real": null,
       "voltear_horizontal": false,
       "capa": 1,
       "prompt_imagen": null,
@@ -5625,7 +6160,8 @@ const SCENE_GRAPH          = {
       "color": "#a1c7de",
       "near": 6.6,
       "far": 13.0
-    }
+    },
+    "luz_exterior": null
   },
   "camara": {
     "posicion": {
@@ -5745,11 +6281,13 @@ const INTERACTION_MANIFEST = {
               "opciones": [
                 {
                   "etiqueta": "¿Qué pensabas cuando viste el cohete alzar?",
-                  "respuesta": "Vi el cohete como un símbolo de esperanza, una respuesta a la carrera contra la URSS que mostraba que la ciencia podía triunfar."
+                  "respuesta": "Vi el cohete como un símbolo de esperanza, una respuesta a la carrera contra la URSS que mostraba que la ciencia podía triunfar.",
+                  "correcta": false
                 },
                 {
                   "etiqueta": "¿Cómo manejaste la presión del mundo entero?",
-                  "respuesta": "Entrenamiento riguroso y la confianza en mi equipo me mantuvieron firme; sabíamos que cada paso era para la paz."
+                  "respuesta": "Entrenamiento riguroso y la confianza en mi equipo me mantuvieron firme; sabíamos que cada paso era para la paz.",
+                  "correcta": false
                 }
               ]
             },
@@ -5759,7 +6297,8 @@ const INTERACTION_MANIFEST = {
               ],
               "opciones": []
             }
-          ]
+          ],
+          "pista": null
         }
       ],
       "dialogos_con_item": [],
@@ -5807,11 +6346,13 @@ const INTERACTION_MANIFEST = {
               "opciones": [
                 {
                   "etiqueta": "¿Cuál fue el mayor desafío técnico?",
-                  "respuesta": "Mantener el motor del cohete estable durante los primeros 2 minutos fue crítico; cualquier falla habría significado el fin de la misión."
+                  "respuesta": "Mantener el motor del cohete estable durante los primeros 2 minutos fue crítico; cualquier falla habría significado el fin de la misión.",
+                  "correcta": false
                 },
                 {
                   "etiqueta": "¿Cómo te sientes al ser el segundo en pisar la Luna?",
-                  "respuesta": "Es un honor compartir ese momento con Neil; la historia nos recuerda que el trabajo en equipo es esencial."
+                  "respuesta": "Es un honor compartir ese momento con Neil; la historia nos recuerda que el trabajo en equipo es esencial.",
+                  "correcta": false
                 }
               ]
             },
@@ -5821,7 +6362,8 @@ const INTERACTION_MANIFEST = {
               ],
               "opciones": []
             }
-          ]
+          ],
+          "pista": null
         }
       ],
       "dialogos_con_item": [],
@@ -5864,11 +6406,13 @@ const INTERACTION_MANIFEST = {
               "opciones": [
                 {
                   "etiqueta": "¿Te asustó estar solo en el espacio?",
-                  "respuesta": "El silencio es profundo, pero la confianza en el entrenamiento y en el equipo disipó cualquier miedo."
+                  "respuesta": "El silencio es profundo, pero la confianza en el entrenamiento y en el equipo disipó cualquier miedo.",
+                  "correcta": false
                 },
                 {
                   "etiqueta": "¿Qué pensabas al mirar la Tierra desde allí?",
-                  "respuesta": "Vi un planeta azul, una visión que reforzó mi compromiso con la paz y la cooperación internacional."
+                  "respuesta": "Vi un planeta azul, una visión que reforzó mi compromiso con la paz y la cooperación internacional.",
+                  "correcta": false
                 }
               ]
             },
@@ -5878,7 +6422,8 @@ const INTERACTION_MANIFEST = {
               ],
               "opciones": []
             }
-          ]
+          ],
+          "pista": null
         }
       ],
       "dialogos_con_item": [],
@@ -5980,10 +6525,12 @@ const INTERACTION_MANIFEST = {
       ],
       "texto": "Al entrar en la plataforma de lanzamiento, el jugador observa la enorme estructura y el cohete listo para el despegue."
     }
-  ]
+  ],
+  "examen_vocabulario": false,
+  "examen_opciones": false
 };
 const AUDIO_DATA           = {"url_preview": "https://cdn.freesound.org/previews/627/627112_5828667-hq.mp3", "volumen": 0.6, "titulo": "AERORckt_Rocket roar 12.Very Distant.Steady.Crackle_EM_(7lrs).wav", "autor": "newlocknew"};
-const CIELO_CONFIG         = {"tipo": "manana_despejada", "color_fondo": "#a4d6f3", "color_ambiente": "#ffffff", "intensidad_ambiente": 0.6463240303131809, "color_sol": "#ffd316", "intensidad_sol": 1.0688156245797724, "pos_sol": {"x": -1.2298321782310502, "y": 3.130797844096864, "z": -0.8295022208831879}, "niebla": {"color": "#a1c7de", "near": 6.6, "far": 13.0}};
+const CIELO_CONFIG         = {"tipo": "manana_despejada", "color_fondo": "#a4d6f3", "color_ambiente": "#ffffff", "intensidad_ambiente": 0.6463240303131809, "color_sol": "#ffd316", "intensidad_sol": 1.0688156245797724, "pos_sol": {"x": -1.2298321782310502, "y": 3.130797844096864, "z": -0.8295022208831879}, "niebla": {"color": "#a1c7de", "near": 6.6, "far": 13.0}, "luz_exterior": null};
 const NEXT_SCENE_URL       = "preview_escena_02.html";
 const FIN_DATA             = null;
 
@@ -6244,17 +6791,43 @@ function salirFPS() {
 // (E es un gesto de usuario válido para requestPointerLock)
 window._wwRetomarPointerLock = function () {
     if (fpsModo && !document.pointerLockElement) {
-        renderer.domElement.requestPointerLock();
+        // requestPointerLock puede fallar (síncrono en navegadores viejos, o promesa
+        // rechazada en Chrome reciente) si se pide dentro del enfriamiento de ~1,25 s que
+        // el navegador impone tras soltar el puntero. No dejamos que reviente: el listener
+        // 'pointerlockerror' de abajo se encarga de mostrar el menú de pausa como salida.
+        try {
+            const p = renderer.domElement.requestPointerLock();
+            if (p && typeof p.catch === 'function') p.catch(() => {});
+        } catch (_) { /* lo recoge pointerlockerror */ }
     }
 };
 
-// Pointer Lock: cuando se captura el ratón ocultamos el overlay.
-// Si se pierde mientras hay un diálogo abierto, no mostramos el overlay.
+// Menú de pausa a petición: si el puntero ya estaba suelto (lo había soltado un
+// panel), pulsar Esc no dispara ningún 'pointerlockchange', así que interactions.js
+// pide el menú explícitamente para que Esc siempre acabe en la pausa.
+window._wwMostrarPausa = function () {
+    if (fpsModo && !document.pointerLockElement) elOverlay.style.display = 'flex';
+};
+
+// Pointer Lock: cuando se captura el ratón ocultamos el overlay; si se pierde,
+// sacamos el menú de pausa (ningún panel suelta ya el puntero por su cuenta).
 document.addEventListener('pointerlockchange', () => {
     if (!fpsModo) return;
     if (document.pointerLockElement) {
         elOverlay.style.display = 'none';
-    } else if (!window._wwDialogoAbierto?.()) {
+    } else {
+        elOverlay.style.display = 'flex';
+    }
+});
+
+// Recuperación del "ratón pillado": si requestPointerLock falla (típicamente al cerrar un
+// diálogo/inspección antes de que pase el enfriamiento del navegador), pointerlockchange NO
+// dispara y el jugador se queda con el cursor suelto, la cámara congelada y sin menú. Aquí
+// detectamos ese fallo y mostramos el overlay de pausa, cuyo clic recaptura el puntero con un
+// gesto válido. Solo si no hay un panel abierto (en ese caso el ratón suelto es lo correcto).
+document.addEventListener('pointerlockerror', () => {
+    if (fpsModo && !document.pointerLockElement
+        && !window._wwDialogoAbierto?.() && !window._wwInspeccionActiva?.()) {
         elOverlay.style.display = 'flex';
     }
 });
@@ -6480,8 +7053,12 @@ window.spawnPortal = function() {
         blending: THREE.AdditiveBlending, depthWrite: false, fog: false,
     })));
 
-    // Posición: visible ligeramente a la derecha del frente, a altura de ojos
-    g.position.set(1.8, 1.5, -4.2);
+    // Posición: visible ligeramente a la derecha del frente, a altura de ojos.
+    // En barco se sube a la altura de la CUBIERTA + altura de ojos (la cámara en cubierta
+    // está a DECK_H + FPS_ALTURA, línea ~1060) para que el portal quede a la altura de la
+    // cabeza del jugador y no hundido sobre la cubierta.
+    const _portalY = (SCENE_GRAPH.tipo_ambiente === 'barco') ? ((window._BARCO_DECK_H ?? 1.0) + FPS_ALTURA + 1.4) : 1.5;
+    g.position.set(1.8, _portalY, -4.2);
     scene.add(g);
     _portalGrupo = g;
 
@@ -6584,14 +7161,17 @@ function animate() {
             }
 
             if (progress >= 1.0) {
-                if (!NEXT_SCENE_URL) {
+                if (FIN_DATA && typeof window._mostrarFinOverlay === 'function') {
+                    // Última escena (narrativo o educativo): SIEMPRE el overlay de cierre;
+                    // su botón decide el destino (inicio o cuestionario final).
                     _portalTransicionInicio = null;
                     salirFPS();
-                    if (FIN_DATA && typeof window._mostrarFinOverlay === 'function') {
-                        setTimeout(function() { window._mostrarFinOverlay(); }, 200);
-                    }
-                } else {
+                    setTimeout(function() { window._mostrarFinOverlay(); }, 200);
+                } else if (NEXT_SCENE_URL) {
                     window.location.href = NEXT_SCENE_URL + '?portal=1';
+                } else {
+                    _portalTransicionInicio = null;
+                    salirFPS();
                 }
             }
         }
@@ -6657,7 +7237,7 @@ function animate() {
         // según el tipo de interior/exterior). Fallback para scenes generadas sin este campo.
         const _esInterior = (SCENE_GRAPH.tipo_escena === 'interior');
         const _radioEscena = SCENE_GRAPH.radio_escena ?? 22.0;
-        const _esCaja = (SCENE_GRAPH.tipo_ambiente === 'interior' || SCENE_GRAPH.tipo_ambiente === 'interior_grande');
+        const _esCaja = (SCENE_GRAPH.tipo_ambiente === 'habitacion' || SCENE_GRAPH.tipo_ambiente === 'interior' || SCENE_GRAPH.tipo_ambiente === 'interior_grande');
         if (_esCaja) {
             // Interiores en caja: la zona jugable es TODO el cuadrado, incluidas las
             // esquinas (clamp por caja en X y Z por separado, no por radio). Así se puede
@@ -6689,13 +7269,15 @@ function animate() {
             } else if (_enBarco) {
                 camera.position.y = DH + FPS_ALTURA;
                 const d = Math.sqrt(camera.position.x ** 2 + camera.position.z ** 2);
-                const lim = DR * 0.82;
+                const lim = DR * 0.9;
                 if (d > lim) { const f = lim / d; camera.position.x *= f; camera.position.z *= f; }
                 _barcoHint(d > lim * 0.82 ? 'B — bajar al agua' : null);
             } else {
                 camera.position.y = FPS_ALTURA;
                 const d = Math.sqrt(camera.position.x ** 2 + camera.position.z ** 2);
-                const roam = Math.min(_radioEscena - 5, 14);  // se puede explorar más lejos por el agua
+                // Roam off-deck = límite del jugador (lo cubre ya el clamp circular de arriba;
+                // se replica aquí para que el casco y el agua caminable sean coherentes).
+                const roam = Math.min(_radioEscena - 3, SCENE_GRAPH.limite_jugador ?? 18);
                 if (d > roam) {
                     const f = roam / d; camera.position.x *= f; camera.position.z *= f;
                 } else if (d < DR) {
@@ -6775,6 +7357,53 @@ const _entrarFpsAlPrimerGesto = () => {
 };
 renderer.domElement.addEventListener('click',   _entrarFpsAlPrimerGesto, { once: true });
 document.addEventListener(            'keydown', _entrarFpsAlPrimerGesto, { once: true });
+
+// ── Pantalla completa ────────────────────────────────────────────────────────
+// Hay dos formas de estar en pantalla completa, y se comportan distinto al navegar:
+//  · .exe → Chrome arranca con --start-fullscreen: fullscreen DE VENTANA, que
+//    sobrevive a la navegación entre escenas. Ahí no hay nada que hacer, y pedir la
+//    Fullscreen API encima provocaría un parpadeo de entrar/salir en cada escena
+//    (y, al soltarla, devolvería la ventana a modo normal).
+//  · localhost → no hay --start-fullscreen, así que la única pantalla completa
+//    posible es la Fullscreen API (el botón ⛶ de la landing). Esa SÍ se pierde al
+//    cruzar el portal, porque cada escena es una página distinta.
+// Por eso solo re-pedimos la API cuando consta que el usuario la había pedido a mano
+// (flag en sessionStorage). En el .exe ese flag no se pone nunca → transición limpia.
+(function _wwFullscreenPersistente() {
+    const FLAG = 'ww_fs';
+    const esFS = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
+
+    // Salir de fullscreen al cruzar el portal no es decisión del usuario; un Esc sí. Hay
+    // que distinguirlos, pero NO con pagehide/beforeunload: al navegar Chrome dispara el
+    // fullscreenchange ANTES que esos eventos, así que la guarda llegaba tarde y borraba
+    // el flag justo al cambiar de escena. Lo decidimos por supervivencia: si 150 ms
+    // después seguimos vivos, fue un Esc. Si era una navegación, este timer se muere con
+    // la página y el flag queda intacto para la escena siguiente.
+    let t = null;
+    const onCambio = () => {
+        clearTimeout(t);
+        if (esFS()) sessionStorage.setItem(FLAG, '1');
+        else t = setTimeout(() => sessionStorage.removeItem(FLAG), 150);
+    };
+    document.addEventListener('fullscreenchange', onCambio);
+    document.addEventListener('webkitfullscreenchange', onCambio);
+
+    if (sessionStorage.getItem(FLAG) !== '1') return;
+
+    // requestFullscreen exige un gesto, así que reentramos con el primero de la escena.
+    // Va en pointerdown (captura) para llegar antes que el click que captura el ratón:
+    // así el pointer lock se pide ya dentro de la Fullscreen API y no chocan.
+    const ir = () => {
+        removeEventListener('pointerdown', ir, true);
+        removeEventListener('keydown', ir, true);
+        if (esFS()) return;
+        const el = document.documentElement;
+        try { (el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen)?.call(el); }
+        catch (e) { /* si el gesto no sirve, siempre queda F11 */ }
+    };
+    addEventListener('pointerdown', ir, true);
+    addEventListener('keydown', ir, true);
+})();
 </script>
 
 </body>

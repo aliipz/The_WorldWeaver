@@ -31,8 +31,9 @@ HOST = "127.0.0.1"
 
 
 def _puerto_libre(preferido: int = 8000) -> int:
-    """Devuelve el puerto preferido si está libre; si no, uno cualquiera del SO."""
-    for puerto in (preferido, 0):
+    """Devuelve el puerto preferido o, si está ocupado, el siguiente libre de los diez
+    posteriores (dirección estable entre arranques); en último caso, uno del SO."""
+    for puerto in (*range(preferido, preferido + 10), 0):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             try:
                 s.bind((HOST, puerto))
@@ -70,11 +71,10 @@ def _abrir_navegador(url: str) -> None:
             subprocess.Popen([
                 str(navegador),
                 f"--app={url}",
-                # Pantalla completa SALIBLE (con Esc, como la de F11). Arranca en fullscreen y,
-                # como al cruzar un portal se cambia de página y se pierde, el propio viewer
-                # vuelve a entrar en fullscreen con el PRIMER gesto de cada escena (ver
-                # _wwAutoFullscreen en sandbox/index.html). NO usamos --kiosk porque bloquea
-                # el Esc y no deja salir de pantalla completa / de la app.
+                # Pantalla completa SALIBLE (con Esc, como la de F11). Es fullscreen DE
+                # VENTANA: sobrevive a la navegación entre escenas, así que el viewer no
+                # necesita pedir la Fullscreen API (y no debe: encima de esto parpadea).
+                # NO usamos --kiosk porque bloquea el Esc y no deja salir de la app.
                 "--start-fullscreen",
                 "--new-window",
                 f"--user-data-dir={perfil}",
@@ -106,13 +106,20 @@ def _esperar_servidor(url: str, timeout: float = 30.0) -> bool:
 def main() -> None:
     import uvicorn
 
+    # Salida en UTF-8: si stdout no es una consola (redirigido a archivo), Windows
+    # usa cp1252 y los print con caracteres como '─' tumban la petición.
+    for flujo in (sys.stdout, sys.stderr):
+        if flujo is not None and hasattr(flujo, "reconfigure"):
+            flujo.reconfigure(encoding="utf-8", errors="replace")
+
     # Los mundos viven como carpeta outputs/ junto al .exe (no horneados en el
     # binario): lo que haya ahí es exactamente lo que ve el usuario. server.py
     # crea la carpeta vacía si no existe.
     from server import app
 
-    puerto = _puerto_libre(8000)
-    url = f"http://{HOST}:{puerto}/"
+    # Puerto 80 → dirección limpia sin ":puerto" (http://127.0.0.1/).
+    puerto = _puerto_libre(80)
+    url = f"http://{HOST}/" if puerto == 80 else f"http://{HOST}:{puerto}/"
 
     # Hilo que espera a que el servidor levante y abre el navegador.
     def _abrir():

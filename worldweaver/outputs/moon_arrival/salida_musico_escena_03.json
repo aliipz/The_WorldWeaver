@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_03",
+  "query_usada": "tense suspense ambient drone",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/829/829019_5511175-hq.mp3",
+    "titulo": "Paranoia Drone",
+    "autor": "tboneaudio",
+    "duracion_segundos": 29.1,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/719/719710_7372878-hq.mp3",
+    "titulo": "Dark Ambient Guitar Drone D + Bb",
+    "autor": "MichiJung",
+    "duracion_segundos": 33.0,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

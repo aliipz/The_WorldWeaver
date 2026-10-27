@@ -18,7 +18,6 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from agents.organizador import ejecutar_organizador
 from agents.director import ejecutar_director
 from agents.constructor import ejecutar_constructor
-from agents.dibujante import ejecutar_dibujante
 from schemas.scene_graph import SceneGraph
 
 FIXTURE   = Path(__file__).parent / "fixtures" / "cuento_ejemplo.txt"
@@ -177,7 +176,7 @@ if __name__ == "__main__":
 
         for nodo in sg.nodos:
             if nodo.tipo in ("fondo", "suelo"):
-                print(f"   [{nodo.tipo:10}] {nodo.id:35} — textura 2D (Dibujante)")
+                print(f"   [{nodo.tipo:10}] {nodo.id:35} — procedural (viewer)")
             elif nodo.gltf_url:
                 print(f"   [{nodo.tipo:10}] {nodo.id:35} ✓ '{nodo.keyword_busqueda}' → {nodo.gltf_url[:55]}...")
             else:
@@ -187,14 +186,3 @@ if __name__ == "__main__":
         print(f"   💾 JSON:    {json_path}")
         print(f"   🌐 Preview: {html_path}")
 
-        # Dibujante mock: solo fondo y suelo (el resto son modelos 3D)
-        nodos_2d = [n for n in sg.nodos if n.tipo in ("fondo", "suelo")]
-        if nodos_2d:
-            print(f"\n🎨 Dibujante (mock, solo fondo+suelo): '{salida_dir.id_escena}'...")
-            from schemas.scene_graph import SceneGraph as SG
-            sg_2d = SG(id_escena=sg.id_escena, nodos=nodos_2d, camara=sg.camara)
-            salida_dib = ejecutar_dibujante(sg_2d, modo="mock")
-            for asset in salida_dib.assets:
-                print(f"   {asset.id_elemento:40} → {Path(asset.ruta_png).name}"
-                      f"  ({asset.ancho_px}×{asset.alto_px}px)")
-            print(f"\n   ✅ {len(salida_dib.assets)} assets 2D generados")

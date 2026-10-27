@@ -18,7 +18,7 @@ import uuid
 from pathlib import Path
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
-from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
@@ -54,6 +54,21 @@ app.mount("/sandbox", NoCacheStaticFiles(directory=str(BASE / "sandbox")), name=
 app.mount("/outputs", NoCacheStaticFiles(directory=str(OUTPUTS), html=True), name="outputs")
 app.mount("/assets", StaticFiles(directory=str(BASE / "assets")), name="assets")
 
+# ── Extensiones locales (carpeta local/, fuera de git) ─────────────────────────
+# Herramientas personales que no forman parte del proyecto publicado. Si existe
+# worldweaver/local/, sus .js se inyectan en la landing y local/rutas.py (con un
+# APIRouter llamado `router`) añade sus rutas. Sin esa carpeta no hace nada.
+LOCAL = BASE / "local"
+_JS_LOCALES = sorted(p.name for p in LOCAL.glob("*.js")) if LOCAL.is_dir() else []
+if _JS_LOCALES:
+    app.mount("/local", NoCacheStaticFiles(directory=str(LOCAL)), name="local")
+if (LOCAL / "rutas.py").is_file():
+    import importlib.util
+    _spec = importlib.util.spec_from_file_location("ww_rutas_locales", LOCAL / "rutas.py")
+    _rutas_locales = importlib.util.module_from_spec(_spec)
+    _spec.loader.exec_module(_rutas_locales)
+    app.include_router(_rutas_locales.router)
+
 # ── Job store ──────────────────────────────────────────────────────────────────
 # job_id → {"queue": Queue, "world": str, "status": "running"|"done"|"error"}
 _jobs: dict = {}
@@ -63,7 +78,12 @@ _jobs: dict = {}
 
 @app.get("/")
 def index():
-    return FileResponse(str(BASE / "landing.html"))
+    if not _JS_LOCALES:
+        return FileResponse(str(BASE / "landing.html"), headers={"Cache-Control": "no-cache"})
+    html = (BASE / "landing.html").read_text(encoding="utf-8")
+    scripts = "".join(f'<script src="/local/{n}"></script>\n' for n in _JS_LOCALES)
+    html = html.replace("</body>", scripts + "</body>", 1)
+    return HTMLResponse(html, headers={"Cache-Control": "no-cache"})
 
 
 class TextoRequest(BaseModel):
@@ -75,7 +95,7 @@ class TextoRequest(BaseModel):
 
 @app.post("/crear-texto")
 async def crear_texto(req: TextoRequest):
-    world  = req.nombre.lower().replace(" ", "_").replace("-", "_")
+    world  = _nombre_libre(_nombre_mundo(req.nombre))
     job_id = str(uuid.uuid4())[:8]
 
     out_dir = OUTPUTS / world
@@ -91,6 +111,28 @@ async def crear_texto(req: TextoRequest):
         daemon=True,
     ).start()
     return {"job_id": job_id, "world": world}
+
+
+# Marca de mundo a medio generar: la escribe _run_pipeline si la generación falla.
+# La galería oculta esos mundos y scripts/reanudar.py los puede completar.
+MARCA_INCOMPLETO = "_incompleto.json"
+
+
+def _nombre_mundo(raw: str) -> str:
+    """Nombre de carpeta seguro: minúsculas ASCII, dígitos y '_' (sin rutas ni '..')."""
+    import re
+    import unicodedata
+    s = unicodedata.normalize("NFKD", raw or "").encode("ascii", "ignore").decode()
+    s = re.sub(r"[^a-z0-9]+", "_", s.lower()).strip("_")
+    return s[:60] or "mundo"
+
+
+def _nombre_libre(base: str) -> str:
+    """No pisar un mundo existente: base, base_2, base_3..."""
+    nombre, n = base, 2
+    while (OUTPUTS / nombre).exists():
+        nombre, n = f"{base}_{n}", n + 1
+    return nombre
 
 
 def _leer_archivo(content: bytes, filename: str) -> str:
@@ -109,8 +151,7 @@ def _leer_archivo(content: bytes, filename: str) -> str:
 async def crear(file: UploadFile = File(...), modo: str = Form("narrativo"), idioma: str = Form("es")):
     content  = await file.read()
     texto    = _leer_archivo(content, file.filename)
-    raw_stem = Path(file.filename).stem
-    world    = raw_stem.lower().replace(" ", "_").replace("-", "_")
+    world    = _nombre_libre(_nombre_mundo(Path(file.filename).stem))
     job_id   = str(uuid.uuid4())[:8]
 
     ext = Path(file.filename).suffix.lower() or ".txt"
@@ -164,6 +205,8 @@ def listar_mundos():
         if not world_dir.is_dir():
             continue
         if not (world_dir / "preview_escena_01.html").exists():
+            continue
+        if (world_dir / MARCA_INCOMPLETO).exists():
             continue
         sg_files = sorted(world_dir.glob("scene_graph_escena_*.json"))
         if not sg_files:
@@ -247,38 +290,11 @@ _LABELS = {
 
 def _run_pipeline(job_id: str, texto: str, world: str, q: _queue.Queue, modo: str = "narrativo", idioma: str = "es"):
     try:
-        from pipeline.graph import compilar_grafo
+        from pipeline.graph import compilar_grafo, estado_inicial
 
         out_dir = OUTPUTS / world
         out_dir.mkdir(parents=True, exist_ok=True)
-
-        estado = {
-            "nombre_mundo":         world,
-            "provider":             "mercury",
-            "modo":                 modo,
-            "idioma":               idioma,
-            "modo_dibujante":       "mock",
-            "out_dir":              str(out_dir),
-            "max_retries":          3,
-            "texto_original":       texto,
-            "escena_activa":        0,
-            "escena_filtro":        None,
-            "scene_graphs_previos": {},
-            "salida_organizador":   None,
-            "salida_director":      None,
-            "scene_graph":          None,
-            "salida_dibujante":     None,
-            "salida_programador":   None,
-            "salida_musico":        None,
-            "mensajes_organizador": [],
-            "mensajes_director":    [],
-            "mensajes_programador": [],
-            "errores_organizador":  [],
-            "errores_director":     [],
-            "errores_constructor":  [],
-            "errores_programador":  [],
-            "reintentos":           {},
-        }
+        estado = estado_inicial(texto, world, out_dir, modo=modo, idioma=idioma)
 
         grafo = compilar_grafo()
         ultimo_label = None
@@ -298,10 +314,15 @@ def _run_pipeline(job_id: str, texto: str, world: str, q: _queue.Queue, modo: st
         import traceback
         from pipeline.errors import ServicioModelosCaido
         print(f"[Server] Error en pipeline:\n{traceback.format_exc()}")
+        # No se borra: la carpeta (siempre nueva, ver _nombre_libre) queda marcada como
+        # incompleta, oculta en la galería y reanudable con scripts/reanudar.py.
         out_dir = OUTPUTS / world
         if out_dir.exists():
-            shutil.rmtree(out_dir, ignore_errors=True)
-            print(f"[Server] Carpeta eliminada tras error: {out_dir}")
+            (out_dir / MARCA_INCOMPLETO).write_text(
+                json.dumps({"error": str(exc), "modo": modo, "idioma": idioma}, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            print(f"[Server] Mundo marcado como incompleto: {out_dir}")
         # Servicio externo de modelos 3D caído → código especial para que la landing
         # muestre la pantalla dedicada (deja claro que no es problema de WorldWeaver).
         if isinstance(exc, ServicioModelosCaido):

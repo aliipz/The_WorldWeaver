@@ -1,0 +1,389 @@
+{
+  "id_escena": "escena_03",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Identifica el error de navegación del módulo",
+      "guias": [
+        "objeto_modulo_lunar_eagle",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_modulo_lunar_eagle"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Controla manualmente el descenso del Eagle",
+      "guias": [
+        "personaje_neil_armstrong"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_neil_armstrong"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Asegura la reserva crítica de combustible",
+      "guias": [
+        "objeto_modulo_lunar_eagle",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_modulo_lunar_eagle"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_neil_armstrong",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Neil Armstrong — Astronauta de la NASA",
+        "texto": "Comandante del módulo lunar Eagle en la misión ==Apollo 11== (1969). Fue el primer ser humano en pisar la Luna, realizando el histórico alunizaje en el ==Mare Tranquillitatis==."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "El módulo Eagle muestra el código de error ==1202== en su ordenador de navegación, indicando una falla en el guiado automático."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Debo tomar el control manual y corregir la trayectoria antes de que el combustible se agote."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cuánto tiempo tenías antes de quedarte sin combustible?",
+                  "respuesta": "Teníamos aproximadamente ==30 segundos== de combustible de reserva, por lo que cada ajuste debía ser preciso."
+                },
+                {
+                  "etiqueta": "¿Cómo sabías que el error era crítico?",
+                  "respuesta": "El código ==1202== señalaba una pérdida de señal del sistema de guía, lo que hacía imposible confiar en la automatización."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Mantengo la calma, ajusto los motores y apunto a un área segura del ==Mare Tranquillitatis==."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Con el control manual, evito cráteres rocosos y reduzco el consumo de combustible, logrando una inserción suave."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El módulo se desacelera a ==1.68 m/s== justo antes del contacto con la superficie."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué velocidad era segura para el alunizaje?",
+                  "respuesta": "Una velocidad de descenso de alrededor de ==1.5 a 2 m/s== se considera segura para evitar daños al módulo."
+                },
+                {
+                  "etiqueta": "¿Cómo calculaste la distancia al terreno?",
+                  "respuesta": "Utilicé los datos del radar de descenso y la tasa de cambio de la altitud para estimar la distancia en tiempo real."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "Al tocar la superficie, el medidor de combustible muestra una reserva crítica, pero suficiente para completar la misión."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Este es el primer alunizaje tripulado en la historia, marcando un hito para la humanidad."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cuál fue el impacto global de este logro?",
+                  "respuesta": "El alunizaje inspiró a generaciones, impulsó la investigación espacial y demostró la capacidad tecnológica de la humanidad."
+                },
+                {
+                  "etiqueta": "¿Qué aprendieron para futuras misiones?",
+                  "respuesta": "Aprendimos la importancia de redundancia en los sistemas de guía y de reservar mayor margen de combustible para emergencias."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Hablar",
+          "descripcion": "Le explicas a Neil el error ==1202== y la necesidad de control manual.",
+          "animacion": "Idle",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_buzz_aldrin",
+        "efecto": null,
+        "color": null,
+        "animacion": "StandUp"
+      }
+    },
+    {
+      "id_nodo": "personaje_buzz_aldrin",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Buzz Aldrin — Astronauta de la NASA",
+        "texto": "Piloto del módulo lunar Eagle y segundo hombre en caminar sobre la Luna durante la misión ==Apollo 11==. Contribuyó al éxito del alunizaje con su experiencia en sistemas de navegación."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "Observo el código ==1202== y entiendo que el sistema de navegación necesita intervención humana."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "El consumo de combustible está aumentando rápidamente, debemos actuar antes de que se agote."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cuánta tasa de consumo había?",
+                  "respuesta": "El consumo subió a ==0.6 kg/s==, mucho más de lo previsto para la fase de descenso."
+                },
+                {
+                  "etiqueta": "¿Qué procedimientos de emergencia teníais?",
+                  "respuesta": "Teníamos un plan de abortar la inserción y regresar al módulo de mando, pero la prioridad era lograr el alunizaje."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Al posarnos, sentimos la ligera vibración del módulo mientras el combustible se agota, pero la nave está estable."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Estamos en el ==Mare Tranquillitatis==, la primera vez que dos humanos pisan la Luna."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo describirías la superficie lunar?",
+                  "respuesta": "La superficie es un polvo fino llamado regolito, con cráteres y rocas que requieren una navegación cuidadosa."
+                },
+                {
+                  "etiqueta": "¿Qué sensación tuviste al ver la Tierra?",
+                  "respuesta": "Ver la Tierra como una esfera azul desde la Luna fue una experiencia sobrecogedora que reforzó la unidad humana."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Confirmar",
+          "descripcion": "Buzz asiente y verifica los indicadores de combustible restante.",
+          "animacion": "Idle",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_neil_armstrong",
+        "efecto": null,
+        "color": null,
+        "animacion": "StandUp"
+      }
+    },
+    {
+      "id_nodo": "personaje_michael_collins",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Michael Collins — Astronauta de la NASA",
+        "texto": "Piloto del módulo de mando Columbia, permaneció en órbita lunar mientras sus compañeros descendían al ==Mare Tranquillitatis== en la misión ==Apollo 11==, garantizando la seguridad y la comunicación de la tripulación."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Desde la órbita lunar, monitoreo los sistemas de la misión mientras el Eagle desciende y el código ==1202== aparece en la telemetría."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Mantengo la comunicación abierta, listo para ayudar en caso de emergencia, aunque sé que el control está en manos de Armstrong y Aldrin."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Observar",
+          "descripcion": "Michael observa desde la órbita la trayectoria del Eagle y registra datos de posición.",
+          "animacion": "Idle",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_modulo_lunar_eagle",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Módulo Lunar Eagle",
+        "descripcion": "El ==Módulo Eagle== es la nave de descenso lunar. Está equipado con motor de ==hidrógeno y oxígeno líquido== que produce ==thrust== para desacelerar y aterrizar. Su panel de navegación muestra códigos de error como ==1202== cuando falla la computadora.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyR",
+          "etiqueta": "Encender motores",
+          "descripcion": "Los motores generan empuje mediante combustión de hidrógeno y oxígeno líquido, proporcionando ==thrust== para la fase de descenso.",
+          "efecto_visual": "brillo",
+          "sonido": "esfuerzo"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_modulo_mando_columbia",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Módulo de Mando Columbia",
+        "descripcion": "El ==Módulo Columbia== alberga la cabina de mando y los sistemas de soporte vital. Su consumo de ==combustible== es crítico durante la órbita lunar.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyQ",
+          "etiqueta": "Abrir compuertas",
+          "descripcion": "Las compuertas permiten la transferencia de gases entre los módulos, regulando la presión interna.",
+          "efecto_visual": "rotar",
+          "sonido": "metal"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_bandera_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una bandera ondea débilmente, sus colores desvanecidos bajo la luz estelar."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_roca_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Roca basalítica ennegrecida, marcada por microcráteres que reflejan la historia del mare."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_crater_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un cráter diminuto, su borde irregular sugiere un impacto reciente."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": []
+}

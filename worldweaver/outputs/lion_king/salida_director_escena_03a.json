@@ -1,0 +1,140 @@
+{
+  "id_escena": "escena_03a",
+  "elementos": [
+    {
+      "id": "personaje_simba",
+      "nombre": "Simba",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.4,
+      "descripcion": "Young male lion, golden fur, bright eyes, later grown into a strong adult with a scar over his eye.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_timón",
+      "nombre": "Timón",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 0.4,
+      "alto": 0.35,
+      "descripcion": "Meerkat, small, brown fur, simple cloth around neck.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_pumba",
+      "nombre": "Pumba",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 0.8,
+      "descripcion": "Warthog, stout, bristly hair, leaf necklace.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_statue_01",
+      "nombre": "Stone jaguar statue",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.9,
+      "alto": 2.0,
+      "descripcion": "Carved stone statue of a jaguar, weathered to a muted gray, eyes glinting with tiny crystals.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_flower_01",
+      "nombre": "Tropical flower bush",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 1.2,
+      "alto": 1.0,
+      "descripcion": "Bright orange hibiscus bush with glossy petals and thick green leaves, blooming densely.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_rock_01",
+      "nombre": "Moss-covered stone",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 2.5,
+      "alto": 1.5,
+      "descripcion": "Large slab of smooth granite draped in thick emerald moss, its edges worn by water.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_vine_01",
+      "nombre": "Trailing vine",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 1
+      },
+      "ancho": 0.2,
+      "alto": 0.6,
+      "descripcion": "Thick, woody vine with glossy green leaves, curling around the rock and swaying gently.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_log_01",
+      "nombre": "Fallen log",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 2
+      },
+      "ancho": 3.0,
+      "alto": 0.8,
+      "descripcion": "Thick, rotting log with bark peeling, covered in lichen and small fungi, dark brown.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_bridge_01",
+      "nombre": "Wooden footbridge",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 2
+      },
+      "ancho": 1.5,
+      "alto": 0.5,
+      "descripcion": "Rope-suspended wooden planks over a shallow pool, dark brown with mossy edges.",
+      "keyword_busqueda": null
+    }
+  ]
+}

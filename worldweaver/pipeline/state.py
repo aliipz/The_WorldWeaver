@@ -11,7 +11,6 @@ from typing import Optional, TypedDict
 from schemas.escenas import SalidaOrganizador
 from schemas.especificacion import SalidaDirector
 from schemas.scene_graph import SceneGraph
-from schemas.assets import SalidaDibujante
 from schemas.interacciones import SalidaProgramador
 from schemas.audio import SalidaMusico
 from schemas.quiz import SalidaExaminador
@@ -28,7 +27,6 @@ class WorldWeaverState(TypedDict, total=False):
     subtipo_educativo: Optional[str]   # "historico" | "taxonomico" | "vocabulario"
     tipo_vocabulario: Optional[str]    # "tangible" | "conversacional" (solo subtipo vocabulario)
     idioma_objetivo: Optional[str]     # idioma que se aprende (solo vocabulario), p.ej. "en"
-    modo_dibujante: str     # "mock" | "fal" | "gemini" | "auto"
     out_dir: str            # ruta absoluta a outputs/<nombre_mundo>/
     max_retries: int
 
@@ -43,7 +41,6 @@ class WorldWeaverState(TypedDict, total=False):
     salida_organizador: Optional[SalidaOrganizador]
     salida_director: Optional[SalidaDirector]
     scene_graph: Optional[SceneGraph]
-    salida_dibujante: Optional[SalidaDibujante]
     salida_programador: Optional[SalidaProgramador]
     salida_musico: Optional[SalidaMusico]
     salida_examinador: Optional[SalidaExaminador]

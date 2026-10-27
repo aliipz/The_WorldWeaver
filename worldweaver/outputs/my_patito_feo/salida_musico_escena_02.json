@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_02",
+  "query_usada": "swamp water ambience loop",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/827/827643_5828667-hq.mp3",
+    "titulo": "AMBDsgn_Night Camp.Lake Shore.Campfire.Gentle Waves.Cricket.Grasshoppers.Designed_EM",
+    "autor": "newlocknew",
+    "duracion_segundos": 130.8,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/564/564166_1445263-hq.mp3",
+    "titulo": "Crashing Starship",
+    "autor": "Aemyn",
+    "duracion_segundos": 307.9,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

@@ -1,0 +1,168 @@
+{
+  "titulo_historia": "Green Zombies and the Unlikely Love",
+  "escenas": [
+    {
+      "id": "escena_01",
+      "titulo": "The Chase through the Woods",
+      "entorno": "A dense pine thicket with twisted trunks, damp leaf litter, low hanging moss, and shafts of pale light filtering through the canopy.",
+      "atmosfera": "Tense and frantic, early morning mist clings to the air, the couple's hearts pound as they flee the relentless horde.",
+      "cielo": "manana_despejada",
+      "tipo_ambiente": "bosque",
+      "tiene_intro": true,
+      "texto_intro": "The morning mist still clung to the pine needles as a young couple sprinted through the tangled underbrush, their breath ragged. Behind them, a horde of green‑skinned monsters surged, their guttural moans echoing among the trunks. The woods seemed to close in, every rustle a reminder of the danger that pursued them.",
+      "texto_fin": null,
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_couple_male",
+          "nombre": "Young Man",
+          "fisica": "Late teens, short dark hair, simple linen shirt, worn trousers.",
+          "background": "Protective and determined, driven by love for his partner, willing to risk everything to keep her safe.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_couple_female",
+          "nombre": "Young Woman",
+          "fisica": "Late teens, long flowing hair that catches the wind, light dress stained with mud.",
+          "background": "Fearful yet resilient, her hair sways with the wind, symbolizing a fragile hope amid chaos.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_zombie_01",
+          "nombre": "Green Zombie",
+          "fisica": "Tall, decayed skin with a sickly green hue, empty eyes, tattered clothing draped over a gaunt frame.",
+          "background": "One of the many undead, driven by a primal urge to hunt, yet capable of an unexpected spark of emotion when he sees the woman.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [],
+      "eventos": [
+        {
+          "descripcion": "The horde of green zombies bursts from the thicket, surrounding the couple and beginning the chase.",
+          "personajes_involucrados": [
+            "personaje_couple_male",
+            "personaje_couple_female",
+            "personaje_zombie_01"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "The couple darts between gnarled trunks, their breathing ragged as they search for a path to safety.",
+          "personajes_involucrados": [
+            "personaje_couple_male",
+            "personaje_couple_female"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "One zombie pauses, its empty stare locking onto the woman's flowing hair, a strange curiosity flickering within it.",
+          "personajes_involucrados": [
+            "personaje_couple_female",
+            "personaje_zombie_01"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_02",
+      "titulo": "A Zombie's Heart",
+      "entorno": "A small clearing within the pine thicket, sunlight dappled through the canopy, a fallen log providing a makeshift seat.",
+      "atmosfera": "Sudden tenderness amid danger, the wind rustles the woman's hair, evoking a rare moment of unexpected affection.",
+      "cielo": "manana_despejada",
+      "tipo_ambiente": "bosque",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": "The chase had ended, but the memory of that strange, tender gaze lingered. The young couple, now aware of a love that could bloom even among the undead, continued their journey, their steps lighter, the woods no longer seeming quite as hostile.",
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_couple_male",
+          "nombre": "Young Man",
+          "fisica": "Late teens, short dark hair, simple linen shirt, worn trousers.",
+          "background": "Protective and determined, driven by love for his partner, willing to risk everything to keep her safe.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_couple_female",
+          "nombre": "Young Woman",
+          "fisica": "Late teens, long flowing hair that catches the wind, light dress stained with mud.",
+          "background": "Fearful yet resilient, her hair sways with the wind, symbolizing a fragile hope amid chaos.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_zombie_01",
+          "nombre": "Green Zombie",
+          "fisica": "Tall, decayed skin with a sickly green hue, empty eyes, tattered clothing draped over a gaunt frame.",
+          "background": "One of the many undead, driven by a primal urge to hunt, yet capable of an unexpected spark of emotion when he sees the woman.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [],
+      "eventos": [
+        {
+          "descripcion": "The zombie steps forward, its guttural voice trembling as it confesses its sudden love for the woman.",
+          "personajes_involucrados": [
+            "personaje_zombie_01",
+            "personaje_couple_female"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "The woman freezes, surprise flickering across her face, her hair fluttering in the breeze.",
+          "personajes_involucrados": [
+            "personaje_couple_female",
+            "personaje_zombie_01"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "The zombie declares that she must live, vowing to protect her from the remaining horde.",
+          "personajes_involucrados": [
+            "personaje_zombie_01",
+            "personaje_couple_female",
+            "personaje_couple_male"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    }
+  ],
+  "vocabulario": [],
+  "personajes_globales": [
+    {
+      "id": "personaje_couple_male",
+      "nombre": "Young Man",
+      "fisica": "Late teens, short dark hair, simple linen shirt, worn trousers.",
+      "background": "Protective and determined, driven by love for his partner, willing to risk everything to keep her safe.",
+      "rol": "protagonista",
+      "skin_id": null
+    },
+    {
+      "id": "personaje_couple_female",
+      "nombre": "Young Woman",
+      "fisica": "Late teens, long flowing hair that catches the wind, light dress stained with mud.",
+      "background": "Fearful yet resilient, her hair sways with the wind, symbolizing a fragile hope amid chaos.",
+      "rol": "protagonista",
+      "skin_id": null
+    },
+    {
+      "id": "personaje_zombie_01",
+      "nombre": "Green Zombie",
+      "fisica": "Tall, decayed skin with a sickly green hue, empty eyes, tattered clothing draped over a gaunt frame.",
+      "background": "One of the many undead, driven by a primal urge to hunt, yet capable of an unexpected spark of emotion when he sees the woman.",
+      "rol": "secundario",
+      "skin_id": null
+    }
+  ],
+  "objetos_globales": [],
+  "subtipo_educativo": null,
+  "tipo_vocabulario": null,
+  "idioma_objetivo": null
+}

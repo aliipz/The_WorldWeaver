@@ -1,0 +1,314 @@
+{
+  "id_escena": "escena_03a",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Sunlit mist hums around the waterfall",
+      "guias": [
+        "personaje_simba",
+        "personaje_timón"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_simba",
+          "personaje_timón"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "A juicy mango joins the carefree chorus",
+      "guias": [
+        "personaje_simba",
+        "personaje_timón",
+        "personaje_pumba"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_simba",
+          "personaje_timón",
+          "personaje_pumba"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_simba",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "¡Qué día perfecto para una siesta bajo la cascada!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Timón siempre dice que la pereza es un arte, ¿no crees?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Claro, es mi filosofía.",
+                  "respuesta": "¡Exacto! Así que dejemos que el sol nos haga brillar.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "¿Y si nos movemos?",
+                  "respuesta": "¡Vamos, pero a paso de baile, no de carrera!",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "¡Pumba, esa fruta huele a fiesta!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Hakuna Matata, amigos, nada nos detendrá."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué sigue?",
+                  "respuesta": "Más risas y una siesta bajo la sombra del árbol.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "¿Y si cantamos?",
+                  "respuesta": "¡Vamos! Un canto de la vida mientras el agua cae!",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Ask about song",
+          "descripcion": "You ask Simba why his hum feels like sunrise. He flickers his tail, eyes bright with joy.",
+          "animacion": "alegria",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_timón",
+              "efecto": null,
+              "color": null,
+              "animacion": "alegria"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_timón",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "¡Simba, si te pones a cantar, la cascada se une!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "La pereza es como una brisa, te lleva sin esfuerzo."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Cómo la dominas?",
+                  "respuesta": "Dejas que la brisa te abrace y te suelta.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "¿Y si la usamos?",
+                  "respuesta": "¡Para deslizarnos en la arena y llegar a la fruta más rápido!",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "¡Pumba, esa fruta parece hecha de sol!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Con Hakuna Matata, hasta la sombra se vuelve fiesta."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Quieres compartir?",
+                  "respuesta": "¡Claro! Cada mordida es una sonrisa.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "¿Bailamos?",
+                  "respuesta": "¡Sí! El ritmo del agua nos guiará.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Joke about laziness",
+          "descripcion": "You tease Timón about his endless lounging. He chuckles, shaking his mane in delight.",
+          "animacion": "alegria",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_simba",
+              "efecto": null,
+              "color": null,
+              "animacion": "alegria"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_pumba",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "¡Miren esta fruta! Es como una explosión de alegría!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Hakuna Matata, nada nos preocupa mientras haya fruta y sol."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Qué más quieres?",
+                  "respuesta": "Más fruta y una canción para el viento.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "¿Te unes al canto?",
+                  "respuesta": "¡Claro! Mi voz de warthog resonará con la cascada.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Share mango",
+          "descripcion": "You offer the mango to Pumba. He bites with gusto, his belly rumbling in contentment.",
+          "animacion": "alegria",
+          "narrativa": true,
+          "fase_aparicion": 1,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_simba",
+              "efecto": null,
+              "color": null,
+              "animacion": "alegria"
+            },
+            {
+              "id_nodo": "personaje_timón",
+              "efecto": null,
+              "color": null,
+              "animacion": "alegria"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "decorado_statue_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "The stone jaguar's eyes seem to follow every movement, a silent guardian of the jungle."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_flower_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A tropical flower bush bursts with colors, its petals trembling in the warm breeze."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

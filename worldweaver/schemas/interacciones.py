@@ -512,7 +512,7 @@ class ZonaNarrativa(BaseModel):
     id: str = Field(..., description="Identificador único, ej: 'zona_entrada'")
     columnas: List[int] = Field(
         ...,
-        description="Columnas del grid (0-4) que forman la zona. Se dispara al entrar."
+        description="Sectores angulares alrededor del jugador (0=detrás-izq, 1=izq, 2=frente, 3=der, 4=detrás-der). Se dispara al entrar."
     )
     texto: str = Field(..., description="Texto narrador al entrar. Tono literario, 1-2 frases.")
 

@@ -1,0 +1,131 @@
+{
+  "id_escena": "escena_03",
+  "elementos": [
+    {
+      "id": "personaje_neil_armstrong",
+      "nombre": "Neil Armstrong",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Hombre de 38 años, complexión atlética, traje espacial blanco con insignia de la NASA, casco reflectante, mirada concentrada"
+    },
+    {
+      "id": "personaje_buzz_aldrin",
+      "nombre": "Buzz Aldrin",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Hombre de 39 años, estatura media, traje espacial blanco, casco con visor dorado, sonrisa ligera"
+    },
+    {
+      "id": "objeto_modulo_lunar_eagle",
+      "nombre": "Módulo Lunar Eagle",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_02",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 6
+      },
+      "ancho": 2.3,
+      "alto": 1.4,
+      "descripcion": "Módulo de alunizaje de la misión Apollo 11, usado para descender y ascender desde la superficie lunar"
+    },
+    {
+      "id": "personaje_michael_collins",
+      "nombre": "Michael Collins",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 0.9,
+      "alto": 1.8,
+      "descripcion": "Hombre de 38 años, complexión delgada, traje espacial blanco, casco con visor gris, expresión serena"
+    },
+    {
+      "id": "objeto_modulo_mando_columbia",
+      "nombre": "Módulo de Mando Columbia",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 1.8,
+      "alto": 1.7,
+      "descripcion": "Cápsula de comando de la misión Apollo 11, diseñada para el viaje de ida y vuelta entre la Tierra y la Luna"
+    },
+    {
+      "id": "decorado_bandera_01",
+      "nombre": "Bandera de EE. UU. en soporte metálico",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 1.8,
+      "descripcion": "Bandera rectangular roja, blanca y azul, sujeta a un poste delgado de aleación, ondeando ligeramente en la ausencia de atmósfera."
+    },
+    {
+      "id": "decorado_roca_01",
+      "nombre": "Roca basalítica fragmentada",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 1.1,
+      "alto": 0.5,
+      "descripcion": "Bloque irregular de basalto gris, con superficies erosionadas por micrometeoritos, parcialmente enterrado en el regolito."
+    },
+    {
+      "id": "decorado_crater_01",
+      "nombre": "Cráter secundario diminuto",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 2
+      },
+      "ancho": 1.1,
+      "alto": 0.3,
+      "descripcion": "Pequeño cráter de unos 2 m de diámetro, borde afilado de polvo lunar y pequeñas rocas dispersas alrededor."
+    },
+    {
+      "id": "decorado_experimento_01",
+      "nombre": "Paquete de Experimento Sismográfico (ALSEP)",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 1
+      },
+      "ancho": 0.45,
+      "alto": 0.5,
+      "descripcion": "Módulo cuadrado de acero y paneles de fibra, con sensores de sismo y antenas, parcialmente cubierto de polvo lunar."
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+{
+  "id_escena": "escena_04",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Storm roars, lions clash on the shattered throne",
+      "guias": [
+        "personaje_simba",
+        "personaje_scar"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_simba",
+          "personaje_scar"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Lioness war cries echo through the fire",
+      "guias": [
+        "personaje_leona_01",
+        "personaje_hiena_01"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_leona_01",
+          "personaje_hiena_01"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Rain washes ash, hope rises anew",
+      "guias": [
+        "personaje_simba"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_simba"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_simba",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "The thunder roars, but my heart roars louder—Scar, your reign ends now!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Your shadows cannot hide the truth of the sky."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What truth?",
+                  "respuesta": "The storm will wash away the lies you built.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "And if I resist?",
+                  "respuesta": "Even the fiercest wind bows to the sunrise.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "The rain falls, and with it, a new dawn—our savanna breathes again!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "From ashes we rise, stronger than ever."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Will the kingdom endure?",
+                  "respuesta": "As long as we protect it, the earth will remember us.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What of the wounds?",
+                  "respuesta": "They are scars of courage, not defeat.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Challenge",
+          "descripcion": "You roar a challenge at Simba. He lifts his mane and lets out a thunderous roar.",
+          "animacion": "alegria",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_scar",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "You think the storm will save you? The darkness within you is deeper than any rain."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Even the heavens tremble at my name."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Your name?",
+                  "respuesta": "Scar, the mark of a throne that never was.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Will you fall?",
+                  "respuesta": "Only when the last drop of hope dries.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Intimidate",
+          "descripcion": "You hiss a warning to Scar. He flinches, eyes darting with fear.",
+          "animacion": "susto",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "criatura",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_leona_01",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "The fire may scorch, but our resolve burns brighter!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "For every hyena that falls, the savanna sings."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Will we win?",
+                  "respuesta": "With every roar, we push the darkness back.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What of the wounded?",
+                  "respuesta": "We tend them as we tend the grass—carefully, with purpose.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Lead charge",
+          "descripcion": "You urge Leona forward. She lets out a fierce battle cry, rallying the lioness army.",
+          "animacion": "alegria",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_hiena_01",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "The storm's fury is a cruel master, but chaos feeds us."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Even the rain cannot drown our hunger for ruin."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What will you do?",
+                  "respuesta": "We will tear the ground beneath their feet.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Do you fear the rain?",
+                  "respuesta": "Fear is a luxury we cannot afford.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyG",
+          "etiqueta": "Taunt",
+          "descripcion": "You jeer at the hyena. It snarls, teeth bared, ready to pounce.",
+          "animacion": "susto",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "criatura",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "decorado_firepit_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "The fire pit ignites, casting dancing orange flames.",
+        "texto_desactivacion": "The flames sputter out, leaving smoldering embers.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_statue_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "The weathered lion statue has eyes that seem to follow travelers, a silent guardian of the ruined throne."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_grassbundle_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A bundle of dried grass clings to the stone, whispering with each gust of wind."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_rock",
+      "columnas": [
+        1
+      ],
+      "texto": "The wind howls as you step onto the jagged basalt, the storm crackling overhead."
+    }
+  ],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

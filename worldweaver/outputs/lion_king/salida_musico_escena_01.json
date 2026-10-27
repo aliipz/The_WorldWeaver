@@ -1,0 +1,14 @@
+{
+  "id_escena": "escena_01",
+  "query_usada": "savanna birds dawn ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/661/661435_14509684-hq.mp3",
+    "titulo": "Defensible Twister",
+    "autor": "Brazilio123",
+    "duracion_segundos": 433.0,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": null,
+  "fuente": "freesound"
+}

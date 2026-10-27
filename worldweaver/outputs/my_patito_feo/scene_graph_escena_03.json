@@ -1,0 +1,305 @@
+{
+  "id_escena": "escena_03",
+  "tipo_escena": "interior",
+  "tipo_ambiente": "interior",
+  "radio_escena": 8.0,
+  "limite_jugador": 5.0,
+  "color_suelo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_03",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 3.5,
+        "z": 0.0
+      },
+      "ancho": 8.0,
+      "alto": 7.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_03",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 8.0,
+      "alto": 8.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_patito_feo",
+      "nombre": "Patito feo",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.03,
+        "y": 0.35,
+        "z": -0.38
+      },
+      "ancho": 1.0,
+      "alto": 0.7,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/39c7efbf-f6f3-48c8-90a2-2f22a02a2cf4.glb",
+      "keyword_busqueda": "duck"
+    },
+    {
+      "id": "personaje_gato_grunon",
+      "nombre": "Gato gruñón",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -2.29,
+        "y": 0.3,
+        "z": 0.34
+      },
+      "ancho": 1.0,
+      "alto": 0.6,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/7ebad68c-3f89-45f1-a0b5-04514e8a4e52.glb",
+      "keyword_busqueda": "cat"
+    },
+    {
+      "id": "objeto_cuenco_leche",
+      "nombre": "cuenco de leche",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.0,
+        "y": 0.2,
+        "z": 6.5
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "tam_real": 0.5,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ab0792b5-7417-4aa9-98ee-aded74504bb7.glb",
+      "keyword_busqueda": "bowl"
+    },
+    {
+      "id": "objeto_alfombra_vieja",
+      "nombre": "alfombra vieja",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -5.96,
+        "y": 0.1,
+        "z": 4.07
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "tam_real": 2.0,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/93588780-3405-40b7-acb4-9a87c88569f6.glb",
+      "keyword_busqueda": "rug"
+    },
+    {
+      "id": "decorado_mesa_01",
+      "nombre": "mesa de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.0,
+        "y": 0.4,
+        "z": 6.5
+      },
+      "ancho": 1.2,
+      "alto": 0.8,
+      "tam_real": 1.2,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d792dfcb-6a53-471d-9989-ee8340519d5d.glb",
+      "keyword_busqueda": "table"
+    },
+    {
+      "id": "decorado_silla_01",
+      "nombre": "silla de tronco tallado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 5.5,
+        "y": 0.45,
+        "z": 6.5
+      },
+      "ancho": 0.5,
+      "alto": 0.9,
+      "tam_real": 0.9,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/84ecc6a3-2751-4f50-912a-b9f4ff033d7a.glb",
+      "keyword_busqueda": "chair"
+    },
+    {
+      "id": "decorado_silla_02",
+      "nombre": "silla de tronco tallado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 5.5,
+        "y": 0.45,
+        "z": -6.5
+      },
+      "ancho": 0.5,
+      "alto": 0.9,
+      "tam_real": 0.9,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/84ecc6a3-2751-4f50-912a-b9f4ff033d7a.glb",
+      "keyword_busqueda": "chair"
+    },
+    {
+      "id": "decorado_banco_01",
+      "nombre": "banco de madera contra la pared",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -6.82,
+        "y": 0.3,
+        "z": 0.33
+      },
+      "ancho": 1.0,
+      "alto": 0.6,
+      "tam_real": 1.0,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/623120d8-bebf-4bd9-bb09-3162c06c9741.glb",
+      "keyword_busqueda": "bench"
+    },
+    {
+      "id": "decorado_estanteria_01",
+      "nombre": "estantería de leña",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -6.54,
+        "y": 0.9,
+        "z": 2.93
+      },
+      "ancho": 1.2,
+      "alto": 1.8,
+      "tam_real": 1.8,
+      "voltear_horizontal": false,
+      "capa": 6,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b9e10bac-98cb-409c-9b3e-b2cbb91d3fcc.glb",
+      "keyword_busqueda": "wooden shelf"
+    },
+    {
+      "id": "decorado_farol_01",
+      "nombre": "farol de hierro colgado",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.16,
+        "y": 0.6,
+        "z": -6.07
+      },
+      "ancho": 0.4,
+      "alto": 1.2,
+      "tam_real": 1.2,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ecbc7b04-09ca-4068-bb3c-4e5ce1163c9a.glb",
+      "keyword_busqueda": "lantern"
+    },
+    {
+      "id": "decorado_cesto_01",
+      "nombre": "cesto de mimbre con ropa",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -6.0,
+        "y": 0.3,
+        "z": -4.0
+      },
+      "ancho": 0.7,
+      "alto": 0.6,
+      "tam_real": 0.7,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/2d220908-21c7-42f6-bd9d-90235d564205.glb",
+      "keyword_busqueda": "basket"
+    },
+    {
+      "id": "decorado_cofre_01",
+      "nombre": "cofre de roble",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.0,
+        "y": 0.5,
+        "z": 4.0
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "tam_real": 1.0,
+      "voltear_horizontal": false,
+      "capa": 4,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/803af4ae-433f-4b05-b1f1-c6a2da02d768.glb",
+      "keyword_busqueda": "chest"
+    }
+  ],
+  "cielo": {
+    "tipo": "interior_calido",
+    "color_fondo": "#150a04",
+    "color_ambiente": "#ff7c2c",
+    "intensidad_ambiente": 0.6083713603725543,
+    "color_sol": "#ffa43d",
+    "intensidad_sol": 1.0237742973884558,
+    "pos_sol": {
+      "x": -0.07010236614031595,
+      "y": 3.0127086160939065,
+      "z": 0.5925646792177148
+    },
+    "niebla": null,
+    "luz_exterior": "tarde"
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {}
+}

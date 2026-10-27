@@ -1,0 +1,140 @@
+{
+  "id_escena": "escena_01",
+  "elementos": [
+    {
+      "id": "personaje_narrador",
+      "nombre": "Explorer",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Adult male, weathered skin, tan shirt, cargo pants, wide-brimmed explorer's hat.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_monkey",
+      "nombre": "Silly Monkey",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 5
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "descripcion": "Small brown monkey with bright eyes, agile limbs, no clothing.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_explorers_hat",
+      "nombre": "Explorer's Hat",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 0.6,
+      "alto": 0.25,
+      "descripcion": "Wide-brimmed leather hat worn by the explorer, sturdy and weathered.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_vine_01",
+      "nombre": "Thick hanging vine",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 0.4,
+      "alto": 1.5,
+      "descripcion": "Twisted vine with glossy dark leaves, draping from the canopy and lightly covered in moss.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_flower_01",
+      "nombre": "Tropical orchid",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 3
+      },
+      "ancho": 0.3,
+      "alto": 0.3,
+      "descripcion": "Vibrant pink orchid with delicate petals, perched on a vine, with a subtle glossy sheen.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_fern_01",
+      "nombre": "Giant fern",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 2.0,
+      "alto": 4.0,
+      "descripcion": "Tall frond with feathery green leaves, sturdy brown stalk, and damp base.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_rock_01",
+      "nombre": "Mossy stone",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 1
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "descripcion": "Irregular stone covered in soft green moss, wet surface reflecting the shafts of sunlight.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_log_01",
+      "nombre": "Fallen log",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 1
+      },
+      "ancho": 3.0,
+      "alto": 1.0,
+      "descripcion": "Long, rotting log with bark peeled in strips, dark brown with charred ends.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_mushroom_01",
+      "nombre": "Mushroom cluster",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 1.0,
+      "alto": 0.8,
+      "descripcion": "Group of large, spotted mushrooms with thick caps in earthy brown and cream, sprouting from leaf litter.",
+      "keyword_busqueda": null
+    }
+  ]
+}

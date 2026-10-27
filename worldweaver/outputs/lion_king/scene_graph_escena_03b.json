@@ -1,0 +1,2917 @@
+{
+  "id_escena": "escena_03b",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "selva",
+  "radio_escena": 22.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "tipo_suelo": null,
+  "tipo_techo": null,
+  "radio_cubierta": null,
+  "variante_barco": null,
+  "escena_conversacion": false,
+  "nodos": [
+    {
+      "id": "fondo_escena_03b",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_03b",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 22.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_nala",
+      "nombre": "Nala",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -1.92,
+        "y": 0.55,
+        "z": -0.59
+      },
+      "ancho": 0.9,
+      "alto": 1.1,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34e4de3e-50ac-400e-adab-a13a0825ee1a.glb",
+      "keyword_busqueda": "lion"
+    },
+    {
+      "id": "personaje_simba",
+      "nombre": "Simba",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.66,
+        "y": 0.55,
+        "z": -1.89
+      },
+      "ancho": 0.9,
+      "alto": 1.1,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34e4de3e-50ac-400e-adab-a13a0825ee1a.glb",
+      "keyword_busqueda": "lion"
+    },
+    {
+      "id": "personaje_rafiki",
+      "nombre": "Rafiki",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.86,
+        "y": 0.6,
+        "z": 0.74
+      },
+      "ancho": 0.7,
+      "alto": 1.2,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/69e0460d-0909-4f00-9b81-9499c6345d1c.glb",
+      "keyword_busqueda": "monkey"
+    },
+    {
+      "id": "decorado_lantern_01",
+      "nombre": "Glowing firefly lantern",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -2.08,
+        "y": 0.1,
+        "z": -2.81
+      },
+      "ancho": 0.12,
+      "alto": 0.2,
+      "tam_real": 0.2,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ecbc7b04-09ca-4068-bb3c-4e5ce1163c9a.glb",
+      "keyword_busqueda": "lantern"
+    },
+    {
+      "id": "decorado_altar_01",
+      "nombre": "Ritual stone altar",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 2.2,
+        "y": 0.5,
+        "z": -2.72
+      },
+      "ancho": 1.5,
+      "alto": 1.0,
+      "tam_real": 1.5,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/64f6b89b-af95-4e8e-9c80-572d4c66dab0.glb",
+      "keyword_busqueda": "altar"
+    },
+    {
+      "id": "decorado_vine_01",
+      "nombre": "Hanging vine cluster",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -1.14,
+        "y": 1.0,
+        "z": -19.97
+      },
+      "ancho": 1.5,
+      "alto": 2.0,
+      "tam_real": 2.0,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "decorado_rock_01",
+      "nombre": "Moss-covered stone",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -2.33,
+        "y": 1.0,
+        "z": 19.87
+      },
+      "ancho": 2.5,
+      "alto": 2.0,
+      "tam_real": 2.5,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "decorado_statue_01",
+      "nombre": "Stone jaguar statue",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.82,
+        "y": 1.0,
+        "z": 13.98
+      },
+      "ancho": 1.0,
+      "alto": 2.0,
+      "tam_real": 2.0,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/55b0aa03-543c-439d-a7d7-f0ac4c23578f.glb",
+      "keyword_busqueda": "statue"
+    },
+    {
+      "id": "decorado_log_01",
+      "nombre": "Fallen log with fungi",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -1.18,
+        "y": 0.4,
+        "z": -8.92
+      },
+      "ancho": 3.0,
+      "alto": 0.8,
+      "tam_real": 3.0,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/89d5c7b9-0735-4640-913d-87261dfecd32.glb",
+      "keyword_busqueda": "log"
+    },
+    {
+      "id": "amb_00_0_00",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 1.6,
+        "y": 3.41,
+        "z": 19.96
+      },
+      "ancho": 2.44,
+      "alto": 6.82,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_01",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 2.14,
+        "y": 3.68,
+        "z": 18.03
+      },
+      "ancho": 2.63,
+      "alto": 7.37,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_02",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 8.46,
+        "y": 3.81,
+        "z": 18.96
+      },
+      "ancho": 2.72,
+      "alto": 7.62,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_03",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 9.57,
+        "y": 3.47,
+        "z": 16.94
+      },
+      "ancho": 2.48,
+      "alto": 6.93,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_04",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 13.03,
+        "y": 2.87,
+        "z": 15.74
+      },
+      "ancho": 2.05,
+      "alto": 5.74,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_05",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.62,
+        "y": 2.95,
+        "z": 12.34
+      },
+      "ancho": 2.11,
+      "alto": 5.9,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_06",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 18.11,
+        "y": 3.55,
+        "z": 9.57
+      },
+      "ancho": 2.53,
+      "alto": 7.1,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_07",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 17.8,
+        "y": 3.8,
+        "z": 5.37
+      },
+      "ancho": 2.72,
+      "alto": 7.61,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_08",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 19.99,
+        "y": 3.08,
+        "z": 1.89
+      },
+      "ancho": 2.2,
+      "alto": 6.16,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_09",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 18.42,
+        "y": 2.95,
+        "z": -1.95
+      },
+      "ancho": 2.1,
+      "alto": 5.89,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_10",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 17.85,
+        "y": 3.37,
+        "z": -5.52
+      },
+      "ancho": 2.41,
+      "alto": 6.75,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_11",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 17.8,
+        "y": 4.09,
+        "z": -8.83
+      },
+      "ancho": 2.92,
+      "alto": 8.18,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_12",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.92,
+        "y": 3.61,
+        "z": -14.39
+      },
+      "ancho": 2.58,
+      "alto": 7.22,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_13",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 13.31,
+        "y": 3.73,
+        "z": -15.04
+      },
+      "ancho": 2.67,
+      "alto": 7.46,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_14",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 7.42,
+        "y": 3.28,
+        "z": -17.65
+      },
+      "ancho": 2.34,
+      "alto": 6.56,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_15",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.05,
+        "y": 3.85,
+        "z": -17.26
+      },
+      "ancho": 2.75,
+      "alto": 7.69,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_16",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 1.11,
+        "y": 3.57,
+        "z": -19.18
+      },
+      "ancho": 2.55,
+      "alto": 7.15,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_17",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -0.47,
+        "y": 2.82,
+        "z": -19.21
+      },
+      "ancho": 2.02,
+      "alto": 5.65,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_18",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -5.73,
+        "y": 2.91,
+        "z": -19.31
+      },
+      "ancho": 2.08,
+      "alto": 5.81,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_19",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -10.33,
+        "y": 3.08,
+        "z": -17.6
+      },
+      "ancho": 2.2,
+      "alto": 6.16,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_20",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -13.16,
+        "y": 3.46,
+        "z": -14.82
+      },
+      "ancho": 2.47,
+      "alto": 6.93,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_21",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -14.92,
+        "y": 3.48,
+        "z": -11.7
+      },
+      "ancho": 2.48,
+      "alto": 6.95,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_22",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.71,
+        "y": 3.17,
+        "z": -10.16
+      },
+      "ancho": 2.27,
+      "alto": 6.35,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_23",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.23,
+        "y": 3.88,
+        "z": -6.8
+      },
+      "ancho": 2.77,
+      "alto": 7.76,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_24",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -19.65,
+        "y": 2.83,
+        "z": -4.66
+      },
+      "ancho": 2.02,
+      "alto": 5.65,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_25",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -20.35,
+        "y": 3.14,
+        "z": 0.44
+      },
+      "ancho": 2.25,
+      "alto": 6.29,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_26",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.56,
+        "y": 3.96,
+        "z": 5.19
+      },
+      "ancho": 2.83,
+      "alto": 7.93,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_27",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.2,
+        "y": 3.14,
+        "z": 9.88
+      },
+      "ancho": 2.24,
+      "alto": 6.28,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_28",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.62,
+        "y": 3.47,
+        "z": 10.64
+      },
+      "ancho": 2.48,
+      "alto": 6.94,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_29",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -13.59,
+        "y": 3.43,
+        "z": 15.76
+      },
+      "ancho": 2.45,
+      "alto": 6.86,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_30",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.49,
+        "y": 3.83,
+        "z": 16.29
+      },
+      "ancho": 2.74,
+      "alto": 7.67,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_31",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -6.81,
+        "y": 2.8,
+        "z": 18.37
+      },
+      "ancho": 2.0,
+      "alto": 5.61,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_0_32",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -4.16,
+        "y": 3.34,
+        "z": 18.16
+      },
+      "ancho": 2.39,
+      "alto": 6.69,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_1_00",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -12.55,
+        "y": 3.09,
+        "z": -10.33
+      },
+      "ancho": 2.21,
+      "alto": 6.18,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_1_01",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -12.76,
+        "y": 4.17,
+        "z": 6.28
+      },
+      "ancho": 2.98,
+      "alto": 8.33,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_1_02",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -6.19,
+        "y": 3.48,
+        "z": 12.29
+      },
+      "ancho": 2.48,
+      "alto": 6.95,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_1_03",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 7.34,
+        "y": 3.93,
+        "z": 14.85
+      },
+      "ancho": 2.81,
+      "alto": 7.87,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_1_04",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.87,
+        "y": 3.48,
+        "z": -1.0
+      },
+      "ancho": 2.48,
+      "alto": 6.95,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_1_05",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.46,
+        "y": 2.94,
+        "z": -5.53
+      },
+      "ancho": 2.1,
+      "alto": 5.88,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_00_1_06",
+      "nombre": "palm tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 4.69,
+        "y": 2.98,
+        "z": -15.12
+      },
+      "ancho": 2.13,
+      "alto": 5.97,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c17decd-3087-4afe-9611-cfd92cca47cd.glb",
+      "keyword_busqueda": "palm tree"
+    },
+    {
+      "id": "amb_01_0_00",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -13.64,
+        "y": 2.71,
+        "z": 13.04
+      },
+      "ancho": 2.26,
+      "alto": 5.42,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_01",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -12.42,
+        "y": 3.25,
+        "z": 15.27
+      },
+      "ancho": 2.71,
+      "alto": 6.5,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_02",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -10.12,
+        "y": 2.87,
+        "z": 17.63
+      },
+      "ancho": 2.39,
+      "alto": 5.73,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_03",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -3.23,
+        "y": 2.5,
+        "z": 17.86
+      },
+      "ancho": 2.08,
+      "alto": 5.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_04",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 0.86,
+        "y": 3.27,
+        "z": 18.1
+      },
+      "ancho": 2.73,
+      "alto": 6.55,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_05",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.86,
+        "y": 3.51,
+        "z": 19.52
+      },
+      "ancho": 2.93,
+      "alto": 7.02,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_06",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 12.22,
+        "y": 2.45,
+        "z": 13.35
+      },
+      "ancho": 2.04,
+      "alto": 4.89,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_07",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.15,
+        "y": 2.92,
+        "z": 13.19
+      },
+      "ancho": 2.44,
+      "alto": 5.85,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_08",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 18.75,
+        "y": 3.37,
+        "z": 6.33
+      },
+      "ancho": 2.81,
+      "alto": 6.75,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_09",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 18.91,
+        "y": 2.59,
+        "z": 2.45
+      },
+      "ancho": 2.15,
+      "alto": 5.17,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_10",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 19.34,
+        "y": 3.03,
+        "z": -0.62
+      },
+      "ancho": 2.52,
+      "alto": 6.06,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_11",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 17.21,
+        "y": 3.44,
+        "z": -8.93
+      },
+      "ancho": 2.87,
+      "alto": 6.88,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_12",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.36,
+        "y": 3.37,
+        "z": -12.26
+      },
+      "ancho": 2.81,
+      "alto": 6.74,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_13",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 12.11,
+        "y": 2.6,
+        "z": -16.86
+      },
+      "ancho": 2.16,
+      "alto": 5.19,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_14",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 8.08,
+        "y": 3.26,
+        "z": -16.38
+      },
+      "ancho": 2.71,
+      "alto": 6.52,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_15",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 0.95,
+        "y": 3.15,
+        "z": -18.54
+      },
+      "ancho": 2.62,
+      "alto": 6.3,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_16",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -2.11,
+        "y": 3.36,
+        "z": -18.56
+      },
+      "ancho": 2.8,
+      "alto": 6.73,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_17",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -10.14,
+        "y": 3.46,
+        "z": -17.88
+      },
+      "ancho": 2.88,
+      "alto": 6.92,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_18",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -11.88,
+        "y": 3.55,
+        "z": -16.03
+      },
+      "ancho": 2.96,
+      "alto": 7.1,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_19",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -14.8,
+        "y": 2.9,
+        "z": -13.94
+      },
+      "ancho": 2.42,
+      "alto": 5.8,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_20",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.47,
+        "y": 2.41,
+        "z": -6.31
+      },
+      "ancho": 2.01,
+      "alto": 4.82,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_21",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -19.89,
+        "y": 2.59,
+        "z": -5.27
+      },
+      "ancho": 2.16,
+      "alto": 5.19,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_22",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -20.69,
+        "y": 2.59,
+        "z": 2.52
+      },
+      "ancho": 2.16,
+      "alto": 5.17,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_0_23",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -19.76,
+        "y": 2.69,
+        "z": 6.41
+      },
+      "ancho": 2.24,
+      "alto": 5.38,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_1_00",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.14,
+        "y": 2.58,
+        "z": -15.78
+      },
+      "ancho": 2.15,
+      "alto": 5.17,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_1_01",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -14.94,
+        "y": 3.5,
+        "z": -2.43
+      },
+      "ancho": 2.92,
+      "alto": 7.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_1_02",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -8.79,
+        "y": 2.68,
+        "z": 12.42
+      },
+      "ancho": 2.23,
+      "alto": 5.35,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_1_03",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 0.65,
+        "y": 2.91,
+        "z": 17.06
+      },
+      "ancho": 2.43,
+      "alto": 5.83,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_01_1_04",
+      "nombre": "Balsa tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.13,
+        "y": 2.45,
+        "z": 2.83
+      },
+      "ancho": 2.04,
+      "alto": 4.9,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/4c740e67-5607-4dae-889f-cbd747ca5b1b.glb",
+      "keyword_busqueda": "Balsa tree"
+    },
+    {
+      "id": "amb_02_0_00",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.66,
+        "y": 3.14,
+        "z": -4.71
+      },
+      "ancho": 2.28,
+      "alto": 6.28,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_01",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -19.54,
+        "y": 3.28,
+        "z": 3.3
+      },
+      "ancho": 2.39,
+      "alto": 6.56,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_02",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.7,
+        "y": 2.67,
+        "z": 10.3
+      },
+      "ancho": 1.94,
+      "alto": 5.35,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_03",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -15.82,
+        "y": 2.44,
+        "z": 13.19
+      },
+      "ancho": 1.77,
+      "alto": 4.88,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_04",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.68,
+        "y": 3.2,
+        "z": 18.16
+      },
+      "ancho": 2.33,
+      "alto": 6.39,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_05",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -0.2,
+        "y": 2.63,
+        "z": 18.36
+      },
+      "ancho": 1.91,
+      "alto": 5.26,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_06",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.38,
+        "y": 2.31,
+        "z": 17.51
+      },
+      "ancho": 1.68,
+      "alto": 4.63,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_07",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 12.67,
+        "y": 2.48,
+        "z": 16.34
+      },
+      "ancho": 1.81,
+      "alto": 4.97,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_08",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 17.51,
+        "y": 2.84,
+        "z": 10.38
+      },
+      "ancho": 2.07,
+      "alto": 5.69,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_09",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 18.34,
+        "y": 3.21,
+        "z": 2.91
+      },
+      "ancho": 2.34,
+      "alto": 6.43,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_10",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 20.1,
+        "y": 2.3,
+        "z": -3.97
+      },
+      "ancho": 1.67,
+      "alto": 4.6,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_11",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 15.92,
+        "y": 2.65,
+        "z": -10.9
+      },
+      "ancho": 1.93,
+      "alto": 5.31,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_12",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 15.93,
+        "y": 2.37,
+        "z": -11.96
+      },
+      "ancho": 1.72,
+      "alto": 4.74,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_13",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.76,
+        "y": 2.46,
+        "z": -18.39
+      },
+      "ancho": 1.79,
+      "alto": 4.93,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_14",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 4.29,
+        "y": 3.04,
+        "z": -18.21
+      },
+      "ancho": 2.21,
+      "alto": 6.09,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_15",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -1.91,
+        "y": 2.4,
+        "z": -20.58
+      },
+      "ancho": 1.75,
+      "alto": 4.8,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_16",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -11.26,
+        "y": 3.17,
+        "z": -14.32
+      },
+      "ancho": 2.3,
+      "alto": 6.34,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_0_17",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -15.55,
+        "y": 3.16,
+        "z": -12.42
+      },
+      "ancho": 2.3,
+      "alto": 6.33,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_1_00",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 13.03,
+        "y": 3.13,
+        "z": -7.3
+      },
+      "ancho": 2.28,
+      "alto": 6.26,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_1_01",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -11.5,
+        "y": 3.0,
+        "z": -7.83
+      },
+      "ancho": 2.18,
+      "alto": 6.0,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_1_02",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -13.67,
+        "y": 2.64,
+        "z": 3.98
+      },
+      "ancho": 1.92,
+      "alto": 5.28,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_02_1_03",
+      "nombre": "Macassar tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 15.2,
+        "y": 3.28,
+        "z": 6.94
+      },
+      "ancho": 2.39,
+      "alto": 6.56,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/04709402-fbef-43af-bf70-82c2d985f038.glb",
+      "keyword_busqueda": "Macassar tree"
+    },
+    {
+      "id": "amb_03_0_00",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -4.66,
+        "y": 0.32,
+        "z": -20.37
+      },
+      "ancho": 0.81,
+      "alto": 0.65,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_0_01",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.42,
+        "y": 0.38,
+        "z": -5.6
+      },
+      "ancho": 0.95,
+      "alto": 0.76,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_0_02",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -15.35,
+        "y": 0.46,
+        "z": 11.71
+      },
+      "ancho": 1.16,
+      "alto": 0.93,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_0_03",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -4.37,
+        "y": 0.35,
+        "z": 18.49
+      },
+      "ancho": 0.88,
+      "alto": 0.71,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_0_04",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 13.09,
+        "y": 0.44,
+        "z": 13.82
+      },
+      "ancho": 1.11,
+      "alto": 0.89,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_0_05",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 20.38,
+        "y": 0.39,
+        "z": 1.28
+      },
+      "ancho": 0.99,
+      "alto": 0.79,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_0_06",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.29,
+        "y": 0.34,
+        "z": -11.52
+      },
+      "ancho": 0.86,
+      "alto": 0.69,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_0_07",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 8.73,
+        "y": 0.44,
+        "z": -18.71
+      },
+      "ancho": 1.11,
+      "alto": 0.88,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_1_00",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.69,
+        "y": 0.45,
+        "z": 3.18
+      },
+      "ancho": 1.11,
+      "alto": 0.89,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_1_01",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 9.05,
+        "y": 0.46,
+        "z": -14.37
+      },
+      "ancho": 1.16,
+      "alto": 0.93,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_1_02",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -0.06,
+        "y": 0.34,
+        "z": -16.95
+      },
+      "ancho": 0.84,
+      "alto": 0.67,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_1_03",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -15.81,
+        "y": 0.44,
+        "z": -2.66
+      },
+      "ancho": 1.09,
+      "alto": 0.88,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_1_04",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.25,
+        "y": 0.46,
+        "z": 10.43
+      },
+      "ancho": 1.15,
+      "alto": 0.92,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_00",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -8.81,
+        "y": 0.4,
+        "z": 3.18
+      },
+      "ancho": 0.99,
+      "alto": 0.79,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_01",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -6.87,
+        "y": 0.47,
+        "z": 6.12
+      },
+      "ancho": 1.18,
+      "alto": 0.94,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_02",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -2.85,
+        "y": 0.42,
+        "z": 9.09
+      },
+      "ancho": 1.05,
+      "alto": 0.84,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_03",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 0.34,
+        "y": 0.41,
+        "z": 8.42
+      },
+      "ancho": 1.02,
+      "alto": 0.82,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_04",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 2.41,
+        "y": 0.44,
+        "z": 7.94
+      },
+      "ancho": 1.09,
+      "alto": 0.87,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_05",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 5.46,
+        "y": 0.33,
+        "z": 6.43
+      },
+      "ancho": 0.84,
+      "alto": 0.67,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_06",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 10.61,
+        "y": 0.39,
+        "z": 5.74
+      },
+      "ancho": 0.98,
+      "alto": 0.79,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_07",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 7.54,
+        "y": 0.32,
+        "z": 0.94
+      },
+      "ancho": 0.8,
+      "alto": 0.64,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_08",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.64,
+        "y": 0.42,
+        "z": -3.31
+      },
+      "ancho": 1.05,
+      "alto": 0.84,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_09",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.35,
+        "y": 0.35,
+        "z": -3.71
+      },
+      "ancho": 0.87,
+      "alto": 0.7,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_10",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 2.63,
+        "y": 0.4,
+        "z": -7.47
+      },
+      "ancho": 1.0,
+      "alto": 0.8,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_11",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -0.66,
+        "y": 0.34,
+        "z": -10.28
+      },
+      "ancho": 0.84,
+      "alto": 0.67,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_12",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -2.94,
+        "y": 0.48,
+        "z": -8.9
+      },
+      "ancho": 1.19,
+      "alto": 0.95,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_13",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -7.19,
+        "y": 0.44,
+        "z": -7.86
+      },
+      "ancho": 1.1,
+      "alto": 0.88,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_14",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.69,
+        "y": 0.33,
+        "z": -5.87
+      },
+      "ancho": 0.83,
+      "alto": 0.67,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_03_2_15",
+      "nombre": "fern",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -11.6,
+        "y": 0.44,
+        "z": -0.68
+      },
+      "ancho": 1.11,
+      "alto": 0.88,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/f94d836f-4eb4-4db0-aa53-3ecdddffa527.glb",
+      "keyword_busqueda": "fern"
+    },
+    {
+      "id": "amb_04_0_00",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 9.61,
+        "y": 1.78,
+        "z": -17.51
+      },
+      "ancho": 0.44,
+      "alto": 3.56,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_01",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 1.9,
+        "y": 1.74,
+        "z": -19.56
+      },
+      "ancho": 0.44,
+      "alto": 3.49,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_02",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 0.8,
+        "y": 2.11,
+        "z": -19.31
+      },
+      "ancho": 0.53,
+      "alto": 4.23,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_03",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -5.44,
+        "y": 2.26,
+        "z": -18.99
+      },
+      "ancho": 0.57,
+      "alto": 4.52,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_04",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -13.02,
+        "y": 1.93,
+        "z": -14.69
+      },
+      "ancho": 0.48,
+      "alto": 3.87,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_05",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.46,
+        "y": 2.11,
+        "z": -8.61
+      },
+      "ancho": 0.53,
+      "alto": 4.21,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_06",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.99,
+        "y": 2.21,
+        "z": -5.02
+      },
+      "ancho": 0.55,
+      "alto": 4.42,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_07",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -20.01,
+        "y": 2.01,
+        "z": 1.87
+      },
+      "ancho": 0.5,
+      "alto": 4.03,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_08",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.88,
+        "y": 2.17,
+        "z": 7.56
+      },
+      "ancho": 0.54,
+      "alto": 4.35,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_09",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -16.63,
+        "y": 2.16,
+        "z": 12.28
+      },
+      "ancho": 0.54,
+      "alto": 4.31,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_10",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.92,
+        "y": 2.22,
+        "z": 17.48
+      },
+      "ancho": 0.55,
+      "alto": 4.44,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_11",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -5.02,
+        "y": 2.21,
+        "z": 19.98
+      },
+      "ancho": 0.55,
+      "alto": 4.42,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_12",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 0.23,
+        "y": 2.18,
+        "z": 20.32
+      },
+      "ancho": 0.55,
+      "alto": 4.37,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_13",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 9.76,
+        "y": 1.94,
+        "z": 16.85
+      },
+      "ancho": 0.48,
+      "alto": 3.87,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_14",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.73,
+        "y": 2.23,
+        "z": 12.23
+      },
+      "ancho": 0.56,
+      "alto": 4.46,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_15",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.79,
+        "y": 1.94,
+        "z": 9.92
+      },
+      "ancho": 0.48,
+      "alto": 3.87,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_16",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 19.83,
+        "y": 2.25,
+        "z": 4.18
+      },
+      "ancho": 0.56,
+      "alto": 4.51,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_17",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 20.08,
+        "y": 2.02,
+        "z": -4.75
+      },
+      "ancho": 0.5,
+      "alto": 4.04,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_18",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.99,
+        "y": 2.39,
+        "z": -9.22
+      },
+      "ancho": 0.6,
+      "alto": 4.77,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    },
+    {
+      "id": "amb_04_0_19",
+      "nombre": "vine",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 15.69,
+        "y": 1.82,
+        "z": -10.82
+      },
+      "ancho": 0.46,
+      "alto": 3.64,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/5953d6dd-d23f-4ce9-b45e-48fee7bb0cd4.glb",
+      "keyword_busqueda": "vine"
+    }
+  ],
+  "cielo": {
+    "tipo": "atardecer",
+    "color_fondo": "#da3d1d",
+    "color_ambiente": "#c85834",
+    "intensidad_ambiente": 0.478645338489794,
+    "color_sol": "#ff5010",
+    "intensidad_sol": 0.9995550949936544,
+    "pos_sol": {
+      "x": -4.962309651613872,
+      "y": 0.18332567882072065,
+      "z": -1.0812883621583405
+    },
+    "niebla": {
+      "color": "#c93914",
+      "near": 11.403448267069711,
+      "far": 13.0
+    },
+    "luz_exterior": null
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {}
+}

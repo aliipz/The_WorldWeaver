@@ -1,0 +1,334 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Hyenas thunder across the red canyon",
+      "guias": [
+        "personaje_scar",
+        "personaje_nu_01"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_scar",
+          "personaje_nu_01"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Mufasa's swift rescue amid the roar",
+      "guias": [
+        "personaje_mufasa",
+        "personaje_simba"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_mufasa",
+          "personaje_simba"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Scar's betrayal shatters trust on the cliffs",
+      "guias": [
+        "personaje_scar",
+        "personaje_simba",
+        "personaje_mufasa"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_scar",
+          "personaje_simba",
+          "personaje_mufasa"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_scar",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "null",
+          "puntos": [
+            {
+              "frases": [
+                "Let the canyon run with chaos; the hyenas will tear them apart."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": "null",
+          "puntos": [
+            {
+              "frases": [
+                "Your brother slipped, Simba. The fall was your fault."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "I didn't do anything!",
+                  "respuesta": "Then you are the cause of his death.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Why would you turn on him?",
+                  "respuesta": "Power favors those who seize it, not those who cling to old bonds.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Accuse",
+          "descripcion": "You step forward, calling Scar a traitor. His eyes flash with cold fury.",
+          "animacion": "RecieveHit",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_simba",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_nu_01",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "The ground shakes, the herd surges! Run before the hooves crush us!"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyG",
+          "etiqueta": "Calm",
+          "descripcion": "You attempt to soothe the frantic antelope. It pauses, ears twitching, eyes wide with fear.",
+          "animacion": "susto",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_mufasa",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "null",
+          "puntos": [
+            {
+              "frases": [
+                "Hold fast, son! The canyon's walls will crush you if you stay."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "No... I cannot fall!"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Shield",
+          "descripcion": "You shout for Mufasa to grab Simba. Mufasa lunges, his massive paws sweeping the air.",
+          "animacion": "alegria",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_simba",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "null",
+          "puntos": [
+            {
+              "frases": [
+                "Father! I thought I was lost!"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": "null",
+          "puntos": [
+            {
+              "frases": [
+                "I... I didn't cause this! I must leave."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Stay and fight!",
+                  "respuesta": "There is no fight left for me here.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Where will you go?",
+                  "respuesta": "Beyond the canyon, where the shadows cannot find me.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Plead",
+          "descripcion": "You beg Simba to stay, pleading his innocence. Simba trembles, his heart pounding.",
+          "animacion": "susto",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "decorado_campfire_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "The campfire crackles to life, sending a warm glow across the canyon walls.",
+        "texto_desactivacion": "The flames sputter and die, leaving only a wisp of smoke.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_shrub_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A dry scrub brush sways, its thorns brushing the air."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_well_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Abandoned stone well",
+        "descripcion": "The stone well is half‑filled with dust and cracked stone, its bucket long gone. Legends say it once drew water from hidden springs beneath the canyon.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_skeletal_remains_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Scattered animal bones litter the ground, bleached white by the relentless sun."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_canyon_entrance",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "The canyon walls close in, their red veins pulsing with heat as the stampede roars."
+    }
+  ],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

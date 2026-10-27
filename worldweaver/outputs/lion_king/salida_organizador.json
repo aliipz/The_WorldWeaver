@@ -1,0 +1,377 @@
+{
+  "titulo_historia": "El ciclo del rey",
+  "escenas": [
+    {
+      "id": "escena_01",
+      "titulo": "El Amanecer en la Roca del Rey",
+      "entorno": "Expansive African savanna at dawn, golden light spilling over tall grasses and scattered acacia trees, a towering sandstone monolith rising sharply from the horizon.",
+      "atmosfera": "Celebratory gathering tinged with hidden menace, early morning light casts long shadows as the kingdom prepares to honor the young prince.",
+      "cielo": "amanecer",
+      "tipo_ambiente": "sabana",
+      "tiene_intro": true,
+      "texto_intro": "As the first rays of gold painted the savanna, the great Rock of Kings stood solemn against the sky. The kingdom's creatures gathered, their voices rising in a hopeful chorus for the future. Yet, lurking in the shadows, a jealous heart plotted its own destiny.",
+      "texto_fin": null,
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_mufasa",
+          "nombre": "Mufasa",
+          "fisica": "Adult male lion, golden mane, regal bearing, simple leather collar.",
+          "background": "Wise king of the Pride Lands, protective of his son, guided by duty.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_simba",
+          "nombre": "Simba",
+          "fisica": "Young male lion, golden fur, bright eyes, later grown into a strong adult with a scar over his eye.",
+          "background": "Curious cub turned future king, driven by responsibility and desire to protect his home.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_scar",
+          "nombre": "Scar",
+          "fisica": "Adult male lion with black mane, dark eyes, gaunt, tattered cloak.",
+          "background": "Jealous brother of Mufasa, cunning antagonist seeking the throne.",
+          "rol": "antagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_herd_01",
+          "nombre": "Zebra del reino",
+          "fisica": "Adult zebra, striped coat, alert ears.",
+          "background": "Member of the kingdom's herds, observes the gathering.",
+          "rol": "secundario",
+          "skin_id": null
+        }
+      ],
+      "objetos": [],
+      "eventos": [
+        {
+          "descripcion": "personaje_mufasa calls the herd to gather around the rock, announcing Simba's presentation.",
+          "personajes_involucrados": [
+            "personaje_mufasa",
+            "personaje_herd_01"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_simba steps forward, receiving cheers, while personaje_scar watches from the shadows, plotting.",
+          "personajes_involucrados": [
+            "personaje_simba",
+            "personaje_scar"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "personaje_scar whispers a deceptive suggestion to Simba, urging him to explore the dark borders of the kingdom.",
+          "personajes_involucrados": [
+            "personaje_scar",
+            "personaje_simba"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_02",
+      "titulo": "La Traición en el Desfiladero",
+      "entorno": "Dry, dusty canyon with steep red rock walls, narrow floor strewn with gravel, and a choking heat that makes the air tremble.",
+      "atmosfera": "Chaotic and perilous, the roar of hooves fills the canyon as betrayal looms.",
+      "cielo": "mediodia_soleado",
+      "tipo_ambiente": "montaña",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_simba",
+          "nombre": "Simba",
+          "fisica": "Young male lion, golden fur, bright eyes, later grown into a strong adult with a scar over his eye.",
+          "background": "Curious cub turned future king, driven by responsibility and desire to protect his home.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_mufasa",
+          "nombre": "Mufasa",
+          "fisica": "Adult male lion, golden mane, regal bearing, simple leather collar.",
+          "background": "Wise king of the Pride Lands, protective of his son, guided by duty.",
+          "rol": "secundario",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_scar",
+          "nombre": "Scar",
+          "fisica": "Adult male lion with black mane, dark eyes, gaunt, tattered cloak.",
+          "background": "Jealous brother of Mufasa, cunning antagonist seeking the throne.",
+          "rol": "antagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_nu_01",
+          "nombre": "Ñu desbocado",
+          "fisica": "Adult wildebeest, shaggy brown coat, large horns.",
+          "background": "Part of the chaotic stampede, driven by panic.",
+          "rol": "secundario",
+          "skin_id": null
+        }
+      ],
+      "objetos": [],
+      "eventos": [
+        {
+          "descripcion": "Scar unleashes a massive stampede of hyenas that rushes into the canyon, threatening everyone.",
+          "personajes_involucrados": [
+            "personaje_scar",
+            "personaje_nu_01"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Mufasa pushes Simba aside, saving him from the hooves, while the canyon walls loom ominously.",
+          "personajes_involucrados": [
+            "personaje_mufasa",
+            "personaje_simba"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "While climbing the wall, Scar betrays Mufasa, causing him to fall, then convinces Simba the disaster is his fault, forcing Simba to flee.",
+          "personajes_involucrados": [
+            "personaje_scar",
+            "personaje_simba",
+            "personaje_mufasa"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_03a",
+      "titulo": "El Oasis del Exilio – Hakuna Matata",
+      "entorno": "Vibrant tropical jungle with crystal waterfalls cascading over mossy rocks, dense emerald foliage, and shafts of light filtering through the canopy.",
+      "atmosfera": "Carefree and playful, a sunny midday where worries are forgotten.",
+      "cielo": "manana_despejada",
+      "tipo_ambiente": "selva",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_simba",
+          "nombre": "Simba",
+          "fisica": "Young male lion, golden fur, bright eyes, later grown into a strong adult with a scar over his eye.",
+          "background": "Curious cub turned future king, driven by responsibility and desire to protect his home.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_timón",
+          "nombre": "Timón",
+          "fisica": "Meerkat, small, brown fur, simple cloth around neck.",
+          "background": "Carefree friend of Simba, promotes a worry‑free philosophy.",
+          "rol": "secundario",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_pumba",
+          "nombre": "Pumba",
+          "fisica": "Warthog, stout, bristly hair, leaf necklace.",
+          "background": "Timón's companion, shares the Hakuna Matata outlook.",
+          "rol": "secundario",
+          "skin_id": null
+        }
+      ],
+      "objetos": [],
+      "eventos": [
+        {
+          "descripcion": "Simba lounges by a waterfall, humming, while Timón jokes about laziness.",
+          "personajes_involucrados": [
+            "personaje_simba",
+            "personaje_timón"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Pumba joins with a juicy fruit, and the trio adopts the carefree \"Hakuna Matata\" mantra.",
+          "personajes_involucrados": [
+            "personaje_simba",
+            "personaje_timón",
+            "personaje_pumba"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_03b",
+      "titulo": "El Oasis del Exilio – El llamado de Nala",
+      "entorno": "Same lush jungle, now near a sacred ancient tree whose roots cradle a glowing pool, emerald light shimmering on the water.",
+      "atmosfera": "Urgent and hopeful as twilight deepens, the air humming with ancient spirits.",
+      "cielo": "atardecer",
+      "tipo_ambiente": "selva",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_simba",
+          "nombre": "Simba",
+          "fisica": "Young male lion, golden fur, bright eyes, later grown into a strong adult with a scar over his eye.",
+          "background": "Curious cub turned future king, driven by responsibility and desire to protect his home.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_nala",
+          "nombre": "Nala",
+          "fisica": "Female lioness, golden fur, sleek, youthful.",
+          "background": "Simba's childhood friend, courageous, seeks help to save the Pride Lands.",
+          "rol": "secundario",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_rafiki",
+          "nombre": "Rafiki",
+          "fisica": "Mandrill, wise eyes, long white beard, wooden staff.",
+          "background": "Spiritual shaman, guides Simba with cryptic wisdom.",
+          "rol": "secundario",
+          "skin_id": null
+        }
+      ],
+      "objetos": [],
+      "eventos": [
+        {
+          "descripcion": "Nala arrives, pleading for Simba's help to rescue their ruined homeland.",
+          "personajes_involucrados": [
+            "personaje_nala",
+            "personaje_simba"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Rafiki points to the bright spirit of Simba's father in the starry sky, urging Simba to awaken his destiny.",
+          "personajes_involucrados": [
+            "personaje_rafiki",
+            "personaje_simba"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Simba rises, determined, and declares his intent to return to the Pride Lands.",
+          "personajes_involucrados": [
+            "personaje_simba"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_04",
+      "titulo": "La Batalla Final y el Renacer",
+      "entorno": "The Rock of Kings, now cracked and gray, surrounded by roaring red flames and a raging electric storm that crackles across the sky.",
+      "atmosfera": "Epic and climactic, the storm rages as destiny hangs in the balance, then hopeful as rain quenches the fire.",
+      "cielo": "tormenta",
+      "tipo_ambiente": "sabana",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": "After the storm's fury subsided, the Rock of Kings stood reborn, its stone bathed in gentle light. Simba's triumphant roar echoed across the savanna, heralding a new era of peace. The kingdom's grasses swayed anew, and the sun rose over a land healed by courage and love.",
+      "rol_escena": null,
+      "personajes": [
+        {
+          "id": "personaje_simba",
+          "nombre": "Simba",
+          "fisica": "Young male lion, golden fur, bright eyes, later grown into a strong adult with a scar over his eye.",
+          "background": "Curious cub turned future king, driven by responsibility and desire to protect his home.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_scar",
+          "nombre": "Scar",
+          "fisica": "Adult male lion with black mane, dark eyes, gaunt, tattered cloak.",
+          "background": "Jealous brother of Mufasa, cunning antagonist seeking the throne.",
+          "rol": "antagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_leona_01",
+          "nombre": "Leona guerrera",
+          "fisica": "Adult lioness, muscular, golden fur, fierce eyes.",
+          "background": "Warrior of Simba's army, fights the hyenas.",
+          "rol": "secundario",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_hiena_01",
+          "nombre": "Hiena",
+          "fisica": "Spotted hyena, lean, scarred, snarling.",
+          "background": "Follower of Scar, seeks chaos.",
+          "rol": "secundario",
+          "skin_id": null
+        }
+      ],
+      "objetos": [],
+      "eventos": [
+        {
+          "descripcion": "Simba charges through the storm, confronting Scar atop the burning rock.",
+          "personajes_involucrados": [
+            "personaje_simba",
+            "personaje_scar"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "The lioness army joins the fray, battling the hyenas amidst the flames.",
+          "personajes_involucrados": [
+            "personaje_leona_01",
+            "personaje_hiena_01"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Simba defeats Scar; the torrential rain extinguishes the flames, and the savanna begins to bloom again.",
+          "personajes_involucrados": [
+            "personaje_simba"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    }
+  ],
+  "vocabulario": [],
+  "personajes_globales": [
+    {
+      "id": "personaje_mufasa",
+      "nombre": "Mufasa",
+      "fisica": "Adult male lion, golden mane, regal bearing, simple leather collar.",
+      "background": "Wise king of the Pride Lands, protective of his son, guided by duty.",
+      "rol": "secundario",
+      "skin_id": null
+    },
+    {
+      "id": "personaje_simba",
+      "nombre": "Simba",
+      "fisica": "Young male lion, golden fur, bright eyes, later grown into a strong adult with a scar over his eye.",
+      "background": "Curious cub turned future king, driven by responsibility and desire to protect his home.",
+      "rol": "protagonista",
+      "skin_id": null
+    },
+    {
+      "id": "personaje_scar",
+      "nombre": "Scar",
+      "fisica": "Adult male lion with black mane, dark eyes, gaunt, tattered cloak.",
+      "background": "Jealous brother of Mufasa, cunning antagonist seeking the throne.",
+      "rol": "antagonista",
+      "skin_id": null
+    }
+  ],
+  "objetos_globales": [],
+  "subtipo_educativo": null,
+  "tipo_vocabulario": null,
+  "idioma_objetivo": null
+}

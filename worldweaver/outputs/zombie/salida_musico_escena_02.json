@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_02",
+  "query_usada": "pine forest ambience loop",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/527/527281_942923-hq.mp3",
+    "titulo": "Monologue Wind.wav",
+    "autor": "dlgebert",
+    "duracion_segundos": 45.6,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/674/674729_5828667-hq.mp3",
+    "titulo": "NATDAval_Pyroclastic flow.The pines are blown away.Designed 2_EM.wav",
+    "autor": "newlocknew",
+    "duracion_segundos": 21.7,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

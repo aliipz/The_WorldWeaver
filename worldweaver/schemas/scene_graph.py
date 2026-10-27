@@ -7,9 +7,11 @@ Modelo de escenario cilíndrico inmersivo:
   - Eje Z: frontal (-6) ↔ trasero (+6)  [cámara en z=0, mira hacia z negativo]
 
 Tipos de nodo:
-  - "fondo":    cilindro panorámico — textura 2D, cargada por el Dibujante
-  - "suelo":    círculo horizontal  — textura 2D, cargada por el Dibujante
-  - "personaje" / "objeto" / "decorado": modelos 3D cargados desde poly.pizza
+  - "fondo":    referencia del escenario (en interiores el viewer construye la sala;
+                en exteriores el cielo lo pinta sky.js)
+  - "suelo":    suelo procedural (color por ambiente, agua, nubes, lava, cristal)
+  - "personaje" / "objeto" / "decorado": modelos 3D (Quaternius o Poly Pizza)
+  - "ambiente": relleno de fondo instanciado por el Constructor
     · gltf_url:          URL del modelo glTF (si se encontró en poly.pizza)
     · keyword_busqueda:  keyword usada para la búsqueda (para trazabilidad)
     · prompt_imagen:     None (no se usa para estos tipos)

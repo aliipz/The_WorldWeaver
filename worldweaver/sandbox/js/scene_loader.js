@@ -6,15 +6,14 @@
  *   suelo    → CircleGeometry horizontal (textura 2D)
  *   resto    → modelos 3D glTF de poly.pizza (con fallback a billboard de color)
  *
- * Fallback de texturas (fondo/suelo):
- *   Si el Dibujante no se ha ejecutado, Three.js conserva el color sólido.
- *
  * Fallback de modelos 3D:
  *   Si gltf_url es null o la carga falla, se muestra un billboard de color.
  */
 
-// Alturas objetivo por talla (unidades 3D; el jugador mide 1.8u)
-const _TALLA_ALTURA = {
+// Alturas objetivo por talla (unidades 3D; el jugador mide 1.8u). Fuente única:
+// config/catalogo_personajes.py::TALLA_ALTURA, inyectada por el Ensamblador en
+// window.WW_CONST. La tabla literal es solo respaldo para previews antiguos.
+const _TALLA_ALTURA = (window.WW_CONST && window.WW_CONST.tallas) || {
     adulto_alto:  2.05,
     adulto_medio: 1.80,
     adulto_bajo:  1.55,
@@ -69,15 +68,10 @@ const _AMBIENTES_FLOTANTES = new Set(['espacio', 'superficie_planeta', 'bajo_el_
 
 // ─── Helpers ──────────────────────────────────────────────────────────────
 
-function _intentarCargarTextura(mat, idEscena, idNodo) {
-    const ruta = `assets/${idEscena}/${idNodo}.png`;
-    new THREE.TextureLoader().load(
-        ruta,
-        (texture) => { mat.map = texture; mat.color.set(0xffffff); mat.needsUpdate = true; },
-        undefined,
-        () => { /* PNG no encontrado — conserva color fallback */ }
-    );
-}
+// Registro id_nodo → objeto 3D añadido a la escena. interactions.js lo consulta en vez
+// de recorrer toda la escena cada frame buscando los modelos (que cargan asíncronos).
+window._wwNodos = window._wwNodos || {};
+function _registrarNodo(id, obj) { if (id) window._wwNodos[id] = obj; }
 
 function crearTexturaEtiqueta(texto) {
     const canvas = document.createElement('canvas');
@@ -93,23 +87,6 @@ function crearTexturaEtiqueta(texto) {
 }
 
 // ─── Fondo y suelo (texturas 2D) ──────────────────────────────────────────
-
-function crearCilindroFondo(nodo, idEscena, radio) {
-    const geo = new THREE.CylinderGeometry(radio, radio, nodo.alto, 48, 1, true);
-    geo.scale(-1, 1, 1);
-    // Color base: color_fondo del cielo, opaco. Si el Dibujante carga una textura la sobreescribe.
-    const colorBase = (typeof CIELO_CONFIG !== 'undefined' && CIELO_CONFIG?.color_fondo)
-        ? CIELO_CONFIG.color_fondo
-        : (SCENE_GRAPH?.cielo?.color_fondo ?? '#2a4a6a');
-    const mat = new THREE.MeshBasicMaterial({
-        color: colorBase, side: THREE.BackSide, fog: false,
-    });
-    _intentarCargarTextura(mat, idEscena, nodo.id);
-    const mesh = new THREE.Mesh(geo, mat);
-    mesh.position.set(0, nodo.alto / 2, 0);
-    mesh.userData = nodo;
-    return mesh;
-}
 
 // Textura de cielo para el cristal de la ventana (degradado vertical → "se ve fuera").
 function _texturaCieloVentana(hexArriba, hexAbajo) {
@@ -480,6 +457,9 @@ function crearBillboard(nodo) {
     grupo.add(etMesh);
 
     grupo.position.set(nodo.posicion.x, nodo.posicion.y, nodo.posicion.z);
+    // Barco: el placeholder de un elemento de cubierta se apoya en la cubierta, no en el agua.
+    if (_tipoAmbiente === 'barco' && Math.hypot(nodo.posicion.x, nodo.posicion.z) < (window._BARCO_DECK_R ?? 4.6))
+        grupo.position.y += (window._BARCO_DECK_H ?? 1.0);
     grupo.userData = nodo;
     grupo.onBeforeRender = function(renderer, scene, camera) { this.lookAt(camera.position); };
     return grupo;
@@ -662,6 +642,7 @@ function crearModelo3D(nodo, scene) {
             }
 
             scene.add(grupo);
+            _registrarNodo(nodo.id, grupo);
 
             const esPersonajeNoHumano = nodo.tipo === 'personaje' && !esPersonajeCatalogo;
 
@@ -691,89 +672,11 @@ function crearModelo3D(nodo, scene) {
         undefined,
         (error) => {
             console.warn(`[WorldWeaver] Error cargando modelo '${nodo.id}' desde ${nodo.gltf_url}. Billboard fallback.`, error);
-            scene.add(crearBillboard(nodo));
+            const bb = crearBillboard(nodo);
+            scene.add(bb);
+            _registrarNodo(nodo.id, bb);
         }
     );
-}
-
-// ─── Bosque procedural (geometría Three.js, sin poly.pizza) ──────────────
-
-function _crearArbolBosque(x, z, escala, colorTronco, colorCopa) {
-    const g = new THREE.Group();
-    const tronco = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.08 * escala, 0.13 * escala, 0.85 * escala, 6),
-        new THREE.MeshLambertMaterial({ color: colorTronco })
-    );
-    tronco.position.y = 0.42 * escala;
-    tronco.castShadow = true;
-    g.add(tronco);
-    const copaMat = new THREE.MeshLambertMaterial({ color: colorCopa });
-    const copa = new THREE.Mesh(new THREE.SphereGeometry(0.55 * escala, 6, 5), copaMat);
-    copa.position.y = 1.12 * escala;
-    copa.castShadow = true;
-    g.add(copa);
-    const copa2 = new THREE.Mesh(new THREE.SphereGeometry(0.38 * escala, 6, 5), copaMat);
-    copa2.position.set(0.26 * escala, 1.48 * escala, 0.1 * escala);
-    copa2.castShadow = true;
-    g.add(copa2);
-    g.position.set(x, 0, z);
-    return g;
-}
-
-function _crearRocaBosque(x, z, sx, sy, sz) {
-    const geo = new THREE.DodecahedronGeometry(0.28 + Math.random() * 0.22, 0);
-    const m = new THREE.Mesh(geo, new THREE.MeshLambertMaterial({ color: 0x7a7060 }));
-    m.scale.set(sx, sy, sz);
-    m.position.set(x, 0, z);
-    m.rotation.y = Math.random() * Math.PI * 2;
-    return m;
-}
-
-function _poblarBosqueProcedural(radio, scene) {
-    const rng = (a, b) => a + Math.random() * (b - a);
-    const COPAS   = [0x2d6a1f, 0x3a7d2a, 0x236018, 0x4a8530, 0x1e5214, 0x557a30];
-    const TRONCOS = [0x5c3a1e, 0x6b4226, 0x4a2e12];
-    // Tres anillos: lejano (80-97%), medio (44-70%), cercano (22-52% — zona explorable)
-    const N_FAR = 64, N_MID = 18, N_NEAR = 20, N_ROCAS = 14;
-
-    for (let i = 0; i < N_FAR; i++) {
-        const r = rng(radio * 0.80, radio * 0.97);
-        const ang = Math.random() * Math.PI * 2;
-        const esc = rng(1.0, 2.0);
-        scene.add(_crearArbolBosque(
-            r * Math.sin(ang), r * Math.cos(ang), esc,
-            TRONCOS[Math.floor(Math.random() * TRONCOS.length)],
-            COPAS[Math.floor(Math.random() * COPAS.length)]
-        ));
-    }
-    for (let i = 0; i < N_MID; i++) {
-        const r = rng(radio * 0.44, radio * 0.70);
-        const ang = Math.random() * Math.PI * 2;
-        const esc = rng(0.65, 1.35);
-        scene.add(_crearArbolBosque(
-            r * Math.sin(ang), r * Math.cos(ang), esc,
-            TRONCOS[Math.floor(Math.random() * TRONCOS.length)],
-            COPAS[Math.floor(Math.random() * COPAS.length)]
-        ));
-    }
-    for (let i = 0; i < N_NEAR; i++) {
-        const r = rng(radio * 0.22, radio * 0.52);
-        const ang = Math.random() * Math.PI * 2;
-        // Árboles más pequeños cerca del centro para no obstruir la zona narrativa
-        const esc = rng(0.35, 0.80) * (0.6 + 0.4 * (r / (radio * 0.52)));
-        scene.add(_crearArbolBosque(
-            r * Math.sin(ang), r * Math.cos(ang), esc,
-            TRONCOS[Math.floor(Math.random() * TRONCOS.length)],
-            COPAS[Math.floor(Math.random() * COPAS.length)]
-        ));
-    }
-    for (let i = 0; i < N_ROCAS; i++) {
-        const r = rng(radio * 0.22, radio * 0.86);
-        const ang = Math.random() * Math.PI * 2;
-        scene.add(_crearRocaBosque(r * Math.sin(ang), r * Math.cos(ang),
-            rng(0.8, 1.6), rng(0.5, 1.0), rng(0.7, 1.4)));
-    }
-    console.log(`[WorldWeaver] Bosque procedural: ${N_FAR + N_MID + N_NEAR} árboles, ${N_ROCAS} rocas`);
 }
 
 // ─── Espacio procedural (asteroides Three.js + campo de estrellas) ────────
@@ -1026,7 +929,9 @@ function _prepararBarco() {
 function _crearBarco(scene) {
     if (!_barcoVariante) _prepararBarco();
     const v = _barcoVariante;
-    const H = v.H, R = v.R;
+    // Radio del casco = el de la cubierta con el que el Constructor colocó los objetos
+    // (SCENE_GRAPH.radio_cubierta, ver _prepararBarco); v.R solo para mundos antiguos.
+    const H = v.H, R = window._BARCO_DECK_R ?? v.R;
     console.log(`[WorldWeaver] Barco: variante H=${H}, R=${R}`);
 
     const matCasco = new THREE.MeshLambertMaterial({ color: v.hull });
@@ -1168,7 +1073,9 @@ function cargarSceneGraph(sceneGraph, scene) {
             crearModelo3D(nodo, scene);  // asíncrono
             modelos3d++;
         } else if (nodo.tipo !== 'ambiente') {
-            scene.add(crearBillboard(nodo));  // fallback (no para nodos de relleno sin modelo)
+            const bb = crearBillboard(nodo);  // fallback (no para nodos de relleno sin modelo)
+            scene.add(bb);
+            _registrarNodo(nodo.id, bb);
             billboards++;
         }
     }

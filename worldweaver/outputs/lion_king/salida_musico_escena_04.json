@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_04",
+  "query_usada": "storm thunder rain ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/369/369547_3248005-hq.mp3",
+    "titulo": "Rain and Thunder Ambience Tübingen",
+    "autor": "Sheyvan",
+    "duracion_segundos": 821.6,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/728/728687_8407191-hq.mp3",
+    "titulo": "Amb_Forest_Thunder_Rain_Night_KA",
+    "autor": "Kristoffer_Andersson",
+    "duracion_segundos": 118.4,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_01",
+  "query_usada": "wind rustling leaves ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/361/361216_1648170-hq.mp3",
+    "titulo": "wind in trees 4-5 bft 160929_0993.wav",
+    "autor": "klankbeeld",
+    "duracion_segundos": 107.7,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/853/853671_17756109-hq.mp3",
+    "titulo": "The song of an Eurasian Wren",
+    "autor": "hoshisato",
+    "duracion_segundos": 40.3,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

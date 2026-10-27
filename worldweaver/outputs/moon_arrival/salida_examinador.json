@@ -1,0 +1,221 @@
+{
+  "titulo": "Quiz: Moon Arrival",
+  "preguntas": [
+    {
+      "numero": 1,
+      "pregunta": "On what date was the Apollo 11 mission launched from the Kennedy Space Center?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "April 12, 1969, the date of the first crewed U.S. orbital flight.",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "July 16, 1969, the date the Saturn V was launched from the Kennedy Center.",
+          "correcta": true
+        },
+        {
+          "letra": "c",
+          "texto": "July 20, 1969, the day the spacecraft entered lunar orbit.",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "July 4, 1969, the date of the historic Apollo 11 Moon landing.",
+          "correcta": false
+        }
+      ],
+      "explicacion": "The launch took place on July 16, 1969, when the Saturn V lifted off from the Kennedy Center."
+    },
+    {
+      "numero": 2,
+      "pregunta": "Which astronaut stayed in the Columbia Command Module while the others descended in the lunar module?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Buzz Aldrin, pilot of the Eagle lunar module.",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "James Lovell, pilot of the Gemini command module.",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Neil Armstrong, commander of the Eagle lunar module.",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "Michael Collins, pilot of the Columbia command module.",
+          "correcta": true
+        }
+      ],
+      "explicacion": "Michael Collins stayed in the Columbia command module to watch over the ship and prepare for the return."
+    },
+    {
+      "numero": 3,
+      "pregunta": "What error code did the navigation computer show during the descent to the Mare Tranquillitatis?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Code 1101, indicating a minor sensor failure.",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Code 1405, related to a fuel problem.",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Code 1202, signaling a saturation of the navigation processor.",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "Code 1300, referring to a loss of communication.",
+          "correcta": false
+        }
+      ],
+      "explicacion": "The number 1202 appeared when the navigation processor became overloaded, forcing manual intervention."
+    },
+    {
+      "numero": 4,
+      "pregunta": "Why was it necessary for Neil Armstrong to take manual control during the Moon landing?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Because NASA wanted to demonstrate the astronauts' ability to fly without automatic assistance.",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Because the radio signal with Earth had been interrupted, preventing any automatic command.",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Because error 1202 caused the computer to stop tracking the trajectory, forcing Armstrong to fly manually to avoid craters and save fuel.",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "Because the lunar module had lost all electrical power, requiring manual control to maintain the orbit.",
+          "correcta": false
+        }
+      ],
+      "explicacion": "The computer failure forced Armstrong to fly manually to ensure a safe and efficient landing."
+    },
+    {
+      "numero": 5,
+      "pregunta": "How does the use of the space sextant illustrate the challenges of navigation without terrestrial references?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "The sextant allowed the astronauts to fix their position using stars, which demanded precise calculations and compensation for the spacecraft's motion.",
+          "correcta": true
+        },
+        {
+          "letra": "b",
+          "texto": "The sextant was mainly a training tool for the pilots, with no practical use in the mission.",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "The sextant served as a backup to the GPS system, which was not available at the time.",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "The sextant was used to measure the distance to Earth, helping to calibrate the temperature sensors.",
+          "correcta": false
+        }
+      ],
+      "explicacion": "Without GPS, the astronauts relied on the sextant to orient themselves using the stars, which required meticulous calculations."
+    },
+    {
+      "numero": 6,
+      "pregunta": "What was the main scientific objective of the instruments installed on the lunar surface?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "The passive seismometers and laser retroreflectors were installed to record lunar tremors and measure the Earth-Moon distance, data essential for geology and navigation.",
+          "correcta": true
+        },
+        {
+          "letra": "b",
+          "texto": "The solar panels were installed to test power generation on the lunar surface.",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "The photography instruments were brought to capture panoramic images of the lunar landscape.",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "The American flag and the communication module were placed to demonstrate human presence and maintain contact with Earth.",
+          "correcta": false
+        }
+      ],
+      "explicacion": "The seismometers and retroreflectors provided data on lunar seismic activity and the Earth-Moon distance."
+    },
+    {
+      "numero": 7,
+      "pregunta": "If the lunar module had run out of fuel during the descent, which phase of the mission would have been most affected and why?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "The Moon landing would have failed, since without enough fuel the module could not have controlled its descent or avoided dangerous terrain.",
+          "correcta": true
+        },
+        {
+          "letra": "b",
+          "texto": "Reentry would have been impossible, since the module needed fuel to deploy the parachutes.",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "The docking in lunar orbit would have been unfeasible, since the command module required fuel for the rendezvous maneuver.",
+          "correcta": false
+        },
+        {
+          "letra": "d",
+          "texto": "The initial launch would have been canceled, since the Saturn V rocket needed fuel to reach Earth orbit.",
+          "correcta": false
+        }
+      ],
+      "explicacion": "Without enough fuel the module could not have completed the controlled descent needed to land on the Moon."
+    },
+    {
+      "numero": 8,
+      "pregunta": "What biological concern was addressed by the quarantine protocols after the splashdown?",
+      "opciones": [
+        {
+          "letra": "a",
+          "texto": "Reduce the astronauts' exposure to cosmic radiation during the transfer to the quarantine center.",
+          "correcta": false
+        },
+        {
+          "letra": "b",
+          "texto": "Protect the scientific instruments from contamination by human bacteria when handling lunar samples.",
+          "correcta": false
+        },
+        {
+          "letra": "c",
+          "texto": "Prevent the possible transmission of extraterrestrial microorganisms to the terrestrial biosphere, ensuring biological safety.",
+          "correcta": true
+        },
+        {
+          "letra": "d",
+          "texto": "Prevent the leak of classified information about the ship's technology to the public.",
+          "correcta": false
+        }
+      ],
+      "explicacion": "The quarantine protocols were designed to prevent possible extraterrestrial pathogens from contaminating Earth."
+    }
+  ]
+}

@@ -23,3 +23,7 @@ worldweaver/dist/
 memoria/
 CLAUDE.md
 .claude/
+
+docs/
+worldweaver/demo/
+worldweaver/local/

@@ -1,0 +1,396 @@
+{
+  "id_escena": "escena_04",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "First step on the lunar surface",
+      "guias": [
+        "personaje_neil_armstrong"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_neil_armstrong"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Raising of the American flag",
+      "guias": [
+        "objeto_bandera_estadounidense",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_bandera_estadounidense"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Installation of the lunar scientific experiment",
+      "guias": [
+        "objeto_easep",
+        "objeto_sismometro_pasivo",
+        "objeto_retroreflectores_laser",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_easep",
+          "objeto_sismometro_pasivo",
+          "objeto_retroreflectores_laser"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_neil_armstrong",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Neil Armstrong — NASA Astronaut",
+        "texto": "American pilot and astronaut (1930-2012). He commanded the ==Apollo 11== mission and, on July 20, 1969, was the first human to set foot on the Moon."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "==That's one small step for man, but one giant leap for mankind==."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The goal was to place the lunar module and collect scientific data from the surface."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What kind of data was collected?",
+                  "respuesta": "The composition of the regolith and the temperature were measured."
+                },
+                {
+                  "etiqueta": "Why was the lunar mission important?",
+                  "respuesta": "It proved that humanity could reach another celestial body."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "In zero gravity, every step requires precise control of momentum."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "We deployed the ==American flag== as a symbol of the national achievement."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The module's solar panels provide energy to the instruments during the lunar night."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How does solar power work on the Moon?",
+                  "respuesta": "The panels convert sunlight into electricity, storing it in batteries."
+                },
+                {
+                  "etiqueta": "What happens when the Moon is in darkness?",
+                  "respuesta": "The systems use the stored energy to keep the equipment operational."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "This act stirred pride throughout the nation and showed the power of collaborative science."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "We installed the ==EASEP== experiment, which includes a ==passive seismometer== and ==laser retroreflectors== to measure the Earth-Moon distance."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The retroreflectors let ground stations send lasers and calculate the distance with millimeter precision."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Why is it important to measure the Earth-Moon distance?",
+                  "respuesta": "It helps calibrate the orbit and test the theory of relativity."
+                },
+                {
+                  "etiqueta": "How are seismometers used on the Moon?",
+                  "respuesta": "They record internal tremors that reveal the satellite's internal structure."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "The data collected will expand our knowledge of lunar seismic activity."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Explain module",
+          "descripcion": "Neil describes the function of the ==Eagle Module== as a lunar descent and ascent vehicle.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_buzz_aldrin",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Buzz Aldrin — NASA Astronaut",
+        "texto": "Pilot of the Eagle lunar module and second man to walk on the Moon. He contributed to the engineering of the life-support systems and to the installation of scientific experiments."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "I planted the second ==American flag== while Neil secured it."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The Eagle module is equipped with life-support systems that work in the vacuum and maintain internal pressure."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How is the pressure inside the suit controlled?",
+                  "respuesta": "The suits use air-recycling systems and regulated pressure to sustain life."
+                },
+                {
+                  "etiqueta": "What challenges arose from operating in the vacuum?",
+                  "respuesta": "The lunar dust and the lack of atmosphere make handling the equipment difficult."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Seeing the Earth from the Moon reminded me of the fragility of our planet."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "I helped install the ==passive seismometer== and the ==laser retroreflectors== of the ==EASEP== project."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The retroreflectors return the laser beam to Earth, creating a permanent reference point."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How many retroreflectors were placed?",
+                  "respuesta": "Five reflectors were installed across the lunar surface."
+                },
+                {
+                  "etiqueta": "How long did the laser calibration take?",
+                  "respuesta": "The calibration took several days of fine adjustments from the observatories."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Each measurement brings us closer to better understanding the geology of the Moon."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Operate seismometer",
+          "descripcion": "Buzz activates the ==Passive Seismometer== to record lunar vibrations.",
+          "animacion": "Punch",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "objeto_sismometro_pasivo",
+              "efecto": "pulsar",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_camara_de_television",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Television Camera",
+        "descripcion": "Image-capture device that broadcasts in real time to Earth. It uses a CCD sensor and an antenna to send video data via radio waves.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_bandera_estadounidense",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "American Flag",
+        "descripcion": "Flag of synthetic fabric in red, white and blue. It is designed to stay extended in the vacuum by means of a telescopic pole and a horizontal bar that holds it.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_easep",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "EASEP",
+        "descripcion": "Apollo Surface Experiments Package, a set of instruments to measure seismic activity, laser reflection and other variables. Each component is mounted on a leveled base to ensure stability in low gravity.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_sismometro_pasivo",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Passive Seismometer",
+        "descripcion": "Motion sensor that records vibrations of the lunar surface by means of a suspended mass. The data is stored in an internal memory for later transmission.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_retroreflectores_laser",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Laser Retroreflectors",
+        "descripcion": "Set of prisms that return the laser beam emitted from Earth. They allow the Earth-Moon distance to be measured with centimeter precision through the photon's time of flight.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_panel_solar_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "The solar panels deploy and begin to emit a soft blue glow.",
+        "texto_desactivacion": "The panels shut down, leaving only the lunar surface in silence.",
+        "efecto_visual": "brillo",
+        "color_efecto": "#4488ff",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_muestra_roca_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "Lunar rock sample",
+        "descripcion": "A basalt fragment from the Mare Tranquillitatis in its sealed container. One of the samples the Apollo 11 crew brought back to Earth for study."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_lunar",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "As I cross the threshold of the ==Eagle Module==, the lunar dust rises and the gray surface stretches out beneath the black sky."
+    }
+  ]
+}

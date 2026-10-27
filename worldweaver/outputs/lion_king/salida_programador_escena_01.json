@@ -1,0 +1,354 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Mufasa summons the herd to the monolith",
+      "guias": [
+        "personaje_mufasa",
+        "personaje_herd_01"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_mufasa",
+          "personaje_herd_01"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Simba steps forward as cheers rise",
+      "guias": [
+        "personaje_simba",
+        "personaje_scar"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_simba",
+          "personaje_scar"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Scar whispers a dark invitation to Simba",
+      "guias": [
+        "personaje_scar",
+        "personaje_simba"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_scar",
+          "personaje_simba"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_mufasa",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "Gather, my pride, the dawn crowns our kingdom with gold."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Soon the young prince will step onto the rock, and the land will hear his roar."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Will he bear the weight of our hopes?",
+                  "respuesta": "He has been taught by the ancestors; his heart is strong.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What dangers lurk in this celebration?",
+                  "respuesta": "Even in joy, shadows linger; we must stay vigilant.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Roar",
+          "descripcion": "Mufasa lifts his head and bellars, the sound rolling across the savanna.",
+          "animacion": "alegria",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_herd_01",
+              "efecto": null,
+              "color": null,
+              "animacion": "alegria"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_herd_01",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "The grass shivers with excitement, and the wind carries the drums of celebration."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "I watch the lion king speak, feeling the pulse of the herd."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Do you think the prince will protect us?",
+                  "respuesta": "His lineage is strong; the pride trusts him.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Will the celebration last?",
+                  "respuesta": "The sun will set, but the memory will linger.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_simba",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "I step forward, the cheers of my kin echoing like thunder across the savanna."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The future of the kingdom rests on my shoulders, and I feel its weight."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "You seem steady, young one.",
+                  "respuesta": "I will learn to balance strength with wisdom.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Do you sense the darkness beyond?",
+                  "respuesta": "I feel a chill, but I will not let it dim my fire.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "A voice from the shadows urges me to explore the borders where night meets day."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What lies beyond the borders?",
+                  "respuesta": "Old ruins and forgotten spirits; they whisper of power.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Should I heed this call?",
+                  "respuesta": "Your curiosity may guide you, but beware the traps of ambition.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Step forward",
+          "descripcion": "Simba steps onto the stone, his mane catching the dawn light.",
+          "animacion": "alegria",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_scar",
+              "efecto": null,
+              "color": null,
+              "animacion": "susto"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_scar",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "From the shadows I watch, the celebration a thin veil over the kingdom's frailty."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The young lion's pride is bright, yet his eyes betray a flicker of doubt."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Do you doubt his strength?",
+                  "respuesta": "Even the brightest flame can be smothered.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What would you offer him?",
+                  "respuesta": "A path to true power, hidden in the dark.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "Listen, Simba, beyond the hills the night holds secrets that could make you king."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What secrets?",
+                  "respuesta": "Old magic, forgotten allies, and the chance to seize destiny.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Why should I trust you?",
+                  "respuesta": "Because the kingdom needs a ruler who sees beyond the light.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Whisper",
+          "descripcion": "Scar leans close, his voice a hiss, urging Simba toward the dark borders.",
+          "animacion": "susto",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_simba",
+              "efecto": null,
+              "color": null,
+              "animacion": "susto"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "decorado_tree_acacia_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A towering acacia tree sways gently in the morning breeze."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_drum_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Hand‑carved wooden drum",
+        "descripcion": "The drum is adorned with intricate tribal motifs, its surface polished by countless celebrations. When struck, it reson a with a deep, echoing tone that seems to stir the very air.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

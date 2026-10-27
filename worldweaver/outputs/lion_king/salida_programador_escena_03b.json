@@ -1,0 +1,345 @@
+{
+  "id_escena": "escena_03b",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Nala's plea echoes through twilight",
+      "guias": [
+        "personaje_nala",
+        "personaje_simba"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_nala",
+          "personaje_simba"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Rafiki summons the ancestral spirit",
+      "guias": [
+        "personaje_rafiki",
+        "personaje_simba"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_rafiki",
+          "personaje_simba"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Simba declares his destiny",
+      "guias": [
+        "personaje_simba"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_simba"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_nala",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "Simba, the Pride Lands crumble; the spirits whisper that only you can restore the balance."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Your words stir the ember of my destiny."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What must I do?",
+                  "respuesta": "Seek the ancient fire within the valley; it burns anew for the rightful king.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "How much time do we have?",
+                  "respuesta": "The twilight fades quickly; we must act before the night swallows the hope.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_spore",
+          "consume": false,
+          "puntos": [
+            {
+              "frases": [
+                "This spore glows with the same light as the ancient fire."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Should I keep it?",
+                  "respuesta": "Hold it close; its pulse will guide you when the path is dark.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Can it help us?",
+                  "respuesta": "Its glow can summon the spirits, but only if the heart is pure.",
+                  "correcta": false
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Plead",
+          "descripcion": "You listen as Nala's voice trembles, pleading for your aid.",
+          "animacion": "susto",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": [
+            {
+              "id_nodo": "personaje_simba",
+              "efecto": null,
+              "color": null,
+              "animacion": "alegria"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_simba",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Nala, I feel the weight of the dusk pressing on my heart."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Your words stir the ember of my destiny."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What must I do?",
+                  "respuesta": "Gather the clan, and let the ancient drums awaken the savanna.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Will the spirits guide me?",
+                  "respuesta": "They already whisper; listen to the wind and the stars.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "The sky burns with my father's light, a beacon in the night."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How can I reach it?",
+                  "respuesta": "Follow the river north until the stars mirror the water.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Is this my destiny?",
+                  "respuesta": "Your path is written in the constellations; you cannot turn away.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "I will return, and the Pride Lands will rise with the sunrise."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Declare",
+          "descripcion": "Simba's roar rises, resolute, as he vows to restore the Pride Lands.",
+          "animacion": "alegria",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "rugir",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_rafiki",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "The spirits whisper through the stars; listen, and you shall find your path."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What do they say?",
+                  "respuesta": "They speak of a fire that never dies, awaiting the king's return.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "How can I hear them?",
+                  "respuesta": "Close your eyes, feel the earth's pulse, and let the night guide you.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [
+        {
+          "requiere_objeto": "objeto_spore",
+          "consume": true,
+          "puntos": [
+            {
+              "frases": [
+                "Give me the spore; its glow will guide the ancestors."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Will it help?",
+                  "respuesta": "Yes, its light will open the hidden path to the sacred grove.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What will you do with it?",
+                  "respuesta": "I will place it upon the altar, and the spirits will awaken.",
+                  "correcta": false
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Point",
+          "descripcion": "Rafiki lifts his staff, pointing to the shimmering spirit above.",
+          "animacion": "alegria",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "magico",
+          "dispara": [
+            {
+              "id_nodo": "decorado_lantern_01",
+              "efecto": "brillo",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "decorado_lantern_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "The lantern ignites, casting a warm amber glow over the pool.",
+        "texto_desactivacion": "The lantern's light dims and fades into darkness.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_altar_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Ritual stone altar",
+        "descripcion": "An ancient stone altar covered in moss and faintly glowing runes. It hums with the memory of forgotten ceremonies, inviting reverence from those who draw near.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_arbol_sagrado",
+      "columnas": [
+        1,
+        2
+      ],
+      "texto": "The ancient tree looms, its roots cradling a pool that shimmers with emerald light, whispering of forgotten rites."
+    }
+  ],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

@@ -532,37 +532,3 @@ def validar_programador(
             )
 
     return errores
-
-
-# ─── Agente 4 — Dibujante ─────────────────────────────────────────────────────
-
-def validar_dibujante(salida, scene_graph: SceneGraph) -> list[str]:
-    """
-    Comprueba los assets generados por el Dibujante.
-    Solo valida fondo y suelo (los únicos que el Dibujante procesa).
-    """
-    from pathlib import Path
-    errores = []
-
-    asset_por_id = {a.id_elemento: a for a in salida.assets}
-
-    fondos = [n for n in scene_graph.nodos if n.tipo == "fondo"]
-    for nodo in fondos:
-        asset = asset_por_id.get(nodo.id)
-        if not asset:
-            errores.append(f"No se generó asset para el nodo fondo '{nodo.id}'.")
-            continue
-        if not Path(asset.ruta_png).exists():
-            errores.append(f"PNG no encontrado en disco: {asset.ruta_png}")
-        if asset.ancho_px <= asset.alto_px:
-            errores.append(
-                f"Fondo '{nodo.id}' no es panorámico: "
-                f"{asset.ancho_px}×{asset.alto_px}px (se espera ancho > alto)."
-            )
-        if asset.ruta_png and Path(asset.ruta_png).parent.name != scene_graph.id_escena:
-            errores.append(
-                f"Ruta del fondo '{nodo.id}' no sigue la convención "
-                f"assets/<id_escena>/<id_nodo>.png: {asset.ruta_png}"
-            )
-
-    return errores

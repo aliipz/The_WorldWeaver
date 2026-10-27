@@ -62,7 +62,7 @@ excludes = [
     "transformers", "sentence_transformers", "datasets",
     "langchain_community", "langchain_text_splitters",
     "matplotlib", "scipy", "pandas", "sklearn", "scikit-learn",
-    "IPython", "notebook", "jupyter", "pytest", "agents.dibujante",
+    "IPython", "notebook", "jupyter", "pytest",
 ]
 
 

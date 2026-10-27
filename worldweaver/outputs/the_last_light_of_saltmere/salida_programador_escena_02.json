@@ -1,0 +1,502 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "A lantern passes between hands as a secret surfaces...",
+      "guias": [
+        "objeto_lanterna",
+        "personaje_agnes",
+        "personaje_mara"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_lanterna"
+        ],
+        "personajes": [
+          "personaje_agnes",
+          "personaje_mara"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Fire wakes the lantern into a strange blue glow...",
+      "guias": [
+        "objeto_lanterna",
+        "personaje_mara"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_lanterna"
+        ],
+        "personajes": [
+          "personaje_mara"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "An old finger points past the rocks to a drowned city...",
+      "guias": [
+        "personaje_agnes",
+        "personaje_mara"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_agnes",
+          "personaje_mara"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_agnes",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Take this lantern, child. It was lit by the last true flame before the witch stole the Sun Crystal. It will burn bright when the darkness closes in."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The witch's name is Morwenna. She hoards light like a miser hoards gold, and she's buried the crystal in the drowned city."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How do I get there?",
+                  "respuesta": "Follow the shore until you see the black rocks. The entrance is hidden by the tide.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What happened to the city?",
+                  "respuesta": "It sank a hundred years ago, swallowed by her magic. Now it sleeps beneath the waves.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "I've kept this secret too long. You're the first soul I've told. I trust you, Mara."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "I won't let you down.",
+                  "respuesta": "I know you won't. Your heart is as steady as the lighthouse beam.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Why me?",
+                  "respuesta": "Because you have the courage to face the deep, and the kindness to save our village.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Look beyond the rocks, Mara. See that darkness? Beneath it lies the sunken city—where the witch keeps the crystal."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The city was once proud, full of songs and bells. Now it's a graveyard of stone and memory. But your lantern can cut through the gloom."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What awaits me below?",
+                  "respuesta": "Old whispers and lingering shadows. But the light will keep the witch at bay.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Will I come back?",
+                  "respuesta": "You will, if you remember the way home. The stars will guide you.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Point to the sea",
+          "descripcion": "Agnes lifts a weathered arm and points toward the black water beyond the rocks, her eyes heavy with old knowledge.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "agua",
+          "dispara": []
+        },
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Murmur a prayer",
+          "descripcion": "Agnes bows her head and murmurs a prayer to the old gods of the tide, asking them to guard the girl who will dive.",
+          "animacion": "SitDown",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_biscuit",
+        "efecto": null,
+        "color": null,
+        "animacion": "susto"
+      }
+    },
+    {
+      "id_nodo": "personaje_mara",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "This lantern… it hums with a quiet power. I can feel the weight of its promise."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What promise is that?",
+                  "respuesta": "To guide me through the dark, to find the Sun Crystal, to bring light back to Saltmere.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Are you ready for this?",
+                  "respuesta": "I was born ready. The sea knows my name, and I'm not afraid.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Agnes spoke of the witch. Morwenna. She's taken more than just the crystal; she's taken our hope."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How will you get it back?",
+                  "respuesta": "With this light, and my crew. We'll sail into the abyss and take back what's ours.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What if you fail?",
+                  "respuesta": "Then the tide will claim me. But I'd rather die trying than live in a world without dawn.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "My heart aches for the village. But this lantern gives me strength. It's like a piece of the sun itself."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "You sound determined.",
+                  "respuesta": "Determination is all I have left. And a good ship.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Do you believe the legend?",
+                  "respuesta": "Legends become truth when you have nothing else to hold onto.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "The flame catches… and it glows blue. A soft, steady glow. It's beautiful, like a star trapped in glass."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What does that blue mean?",
+                  "respuesta": "It means the lantern recognizes me. It's bonding with my spirit, aligning to my will.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Is it safe?",
+                  "respuesta": "Safe? It's a guiding light, not a weapon. It will lead me through the murk.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "I feel a pull toward the water. The lantern wants to go home."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Home? Underwater?",
+                  "respuesta": "Yes, to the sunken city. The crystal calls to it, like a beacon.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Are you ready to dive?",
+                  "respuesta": "Not yet. First I need to gather supplies. But soon, very soon.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "The campfire crackles, but the lantern's glow outshines it. This is the sign we've been waiting for."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What happens next?",
+                  "respuesta": "We follow the light to the rocks, and we plunge into the deep.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Will Biscuit come?",
+                  "respuesta": "He'll stay on shore. He's brave, but he's not a swimmer.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "There, beyond the jagged rocks. The water is black, like ink. That's where the city sleeps."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "You're not scared?",
+                  "respuesta": "Scared? Terrified. But the fear is a compass; it points to what matters.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What's your plan?",
+                  "respuesta": "Swim down, find the witch's lair, take the crystal, and rise again.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "The wind carries whispers of old sailors. They warn of the witch's tentacles. But I have the lantern."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "The lantern protects you?",
+                  "respuesta": "Its light cuts through illusion. The witch's tricks won't fool me.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Anything else you need?",
+                  "respuesta": "Just a bit of luck, and a steady breath.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Warm her hands",
+          "descripcion": "Mara crouches by the campfire and stretches her palms toward the flames, chasing the night's chill from her bones.",
+          "animacion": "SitDown",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_biscuit",
+        "efecto": null,
+        "color": null,
+        "animacion": "alegria"
+      }
+    },
+    {
+      "id_nodo": "personaje_biscuit",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Woof… the night is cold, Captain. I don't like that dark water. But I'll stand by you, as always. Where you go, I follow."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The wind smells of salt and sorrow. But your lantern smells of hope. I trust it."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "You're a good dog, Biscuit.",
+                  "respuesta": "Woof! I know. Now let's go find that crystal.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Stay safe on shore.",
+                  "respuesta": "I'll guard the camp. But hurry back, Captain.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Scratch behind the ears",
+          "descripcion": "You scratch behind Biscuit's ears. The creature melts into your hand with a tiny, happy whine.",
+          "animacion": "alegria",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "criatura",
+          "dispara": []
+        },
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Throw a stick",
+          "descripcion": "You toss a piece of bleached driftwood. Biscuit bounds after it through the sand, tail spinning with joy.",
+          "animacion": "alegria",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "criatura",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_lanterna",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "Mara holds the lantern to the campfire. The wick catches, and the glass fills with a soft, steady blue light.",
+        "texto_desactivacion": null,
+        "efecto_visual": "brillo",
+        "color_efecto": "#4488ff",
+        "descripcion": "A battered brass lantern, still warm from Agnes's hands. Salt and years have scratched its glass."
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyQ",
+          "etiqueta": "Peer inside",
+          "descripcion": "You lift the lantern to eye level. Through the scratched glass, the dry wick waits patiently for fire.",
+          "efecto_visual": null,
+          "sonido": null
+        }
+      ],
+      "proximidad": null,
+      "dispara": {
+        "id_nodo": "personaje_biscuit",
+        "efecto": null,
+        "color": null,
+        "animacion": "alegria"
+      }
+    },
+    {
+      "id_nodo": "decorado_rowboat_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Overturned rowboat",
+        "descripcion": "Its hull is weather-beaten, seams tarred long ago and gone brittle. Barnacles cling to the ribs, and the word 'Esperanza' is still faintly carved near the prow. It was dragged ashore and left to wait, like everything else in this cove.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_mooring_post_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Rope frayed by years of tides and brine still wraps the post, worn smooth and pale as bone."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_driftwood_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Bleached driftwood",
+        "descripcion": "A long, pale log curved like a whale's rib, sanded white by wind and salt. One end is scorched black, as if it once kept a fire company before the sea returned it.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_orilla",
+      "columnas": [
+        0,
+        1,
+        2
+      ],
+      "texto": "A crescent of pale sand unfurls beneath the starry sky. The sea breathes dark and patient against the rocks, keeping its drowned secrets."
+    }
+  ],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

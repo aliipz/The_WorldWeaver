@@ -1,0 +1,369 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Mamá Pata vigila el nido de paja",
+      "guias": [
+        "objeto_nido_paja",
+        "personaje_mama_pata"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_nido_paja"
+        ],
+        "personajes": [
+          "personaje_mama_pata"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "El cascarón mayor se abre y revela al patito feo",
+      "guias": [
+        "personaje_patito_feo"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_patito_feo"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Los hermanos se burlan mientras Mamá Pata suspira",
+      "guias": [
+        "personaje_patito_hermanos_01",
+        "personaje_patito_hermanos_02",
+        "personaje_mama_pata"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_patito_hermanos_01",
+          "personaje_patito_hermanos_02",
+          "personaje_mama_pata"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_mama_pata",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "El sol dorado ya acaricia la paja, y mis huevos se meven bajo su calor."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Espero que el día les traiga fuerza y seguridad a mis polluelos."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Los protegerás de todo?",
+                  "respuesta": "Haré lo que sea para que estén a salvo, aunque el mundo sea grande."
+                },
+                {
+                  "etiqueta": "¿Qué pasa si algo sale mal?",
+                  "respuesta": "Mi corazón latirá más fuerte, pero nunca dejaré de cuidarlos."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "Miro a mis pequeños y escucho sus risas... ¿qué les pasa?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Por qué se burlan?",
+                  "respuesta": "Tal vez no entienden la diferencia, pero el cariño sigue aquí."
+                },
+                {
+                  "etiqueta": "¿Puedes ayudar al patito feo?",
+                  "respuesta": "Haré lo que pueda, aunque el miedo me apriete el pecho."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Acunar",
+          "descripcion": "Mamá Pata extiende su ala y acuna al patito feo, murmurando palabras de consuelo.",
+          "animacion": "alegria",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": [
+            {
+              "id_nodo": "personaje_patito_feo",
+              "efecto": null,
+              "color": null,
+              "animacion": "alegria"
+            }
+          ]
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_patito_feo",
+        "efecto": null,
+        "color": null,
+        "animacion": "susto"
+      }
+    },
+    {
+      "id_nodo": "personaje_patito_feo",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Salgo del cascarón y el mundo parece un inmenso cielo gris."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "¿Alguien me mostrará el camino?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Te protegeré.",
+                  "respuesta": "Un pequeño gesto de esperanza ilumina mi pecho."
+                },
+                {
+                  "etiqueta": "Eres diferente, pero está bien.",
+                  "respuesta": "Siento que tal vez, por fin, alguien me entiende."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Tropezar",
+          "descripcion": "El patito feo se tambalea y cae al suelo, sus plumas revueltas.",
+          "animacion": "susto",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "personaje_mama_pata",
+              "efecto": null,
+              "color": null,
+              "animacion": "susto"
+            }
+          ]
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_mama_pata",
+        "efecto": null,
+        "color": null,
+        "animacion": "susto"
+      }
+    },
+    {
+      "id_nodo": "personaje_patito_hermanos_01",
+      "fase_aparicion": 2,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 2,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "¡Mira al patito gris! Parece una nube torpe en el patio."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Deja de burlarte.",
+                  "respuesta": "Tal vez tu risa no sea tan divertida para él."
+                },
+                {
+                  "etiqueta": "¿Por qué te burlas?",
+                  "respuesta": "Solo juego, pero quizás deberíamos ser más amables."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Burlarse",
+          "descripcion": "Hermano patito 1 alza su pico y lanza una burla mordaz al patito feo.",
+          "animacion": "susto",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "personaje_patito_feo",
+              "efecto": null,
+              "color": null,
+              "animacion": "susto"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_patito_hermanos_02",
+      "fase_aparicion": 2,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 2,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "¡Jajá! Ese patito gris no sabe ni volar, es una fiesta de tropiezos."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Basta, es cruel.",
+                  "respuesta": "Quizás nuestras palabras hieren más que cualquier pico."
+                },
+                {
+                  "etiqueta": "¿Te gustaría ayudarlo?",
+                  "respuesta": "Podríamos enseñarle a caminar antes de reírnos."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Desdén",
+          "descripcion": "Hermano patito 2 gira la mirada con desdén, sus ojos centellean.",
+          "animacion": "susto",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "personaje_patito_feo",
+              "efecto": null,
+              "color": null,
+              "animacion": "susto"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_nido_paja",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Nido de paja",
+        "descripcion": "Un nido hecho de paja amarilla, repleto de huevos cálidos bajo la luz del amanecer.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_pozo_de_agua",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Pozo de piedra",
+        "descripcion": "Un pozo antiguo de piedra, cubierto de musgo, refleja el cielo matutino con su agua cristalina.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "amb_04_2_00",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una flor silvestre se balancea al viento."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "amb_04_2_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Una pequeña margarita abre sus pétalos al sol."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_entrada",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "La luz dorada del amanecer baña los campos verdes mientras el jugador pisa la tierra húmeda."
+    }
+  ]
+}

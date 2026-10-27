@@ -15,7 +15,6 @@ Salida:   (SalidaProgramador, mensajes_combinados)
 
 import json
 import re
-import time
 import random
 import logging
 
@@ -36,31 +35,6 @@ TIPOS_EXCLUIDOS = {"fondo", "suelo", "ambiente"}
 def _limpiar_json(texto: str) -> str:
     texto = re.sub(r"```(?:json)?\s*", "", texto)
     return texto.replace("```", "").strip()
-
-
-def _invoke_con_backoff(llm, messages, *, max_esperas=4, espera_base=20.0):
-    """Invoca el LLM reintentando *in situ* ante 429 (rate limit).
-
-    Un 429 no es un error de contenido: regenerar el manifest entero gastaría
-    más tokens contra el mismo límite por minuto. Aquí esperamos a que la
-    ventana se renueve y reintentamos la MISMA llamada, sin consumir el
-    presupuesto de reintentos del grafo. Cualquier otro error se propaga al
-    instante, igual que antes.
-    """
-    for intento in range(max_esperas + 1):
-        try:
-            return llm.invoke(messages)
-        except Exception as e:
-            msg = str(e).lower()
-            es_429 = "429" in msg or "rate_limit" in msg or "rate limit" in msg
-            if not es_429 or intento == max_esperas:
-                raise
-            espera = espera_base * (intento + 1)  # 20s, 40s, 60s, 80s
-            logger.warning(
-                f"[Programador] Rate limit (429) — esperando {espera:.0f}s y "
-                f"reintentando la misma llamada ({intento + 1}/{max_esperas})"
-            )
-            time.sleep(espera)
 
 
 def _reparar_dispara(datos: dict) -> dict:
@@ -344,7 +318,7 @@ def _pasada_estructural(
             "Corrige y devuelve SOLO el JSON válido."
         )))
 
-    respuesta = _invoke_con_backoff(llm, messages)
+    respuesta = llm.invoke(messages)
     messages.append(respuesta)
 
     datos = _reparar_dispara(json.loads(_limpiar_json(respuesta.content)))
@@ -449,7 +423,7 @@ def _pasada_dialogos(
     _MAX_P2 = 2
     datos = {}
     for intento in range(_MAX_P2 + 1):
-        respuesta = _invoke_con_backoff(llm, messages)
+        respuesta = llm.invoke(messages)
         messages.append(respuesta)
         datos = _reparar_dispara(json.loads(_limpiar_json(respuesta.content)))
         errs = _validar_dialogos_p2(datos)
@@ -524,7 +498,7 @@ def _pasada_decorados(
 
     try:
         messages  = [SystemMessage(content=P.PROGRAMADOR_P3_SYSTEM), HumanMessage(content=user_prompt)]
-        respuesta = _invoke_con_backoff(llm, messages)
+        respuesta = llm.invoke(messages)
         datos     = json.loads(_limpiar_json(respuesta.content))
 
         # Garantías de seguridad: solo decorados válidos del SceneGraph, fase 0, sin dispara

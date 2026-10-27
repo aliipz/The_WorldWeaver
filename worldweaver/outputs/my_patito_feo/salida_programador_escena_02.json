@@ -1,0 +1,286 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Patito feo huye bajo la niebla del pantano...",
+      "guias": [
+        "personaje_patito_feo"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_patito_feo"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "El perro de caza merodea entre los juncos...",
+      "guias": [
+        "personaje_patito_feo",
+        "personaje_perro_caza"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_patito_feo",
+          "personaje_perro_caza"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Dentro del tronco podrido, la noche se vuelve refugio...",
+      "guias": [
+        "objeto_tronco_podrido",
+        "personaje_patito_feo"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_tronco_podrido"
+        ],
+        "personajes": [
+          "personaje_patito_feo"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_patito_feo",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "El cielo gris me aplasta, pero sigo adelante, aunque el miedo me oprime."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Este pantano huele a abandono, ¿qué esperanza queda para un patito como yo?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Vas a seguir adelante?",
+                  "respuesta": "Cada paso es un grito contra la soledad."
+                },
+                {
+                  "etiqueta": "¿Hay salida?",
+                  "respuesta": "Tal vez el bosque al otro lado, pero la niebla lo oculta."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "null",
+          "puntos": [
+            {
+              "frases": [
+                "El perro me olfatea, su mirada es como un espejo roto que no refleja nada."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Se aleja sin mirarme, dejando una sombra que aún me persigue."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Te asusta?",
+                  "respuesta": "Más que su presencia, es la certeza de que nunca seré visto."
+                },
+                {
+                  "etiqueta": "¿Qué harás ahora?",
+                  "respuesta": "Buscaré refugio donde la humedad no me ahogue."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "susto",
+          "puntos": [
+            {
+              "frases": [
+                "Dentro del tronco podrido, el crujido me recuerda que el mundo está a punto de colapsar."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Escucho el latido del agua, como un corazón que late bajo la tierra."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Te sientes seguro?",
+                  "respuesta": "Solo el silencio me protege, aunque sea frágil."
+                },
+                {
+                  "etiqueta": "¿Qué esperas encontrar?",
+                  "respuesta": "Tal vez la luz que rompa esta niebla."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Nadar",
+          "descripcion": "Te sumerges ligeramente en el agua estancada, moviendo las hojas de los juncos.",
+          "animacion": "alegria",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": "agua",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_perro_caza",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "null",
+          "puntos": [
+            {
+              "frases": [
+                "El olor del patito me llega, pero mi instinto me dice que no es mi presa hoy."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Me alejo, dejando atrás el eco de sus aleteos temblorosos."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "¿Por qué lo ignoras?",
+                  "respuesta": "Porque el bosque guarda sus propios secretos y yo no soy su guardián."
+                },
+                {
+                  "etiqueta": "¿Volverás?",
+                  "respuesta": "Solo el viento me guiará, y él no tiene tiempo para los patitos."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Olis",
+          "descripcion": "El perro levanta la nariz, olfateando el aire húmedo en busca del patito.",
+          "animacion": "susto",
+          "narrativa": true,
+          "fase_aparicion": 1,
+          "sonido": "esfuerzo",
+          "dispara": [
+            {
+              "id_nodo": "personaje_patito_feo",
+              "efecto": null,
+              "color": null,
+              "animacion": "susto"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_tronco_podrido",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Tronco podrido",
+        "descripcion": "Un tronco hueco y podrido, cubierto de musgo, parece ofrecer un escondite seguro entre la noche húmeda.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_sapo_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Un sapo croa y salta al acercarse."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "escapar",
+        "radio": 2.5,
+        "una_vez": true
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_junco_alto_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Los juncos se agitan al paso del jugador."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_carrizo_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "El carrizo se balancea suavemente con el viento."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_pantano_entrada",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "La niebla se espesa mientras tus pies crujen en el lodo; el eco de los juncos susurra advertencias."
+    }
+  ]
+}

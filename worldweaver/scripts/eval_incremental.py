@@ -59,7 +59,6 @@ def main() -> None:
     ap.add_argument("--providers", default="mercury", help="Lista separada por comas.")
     ap.add_argument("--k", type=int, default=5, help="Repeticiones por (modelo x texto).")
     ap.add_argument("--textos", default="", help="IDs del corpus (T1,T2,...). Vacío = todos.")
-    ap.add_argument("--modo-dibujante", default="mock")
     ap.add_argument("--out", default=str(ev.OUTPUTS / "_evaluacion" / "mercury_k5"),
                     help="Carpeta destino de los CSV.")
     args = ap.parse_args()
@@ -108,7 +107,7 @@ def main() -> None:
         # Carpeta limpia antes de generar: evita escenas huérfanas de un intento anterior
         # (p.ej. al reanudar tras un fallo, o si el nombre coincide con una corrida vieja).
         shutil.rmtree(ev.OUTPUTS / f"eval_{corrida}", ignore_errors=True)
-        fila, filas_llm = ev.correr_una(prov, item, k, args.modo_dibujante)
+        fila, filas_llm = ev.correr_una(prov, item, k)
         resultados[corrida] = fila
         llamadas[corrida] = filas_llm
         _volcar()   # guardado tras CADA corrida

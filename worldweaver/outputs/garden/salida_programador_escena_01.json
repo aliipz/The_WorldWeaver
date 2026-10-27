@@ -1,0 +1,366 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "A mischievous monkey teases the explorer...",
+      "guias": [
+        "personaje_monkey",
+        "personaje_narrador"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_monkey",
+          "personaje_narrador"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "The hat is snatched from the explorer's head...",
+      "guias": [
+        "objeto_explorers_hat",
+        "personaje_monkey",
+        "personaje_narrador"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_explorers_hat"
+        ],
+        "personajes": [
+          "personaje_monkey",
+          "personaje_narrador"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "The explorer dashes after the flying hat...",
+      "guias": [
+        "objeto_explorers_hat",
+        "personaje_narrador"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_explorers_hat"
+        ],
+        "personajes": [
+          "personaje_narrador"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_monkey",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "Hey big guy, that hat looks too heavy for a tiny head!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "I'm not that big.",
+                  "respuesta": "Oh really? Then why are you wobbling in this heat?",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Maybe you want to try it on?",
+                  "respuesta": "Ha! I'd look ridiculous, but I'd steal the sun too!",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "You can't outrun a monkey with a hat on my head!"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": "alegria",
+          "puntos": [
+            {
+              "frases": [
+                "Oooops! My paws love this shiny brim!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Give it back!",
+                  "respuesta": "Only if you promise to share the bananas.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "You look ridiculous!",
+                  "respuesta": "At least I look cooler than you, explorer.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Now I have the perfect shade!"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Catch me if you can, explorer!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Your hat's gone, but the fun's just starting!"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Taunt",
+          "descripcion": "The monkey swings down, cackling, and points at the explorer's hat.",
+          "animacion": "alegria",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_narrador",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        },
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Snatch Hat",
+          "descripcion": "With a swift motion, the monkey snatches the explorer's hat and swings it away.",
+          "animacion": "alegria",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_narrador",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_narrador",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Hey! That's not funny, little fellow."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "I'm sorry, I didn't mean to offend.",
+                  "respuesta": "No worries, just keep your hat on.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Challenge accepted!",
+                  "respuesta": "Alright, let's see who's quicker in this heat.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "These heat waves make everything sticky."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "My hat! You little thief!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Grab it back!",
+                  "respuesta": "I won't let you get away with it.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Let it be.",
+                  "respuesta": "Maybe it's a sign I should go hat.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Everyone, my hat's gone!"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "You think you can outrun me?"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Run faster!",
+                  "respuesta": "I'm already sprinting, feel that wind!",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Set a trap?",
+                  "respuesta": "I'll outwit you before you even swing.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "I need that hat before the sun sets!"
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Chase Hat",
+          "descripcion": "The explorer darts through the underbrush, lunging for the swinging hat.",
+          "animacion": "Roll",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_monkey",
+              "efecto": null,
+              "color": null,
+              "animacion": "susto"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_explorers_hat",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "recoger",
+        "titulo": "Explorer's Hat",
+        "descripcion": "A wide‑brimmed hat, soaked with sweat, its feather drooping after a frantic chase."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_vine_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A thick hanging vine sways gently, brushing the air."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_flower_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A vivid tropical orchid displays its bright petals, exhaling a faint scent."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_fern_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A giant fern unfurls its fronds, rustling softly as you near."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

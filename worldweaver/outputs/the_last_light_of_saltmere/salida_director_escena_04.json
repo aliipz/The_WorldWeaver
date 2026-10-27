@@ -1,0 +1,170 @@
+{
+  "id_escena": "escena_04",
+  "elementos": [
+    {
+      "id": "personaje_mara",
+      "nombre": "Mara",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 5
+      },
+      "ancho": 0.9,
+      "alto": 1.7,
+      "descripcion": "Young woman in her twenties with a red bandana, weathered coat and high boots.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_goblin_king",
+      "nombre": "Goblin King",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 0.5,
+      "alto": 1.0,
+      "descripcion": "Small goblin in a crude crown, with spindly limbs and a bony throne.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_cofre_goblino",
+      "nombre": "Enormous locked chest",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 1.8,
+      "alto": 1.2,
+      "descripcion": "Large padlocked treasure chest guarded by the goblin king; it holds the Sun Crystal.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_sun_cristal",
+      "nombre": "Sun Crystal",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_04",
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 4
+      },
+      "ancho": 0.3,
+      "alto": 0.4,
+      "descripcion": "A radiant golden crystal found inside the chest, shining like a small sun.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_llave_oxidada",
+      "nombre": "Rusty iron key",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 0.3,
+      "alto": 0.2,
+      "descripcion": "Rusty key thrown by the goblin king; it opens the enormous chest.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_caracola_rosa",
+      "nombre": "Pink seashell",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "descripcion": "Big pink shell that sings softly with the sea breeze when held to the ear.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_torch_01",
+      "nombre": "Burning wall torch",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 3
+      },
+      "ancho": 0.3,
+      "alto": 0.8,
+      "descripcion": "An iron torch bracket holding a flickering torch that casts warm shadows on the damp rock.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_stalagmite_01",
+      "nombre": "Cracked stalagmite",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 0
+      },
+      "ancho": 0.8,
+      "alto": 2.5,
+      "descripcion": "A tall, jagged stalagmite rising from the cave floor, its surface slick with moisture and veined with pale minerals.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_bone_pile_01",
+      "nombre": "Pile of old bones",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 7,
+        "fila": 0
+      },
+      "ancho": 1.2,
+      "alto": 0.6,
+      "descripcion": "A heap of bleached animal bones scattered near the wall, some cracked and gnawed.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_skull_01",
+      "nombre": "Goblin skull",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 1
+      },
+      "ancho": 0.25,
+      "alto": 0.25,
+      "descripcion": "A discolored goblin skull resting on a ledge, one eye socket stuffed with dried moss.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_goblet_01",
+      "nombre": "Rusty golden goblet",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 0.2,
+      "alto": 0.3,
+      "descripcion": "A dented, tarnished goblet lying among pebbles, its gemstones missing.",
+      "keyword_busqueda": null
+    }
+  ]
+}

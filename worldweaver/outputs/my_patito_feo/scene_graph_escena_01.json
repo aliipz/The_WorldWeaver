@@ -1,0 +1,2133 @@
+{
+  "id_escena": "escena_01",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "campo",
+  "radio_escena": 22.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "nodos": [
+    {
+      "id": "fondo_escena_01",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 12.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_01",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 22.0,
+      "alto": 22.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_mama_pata",
+      "nombre": "Mamá Pata",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.79,
+        "y": 0.2,
+        "z": -0.62
+      },
+      "ancho": 0.5,
+      "alto": 0.4,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b5b79a83-4dc0-4d6d-94ae-fb618129e1f7.glb",
+      "keyword_busqueda": "duck"
+    },
+    {
+      "id": "personaje_patito_feo",
+      "nombre": "Patito feo",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.82,
+        "y": 0.35,
+        "z": -0.57
+      },
+      "ancho": 1.0,
+      "alto": 0.7,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/39c7efbf-f6f3-48c8-90a2-2f22a02a2cf4.glb",
+      "keyword_busqueda": "duck"
+    },
+    {
+      "id": "personaje_patito_hermanos_01",
+      "nombre": "Hermano patito 1",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.55,
+        "y": 0.15,
+        "z": -1.93
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/39c7efbf-f6f3-48c8-90a2-2f22a02a2cf4.glb",
+      "keyword_busqueda": "duck"
+    },
+    {
+      "id": "personaje_patito_hermanos_02",
+      "nombre": "Hermano patito 2",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.93,
+        "y": 0.15,
+        "z": -0.55
+      },
+      "ancho": 0.4,
+      "alto": 0.3,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/39c7efbf-f6f3-48c8-90a2-2f22a02a2cf4.glb",
+      "keyword_busqueda": "duck"
+    },
+    {
+      "id": "objeto_nido_paja",
+      "nombre": "nido de paja",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.07,
+        "y": 0.09,
+        "z": -3.5
+      },
+      "ancho": 0.45,
+      "alto": 0.17,
+      "tam_real": 0.45,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/da7d3c58-4cfa-4ce7-9b04-dc1724d267cb.glb",
+      "keyword_busqueda": "nest"
+    },
+    {
+      "id": "decorado_pozo_de_agua",
+      "nombre": "Pozo de piedra",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -2.99,
+        "y": 0.6,
+        "z": 1.81
+      },
+      "ancho": 0.9,
+      "alto": 1.2,
+      "tam_real": 1.2,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/0e044203-f62e-4dad-ad3e-c3cb6cb393ac.glb",
+      "keyword_busqueda": "well"
+    },
+    {
+      "id": "decorado_arbol_cerezo",
+      "nombre": "Árbol de cerezo",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -0.24,
+        "y": 2.5,
+        "z": -20.0
+      },
+      "ancho": 2.0,
+      "alto": 5.0,
+      "tam_real": 5.0,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e167f09b-7970-4d88-a8df-6f6d0e434773.glb",
+      "keyword_busqueda": "cherry tree"
+    },
+    {
+      "id": "decorado_cerca_madera",
+      "nombre": "Cerca de madera rústica",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -6.38,
+        "y": 0.4,
+        "z": -12.47
+      },
+      "ancho": 1.5,
+      "alto": 0.8,
+      "tam_real": 1.5,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "decorado_pila_heno",
+      "nombre": "Pila de heno seco",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -7.36,
+        "y": 0.3,
+        "z": -5.18
+      },
+      "ancho": 1.2,
+      "alto": 0.6,
+      "tam_real": 1.2,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/039480d1-071e-4960-acfb-e1f209239406.glb",
+      "keyword_busqueda": "hay bale"
+    },
+    {
+      "id": "decorado_cesto_de_frutas",
+      "nombre": "Cesto de mimbre con frutas",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 16.68,
+        "y": 0.25,
+        "z": 11.04
+      },
+      "ancho": 0.5,
+      "alto": 0.5,
+      "tam_real": 0.5,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/2d220908-21c7-42f6-bd9d-90235d564205.glb",
+      "keyword_busqueda": "basket"
+    },
+    {
+      "id": "amb_00_0_00",
+      "nombre": "barn",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 0.85,
+        "y": 1.77,
+        "z": 20.85
+      },
+      "ancho": 3.53,
+      "alto": 3.53,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b2245822-7a02-47b1-be8b-5d47a2403f99.glb",
+      "keyword_busqueda": "barn"
+    },
+    {
+      "id": "amb_00_0_01",
+      "nombre": "barn",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 12.94,
+        "y": 2.14,
+        "z": 13.65
+      },
+      "ancho": 4.28,
+      "alto": 4.28,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b2245822-7a02-47b1-be8b-5d47a2403f99.glb",
+      "keyword_busqueda": "barn"
+    },
+    {
+      "id": "amb_00_0_02",
+      "nombre": "barn",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 18.44,
+        "y": 1.73,
+        "z": 7.98
+      },
+      "ancho": 3.45,
+      "alto": 3.45,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b2245822-7a02-47b1-be8b-5d47a2403f99.glb",
+      "keyword_busqueda": "barn"
+    },
+    {
+      "id": "amb_00_0_03",
+      "nombre": "barn",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 13.43,
+        "y": 2.07,
+        "z": -13.58
+      },
+      "ancho": 4.14,
+      "alto": 4.14,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b2245822-7a02-47b1-be8b-5d47a2403f99.glb",
+      "keyword_busqueda": "barn"
+    },
+    {
+      "id": "amb_00_0_04",
+      "nombre": "barn",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 10.19,
+        "y": 1.79,
+        "z": -16.69
+      },
+      "ancho": 3.59,
+      "alto": 3.59,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b2245822-7a02-47b1-be8b-5d47a2403f99.glb",
+      "keyword_busqueda": "barn"
+    },
+    {
+      "id": "amb_00_0_05",
+      "nombre": "barn",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -6.31,
+        "y": 1.69,
+        "z": -19.87
+      },
+      "ancho": 3.38,
+      "alto": 3.38,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b2245822-7a02-47b1-be8b-5d47a2403f99.glb",
+      "keyword_busqueda": "barn"
+    },
+    {
+      "id": "amb_00_0_06",
+      "nombre": "barn",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.61,
+        "y": 1.6,
+        "z": -6.0
+      },
+      "ancho": 3.21,
+      "alto": 3.21,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b2245822-7a02-47b1-be8b-5d47a2403f99.glb",
+      "keyword_busqueda": "barn"
+    },
+    {
+      "id": "amb_00_0_07",
+      "nombre": "barn",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.97,
+        "y": 2.3,
+        "z": 2.96
+      },
+      "ancho": 4.61,
+      "alto": 4.61,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b2245822-7a02-47b1-be8b-5d47a2403f99.glb",
+      "keyword_busqueda": "barn"
+    },
+    {
+      "id": "amb_00_0_08",
+      "nombre": "barn",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -13.76,
+        "y": 2.16,
+        "z": 12.15
+      },
+      "ancho": 4.33,
+      "alto": 4.33,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/b2245822-7a02-47b1-be8b-5d47a2403f99.glb",
+      "keyword_busqueda": "barn"
+    },
+    {
+      "id": "amb_01_0_00",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -15.27,
+        "y": 0.53,
+        "z": 13.43
+      },
+      "ancho": 1.78,
+      "alto": 1.07,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_01",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.09,
+        "y": 0.63,
+        "z": 16.21
+      },
+      "ancho": 2.1,
+      "alto": 1.26,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_02",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -7.99,
+        "y": 0.56,
+        "z": 18.19
+      },
+      "ancho": 1.87,
+      "alto": 1.12,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_03",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 2.85,
+        "y": 0.67,
+        "z": 20.6
+      },
+      "ancho": 2.24,
+      "alto": 1.34,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_04",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 5.94,
+        "y": 0.49,
+        "z": 17.91
+      },
+      "ancho": 1.64,
+      "alto": 0.98,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_05",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 11.99,
+        "y": 0.69,
+        "z": 15.12
+      },
+      "ancho": 2.29,
+      "alto": 1.37,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_06",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 17.06,
+        "y": 0.65,
+        "z": 11.04
+      },
+      "ancho": 2.18,
+      "alto": 1.31,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_07",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 17.06,
+        "y": 0.66,
+        "z": 8.01
+      },
+      "ancho": 2.21,
+      "alto": 1.33,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_08",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 20.07,
+        "y": 0.51,
+        "z": -0.68
+      },
+      "ancho": 1.69,
+      "alto": 1.02,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_09",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 18.28,
+        "y": 0.69,
+        "z": -5.96
+      },
+      "ancho": 2.31,
+      "alto": 1.39,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_10",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 13.17,
+        "y": 0.52,
+        "z": -12.36
+      },
+      "ancho": 1.72,
+      "alto": 1.03,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_11",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 11.73,
+        "y": 0.66,
+        "z": -13.8
+      },
+      "ancho": 2.2,
+      "alto": 1.32,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_12",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 8.83,
+        "y": 0.61,
+        "z": -18.73
+      },
+      "ancho": 2.02,
+      "alto": 1.21,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_13",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -1.58,
+        "y": 0.67,
+        "z": -20.58
+      },
+      "ancho": 2.23,
+      "alto": 1.34,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_14",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -7.91,
+        "y": 0.55,
+        "z": -19.12
+      },
+      "ancho": 1.85,
+      "alto": 1.11,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_15",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -12.45,
+        "y": 0.63,
+        "z": -16.47
+      },
+      "ancho": 2.1,
+      "alto": 1.26,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_16",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.43,
+        "y": 0.67,
+        "z": -9.8
+      },
+      "ancho": 2.23,
+      "alto": 1.34,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_17",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.49,
+        "y": 0.55,
+        "z": -7.01
+      },
+      "ancho": 1.82,
+      "alto": 1.09,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_18",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.74,
+        "y": 0.52,
+        "z": -1.61
+      },
+      "ancho": 1.72,
+      "alto": 1.03,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_01_0_19",
+      "nombre": "fence",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.03,
+        "y": 0.6,
+        "z": 8.5
+      },
+      "ancho": 1.99,
+      "alto": 1.19,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ee42b0f4-fbcd-425f-804e-02d791bc35f6.glb",
+      "keyword_busqueda": "fence"
+    },
+    {
+      "id": "amb_02_0_00",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -19.1,
+        "y": 1.53,
+        "z": -5.13
+      },
+      "ancho": 1.92,
+      "alto": 3.05,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_01",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -19.21,
+        "y": 1.41,
+        "z": -0.87
+      },
+      "ancho": 1.77,
+      "alto": 2.82,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_02",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -19.83,
+        "y": 1.88,
+        "z": 4.46
+      },
+      "ancho": 2.37,
+      "alto": 3.77,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_03",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -14.79,
+        "y": 1.63,
+        "z": 10.87
+      },
+      "ancho": 2.05,
+      "alto": 3.26,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_04",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -10.83,
+        "y": 1.51,
+        "z": 14.44
+      },
+      "ancho": 1.89,
+      "alto": 3.01,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_05",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.77,
+        "y": 1.55,
+        "z": 18.43
+      },
+      "ancho": 1.95,
+      "alto": 3.11,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_06",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -3.78,
+        "y": 1.57,
+        "z": 18.41
+      },
+      "ancho": 1.97,
+      "alto": 3.13,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_07",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 1.07,
+        "y": 1.63,
+        "z": 19.57
+      },
+      "ancho": 2.05,
+      "alto": 3.26,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_08",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 9.49,
+        "y": 1.63,
+        "z": 17.13
+      },
+      "ancho": 2.04,
+      "alto": 3.25,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_09",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 15.62,
+        "y": 1.99,
+        "z": 13.54
+      },
+      "ancho": 2.5,
+      "alto": 3.98,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_10",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 15.0,
+        "y": 1.62,
+        "z": 11.97
+      },
+      "ancho": 2.04,
+      "alto": 3.24,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_11",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 20.22,
+        "y": 1.92,
+        "z": 3.81
+      },
+      "ancho": 2.41,
+      "alto": 3.84,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_12",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 19.13,
+        "y": 1.83,
+        "z": 0.43
+      },
+      "ancho": 2.3,
+      "alto": 3.66,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_13",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 17.97,
+        "y": 2.05,
+        "z": -5.26
+      },
+      "ancho": 2.58,
+      "alto": 4.1,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_14",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 15.5,
+        "y": 1.7,
+        "z": -11.66
+      },
+      "ancho": 2.14,
+      "alto": 3.41,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_15",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.01,
+        "y": 1.9,
+        "z": -14.3
+      },
+      "ancho": 2.39,
+      "alto": 3.8,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_16",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 5.14,
+        "y": 1.9,
+        "z": -18.66
+      },
+      "ancho": 2.39,
+      "alto": 3.8,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_17",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 2.15,
+        "y": 1.97,
+        "z": -18.42
+      },
+      "ancho": 2.47,
+      "alto": 3.94,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_18",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -5.02,
+        "y": 1.7,
+        "z": -17.79
+      },
+      "ancho": 2.14,
+      "alto": 3.4,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_19",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.37,
+        "y": 1.81,
+        "z": -15.75
+      },
+      "ancho": 2.28,
+      "alto": 3.62,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_20",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -14.08,
+        "y": 1.54,
+        "z": -15.26
+      },
+      "ancho": 1.94,
+      "alto": 3.08,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_0_21",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -17.99,
+        "y": 1.77,
+        "z": -8.52
+      },
+      "ancho": 2.23,
+      "alto": 3.55,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_1_00",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 10.69,
+        "y": 1.53,
+        "z": -10.68
+      },
+      "ancho": 1.93,
+      "alto": 3.06,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_1_01",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -0.1,
+        "y": 1.42,
+        "z": -16.38
+      },
+      "ancho": 1.79,
+      "alto": 2.85,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_1_02",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -13.75,
+        "y": 1.52,
+        "z": 1.05
+      },
+      "ancho": 1.91,
+      "alto": 3.03,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_1_03",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -2.67,
+        "y": 2.04,
+        "z": 16.32
+      },
+      "ancho": 2.56,
+      "alto": 4.08,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_02_1_04",
+      "nombre": "tree",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 12.44,
+        "y": 1.69,
+        "z": 10.1
+      },
+      "ancho": 2.12,
+      "alto": 3.38,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/e1349d8c-4037-4245-bdc2-3b79c417828f.glb",
+      "keyword_busqueda": "tree"
+    },
+    {
+      "id": "amb_03_0_00",
+      "nombre": "hay bale",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -12.4,
+        "y": 0.53,
+        "z": -14.46
+      },
+      "ancho": 1.27,
+      "alto": 1.06,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/039480d1-071e-4960-acfb-e1f209239406.glb",
+      "keyword_busqueda": "hay bale"
+    },
+    {
+      "id": "amb_03_0_01",
+      "nombre": "hay bale",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -19.07,
+        "y": 0.48,
+        "z": 7.01
+      },
+      "ancho": 1.16,
+      "alto": 0.97,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/039480d1-071e-4960-acfb-e1f209239406.glb",
+      "keyword_busqueda": "hay bale"
+    },
+    {
+      "id": "amb_03_0_02",
+      "nombre": "hay bale",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 10.17,
+        "y": 0.53,
+        "z": 16.66
+      },
+      "ancho": 1.27,
+      "alto": 1.06,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/039480d1-071e-4960-acfb-e1f209239406.glb",
+      "keyword_busqueda": "hay bale"
+    },
+    {
+      "id": "amb_03_0_03",
+      "nombre": "hay bale",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 16.44,
+        "y": 0.41,
+        "z": -8.81
+      },
+      "ancho": 0.99,
+      "alto": 0.82,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/039480d1-071e-4960-acfb-e1f209239406.glb",
+      "keyword_busqueda": "hay bale"
+    },
+    {
+      "id": "amb_03_1_00",
+      "nombre": "hay bale",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.16,
+        "y": 0.56,
+        "z": 0.51
+      },
+      "ancho": 1.34,
+      "alto": 1.12,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/039480d1-071e-4960-acfb-e1f209239406.glb",
+      "keyword_busqueda": "hay bale"
+    },
+    {
+      "id": "amb_03_1_01",
+      "nombre": "hay bale",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -13.49,
+        "y": 0.55,
+        "z": 2.87
+      },
+      "ancho": 1.32,
+      "alto": 1.1,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/039480d1-071e-4960-acfb-e1f209239406.glb",
+      "keyword_busqueda": "hay bale"
+    },
+    {
+      "id": "amb_03_2_00",
+      "nombre": "hay bale",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -7.14,
+        "y": 0.43,
+        "z": 1.9
+      },
+      "ancho": 1.03,
+      "alto": 0.86,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/039480d1-071e-4960-acfb-e1f209239406.glb",
+      "keyword_busqueda": "hay bale"
+    },
+    {
+      "id": "amb_03_2_01",
+      "nombre": "hay bale",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -2.62,
+        "y": 0.54,
+        "z": 7.62
+      },
+      "ancho": 1.29,
+      "alto": 1.07,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/039480d1-071e-4960-acfb-e1f209239406.glb",
+      "keyword_busqueda": "hay bale"
+    },
+    {
+      "id": "amb_03_2_02",
+      "nombre": "hay bale",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 4.08,
+        "y": 0.41,
+        "z": 8.52
+      },
+      "ancho": 0.97,
+      "alto": 0.81,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/039480d1-071e-4960-acfb-e1f209239406.glb",
+      "keyword_busqueda": "hay bale"
+    },
+    {
+      "id": "amb_03_2_03",
+      "nombre": "hay bale",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 8.46,
+        "y": 0.49,
+        "z": -0.54
+      },
+      "ancho": 1.17,
+      "alto": 0.98,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/039480d1-071e-4960-acfb-e1f209239406.glb",
+      "keyword_busqueda": "hay bale"
+    },
+    {
+      "id": "amb_03_2_04",
+      "nombre": "hay bale",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.82,
+        "y": 0.43,
+        "z": -3.26
+      },
+      "ancho": 1.02,
+      "alto": 0.85,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/039480d1-071e-4960-acfb-e1f209239406.glb",
+      "keyword_busqueda": "hay bale"
+    },
+    {
+      "id": "amb_03_2_05",
+      "nombre": "hay bale",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -3.88,
+        "y": 0.48,
+        "z": -7.49
+      },
+      "ancho": 1.14,
+      "alto": 0.95,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/039480d1-071e-4960-acfb-e1f209239406.glb",
+      "keyword_busqueda": "hay bale"
+    },
+    {
+      "id": "amb_03_2_06",
+      "nombre": "hay bale",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -7.79,
+        "y": 0.5,
+        "z": -6.2
+      },
+      "ancho": 1.2,
+      "alto": 1.0,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/039480d1-071e-4960-acfb-e1f209239406.glb",
+      "keyword_busqueda": "hay bale"
+    },
+    {
+      "id": "amb_04_0_00",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 2.8,
+        "y": 0.17,
+        "z": -20.26
+      },
+      "ancho": 0.26,
+      "alto": 0.35,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_0_01",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -0.61,
+        "y": 0.21,
+        "z": -20.05
+      },
+      "ancho": 0.31,
+      "alto": 0.42,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_0_02",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -19.25,
+        "y": 0.21,
+        "z": -4.1
+      },
+      "ancho": 0.31,
+      "alto": 0.41,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_0_03",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -18.13,
+        "y": 0.2,
+        "z": 9.11
+      },
+      "ancho": 0.31,
+      "alto": 0.41,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_0_04",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -12.74,
+        "y": 0.19,
+        "z": 14.03
+      },
+      "ancho": 0.29,
+      "alto": 0.38,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_0_05",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.7,
+        "y": 0.2,
+        "z": 19.2
+      },
+      "ancho": 0.31,
+      "alto": 0.41,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_0_06",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 18.84,
+        "y": 0.18,
+        "z": 4.9
+      },
+      "ancho": 0.27,
+      "alto": 0.35,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_0_07",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 19.4,
+        "y": 0.22,
+        "z": -2.99
+      },
+      "ancho": 0.33,
+      "alto": 0.45,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_1_00",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 8.61,
+        "y": 0.23,
+        "z": 14.57
+      },
+      "ancho": 0.35,
+      "alto": 0.46,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_1_01",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 14.41,
+        "y": 0.22,
+        "z": -2.68
+      },
+      "ancho": 0.33,
+      "alto": 0.44,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_1_02",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 10.13,
+        "y": 0.19,
+        "z": -12.87
+      },
+      "ancho": 0.29,
+      "alto": 0.39,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_1_03",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -14.01,
+        "y": 0.19,
+        "z": -7.47
+      },
+      "ancho": 0.28,
+      "alto": 0.37,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_1_04",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -12.37,
+        "y": 0.17,
+        "z": 6.76
+      },
+      "ancho": 0.25,
+      "alto": 0.33,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_00",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -8.95,
+        "y": 0.19,
+        "z": -4.92
+      },
+      "ancho": 0.29,
+      "alto": 0.38,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_01",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.74,
+        "y": 0.17,
+        "z": -0.44
+      },
+      "ancho": 0.25,
+      "alto": 0.33,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_02",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.45,
+        "y": 0.22,
+        "z": 3.39
+      },
+      "ancho": 0.33,
+      "alto": 0.44,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_03",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -7.6,
+        "y": 0.16,
+        "z": 6.7
+      },
+      "ancho": 0.24,
+      "alto": 0.32,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_04",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -5.45,
+        "y": 0.18,
+        "z": 5.59
+      },
+      "ancho": 0.26,
+      "alto": 0.35,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_05",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -1.61,
+        "y": 0.24,
+        "z": 8.75
+      },
+      "ancho": 0.36,
+      "alto": 0.48,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_06",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 2.73,
+        "y": 0.2,
+        "z": 10.09
+      },
+      "ancho": 0.3,
+      "alto": 0.4,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_07",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 4.75,
+        "y": 0.21,
+        "z": 7.6
+      },
+      "ancho": 0.32,
+      "alto": 0.42,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_08",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.64,
+        "y": 0.17,
+        "z": 4.09
+      },
+      "ancho": 0.25,
+      "alto": 0.33,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_09",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 7.47,
+        "y": 0.24,
+        "z": 0.88
+      },
+      "ancho": 0.36,
+      "alto": 0.47,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_10",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 8.14,
+        "y": 0.18,
+        "z": -1.61
+      },
+      "ancho": 0.26,
+      "alto": 0.35,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_11",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 8.48,
+        "y": 0.18,
+        "z": -3.35
+      },
+      "ancho": 0.27,
+      "alto": 0.35,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_12",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 5.64,
+        "y": 0.2,
+        "z": -6.17
+      },
+      "ancho": 0.3,
+      "alto": 0.4,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_13",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 0.52,
+        "y": 0.22,
+        "z": -9.33
+      },
+      "ancho": 0.34,
+      "alto": 0.45,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_14",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -0.01,
+        "y": 0.22,
+        "z": -10.15
+      },
+      "ancho": 0.33,
+      "alto": 0.45,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    },
+    {
+      "id": "amb_04_2_15",
+      "nombre": "flower",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -5.32,
+        "y": 0.2,
+        "z": -7.03
+      },
+      "ancho": 0.29,
+      "alto": 0.39,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34a01f3b-4f7f-4c09-891c-3db60cd9849f.glb",
+      "keyword_busqueda": "flower"
+    }
+  ],
+  "cielo": {
+    "tipo": "manana_despejada",
+    "color_fondo": "#a1d5f2",
+    "color_ambiente": "#ffffff",
+    "intensidad_ambiente": 0.5525323804312748,
+    "color_sol": "#ffd620",
+    "intensidad_sol": 1.0869764155906665,
+    "pos_sol": {
+      "x": 0.9257208914358248,
+      "y": 4.168985678464382,
+      "z": -1.1054740741684048
+    },
+    "niebla": {
+      "color": "#9ec6dd",
+      "near": 8.4,
+      "far": 13.0
+    },
+    "luz_exterior": null
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {}
+}

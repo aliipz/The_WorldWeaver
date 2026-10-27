@@ -19,12 +19,6 @@
         }
         #titulo span { color: #88aaff; }
 
-        #leyenda {
-            background: rgba(0,0,0,0.55); padding: 8px 12px; border-radius: 8px;
-            color: #ccc; font-size: 12px; line-height: 1.8;
-        }
-        .leyenda-item { display: flex; align-items: center; gap: 8px; }
-        .dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
 
         #hint {
             position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
@@ -98,14 +92,6 @@
         #ec-no  { background: rgba(255,255,255,0.12); color: #ddd; border-color: rgba(255,255,255,0.15); }
         #ec-no:hover  { background: rgba(255,255,255,0.2); color: #fff; }
 
-        #btn-modo {
-            pointer-events: auto; cursor: pointer;
-            background: rgba(80,60,160,0.75); border: 1px solid rgba(140,110,255,0.4);
-            color: #ccc; font-size: 12px; padding: 5px 11px; border-radius: 8px;
-            transition: background 0.2s;
-        }
-        #btn-modo:hover { background: rgba(100,80,200,0.9); color: #fff; }
-        #btn-modo.fps-activo { background: rgba(40,120,60,0.85); border-color: rgba(80,220,100,0.5); color: #aeffb8; }
 
         #crosshair {
             display: none; position: absolute;
@@ -159,38 +145,32 @@ __IDIOMA_PLACEHOLDER__
 // ── UI i18n — strings del viewer (independientes del contenido generado) ──────
 const _WW_UI = {
     es: {
-        leyenda_fondo:    'Fondo',
-        leyenda_personaje:'Personaje',
-        leyenda_objeto:   'Objeto',
-        leyenda_decorado: 'Decorado',
         escena:     'Escena',
         audio_on:   '♪ Música',
         audio_off:  '♪ Música (off)',
-        modo_fps:   '🎮 Modo inmersivo  [F]',
-        modo_orbit: '🖱 Modo escena  [F]',
         hint_orbit: '🖱 Haz clic para explorar el mundo',
         hint_fps:   '↑↓←→ / WASD mover · ratón mirar · ESC para salir',
         fps_click:  'Clic para continuar',
         fps_exit:   'Ajusta el volumen o vuelve al inicio',
         salir_confirm: '¿Seguro que quieres salir del mundo?',
         si: 'Sí', no: 'No',
+        portal_fin:  'fin de la historia',
+        barco_bajar: 'B — bajar al agua',
+        barco_subir: 'B — subir al barco',
     },
     en: {
-        leyenda_fondo:    'Background',
-        leyenda_personaje:'Character',
-        leyenda_objeto:   'Object',
-        leyenda_decorado: 'Prop',
         escena:     'Scene',
         audio_on:   '♪ Music',
         audio_off:  '♪ Music (off)',
-        modo_fps:   '🎮 Immersive mode  [F]',
-        modo_orbit: '🖱 Scene mode  [F]',
         hint_orbit: '🖱 Click to explore the world',
         hint_fps:   '↑↓←→ / WASD move · mouse look · ESC to exit',
         fps_click:  'Click to continue',
         fps_exit:   'Adjust the volume or go back home',
         salir_confirm: 'Are you sure you want to leave the world?',
         si: 'Yes', no: 'No',
+        portal_fin:  'end of the story',
+        barco_bajar: 'B — step down into the water',
+        barco_subir: 'B — climb aboard',
     },
 };
 function _wwUI(k) { return (_WW_UI[typeof IDIOMA!=='undefined'?IDIOMA:'es']||_WW_UI.es)[k]; }
@@ -198,15 +178,6 @@ function _wwUI(k) { return (_WW_UI[typeof IDIOMA!=='undefined'?IDIOMA:'es']||_WW
 
 <div id="ui">
     <div id="titulo">WorldWeaver &nbsp;·&nbsp; <span id="titulo-escena">—</span></div>
-    <div style="display:none; flex-direction:column; align-items:flex-end; gap:8px;">
-        <div id="leyenda">
-            <div class="leyenda-item"><div class="dot" style="background:#87CEEB"></div> <span id="ley-fondo"></span></div>
-            <div class="leyenda-item"><div class="dot" style="background:#FFAA88"></div> <span id="ley-personaje"></span></div>
-            <div class="leyenda-item"><div class="dot" style="background:#FFD700"></div> <span id="ley-objeto"></span></div>
-            <div class="leyenda-item"><div class="dot" style="background:#90C060"></div> <span id="ley-decorado"></span></div>
-        </div>
-        <button id="btn-modo" onclick="toggleModo()"></button>
-    </div>
 </div>
 
 <div id="hint"></div>
@@ -544,28 +515,17 @@ let _transBarco = null;     // transición de cámara subir/bajar {t0, dur, from
 const elOverlay    = document.getElementById('fps-overlay');
 const elCrosshair  = document.getElementById('crosshair');
 const elHint       = document.getElementById('hint');
-const elBtnModo    = document.getElementById('btn-modo');
 
 // Inicializar strings de UI según idioma
 (function _initUI() {
     const _s = (id, t) => { const el = document.getElementById(id); if (el) el.textContent = t; };
-    _s('ley-fondo',     _wwUI('leyenda_fondo'));
-    _s('ley-personaje', _wwUI('leyenda_personaje'));
-    _s('ley-objeto',    _wwUI('leyenda_objeto'));
-    _s('ley-decorado',  _wwUI('leyenda_decorado'));
     _s('fps-click-text', _wwUI('fps_click'));
     _s('fps-exit-text',  _wwUI('fps_exit'));
     _s('exit-confirm-text', _wwUI('salir_confirm'));
     _s('ec-yes', _wwUI('si'));
     _s('ec-no',  _wwUI('no'));
     elHint.textContent    = _wwUI('hint_orbit');
-    elBtnModo.textContent = _wwUI('modo_fps');
 })();
-
-function toggleModo() {
-    if (window._introActiva) return;
-    fpsModo ? salirFPS() : entrarFPS();
-}
 
 function entrarFPS() {
     fpsModo = true;
@@ -583,8 +543,6 @@ function entrarFPS() {
     elCrosshair.style.display = 'block';
     tooltip.style.display     = 'none';   // ocultar el tooltip de hover al entrar a FPS
     elHint.textContent = _wwUI('hint_fps');
-    elBtnModo.textContent = _wwUI('modo_orbit');
-    elBtnModo.classList.add('fps-activo');
 
     renderer.domElement.requestPointerLock();
 }
@@ -604,8 +562,6 @@ function salirFPS() {
     elCrosshair.style.display = 'none';
     tooltip.style.display     = 'none';
     elHint.textContent = _wwUI('hint_orbit');
-    elBtnModo.textContent = _wwUI('modo_fps');
-    elBtnModo.classList.remove('fps-activo');
 }
 
 // Helper para que interactions.js pueda re-adquirir el lock al cerrar un diálogo
@@ -623,13 +579,20 @@ window._wwRetomarPointerLock = function () {
     }
 };
 
-// Pointer Lock: cuando se captura el ratón ocultamos el overlay.
-// Si se pierde mientras hay un diálogo abierto, no mostramos el overlay.
+// Menú de pausa a petición: si el puntero ya estaba suelto (lo había soltado un
+// panel), pulsar Esc no dispara ningún 'pointerlockchange', así que interactions.js
+// pide el menú explícitamente para que Esc siempre acabe en la pausa.
+window._wwMostrarPausa = function () {
+    if (fpsModo && !document.pointerLockElement) elOverlay.style.display = 'flex';
+};
+
+// Pointer Lock: cuando se captura el ratón ocultamos el overlay; si se pierde,
+// sacamos el menú de pausa (ningún panel suelta ya el puntero por su cuenta).
 document.addEventListener('pointerlockchange', () => {
     if (!fpsModo) return;
     if (document.pointerLockElement) {
         elOverlay.style.display = 'none';
-    } else if (!window._wwDialogoAbierto?.()) {
+    } else {
         elOverlay.style.display = 'flex';
     }
 });
@@ -706,6 +669,7 @@ let _portalAnillo2        = null;
 let _portalActivado       = false;
 let _portalTransicionInicio = null;
 let _portalPosFinal         = null;
+let _portalBaseY            = 1.5;   // altura de reposo (en barco, sobre la cubierta)
 const _elPortalHint  = document.getElementById('portal-hint');
 const _elPortalFlash = document.getElementById('portal-flash');
 
@@ -812,7 +776,7 @@ window.spawnPortal = function() {
 
     // El fin de historia fija su texto; el resto respeta la etiqueta inyectada por el
     // ensamblador (cuestionario final para el quiz, portal de transición por defecto).
-    if (_esFin) _elPortalHint.innerHTML = '✦ &nbsp;fin de la historia';
+    if (_esFin) _elPortalHint.innerHTML = '✦ &nbsp;' + _wwUI('portal_fin');
 
     const g = new THREE.Group();
 
@@ -871,8 +835,8 @@ window.spawnPortal = function() {
     // En barco se sube a la altura de la CUBIERTA + altura de ojos (la cámara en cubierta
     // está a DECK_H + FPS_ALTURA, línea ~1060) para que el portal quede a la altura de la
     // cabeza del jugador y no hundido sobre la cubierta.
-    const _portalY = (SCENE_GRAPH.tipo_ambiente === 'barco') ? ((window._BARCO_DECK_H ?? 1.0) + FPS_ALTURA + 1.4) : 1.5;
-    g.position.set(1.8, _portalY, -4.2);
+    _portalBaseY = (SCENE_GRAPH.tipo_ambiente === 'barco') ? ((window._BARCO_DECK_H ?? 1.0) + 1.5) : 1.5;
+    g.position.set(1.8, _portalBaseY, -4.2);
     scene.add(g);
     _portalGrupo = g;
 
@@ -921,7 +885,7 @@ function animate() {
             _portalGrupo.rotation.y  += 0.007;
             if (_portalAnillo1) _portalAnillo1.rotation.z += 0.020;
             if (_portalAnillo2) _portalAnillo2.rotation.z -= 0.013;
-            _portalGrupo.position.y = 1.5 + 0.18 * Math.sin(t * 0.85);
+            _portalGrupo.position.y = _portalBaseY + 0.18 * Math.sin(t * 0.85);
             if (_portalLuz) _portalLuz.intensity = 3.5 + 1.3 * Math.sin(t * 2.1);
 
             const _dx   = camera.position.x - _portalGrupo.position.x;
@@ -1085,7 +1049,7 @@ function animate() {
                 const d = Math.sqrt(camera.position.x ** 2 + camera.position.z ** 2);
                 const lim = DR * 0.9;
                 if (d > lim) { const f = lim / d; camera.position.x *= f; camera.position.z *= f; }
-                _barcoHint(d > lim * 0.82 ? 'B — bajar al agua' : null);
+                _barcoHint(d > lim * 0.82 ? _wwUI('barco_bajar') : null);
             } else {
                 camera.position.y = FPS_ALTURA;
                 const d = Math.sqrt(camera.position.x ** 2 + camera.position.z ** 2);
@@ -1098,7 +1062,7 @@ function animate() {
                     // Barrera física: no atravesar el casco del barco (deslizar por fuera).
                     const f = DR / Math.max(d, 0.01); camera.position.x *= f; camera.position.z *= f;
                 }
-                _barcoHint(d < DR + 1.6 ? 'B — subir al barco' : null);
+                _barcoHint(d < DR + 1.6 ? _wwUI('barco_subir') : null);
             }
         }
 
@@ -1173,13 +1137,51 @@ renderer.domElement.addEventListener('click',   _entrarFpsAlPrimerGesto, { once:
 document.addEventListener(            'keydown', _entrarFpsAlPrimerGesto, { once: true });
 
 // ── Pantalla completa ────────────────────────────────────────────────────────
-// El .exe abre Chrome con --start-fullscreen (fullscreen DE VENTANA), que sobrevive
-// a la navegación entre escenas. Deliberadamente NO usamos la Fullscreen API del
-// navegador (requestFullscreen): como cada escena es una página distinta, esa API se
-// pierde al cruzar el portal y, al re-pedirla con el primer gesto, provoca un parpadeo
-// visible de entrar/salir de pantalla completa en cada escena. Apoyándonos solo en el
-// fullscreen de ventana la transición entre escenas es limpia (igual que en los mundos
-// antiguos). El pointer lock convive bien con --start-fullscreen sin necesidad de la API.
+// Hay dos formas de estar en pantalla completa, y se comportan distinto al navegar:
+//  · .exe → Chrome arranca con --start-fullscreen: fullscreen DE VENTANA, que
+//    sobrevive a la navegación entre escenas. Ahí no hay nada que hacer, y pedir la
+//    Fullscreen API encima provocaría un parpadeo de entrar/salir en cada escena
+//    (y, al soltarla, devolvería la ventana a modo normal).
+//  · localhost → no hay --start-fullscreen, así que la única pantalla completa
+//    posible es la Fullscreen API (el botón ⛶ de la landing). Esa SÍ se pierde al
+//    cruzar el portal, porque cada escena es una página distinta.
+// Por eso solo re-pedimos la API cuando consta que el usuario la había pedido a mano
+// (flag en sessionStorage). En el .exe ese flag no se pone nunca → transición limpia.
+(function _wwFullscreenPersistente() {
+    const FLAG = 'ww_fs';
+    const esFS = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
+
+    // Salir de fullscreen al cruzar el portal no es decisión del usuario; un Esc sí. Hay
+    // que distinguirlos, pero NO con pagehide/beforeunload: al navegar Chrome dispara el
+    // fullscreenchange ANTES que esos eventos, así que la guarda llegaba tarde y borraba
+    // el flag justo al cambiar de escena. Lo decidimos por supervivencia: si 150 ms
+    // después seguimos vivos, fue un Esc. Si era una navegación, este timer se muere con
+    // la página y el flag queda intacto para la escena siguiente.
+    let t = null;
+    const onCambio = () => {
+        clearTimeout(t);
+        if (esFS()) sessionStorage.setItem(FLAG, '1');
+        else t = setTimeout(() => sessionStorage.removeItem(FLAG), 150);
+    };
+    document.addEventListener('fullscreenchange', onCambio);
+    document.addEventListener('webkitfullscreenchange', onCambio);
+
+    if (sessionStorage.getItem(FLAG) !== '1') return;
+
+    // requestFullscreen exige un gesto, así que reentramos con el primero de la escena.
+    // Va en pointerdown (captura) para llegar antes que el click que captura el ratón:
+    // así el pointer lock se pide ya dentro de la Fullscreen API y no chocan.
+    const ir = () => {
+        removeEventListener('pointerdown', ir, true);
+        removeEventListener('keydown', ir, true);
+        if (esFS()) return;
+        const el = document.documentElement;
+        try { (el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen)?.call(el); }
+        catch (e) { /* si el gesto no sirve, siempre queda F11 */ }
+    };
+    addEventListener('pointerdown', ir, true);
+    addEventListener('keydown', ir, true);
+})();
 </script>
 __FIN_OVERLAY_PLACEHOLDER__
 </body>

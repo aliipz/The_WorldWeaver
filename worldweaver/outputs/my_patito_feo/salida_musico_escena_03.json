@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_03",
+  "query_usada": "fireplace wood crackle loop",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/641/641848_5828667-hq.mp3",
+    "titulo": "FIREBurn_Fireplace.Artificial.Crackling.Roar.Wooden room 2_EM_(13lrs).wav",
+    "autor": "newlocknew",
+    "duracion_segundos": 24.0,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/729/729396_12863902-hq.mp3",
+    "titulo": "Campfire 02",
+    "autor": "HECKFRICKER",
+    "duracion_segundos": 267.6,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

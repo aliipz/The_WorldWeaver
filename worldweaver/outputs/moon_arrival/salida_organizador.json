@@ -1,0 +1,475 @@
+{
+  "titulo_historia": "La Carrera Espacial: Misión Apolo 11 y la Llegada a la Luna (1969)",
+  "escenas": [
+    {
+      "id": "escena_01",
+      "titulo": "Apollo 11 Launch",
+      "entorno": "Plataforma de lanzamiento del Centro Espacial Kennedy, Florida, 1969: torre de control de ladrillo rojo, inmenso cohete Saturno V erguido sobre la rampa, cielo claro y sol radiante",
+      "atmosfera": "Tensión de la Guerra Fría, carrera espacial entre EE. UU. y la URSS, expectativa pública y presión política para lograr el primer alunizaje",
+      "cielo": "manana_despejada",
+      "tipo_ambiente": "ciudad",
+      "tiene_intro": true,
+      "texto_intro": "On ==July 16, 1969==, at the height of the Cold War, NASA launched the Apollo 11 mission from the Kennedy Space Center in Florida. The goal was to achieve the first crewed Moon landing, a feat that would mark the space supremacy of the United States.",
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_neil_armstrong",
+          "nombre": "Neil Armstrong",
+          "fisica": "38-year-old man, athletic build, white space suit with NASA insignia, reflective helmet, focused gaze",
+          "background": "Comandante de la misión Apollo 11, pionero de la exploración lunar, motivado por la ciencia y la gloria nacional",
+          "rol": "protagonist",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_buzz_aldrin",
+          "nombre": "Buzz Aldrin",
+          "fisica": "39-year-old man, medium height, white space suit, helmet with gold visor, slight smile",
+          "background": "Piloto del módulo lunar Eagle, segundo hombre en caminar sobre la Luna, entusiasta de la ingeniería",
+          "rol": "protagonist",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_michael_collins",
+          "nombre": "Michael Collins",
+          "fisica": "38-year-old man, slim build, white space suit, helmet with gray visor, serene expression",
+          "background": "Piloto del módulo de mando Columbia, permaneció en órbita lunar mientras sus compañeros descendían, clave para la seguridad de la misión",
+          "rol": "secondary",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_saturno_v",
+          "nombre": "Saturn V",
+          "descripcion": "Three-stage launch rocket, over a hundred meters tall, used to send the Apollo 11 mission into space",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_modulo_mando_columbia",
+          "nombre": "Columbia Command Module",
+          "descripcion": "Command capsule of the Apollo 11 mission, designed for the round trip between Earth and the Moon",
+          "skin_id": "escena_01"
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_neil_armstrong, personaje_buzz_aldrin y personaje_michael_collins suben a bordo del objeto_modulo_mando_columbia y lanzan el objeto_saturno_v el ==16 de julio de 1969== desde el Centro Espacial Kennedy.",
+          "personajes_involucrados": [
+            "personaje_neil_armstrong",
+            "personaje_buzz_aldrin",
+            "personaje_michael_collins"
+          ],
+          "objetos_involucrados": [
+            "objeto_modulo_mando_columbia",
+            "objeto_saturno_v"
+          ]
+        },
+        {
+          "descripcion": "El objeto_saturno_v, con una altura de ==cien metros==, impulsa la nave hacia el espacio profundo, marcando el inicio del viaje lunar.",
+          "personajes_involucrados": [],
+          "objetos_involucrados": [
+            "objeto_saturno_v"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_02",
+      "titulo": "Voyage and Navigation in Deep Space",
+      "entorno": "Espacio exterior, vacío cósmico, la nave Apollo 11 cruza la negrura del cosmos, estrellas brillantes al fondo, la Tierra disminuye en el horizonte",
+      "atmosfera": "Aislamiento y precisión orbital, desafío técnico de la navegación sin referencia terrestre, uso de instrumentos clásicos",
+      "cielo": "noche_estrellada",
+      "tipo_ambiente": "espacio",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_neil_armstrong",
+          "nombre": "Neil Armstrong",
+          "fisica": "38-year-old man, athletic build, white space suit with NASA insignia, reflective helmet, focused gaze",
+          "background": "Comandante de la misión Apollo 11, pionero de la exploración lunar, motivado por la ciencia y la gloria nacional",
+          "rol": "protagonist",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_buzz_aldrin",
+          "nombre": "Buzz Aldrin",
+          "fisica": "39-year-old man, medium height, white space suit, helmet with gold visor, slight smile",
+          "background": "Piloto del módulo lunar Eagle, segundo hombre en caminar sobre la Luna, entusiasta de la ingeniería",
+          "rol": "protagonist",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_michael_collins",
+          "nombre": "Michael Collins",
+          "fisica": "38-year-old man, slim build, white space suit, helmet with gray visor, serene expression",
+          "background": "Piloto del módulo de mando Columbia, permaneció en órbita lunar mientras sus compañeros descendían, clave para la seguridad de la misión",
+          "rol": "secondary",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_sextante_espacial",
+          "nombre": "Space Sextant",
+          "descripcion": "Navigation instrument that allows orientation using background stars and correcting the ship's trajectory",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_modulo_lunar_eagle",
+          "nombre": "Eagle Lunar Module",
+          "descripcion": "Landing module of the Apollo 11 mission, used to descend from and ascend from the lunar surface",
+          "skin_id": "escena_02"
+        },
+        {
+          "id": "objeto_modulo_mando_columbia",
+          "nombre": "Columbia Command Module",
+          "descripcion": "Command capsule of the Apollo 11 mission, designed for the round trip between Earth and the Moon",
+          "skin_id": "escena_01"
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_neil_armstrong utiliza el objeto_sextante_espacial para orientarse mediante las estrellas, corrigiendo la trayectoria de la nave.",
+          "personajes_involucrados": [
+            "personaje_neil_armstrong"
+          ],
+          "objetos_involucrados": [
+            "objeto_sextante_espacial"
+          ]
+        },
+        {
+          "descripcion": "Los módulos objeto_modulo_mando_columbia y objeto_modulo_lunar_eagle realizan el acoplamiento mecánico en el vacío, demostrando precisión orbital.",
+          "personajes_involucrados": [
+            "personaje_neil_armstrong",
+            "personaje_buzz_aldrin",
+            "personaje_michael_collins"
+          ],
+          "objetos_involucrados": [
+            "objeto_modulo_mando_columbia",
+            "objeto_modulo_lunar_eagle"
+          ]
+        },
+        {
+          "descripcion": "personaje_michael_collins observa la Tierra menguante mientras la nave avanza hacia el Mare Tranquillitatis, documentando fotográficamente el viaje.",
+          "personajes_involucrados": [
+            "personaje_michael_collins"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_03",
+      "titulo": "Landing on the Mare Tranquillitatis",
+      "entorno": "Superficie lunar del Mare Tranquillitatis, llanura basáltica grisácea bajo un cielo negro estrellado, cráteres dispersos, módulo Eagle posado sobre el regolito",
+      "atmosfera": "Momento crítico de descenso, tensión por consumo de combustible, error de computadora que obliga al control manual",
+      "cielo": "noche_estrellada",
+      "tipo_ambiente": "superficie_planeta",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_neil_armstrong",
+          "nombre": "Neil Armstrong",
+          "fisica": "38-year-old man, athletic build, white space suit with NASA insignia, reflective helmet, focused gaze",
+          "background": "Comandante de la misión Apollo 11, pionero de la exploración lunar, motivado por la ciencia y la gloria nacional",
+          "rol": "protagonist",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_buzz_aldrin",
+          "nombre": "Buzz Aldrin",
+          "fisica": "39-year-old man, medium height, white space suit, helmet with gold visor, slight smile",
+          "background": "Piloto del módulo lunar Eagle, segundo hombre en caminar sobre la Luna, entusiasta de la ingeniería",
+          "rol": "protagonist",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_michael_collins",
+          "nombre": "Michael Collins",
+          "fisica": "38-year-old man, slim build, white space suit, helmet with gray visor, serene expression",
+          "background": "Piloto del módulo de mando Columbia, permaneció en órbita lunar mientras sus compañeros descendían, clave para la seguridad de la misión",
+          "rol": "secondary",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_modulo_lunar_eagle",
+          "nombre": "Eagle Lunar Module",
+          "descripcion": "Landing module of the Apollo 11 mission, used to descend from and ascend from the lunar surface",
+          "skin_id": "escena_02"
+        },
+        {
+          "id": "objeto_modulo_mando_columbia",
+          "nombre": "Columbia Command Module",
+          "descripcion": "Command capsule of the Apollo 11 mission, designed for the round trip between Earth and the Moon",
+          "skin_id": "escena_01"
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "El objeto_modulo_lunar_eagle inicia el descenso al Mare Tranquillitatis, mostrando el código de error ==1202== en su ordenador de navegación.",
+          "personajes_involucrados": [
+            "personaje_neil_armstrong",
+            "personaje_buzz_aldrin"
+          ],
+          "objetos_involucrados": [
+            "objeto_modulo_lunar_eagle"
+          ]
+        },
+        {
+          "descripcion": "personaje_neil_armstrong asume el control manual y aterriza con éxito, evitando cráteres rocosos y conservando combustible.",
+          "personajes_involucrados": [
+            "personaje_neil_armstrong"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "El objeto_modulo_lunar_eagle se posa con una reserva de combustible crítica, estableciendo el primer alunizaje tripulado en la historia.",
+          "personajes_involucrados": [
+            "personaje_neil_armstrong",
+            "personaje_buzz_aldrin"
+          ],
+          "objetos_involucrados": [
+            "objeto_modulo_lunar_eagle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_04",
+      "titulo": "Extravehicular Activity and Scientific Collection",
+      "entorno": "Superficie lunar cercana al módulo Eagle, polvo fino, horizonte negro, bandera ondeando artificialmente, cámara de televisión transmitiendo a la Tierra",
+      "atmosfera": "Exploración humana, orgullo nacional, recopilación de datos científicos, desafío de trabajar en gravedad cero",
+      "cielo": "noche_estrellada",
+      "tipo_ambiente": "superficie_planeta",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_neil_armstrong",
+          "nombre": "Neil Armstrong",
+          "fisica": "38-year-old man, athletic build, white space suit with NASA insignia, reflective helmet, focused gaze",
+          "background": "Comandante de la misión Apollo 11, pionero de la exploración lunar, motivado por la ciencia y la gloria nacional",
+          "rol": "protagonist",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_buzz_aldrin",
+          "nombre": "Buzz Aldrin",
+          "fisica": "39-year-old man, medium height, white space suit, helmet with gold visor, slight smile",
+          "background": "Piloto del módulo lunar Eagle, segundo hombre en caminar sobre la Luna, entusiasta de la ingeniería",
+          "rol": "protagonist",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_camara_de_television",
+          "nombre": "Television Camera",
+          "descripcion": "Live broadcasting device that captured the Moon landing and the moonwalk for the audience on Earth",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_bandera_estadounidense",
+          "nombre": "American Flag",
+          "descripcion": "U.S. flag planted on the lunar surface, raised with a pole to simulate waving in the vacuum",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_easep",
+          "nombre": "EASEP",
+          "descripcion": "Scientific Experiments Package that includes a passive seismometer and laser retroreflectors for lunar measurements",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_sismometro_pasivo",
+          "nombre": "Passive Seismometer",
+          "descripcion": "Instrument to detect seismic vibrations on the Moon, part of the EASEP",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_retroreflectores_laser",
+          "nombre": "Laser Retroreflectors",
+          "descripcion": "Devices that reflect lasers from Earth to precisely measure the Earth-Moon distance",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "personaje_neil_armstrong desciende por la escalerilla del objeto_modulo_lunar_eagle y pronuncia la frase histórica ==Ese es un pequeño paso para el hombre, pero un gran salto para la humanidad==.",
+          "personajes_involucrados": [
+            "personaje_neil_armstrong"
+          ],
+          "objetos_involucrados": [
+            "objeto_modulo_lunar_eagle"
+          ]
+        },
+        {
+          "descripcion": "Se despliega la objeto_bandera_estadounidense, simulando el ondeo en el vacío mientras los astronautas la plantan.",
+          "personajes_involucrados": [
+            "personaje_neil_armstrong",
+            "personaje_buzz_aldrin"
+          ],
+          "objetos_involucrados": [
+            "objeto_bandera_estadounidense"
+          ]
+        },
+        {
+          "descripcion": "Los astronautas instalan el objeto_easep, que incluye el objeto_sismometro_pasivo y los objeto_retroreflectores_laser para medir la distancia Tierra-Luna y registrar sismos lunares.",
+          "personajes_involucrados": [
+            "personaje_neil_armstrong",
+            "personaje_buzz_aldrin"
+          ],
+          "objetos_involucrados": [
+            "objeto_easep",
+            "objeto_sismometro_pasivo",
+            "objeto_retroreflectores_laser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_05",
+      "titulo": "Reentry, Splashdown and Quarantine",
+      "entorno": "Océano Pacífico, aguas azuladas bajo un atardecer rojizo, helicópteros sobre la zona, cápsula Columbia flotando con paracaídas desplegados",
+      "atmosfera": "Tensión de la reentrada, calor extremo, recuperación naval, protocolos de aislamiento para prevenir contaminaciones",
+      "cielo": "atardecer",
+      "tipo_ambiente": "sobre_agua",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_neil_armstrong",
+          "nombre": "Neil Armstrong",
+          "fisica": "38-year-old man, athletic build, white space suit with NASA insignia, reflective helmet, focused gaze",
+          "background": "Comandante de la misión Apollo 11, pionero de la exploración lunar, motivado por la ciencia y la gloria nacional",
+          "rol": "protagonist",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_buzz_aldrin",
+          "nombre": "Buzz Aldrin",
+          "fisica": "39-year-old man, medium height, white space suit, helmet with gold visor, slight smile",
+          "background": "Piloto del módulo lunar Eagle, segundo hombre en caminar sobre la Luna, entusiasta de la ingeniería",
+          "rol": "protagonist",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_michael_collins",
+          "nombre": "Michael Collins",
+          "fisica": "38-year-old man, slim build, white space suit, helmet with gray visor, serene expression",
+          "background": "Piloto del módulo de mando Columbia, permaneció en órbita lunar mientras sus compañeros descendían, clave para la seguridad de la misión",
+          "rol": "secondary",
+          "skin_id": "escena_01"
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_modulo_mando_columbia",
+          "nombre": "Columbia Command Module",
+          "descripcion": "Command capsule of the Apollo 11 mission, designed for the round trip between Earth and the Moon",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "objeto_paracaidas_principales",
+          "nombre": "Main Parachutes",
+          "descripcion": "Three parachutes that deploy to slow the descent of the Columbia capsule during reentry",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_uss_hornet",
+          "nombre": "USS Hornet",
+          "descripcion": "U.S. Navy aircraft carrier that coordinated the recovery of the Columbia capsule in the Pacific",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_instalacion_cuarentena",
+          "nombre": "Mobile Quarantine Facility",
+          "descripcion": "Airtight unit aboard the USS Hornet to isolate the astronauts and prevent space contagion",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "El objeto_modulo_mando_columbia reentra en la atmósfera terrestre, generando plasma por fricción térmica y preparando el despliegue de los paracaídas.",
+          "personajes_involucrados": [
+            "personaje_michael_collins"
+          ],
+          "objetos_involucrados": [
+            "objeto_modulo_mando_columbia"
+          ]
+        },
+        {
+          "descripcion": "Se despliegan los objeto_paracaidas_principales y la cápsula ameriza en el Océano Pacífico, donde el objeto_uss_hornet la recupera con buzos y helicópteros.",
+          "personajes_involucrados": [
+            "personaje_neil_armstrong",
+            "personaje_buzz_aldrin",
+            "personaje_michael_collins"
+          ],
+          "objetos_involucrados": [
+            "objeto_paracaidas_principales",
+            "objeto_uss_hornet"
+          ]
+        },
+        {
+          "descripcion": "Los astronautas son trasladados a la objeto_instalacion_cuarentena para prevenir contagios espaciales, marcando el fin de la misión.",
+          "personajes_involucrados": [
+            "personaje_neil_armstrong",
+            "personaje_buzz_aldrin",
+            "personaje_michael_collins"
+          ],
+          "objetos_involucrados": [
+            "objeto_instalacion_cuarentena"
+          ]
+        }
+      ]
+    }
+  ],
+  "personajes_globales": [
+    {
+      "id": "personaje_neil_armstrong",
+      "nombre": "Neil Armstrong",
+      "fisica": "38-year-old man, athletic build, white space suit with NASA insignia, reflective helmet, focused gaze",
+      "background": "Comandante de la misión Apollo 11, pionero de la exploración lunar, motivado por la ciencia y la gloria nacional",
+      "rol": "protagonist",
+      "skin_id": null
+    },
+    {
+      "id": "personaje_buzz_aldrin",
+      "nombre": "Buzz Aldrin",
+      "fisica": "39-year-old man, medium height, white space suit, helmet with gold visor, slight smile",
+      "background": "Piloto del módulo lunar Eagle, segundo hombre en caminar sobre la Luna, entusiasta de la ingeniería",
+      "rol": "protagonist",
+      "skin_id": null
+    },
+    {
+      "id": "personaje_michael_collins",
+      "nombre": "Michael Collins",
+      "fisica": "38-year-old man, slim build, white space suit, helmet with gray visor, serene expression",
+      "background": "Piloto del módulo de mando Columbia, permaneció en órbita lunar mientras sus compañeros descendían, clave para la seguridad de la misión",
+      "rol": "secondary",
+      "skin_id": null
+    }
+  ],
+  "objetos_globales": [
+    {
+      "id": "objeto_modulo_mando_columbia",
+      "nombre": "Columbia Command Module",
+      "descripcion": "Command capsule of the Apollo 11 mission, designed for the round trip between Earth and the Moon",
+      "skin_id": null
+    },
+    {
+      "id": "objeto_modulo_lunar_eagle",
+      "nombre": "Eagle Lunar Module",
+      "descripcion": "Landing module of the Apollo 11 mission, used to descend from and ascend from the lunar surface",
+      "skin_id": null
+    }
+  ]
+}

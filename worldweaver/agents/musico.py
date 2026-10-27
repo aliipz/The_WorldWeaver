@@ -61,9 +61,6 @@ def _extraer_keywords(descripcion: str, max_palabras: int = 4) -> str:
     palabras = re.findall(r"[a-zA-Z]+", descripcion.lower())
     keywords = [p for p in palabras if p not in _STOPWORDS and len(p) > 2]
 
-    # Si el Director ya incluyó un sufijo soundscape, respetar el orden original
-    tiene_sufijo = any(k in _SOUNDSCAPE_SUFIJOS for k in keywords)
-
     # Separar sufijos de palabras de contenido
     contenido = [k for k in keywords if k not in _SOUNDSCAPE_SUFIJOS]
     sufijos_presentes = [k for k in keywords if k in _SOUNDSCAPE_SUFIJOS]

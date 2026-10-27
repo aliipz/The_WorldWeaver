@@ -1,0 +1,286 @@
+{
+  "titulo_historia": "El viaje del patito feo",
+  "escenas": [
+    {
+      "id": "escena_01",
+      "titulo": "Nacimiento y burla en la granja",
+      "entorno": "Granjas tranquila junto al estanque, con campos de hierba verde, un granero de madera y un pequeño estanque de agua cristalina rodeado de juncos.",
+      "atmosfera": "Mañana cálida de verano, luz dorada, ambiente pacífico pero tenso por la burla de los hermanos.",
+      "cielo": "manana_despejada",
+      "tipo_ambiente": "campo",
+      "tiene_intro": true,
+      "texto_intro": "En una brillante mañana de verano, la granja despertaba bajo el canto de los gallos. Mamá Pata vigilaba su nido de paja, llena de huevos que prometían nueva vida. De repente, un cascarón grande se abrió, revelando a un patito torpe de plumas grises. Sus hermanos patitos lo miraron con burla mientras su madre suspiraba preocupada.",
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_mama_pata",
+          "nombre": "Mamá Pata",
+          "fisica": "Pato adulto de plumaje amarillo brillante, ojos cálidos y pico anaranjado.",
+          "background": "Madre protectora, vigilante de sus huevos, preocupada por el bienestar de sus polluelos.",
+          "rol": "secundario",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_patito_feo",
+          "nombre": "Patito feo",
+          "fisica": "Patito de plumaje gris apagado, tamaño grande, pico corto y ojos tristes.",
+          "background": "Inseguro y aislado, busca aceptación y pertenencia, motivado por el deseo de ser aceptado.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_patito_hermanos_01",
+          "nombre": "Hermano patito 1",
+          "fisica": "Patito pequeño de plumaje amarillo, ojos curiosos.",
+          "background": "Hermano mayor, algo burlón pero sin malicia profunda.",
+          "rol": "secundario",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_patito_hermanos_02",
+          "nombre": "Hermano patito 2",
+          "fisica": "Patito pequeño de plumaje amarillo, pico pequeño.",
+          "background": "Otro hermano, sigue la burla del grupo.",
+          "rol": "secundario",
+          "skin_id": null
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_nido_paja",
+          "nombre": "nido de paja",
+          "descripcion": "Nido hecho de paja entrelazada, ubicado en el corral de la granja, contiene huevos.",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Mamá Pata observa el nido de paja lleno de huevos.",
+          "personajes_involucrados": [
+            "personaje_mama_pata"
+          ],
+          "objetos_involucrados": [
+            "objeto_nido_paja"
+          ]
+        },
+        {
+          "descripcion": "El cascarón más grande se rompe y sale el patito feo, torpe y gris.",
+          "personajes_involucrados": [
+            "personaje_patito_feo"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Los hermanos patitos se burlan del patito feo mientras Mamá Pata suspira preocupada.",
+          "personajes_involucrados": [
+            "personaje_patito_hermanos_01",
+            "personaje_patito_hermanos_02",
+            "personaje_mama_pata"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    },
+    {
+      "id": "escena_02",
+      "titulo": "Refugio en el pantano nebuloso",
+      "entorno": "Pantano sombrío cubierto de espesa niebla, con juncos altos emergiendo del agua estancada y charcos de lodo.",
+      "atmosfera": "Mañana gris y húmeda, atmósfera tensa y temblorosa, sensación de aislamiento.",
+      "cielo": "niebla_densa",
+      "tipo_ambiente": "naturaleza",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_patito_feo",
+          "nombre": "Patito feo",
+          "fisica": "Patito de plumaje gris apagado, tamaño grande, pico corto y ojos tristes.",
+          "background": "Inseguro y aislado, busca aceptación y pertenencia, motivado por el deseo de ser aceptado.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_perro_caza",
+          "nombre": "Perro de caza",
+          "fisica": "Perro grande de pelaje marrón oscuro, orejas puntiagudas, mirada alerta.",
+          "background": "Cazador territorial, olfatea curiosidad pero no ataca, actúa como amenaza pasajera.",
+          "rol": "antagonista",
+          "skin_id": null
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_tronco_podrido",
+          "nombre": "tronco podrido",
+          "descripcion": "Gran tronco caído y descompuesto, hueco por dentro, sirve de refugio temporal.",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Patito feo huye de la granja y llega al pantano sombrío.",
+          "personajes_involucrados": [
+            "personaje_patito_feo"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Se encuentra con un enorme perro de caza que lo olfatea; el perro lo ignora y se marcha.",
+          "personajes_involucrados": [
+            "personaje_patito_feo",
+            "personaje_perro_caza"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Patito feo se refugia dentro del tronco podrido para pasar la noche.",
+          "personajes_involucrados": [
+            "personaje_patito_feo"
+          ],
+          "objetos_involucrados": [
+            "objeto_tronco_podrido"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_03",
+      "titulo": "Invierno en la cabaña rústica",
+      "entorno": "Cabaña rústica de madera con paredes de troncos, chimenea de piedra encendida, suelo de tablas y una alfombra vieja en una esquina.",
+      "atmosfera": "Invierno crudo, frío exterior, interior cálido por la chimenea, sensación de vulnerabilidad y rechazo.",
+      "cielo": "interior_calido",
+      "tipo_ambiente": "interior",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": null,
+      "personajes": [
+        {
+          "id": "personaje_patito_feo",
+          "nombre": "Patito feo",
+          "fisica": "Patito de plumaje gris apagado, tamaño grande, pico corto y ojos tristes.",
+          "background": "Inseguro y aislado, busca aceptación y pertenencia, motivado por el deseo de ser aceptado.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_gato_grunon",
+          "nombre": "Gato gruñón",
+          "fisica": "Gato de pelaje gris oscuro, ojos verdes, orejas erizadas.",
+          "background": "Gato gruñón, defendiendo su territorio, genera hostilidad hacia el patito.",
+          "rol": "antagonista",
+          "skin_id": null
+        }
+      ],
+      "objetos": [
+        {
+          "id": "objeto_cuenco_leche",
+          "nombre": "cuenco de leche",
+          "descripcion": "Cuenco de cerámica blanco, medio lleno de leche fresca, colocado en el suelo de la cabaña.",
+          "skin_id": null
+        },
+        {
+          "id": "objeto_alfombra_vieja",
+          "nombre": "alfombra vieja",
+          "descripcion": "Alfombra de tela gastada y decolorada, extendida en una esquina de la cabaña.",
+          "skin_id": null
+        }
+      ],
+      "eventos": [
+        {
+          "descripcion": "Patito feo entra en la cabaña y encuentra un cuenco de leche en el suelo mientras la chimenea brinda calor.",
+          "personajes_involucrados": [
+            "personaje_patito_feo"
+          ],
+          "objetos_involucrados": [
+            "objeto_cuenco_leche"
+          ]
+        },
+        {
+          "descripcion": "Un gato gruñón se acerca desde la alfombra vieja, bufando y haciendo que el patito se sienta aún más fuera de lugar.",
+          "personajes_involucrados": [
+            "personaje_patito_feo",
+            "personaje_gato_grunon"
+          ],
+          "objetos_involucrados": [
+            "objeto_alfombra_vieja"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escena_04",
+      "titulo": "Transformación en el lago primaveral",
+      "entorno": "Lago cristalino rodeado de sauces llorones, troncos caídos y orillas con hierba fresca y flores silvestres.",
+      "atmosfera": "Primavera radiante, sol brillante, tono esperanzador y alegre, sensación de renacimiento.",
+      "cielo": "mediodia_soleado",
+      "tipo_ambiente": "naturaleza",
+      "tiene_intro": false,
+      "texto_intro": null,
+      "texto_fin": "Al romper el silencio del lago, el patito feo descubrió su verdadera forma: un cisne blanco majestuoso. Los dos cisnes que lo recibieron simbolizaban su pertenencia a una familia noble. Así, el viaje de rechazo culminó en aceptación, y el espejo del agua reflejó la belleza que siempre había llevado dentro.",
+      "personajes": [
+        {
+          "id": "personaje_patito_feo",
+          "nombre": "Patito feo",
+          "fisica": "Patito de plumaje gris apagado, tamaño grande, pico corto y ojos tristes.",
+          "background": "Inseguro y aislado, busca aceptación y pertenencia, motivado por el deseo de ser aceptado.",
+          "rol": "protagonista",
+          "skin_id": "escena_01"
+        },
+        {
+          "id": "personaje_cisne_01",
+          "nombre": "Cisne 1",
+          "fisica": "Cisne blanco elegante, plumaje reluciente, cuello largo.",
+          "background": "Cisne amable, representa la verdadera familia del patito.",
+          "rol": "secundario",
+          "skin_id": null
+        },
+        {
+          "id": "personaje_cisne_02",
+          "nombre": "Cisne 2",
+          "fisica": "Otro cisne blanco, similar al anterior.",
+          "background": "Cisne compañero, comparte la bienvenida.",
+          "rol": "secundario",
+          "skin_id": null
+        }
+      ],
+      "objetos": [],
+      "eventos": [
+        {
+          "descripcion": "Patito feo abandona la cabaña y llega al lago cristalino bajo el sol de primavera.",
+          "personajes_involucrados": [
+            "personaje_patito_feo"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Se mira en el agua y ve su reflejo transformado en un cisne blanco.",
+          "personajes_involucrados": [
+            "personaje_patito_feo"
+          ],
+          "objetos_involucrados": []
+        },
+        {
+          "descripcion": "Dos cisnes majestuosos se acercan nadando suavemente para darle la bienvenida a su verdadera familia.",
+          "personajes_involucrados": [
+            "personaje_patito_feo",
+            "personaje_cisne_01",
+            "personaje_cisne_02"
+          ],
+          "objetos_involucrados": []
+        }
+      ]
+    }
+  ],
+  "personajes_globales": [
+    {
+      "id": "personaje_patito_feo",
+      "nombre": "Patito feo",
+      "fisica": "Patito de plumaje gris apagado, tamaño grande, pico corto y ojos tristes.",
+      "background": "Inseguro y aislado, busca aceptación y pertenencia, motivado por el deseo de ser aceptado.",
+      "rol": "protagonista",
+      "skin_id": null
+    }
+  ],
+  "objetos_globales": []
+}

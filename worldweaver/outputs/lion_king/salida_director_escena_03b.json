@@ -1,0 +1,140 @@
+{
+  "id_escena": "escena_03b",
+  "elementos": [
+    {
+      "id": "personaje_nala",
+      "nombre": "Nala",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 5
+      },
+      "ancho": 0.9,
+      "alto": 1.1,
+      "descripcion": "Female lioness, golden fur, sleek, youthful.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_simba",
+      "nombre": "Simba",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.2,
+      "descripcion": "Young male lion, golden fur, bright eyes, later grown into a strong adult with a scar over his eye.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_rafiki",
+      "nombre": "Rafiki",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 0.7,
+      "alto": 1.2,
+      "descripcion": "Mandrill, wise eyes, long white beard, wooden staff.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_lantern_01",
+      "nombre": "Glowing firefly lantern",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 0.3,
+      "alto": 0.5,
+      "descripcion": "Hollow ceramic lantern with a faint amber glow, filled with swarming fireflies.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_altar_01",
+      "nombre": "Ritual stone altar",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 4
+      },
+      "ancho": 1.5,
+      "alto": 1.0,
+      "descripcion": "Low stone platform engraved with ancient symbols, edged with small crystal shards.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_vine_01",
+      "nombre": "Hanging vine cluster",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 1.5,
+      "alto": 2.0,
+      "descripcion": "Thick, tangled vines draped from the canopy, dark green leaves and occasional bright flowers.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_rock_01",
+      "nombre": "Moss-covered stone",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 0
+      },
+      "ancho": 2.5,
+      "alto": 2.0,
+      "descripcion": "Large granite boulder blanketed in soft, emerald moss with occasional lichen patches.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_statue_01",
+      "nombre": "Stone jaguar statue",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 6,
+        "fila": 1
+      },
+      "ancho": 1.0,
+      "alto": 2.0,
+      "descripcion": "Weathered stone carving of a crouching jaguar, patina of age and subtle cracks.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_log_01",
+      "nombre": "Fallen log with fungi",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 3.0,
+      "alto": 0.8,
+      "descripcion": "Rough log lying across the forest floor, speckled with bright orange mushroom caps.",
+      "keyword_busqueda": null
+    }
+  ]
+}

@@ -1,0 +1,306 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Crew aboard Columbia ready for launch",
+      "guias": [
+        "objeto_modulo_mando_columbia",
+        "objeto_saturno_v",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin",
+        "personaje_michael_collins"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_modulo_mando_columbia",
+          "objeto_saturno_v"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin",
+          "personaje_michael_collins"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Saturn V lifts the lunar voyage into space",
+      "guias": [
+        "objeto_saturno_v"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_saturno_v"
+        ],
+        "personajes": [],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_neil_armstrong",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Neil Armstrong — NASA Astronaut",
+        "texto": "Neil Armstrong (1930-2012) was the commander of the command module of ==Apollo 11==, the first mission to bring humans to the Moon. His historic step onto the surface on ==July 20, 1969== marked the U.S. triumph in the space race, surpassing the USSR. ==First man on the Moon== is his most remembered legacy."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Today, ==July 16, 1969==, we launch the giant ==Saturn V==, ==a hundred meters== tall, from Kennedy, under the gaze of the whole nation and the world."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "I feel the weight of history in every second of liftoff, as if the future of humanity depended on our success."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What were you thinking when you saw the rocket rise?",
+                  "respuesta": "I saw the rocket as a symbol of hope, an answer to the race against the USSR that showed science could triumph."
+                },
+                {
+                  "etiqueta": "How did you handle the pressure of the whole world?",
+                  "respuesta": "Rigorous training and trust in my team kept me steady; we knew every step was for peace."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Our goal is to achieve the ==first Moon landing== and bring the astronauts back safely, proving that exploration is a human endeavor."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Check panel",
+          "descripcion": "Neil checks the panel indicators, making sure the systems are nominal.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": {
+        "id_nodo": "personaje_buzz_aldrin",
+        "efecto": null,
+        "color": null,
+        "animacion": "RecieveHit"
+      }
+    },
+    {
+      "id_nodo": "personaje_buzz_aldrin",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Buzz Aldrin — NASA Astronaut",
+        "texto": "Buzz Aldrin (1930-2023) was the pilot of the lunar module of Apollo 11 and the ==second man== to walk on the lunar surface. His enthusiasm for engineering and exploration marked a milestone in the ==space race== against the USSR."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "When I saw the ==Saturn V== rise, I felt the energy of a generation that wanted to prove technology could overcome any frontier."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Every bolt and every circuit was designed to withstand the vacuum and radiation, a true work of engineering art."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What was the greatest technical challenge?",
+                  "respuesta": "Keeping the rocket engine stable during the first 2 minutes was critical; any failure would have meant the end of the mission."
+                },
+                {
+                  "etiqueta": "How do you feel being the second to set foot on the Moon?",
+                  "respuesta": "It is an honor to share that moment with Neil; history reminds us that teamwork is essential."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "In the midst of the ==space race==, every step we take is also a message of peace and progress for humanity."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Adjust position",
+          "descripcion": "Buzz adjusts his position in the seat to balance the load.",
+          "animacion": "SitDown",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_michael_collins",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Michael Collins — NASA Astronaut",
+        "texto": "Michael Collins (1930-2021) piloted the Columbia command module, remaining in ==lunar orbit== while his companions descended. His role was essential to the safety of the Apollo 11 mission, showing that cooperation and precision are vital in space exploration."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "While my companions approach the surface, I watch over the ship from lunar orbit, aware that my role is as critical as theirs."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The solitude of space reminds me of the vastness of the universe and the fragility of human life."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Were you scared to be alone in space?",
+                  "respuesta": "The silence is profound, but trust in the training and in the team dispelled any fear."
+                },
+                {
+                  "etiqueta": "What were you thinking as you looked at Earth from there?",
+                  "respuesta": "I saw a blue planet, a sight that reinforced my commitment to peace and international cooperation."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "The success of this mission depends on the tireless ==support of NASA== and the determination of everyone working behind the scenes."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Observe horizon",
+          "descripcion": "Michael watches the horizon, noting the orbital alignment.",
+          "animacion": "StandUp",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_saturno_v",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Saturn V",
+        "descripcion": "The ==Saturn V== is ==110 meters== tall and weighs around ==2,900 tons== at liftoff. Its five stages use liquid and solid fuels to generate the necessary thrust.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyR",
+          "etiqueta": "Ignite engines",
+          "descripcion": "Begins the ignition of the main engines, generating an intense glow.",
+          "efecto_visual": "brillo",
+          "sonido": "esfuerzo"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_modulo_mando_columbia",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Columbia Command Module",
+        "descripcion": "The Columbia command module houses the astronauts' cabin. It is equipped with navigation, communication and life-support systems. Its mass is ==2,700 kg== and it contains the controls for orbital maneuvering.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [
+        {
+          "tipo": "accion",
+          "tecla": "KeyQ",
+          "etiqueta": "Open hatch",
+          "descripcion": "Opens the module's access hatch, revealing the internal controls.",
+          "efecto_visual": "abrir",
+          "sonido": "metal"
+        }
+      ],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_barrera_seguridad_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A steel barrier with warning signage, guarding the launch zone."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_camion_combustible_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Oxygen tanker truck",
+        "descripcion": "A liquid oxygen tanker truck parked near the rocket, essential for the propulsion systems and launch safety.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_lanzamiento",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "Upon entering the launch pad, the player sees the enormous structure and the rocket ready for liftoff."
+    }
+  ]
+}

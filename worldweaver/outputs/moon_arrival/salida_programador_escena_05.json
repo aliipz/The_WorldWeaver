@@ -1,0 +1,480 @@
+{
+  "id_escena": "escena_05",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Columbia Module burns on reentry",
+      "guias": [
+        "objeto_modulo_mando_columbia",
+        "personaje_michael_collins"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_modulo_mando_columbia"
+        ],
+        "personajes": [
+          "personaje_michael_collins"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Parachutes deploy, the sea receives them",
+      "guias": [
+        "objeto_paracaidas_principales",
+        "objeto_uss_hornet",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin",
+        "personaje_michael_collins"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_paracaidas_principales",
+          "objeto_uss_hornet"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin",
+          "personaje_michael_collins"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Astronauts in quarantine, mission complete",
+      "guias": [
+        "objeto_instalacion_cuarentena",
+        "personaje_neil_armstrong",
+        "personaje_buzz_aldrin",
+        "personaje_michael_collins"
+      ],
+      "condicion_avance": {
+        "nodos": [
+          "objeto_instalacion_cuarentena"
+        ],
+        "personajes": [
+          "personaje_neil_armstrong",
+          "personaje_buzz_aldrin",
+          "personaje_michael_collins"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_michael_collins",
+      "fase_aparicion": 0,
+      "ficha_info": {
+        "titulo": "Michael Collins — Pilot of the Columbia command module",
+        "texto": "American astronaut (1930-1969). He remained in ==lunar orbit== while his companions descended, ensuring the safety of the ==Columbia Module== and the mission."
+      },
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "I see the ==Columbia Module== burning in the ==atmosphere== as the heat creates a veil of ==plasma==."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The process of ==thermal friction== is what slows the ship before the parachutes."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How much speed does the capsule lose?",
+                  "respuesta": "It loses about ==7,800 km/h== in the final minutes."
+                },
+                {
+                  "etiqueta": "Why does plasma form?",
+                  "respuesta": "The air ionizes when it exceeds ==2,500 °C==."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "I stay calm, because my mission is to watch the systems while my companions descend."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "The main parachutes deploy and the capsule slows over the ==Pacific Ocean==."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The helicopter from the ==USS Hornet== and the divers are ready for the recovery."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How many divers take part?",
+                  "respuesta": "==12 divers== were sent to secure the capsule."
+                },
+                {
+                  "etiqueta": "How long did it take to touch the water?",
+                  "respuesta": "About ==3 minutes== after deployment."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "On touching the water, the pressure drops and the module becomes stable."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Once aboard, we are taken to the ==quarantine facility== to prevent any ==space contagion==."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The protocols include 21 days of isolation and sample analysis."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Why 21 days?",
+                  "respuesta": "It is the time it takes the human body to show symptoms of any unknown pathogen."
+                },
+                {
+                  "etiqueta": "What kind of tests are done?",
+                  "respuesta": "==Microbiology== and ==radiation== tests are carried out on the suit and the capsule."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "With the quarantine over, the mission is declared complete."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Talk about isolation",
+          "descripcion": "You ask Michael about the quarantine protocols. He nods, pointing out the importance of containment.",
+          "animacion": "Victory",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_neil_armstrong",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Neil Armstrong — Commander of Apollo 11",
+        "texto": "First human to set foot on the ==Moon== on July 20, 1969. He led the mission that proved humanity's ability to travel beyond the Earth."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "I see the capsule descend and the parachutes cool on contact with the sea spray."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The helicopter from the ==USS Hornet== picks us up with precision."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What is the helicopter's approach speed?",
+                  "respuesta": "Around ==150 km/h== to keep stability."
+                },
+                {
+                  "etiqueta": "What role do the divers play?",
+                  "respuesta": "They make sure the capsule isn't damaged when it is lifted."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "The sound of the helicopter engine is a reminder that Earth is welcoming us back."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "We enter the quarantine zone, where every surface is meticulously disinfected."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The scientists monitor for any sign of contamination."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What kind of contaminants are they looking for?",
+                  "respuesta": "Particles of ==microbes== and traces of ==cosmic radiation==."
+                },
+                {
+                  "etiqueta": "How long does the observation last?",
+                  "respuesta": "Surveillance is maintained for ==21 days==, as standard."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "As we leave, we know the mission has come full circle."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Interview",
+          "descripcion": "You ask Neil about the reentry and the heat. He answers calmly, explaining the protocols.",
+          "animacion": "Victory",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": [
+            {
+              "id_nodo": "personaje_buzz_aldrin",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_buzz_aldrin",
+      "fase_aparicion": 1,
+      "ficha_info": {
+        "titulo": "Buzz Aldrin — Pilot of the Eagle Lunar Module",
+        "texto": "Second man to walk on the ==Moon==, he contributed to the navigation systems and to the operation of the lunar module during the Apollo 11 mission."
+      },
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "The parachutes inflate like wings, slowing the fall over the ocean."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The ==USS Hornet== divers greet us on arrival."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "How does the water feel on impact?",
+                  "respuesta": "The module shakes, but the structure keeps its integrity."
+                },
+                {
+                  "etiqueta": "How many divers are in the operation?",
+                  "respuesta": "A team of ==10 divers==."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "The sky opens and we see the light of sunset as they recover us."
+              ],
+              "opciones": []
+            }
+          ]
+        },
+        {
+          "fase": 2,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "Inside the facility, the atmosphere is silent, like a sterilization chamber."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The doctors check our vital signs."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Is there any risk of disease?",
+                  "respuesta": "The risk is low, but it is controlled with ==bacteria== tests."
+                },
+                {
+                  "etiqueta": "What happens after the quarantine?",
+                  "respuesta": "The final report is issued and the return is celebrated."
+                }
+              ]
+            },
+            {
+              "frases": [
+                "At the end, we prepare to share our experiences with the world."
+              ],
+              "opciones": []
+            }
+          ]
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Comment on the recovery",
+          "descripcion": "You ask Buzz how the naval recovery was coordinated. He shows enthusiasm and raises his fist.",
+          "animacion": "Victory",
+          "narrativa": false,
+          "fase_aparicion": 0,
+          "sonido": "suave",
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "objeto_modulo_mando_columbia",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Columbia Command Module",
+        "descripcion": "The ==Columbia Command Module== is the control section of the spacecraft; it contains the navigation and communication systems. During reentry it generates plasma from friction with the atmosphere, reaching temperatures of ==≈ 3000 °C==.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_paracaidas_principales",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Main Parachutes",
+        "descripcion": "The ==main parachutes== are deceleration devices that deploy on entering the atmosphere, increasing air resistance and reducing the descent speed to about ==5 m/s==.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_uss_hornet",
+      "fase_aparicion": 1,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "USS Hornet",
+        "descripcion": "The ==USS Hornet== is a U.S. Navy aircraft carrier, equipped with helicopters and divers for rescue operations. Its flight deck allows launching helicopters that recover the capsule.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "objeto_instalacion_cuarentena",
+      "fase_aparicion": 2,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Mobile Quarantine Facility",
+        "descripcion": "The ==Mobile Quarantine Facility== is a containment unit designed to isolate the astronauts and prevent the transmission of possible space contaminants. It operates with negative pressure and HEPA filters.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_boya_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Orange buoy that vibrates slightly, marking the rescue zone."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "brillo",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_red_pesca_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Abandoned fishing net drifting, trapping currents and light."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.0,
+        "una_vez": false
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_oceano",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "On entering the ==Pacific Ocean==, the setting sun dyes the water red."
+    }
+  ]
+}

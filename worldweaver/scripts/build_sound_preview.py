@@ -11,9 +11,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 JS = (ROOT / "sandbox" / "js" / "interactions.js").read_text(encoding="utf-8")
 
-# Extraer el bloque `const _SFX = { ... };` (hasta justo antes de window._sfxPortal)
+# Extraer el bloque `const _SFX = { ... };` (hasta justo antes de window._wwChapoteo)
 ini = JS.index("const _SFX = {")
-fin = JS.index("window._sfxPortal")
+fin = JS.index("window._wwChapoteo")
 sfx_block = JS[ini:fin].rstrip()
 
 # Grupos del catálogo: (titulo, [(nombre_metodo, etiqueta, descripcion)])

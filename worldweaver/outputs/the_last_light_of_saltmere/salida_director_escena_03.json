@@ -1,0 +1,140 @@
+{
+  "id_escena": "escena_03",
+  "elementos": [
+    {
+      "id": "personaje_mara",
+      "nombre": "Mara",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.8,
+      "descripcion": "Young woman in her twenties with a red bandana, weathered coat and high boots.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_morwen",
+      "nombre": "Morwen",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 0.9,
+      "alto": 2.2,
+      "descripcion": "Tall figure with a pointed hat and glowing eyes, wrapped in seaweed-like robes.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_lanterna",
+      "nombre": "Lantern",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_02",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 0.3,
+      "alto": 0.4,
+      "descripcion": "The blue-glowing lantern carried by Mara, lit by Agnes to guide the way through the deep.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_altar_inscripcion",
+      "nombre": "Stone altar with inscription",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 1.4,
+      "alto": 1.0,
+      "descripcion": "Ancient cracked stone altar bearing the warning: 'Only the brave may wake the sun.'",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_statue_01",
+      "nombre": "Sunken stone statue",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 7,
+        "fila": 3
+      },
+      "ancho": 0.8,
+      "alto": 1.9,
+      "descripcion": "Moss-covered statue of a robed figure, its face eroded and arm missing, tilted against a cracked wall.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_column_01",
+      "nombre": "Broken stone column",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 3.0,
+      "alto": 0.6,
+      "descripcion": "Toppled marble column, cracked and weathered, with coral encrusting its base and pale green algae streaking its surface.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_fish_01",
+      "nombre": "School of bright fish",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 1
+      },
+      "ancho": 1.0,
+      "alto": 0.6,
+      "descripcion": "A tight swirl of small, shimmering blue-and-yellow fish darting around a broken archway.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_coral_01",
+      "nombre": "Branching coral cluster",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 2
+      },
+      "ancho": 1.2,
+      "alto": 1.0,
+      "descripcion": "Fan-shaped coral with intricate purple and orange branches, some tips snapped off, spreading from a mossy rock.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_seaweed_01",
+      "nombre": "Drifting seaweed patch",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 0
+      },
+      "ancho": 2.0,
+      "alto": 0.5,
+      "descripcion": "Long, flowing strands of dark green seaweed swaying in slow water, partially covering a fallen stone block.",
+      "keyword_busqueda": null
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "id_escena": "escena_02",
+  "elementos": [
+    {
+      "id": "personaje_female",
+      "nombre": "Emily",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Young woman, late teens, long dark hair fluttering in the wind, simple tunic",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_male",
+      "nombre": "Mark",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Young man, early twenties, short brown hair, worn leather jacket",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_zombie_01",
+      "nombre": "Zombie 1",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.8,
+      "descripcion": "Decayed corpse, ragged clothing, empty eye sockets that suddenly hold a soft gaze",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_cairn_01",
+      "nombre": "Stone cairn",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 0.6,
+      "descripcion": "Small stack of irregular river stones, weathered grey and brown, topped with a sprig of pine needles.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_small_pond_01",
+      "nombre": "Misty pond",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 4
+      },
+      "ancho": 2.5,
+      "alto": 0.2,
+      "descripcion": "Shallow, still pond edged with smooth pebbles, its surface reflecting moonlight and dotted with floating lily pads.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_log_01",
+      "nombre": "Gnarled fallen log",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 2
+      },
+      "ancho": 3.0,
+      "alto": 0.8,
+      "descripcion": "Thick, dark-brown log covered in moss and lichen, with deep cracks and a slick surface from recent rain.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_mossy_rock_01",
+      "nombre": "Moss-covered stone",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 1.5,
+      "alto": 1.2,
+      "descripcion": "Rounded granite boulder blanketed in thick emerald moss, its surface damp and speckled with tiny white lichen spots.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_mushroom_cluster_01",
+      "nombre": "Glowing mushroom cluster",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 0.6,
+      "alto": 0.4,
+      "descripcion": "Cluster of bioluminescent fungi with pale caps, soft stems, and a faint amber glow that illuminates nearby leaf litter.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_fallen_branch_01",
+      "nombre": "Twisted branch",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 1
+      },
+      "ancho": 2.0,
+      "alto": 0.3,
+      "descripcion": "Long, slender branch snapped from a pine, its bark stripped in places, lying across the forest floor with a few pine cones attached.",
+      "keyword_busqueda": null
+    }
+  ]
+}

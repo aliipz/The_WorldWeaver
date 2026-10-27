@@ -57,6 +57,7 @@ from agents.examinador import ejecutar_examinador
 from pipeline.ensamblador import ensamblar, generar_quiz_html
 from pipeline.errors import AgentError, SinNarrativa
 from pipeline.state import WorldWeaverState
+from config.settings import settings
 from pipeline.validators import (
     validar_organizador,
     validar_director,
@@ -66,7 +67,7 @@ from pipeline.validators import (
 
 logger = logging.getLogger(__name__)
 
-MAX_RETRIES = 3
+MAX_RETRIES = settings.max_retries   # reintentos por agente LLM (.env: MAX_RETRIES)
 
 # ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -116,7 +117,12 @@ def _incrementar_reintento(state: WorldWeaverState, agente: str) -> dict:
 # ─── Nodos agente ─────────────────────────────────────────────────────────────
 
 def nodo_organizador(state: WorldWeaverState) -> dict:
-    print("\n--- [1/6] Organizador ---")
+    print("\n--- [1/5] Organizador ---")
+    # Reanudación / regeneración de una escena: la salida del Organizador ya viene del
+    # disco (ver estado_desde_disco). Volver a llamarlo podría reescribir las escenas.
+    if state.get("salida_organizador") is not None and not state.get("errores_organizador"):
+        print("   (salida cargada del disco — sin llamada al LLM)")
+        return {"errores_organizador": []}
     provider = state.get("provider", "mercury")
     mensajes = state.get("mensajes_organizador") or []
 
@@ -185,7 +191,7 @@ def nodo_director(state: WorldWeaverState) -> dict:
     escena = _escena_activa(state)
     idx = state.get("escena_activa", 0)
     total = len(state["salida_organizador"].escenas)
-    print(f"\n--- [2/6] Director — {escena.id} ({idx+1}/{total}) ---")
+    print(f"\n--- [2/5] Director — {escena.id} ({idx+1}/{total}) ---")
 
     provider = state.get("provider", "mercury")
     mensajes = state.get("mensajes_director") or []
@@ -225,7 +231,7 @@ def nodo_director(state: WorldWeaverState) -> dict:
 
 
 def nodo_constructor(state: WorldWeaverState) -> dict:
-    print("\n--- [3/6] Constructor ---")
+    print("\n--- [3/5] Constructor ---")
     provider           = state.get("provider", "mercury")
     sg_previos         = state.get("scene_graphs_previos", {})
     registro_previo    = state.get("registro_personajes", {})
@@ -280,7 +286,7 @@ def nodo_constructor(state: WorldWeaverState) -> dict:
 
 
 def nodo_programador(state: WorldWeaverState) -> dict:
-    print("\n--- [5/6] Programador ---")
+    print("\n--- [4/5] Programador ---")
     provider = state.get("provider", "mercury")
     escena = _escena_activa(state)
     mensajes = state.get("mensajes_programador") or []
@@ -330,7 +336,7 @@ def nodo_programador(state: WorldWeaverState) -> dict:
 
 
 def nodo_musico(state: WorldWeaverState) -> dict:
-    print("\n--- [6/6] Músico ---")
+    print("\n--- [5/5] Músico ---")
     eid = state["scene_graph"].id_escena
     escena = state["salida_organizador"].escenas[state["escena_activa"]]
     provider = state.get("provider", "mercury")
@@ -353,12 +359,14 @@ def nodo_ensamblador(state: WorldWeaverState) -> dict:
 
     idx = state.get("escena_activa", 0)
     escenas = state["salida_organizador"].escenas
-    es_ultima = not state.get("escena_filtro") and idx + 1 >= len(escenas)
+    # Con escena_filtro solo se genera esta escena, pero su portal y su cierre deben ser
+    # los de su posición real en la historia (si no, al regenerar la última perdía el fin).
+    es_ultima = idx + 1 >= len(escenas)
 
     # URL del portal: siguiente escena, quiz (educativo final) o ninguno
     next_scene_url = None
     portal_label = None
-    if not state.get("escena_filtro") and idx + 1 < len(escenas):
+    if idx + 1 < len(escenas):
         next_eid = escenas[idx + 1].id
         next_scene_url = f"preview_{next_eid}.html"
     elif es_ultima and modo == "educativo":
@@ -395,7 +403,6 @@ def nodo_ensamblador(state: WorldWeaverState) -> dict:
         state["scene_graph"],
         manifest=state.get("salida_programador"),
         musico=state.get("salida_musico"),
-        dibujante=state.get("salida_dibujante"),
         escena=escena_obj,
         next_scene_url=next_scene_url,
         portal_label=portal_label,
@@ -577,7 +584,6 @@ def nodo_siguiente_escena(state: WorldWeaverState) -> dict:
         # Resetear outputs por-escena
         "salida_director": None,
         "scene_graph": None,
-        "salida_dibujante": None,
         "salida_programador": None,
         "salida_musico": None,
         # Resetear historial de mensajes por agente
@@ -710,11 +716,130 @@ def compilar_grafo() -> StateGraph:
 
 # ─── Punto de entrada público ─────────────────────────────────────────────────
 
+def estado_inicial(
+    texto: str,
+    nombre_mundo: str,
+    out_dir: Path,
+    provider: str = "mercury",
+    modo: str = "narrativo",
+    idioma: str = "es",
+    escena_filtro: str | None = None,
+) -> WorldWeaverState:
+    """Estado inicial del grafo. Fuente única para ejecutar_pipeline, el servidor y la
+    reanudación (antes cada uno construía el suyo y divergían)."""
+    return {
+        "nombre_mundo":         nombre_mundo,
+        "provider":             provider,
+        "modo":                 modo,
+        "idioma":               idioma,
+        "out_dir":              str(out_dir),
+        "max_retries":          MAX_RETRIES,
+        "texto_original":       texto,
+        "escena_activa":        0,
+        "escena_filtro":        escena_filtro,
+        "scene_graphs_previos": {},
+        "registro_personajes":  {},
+        "salida_organizador":   None,
+        "salida_director":      None,
+        "scene_graph":          None,
+        "salida_programador":   None,
+        "salida_musico":        None,
+        "salida_examinador":    None,
+        "mensajes_organizador": [],
+        "mensajes_director":    [],
+        "mensajes_programador": [],
+        "errores_organizador":  [],
+        "errores_director":     [],
+        "errores_constructor":  [],
+        "errores_programador":  [],
+        "reintentos":           {},
+    }
+
+
+def estado_desde_disco(
+    out_dir: Path,
+    escena: str | None = None,
+    desde: str | None = None,
+    provider: str = "mercury",
+    modo: str | None = None,
+    idioma: str | None = None,
+) -> WorldWeaverState:
+    """Estado para continuar un mundo ya empezado sin repetir el Organizador.
+
+    - escena=None → reanuda en la primera escena sin preview_*.html y sigue hasta el final.
+    - escena="escena_03" → regenera solo esa escena (con su portal y cierre correctos).
+      Ojo: si en ella se establece el aspecto de un personaje recurrente, las escenas
+      posteriores conservan el aspecto antiguo; para eso usa `desde`.
+    - desde="escena_03" → regenera desde esa escena hasta el final.
+    Carga la salida del Organizador y los SceneGraph ya generados (consistencia de
+    personajes, modelos y tamaños entre escenas). Modo e idioma se leen de la marca
+    de mundo incompleto o del preview existente si no se indican.
+    """
+    from schemas.escenas import SalidaOrganizador
+    from schemas.scene_graph import SceneGraph
+
+    org = SalidaOrganizador.model_validate_json(
+        (out_dir / "salida_organizador.json").read_text(encoding="utf-8"))
+    ids = [e.id for e in org.escenas]
+
+    marca = out_dir / "_incompleto.json"
+    meta = json.loads(marca.read_text(encoding="utf-8")) if marca.exists() else {}
+    if idioma is None or modo is None:
+        for prev in sorted(out_dir.glob("preview_escena_*.html")):
+            m = re.search(r'const IDIOMA = "(\w+)"; const MODO = "(\w+)"',
+                          prev.read_text(encoding="utf-8"))
+            if m:
+                meta.setdefault("idioma", m.group(1)); meta.setdefault("modo", m.group(2))
+                break
+    idioma = idioma or meta.get("idioma", "es")
+    modo = modo or meta.get("modo", "narrativo")
+
+    objetivo = escena or desde
+    if objetivo:
+        if objetivo not in ids:
+            raise ValueError(f"Escena '{objetivo}' no existe. Disponibles: {ids}")
+        idx = ids.index(objetivo)
+    else:
+        pendientes = [i for i, eid in enumerate(ids)
+                      if not (out_dir / f"preview_{eid}.html").exists()]
+        if not pendientes:
+            raise ValueError("Todas las escenas ya tienen preview: no hay nada que reanudar.")
+        idx = pendientes[0]
+
+    sg_previos, registro = {}, {}
+    for i, eid in enumerate(ids):
+        f = out_dir / f"scene_graph_{eid}.json"
+        # Solo escena suelta: se cargan todas las demás (el cierre usa sus cielos).
+        # Reanudar / desde: solo las anteriores (las siguientes se regeneran).
+        if i == idx or (not escena and i > idx) or not f.exists():
+            continue
+        sg = SceneGraph.model_validate_json(f.read_text(encoding="utf-8"))
+        sg_previos[eid] = sg
+        registro.update(sg.registro_personajes)
+
+    fuente = out_dir / f"{_slug(org.titulo_historia, out_dir.name)}.txt"
+    texto = fuente.read_text(encoding="utf-8") if fuente.exists() else ""
+
+    estado = estado_inicial(texto, out_dir.name, out_dir, provider=provider, modo=modo,
+                            idioma=idioma, escena_filtro=escena)
+    estado.update({
+        "salida_organizador":   org,
+        "escena_activa":        idx,
+        "scene_graphs_previos": sg_previos,
+        "registro_personajes":  registro,
+        "subtipo_educativo":    org.subtipo_educativo,
+        "tipo_vocabulario":     org.tipo_vocabulario,
+        "idioma_objetivo":      org.idioma_objetivo,
+    })
+    print(f"   Reanudando '{out_dir.name}' en {ids[idx]} ({idx + 1}/{len(ids)})"
+          f"{' — solo esta escena' if escena else ''} · modo={modo} idioma={idioma}")
+    return estado
+
+
 def ejecutar_pipeline(
     texto: str,
     nombre_mundo: str,
     provider: str = "mercury",
-    modo_dibujante: str = "mock",
     escena_filtro: str | None = None,
     modo: str = "narrativo",
     idioma: str = "es",
@@ -726,9 +851,6 @@ def ejecutar_pipeline(
         texto: Texto narrativo de entrada.
         nombre_mundo: Nombre del mundo (subcarpeta en outputs/).
         provider: "mercury" | "ollama"
-        modo_dibujante: "mock" | "fal" | "gemini" | "auto"
-                        (el Dibujante está desconectado — este parámetro
-                         se usa para el Músico en modo auto)
         escena_filtro: Si se indica, solo procesa esa escena (ej: "escena_01").
 
     Returns:
@@ -750,37 +872,10 @@ def ejecutar_pipeline(
 
     grafo = compilar_grafo()
 
-    estado_inicial: WorldWeaverState = {
-        "nombre_mundo":         nombre_mundo,
-        "provider":             provider,
-        "modo":                 modo,
-        "idioma":               idioma,
-        "modo_dibujante":       modo_dibujante,
-        "out_dir":              str(out_dir),
-        "max_retries":          MAX_RETRIES,
-        "texto_original":       texto,
-        "escena_activa":        0,
-        "escena_filtro":        escena_filtro,
-        "scene_graphs_previos": {},
-        "registro_personajes":  {},
-        "salida_organizador":   None,
-        "salida_director":      None,
-        "scene_graph":          None,
-        "salida_dibujante":     None,
-        "salida_programador":   None,
-        "salida_musico":        None,
-        "salida_examinador":    None,
-        "mensajes_organizador": [],
-        "mensajes_director":    [],
-        "mensajes_programador": [],
-        "errores_organizador":  [],
-        "errores_director":     [],
-        "errores_constructor":  [],
-        "errores_programador":  [],
-        "reintentos":           {},
-    }
+    estado = estado_inicial(texto, nombre_mundo, out_dir, provider=provider, modo=modo,
+                            idioma=idioma, escena_filtro=escena_filtro)
 
-    estado_final = grafo.invoke(estado_inicial)
+    estado_final = grafo.invoke(estado)
 
     escenas = estado_final["salida_organizador"].escenas
     if escena_filtro:

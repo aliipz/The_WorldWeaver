@@ -882,8 +882,8 @@ los PRACTICA en una CONVERSACIÓN donde elige la respuesta correcta.
 Te dan el IDIOMA OBJETIVO y una lista de conceptos. El idioma de la UI es el de ESTE prompt (español).
 
 CAMPO "vocabulario" (NIVEL RAÍZ, OBLIGATORIO): lista de 6-10 pares concepto↔traducción:
-  {{ "ui": "<concepto en español>", "objetivo": "<concepto en idioma objetivo>", "nota": "<uso breve>" }}
-  Ej: {{ "ui": "Buenos días", "objetivo": "Good morning", "nota": "saludo de mañana" }}
+  { "ui": "<concepto en español>", "objetivo": "<concepto en idioma objetivo>", "nota": "<uso breve>" }
+  Ej: { "ui": "Buenos días", "objetivo": "Good morning", "nota": "saludo de mañana" }
 
 ESTRUCTURA — EXACTAMENTE 2 escenas en el MISMO lugar (coherente con el tema: una plaza o calle para
 saludos, un aula para conceptos escolares, etc.):
@@ -992,7 +992,8 @@ Responde con este JSON (incluye TODOS los campos; "vocabulario" en la raíz; "ob
 }}
 
 En la EXPOSICIÓN, "eventos" es la CONVERSACIÓN COMPLETA: 6-10 turnos alternando personaje_a y personaje_b,
-cubriendo TODOS los conceptos del vocabulario en orden natural.
+ordenados por lógica de conversación. Cubre los conceptos que encajen con naturalidad: la coherencia
+manda sobre usarlos todos (el examen y el cuestionario repasan el resto).
 En el EXAMEN, "eventos" es una CONVERSACIÓN de 4-5 turnos del alumno con el guía (un arco coherente:
 saludo → cómo estás → ... → despedida). Repite el patrón de los eventos de ejemplo según el nº de turnos.
 """.strip()
@@ -1077,8 +1078,8 @@ PARTE 2 — INVENTAR DECORADOS (campo "decorados")
 ═══════════════════════════════════════════
 
 NÚMERO DE DECORADOS según el tipo de escena:
-- interior (tipo_ambiente="interior"):          5–7  decorados (mobiliario por arquetipo, ver abajo)
-- interior_grande (catedral, estadio...):       7–9  decorados (gran escala, mobiliario por arquetipo)
+- habitacion / interior:                        7–9  decorados (mobiliario por arquetipo, ver abajo)
+- interior_grande (catedral, estadio...):       12–16 decorados (gran escala, mobiliario por arquetipo)
 - pueblo, ciudad, ruinas:                       4–6  decorados
 - campo, naturaleza, pradera, playa, montaña,
   desierto, selva, sabana, cueva:               5–8  decorados (espacio amplio)
@@ -1196,7 +1197,8 @@ RECUERDA:
 - Narrativos → SIEMPRE filas 3-6. Distribuye entre las 4 filas jugables.
 - Decorados → reparte entre fondo (fila 0-2) y zona jugable (fila 3-4) según nº de narrativos
   en zona jugable (≤3→~40%, 4-6→~25%, ≥7→~12% van a zona jugable; ver sistema).
-- Respeta el rango de columnas de cada fila (fila 3: 0-6, fila 4: 0-5, etc.).
+- Respeta el rango de columnas de cada fila (fila 0: 0-8, fila 1: 0-6, fila 2: 0-4, fila 3: 0-7,
+  fila 4: 0-6, fila 5: 0-4, fila 6: 0-2).
 - Sin placeholders: contenido real y específico.
 """.strip()
 
@@ -1545,41 +1547,6 @@ RECUERDA:
 """.strip()
 
 # ---------------------------------------------------------------------------
-# Agente 2 — Director (Pasada de ajuste de tamaños — DESACTIVADA)
-# ---------------------------------------------------------------------------
-
-DIRECTOR_TAMAÑOS_SYSTEM = """
-Eres un experto en composición de escenas 3D. Tu única tarea es asignar tamaños
-físicos realistas a una lista de elementos, razonando sobre su escala relativa.
-
-REGLAS:
-- 1.0 unidad = altura de una persona adulta de pie (~1.75m).
-- Asigna tamaños REALES del elemento en la vida real, no según su importancia narrativa.
-- Razona de forma RELATIVA: compara los elementos entre sí antes de asignar valores.
-- Un pato mide ~0.3 unidades. Una flor ~0.15. Una valla ~1.2 de ancho y ~1.0 de alto.
-- Objetos planos (estanque, alfombra): ancho >> alto (ej: ancho 3.0, alto 0.1).
-
-Responde EXCLUSIVAMENTE con JSON válido. Sin texto adicional.
-""".strip()
-
-DIRECTOR_TAMAÑOS_USER = """
-Escena: {entorno}
-Atmósfera: {atmosfera}
-
-Elementos a dimensionar:
-{lista_elementos}
-
-Asigna tamaños físicos realistas teniendo en cuenta la escala relativa entre ellos.
-Devuelve EXACTAMENTE este JSON (una entrada por elemento):
-{{
-  "id_elemento_1": {{"ancho": 0.9, "alto": 1.8}},
-  "id_elemento_2": {{"ancho": 0.35, "alto": 0.3}},
-  ...
-}}
-""".strip()
-
-
-# ---------------------------------------------------------------------------
 # Agente 5 — Programador (Pasada 1: estructura narrativa)
 # ---------------------------------------------------------------------------
 
@@ -1610,7 +1577,8 @@ POR CADA FASE
 OBJETOS Y DECORADOS
 ═══════════════════════════════════════════
 
-Para cada objeto/decorado narrativamente relevante del SceneGraph:
+Para cada OBJETO (tipo "objeto") narrativamente relevante del SceneGraph (los decorados los
+anima otra pasada; aquí solo pueden ser destino de "dispara"):
   - "fase_aparicion": en qué fase se desbloquea (0 = desde el inicio).
     REGLA: si el objeto aparece en condicion_avance de la fase N, asigna fase_aparicion: N
     para que no sea interactuable antes de tiempo. Solo usa 0 si el objeto debe estar
@@ -1830,6 +1798,9 @@ ZONAS NARRATIVAS
 
 0-2 zonas espaciales que disparan texto narrador al entrar por primera vez.
 Solo si añaden valor narrativo real — no las pongas por defecto.
+"columnas" son 5 sectores alrededor del punto de partida del jugador: 0 = detrás a la izquierda,
+1 = izquierda, 2 = al frente, 3 = derecha, 4 = detrás a la derecha. La zona se activa cuando el
+jugador camina hacia ese sector.
 
 Responde EXCLUSIVAMENTE con JSON válido. Sin texto adicional, sin markdown.
 """.strip()
@@ -2375,13 +2346,13 @@ FICHA DE INFORMACIÓN (tecla I) — OBLIGATORIA para cada figura:
 Además de los diálogos, cada figura lleva una "ficha_info": una TARJETA DE PRESENTACIÓN
 breve y divulgativa. NO es diálogo ni va en primera persona — es una ficha informativa
 que el visitante abre con la tecla I para saber quién es la figura y por qué importa.
-  "ficha_info": {{
+  "ficha_info": {
     "titulo": "Nombre + rol en una línea. Ej: 'Neil Armstrong — Astronauta de la NASA'",
     "texto": "2-3 frases en TERCERA persona, tono ficha de museo (no teatral): quién fue/es
               y su relevancia CONCRETA en el tema, con un dato o hecho clave.
               MARCA con ==...== lo más importante de la figura (su rol clave, el dato o
               logro por el que debe recordarse) — 1-2 fragmentos cortos."
-  }}
+  }
 
 ESTRUCTURA OBLIGATORIA — verifica ANTES de responder (es la causa nº1 de rechazo):
 □ Cada figura lleva "dialogos": una lista con al menos 1 entrada.
@@ -2521,14 +2492,14 @@ Es una conversación COTIDIANA en el idioma que se aprende — NO teatro histór
 Cada personaje del JSON lleva:
 - "id_nodo": su id (tal cual aparece en la lista de personajes).
 - "fase_aparicion": 0.
-- "ficha_info": {{ "titulo": "Nombre — rol en una línea", "texto": "1-2 frases de quién es" }}.
-- "dialogos": lista de turnos; cada turno = {{ "fase": N, "animacion": null, "puntos": [{{ "frases": ["UNA frase"], "opciones": [...] }}], "pista": <opcional> }}.
+- "ficha_info": { "titulo": "Nombre — rol en una línea", "texto": "1-2 frases de quién es" }.
+- "dialogos": lista de turnos; cada turno = { "fase": N, "animacion": null, "puntos": [{ "frases": ["UNA frase"], "opciones": [...] }], "pista": <opcional> }.
 
 Reglas: cada "frases" tiene EXACTAMENTE 1 frase. Frases CORTAS y naturales. CONCORDANCIA DE GÉNERO en español
 (artículos y adjetivos concuerdan con el sustantivo). El bloque de ROL de abajo dice el formato EXACTO de
 cada turno y de las opciones.
 
-Responde EXCLUSIVAMENTE con JSON válido {{ "personajes": [...] }}. Sin texto adicional, sin markdown.
+Responde EXCLUSIVAMENTE con JSON válido { "personajes": [...] }. Sin texto adicional, sin markdown.
 """.strip()
 
 PROGRAMADOR_P2_CONVERSACIONAL_USER = """
@@ -2762,12 +2733,6 @@ Para objetos con solo proximidad (sin interacción al pulsar E): usa "lore" con 
 """.strip()
 
 
-# ---------------------------------------------------------------------------
-# (legacy stub — kept for backwards compat with any direct import)
-# ---------------------------------------------------------------------------
-
-PROGRAMADOR_SYSTEM = PROGRAMADOR_P1_SYSTEM
-PROGRAMADOR_USER = PROGRAMADOR_P1_USER
 
 
 # ---------------------------------------------------------------------------

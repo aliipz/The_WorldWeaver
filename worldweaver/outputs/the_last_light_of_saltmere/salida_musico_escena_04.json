@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_04",
+  "query_usada": "dark cave dripping water ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/516/516566_2247456-hq.mp3",
+    "titulo": "Dark Dungeon Ambience",
+    "autor": "Kinoton",
+    "duracion_segundos": 180.0,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/564/564166_1445263-hq.mp3",
+    "titulo": "Crashing Starship",
+    "autor": "Aemyn",
+    "duracion_segundos": 307.9,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

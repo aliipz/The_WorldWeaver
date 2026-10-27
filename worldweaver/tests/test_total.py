@@ -6,7 +6,7 @@ Uso:
 
 Ejemplo:
     python tests/test_total.py tests/fixtures/cuento_ejemplo.txt bosque_magico
-    python tests/test_total.py texto.txt mi_mundo --provider ollama --dibujante mock
+    python tests/test_total.py texto.txt mi_mundo --provider ollama
     python tests/test_total.py texto.txt mi_mundo --escena escena_01
 
 Genera en outputs/<nombre_mundo>/:
@@ -32,8 +32,6 @@ def main():
     parser.add_argument("texto",        help="Ruta al fichero de texto narrativo")
     parser.add_argument("nombre_mundo", help="Nombre del mundo (carpeta de salida)")
     parser.add_argument("--provider",   default="mercury", choices=["mercury", "ollama"])
-    parser.add_argument("--dibujante",  default="mock",    choices=["mock", "fal", "gemini", "auto"],
-                        help="Modo del Dibujante (default: mock)")
     parser.add_argument("--escena",     default=None,
                         help="Procesar solo esta escena, ej: escena_01")
     parser.add_argument("--modo",       default="narrativo", choices=["narrativo", "educativo"],
@@ -52,7 +50,6 @@ def main():
         texto=texto,
         nombre_mundo=args.nombre_mundo,
         provider=args.provider,
-        modo_dibujante=args.dibujante,
         escena_filtro=args.escena,
         modo=args.modo,
         idioma=args.idioma,

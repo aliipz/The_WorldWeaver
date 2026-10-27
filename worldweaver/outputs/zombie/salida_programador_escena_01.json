@@ -1,0 +1,471 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Zombies close in, night presses tighter...",
+      "guias": [
+        "personaje_female",
+        "personaje_male",
+        "personaje_zombie_01",
+        "personaje_zombie_02"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_female",
+          "personaje_male",
+          "personaje_zombie_01",
+          "personaje_zombie_02"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Emily stumbles, Mark pulls her forward...",
+      "guias": [
+        "personaje_female",
+        "personaje_male"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_female",
+          "personaje_male"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Wind howls, shadows deepen, log offers shelter...",
+      "guias": [
+        "personaje_female",
+        "personaje_male",
+        "personaje_zombie_01",
+        "personaje_zombie_02"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_female",
+          "personaje_male",
+          "personaje_zombie_01",
+          "personaje_zombie_02"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_female",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Run, Mark! They're right on us!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "They're gaining on us!",
+                  "respuesta": "We have to keep moving, no time to look back.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "There's a narrow trail ahead!",
+                  "respuesta": "Then we sprint toward it, even if it's a gamble.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "My breath freezes, but I won't let fear stop us."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": "RecieveHit",
+          "puntos": [
+            {
+              "frases": [
+                "I stumbled, but I can still run."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Watch your step!",
+                  "respuesta": "I won't let the forest trip me again.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "We can't afford to stop!",
+                  "respuesta": "Every second counts, keep moving!",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "The bark scraped my knee, but the night is louder."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "The wind roars, the dead close in."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Do you hear them?",
+                  "respuesta": "Their moans are a chorus of dread.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "We need a shelter!",
+                  "respuesta": "This log will hide us for a moment.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "Darkness presses, but I cling to your hand."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Brace",
+          "descripcion": "Emily clutches her ankle, eyes wide, searching for a safe path.",
+          "animacion": "SitDown",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_male",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Hold onto me, Emily, don't look back!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "I can see them!",
+                  "respuesta": "Then we must outrun the shadows.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "We need a plan!",
+                  "respuesta": "Run now, we’ll think later.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "My muscles burn, but I won't let her fall."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "Get up, we have to move—now!"
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "I'm right behind you!",
+                  "respuesta": "Then keep your eyes forward.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "The zombies are everywhere!",
+                  "respuesta": "That's why we can't stop.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "The forest claws at my boots, but I push forward."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Stay low, the wind masks our scent."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Will they hear us?",
+                  "respuesta": "Their ears are dead, but their eyes see.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "We must find a way out!",
+                  "respuesta": "The log is a brief shield; run when silence lifts.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "My heart pounds, matching the rustle of leaves."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Help",
+          "descripcion": "Mark grabs Emily's arm, pulling her upright and urging her onward.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_zombie_01",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "The living pulse draws me closer."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Something in the night feels... different."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What do you sense?",
+                  "respuesta": "A warmth I have never known.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Your hunger?",
+                  "respuesta": "It fades, replaced by a strange longing.",
+                  "correcta": false
+                }
+              ]
+            },
+            {
+              "frases": [
+                "The wind carries a scent of life."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Lunge",
+          "descripcion": "The zombie lunges forward, snapping its jaws at the fleeing pair.",
+          "animacion": "Punch",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_female",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            },
+            {
+              "id_nodo": "personaje_male",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_zombie_02",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "We never tire, we never stop."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "The storm brings more of us."
+              ],
+              "opciones": []
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Moan",
+          "descripcion": "A guttural moan erupts, echoing through the trees and spurring the chase.",
+          "animacion": "Punch",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_female",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "decorado_lantern_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "Enciendes la vieja lámpara de hierro, y una llama tenue se abre en la oscuridad.",
+        "texto_desactivacion": "Apagas la lámpara, la llama se desvanece.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_skull_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "El cráneo de ciervo está cubierto de musgo, como un recordatorio silencioso de la muerte que acecha."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_fencepost_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "El poste de cerca roto está cubierto de enredaderas, como si la naturaleza intentara reclamar el terreno."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [
+    {
+      "id": "zona_bosque_entrada",
+      "columnas": [
+        1,
+        2,
+        3
+      ],
+      "texto": "The cold wind whistles through twisted pines as darkness gathers, urging the pair forward."
+    }
+  ],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

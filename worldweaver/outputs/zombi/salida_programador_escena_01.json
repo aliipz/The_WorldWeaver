@@ -1,0 +1,407 @@
+{
+  "id_escena": "escena_01",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Green horde engulfs the thicket",
+      "guias": [
+        "personaje_couple_male",
+        "personaje_couple_female",
+        "personaje_zombie_01"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_couple_male",
+          "personaje_couple_female",
+          "personaje_zombie_01"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Twisted trunks block their frantic escape",
+      "guias": [
+        "personaje_couple_male",
+        "personaje_couple_female"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_couple_male",
+          "personaje_couple_female"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Zombie's gaze lingers on flowing hair",
+      "guias": [
+        "personaje_couple_female",
+        "personaje_zombie_01"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_couple_female",
+          "personaje_zombie_01"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_couple_male",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Run! The horde's closing in, don't look back!"
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "We have to find a gap in those trunks before they surround us."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Where's the gap?",
+                  "respuesta": "Near the old oak, it's barely wide enough.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "We can't outrun them!",
+                  "respuesta": "Then we crawl, stay low, and let the mist hide us.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Hold onto me, the ground is slick with mud and blood."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "If we keep low, they can't see our silhouettes."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "I'll stay low.",
+                  "respuesta": "Good, keep your breathing shallow.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "I'll try to draw them away.",
+                  "respuesta": "Then move fast, make noise, and pull them past the trees.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Encourage",
+          "descripcion": "You shout a fierce urging. The young man steadies his breath and nods, ready to fight.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_couple_female",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "My hair is tangled, the mist clings to it like a ghost."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "I think I see a narrow opening between those roots."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "I'll follow you.",
+                  "respuesta": "Stay close, don't let the zombies catch your heels.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "We should hide here.",
+                  "respuesta": "The branches are too thin, they'll break under their weight.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "The mist is thick, I can barely see the path ahead."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Listen for the rustle of leaves; that's where they move."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "I'll keep my ear open.",
+                  "respuesta": "Good, any sound means a chance to slip by.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "We need to move faster.",
+                  "respuesta": "Then push harder, but don't trip on the roots.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Why are you staring? My hair... it's a beacon for you."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "I can't move, his eyes are locked on the strands."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Stay still.",
+                  "respuesta": "Your stillness might confuse it, but it's risky.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Run!",
+                  "respuesta": "Run now, before it decides to reach.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Comfort",
+          "descripcion": "You place a gentle hand on her shoulder. She draws a steadier breath, eyes flashing with resolve.",
+          "animacion": "Victory",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_zombie_01",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_zombie_01",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Grrrr... fresh meat! The stench of life drives me."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Your scent is strong, human, I can feel it."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "We can escape.",
+                  "respuesta": "Your words are empty, I will close in.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "You won't catch us.",
+                  "respuesta": "Then you will hear the crack of bone.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "The color... it's strange, like fire in the night."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "I feel a strange pull, a memory of something lost."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What do you want?",
+                  "respuesta": "Your hair... it calls to the part of me that's still alive.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Leave us alone!",
+                  "respuesta": "I cannot. The hunger overrides any memory.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Stare",
+          "descripcion": "You lock eyes with the zombie. Its head tilts, curiosity flickering in its empty stare.",
+          "animacion": "Punch",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "personaje_couple_male",
+              "efecto": null,
+              "color": null,
+              "animacion": "RecieveHit"
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "decorado_rusted_lantern_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "activar",
+        "texto_activacion": "The rusted lantern flickers to life, casting a warm amber glow.",
+        "texto_desactivacion": "The lantern's flame sputters out, leaving only a faint ember.",
+        "efecto_visual": "llama",
+        "color_efecto": "#ff6010",
+        "descripcion": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_pine_log_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "examinar",
+        "titulo": "Pine log",
+        "descripcion": "A massive pine log lies half-buried in the damp leaf litter. Its bark is thick and furrowed, bearing the scars of countless seasons. The faint scent of resin lingers, hinting at the forest's ancient resilience.",
+        "efecto_visual": null,
+        "color_efecto": null
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_mushroom_cluster_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A cluster of bioluminescent mushrooms glows faintly, casting soft shadows on the moss."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": true
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_pine_cone_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A weathered pine cone rests among the needles, its scales still tight from the last storm."
+      },
+      "acciones": [],
+      "proximidad": null,
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

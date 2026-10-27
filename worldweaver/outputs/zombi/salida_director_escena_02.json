@@ -1,0 +1,140 @@
+{
+  "id_escena": "escena_02",
+  "elementos": [
+    {
+      "id": "personaje_couple_male",
+      "nombre": "Young Man",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 4
+      },
+      "ancho": 1.0,
+      "alto": 1.8,
+      "descripcion": "Late teens, short dark hair, simple linen shirt, worn trousers.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_couple_female",
+      "nombre": "Young Woman",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 1.0,
+      "alto": 1.8,
+      "descripcion": "Late teens, long flowing hair that catches the wind, light dress stained with mud.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_zombie_01",
+      "nombre": "Green Zombie",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 4
+      },
+      "ancho": 1.1,
+      "alto": 2.0,
+      "descripcion": "Tall, decayed skin with a sickly green hue, empty eyes, tattered clothing draped over a gaunt frame.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_tree_01",
+      "nombre": "Old pine tree",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 4.5,
+      "alto": 10.0,
+      "descripcion": "Tall pine with rugged, barky bark and a dense canopy of dark green needles.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_tree_02",
+      "nombre": "Young pine sapling",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 3
+      },
+      "ancho": 2.0,
+      "alto": 4.0,
+      "descripcion": "Small, slender pine with smooth bark and a few bright green needles, sprouting near the clearing edge.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_mushroom_01",
+      "nombre": "Red-capped mushroom cluster",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 7,
+        "fila": 3
+      },
+      "ancho": 0.6,
+      "alto": 0.4,
+      "descripcion": "Group of low‑poly mushrooms with bright red caps and white stems, sprouting from the damp soil.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_rock_01",
+      "nombre": "Mossy boulder",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 2.0,
+      "alto": 1.5,
+      "descripcion": "Rounded stone covered in soft green moss, its surface speckled with tiny lichens.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_flower_01",
+      "nombre": "Wildflower tuft",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 2
+      },
+      "ancho": 0.4,
+      "alto": 0.2,
+      "descripcion": "Patch of delicate wildflowers with yellow petals and thin stems, swaying gently in the breeze.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_birdnest_01",
+      "nombre": "Twig bird nest",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 2
+      },
+      "ancho": 0.3,
+      "alto": 0.2,
+      "descripcion": "Small nest woven from twigs and lined with feathers, perched in a low branch.",
+      "keyword_busqueda": null
+    }
+  ]
+}

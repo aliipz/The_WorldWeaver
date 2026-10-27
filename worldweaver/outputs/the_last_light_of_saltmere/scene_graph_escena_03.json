@@ -1,0 +1,280 @@
+{
+  "id_escena": "escena_03",
+  "tipo_escena": "exterior",
+  "tipo_ambiente": "bajo_el_agua",
+  "radio_escena": 28.0,
+  "limite_jugador": 6.5,
+  "color_suelo": null,
+  "tipo_suelo": null,
+  "tipo_techo": null,
+  "radio_cubierta": null,
+  "variante_barco": null,
+  "escena_conversacion": false,
+  "nodos": [
+    {
+      "id": "fondo_escena_03",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 6.0,
+        "z": 0.0
+      },
+      "ancho": 28.0,
+      "alto": 12.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_03",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 28.0,
+      "alto": 28.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_mara",
+      "nombre": "Mara",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.8,
+        "y": 0.88,
+        "z": -0.61
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Pirate_Female.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_morwen",
+      "nombre": "Morwen",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.86,
+        "y": 1.1,
+        "z": 0.76
+      },
+      "ancho": 0.9,
+      "alto": 2.2,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Witch.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_lanterna",
+      "nombre": "Lantern",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.9,
+        "y": 0.25,
+        "z": -0.44
+      },
+      "ancho": 0.3,
+      "alto": 0.5,
+      "tam_real": 0.5,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/ecbc7b04-09ca-4068-bb3c-4e5ce1163c9a.glb",
+      "keyword_busqueda": "lantern"
+    },
+    {
+      "id": "objeto_altar_inscripcion",
+      "nombre": "Stone altar with inscription",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.22,
+        "y": 0.5,
+        "z": -3.49
+      },
+      "ancho": 1.4,
+      "alto": 1.0,
+      "tam_real": 1.4,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/34e1073c-2869-469b-9074-fa7a7b7d5e74.glb",
+      "keyword_busqueda": "stone altar"
+    },
+    {
+      "id": "decorado_statue_01",
+      "nombre": "Sunken stone statue",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 0.68,
+        "y": 0.95,
+        "z": 5.46
+      },
+      "ancho": 0.8,
+      "alto": 1.9,
+      "tam_real": 1.9,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/55b0aa03-543c-439d-a7d7-f0ac4c23578f.glb",
+      "keyword_busqueda": "statue"
+    },
+    {
+      "id": "decorado_column_01",
+      "nombre": "Broken stone column",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -5.57,
+        "y": 0.6,
+        "z": -12.85
+      },
+      "ancho": 6.0,
+      "alto": 1.2,
+      "tam_real": 6.0,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/c6b39e97-df63-428e-9d9e-004c9c467275.glb",
+      "keyword_busqueda": "column"
+    },
+    {
+      "id": "decorado_fish_01",
+      "nombre": "School of bright fish",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -13.74,
+        "y": 1.2,
+        "z": -2.68
+      },
+      "ancho": 4.0,
+      "alto": 2.4,
+      "tam_real": 4.0,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/6805b99c-5fd7-4aab-bf57-3bb645e1108a.glb",
+      "keyword_busqueda": "fish"
+    },
+    {
+      "id": "decorado_coral_01",
+      "nombre": "Branching coral cluster",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -7.93,
+        "y": 0.5,
+        "z": -4.26
+      },
+      "ancho": 1.2,
+      "alto": 1.0,
+      "tam_real": 1.2,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/3b858f91-3159-47e9-8bf6-a3ee5476f421.glb",
+      "keyword_busqueda": "coral"
+    },
+    {
+      "id": "decorado_seaweed_01",
+      "nombre": "Drifting seaweed patch",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 14.32,
+        "y": 0.15,
+        "z": -13.96
+      },
+      "ancho": 1.2,
+      "alto": 0.3,
+      "tam_real": 1.2,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/9d054953-1445-4c9e-bbf3-2e8b9da5db36.glb",
+      "keyword_busqueda": "seaweed"
+    }
+  ],
+  "cielo": {
+    "tipo": "cielo_magico",
+    "color_fondo": "#130630",
+    "color_ambiente": "#6c16ac",
+    "intensidad_ambiente": 0.551981822369369,
+    "color_sol": "#4cdcc6",
+    "intensidad_sol": 0.8797159997910102,
+    "pos_sol": {
+      "x": 0.9043177543138832,
+      "y": 4.910124471314999,
+      "z": -1.9219841683159353
+    },
+    "niebla": {
+      "color": "#10052b",
+      "near": 11.50480537352285,
+      "far": 19.0
+    },
+    "luz_exterior": null
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_mara": {
+      "glb_id": "Pirate_Female",
+      "glb_path": "/sandbox/assets/characters/Pirate_Female.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 8474,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_morwen": {
+      "glb_id": "Witch",
+      "glb_path": "/sandbox/assets/characters/Witch.gltf",
+      "skin_tone": null,
+      "skin_hex": "#D4956A",
+      "hair_color": null,
+      "clothing_seed": 8852,
+      "talla": "adulto_alto",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

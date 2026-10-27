@@ -1,0 +1,155 @@
+{
+  "id_escena": "escena_01",
+  "elementos": [
+    {
+      "id": "personaje_mufasa",
+      "nombre": "Mufasa",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.2,
+      "descripcion": "Adult male lion, golden mane, regal bearing, simple leather collar.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_simba",
+      "nombre": "Simba",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 0.9,
+      "alto": 1.1,
+      "descripcion": "Young male lion, golden fur, bright eyes, later grown into a strong adult with a scar over his eye.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_herd_01",
+      "nombre": "Zebra del reino",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 6
+      },
+      "ancho": 0.8,
+      "alto": 1.3,
+      "descripcion": "Adult zebra, striped coat, alert ears.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_scar",
+      "nombre": "Scar",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 1.2,
+      "alto": 1.2,
+      "descripcion": "Adult male lion with black mane, dark eyes, gaunt, tattered cloak.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_tree_acacia_01",
+      "nombre": "Acacia tree",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 4
+      },
+      "ancho": 2.0,
+      "alto": 4.5,
+      "descripcion": "Tall slender trunk with flat, umbrella‑shaped canopy, golden‑brown bark and sparse leaves.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_drum_01",
+      "nombre": "Hand‑carved wooden drum",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 3
+      },
+      "ancho": 0.8,
+      "alto": 0.6,
+      "descripcion": "Cylindrical drum of dark hardwood, animal‑hide head, and tribal carvings along its side.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_rock_01",
+      "nombre": "Weathered sandstone boulder",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 2.5,
+      "alto": 2.0,
+      "descripcion": "Large rounded stone with a rough, ochre‑colored surface and natural cracks.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_shrub_01",
+      "nombre": "Low thorny shrub",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 0
+      },
+      "ancho": 1.5,
+      "alto": 1.0,
+      "descripcion": "Dense green foliage with spiny branches, brown woody stems, and occasional yellow blossoms.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_waterhole_01",
+      "nombre": "Drying waterhole",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 0
+      },
+      "ancho": 3.5,
+      "alto": 0.2,
+      "descripcion": "Shallow clay depression lined with pebbles, cracked edges and a thin reflective puddle.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_pavilion_01",
+      "nombre": "Woven reed pavilion",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 1
+      },
+      "ancho": 4.0,
+      "alto": 3.0,
+      "descripcion": "Circular shelter made of interlaced reeds and a thatched roof, earthy tones and a sturdy central pole.",
+      "keyword_busqueda": null
+    }
+  ]
+}

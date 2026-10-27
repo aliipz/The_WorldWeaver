@@ -1415,6 +1415,19 @@ function crearModelo3D(nodo, scene) {
                 if (_dc < (window._BARCO_DECK_R ?? 4.6)) grupo.position.y = (window._BARCO_DECK_H ?? 1.0) + 0.1;
             }
 
+            // Escena de conversación (idiomas): cada personaje MIRA hacia el/los otro(s)
+            // personaje(s), como si hablasen entre sí. A diferencia del mobiliario, los GLB
+            // humanos de Quaternius miran a +Z, así que para encararlos al objetivo se usa
+            // rotation.y = atan2(tx - x, tz - z) (vector self→objetivo, NO el inverso del mueble).
+            if (SCENE_GRAPH.escena_conversacion && nodo.tipo === 'personaje') {
+                const otros = (SCENE_GRAPH.nodos || []).filter(n => n.tipo === 'personaje' && n.id !== nodo.id);
+                if (otros.length) {
+                    const tx = otros.reduce((s, n) => s + n.posicion.x, 0) / otros.length;
+                    const tz = otros.reduce((s, n) => s + n.posicion.z, 0) / otros.length;
+                    grupo.rotation.y = Math.atan2(tx - nodo.posicion.x, tz - nodo.posicion.z);
+                }
+            }
+
             scene.add(grupo);
 
             const esPersonajeNoHumano = nodo.tipo === 'personaje' && !esPersonajeCatalogo;
@@ -2024,6 +2037,7 @@ const _T_DATA = {
         close:      'cerrar',
         keep_drop:  '<kbd>G</kbd> Guardar &nbsp;&nbsp; <kbd>E</kbd> Soltar',
         drag_rotate: 'Arrastra para girar',
+        move_rotate: 'Mueve el ratón para girar',
         vocab_counter: (n, max) => `Fallos: ${n}/${max}`,
         vocab_wrong:   rem => `Ese no es. Te ${rem === 1 ? 'queda' : 'quedan'} ${rem} ${rem === 1 ? 'intento' : 'intentos'}.`,
         vocab_reset:   'Demasiados fallos. Reiniciando el reto…',
@@ -2052,6 +2066,7 @@ const _T_DATA = {
         close:      'close',
         keep_drop:  '<kbd>G</kbd> Keep &nbsp;&nbsp; <kbd>E</kbd> Drop',
         drag_rotate: 'Drag to rotate',
+        move_rotate: 'Move the mouse to rotate',
         vocab_counter: (n, max) => `Mistakes: ${n}/${max}`,
         vocab_wrong:   rem => `Not that one. ${rem} ${rem === 1 ? 'try' : 'tries'} left.`,
         vocab_reset:   'Too many mistakes. Restarting the challenge…',
@@ -2161,6 +2176,8 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
 
     // Examen de vocabulario: el avance se gatea por ENTREGA al guía (no por recoger).
     const EXAMEN_VOCAB = !!manifest.examen_vocabulario;
+    // Examen conceptual (Tipo B): el avance se gatea por elegir la OPCIÓN correcta.
+    const EXAMEN_OPCIONES = !!manifest.examen_opciones;
     const EXAMEN_VOCAB_MAX_FALLOS = 3;
     let _examenFallos = 0;
 
@@ -3331,6 +3348,19 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         return false;
     }
 
+    // Examen conceptual (Tipo B): al hablar con el guía, muestra la PREGUNTA de la fase con
+    // sus opciones. NO marca personajesHablados ni avanza: el avance lo decide elegir la
+    // opción correcta (gestionado en _intOpcion vía examenCtx). Devuelve true si lo gestionó.
+    function _preguntaConceptual(idNodo, entry) {
+        const df = _dialogoActual(entry);
+        const punto = df && df.puntos && df.puntos[0];
+        if (!punto || !(punto.opciones || []).length) return false;  // no es pregunta de examen
+        _mostrarDialogo(punto, { esExamen: true, pista: df.pista, idNodo });
+        dialogoAbierto = true;
+        if (window.PersonajesManager) { PersonajesManager.hablar(idNodo); _personajeHablando = idNodo; }
+        return true;
+    }
+
     // ── Activar interacción ───────────────────────────────────────────────────
     function _activar(idNodo) {
         const entry = mapa[idNodo];
@@ -3343,6 +3373,9 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             // aparte. Si el jugador no lleva ningún objeto del vocabulario, sigue el flujo
             // normal y se muestra la petición de la fase.
             if (EXAMEN_VOCAB && _entregaVocab(idNodo, entry)) return;
+            // Examen conceptual: muestra la pregunta de la fase con opciones (el avance lo decide
+            // elegir la opción correcta, no el hablar).
+            if (EXAMEN_OPCIONES && _preguntaConceptual(idNodo, entry)) return;
             // dialogos_con_item: item-specific lines take priority over phase dialogue
             let puntoAMostrar = null;
             let dicActivado   = null;
@@ -3485,6 +3518,14 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             if (_inspeccionModo === 'recoger') _cerrarInspeccion(true);
             return;
         }
+        // Opciones de diálogo con las teclas 1-9: con el ratón capturado no se puede
+        // clicar, y soltarlo para eso hacía que el navegador repitiera su aviso de
+        // "pulsa Esc para salir de pantalla completa" en cada conversación.
+        if (dialogoAbierto && window._intOpcion && elDialogo.style.display !== 'none'
+            && elDialogo.querySelector('.int-d-opciones')) {
+            const _op = /^(?:Digit|Numpad)([1-9])$/.exec(e.code);
+            if (_op) { window._intOpcion(+_op[1] - 1); return; }
+        }
         if (e.code === 'KeyE') {
             if (_inspeccionActiva) {
                 _cerrarInspeccion(false);
@@ -3519,12 +3560,20 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
                 if (ac) _ejecutarAccionObjeto(nodoEnRango, ac);
             }
         }
-        if (e.code === 'Escape') _cerrarTodos();
+        // Esc = menú de pausa: cierra los paneles y saca el menú (nunca recaptura).
+        if (e.code === 'Escape') {
+            _cerrarTodos();
+            window._wwMostrarPausa?.();
+        }
     });
 
     // ── Click (modo órbita) ───────────────────────────────────────────────────
     renderer.domElement.addEventListener('click', (e) => {
         if (document.pointerLockElement) return;
+        // Con un diálogo/inspección abierto el puntero está suelto (no bloqueado): sin esta
+        // guarda, un clic en el lienzo raycastearía y activaría otro objeto "a través" del
+        // panel abierto (o re-dispararía el actual). Solo se interactúa con el panel cerrado.
+        if (window._wwDialogoAbierto?.() || _inspeccionActiva) return;
         const id = _raycastRaton(e.clientX, e.clientY);
         if (id) _activar(id);
     });
@@ -3554,7 +3603,7 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
     });
 
     // ── Mostrar diálogo ───────────────────────────────────────────────────────
-    function _mostrarDialogo(punto) {
+    function _mostrarDialogo(punto, examenCtx = null) {
         const frase = punto.frases[0];
         const textoCompleto = `“${frase}”`;  // comillas tipográficas
 
@@ -3563,7 +3612,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             `<div class="int-d-texto"><span class="int-tw-txt"></span></div>` +
             _teclaHint();
         elDialogo.style.display = 'block';
-        if (document.pointerLockElement) document.exitPointerLock();
 
         const twEl = elDialogo.querySelector('.int-tw-txt');
 
@@ -3572,7 +3620,10 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             if (punto.opciones?.length) {
                 let opHtml = `<div class="int-d-opciones">`;
                 punto.opciones.forEach((op, i) => {
-                    opHtml += `<button class="int-d-btn" onclick="_intOpcion(${i})">▸ ${op.etiqueta}</button>`;
+                    // Numeradas: con el ratón capturado no hay cursor con el que clicar,
+                    // así que se eligen con las teclas 1-9 (ver el keydown de más arriba).
+                    opHtml += `<button class="int-d-btn" onclick="_intOpcion(${i})">`
+                            + `<kbd>${i + 1}</kbd> ${op.etiqueta}</button>`;
                 });
                 opHtml += `</div>`;
                 twEl.closest('.int-d-texto').insertAdjacentHTML('afterend', opHtml);
@@ -3584,20 +3635,71 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
 
         _twEscribir(twEl, textoCompleto, onDone);
 
+        // Helper: escribe la respuesta del personaje y, al terminar, ejecuta `tras`.
+        const _mostrarResp = (resp, tras) => {
+            _twCancelar();
+            const twEl2 = elDialogo.querySelector('.int-tw-txt');
+            if (twEl2) { twEl2.textContent = ''; }
+            elDialogo.querySelectorAll('.int-d-opciones, .int-pista').forEach(el => el.remove());
+            elDialogo.querySelector('.int-d-texto').innerHTML = '<span class="int-tw-txt"></span>';
+            elDialogo.insertAdjacentHTML('beforeend', _teclaHint());
+            _twEscribir(elDialogo.querySelector('.int-tw-txt'), `“${resp}”`, tras || null);
+        };
+
         window._intOpcion = (i) => {
-            const resp = punto.opciones[i]?.respuesta;
-            if (resp) {
-                _twCancelar();
-                const twEl2 = elDialogo.querySelector('.int-tw-txt');
-                if (twEl2) { twEl2.textContent = ''; }
-                // Limpiar opciones y hint anteriores
-                elDialogo.querySelectorAll('.int-d-opciones, .int-pista').forEach(el => el.remove());
-                // Mostrar respuesta con typewriter
-                const resp_texto = `“${resp}”`;
-                elDialogo.querySelector('.int-d-texto').innerHTML = '<span class="int-tw-txt"></span>';
-                elDialogo.insertAdjacentHTML('beforeend', _teclaHint());
-                _twEscribir(elDialogo.querySelector('.int-tw-txt'), resp_texto, null);
+            const op = punto.opciones[i];
+            if (!op) return;
+
+            // ── Examen conceptual (Tipo B): la correcta avanza; la mala falla ──
+            if (examenCtx && examenCtx.esExamen) {
+                if (op.correcta) {
+                    _SFX.faseAvance?.();
+                    _avanzarFase();   // faseActual++ (o portal si era la última)
+                    if (faseActual >= FASES.length) {
+                        // Conversación completada: réplica final. El jugador cierra con E
+                        // (re-engancha el ratón); el portal ya se invocó en _avanzarFase.
+                        _mostrarResp(op.respuesta || '¡Muy bien!', null);
+                    } else {
+                        // Conversación CONTINUA: muestra la réplica y luego la siguiente
+                        // pregunta del guía en el MISMO diálogo (sin caminar ni perder el ratón).
+                        _mostrarResp(op.respuesta || '', () => {
+                            setTimeout(() => {
+                                const eg = mapa[examenCtx.idNodo];
+                                const df2 = eg && _dialogoActual(eg);
+                                const pt2 = df2 && df2.puntos && df2.puntos[0];
+                                if (pt2 && (pt2.opciones || []).length) {
+                                    _mostrarDialogo(pt2, { esExamen: true, pista: df2.pista, idNodo: examenCtx.idNodo });
+                                } else {
+                                    _cerrarTodos();  // sin más preguntas → cerrar y re-enganchar ratón
+                                }
+                            }, 1100);
+                        });
+                    }
+                    return;
+                }
+                _examenFallos++;
+                _SFX.activarOff?.();
+                _actualizarFallosHUD();
+                if (_examenFallos >= EXAMEN_VOCAB_MAX_FALLOS) {
+                    _mostrarResp(op.respuesta || '', () => {
+                        _mostrarActivacion(_T('vocab_reset'));
+                        setTimeout(() => window.location.reload(), 1700);
+                    });
+                } else {
+                    // El guía reacciona con extrañeza y, tras la pista, re-ofrece las opciones.
+                    _mostrarResp(op.respuesta || '', () => {
+                        const pista = examenCtx.pista;
+                        const reintento = (pista && (pista.frases || []).length)
+                            ? { frases: pista.frases, opciones: punto.opciones }
+                            : punto;
+                        setTimeout(() => _mostrarDialogo(reintento, examenCtx), 950);
+                    });
+                }
+                return;
             }
+
+            // ── Diálogo normal: solo muestra la respuesta ──
+            if (op.respuesta) _mostrarResp(op.respuesta, null);
         };
     }
 
@@ -3609,7 +3711,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             ${_teclaHint()}
         `;
         elExaminar.style.display = 'block';
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Acción de personaje (texto narrador sin caja, abajo) ─────────────────
@@ -3621,7 +3722,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         elAccion.style.opacity = '0';
         elAccion.style.display = 'block';
         requestAnimationFrame(() => { elAccion.style.opacity = '1'; });
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Ficha de información educativa (tecla I) ──────────────────────────────
@@ -3636,7 +3736,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         elAccion.style.opacity = '0';
         elAccion.style.display = 'block';
         requestAnimationFrame(() => { elAccion.style.opacity = '1'; });
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Toast de activación ───────────────────────────────────────────────────
@@ -3960,8 +4059,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             }
         }
 
-        if (document.pointerLockElement) document.exitPointerLock();
-
         // Overlay de viñeta
         const overlay = document.getElementById('int-insp-overlay');
         if (overlay) {
@@ -3977,7 +4074,12 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         document.getElementById('exam3d-desc').innerHTML   = _wwResaltar(desc);
 
         const dragHint = document.querySelector('#int-examinar-3d .int-insp-drag');
-        if (dragHint) dragHint.style.display = _inspeccionFlotante ? 'block' : 'none';
+        if (dragHint) {
+            // Con el ratón capturado el objeto gira solo con moverlo, sin arrastrar.
+            dragHint.textContent = document.pointerLockElement ? _T('move_rotate')
+                                                              : _T('drag_rotate');
+            dragHint.style.display = _inspeccionFlotante ? 'block' : 'none';
+        }
 
         const pistaEl = document.getElementById('exam3d-pista');
         if (pistaEl) pistaEl.innerHTML = modo === 'recoger'
@@ -4039,7 +4141,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         _inspeccionIdNodo   = null;
         _inspeccionInter    = null;
         dialogoAbierto      = false;
-        window._wwRetomarPointerLock?.();
     }
 
     // Drag para rotar el objeto inspeccionado
@@ -4050,15 +4151,25 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         _inspeccionLastY = e.clientY;
     });
     document.addEventListener('mousemove', (e) => {
-        if (!_inspeccionActiva || !_inspeccionDrag || !_inspeccionWrapper) return;
-        const dx = e.clientX - _inspeccionLastX;
-        const dy = e.clientY - _inspeccionLastY;
+        if (!_inspeccionActiva || !_inspeccionWrapper) return;
+        // Con el puntero capturado no hay cursor que arrastrar (y soltarlo es justo lo
+        // que hacía repetir el aviso de pantalla completa del navegador): el objeto gira
+        // con el movimiento del ratón. Sin captura (modo órbita) se sigue arrastrando.
+        let dx, dy;
+        if (document.pointerLockElement) {
+            dx = e.movementX;
+            dy = e.movementY;
+        } else {
+            if (!_inspeccionDrag) return;
+            dx = e.clientX - _inspeccionLastX;
+            dy = e.clientY - _inspeccionLastY;
+            _inspeccionLastX = e.clientX;
+            _inspeccionLastY = e.clientY;
+        }
         // Acumular rotación en espacio local del objeto (ejes Y y X)
         const qY = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), dx * 0.013);
         const qX = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), dy * 0.013);
         _inspeccionDragQuat.multiply(qY).multiply(qX);
-        _inspeccionLastX = e.clientX;
-        _inspeccionLastY = e.clientY;
     });
     document.addEventListener('mouseup', () => { _inspeccionDrag = false; });
 
@@ -4079,9 +4190,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             PersonajesManager.callar(_personajeHablando);
             _personajeHablando = null;
         }
-        // Si el navegador soltó el pointer lock durante el diálogo, retomarlo.
-        // La tecla E que cierra el diálogo cuenta como gesto de usuario.
-        window._wwRetomarPointerLock?.();
     }
 
     // ── Helpers ───────────────────────────────────────────────────────────────
@@ -4226,19 +4334,24 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             }
 
             if (dialogoAbierto) {
+                // Con un panel abierto el raton puede seguir capturado, asi que la
+                // deteccion se congela aqui (antes la congelaba el soltar el puntero).
                 elHint.style.display = 'none';
-            } else if (mirado !== nodoEnRango) {
-                nodoEnRango = mirado;
-                if (mirado) {
-                    elHint.innerHTML = _textoHint(mirado);
-                    elHint.style.display = 'flex';
-                } else {
-                    elHint.style.display = 'none';
+                nodoEnRango = null;
+            } else {
+                if (mirado !== nodoEnRango) {
+                    nodoEnRango = mirado;
+                    if (mirado) {
+                        elHint.innerHTML = _textoHint(mirado);
+                        elHint.style.display = 'flex';
+                    } else {
+                        elHint.style.display = 'none';
+                    }
                 }
-            }
 
-            if (frameCount % 45 === 0) _detectarZona();
-            if (frameCount % 20 === 0) _detectarLoreFPS();
+                if (frameCount % 45 === 0) _detectarZona();
+                if (frameCount % 20 === 0) _detectarLoreFPS();
+            }
 
         } else if (nodoEnRango) {
             nodoEnRango = null;
@@ -4479,6 +4592,17 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
                 transition: background 0.18s, color 0.18s;
             }
             .int-d-btn:hover { background: rgba(100,75,210,0.8); color: #fff; }
+            /* Número de la opción: es la tecla con la que se elige (1-9) */
+            .int-d-btn kbd {
+                display: inline-block;
+                background: rgba(255,255,255,0.16);
+                border: 1px solid rgba(255,255,255,0.32);
+                border-bottom-width: 2px;
+                border-radius: 4px;
+                padding: 0px 7px;
+                font-family: monospace; font-size: 11px;
+                color: #fff; margin-right: 5px;
+            }
             .int-pista {
                 color: rgba(255,255,255,0.28); font-size: 11px;
                 text-align: right; margin-top: 10px; letter-spacing: 0.5px;
@@ -5314,6 +5438,7 @@ const SCENE_GRAPH          = {
   "tipo_techo": null,
   "radio_cubierta": null,
   "variante_barco": null,
+  "escena_conversacion": false,
   "nodos": [
     {
       "id": "fondo_escena_01",
@@ -7754,7 +7879,8 @@ const INTERACTION_MANIFEST = {
       "texto": "Entras al puesto de frutas y percibes el aroma dulce del mercado."
     }
   ],
-  "examen_vocabulario": false
+  "examen_vocabulario": false,
+  "examen_opciones": false
 };
 const AUDIO_DATA           = {"url_preview": "https://cdn.freesound.org/previews/582/582962_13143991-hq.mp3", "volumen": 0.6, "titulo": "AMBTraf Ambience  market  hawker traffic  near road BY SKY SOUND LIBRARY.wav", "autor": "SFXAFRIK"};
 const CIELO_CONFIG         = {"tipo": "mediodia_soleado", "color_fondo": "#5db4e5", "color_ambiente": "#ffffff", "intensidad_ambiente": 0.769745106946933, "color_sol": "#ffe036", "intensidad_sol": 1.4318809881461092, "pos_sol": {"x": 0.06856708952140633, "y": 6.752460609049357, "z": -0.51574693004313}, "niebla": {"color": "#63a7cc", "near": 8.4, "far": 13.0}, "luz_exterior": null};
@@ -8018,17 +8144,43 @@ function salirFPS() {
 // (E es un gesto de usuario válido para requestPointerLock)
 window._wwRetomarPointerLock = function () {
     if (fpsModo && !document.pointerLockElement) {
-        renderer.domElement.requestPointerLock();
+        // requestPointerLock puede fallar (síncrono en navegadores viejos, o promesa
+        // rechazada en Chrome reciente) si se pide dentro del enfriamiento de ~1,25 s que
+        // el navegador impone tras soltar el puntero. No dejamos que reviente: el listener
+        // 'pointerlockerror' de abajo se encarga de mostrar el menú de pausa como salida.
+        try {
+            const p = renderer.domElement.requestPointerLock();
+            if (p && typeof p.catch === 'function') p.catch(() => {});
+        } catch (_) { /* lo recoge pointerlockerror */ }
     }
 };
 
-// Pointer Lock: cuando se captura el ratón ocultamos el overlay.
-// Si se pierde mientras hay un diálogo abierto, no mostramos el overlay.
+// Menú de pausa a petición: si el puntero ya estaba suelto (lo había soltado un
+// panel), pulsar Esc no dispara ningún 'pointerlockchange', así que interactions.js
+// pide el menú explícitamente para que Esc siempre acabe en la pausa.
+window._wwMostrarPausa = function () {
+    if (fpsModo && !document.pointerLockElement) elOverlay.style.display = 'flex';
+};
+
+// Pointer Lock: cuando se captura el ratón ocultamos el overlay; si se pierde,
+// sacamos el menú de pausa (ningún panel suelta ya el puntero por su cuenta).
 document.addEventListener('pointerlockchange', () => {
     if (!fpsModo) return;
     if (document.pointerLockElement) {
         elOverlay.style.display = 'none';
-    } else if (!window._wwDialogoAbierto?.()) {
+    } else {
+        elOverlay.style.display = 'flex';
+    }
+});
+
+// Recuperación del "ratón pillado": si requestPointerLock falla (típicamente al cerrar un
+// diálogo/inspección antes de que pase el enfriamiento del navegador), pointerlockchange NO
+// dispara y el jugador se queda con el cursor suelto, la cámara congelada y sin menú. Aquí
+// detectamos ese fallo y mostramos el overlay de pausa, cuyo clic recaptura el puntero con un
+// gesto válido. Solo si no hay un panel abierto (en ese caso el ratón suelto es lo correcto).
+document.addEventListener('pointerlockerror', () => {
+    if (fpsModo && !document.pointerLockElement
+        && !window._wwDialogoAbierto?.() && !window._wwInspeccionActiva?.()) {
         elOverlay.style.display = 'flex';
     }
 });
@@ -8560,13 +8712,51 @@ renderer.domElement.addEventListener('click',   _entrarFpsAlPrimerGesto, { once:
 document.addEventListener(            'keydown', _entrarFpsAlPrimerGesto, { once: true });
 
 // ── Pantalla completa ────────────────────────────────────────────────────────
-// El .exe abre Chrome con --start-fullscreen (fullscreen DE VENTANA), que sobrevive
-// a la navegación entre escenas. Deliberadamente NO usamos la Fullscreen API del
-// navegador (requestFullscreen): como cada escena es una página distinta, esa API se
-// pierde al cruzar el portal y, al re-pedirla con el primer gesto, provoca un parpadeo
-// visible de entrar/salir de pantalla completa en cada escena. Apoyándonos solo en el
-// fullscreen de ventana la transición entre escenas es limpia (igual que en los mundos
-// antiguos). El pointer lock convive bien con --start-fullscreen sin necesidad de la API.
+// Hay dos formas de estar en pantalla completa, y se comportan distinto al navegar:
+//  · .exe → Chrome arranca con --start-fullscreen: fullscreen DE VENTANA, que
+//    sobrevive a la navegación entre escenas. Ahí no hay nada que hacer, y pedir la
+//    Fullscreen API encima provocaría un parpadeo de entrar/salir en cada escena
+//    (y, al soltarla, devolvería la ventana a modo normal).
+//  · localhost → no hay --start-fullscreen, así que la única pantalla completa
+//    posible es la Fullscreen API (el botón ⛶ de la landing). Esa SÍ se pierde al
+//    cruzar el portal, porque cada escena es una página distinta.
+// Por eso solo re-pedimos la API cuando consta que el usuario la había pedido a mano
+// (flag en sessionStorage). En el .exe ese flag no se pone nunca → transición limpia.
+(function _wwFullscreenPersistente() {
+    const FLAG = 'ww_fs';
+    const esFS = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
+
+    // Salir de fullscreen al cruzar el portal no es decisión del usuario; un Esc sí. Hay
+    // que distinguirlos, pero NO con pagehide/beforeunload: al navegar Chrome dispara el
+    // fullscreenchange ANTES que esos eventos, así que la guarda llegaba tarde y borraba
+    // el flag justo al cambiar de escena. Lo decidimos por supervivencia: si 150 ms
+    // después seguimos vivos, fue un Esc. Si era una navegación, este timer se muere con
+    // la página y el flag queda intacto para la escena siguiente.
+    let t = null;
+    const onCambio = () => {
+        clearTimeout(t);
+        if (esFS()) sessionStorage.setItem(FLAG, '1');
+        else t = setTimeout(() => sessionStorage.removeItem(FLAG), 150);
+    };
+    document.addEventListener('fullscreenchange', onCambio);
+    document.addEventListener('webkitfullscreenchange', onCambio);
+
+    if (sessionStorage.getItem(FLAG) !== '1') return;
+
+    // requestFullscreen exige un gesto, así que reentramos con el primero de la escena.
+    // Va en pointerdown (captura) para llegar antes que el click que captura el ratón:
+    // así el pointer lock se pide ya dentro de la Fullscreen API y no chocan.
+    const ir = () => {
+        removeEventListener('pointerdown', ir, true);
+        removeEventListener('keydown', ir, true);
+        if (esFS()) return;
+        const el = document.documentElement;
+        try { (el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen)?.call(el); }
+        catch (e) { /* si el gesto no sirve, siempre queda F11 */ }
+    };
+    addEventListener('pointerdown', ir, true);
+    addEventListener('keydown', ir, true);
+})();
 </script>
 
 </body>

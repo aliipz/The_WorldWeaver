@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_03",
+  "query_usada": "underwater ambience loop",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/839/839819_17966231-hq.mp3",
+    "titulo": "Underwater Cave Ambience",
+    "autor": "TommyListens",
+    "duracion_segundos": 21.4,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/875/875512_16682330-hq.mp3",
+    "titulo": "Ambient Deep Bubbly Rumble Loop",
+    "autor": "loganzsound",
+    "duracion_segundos": 50.1,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

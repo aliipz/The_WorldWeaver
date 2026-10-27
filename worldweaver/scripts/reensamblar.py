@@ -11,7 +11,6 @@ escena, portal/quiz, fin (última escena narrativa). El idioma se lee del previe
 existente; el modo se deduce de la presencia de salida_examinador.json.
 """
 import sys
-import json
 import re
 from pathlib import Path
 
@@ -87,7 +86,9 @@ def reensamblar(world: str) -> None:
 
         texto_fin = None
         escenas_cielo = None
-        if es_ultima and modo != "educativo" and esc.texto_fin:
+        # Igual que nodo_ensamblador: la última escena lleva el overlay de cierre en ambos
+        # modos (en educativo su botón lleva al cuestionario).
+        if es_ultima and esc.texto_fin:
             texto_fin = esc.texto_fin
             titulo_por_id = {e.id: e.titulo for e in escenas}
             escenas_cielo = []

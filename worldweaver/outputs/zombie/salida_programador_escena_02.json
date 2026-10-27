@@ -1,0 +1,412 @@
+{
+  "id_escena": "escena_02",
+  "fases": [
+    {
+      "id_evento": "evento_00",
+      "fase": 0,
+      "texto_objetivo": "Zombie pauses, love flickering in his eyes",
+      "guias": [
+        "personaje_zombie_01",
+        "personaje_female"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_zombie_01",
+          "personaje_female"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_01",
+      "fase": 1,
+      "texto_objetivo": "Zombie blocks the chase, arm trembling",
+      "guias": [
+        "personaje_zombie_01",
+        "personaje_female",
+        "personaje_male"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_zombie_01",
+          "personaje_female",
+          "personaje_male"
+        ],
+        "zonas": []
+      }
+    },
+    {
+      "id_evento": "evento_02",
+      "fase": 2,
+      "texto_objetivo": "Emily thanks, zombie vows protection",
+      "guias": [
+        "personaje_female",
+        "personaje_zombie_01"
+      ],
+      "condicion_avance": {
+        "nodos": [],
+        "personajes": [
+          "personaje_female",
+          "personaje_zombie_01"
+        ],
+        "zonas": []
+      }
+    }
+  ],
+  "personajes": [
+    {
+      "id_nodo": "personaje_zombie_01",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "For a heartbeat, the darkness inside me softened, and I saw you, Emily, as if you were a moonlit garden."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "My hunger recoils, replaced by a strange, fierce protectiveness."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What changed?",
+                  "respuesta": "Your presence rewrote the echo of my dying heart.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Can I trust you?",
+                  "respuesta": "I will stand between you and the abyss, no matter the cost.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "I raise my trembling arm, a barrier of rot and resolve, to keep the horde at bay."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The world shivers, but I will not let it claim you."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Will you hold your ground?",
+                  "respuesta": "Until the last breath leaves my corpse.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What if they overwhelm us?",
+                  "respuesta": "I will become the wall that shatters their advance.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "Your whispered thanks bind my purpose; I will guard you with the remnants of my soul."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "Love, a strange curse, now fuels my every step."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Will you stay?",
+                  "respuesta": "As long as my heart beats, I will stay.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What will happen if you fall?",
+                  "respuesta": "My sacrifice will be the shield that saves you.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyT",
+          "etiqueta": "Shield",
+          "descripcion": "You step forward, raising your arm to shield Emily. The zombie's form shimmers with a faint blue aura.",
+          "animacion": "StandUp",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "decorado_mushroom_cluster_01",
+              "efecto": "brillo",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_female",
+      "fase_aparicion": 0,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 0,
+          "animacion": null,
+          "puntos": [
+            {
+              "frases": [
+                "Your eyes... they flicker with a softness I never expected."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "In this moonlit horror, I feel a fragile thread of hope."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Are you... still yourself?",
+                  "respuesta": "I am the echo of what I once was, but now I hear your heartbeat.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Will you protect us?",
+                  "respuesta": "I will stand as a shield, even if my flesh decays.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 1,
+          "animacion": "SitDown",
+          "puntos": [
+            {
+              "frases": [
+                "I cling to the stone, watching you block the onslaught, a guardian born of love."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The night sighs, yet your presence steadies my trembling heart."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "What do you feel now?",
+                  "respuesta": "A surge of gratitude, brighter than the moon.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "Can we escape?",
+                  "respuesta": "Together, we will carve a path through the darkness.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        },
+        {
+          "fase": 2,
+          "animacion": "Jump",
+          "puntos": [
+            {
+              "frases": [
+                "Thank you... your promise is a lifeline in this cursed night."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "I will hold onto this hope, even as the world crumbles."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Will you stay by my side?",
+                  "respuesta": "Until the moon fades, I will not let go.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What if the darkness returns?",
+                  "respuesta": "We will face it together, heart against heart.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyQ",
+          "etiqueta": "Thank",
+          "descripcion": "You whisper a heartfelt thanks to Emily. She smiles, eyes glistening with relief.",
+          "animacion": "Victory",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": []
+        }
+      ],
+      "dispara": null
+    },
+    {
+      "id_nodo": "personaje_male",
+      "fase_aparicion": 1,
+      "ficha_info": null,
+      "dialogos": [
+        {
+          "fase": 1,
+          "animacion": "Victory",
+          "puntos": [
+            {
+              "frases": [
+                "I step forward, my hand gripping the worn leather, ready to back her newfound guardian."
+              ],
+              "opciones": []
+            },
+            {
+              "frases": [
+                "The undead surge, but our resolve is sharper than any blade."
+              ],
+              "opciones": [
+                {
+                  "etiqueta": "Do you trust him?",
+                  "respuesta": "His love is a strange fire, but it burns brighter than fear.",
+                  "correcta": false
+                },
+                {
+                  "etiqueta": "What if he fails?",
+                  "respuesta": "Then I will stand alone, for her safety is my oath.",
+                  "correcta": false
+                }
+              ]
+            }
+          ],
+          "pista": null
+        }
+      ],
+      "dialogos_con_item": [],
+      "acciones": [
+        {
+          "tecla": "KeyR",
+          "etiqueta": "Observe",
+          "descripcion": "You study the twisted branch, its bark creaking under your gaze.",
+          "animacion": "Idle",
+          "narrativa": true,
+          "fase_aparicion": 0,
+          "sonido": null,
+          "dispara": [
+            {
+              "id_nodo": "decorado_fallen_branch_01",
+              "efecto": "flotar",
+              "color": null,
+              "animacion": null
+            }
+          ]
+        }
+      ],
+      "dispara": null
+    }
+  ],
+  "objetos": [
+    {
+      "id_nodo": "decorado_mushroom_cluster_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A cluster of phosphorescent mushrooms emits a gentle pulse."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "pulsar",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_cairn_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "The ancient cairn stands as a silent marker of forgotten travelers."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": true
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_small_pond_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "Misty water ripples softly, reflecting fragmented moonlight."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "pulsar",
+        "radio": 2.5,
+        "una_vez": false
+      },
+      "dispara": null
+    },
+    {
+      "id_nodo": "decorado_log_01",
+      "fase_aparicion": 0,
+      "interaccion": {
+        "tipo": "lore",
+        "texto": "A gnarled log lies twisted, its bark etched with faint runes."
+      },
+      "acciones": [],
+      "proximidad": {
+        "efecto": "sacudir",
+        "radio": 2.5,
+        "una_vez": true
+      },
+      "dispara": null
+    }
+  ],
+  "zonas_narrativas": [],
+  "examen_vocabulario": false,
+  "examen_opciones": false
+}

@@ -1,0 +1,131 @@
+{
+  "id_escena": "escena_02",
+  "elementos": [
+    {
+      "id": "personaje_patito_feo",
+      "nombre": "Patito feo",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 0.8,
+      "descripcion": "Patito de plumaje gris apagado, tamaño grande, pico corto y ojos tristes."
+    },
+    {
+      "id": "personaje_perro_caza",
+      "nombre": "Perro de caza",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 1.8,
+      "alto": 1.6,
+      "descripcion": "Perro grande de pelaje marrón oscuro, orejas puntiagudas, mirada alerta."
+    },
+    {
+      "id": "objeto_tronco_podrido",
+      "nombre": "tronco podrido",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 6
+      },
+      "ancho": 3.0,
+      "alto": 1.0,
+      "descripcion": "Gran tronco caído y descompuesto, hueco por dentro, sirve de refugio temporal."
+    },
+    {
+      "id": "decorado_junco_alto_01",
+      "nombre": "Junco alto",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 4
+      },
+      "ancho": 0.3,
+      "alto": 2.5,
+      "descripcion": "Cilindrico, tallos verdes y flexibles emergiendo del agua, cubiertos de limo gris."
+    },
+    {
+      "id": "decorado_sapo_01",
+      "nombre": "Sapo de pantano",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 4
+      },
+      "ancho": 0.8,
+      "alto": 0.3,
+      "descripcion": "Anfibio ancho, piel verrugosa de tono marrón oscuro, posado sobre una hoja de nenúfar."
+    },
+    {
+      "id": "decorado_musgo_01",
+      "nombre": "Musgo del pantano",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 0
+      },
+      "ancho": 2.0,
+      "alto": 0.2,
+      "descripcion": "Tapiz denso de pequeñas hojas esponjosas, de tono verde oliva, cubriendo rocas y troncos."
+    },
+    {
+      "id": "decorado_piedra_musgosa_01",
+      "nombre": "Piedra musgosa",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 1
+      },
+      "ancho": 2.5,
+      "alto": 1.5,
+      "descripcion": "Roca irregular de granito gris, con musgo verde que la envuelve, parcialmente sumergida en el lodo."
+    },
+    {
+      "id": "decorado_carrizo_01",
+      "nombre": "Carrizo del pantano",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 2
+      },
+      "ancho": 0.2,
+      "alto": 1.5,
+      "descripcion": "Tallo delgado y recto, con nudos oscuros, creciendo en los bordes del charco."
+    },
+    {
+      "id": "decorado_cuerpo_de_pez_01",
+      "nombre": "Cuerpo de pez descompuesto",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 0.9,
+      "alto": 0.4,
+      "descripcion": "Siluro alargado, escamas opacas grisáceas, flotando parcialmente sumergido en el lodo."
+    }
+  ]
+}

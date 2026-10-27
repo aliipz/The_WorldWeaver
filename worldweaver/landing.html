@@ -1605,6 +1605,8 @@ const I18N = {
     caido_msg:   "El servicio externo de búsqueda de modelos 3D (poly.pizza) no responde ahora mismo. No es un problema de WorldWeaver.",
     caido_retry: "Vuelve a intentarlo en unos minutos.",
     caido_btn:   "Volver al inicio",
+    del_confirm: "¿Borrar", del_si: "Sí", del_no: "No",
+    del_title: "Eliminar mundo", edu_badge: "modo educativo",
   },
   en: {
     intro_spin: "Spin the globe to begin",
@@ -1656,6 +1658,8 @@ const I18N = {
     caido_msg:   "The external 3D model search service (poly.pizza) is not responding right now. This is not a WorldWeaver problem.",
     caido_retry: "Please try again in a few minutes.",
     caido_btn:   "Back to start",
+    del_confirm: "Delete", del_si: "Yes", del_no: "No",
+    del_title: "Delete world", edu_badge: "educational mode",
   },
 };
 
@@ -2108,6 +2112,9 @@ document.getElementById('btn-inicio').addEventListener('click', () => {
 });
 
 // ── Mis mundos ────────────────────────────────────────────────────────────────
+function _esc(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
 function _hex(h) {
     return {r:parseInt(h.slice(1,3),16),g:parseInt(h.slice(3,5),16),b:parseInt(h.slice(5,7),16)};
 }
@@ -2324,11 +2331,12 @@ function drawPlanet(cv, cf, cs, ca, nombre, edu) {
 
             for (const m of mundos.slice(i, i + COLS)) {
                 const d      = (Math.random() * 3.5).toFixed(2);
-                const nombre = m.nombre.replace(/_/g, ' ');
+                const T      = I18N[idiomaActual] || I18N.es;
+                const nombre = _esc(m.nombre.replace(/_/g, ' '));
                 const glow   = `0 0 22px ${_rgba(m.color_fondo,.55)},0 0 58px ${_rgba(m.color_fondo,.18)}`;
                 const card   = document.createElement('div');
                 card.className = m.educativo ? 'mm-card edu' : 'mm-card';
-                card.title     = m.educativo ? nombre + ' · modo educativo' : nombre;
+                card.title     = m.educativo ? m.nombre.replace(/_/g, ' ') + ' · ' + T.edu_badge : m.nombre.replace(/_/g, ' ');
                 card.onclick   = (e) => {
                     if (e.target.closest('.mm-btn-del') || e.target.closest('.mm-confirm')) return;
                     const conf = card.querySelector('.mm-confirm');
@@ -2336,11 +2344,11 @@ function drawPlanet(cv, cf, cs, ca, nombre, edu) {
                     location.href = m.url;
                 };
                 card.innerHTML = `
-                    <button class="mm-btn-del" title="Eliminar mundo">×</button>
+                    <button class="mm-btn-del" title="${T.del_title}">×</button>
                     <div class="mm-orb-wrap" style="box-shadow:${glow};animation-delay:-${d}s">
                         <canvas class="mm-orb"
                             data-cf="${m.color_fondo}" data-cs="${m.color_sol}"
-                            data-ca="${m.color_ambiente}" data-n="${m.nombre}"
+                            data-ca="${m.color_ambiente}" data-n="${_esc(m.nombre)}"
                             data-edu="${m.educativo ? '1' : ''}"></canvas>
                     </div>
                     <div class="mm-nombre">${nombre}</div>`;
@@ -2350,10 +2358,10 @@ function drawPlanet(cv, cf, cs, ca, nombre, edu) {
                     if (card.querySelector('.mm-confirm')) return;
                     const conf = document.createElement('div');
                     conf.className = 'mm-confirm';
-                    conf.innerHTML = `<p>¿Borrar<br>${nombre}?</p>
+                    conf.innerHTML = `<p>${T.del_confirm}<br>${nombre}?</p>
                         <div class="mm-confirm-btns">
-                            <button class="mm-confirm-btn si">Sí</button>
-                            <button class="mm-confirm-btn no">No</button>
+                            <button class="mm-confirm-btn si">${T.del_si}</button>
+                            <button class="mm-confirm-btn no">${T.del_no}</button>
                         </div>`;
                     conf.onclick = (e) => e.stopPropagation();
                     conf.querySelector('.no').onclick = () => conf.remove();
@@ -2868,9 +2876,22 @@ initGlobe('globe-load',   { sizePx: 130, autoSpeed: 0.013, interactive: true  })
 
 // ── Botón de pantalla completa (abajo a la izquierda) ───────────────────────
 // Aparece solo cuando NO estás en pantalla completa (tras Esc / barra del navegador).
+// Ojo con la detección: el .exe arranca con --start-fullscreen, que es fullscreen DE
+// VENTANA y deja document.fullscreenElement a null. Mirando solo esa propiedad el botón
+// se mostraba SIEMPRE en el .exe, invitando a pedir la Fullscreen API encima de una
+// ventana que ya estaba completa — y esa API se cae al entrar en un mundo, devolviendo
+// la ventana a modo normal. Comparando con screen.height detectamos ambos casos.
 (function _wwBotonFullscreen() {
+    const esFS = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
+    // Margen holgado: con zoom distinto del 100% innerHeight y screen.height no cuadran
+    // al píxel. Solo queremos distinguir "ventana completa" de "ventana con barras".
+    const pantallaCompleta = () => esFS() || Math.abs(innerHeight - screen.height) <= 4;
+
     const btn = document.createElement('button');
-    btn.title = 'Pantalla completa';
+    // F11 es mejor opción que este botón y conviene decirlo: da fullscreen DE VENTANA, que
+    // sobrevive a la navegación. La Fullscreen API que pide el botón muere en cada cambio
+    // de escena y solo puede recuperarse con un gesto (el navegador no deja hacerlo solo).
+    btn.title = 'Pantalla completa — mejor F11: así no se sale al cambiar de escena';
     btn.innerHTML = '⛶';
     btn.style.cssText = 'position:fixed;bottom:14px;left:14px;z-index:99999;width:38px;height:38px;'
         + 'border-radius:10px;border:1px solid rgba(255,255,255,0.18);background:rgba(15,20,35,0.5);'
@@ -2884,13 +2905,33 @@ initGlobe('globe-load',   { sizePx: 130, autoSpeed: 0.013, interactive: true  })
         (el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen)?.call(el);
     };
     document.body.appendChild(btn);
-    const upd = () => {
-        const fs = document.fullscreenElement || document.webkitFullscreenElement;
-        btn.style.display = fs ? 'none' : 'block';
-    };
+    const upd = () => { btn.style.display = pantallaCompleta() ? 'none' : 'block'; };
     document.addEventListener('fullscreenchange', upd);
     document.addEventListener('webkitfullscreenchange', upd);
+    addEventListener('resize', upd);
     upd();
+})();
+
+// ── Memoria de la pantalla completa entre páginas ────────────────────────────
+// La Fullscreen API muere al navegar, así que al entrar en un mundo se perdía. Dejamos
+// constancia de que el usuario la pidió a mano y cada escena la recupera con su primer
+// gesto (ver _wwFullscreenPersistente en sandbox/index.html). El fullscreen de ventana
+// del .exe no pasa por aquí: sobrevive solo y no necesita el flag.
+(function _wwRecordarFullscreen() {
+    const FLAG = 'ww_fs';
+    const esFS = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
+    // Un Esc cancela la preferencia; la salida que provoca la propia navegación, no. No se
+    // pueden separar con pagehide/beforeunload: al navegar Chrome dispara antes el
+    // fullscreenchange. Lo decidimos por supervivencia — si 150 ms después seguimos vivos,
+    // fue un Esc; si navegábamos, el timer muere con la página y el flag sobrevive.
+    let t = null;
+    const onCambio = () => {
+        clearTimeout(t);
+        if (esFS()) sessionStorage.setItem(FLAG, '1');
+        else t = setTimeout(() => sessionStorage.removeItem(FLAG), 150);
+    };
+    document.addEventListener('fullscreenchange', onCambio);
+    document.addEventListener('webkitfullscreenchange', onCambio);
 })();
 </script>
 </body>

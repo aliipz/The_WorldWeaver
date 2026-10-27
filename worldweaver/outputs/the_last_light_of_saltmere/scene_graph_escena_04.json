@@ -1,0 +1,1211 @@
+{
+  "id_escena": "escena_04",
+  "tipo_escena": "interior",
+  "tipo_ambiente": "cueva",
+  "radio_escena": 13.0,
+  "limite_jugador": 7.0,
+  "color_suelo": null,
+  "tipo_suelo": null,
+  "tipo_techo": null,
+  "radio_cubierta": null,
+  "variante_barco": null,
+  "escena_conversacion": false,
+  "nodos": [
+    {
+      "id": "fondo_escena_04",
+      "nombre": "Fondo panorámico",
+      "tipo": "fondo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 3.5,
+        "z": 0.0
+      },
+      "ancho": 13.0,
+      "alto": 7.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "suelo_escena_04",
+      "nombre": "Suelo",
+      "tipo": "suelo",
+      "origen": null,
+      "posicion": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "ancho": 13.0,
+      "alto": 13.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 0,
+      "prompt_imagen": null,
+      "gltf_url": null,
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_mara",
+      "nombre": "Mara",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.94,
+        "y": 0.88,
+        "z": -1.77
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Pirate_Female.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_goblin_king",
+      "nombre": "Goblin King",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 1.84,
+        "y": 0.5,
+        "z": -0.8
+      },
+      "ancho": 0.5,
+      "alto": 1.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 9,
+      "prompt_imagen": null,
+      "gltf_url": "/sandbox/assets/characters/Casual_Male.gltf",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_cofre_goblino",
+      "nombre": "Enormous locked chest",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.21,
+        "y": 0.6,
+        "z": -3.49
+      },
+      "ancho": 1.8,
+      "alto": 1.2,
+      "tam_real": 1.8,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/803af4ae-433f-4b05-b1f1-c6a2da02d768.glb",
+      "keyword_busqueda": "treasure chest"
+    },
+    {
+      "id": "objeto_sun_cristal",
+      "nombre": "Sun Crystal",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 2.43,
+        "y": 0.25,
+        "z": -2.51
+      },
+      "ancho": 0.38,
+      "alto": 0.5,
+      "tam_real": 0.5,
+      "voltear_horizontal": false,
+      "capa": 7,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/75211364-db9b-4004-8e35-18031f096da1.glb",
+      "keyword_busqueda": "crystal"
+    },
+    {
+      "id": "objeto_llave_oxidada",
+      "nombre": "Rusty iron key",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": -0.92,
+        "y": 0.05,
+        "z": -0.41
+      },
+      "ancho": 0.15,
+      "alto": 0.1,
+      "tam_real": 0.15,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/19808918-338e-462a-8c9e-f203ce81b3c3.glb",
+      "keyword_busqueda": "key"
+    },
+    {
+      "id": "objeto_caracola_rosa",
+      "nombre": "Pink seashell",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "posicion": {
+        "x": 0.82,
+        "y": 0.07,
+        "z": -0.58
+      },
+      "ancho": 0.2,
+      "alto": 0.15,
+      "tam_real": 0.2,
+      "voltear_horizontal": false,
+      "capa": 11,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/8c6c9226-c174-4ae4-b766-65a7a418cfee.glb",
+      "keyword_busqueda": "seashell"
+    },
+    {
+      "id": "decorado_torch_01",
+      "nombre": "Burning wall torch",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 4.36,
+        "y": 0.4,
+        "z": 3.35
+      },
+      "ancho": 0.3,
+      "alto": 0.8,
+      "tam_real": 0.8,
+      "voltear_horizontal": false,
+      "capa": 5,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/0dcdbabb-629d-4eee-af16-7c49f6ba6e5e.glb",
+      "keyword_busqueda": "torch"
+    },
+    {
+      "id": "decorado_stalagmite_01",
+      "nombre": "Cracked stalagmite",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -6.77,
+        "y": 1.25,
+        "z": 12.25
+      },
+      "ancho": 0.8,
+      "alto": 2.5,
+      "tam_real": 2.5,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/848175fa-fc5d-47fd-9535-7b3eb27fbb79.glb",
+      "keyword_busqueda": "stalagmite"
+    },
+    {
+      "id": "decorado_bone_pile_01",
+      "nombre": "Pile of old bones",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 13.26,
+        "y": 0.3,
+        "z": 4.49
+      },
+      "ancho": 1.2,
+      "alto": 0.6,
+      "tam_real": 1.2,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/dfefb65d-139f-4230-8038-9929ce237343.glb",
+      "keyword_busqueda": "bones"
+    },
+    {
+      "id": "decorado_skull_01",
+      "nombre": "Goblin skull",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": 4.89,
+        "y": 0.12,
+        "z": 8.72
+      },
+      "ancho": 0.25,
+      "alto": 0.25,
+      "tam_real": 0.25,
+      "voltear_horizontal": false,
+      "capa": 2,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/c7441a0a-4f5b-4cc4-9a7d-ac678fac3858.glb",
+      "keyword_busqueda": "skull"
+    },
+    {
+      "id": "decorado_goblet_01",
+      "nombre": "Rusty golden goblet",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "posicion": {
+        "x": -7.11,
+        "y": 0.15,
+        "z": 2.4
+      },
+      "ancho": 0.2,
+      "alto": 0.3,
+      "tam_real": 0.3,
+      "voltear_horizontal": false,
+      "capa": 3,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/08cffbdd-05cb-490b-90b2-26647bd218c0.glb",
+      "keyword_busqueda": "goblet"
+    },
+    {
+      "id": "amb_00_0_00",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 0.13,
+        "y": 1.36,
+        "z": 10.75
+      },
+      "ancho": 0.65,
+      "alto": 2.72,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_0_01",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.33,
+        "y": 1.49,
+        "z": 9.69
+      },
+      "ancho": 0.71,
+      "alto": 2.97,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_0_02",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 8.2,
+        "y": 1.11,
+        "z": 7.18
+      },
+      "ancho": 0.53,
+      "alto": 2.22,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_0_03",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 11.97,
+        "y": 1.29,
+        "z": 2.95
+      },
+      "ancho": 0.62,
+      "alto": 2.57,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_0_04",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 8.4,
+        "y": 1.46,
+        "z": -7.3
+      },
+      "ancho": 0.7,
+      "alto": 2.92,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_0_05",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 3.26,
+        "y": 1.39,
+        "z": -10.33
+      },
+      "ancho": 0.67,
+      "alto": 2.79,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_0_06",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -2.23,
+        "y": 1.34,
+        "z": -11.41
+      },
+      "ancho": 0.65,
+      "alto": 2.69,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_0_07",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -7.51,
+        "y": 1.21,
+        "z": -9.57
+      },
+      "ancho": 0.58,
+      "alto": 2.41,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_0_08",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -10.71,
+        "y": 1.04,
+        "z": -3.9
+      },
+      "ancho": 0.5,
+      "alto": 2.08,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_0_09",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -10.88,
+        "y": 1.33,
+        "z": 0.42
+      },
+      "ancho": 0.64,
+      "alto": 2.67,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_0_10",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -10.06,
+        "y": 1.33,
+        "z": 6.12
+      },
+      "ancho": 0.64,
+      "alto": 2.66,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_0_11",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -6.75,
+        "y": 1.26,
+        "z": 9.84
+      },
+      "ancho": 0.61,
+      "alto": 2.53,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_1_00",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -5.57,
+        "y": 1.2,
+        "z": -8.49
+      },
+      "ancho": 0.58,
+      "alto": 2.41,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_1_01",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -5.53,
+        "y": 1.02,
+        "z": 9.49
+      },
+      "ancho": 0.49,
+      "alto": 2.04,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_1_02",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 5.4,
+        "y": 1.08,
+        "z": 11.67
+      },
+      "ancho": 0.52,
+      "alto": 2.15,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_00_1_03",
+      "nombre": "Stalactites & gems",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 8.67,
+        "y": 1.44,
+        "z": -6.96
+      },
+      "ancho": 0.69,
+      "alto": 2.89,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/d660895f-ac6c-4139-b4c4-965321efa803.glb",
+      "keyword_busqueda": "Stalactites & gems"
+    },
+    {
+      "id": "amb_01_0_00",
+      "nombre": "Gold Rocks",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -11.45,
+        "y": 0.5,
+        "z": -1.09
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/edd2df9d-37a5-4564-bb00-7d2642a8706d.glb",
+      "keyword_busqueda": "Gold Rocks"
+    },
+    {
+      "id": "amb_01_0_01",
+      "nombre": "Gold Rocks",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 3.62,
+        "y": 0.44,
+        "z": 10.33
+      },
+      "ancho": 0.88,
+      "alto": 0.88,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/edd2df9d-37a5-4564-bb00-7d2642a8706d.glb",
+      "keyword_busqueda": "Gold Rocks"
+    },
+    {
+      "id": "amb_01_0_02",
+      "nombre": "Gold Rocks",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 9.38,
+        "y": 0.55,
+        "z": -7.24
+      },
+      "ancho": 1.1,
+      "alto": 1.1,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/edd2df9d-37a5-4564-bb00-7d2642a8706d.glb",
+      "keyword_busqueda": "Gold Rocks"
+    },
+    {
+      "id": "amb_01_0_03",
+      "nombre": "Gold Rocks",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.38,
+        "y": 0.5,
+        "z": -5.37
+      },
+      "ancho": 1.0,
+      "alto": 1.0,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/edd2df9d-37a5-4564-bb00-7d2642a8706d.glb",
+      "keyword_busqueda": "Gold Rocks"
+    },
+    {
+      "id": "amb_01_1_00",
+      "nombre": "Gold Rocks",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -11.63,
+        "y": 0.47,
+        "z": -4.48
+      },
+      "ancho": 0.93,
+      "alto": 0.93,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/edd2df9d-37a5-4564-bb00-7d2642a8706d.glb",
+      "keyword_busqueda": "Gold Rocks"
+    },
+    {
+      "id": "amb_01_2_00",
+      "nombre": "Gold Rocks",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 1.66,
+        "y": 0.52,
+        "z": 9.46
+      },
+      "ancho": 1.03,
+      "alto": 1.03,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/edd2df9d-37a5-4564-bb00-7d2642a8706d.glb",
+      "keyword_busqueda": "Gold Rocks"
+    },
+    {
+      "id": "amb_01_2_01",
+      "nombre": "Gold Rocks",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 9.63,
+        "y": 0.4,
+        "z": 0.16
+      },
+      "ancho": 0.81,
+      "alto": 0.81,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/edd2df9d-37a5-4564-bb00-7d2642a8706d.glb",
+      "keyword_busqueda": "Gold Rocks"
+    },
+    {
+      "id": "amb_01_2_02",
+      "nombre": "Gold Rocks",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 6.94,
+        "y": 0.56,
+        "z": -4.79
+      },
+      "ancho": 1.12,
+      "alto": 1.12,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/edd2df9d-37a5-4564-bb00-7d2642a8706d.glb",
+      "keyword_busqueda": "Gold Rocks"
+    },
+    {
+      "id": "amb_01_2_03",
+      "nombre": "Gold Rocks",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -2.37,
+        "y": 0.41,
+        "z": -9.09
+      },
+      "ancho": 0.83,
+      "alto": 0.83,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/edd2df9d-37a5-4564-bb00-7d2642a8706d.glb",
+      "keyword_busqueda": "Gold Rocks"
+    },
+    {
+      "id": "amb_01_2_04",
+      "nombre": "Gold Rocks",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -8.29,
+        "y": 0.43,
+        "z": 2.54
+      },
+      "ancho": 0.87,
+      "alto": 0.87,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/edd2df9d-37a5-4564-bb00-7d2642a8706d.glb",
+      "keyword_busqueda": "Gold Rocks"
+    },
+    {
+      "id": "amb_01_2_05",
+      "nombre": "Gold Rocks",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -0.08,
+        "y": 0.49,
+        "z": 7.95
+      },
+      "ancho": 0.99,
+      "alto": 0.99,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/edd2df9d-37a5-4564-bb00-7d2642a8706d.glb",
+      "keyword_busqueda": "Gold Rocks"
+    },
+    {
+      "id": "amb_02_0_00",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.99,
+        "y": 0.56,
+        "z": -7.17
+      },
+      "ancho": 1.4,
+      "alto": 1.12,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_0_01",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -10.7,
+        "y": 0.52,
+        "z": 2.96
+      },
+      "ancho": 1.3,
+      "alto": 1.04,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_0_02",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -1.8,
+        "y": 0.62,
+        "z": 10.55
+      },
+      "ancho": 1.55,
+      "alto": 1.24,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_0_03",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 8.03,
+        "y": 0.53,
+        "z": 7.66
+      },
+      "ancho": 1.33,
+      "alto": 1.07,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_0_04",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 11.61,
+        "y": 0.49,
+        "z": -0.86
+      },
+      "ancho": 1.22,
+      "alto": 0.97,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_0_05",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 10.21,
+        "y": 0.53,
+        "z": -3.56
+      },
+      "ancho": 1.32,
+      "alto": 1.05,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_0_06",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 4.67,
+        "y": 0.7,
+        "z": -11.0
+      },
+      "ancho": 1.76,
+      "alto": 1.41,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_0_07",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -8.9,
+        "y": 0.62,
+        "z": -7.01
+      },
+      "ancho": 1.55,
+      "alto": 1.24,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_1_00",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 5.8,
+        "y": 0.55,
+        "z": -12.87
+      },
+      "ancho": 1.37,
+      "alto": 1.09,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_1_01",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 2.63,
+        "y": 0.69,
+        "z": 10.13
+      },
+      "ancho": 1.72,
+      "alto": 1.37,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_2_00",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -0.83,
+        "y": 0.52,
+        "z": 7.9
+      },
+      "ancho": 1.3,
+      "alto": 1.04,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_2_01",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 0.36,
+        "y": 0.65,
+        "z": 8.25
+      },
+      "ancho": 1.63,
+      "alto": 1.3,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_2_02",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 7.09,
+        "y": 0.71,
+        "z": 4.0
+      },
+      "ancho": 1.78,
+      "alto": 1.42,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_2_03",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 10.4,
+        "y": 0.71,
+        "z": -0.02
+      },
+      "ancho": 1.78,
+      "alto": 1.42,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_2_04",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 7.85,
+        "y": 0.71,
+        "z": -3.32
+      },
+      "ancho": 1.78,
+      "alto": 1.42,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_2_05",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": 3.46,
+        "y": 0.53,
+        "z": -8.66
+      },
+      "ancho": 1.33,
+      "alto": 1.06,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_2_06",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -5.27,
+        "y": 0.69,
+        "z": -9.07
+      },
+      "ancho": 1.72,
+      "alto": 1.37,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_2_07",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -8.15,
+        "y": 0.51,
+        "z": -6.17
+      },
+      "ancho": 1.27,
+      "alto": 1.02,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_2_08",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -9.37,
+        "y": 0.53,
+        "z": -1.49
+      },
+      "ancho": 1.33,
+      "alto": 1.06,
+      "tam_real": null,
+      "voltear_horizontal": true,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    },
+    {
+      "id": "amb_02_2_09",
+      "nombre": "rock",
+      "tipo": "ambiente",
+      "origen": null,
+      "posicion": {
+        "x": -7.77,
+        "y": 0.69,
+        "z": 3.7
+      },
+      "ancho": 1.72,
+      "alto": 1.38,
+      "tam_real": null,
+      "voltear_horizontal": false,
+      "capa": 1,
+      "prompt_imagen": null,
+      "gltf_url": "https://static.poly.pizza/500cdd0f-bfdd-4144-a45d-d5d02c4e569d.glb",
+      "keyword_busqueda": "rock"
+    }
+  ],
+  "cielo": {
+    "tipo": "interior_frio",
+    "color_fondo": "#0a0a16",
+    "color_ambiente": "#7484a4",
+    "intensidad_ambiente": 0.4783921303778992,
+    "color_sol": "#9db5d5",
+    "intensidad_sol": 0.4283863483925077,
+    "pos_sol": {
+      "x": 0.5299602948787479,
+      "y": 3.9703402576820968,
+      "z": -0.14187043125840804
+    },
+    "niebla": {
+      "color": "#090913",
+      "near": 7.739536324013196,
+      "far": 14.052063034184224
+    },
+    "luz_exterior": "dia"
+  },
+  "camara": {
+    "posicion": {
+      "x": 0,
+      "y": 1.8,
+      "z": 0
+    },
+    "mirar_a": {
+      "x": 0,
+      "y": 1.8,
+      "z": -3
+    },
+    "fov": 55
+  },
+  "registro_personajes": {
+    "personaje_mara": {
+      "glb_id": "Pirate_Female",
+      "glb_path": "/sandbox/assets/characters/Pirate_Female.gltf",
+      "skin_tone": "medio",
+      "skin_hex": "#D4956A",
+      "hair_color": "castano_oscuro",
+      "clothing_seed": 8474,
+      "talla": "adulto_medio",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    },
+    "personaje_goblin_king": {
+      "glb_id": "Casual_Male",
+      "glb_path": "/sandbox/assets/characters/Casual_Male.gltf",
+      "skin_tone": null,
+      "skin_hex": "#D4956A",
+      "hair_color": null,
+      "clothing_seed": 5704,
+      "talla": "nino_enano",
+      "animacion_idle": "Idle",
+      "animacion_talk": "Victory"
+    }
+  }
+}

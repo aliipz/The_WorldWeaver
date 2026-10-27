@@ -1084,20 +1084,27 @@ function _crearSueloAgua(radio, opacidad) {
 // unas pocas flotando algo más arriba para dar profundidad.
 function _crearSueloNubes(radio) {
     const g = new THREE.Group();
+    // Material base con emisivo MUY bajo: antes (0.25) lavaba todos los cúmulos a un
+    // blanco plano sin relieve. Bajándolo, la luz de la escena modela cada esfera
+    // (sombra abajo / luz arriba) y se aprecia el volumen de las nubes.
     const matNube = new THREE.MeshStandardMaterial({
         color: 0xffffff, roughness: 1.0, metalness: 0.0,
-        emissive: 0xe6eeff, emissiveIntensity: 0.25, fog: false,
+        emissive: 0x9fb4d8, emissiveIntensity: 0.04, fog: false,
     });
     // Base blanca que tapa el borde inferior del cilindro
     const base = new THREE.Mesh(
         new THREE.CircleGeometry(radio * 1.5, 48),
-        new THREE.MeshStandardMaterial({ color: 0xf0f4ff, emissive: 0xdde6ff,
-            emissiveIntensity: 0.28, roughness: 1.0, fog: false }),
+        new THREE.MeshStandardMaterial({ color: 0xeaf0fc, emissive: 0xc8d6f0,
+            emissiveIntensity: 0.12, roughness: 1.0, fog: false }),
     );
     base.rotation.x = -Math.PI / 2; base.position.y = -1.4; base.receiveShadow = true;
     g.add(base);
     const _puff = (x, y, z, s, scY) => {
-        const m = new THREE.Mesh(new THREE.SphereGeometry(s, 7, 5), matNube);
+        // Tono por cúmulo: blanco con un punto de azul y luminosidad variable, para que
+        // las nubes contiguas contrasten entre sí (textura visible) en vez de fundirse.
+        const mat = matNube.clone();
+        mat.color.setHSL(0.58, 0.16, 0.66 + Math.random() * 0.30);
+        const m = new THREE.Mesh(new THREE.SphereGeometry(s, 7, 5), mat);
         m.position.set(x, y, z);
         m.scale.y = scY !== undefined ? scY : (0.28 + Math.random() * 0.14);
         g.add(m);
@@ -1406,6 +1413,19 @@ function crearModelo3D(nodo, scene) {
             if (_tipoAmbiente === 'barco') {
                 const _dc = Math.hypot(nodo.posicion.x, nodo.posicion.z);
                 if (_dc < (window._BARCO_DECK_R ?? 4.6)) grupo.position.y = (window._BARCO_DECK_H ?? 1.0) + 0.1;
+            }
+
+            // Escena de conversación (idiomas): cada personaje MIRA hacia el/los otro(s)
+            // personaje(s), como si hablasen entre sí. A diferencia del mobiliario, los GLB
+            // humanos de Quaternius miran a +Z, así que para encararlos al objetivo se usa
+            // rotation.y = atan2(tx - x, tz - z) (vector self→objetivo, NO el inverso del mueble).
+            if (SCENE_GRAPH.escena_conversacion && nodo.tipo === 'personaje') {
+                const otros = (SCENE_GRAPH.nodos || []).filter(n => n.tipo === 'personaje' && n.id !== nodo.id);
+                if (otros.length) {
+                    const tx = otros.reduce((s, n) => s + n.posicion.x, 0) / otros.length;
+                    const tz = otros.reduce((s, n) => s + n.posicion.z, 0) / otros.length;
+                    grupo.rotation.y = Math.atan2(tx - nodo.posicion.x, tz - nodo.posicion.z);
+                }
             }
 
             scene.add(grupo);
@@ -1757,10 +1777,17 @@ const _VARIANTES_BARCO = {
 let _barcoVariante = null;
 function _prepararBarco() {
     const tipos = ['balsa', 'barco', 'galeon'];
-    const semilla = (SCENE_GRAPH.id_escena || 'barco') + ((SCENE_GRAPH.cielo && SCENE_GRAPH.cielo.color_fondo) || '');
-    _barcoVariante = _VARIANTES_BARCO[tipos[_hashCadena(semilla) % 3]];
+    // El Constructor fija la variante (y coloca la rejilla de cubierta con su radio).
+    // Si está, la usamos para que casco y rejilla coincidan; si no (mundos antiguos),
+    // caemos al hash de siempre.
+    let nombre = SCENE_GRAPH.variante_barco;
+    if (!nombre || !_VARIANTES_BARCO[nombre]) {
+        const semilla = (SCENE_GRAPH.id_escena || 'barco') + ((SCENE_GRAPH.cielo && SCENE_GRAPH.cielo.color_fondo) || '');
+        nombre = tipos[_hashCadena(semilla) % 3];
+    }
+    _barcoVariante = _VARIANTES_BARCO[nombre];
     window._BARCO_DECK_H = _barcoVariante.H;
-    window._BARCO_DECK_R = _barcoVariante.R;
+    window._BARCO_DECK_R = SCENE_GRAPH.radio_cubierta ?? _barcoVariante.R;
 }
 
 function _crearBarco(scene) {
@@ -2010,6 +2037,10 @@ const _T_DATA = {
         close:      'cerrar',
         keep_drop:  '<kbd>G</kbd> Guardar &nbsp;&nbsp; <kbd>E</kbd> Soltar',
         drag_rotate: 'Arrastra para girar',
+        move_rotate: 'Mueve el ratón para girar',
+        vocab_counter: (n, max) => `Fallos: ${n}/${max}`,
+        vocab_wrong:   rem => `Ese no es. Te ${rem === 1 ? 'queda' : 'quedan'} ${rem} ${rem === 1 ? 'intento' : 'intentos'}.`,
+        vocab_reset:   'Demasiados fallos. Reiniciando el reto…',
     },
     en: {
         talk:       nombre => `<kbd>E</kbd> Talk to <em>${nombre}</em>`,
@@ -2035,6 +2066,10 @@ const _T_DATA = {
         close:      'close',
         keep_drop:  '<kbd>G</kbd> Keep &nbsp;&nbsp; <kbd>E</kbd> Drop',
         drag_rotate: 'Drag to rotate',
+        move_rotate: 'Move the mouse to rotate',
+        vocab_counter: (n, max) => `Mistakes: ${n}/${max}`,
+        vocab_wrong:   rem => `Not that one. ${rem} ${rem === 1 ? 'try' : 'tries'} left.`,
+        vocab_reset:   'Too many mistakes. Restarting the challenge…',
     },
 };
 const _T = k => {
@@ -2138,6 +2173,13 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
     // ── Estado de fases ───────────────────────────────────────────────────────
     const FASES = manifest.fases || [];
     const ZONAS = manifest.zonas_narrativas || [];
+
+    // Examen de vocabulario: el avance se gatea por ENTREGA al guía (no por recoger).
+    const EXAMEN_VOCAB = !!manifest.examen_vocabulario;
+    // Examen conceptual (Tipo B): el avance se gatea por elegir la OPCIÓN correcta.
+    const EXAMEN_OPCIONES = !!manifest.examen_opciones;
+    const EXAMEN_VOCAB_MAX_FALLOS = 3;
+    let _examenFallos = 0;
 
     let faseActual = 0;
     const nodosCompletados    = new Set();  // id_nodo de objetos interactuados
@@ -3223,6 +3265,102 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         }
     }
 
+    // ── Examen de vocabulario: HUD de fallos + entrega al guía ────────────────
+    // Devuelve un objeto recogido a su posición original (lo hace visible de nuevo y lo
+    // saca del inventario). El recoger nunca movió el objeto, solo lo ocultó, así que
+    // vuelve exactamente a su sitio. Usado en el examen al coger otro o al fallar.
+    function _devolverObjeto(idNodo) {
+        const e = mapa[idNodo];
+        if (e?.obj3d) e.obj3d.visible = true;
+        inventario.delete(idNodo);
+        recogidos.delete(idNodo);
+    }
+
+    function _actualizarFallosHUD() {
+        let el = document.getElementById('int-fallos-hud');
+        if (!el) {
+            el = document.createElement('div');
+            el.id = 'int-fallos-hud';
+            el.style.cssText = 'position:fixed;top:16px;left:50%;transform:translateX(-50%);' +
+                'z-index:60;padding:6px 14px;border-radius:14px;font:600 14px system-ui,sans-serif;' +
+                'color:#fff;background:rgba(20,20,28,.62);backdrop-filter:blur(4px);' +
+                'border:1px solid rgba(255,255,255,.14);letter-spacing:.3px;pointer-events:none;';
+            document.body.appendChild(el);
+        }
+        el.textContent = _T('vocab_counter')(_examenFallos, EXAMEN_VOCAB_MAX_FALLOS);
+    }
+
+    // Gestiona el hablar-con-el-guía durante el examen. Devuelve true si lo gestionó
+    // (acierto o fallo); false si el jugador no lleva ningún objeto del vocabulario
+    // (entonces sigue el flujo normal y se muestra la petición de la fase).
+    function _entregaVocab(idNodo, entry) {
+        const dci = entry.dialogos_con_item || [];
+        if (!dci.length) return false;            // este personaje no es el guía del examen
+        const fm = FASES[faseActual];
+        const requested = fm?.condicion_avance?.nodos?.[0] || null;
+        const vocabObjs = new Set(dci.map(d => d.requiere_objeto));
+        const llevaAlguno = [...inventario.keys()].some(id => vocabObjs.has(id));
+
+        // Acierto: lleva el objeto que pide esta fase
+        if (requested && inventario.has(requested)) {
+            const dic   = dci.find(d => d.requiere_objeto === requested);
+            const punto = dic?.puntos?.[0] || { frases: ['¡Correcto!'], opciones: [] };
+            _SFX.faseAvance?.();
+            _mostrarDialogo(punto);
+            dialogoAbierto = true;
+            if (window.PersonajesManager) { PersonajesManager.hablar(idNodo); _personajeHablando = idNodo; }
+            inventario.delete(requested);
+            _actualizarInventarioUI();
+            nodosCompletados.add(requested);
+            personajesHablados.add(idNodo);
+            _verificarAvance();
+            return true;
+        }
+
+        // Fallo: lleva objeto(s) del vocabulario pero ninguno es el pedido
+        if (llevaAlguno) {
+            _examenFallos++;
+            _SFX.activarOff?.();
+            // El objeto entregado por error NO te lo quedas: vuelve a su posición.
+            for (const id of [...inventario.keys()]) if (vocabObjs.has(id)) _devolverObjeto(id);
+            _actualizarInventarioUI();
+            _actualizarFallosHUD();
+            if (_examenFallos >= EXAMEN_VOCAB_MAX_FALLOS) {
+                _mostrarActivacion(_T('vocab_reset'));
+                setTimeout(() => window.location.reload(), 1900);
+                return true;
+            }
+            // María "quiere hablarte": muestra la PISTA de la fase (reformula la petición con
+            // un rasgo visual). Si no hay pista en el manifest, cae al aviso breve.
+            const df = _dialogoActual(entry);
+            const pista = df && df.pista;
+            if (pista && (pista.frases || []).length) {
+                _mostrarDialogo(pista);
+                dialogoAbierto = true;
+                if (window.PersonajesManager) { PersonajesManager.hablar(idNodo); _personajeHablando = idNodo; }
+            } else {
+                _mostrarActivacion(_T('vocab_wrong')(EXAMEN_VOCAB_MAX_FALLOS - _examenFallos));
+            }
+            return true;
+        }
+
+        // No lleva nada relevante → flujo normal (mostrar la petición de la fase)
+        return false;
+    }
+
+    // Examen conceptual (Tipo B): al hablar con el guía, muestra la PREGUNTA de la fase con
+    // sus opciones. NO marca personajesHablados ni avanza: el avance lo decide elegir la
+    // opción correcta (gestionado en _intOpcion vía examenCtx). Devuelve true si lo gestionó.
+    function _preguntaConceptual(idNodo, entry) {
+        const df = _dialogoActual(entry);
+        const punto = df && df.puntos && df.puntos[0];
+        if (!punto || !(punto.opciones || []).length) return false;  // no es pregunta de examen
+        _mostrarDialogo(punto, { esExamen: true, pista: df.pista, idNodo });
+        dialogoAbierto = true;
+        if (window.PersonajesManager) { PersonajesManager.hablar(idNodo); _personajeHablando = idNodo; }
+        return true;
+    }
+
     // ── Activar interacción ───────────────────────────────────────────────────
     function _activar(idNodo) {
         const entry = mapa[idNodo];
@@ -3231,6 +3369,13 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         _cerrarTodos();
 
         if (entry.tipo === 'personaje') {
+            // Examen de vocabulario: la entrega del objeto pedido (o el fallo) se gestiona
+            // aparte. Si el jugador no lleva ningún objeto del vocabulario, sigue el flujo
+            // normal y se muestra la petición de la fase.
+            if (EXAMEN_VOCAB && _entregaVocab(idNodo, entry)) return;
+            // Examen conceptual: muestra la pregunta de la fase con opciones (el avance lo decide
+            // elegir la opción correcta, no el hablar).
+            if (EXAMEN_OPCIONES && _preguntaConceptual(idNodo, entry)) return;
             // dialogos_con_item: item-specific lines take priority over phase dialogue
             let puntoAMostrar = null;
             let dicActivado   = null;
@@ -3373,6 +3518,14 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             if (_inspeccionModo === 'recoger') _cerrarInspeccion(true);
             return;
         }
+        // Opciones de diálogo con las teclas 1-9: con el ratón capturado no se puede
+        // clicar, y soltarlo para eso hacía que el navegador repitiera su aviso de
+        // "pulsa Esc para salir de pantalla completa" en cada conversación.
+        if (dialogoAbierto && window._intOpcion && elDialogo.style.display !== 'none'
+            && elDialogo.querySelector('.int-d-opciones')) {
+            const _op = /^(?:Digit|Numpad)([1-9])$/.exec(e.code);
+            if (_op) { window._intOpcion(+_op[1] - 1); return; }
+        }
         if (e.code === 'KeyE') {
             if (_inspeccionActiva) {
                 _cerrarInspeccion(false);
@@ -3407,12 +3560,20 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
                 if (ac) _ejecutarAccionObjeto(nodoEnRango, ac);
             }
         }
-        if (e.code === 'Escape') _cerrarTodos();
+        // Esc = menú de pausa: cierra los paneles y saca el menú (nunca recaptura).
+        if (e.code === 'Escape') {
+            _cerrarTodos();
+            window._wwMostrarPausa?.();
+        }
     });
 
     // ── Click (modo órbita) ───────────────────────────────────────────────────
     renderer.domElement.addEventListener('click', (e) => {
         if (document.pointerLockElement) return;
+        // Con un diálogo/inspección abierto el puntero está suelto (no bloqueado): sin esta
+        // guarda, un clic en el lienzo raycastearía y activaría otro objeto "a través" del
+        // panel abierto (o re-dispararía el actual). Solo se interactúa con el panel cerrado.
+        if (window._wwDialogoAbierto?.() || _inspeccionActiva) return;
         const id = _raycastRaton(e.clientX, e.clientY);
         if (id) _activar(id);
     });
@@ -3442,7 +3603,7 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
     });
 
     // ── Mostrar diálogo ───────────────────────────────────────────────────────
-    function _mostrarDialogo(punto) {
+    function _mostrarDialogo(punto, examenCtx = null) {
         const frase = punto.frases[0];
         const textoCompleto = `“${frase}”`;  // comillas tipográficas
 
@@ -3451,7 +3612,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             `<div class="int-d-texto"><span class="int-tw-txt"></span></div>` +
             _teclaHint();
         elDialogo.style.display = 'block';
-        if (document.pointerLockElement) document.exitPointerLock();
 
         const twEl = elDialogo.querySelector('.int-tw-txt');
 
@@ -3460,7 +3620,10 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             if (punto.opciones?.length) {
                 let opHtml = `<div class="int-d-opciones">`;
                 punto.opciones.forEach((op, i) => {
-                    opHtml += `<button class="int-d-btn" onclick="_intOpcion(${i})">▸ ${op.etiqueta}</button>`;
+                    // Numeradas: con el ratón capturado no hay cursor con el que clicar,
+                    // así que se eligen con las teclas 1-9 (ver el keydown de más arriba).
+                    opHtml += `<button class="int-d-btn" onclick="_intOpcion(${i})">`
+                            + `<kbd>${i + 1}</kbd> ${op.etiqueta}</button>`;
                 });
                 opHtml += `</div>`;
                 twEl.closest('.int-d-texto').insertAdjacentHTML('afterend', opHtml);
@@ -3472,20 +3635,71 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
 
         _twEscribir(twEl, textoCompleto, onDone);
 
+        // Helper: escribe la respuesta del personaje y, al terminar, ejecuta `tras`.
+        const _mostrarResp = (resp, tras) => {
+            _twCancelar();
+            const twEl2 = elDialogo.querySelector('.int-tw-txt');
+            if (twEl2) { twEl2.textContent = ''; }
+            elDialogo.querySelectorAll('.int-d-opciones, .int-pista').forEach(el => el.remove());
+            elDialogo.querySelector('.int-d-texto').innerHTML = '<span class="int-tw-txt"></span>';
+            elDialogo.insertAdjacentHTML('beforeend', _teclaHint());
+            _twEscribir(elDialogo.querySelector('.int-tw-txt'), `“${resp}”`, tras || null);
+        };
+
         window._intOpcion = (i) => {
-            const resp = punto.opciones[i]?.respuesta;
-            if (resp) {
-                _twCancelar();
-                const twEl2 = elDialogo.querySelector('.int-tw-txt');
-                if (twEl2) { twEl2.textContent = ''; }
-                // Limpiar opciones y hint anteriores
-                elDialogo.querySelectorAll('.int-d-opciones, .int-pista').forEach(el => el.remove());
-                // Mostrar respuesta con typewriter
-                const resp_texto = `“${resp}”`;
-                elDialogo.querySelector('.int-d-texto').innerHTML = '<span class="int-tw-txt"></span>';
-                elDialogo.insertAdjacentHTML('beforeend', _teclaHint());
-                _twEscribir(elDialogo.querySelector('.int-tw-txt'), resp_texto, null);
+            const op = punto.opciones[i];
+            if (!op) return;
+
+            // ── Examen conceptual (Tipo B): la correcta avanza; la mala falla ──
+            if (examenCtx && examenCtx.esExamen) {
+                if (op.correcta) {
+                    _SFX.faseAvance?.();
+                    _avanzarFase();   // faseActual++ (o portal si era la última)
+                    if (faseActual >= FASES.length) {
+                        // Conversación completada: réplica final. El jugador cierra con E
+                        // (re-engancha el ratón); el portal ya se invocó en _avanzarFase.
+                        _mostrarResp(op.respuesta || '¡Muy bien!', null);
+                    } else {
+                        // Conversación CONTINUA: muestra la réplica y luego la siguiente
+                        // pregunta del guía en el MISMO diálogo (sin caminar ni perder el ratón).
+                        _mostrarResp(op.respuesta || '', () => {
+                            setTimeout(() => {
+                                const eg = mapa[examenCtx.idNodo];
+                                const df2 = eg && _dialogoActual(eg);
+                                const pt2 = df2 && df2.puntos && df2.puntos[0];
+                                if (pt2 && (pt2.opciones || []).length) {
+                                    _mostrarDialogo(pt2, { esExamen: true, pista: df2.pista, idNodo: examenCtx.idNodo });
+                                } else {
+                                    _cerrarTodos();  // sin más preguntas → cerrar y re-enganchar ratón
+                                }
+                            }, 1100);
+                        });
+                    }
+                    return;
+                }
+                _examenFallos++;
+                _SFX.activarOff?.();
+                _actualizarFallosHUD();
+                if (_examenFallos >= EXAMEN_VOCAB_MAX_FALLOS) {
+                    _mostrarResp(op.respuesta || '', () => {
+                        _mostrarActivacion(_T('vocab_reset'));
+                        setTimeout(() => window.location.reload(), 1700);
+                    });
+                } else {
+                    // El guía reacciona con extrañeza y, tras la pista, re-ofrece las opciones.
+                    _mostrarResp(op.respuesta || '', () => {
+                        const pista = examenCtx.pista;
+                        const reintento = (pista && (pista.frases || []).length)
+                            ? { frases: pista.frases, opciones: punto.opciones }
+                            : punto;
+                        setTimeout(() => _mostrarDialogo(reintento, examenCtx), 950);
+                    });
+                }
+                return;
             }
+
+            // ── Diálogo normal: solo muestra la respuesta ──
+            if (op.respuesta) _mostrarResp(op.respuesta, null);
         };
     }
 
@@ -3497,7 +3711,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             ${_teclaHint()}
         `;
         elExaminar.style.display = 'block';
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Acción de personaje (texto narrador sin caja, abajo) ─────────────────
@@ -3509,7 +3722,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         elAccion.style.opacity = '0';
         elAccion.style.display = 'block';
         requestAnimationFrame(() => { elAccion.style.opacity = '1'; });
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Ficha de información educativa (tecla I) ──────────────────────────────
@@ -3524,7 +3736,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         elAccion.style.opacity = '0';
         elAccion.style.display = 'block';
         requestAnimationFrame(() => { elAccion.style.opacity = '1'; });
-        if (document.pointerLockElement) document.exitPointerLock();
     }
 
     // ── Toast de activación ───────────────────────────────────────────────────
@@ -3848,8 +4059,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             }
         }
 
-        if (document.pointerLockElement) document.exitPointerLock();
-
         // Overlay de viñeta
         const overlay = document.getElementById('int-insp-overlay');
         if (overlay) {
@@ -3865,7 +4074,12 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         document.getElementById('exam3d-desc').innerHTML   = _wwResaltar(desc);
 
         const dragHint = document.querySelector('#int-examinar-3d .int-insp-drag');
-        if (dragHint) dragHint.style.display = _inspeccionFlotante ? 'block' : 'none';
+        if (dragHint) {
+            // Con el ratón capturado el objeto gira solo con moverlo, sin arrastrar.
+            dragHint.textContent = document.pointerLockElement ? _T('move_rotate')
+                                                              : _T('drag_rotate');
+            dragHint.style.display = _inspeccionFlotante ? 'block' : 'none';
+        }
 
         const pistaEl = document.getElementById('exam3d-pista');
         if (pistaEl) pistaEl.innerHTML = modo === 'recoger'
@@ -3896,15 +4110,23 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
 
         if (guardar) {
             _SFX.recoger();
+            // Examen: inventario de UN solo hueco — al coger otro, el que llevabas vuelve a su sitio.
+            if (EXAMEN_VOCAB) {
+                for (const prevId of [...inventario.keys()]) _devolverObjeto(prevId);
+            }
             inventario.set(idNodo, { titulo, nombre: _nombreNodo(idNodo) });
             recogidos.add(idNodo);
             if (entry?.obj3d) entry.obj3d.visible = false;  // recogido — desaparece
             _actualizarInventarioUI();
             if (inter?.descripcion) _mostrarActivacion(_T('saved_item')(titulo));
-            nodosCompletados.add(idNodo);
-            _marcarObjetivoCompletado(idNodo);
-            if (entry) _desactivarGuia(entry);
-            _verificarAvance();
+            // En el examen de vocabulario, recoger NO avanza la fase: solo la ENTREGA del
+            // objeto correcto al guía cuenta. Así se puede coger todo libremente.
+            if (!EXAMEN_VOCAB) {
+                nodosCompletados.add(idNodo);
+                _marcarObjetivoCompletado(idNodo);
+                if (entry) _desactivarGuia(entry);
+                _verificarAvance();
+            }
         } else {
             // Soltar sin guardar: restaurar visibilidad si habíamos ocultado el original
             if (_inspeccionFlotante && entry?.obj3d) entry.obj3d.visible = true;
@@ -3919,7 +4141,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         _inspeccionIdNodo   = null;
         _inspeccionInter    = null;
         dialogoAbierto      = false;
-        window._wwRetomarPointerLock?.();
     }
 
     // Drag para rotar el objeto inspeccionado
@@ -3930,15 +4151,25 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
         _inspeccionLastY = e.clientY;
     });
     document.addEventListener('mousemove', (e) => {
-        if (!_inspeccionActiva || !_inspeccionDrag || !_inspeccionWrapper) return;
-        const dx = e.clientX - _inspeccionLastX;
-        const dy = e.clientY - _inspeccionLastY;
+        if (!_inspeccionActiva || !_inspeccionWrapper) return;
+        // Con el puntero capturado no hay cursor que arrastrar (y soltarlo es justo lo
+        // que hacía repetir el aviso de pantalla completa del navegador): el objeto gira
+        // con el movimiento del ratón. Sin captura (modo órbita) se sigue arrastrando.
+        let dx, dy;
+        if (document.pointerLockElement) {
+            dx = e.movementX;
+            dy = e.movementY;
+        } else {
+            if (!_inspeccionDrag) return;
+            dx = e.clientX - _inspeccionLastX;
+            dy = e.clientY - _inspeccionLastY;
+            _inspeccionLastX = e.clientX;
+            _inspeccionLastY = e.clientY;
+        }
         // Acumular rotación en espacio local del objeto (ejes Y y X)
         const qY = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), dx * 0.013);
         const qX = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), dy * 0.013);
         _inspeccionDragQuat.multiply(qY).multiply(qX);
-        _inspeccionLastX = e.clientX;
-        _inspeccionLastY = e.clientY;
     });
     document.addEventListener('mouseup', () => { _inspeccionDrag = false; });
 
@@ -3959,9 +4190,6 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             PersonajesManager.callar(_personajeHablando);
             _personajeHablando = null;
         }
-        // Si el navegador soltó el pointer lock durante el diálogo, retomarlo.
-        // La tecla E que cierra el diálogo cuenta como gesto de usuario.
-        window._wwRetomarPointerLock?.();
     }
 
     // ── Helpers ───────────────────────────────────────────────────────────────
@@ -4106,19 +4334,24 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
             }
 
             if (dialogoAbierto) {
+                // Con un panel abierto el raton puede seguir capturado, asi que la
+                // deteccion se congela aqui (antes la congelaba el soltar el puntero).
                 elHint.style.display = 'none';
-            } else if (mirado !== nodoEnRango) {
-                nodoEnRango = mirado;
-                if (mirado) {
-                    elHint.innerHTML = _textoHint(mirado);
-                    elHint.style.display = 'flex';
-                } else {
-                    elHint.style.display = 'none';
+                nodoEnRango = null;
+            } else {
+                if (mirado !== nodoEnRango) {
+                    nodoEnRango = mirado;
+                    if (mirado) {
+                        elHint.innerHTML = _textoHint(mirado);
+                        elHint.style.display = 'flex';
+                    } else {
+                        elHint.style.display = 'none';
+                    }
                 }
-            }
 
-            if (frameCount % 45 === 0) _detectarZona();
-            if (frameCount % 20 === 0) _detectarLoreFPS();
+                if (frameCount % 45 === 0) _detectarZona();
+                if (frameCount % 20 === 0) _detectarLoreFPS();
+            }
 
         } else if (nodoEnRango) {
             nodoEnRango = null;
@@ -4359,6 +4592,17 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
                 transition: background 0.18s, color 0.18s;
             }
             .int-d-btn:hover { background: rgba(100,75,210,0.8); color: #fff; }
+            /* Número de la opción: es la tecla con la que se elige (1-9) */
+            .int-d-btn kbd {
+                display: inline-block;
+                background: rgba(255,255,255,0.16);
+                border: 1px solid rgba(255,255,255,0.32);
+                border-bottom-width: 2px;
+                border-radius: 4px;
+                padding: 0px 7px;
+                font-family: monospace; font-size: 11px;
+                color: #fff; margin-right: 5px;
+            }
             .int-pista {
                 color: rgba(255,255,255,0.28); font-size: 11px;
                 text-align: right; margin-top: 10px; letter-spacing: 0.5px;
@@ -4649,6 +4893,9 @@ window.iniciarInteracciones = function (manifest, scene, camera, renderer) {
 
     // Iniciar tracker con la fase 0 (sin fade de entrada)
     _construirTracker(0, true);
+
+    // Examen de vocabulario: mostrar el contador de fallos desde el principio
+    if (EXAMEN_VOCAB) _actualizarFallosHUD();
 
     return { update, getFase: () => faseActual };
 };
@@ -5189,6 +5436,9 @@ const SCENE_GRAPH          = {
   "color_suelo": null,
   "tipo_suelo": null,
   "tipo_techo": null,
+  "radio_cubierta": null,
+  "variante_barco": null,
+  "escena_conversacion": false,
   "nodos": [
     {
       "id": "fondo_escena_05",
@@ -5550,15 +5800,18 @@ const INTERACTION_MANIFEST = {
               "opciones": [
                 {
                   "etiqueta": "¿Qué buscas aquí?",
-                  "respuesta": "Una señal, una pista que el océano haya guardado para quien se atreva a escuchar."
+                  "respuesta": "Una señal, una pista que el océano haya guardado para quien se atreva a escuchar.",
+                  "correcta": false
                 },
                 {
                   "etiqueta": "¿Te sientes sola?",
-                  "respuesta": "No, Zip me acompaña, y su curiosidad es la luz que corta la oscuridad."
+                  "respuesta": "No, Zip me acompaña, y su curiosidad es la luz que corta la oscuridad.",
+                  "correcta": false
                 }
               ]
             }
-          ]
+          ],
+          "pista": null
         },
         {
           "fase": 1,
@@ -5577,15 +5830,18 @@ const INTERACTION_MANIFEST = {
               "opciones": [
                 {
                   "etiqueta": "¿Qué esperas que ocurra?",
-                  "respuesta": "Que la luz vuelva a guiar a los perdidos, que el mar revele sus secretos."
+                  "respuesta": "Que la luz vuelva a guiar a los perdidos, que el mar revele sus secretos.",
+                  "correcta": false
                 },
                 {
                   "etiqueta": "¿Es seguro?",
-                  "respuesta": "El riesgo es parte del descubrimiento; la curiosidad siempre supera al miedo."
+                  "respuesta": "El riesgo es parte del descubrimiento; la curiosidad siempre supera al miedo.",
+                  "correcta": false
                 }
               ]
             }
-          ]
+          ],
+          "pista": null
         },
         {
           "fase": 2,
@@ -5604,15 +5860,18 @@ const INTERACTION_MANIFEST = {
               "opciones": [
                 {
                   "etiqueta": "¿Qué significa este resplandor?",
-                  "respuesta": "Es la voz del profundo, una respuesta a la llamada que hicimos."
+                  "respuesta": "Es la voz del profundo, una respuesta a la llamada que hicimos.",
+                  "correcta": false
                 },
                 {
                   "etiqueta": "¿Qué haremos ahora?",
-                  "respuesta": "Explorar, registrar, y proteger este nuevo amanecer bajo el agua."
+                  "respuesta": "Explorar, registrar, y proteger este nuevo amanecer bajo el agua.",
+                  "correcta": false
                 }
               ]
             }
-          ]
+          ],
+          "pista": null
         }
       ],
       "dialogos_con_item": [],
@@ -5664,15 +5923,18 @@ const INTERACTION_MANIFEST = {
               "opciones": [
                 {
                   "etiqueta": "¿Qué piensas del cristal?",
-                  "respuesta": "Brilla como un trofeo de la noche, y yo quiero morderlo."
+                  "respuesta": "Brilla como un trofeo de la noche, y yo quiero morderlo.",
+                  "correcta": false
                 },
                 {
                   "etiqueta": "¿Te asusta la profundidad?",
-                  "respuesta": "El miedo es solo otro sabor, pero la curiosidad siempre gana."
+                  "respuesta": "El miedo es solo otro sabor, pero la curiosidad siempre gana.",
+                  "correcta": false
                 }
               ]
             }
-          ]
+          ],
+          "pista": null
         },
         {
           "fase": 2,
@@ -5691,15 +5953,18 @@ const INTERACTION_MANIFEST = {
               "opciones": [
                 {
                   "etiqueta": "¿Te sientes bien?",
-                  "respuesta": "Mis orejas están temblando, pero sigo aquí, listo para lo que sea."
+                  "respuesta": "Mis orejas están temblando, pero sigo aquí, listo para lo que sea.",
+                  "correcta": false
                 },
                 {
                   "etiqueta": "¿Qué crees que sucederá ahora?",
-                  "respuesta": "El faro despertará, y con él, quizás, una nueva ruta para nuestras aventuras."
+                  "respuesta": "El faro despertará, y con él, quizás, una nueva ruta para nuestras aventuras.",
+                  "correcta": false
                 }
               ]
             }
-          ]
+          ],
+          "pista": null
         }
       ],
       "dialogos_con_item": [],
@@ -5822,7 +6087,9 @@ const INTERACTION_MANIFEST = {
       ],
       "texto": "Al adentrarte en la caverna del faro, la luz azul del cristal tiembla en la oscuridad."
     }
-  ]
+  ],
+  "examen_vocabulario": false,
+  "examen_opciones": false
 };
 const AUDIO_DATA           = {"url_preview": "https://cdn.freesound.org/previews/852/852478_18763192-hq.mp3", "volumen": 0.6, "titulo": "WATRUndwtr_Underwater Bubble Flow Loop_KOLBYR_FREE SOUNDS", "autor": "KolbyRFX"};
 const CIELO_CONFIG         = {"tipo": "cielo_magico", "color_fondo": "#170737", "color_ambiente": "#6311a3", "intensidad_ambiente": 0.5693564619372321, "color_sol": "#42d2c1", "intensidad_sol": 0.9871815172879274, "pos_sol": {"x": -0.5499417865182328, "y": 4.974865109289665, "z": -2.9944534092643114}, "niebla": {"color": "#13062f", "near": 10.191206590907829, "far": 19.0}, "luz_exterior": null};
@@ -6086,17 +6353,43 @@ function salirFPS() {
 // (E es un gesto de usuario válido para requestPointerLock)
 window._wwRetomarPointerLock = function () {
     if (fpsModo && !document.pointerLockElement) {
-        renderer.domElement.requestPointerLock();
+        // requestPointerLock puede fallar (síncrono en navegadores viejos, o promesa
+        // rechazada en Chrome reciente) si se pide dentro del enfriamiento de ~1,25 s que
+        // el navegador impone tras soltar el puntero. No dejamos que reviente: el listener
+        // 'pointerlockerror' de abajo se encarga de mostrar el menú de pausa como salida.
+        try {
+            const p = renderer.domElement.requestPointerLock();
+            if (p && typeof p.catch === 'function') p.catch(() => {});
+        } catch (_) { /* lo recoge pointerlockerror */ }
     }
 };
 
-// Pointer Lock: cuando se captura el ratón ocultamos el overlay.
-// Si se pierde mientras hay un diálogo abierto, no mostramos el overlay.
+// Menú de pausa a petición: si el puntero ya estaba suelto (lo había soltado un
+// panel), pulsar Esc no dispara ningún 'pointerlockchange', así que interactions.js
+// pide el menú explícitamente para que Esc siempre acabe en la pausa.
+window._wwMostrarPausa = function () {
+    if (fpsModo && !document.pointerLockElement) elOverlay.style.display = 'flex';
+};
+
+// Pointer Lock: cuando se captura el ratón ocultamos el overlay; si se pierde,
+// sacamos el menú de pausa (ningún panel suelta ya el puntero por su cuenta).
 document.addEventListener('pointerlockchange', () => {
     if (!fpsModo) return;
     if (document.pointerLockElement) {
         elOverlay.style.display = 'none';
-    } else if (!window._wwDialogoAbierto?.()) {
+    } else {
+        elOverlay.style.display = 'flex';
+    }
+});
+
+// Recuperación del "ratón pillado": si requestPointerLock falla (típicamente al cerrar un
+// diálogo/inspección antes de que pase el enfriamiento del navegador), pointerlockchange NO
+// dispara y el jugador se queda con el cursor suelto, la cámara congelada y sin menú. Aquí
+// detectamos ese fallo y mostramos el overlay de pausa, cuyo clic recaptura el puntero con un
+// gesto válido. Solo si no hay un panel abierto (en ese caso el ratón suelto es lo correcto).
+document.addEventListener('pointerlockerror', () => {
+    if (fpsModo && !document.pointerLockElement
+        && !window._wwDialogoAbierto?.() && !window._wwInspeccionActiva?.()) {
         elOverlay.style.display = 'flex';
     }
 });
@@ -6544,7 +6837,9 @@ function animate() {
             } else {
                 camera.position.y = FPS_ALTURA;
                 const d = Math.sqrt(camera.position.x ** 2 + camera.position.z ** 2);
-                const roam = Math.min(_radioEscena - 3, 18);  // se puede explorar bastante lejos por el agua
+                // Roam off-deck = límite del jugador (lo cubre ya el clamp circular de arriba;
+                // se replica aquí para que el casco y el agua caminable sean coherentes).
+                const roam = Math.min(_radioEscena - 3, SCENE_GRAPH.limite_jugador ?? 18);
                 if (d > roam) {
                     const f = roam / d; camera.position.x *= f; camera.position.z *= f;
                 } else if (d < DR) {
@@ -6625,10 +6920,52 @@ const _entrarFpsAlPrimerGesto = () => {
 renderer.domElement.addEventListener('click',   _entrarFpsAlPrimerGesto, { once: true });
 document.addEventListener(            'keydown', _entrarFpsAlPrimerGesto, { once: true });
 
-// ── Pantalla completa ──────────────────────────────────────────────────────
-// Se confía solo en --start-fullscreen (fullscreen de ventana, sobrevive a la
-// navegación). Se eliminó la Fullscreen API para evitar el parpadeo entre escenas.
+// ── Pantalla completa ────────────────────────────────────────────────────────
+// Hay dos formas de estar en pantalla completa, y se comportan distinto al navegar:
+//  · .exe → Chrome arranca con --start-fullscreen: fullscreen DE VENTANA, que
+//    sobrevive a la navegación entre escenas. Ahí no hay nada que hacer, y pedir la
+//    Fullscreen API encima provocaría un parpadeo de entrar/salir en cada escena
+//    (y, al soltarla, devolvería la ventana a modo normal).
+//  · localhost → no hay --start-fullscreen, así que la única pantalla completa
+//    posible es la Fullscreen API (el botón ⛶ de la landing). Esa SÍ se pierde al
+//    cruzar el portal, porque cada escena es una página distinta.
+// Por eso solo re-pedimos la API cuando consta que el usuario la había pedido a mano
+// (flag en sessionStorage). En el .exe ese flag no se pone nunca → transición limpia.
+(function _wwFullscreenPersistente() {
+    const FLAG = 'ww_fs';
+    const esFS = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
 
+    // Salir de fullscreen al cruzar el portal no es decisión del usuario; un Esc sí. Hay
+    // que distinguirlos, pero NO con pagehide/beforeunload: al navegar Chrome dispara el
+    // fullscreenchange ANTES que esos eventos, así que la guarda llegaba tarde y borraba
+    // el flag justo al cambiar de escena. Lo decidimos por supervivencia: si 150 ms
+    // después seguimos vivos, fue un Esc. Si era una navegación, este timer se muere con
+    // la página y el flag queda intacto para la escena siguiente.
+    let t = null;
+    const onCambio = () => {
+        clearTimeout(t);
+        if (esFS()) sessionStorage.setItem(FLAG, '1');
+        else t = setTimeout(() => sessionStorage.removeItem(FLAG), 150);
+    };
+    document.addEventListener('fullscreenchange', onCambio);
+    document.addEventListener('webkitfullscreenchange', onCambio);
+
+    if (sessionStorage.getItem(FLAG) !== '1') return;
+
+    // requestFullscreen exige un gesto, así que reentramos con el primero de la escena.
+    // Va en pointerdown (captura) para llegar antes que el click que captura el ratón:
+    // así el pointer lock se pide ya dentro de la Fullscreen API y no chocan.
+    const ir = () => {
+        removeEventListener('pointerdown', ir, true);
+        removeEventListener('keydown', ir, true);
+        if (esFS()) return;
+        const el = document.documentElement;
+        try { (el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen)?.call(el); }
+        catch (e) { /* si el gesto no sirve, siempre queda F11 */ }
+    };
+    addEventListener('pointerdown', ir, true);
+    addEventListener('keydown', ir, true);
+})();
 </script>
 
 </body>

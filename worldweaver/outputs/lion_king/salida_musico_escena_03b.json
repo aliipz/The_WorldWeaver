@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_03b",
+  "query_usada": "jungle water ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/654/654009_5338586-hq.mp3",
+    "titulo": "jungle_ambience.wav",
+    "autor": "zatar",
+    "duracion_segundos": 68.0,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/468/468241_652422-hq.mp3",
+    "titulo": "Thailand Phangan Jungle Waterfall 2",
+    "autor": "Archos",
+    "duracion_segundos": 37.5,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

@@ -1,0 +1,200 @@
+{
+  "id_escena": "escena_05",
+  "elementos": [
+    {
+      "id": "personaje_mara",
+      "nombre": "Mara",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 2
+      },
+      "ancho": 0.9,
+      "alto": 1.75,
+      "descripcion": "Young woman in her twenties with a red bandana, weathered coat and high boots.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_biscuit",
+      "nombre": "Biscuit",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 2
+      },
+      "ancho": 0.4,
+      "alto": 0.35,
+      "descripcion": "Small pug with wrinkled face, curly tail and glossy brown coat.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_agnes",
+      "nombre": "Agnes",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_02",
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 2
+      },
+      "ancho": 0.9,
+      "alto": 1.65,
+      "descripcion": "Elderly woman in a long dark coat, grey hair and weather-lined face.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_finn",
+      "nombre": "Old Finn",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 1.0,
+      "alto": 1.75,
+      "descripcion": "Elderly man with a grey beard, stained coat and a sailor's cap.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_sun_cristal",
+      "nombre": "Sun Crystal",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_04",
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 3
+      },
+      "ancho": 0.2,
+      "alto": 0.2,
+      "descripcion": "Golden crystal resting in an open velvet box, ready to be placed into the lighthouse lamp.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_lamp_light",
+      "nombre": "Lamp of the Saltmere lighthouse",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 3
+      },
+      "ancho": 1.5,
+      "alto": 3.0,
+      "descripcion": "Giant brass lamp housing at the top of the tower, designed to hold the Sun Crystal.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_campana_laton",
+      "nombre": "Brass bell",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 4
+      },
+      "ancho": 0.5,
+      "alto": 0.6,
+      "descripcion": "The Silver Gull's brass bell, rung in celebration as the light returns.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "objeto_libro_grande",
+      "nombre": "Great book of the lighthouse",
+      "tipo": "objeto",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 3
+      },
+      "ancho": 0.5,
+      "alto": 0.7,
+      "descripcion": "Large official volume where Agnes writes the names of those who have kept the light safe.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_stool_01",
+      "nombre": "Worn wooden stool",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 5
+      },
+      "ancho": 0.5,
+      "alto": 0.8,
+      "descripcion": "Low three-legged stool of salt-worn pine, its surface polished smooth by years of use and marked with small nicks and scratches.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_oilcan_01",
+      "nombre": "Copper oil can",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 1
+      },
+      "ancho": 0.3,
+      "alto": 0.4,
+      "descripcion": "Tarnished copper oil can with a long spout and a leather strap handle, sitting with a faint sheen of old lamp oil along its rim.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_spyglass_01",
+      "nombre": "Brass spyglass",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 1
+      },
+      "ancho": 0.2,
+      "alto": 0.3,
+      "descripcion": "Collapsible brass spyglass with a worn leather grip and a small chip in its eyepiece, resting against a stack of coastal charts.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_estanteria_00",
+      "nombre": "Estantería",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 0
+      },
+      "ancho": 1.3,
+      "alto": 2.0,
+      "descripcion": "Estantería alta de madera contra la pared, con cajas y objetos.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_planta_01",
+      "nombre": "Planta de interior",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 0
+      },
+      "ancho": 0.6,
+      "alto": 1.3,
+      "descripcion": "Planta frondosa en una maceta de cerámica.",
+      "keyword_busqueda": null
+    }
+  ]
+}

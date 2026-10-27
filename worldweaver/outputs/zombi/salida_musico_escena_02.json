@@ -1,0 +1,21 @@
+{
+  "id_escena": "escena_02",
+  "query_usada": "pine forest wind ambience",
+  "pista_principal": {
+    "url_preview": "https://cdn.freesound.org/previews/509/509591_1648170-hq.mp3",
+    "titulo": "PineForest Febr NL Kampina 07 200214_0110-1-2.wav",
+    "autor": "klankbeeld",
+    "duracion_segundos": 229.3,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "pista_fallback": {
+    "url_preview": "https://cdn.freesound.org/previews/469/469624_1648170-hq.mp3",
+    "titulo": "Calm forest-heathland 02 190509_1379.wav",
+    "autor": "klankbeeld",
+    "duracion_segundos": 131.4,
+    "loop": true,
+    "volumen": 0.6
+  },
+  "fuente": "freesound"
+}

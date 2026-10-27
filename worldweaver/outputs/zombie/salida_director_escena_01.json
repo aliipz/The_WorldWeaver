@@ -1,0 +1,155 @@
+{
+  "id_escena": "escena_01",
+  "elementos": [
+    {
+      "id": "personaje_zombie_01",
+      "nombre": "Zombie 1",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.8,
+      "descripcion": "Decayed corpse, ragged clothing, empty eye sockets that suddenly hold a soft gaze",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_zombie_02",
+      "nombre": "Zombie 2",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 6
+      },
+      "ancho": 1.0,
+      "alto": 1.8,
+      "descripcion": "Rotting figure, torn shirt, arms outstretched, eyes glazed",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_female",
+      "nombre": "Emily",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 1,
+        "fila": 5
+      },
+      "ancho": 1.0,
+      "alto": 1.9,
+      "descripcion": "Young woman, late teens, long dark hair fluttering in the wind, simple tunic",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "personaje_male",
+      "nombre": "Mark",
+      "tipo": "personaje",
+      "origen": "narrativo",
+      "skin_id": "escena_01",
+      "posicion_grid": {
+        "columna": 3,
+        "fila": 5
+      },
+      "ancho": 0.95,
+      "alto": 1.85,
+      "descripcion": "Young man, early twenties, short brown hair, worn leather jacket",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_log_01",
+      "nombre": "Fallen pine log",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 4
+      },
+      "ancho": 3.0,
+      "alto": 0.9,
+      "descripcion": "Thick, moss-covered pine log lying across the forest floor, bark split and darkened by decay.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_lantern_01",
+      "nombre": "Rusty lantern",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 3
+      },
+      "ancho": 0.4,
+      "alto": 0.6,
+      "descripcion": "Old iron lantern with a cracked glass pane, its metal corroded and hanging from a low branch.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_rock_01",
+      "nombre": "Jagged stone",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 5,
+        "fila": 0
+      },
+      "ancho": 1.6,
+      "alto": 1.2,
+      "descripcion": "Rough, gray stone protruding from the leaf litter, its surface pitted and covered in lichen.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_mushroom_01",
+      "nombre": "Glow mushroom cluster",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 2,
+        "fila": 1
+      },
+      "ancho": 0.4,
+      "alto": 0.2,
+      "descripcion": "Small cluster of bioluminescent fungi with soft orange caps, sprouting from damp soil.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_fencepost_01",
+      "nombre": "Broken fence post",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 0,
+        "fila": 2
+      },
+      "ancho": 0.3,
+      "alto": 0.8,
+      "descripcion": "Weathered wooden fence post half-buried in earth, splintered and overgrown with vines.",
+      "keyword_busqueda": null
+    },
+    {
+      "id": "decorado_skull_01",
+      "nombre": "Deer skull",
+      "tipo": "decorado",
+      "origen": "añadido",
+      "skin_id": null,
+      "posicion_grid": {
+        "columna": 4,
+        "fila": 2
+      },
+      "ancho": 0.6,
+      "alto": 0.3,
+      "descripcion": "Bleached deer skull with antlers, perched atop a mossy rock, its teeth worn smooth.",
+      "keyword_busqueda": null
+    }
+  ]
+}
